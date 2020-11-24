@@ -84,6 +84,7 @@
 
 <<widget "money">><<print setup.money($args[0], $args[1])>><</widget>>
 
+<<widget "factionResource">><<if $args[1] === true>><<print $args[0].amount.toUpperFirst()>> $args[0].type<<else>><<print $args[0].amount>> $args[0].type<</if>><</widget>>
 
 <<widget "building">><<nobr>>
 <<set _building = $args[0],

@@ -1,5 +1,6 @@
 // uses setup.leaderFaction
 setup.createFaction = (town, opts = {}) => {
+  /** @type {import("../../lib/index").FactionType} type */
   const type = opts.type || lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
 
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
@@ -15,6 +16,9 @@ setup.createFaction = (town, opts = {}) => {
     motivation: lib.weightRandom(lib.factionData.types[type].motivation),
     membersTrait: lib.weightRandom(lib.factionData.types[type].membersTrait),
     leadershipType: lib.weightRandom(lib.factionData.types[type].leader.format),
+    resources: {
+
+    },
     roll: {
       influence: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
@@ -31,7 +35,8 @@ setup.createFaction = (town, opts = {}) => {
   if (typeof faction.type === 'undefined') {
     console.warn('Faction type was somehow missed. Rerolling...')
     console.log(faction)
-    const type2 = lib.weightedRandomFetcher(town, lib.factionData, null, null, 'object').type
+    /** @type {import("../../lib/index").FactionType} type */
+    const type2 = lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
     if (!type2) {
       console.error('faction type was not defined! Defaulting to merchants.')
       faction.type = 'merchants'

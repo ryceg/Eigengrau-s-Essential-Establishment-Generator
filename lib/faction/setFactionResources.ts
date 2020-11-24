@@ -1,105 +1,99 @@
+import { defineRollDataGetter } from '../src/defineRollDataGetter'
 import { dice, fm } from '../src/dice'
 import { random } from '../src/random'
 import { ThresholdTable } from '../src/rollFromTable'
-import { repeat, sumWeights } from '../src/utils'
-import { validateWeight, weightRandom } from '../src/weightRandom'
+import { repeat, sumWeights, keys, clamp } from '../src/utils'
+import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
-import { factionData } from './factionData'
+import { factionData, FactionResource } from './factionData'
 import { Faction } from './_common'
 
 export function setFactionResources (faction: Faction): void {
   console.log('assigning resources...')
-
-  const defaultWeightedResources: WeightRecord<string> = {
-    'artifacts': 1,
-    'bits of blackmail material': 1,
-    'chests of gold': 1,
-    'contacts': 1,
-    'debtors': 1,
-    'gems': 1,
-    'magic scrolls': 1,
-    'magic trinkets': 1,
-    'magic weapons': 1,
-    'old favours': 1,
-    'shinies': 1,
-    'trade goods': 1
+  defineRollDataGetter(faction, factionData.rollData.resources.rolls, 'resourcesDescription', 'resources')
+  faction.resources.list = []
+  const availableResources = {} as WeightRecord<FactionResource>
+  for (const resource of keys(factionData.resources.types)) {
+    if (factionData.resources.types[resource].isDefault) {
+      availableResources[resource] = factionData.resources.types[resource].probability || 10
+    }
   }
-
-  const groupSizeModifier = (faction.roll.resources - 50) + ((faction.roll.reputation - 50) + (faction.roll.size - 50)) / 2
-  const resources: string[] = []
-
-  // this is where weighting different groups happens. Needs updating with each new faction.
-  const weightedResources = sumWeights(defaultWeightedResources, factionData.types[faction.type].resources)
+  console.log(availableResources)
+  sumWeights(availableResources, factionData.types[faction.type].resources)
 
   const ageModifier = getAgeModifier(faction.roll.age)
-
   faction.roll.resources += fm(faction.roll.resources, ageModifier)
 
   if (faction.roll.resources > 95) {
-    faction.resourcesDescription = 'limitless'
-    repeat(() => getResources(random(-10, 15)), 5)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 20))
+    repeat(() => getResources(faction, availableResources, random(-10, 15)), 3)
   } else if (faction.roll.resources > 90) {
-    faction.resourcesDescription = 'near limitless'
-    repeat(() => getResources(random(-10, 10)), 4)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 10))
+    repeat(() => getResources(faction, availableResources, random(-10, 5)), 2)
   } else if (faction.roll.resources > 80) {
-    faction.resourcesDescription = 'extensive'
-    repeat(() => getResources(random(-15, 5)), 4)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 10))
+    repeat(() => getResources(faction, availableResources, random(-15, 5)), 2)
   } else if (faction.roll.resources > 70) {
-    faction.resourcesDescription = 'significant'
-    repeat(() => getResources(random(-20, 5)), 4)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 10))
+    repeat(() => getResources(faction, availableResources, random(-20, 5)), 2)
   } else if (faction.roll.resources > 60) {
-    faction.resourcesDescription = 'many'
-    repeat(() => getResources(random(-10, 5)), 3)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 10))
+    repeat(() => getResources(faction, availableResources, random(-10, 5)), 1)
   } else if (faction.roll.resources > 55) {
-    faction.resourcesDescription = 'decent'
-    repeat(() => getResources(random(-15, 5)), 3)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(2, 10))
+    repeat(() => getResources(faction, availableResources, random(-15, 5)), 1)
   } else if (faction.roll.resources > 50) {
-    faction.resourcesDescription = 'average'
-    repeat(() => getResources(random(-20, 5)), 3)
+    getResources(faction, availableResources, dice(2, 20))
+    getResources(faction, availableResources, dice(1, 10))
+    repeat(() => getResources(faction, availableResources, random(-20, 5)), 1)
   } else if (faction.roll.resources > 45) {
-    faction.resourcesDescription = 'slightly below average'
-    getResources(random(10, 15))
-    getResources(random(-20, 5))
-    getResources(random(-20, -5))
+    getResources(faction, availableResources, random(10, 15))
+    getResources(faction, availableResources, random(-20, 5))
+    getResources(faction, availableResources, random(-20, -5))
   } else if (faction.roll.resources > 40) {
-    faction.resourcesDescription = 'somewhat limited'
-    getResources(random(5, 15))
-    getResources(random(-20, 0))
+    getResources(faction, availableResources, random(5, 15))
+    getResources(faction, availableResources, random(-20, 0))
   } else if (faction.roll.resources > 30) {
-    faction.resourcesDescription = 'limited'
-    getResources(random(5, 10))
-    getResources(random(-20, 0))
+    getResources(faction, availableResources, random(5, 10))
+    getResources(faction, availableResources, random(-20, 0))
   } else if (faction.roll.resources > 20) {
-    faction.resourcesDescription = 'quite poor'
-    getResources(random(5, 15))
-    getResources(random(-20, 0))
+    getResources(faction, availableResources, random(5, 15))
+    getResources(faction, availableResources, random(-20, 0))
   } else if (faction.roll.resources > 10) {
-    faction.resourcesDescription = 'extremely poor'
-    getResources(random(-15, 5))
-    getResources(random(-20, 0))
+    getResources(faction, availableResources, random(-15, 5))
+    getResources(faction, availableResources, random(-20, 0))
   } else if (faction.roll.resources <= 5) {
-    faction.resourcesDescription = 'destitute'
-    getResources(random(-20, -10))
-    getResources(random(-30, -10))
+    getResources(faction, availableResources, random(-20, -10))
+    getResources(faction, availableResources, random(-30, -10))
   } else {
-    faction.resourcesDescription = 'average'
+    getResources(faction, availableResources, random(-20, 0))
   }
+}
 
-  function getResources (bonus: number) {
-    const groupSizeRoll = dice(2, 50) + (groupSizeModifier + bonus)
-    const tempGroupSize = getTempGroupSize(groupSizeRoll)
-
-    const tempGroup = weightRandom(weightedResources)
-
-    weightedResources[tempGroup] = validateWeight(weightedResources[tempGroup]) - 1
-
-    resources.push(tempGroupSize + tempGroup)
-  }
-
-  faction.resources = resources
+function getResources (faction: Faction, availableResources: WeightRecord<FactionResource>, bonus: number) {
+  console.log('get resources...')
+  const factionSizeModifier = (faction.roll.size - 30) / 2
+  const sizeRoll: number = clamp(fm(dice(2, 30), clamp(factionSizeModifier + bonus)))
+  const resource: FactionResource = getResourceName(availableResources)
+  /** we need to make sure that we don't generate multiple of the same type */
+  delete availableResources[resource]
+  const form = factionData.resources.types[resource].form
+  const resourceSize = getResourceSize(factionData.resources.forms[form].rolls, sizeRoll)
+  faction.resources.list.push({
+    roll: sizeRoll,
+    type: resource,
+    amount: resourceSize
+  })
 }
 
 function getAgeModifier (roll: number): number {
+  console.log('get age modifier...')
   if (roll > 95) return 15
   if (roll > 90) return 10
   if (roll > 80) return 8
@@ -115,23 +109,18 @@ function getAgeModifier (roll: number): number {
   return -10
 }
 
-function getTempGroupSize (roll: number): string {
-  const resourceSize: ThresholdTable = [
-    [90, 'an enormous amount of '],
-    [80, 'more than enough '],
-    [70, 'a large number of '],
-    [60, 'quite a few '],
-    [50, 'more than a couple '],
-    [40, 'a couple '],
-    [30, 'some '],
-    [20, 'a few '],
-    [10, 'a handful of ']
-  ]
-  let result
-  for (const [num, description] of resourceSize) {
-    if (roll > num) {
-      result = description
-    }
-  }
-  return result || 'some '
+function getResourceSize (table: ThresholdTable, roll: number): string {
+  console.log('get resource size...')
+  let result = table.find(desc => {
+    return desc[0] <= roll
+  })
+  if (!result) result = [0, 'some']
+  return result[1]
+}
+
+function getResourceName (container: WeightRecord<FactionResource>): FactionResource {
+  console.log('get resource name...')
+  console.log(container)
+  const resource = weightRandom(container)
+  return resource
 }

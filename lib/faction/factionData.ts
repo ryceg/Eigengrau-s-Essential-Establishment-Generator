@@ -1,7 +1,35 @@
-import { constrainRecord } from '../src/constrainRecord'
+import { ThresholdTable } from '../src/rollFromTable'
 import { WeightRecord } from '../types'
 
-interface FactionTypeData {
+interface FactionData {
+  rollData: {
+    reputation: {
+      rolls: ThresholdTable
+    }
+    resources: {
+      rolls: ThresholdTable
+    }
+  }
+  resources: {
+    forms: Record<FactionResourceForms, ResourceForm>
+    types: Record<InternalFactionResource, ResourceType>
+  }
+  types: Record<InternalFactionType, FactionTypeData>
+}
+
+export interface ResourceType {
+    probability?: number
+    isDefault?: boolean
+    isMagic?: boolean
+    isArt?: boolean
+    isReligious?: boolean
+    form: FactionResourceForms
+}
+
+interface ResourceForm {
+  rolls: ThresholdTable
+}
+export interface FactionTypeData {
   leader: Leader
   type: string
   wordNoun: string
@@ -27,7 +55,7 @@ interface FactionTypeData {
     unique: string[]
   }
   motivation: WeightRecord<string>
-  resources: WeightRecord<string>
+  resources: WeightRecord<InternalFactionResource>
 }
 
 interface Leader {
@@ -52,9 +80,248 @@ interface LeaderTraits {
 
 export type FactionType = keyof typeof factionData.types
 
-export const factionData =
+type InternalFactionType =
+'artisans' |
+'assassins' |
+'bandits' |
+'bards' |
+'clergy' |
+'craftsmen' |
+'druids' |
+'foreigners' |
+'guards' |
+'mercenaries' |
+'merchants' |
+'military' |
+'monks' |
+'nobles' |
+'priests' |
+'rangers' |
+'scholars' |
+'seers' |
+'thieves' |
+'wizards'
+
+type InternalFactionResource =
+'artifacts' |
+'blackmail material' |
+'gold' |
+'contacts' |
+'favours' |
+'debtors' |
+'gems' |
+'magic scrolls' |
+'magical trinkets' |
+'magical weapons' |
+'magical instruments' |
+'magical contraptions' |
+'old favours' |
+'trade goods' |
+'masterpieces' |
+'stolen goods' |
+'important manuscripts' |
+'political influence' |
+'foreign goods' |
+'holy relics' |
+'sacred texts' |
+'tame animals'
+type FactionResourceForms =
+'physical' |
+'paper' |
+'knowledge' |
+'people' |
+'animal' |
+'money'
+export type FactionResource = keyof typeof factionData.resources.types
+
+export const factionData: FactionData =
   {
-    types: constrainRecord<FactionTypeData>()({
+    rollData: {
+      reputation: {
+        rolls: [
+          [95, 'excellent'],
+          [90, 'very good'],
+          [80, 'quite good'],
+          [70, 'good'],
+          [60, 'above average'],
+          [55, 'slightly above average'],
+          [50, 'average'],
+          [45, 'slightly below average'],
+          [40, 'poor'],
+          [30, 'quite poor'],
+          [20, 'very poor'],
+          [10, 'extremely poor']
+        ]
+      },
+      resources: {
+        rolls: [
+          [95, 'limitless'],
+          [90, 'near limitless'],
+          [80, 'extensive'],
+          [70, 'significant'],
+          [60, 'many'],
+          [55, 'decent'],
+          [50, 'average'],
+          [45, 'slightly below average'],
+          [40, 'somewhat limited'],
+          [30, 'limited'],
+          [20, 'quite poor'],
+          [10, 'extremely poor'],
+          [5, 'destitute']
+        ]
+      }
+    },
+    resources: {
+
+      forms: {
+        physical: {
+          // They have _____ ${resource}
+          rolls: [
+            [90, 'veritable warehouses full of'],
+            [70, 'a room full of'],
+            [50, 'a significant number of'],
+            [30, 'a handful of'],
+            [10, 'one or two valuable']
+          ]
+        },
+        money: {
+          // They have _____ ${resource}
+          rolls: [
+            [90, 'a bank full of'],
+            [70, 'chests full of'],
+            [50, 'a chest of'],
+            [30, 'a couple pouches of'],
+            [10, 'barely enough']
+          ]
+        },
+        paper: {
+          rolls: [
+            [90, 'shelves upon shelves of'],
+            [70, 'binders full of'],
+            [50, 'sheafs of'],
+            [30, 'a drawer of'],
+            [10, 'a handful of']
+          ]
+        },
+        knowledge: {
+          rolls: [
+            [90, 'an almost omniscient knowledge of'],
+            [70, 'some extremely rare'],
+            [50, 'some rare'],
+            [30, 'some secret'],
+            [10, 'some relatively easy to discover']
+          ]
+        },
+        people: {
+          rolls: [
+            [90, 'scores upon scores of'],
+            [70, 'a crowd of'],
+            [50, 'a fair few'],
+            [30, 'a handful of'],
+            [10, 'one or two']
+          ]
+        },
+        animal: {
+          rolls: [
+            [90, "a damn zoo's worth of"],
+            [70, 'a menagerie'],
+            [50, 'a couple'],
+            [30, 'three'],
+            [10, 'one or two']
+          ]
+        }
+      },
+      types: {
+        'artifacts': {
+          isDefault: true,
+          form: 'physical'
+        },
+        'blackmail material': {
+          isDefault: true,
+          form: 'paper'
+        },
+        'gold': {
+          isDefault: true,
+          form: 'money'
+        },
+        'contacts': {
+          isDefault: true,
+          form: 'people'
+        },
+        'favours': {
+          isDefault: true,
+          form: 'people'
+        },
+        'debtors': {
+          isDefault: true,
+          form: 'people'
+        },
+        'gems': {
+          isDefault: true,
+          form: 'physical'
+        },
+        'magic scrolls': {
+          isMagic: true,
+          isDefault: true,
+          form: 'paper'
+        },
+        'magical trinkets': {
+          isMagic: true,
+          isDefault: true,
+          form: 'physical'
+        },
+        'magical weapons': {
+          isMagic: true,
+          isDefault: true,
+          form: 'physical'
+        },
+        'magical instruments': {
+          isMagic: true,
+          isArt: true,
+          form: 'physical'
+        },
+        'magical contraptions': {
+          isMagic: true,
+          form: 'physical'
+        },
+        'old favours': {
+          isDefault: true,
+          form: 'people'
+        },
+        'trade goods': {
+          isDefault: true,
+          form: 'physical'
+        },
+        'masterpieces': {
+          isArt: true,
+          form: 'physical'
+        },
+        'stolen goods': {
+          form: 'physical'
+        },
+        'important manuscripts': {
+          form: 'paper'
+        },
+        'political influence': {
+          form: 'people'
+        },
+        'foreign goods': {
+          form: 'physical'
+        },
+        'holy relics': {
+          isReligious: true,
+          form: 'physical'
+        },
+        'sacred texts': {
+          isReligious: true,
+          form: 'paper'
+        },
+        'tame animals': {
+          form: 'animal'
+        }
+      }
+    },
+    types: {
       artisans: {
         type: 'artisans',
         leader: {
@@ -320,7 +587,7 @@ export const factionData =
           politics: 3
         },
         resources: {
-          'bits of blackmail material': 4,
+          'blackmail material': 4,
           'stolen goods': 4,
           'contacts': 3
         }
@@ -468,8 +735,8 @@ export const factionData =
         },
         resources: {
           'magical weapons': 3,
-          'chests of gold': 3,
-          'bits of blackmail material': 4,
+          'gold': 3,
+          'blackmail material': 4,
           'stolen goods': 5
         }
       },
@@ -598,7 +865,7 @@ export const factionData =
           politics: 1
         },
         resources: {
-          'chests of gold': 3,
+          'gold': 3,
           'contacts': 5,
           'old favours': 4,
           'important manuscripts': 4,
@@ -723,9 +990,7 @@ export const factionData =
           politics: 1
         },
         resources: {
-          money: 1,
-          contacts: 1,
-          connections: 1
+          contacts: 1
         }
       },
       craftsmen: {
@@ -859,7 +1124,7 @@ export const factionData =
           politics: 1
         },
         resources: {
-          'chests of gold': 3,
+          'gold': 3,
           'contacts': 3,
           'important manuscripts': 4,
           'masterpieces': 3,
@@ -951,9 +1216,7 @@ export const factionData =
           'love of nature': 1
         },
         resources: {
-          magic: 1,
-          knowledge: 1,
-          history: 1
+          'tame animals': 5
         }
       },
       foreigners: {
@@ -1327,7 +1590,7 @@ export const factionData =
         },
         resources: {
           'magical weapons': 3,
-          'chests of gold': 3,
+          'gold': 3,
           'old favours': 3
         }
       },
@@ -1489,7 +1752,7 @@ export const factionData =
         },
         resources: {
           'magical weapons': 3,
-          'chests of gold': 3,
+          'gold': 3,
           'old favours': 3
         }
       },
@@ -1618,7 +1881,7 @@ export const factionData =
         },
         resources: {
           'trade goods': 5,
-          'chests of gold': 4,
+          'gold': 4,
           'debtors': 6
         }
       },
@@ -1783,7 +2046,7 @@ export const factionData =
         },
         resources: {
           'magical weapons': 3,
-          'chests of gold': 3,
+          'gold': 3,
           'old favours': 3
         }
       },
@@ -1894,7 +2157,7 @@ export const factionData =
         resources: {
           'artifacts': 3,
           'holy relics': 3,
-          'chests of gold': 3,
+          'gold': 3,
           'sacred texts': 4
         }
       },
@@ -2002,7 +2265,7 @@ export const factionData =
           politics: 5
         },
         resources: {
-          'chests of gold': 3,
+          'gold': 3,
           'contacts': 5,
           'old favours': 4,
           'important manuscripts': 4,
@@ -2145,7 +2408,7 @@ export const factionData =
         resources: {
           'artifacts': 3,
           'holy relics': 3,
-          'chests of gold': 3,
+          'gold': 3,
           'sacred texts': 4
         }
       },
@@ -2410,7 +2673,7 @@ export const factionData =
           politics: 2
         },
         resources: {
-          'chests of gold': 3,
+          'gold': 3,
           'contacts': 5,
           'old favours': 4,
           'important manuscripts': 4
@@ -2535,7 +2798,7 @@ export const factionData =
         },
         resources: {
           'artifacts': 4,
-          'bits of blackmail material': 4
+          'blackmail material': 4
         }
       },
       thieves: {
@@ -2680,7 +2943,7 @@ export const factionData =
           politics: 1
         },
         resources: {
-          'bits of blackmail material': 4,
+          'blackmail material': 4,
           'stolen goods': 4,
           'contacts': 3
         }
@@ -2838,8 +3101,8 @@ export const factionData =
         },
         resources: {
           'magic scrolls': 4,
-          'magic trinkets': 4
+          'magical trinkets': 4
         }
       }
-    })
+    }
   }

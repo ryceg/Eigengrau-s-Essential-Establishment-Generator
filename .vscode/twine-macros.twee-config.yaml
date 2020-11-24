@@ -6,6 +6,7 @@ sugarcube-2:
     tooltip: {}
     money: {}
     shop: {}
+    factionResource: {}
 
     # misc
     numberslider: {}

@@ -44,7 +44,14 @@ export interface Faction {
   rivalsDescription: string
   rivals: string[]
   resourcesDescription: string
-  resources: string[]
+  resources: {
+    description: string
+    list: {
+      roll: number
+      type: string
+      amount: string
+    }[]
+  }
   isPoliticalPower: boolean
   isPolicing: boolean
   misc: string
