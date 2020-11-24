@@ -20,9 +20,6 @@ setup.createTown = (base = {}) => {
       land: 5,
       tithe: 1
     },
-    taxRate (town) {
-      return getTaxRate(town)
-    },
     get type () {
       return setup.getTownType(this)
     },
@@ -245,26 +242,6 @@ setup.createTown = (base = {}) => {
   console.log(`${town.name} has loaded.`)
   console.log(town)
   return town
-}
-
-function getTaxRate (town) {
-  let totalTax = 0
-
-  for (const tax of Object.values(town.taxes)) {
-    if (typeof tax === 'number') {
-      totalTax += tax
-      continue
-    }
-
-    if (typeof tax === 'function') {
-      totalTax += tax(town)
-      continue
-    }
-
-    console.log('non-integer tax!', town.taxes[tax])
-  }
-
-  return Math.round(totalTax * 100) / 100
 }
 
 setup.getTownType = town => {
