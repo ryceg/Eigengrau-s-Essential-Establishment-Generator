@@ -99,7 +99,6 @@ interface Arg<T> {
   probability?: number
   function?(...args: unknown[]): unknown
   exclusions?(town: Town, obj: T): boolean
-  [key: string]: unknown
 }
 
 type WRF = <T, A extends Arg<T>>(

@@ -19,11 +19,11 @@ export function createStructure (town: Town, building: Building) {
   }
 
   if (!structure.material.noun) {
-    const material = weightedRandomFetcher(town, structureData.material.types, null, null, 'object') as MaterialType
+    const material = weightedRandomFetcher(town, structureData.material.types, null, undefined, 'object') as MaterialType
     structure.material.noun = material.noun
   }
 
-  const roof = weightedRandomFetcher(town, structureData.roof.types, null, null, 'object') as RoofType
+  const roof = weightedRandomFetcher(town, structureData.roof.types, null, undefined, 'object') as RoofType
 
   if (roof.canBeColoured) {
     structure.roof.colour = random(structureData.roof.colour)
