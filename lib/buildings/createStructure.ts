@@ -12,15 +12,12 @@ export function createStructure (town: Town, building: Building) {
   building.wordNoun = building.wordNoun || 'building'
 
   const structure = building.structure || {
-    get descriptor () {
-      return this.descriptors.random()
-    },
+    descriptor: '',
     descriptors: [],
-    material: {
-    },
-    roof: {
-    }
+    material: {},
+    roof: {}
   }
+
   if (!structure.material.noun) {
     const material = weightedRandomFetcher(town, structureData.material.types, null, null, 'object') as MaterialType
     structure.material.noun = material.noun
@@ -43,14 +40,17 @@ export function createStructure (town: Town, building: Building) {
   defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
   console.log('after material')
 
-  structure.descriptors = [
+  const descriptors = [
     `${output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
     `${output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
   ]
 
   if (building.size) {
-    addUniqueDescriptor(structure.descriptors, `${output(building.size)} and ${structure.material.wealth} ${structure.material.noun} ${building.wordNoun} with ${output(structure.roof.verb)} roof`)
+    addUniqueDescriptor(descriptors, `${output(building.size)} and ${structure.material.wealth} ${structure.material.noun} ${building.wordNoun} with ${output(structure.roof.verb)} roof`)
   }
+
+  structure.descriptor = random(descriptors)
+
   console.log(structure)
   console.groupEnd()
 
