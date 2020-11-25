@@ -9,7 +9,7 @@ describe('createLivery', () => {
   it('can create a livery object for every compatible faction type', () => {
     let calledNumberOfTimes = 0
 
-    for (const type of keys(factionData)) {
+    for (const type of keys(factionData.types)) {
       if (factionData.types[type].livery) {
         const livery = createLivery(type)
         expect(livery).toBeDefined()
