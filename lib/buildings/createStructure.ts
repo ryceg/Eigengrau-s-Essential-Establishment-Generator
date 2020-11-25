@@ -55,7 +55,6 @@ export function createStructure (town: Town, building: Building) {
   console.groupEnd()
 
   building.structure = structure
-  return building
 }
 
 function addUniqueDescriptor (descriptors: string[], description: string) {
