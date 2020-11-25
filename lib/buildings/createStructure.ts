@@ -2,7 +2,6 @@ import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { defineRollDataGetter } from '../src/defineRollDataGetter'
 import { MaterialType, RoofType, structureData } from './structureData'
 import { Building } from './_common'
 
@@ -35,9 +34,11 @@ export function createStructure (town: Town, building: Building) {
   }
 
   console.log('before roof')
-  defineRollDataGetter(structure.roof, structureData.roof.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
+  // FIXME: structure.roof does not have a rolls record, and this cannot be used defineRollDataGetter.
+  // defineRollDataGetter(structure.roof, structureData.roof.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
   console.log('after roof')
-  defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
+  // FIXME: structure.material does not have a rolls record, and this cannot be used defineRollDataGetter.
+  // defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
   console.log('after material')
 
   const descriptors = [
