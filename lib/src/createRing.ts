@@ -1,4 +1,5 @@
 import { articles } from './articles'
+import { getRandomValue } from './getRandomValue'
 import { random } from './random'
 import { assign } from './utils'
 
@@ -12,9 +13,9 @@ export function createRing (base?: Partial<Options>) {
   const ringData = createRingData()
 
   const ring = {
-    power: random(Object.values(ringData.power)),
-    cost: random(Object.values(ringData.cost)),
-    activation: random(Object.values(ringData.activation)),
+    power: getRandomValue(ringData.power),
+    cost: getRandomValue(ringData.cost),
+    activation: getRandomValue(ringData.activation),
     ...base
   }
 
