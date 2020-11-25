@@ -181,13 +181,9 @@ setup.initMisc = () => {
       },
       type: {
         event: (town, arg) => {
-          // console.log('Town event callback function')
-          // console.log(arg)
           return arg.type.includes('event')
         },
         paper: (town, arg) => {
-          // console.log('Town event callback function')
-          // console.log(arg)
           return arg.type.includes('paper')
         }
       }
