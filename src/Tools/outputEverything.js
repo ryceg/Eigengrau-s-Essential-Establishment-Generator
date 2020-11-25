@@ -6,6 +6,7 @@ setup.textify = function (passageName, currentPassage) {
   const $offshore = $('<div />')
   $offshore.wiki(raw)
   $offshore.find('button').remove()
+  $offshore.find('.interactive-only').remove()
   return `${Util.escape($offshore.html())}`
 }
 
@@ -18,14 +19,26 @@ setup.outputEverything = () => {
     npcs: {}
   }
   for (const building of State.variables.town.buildings) {
-    output.buildings[building.key] = setup.textify(building.passageName, building)
+    output.buildings[building.key] = {
+      name: building.name,
+      key: building.key,
+      output: setup.textify(building.passageName, building)
+    }
   }
   for (const faction of Object.values(State.variables.town.factions)) {
-    output.factions[faction.key] = setup.textify(faction.passageName, faction)
+    output.factions[faction.key] = {
+      name: faction.name,
+      key: faction.key,
+      output: setup.textify(faction.passageName, faction)
+    }
   }
 
   for (const npc of Object.values(State.variables.npcs)) {
-    output.npcs[npc.key] = setup.textify(npc.passageName, npc)
+    output.npcs[npc.key] = {
+      name: npc.name,
+      key: npc.key,
+      output: setup.textify(npc.passageName, npc)
+    }
   }
   const json = JSON.stringify(output)
   return json
