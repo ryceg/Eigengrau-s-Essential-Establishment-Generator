@@ -7,7 +7,8 @@ import { keys } from '../src/utils'
 
 export function townDemographics (town: Town) {
   console.log('Creating town demographics...')
-  town._baseDemographics = town._baseDemographics || weightedRandomFetcher(town, townData.type[town.type].demographics(), undefined, undefined, 'popPercentages')
+  const townType = townData.type[town.type]
+  town._baseDemographics = town._baseDemographics || weightedRandomFetcher(town, townType.demographics(), undefined, undefined, 'popPercentages')
 }
 
 export function updateDemographics (town: Town, newDemographics: Record<RaceName, number>) {
