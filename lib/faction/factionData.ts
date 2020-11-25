@@ -81,57 +81,59 @@ interface LeaderTraits {
 export type FactionType = keyof typeof factionData.types
 
 type InternalFactionType =
-'artisans' |
-'assassins' |
-'bandits' |
-'bards' |
-'clergy' |
-'craftsmen' |
-'druids' |
-'foreigners' |
-'guards' |
-'mercenaries' |
-'merchants' |
-'military' |
-'monks' |
-'nobles' |
-'priests' |
-'rangers' |
-'scholars' |
-'seers' |
-'thieves' |
-'wizards'
+  | 'artisans'
+  | 'assassins'
+  | 'bandits'
+  | 'bards'
+  | 'clergy'
+  | 'craftsmen'
+  | 'druids'
+  | 'foreigners'
+  | 'guards'
+  | 'mercenaries'
+  | 'merchants'
+  | 'military'
+  | 'monks'
+  | 'nobles'
+  | 'priests'
+  | 'rangers'
+  | 'scholars'
+  | 'seers'
+  | 'thieves'
+  | 'wizards'
 
 type InternalFactionResource =
-'artifacts' |
-'blackmail material' |
-'gold' |
-'contacts' |
-'favours' |
-'debtors' |
-'gems' |
-'magic scrolls' |
-'magical trinkets' |
-'magical weapons' |
-'magical instruments' |
-'magical contraptions' |
-'old favours' |
-'trade goods' |
-'masterpieces' |
-'stolen goods' |
-'important manuscripts' |
-'political influence' |
-'foreign goods' |
-'holy relics' |
-'sacred texts' |
-'tame animals'
+  | 'artifacts'
+  | 'blackmail material'
+  | 'gold'
+  | 'contacts'
+  | 'favours'
+  | 'debtors'
+  | 'gems'
+  | 'magic scrolls'
+  | 'magical trinkets'
+  | 'magical weapons'
+  | 'magical instruments'
+  | 'magical contraptions'
+  | 'old favours'
+  | 'trade goods'
+  | 'masterpieces'
+  | 'stolen goods'
+  | 'important manuscripts'
+  | 'political influence'
+  | 'foreign goods'
+  | 'holy relics'
+  | 'sacred texts'
+  | 'tame animals'
+
 type FactionResourceForms =
-'physical' |
-'paper' |
-'knowledge' |
-'people' |
-'animal' |
-'money'
+  | 'physical'
+  | 'paper'
+  | 'knowledge'
+  | 'people'
+  | 'animal'
+  | 'money'
+
 export type FactionResource = keyof typeof factionData.resources.types
 
 export const factionData: FactionData = {
