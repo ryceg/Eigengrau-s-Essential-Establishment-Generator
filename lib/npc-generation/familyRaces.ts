@@ -13,11 +13,10 @@ export const marriagePools: Record<RaceName, RaceName[]> = {
   'gnome': ['gnome'],
   'goblin': ['goblin'],
   'halfling': ['halfling'],
-  'orc': ['human', 'orc', 'half-orc'],
-  'human': ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
+  'human': ['human', 'elf', 'half-elf', 'half-orc', 'tiefling'],
   'elf': ['human', 'elf', 'half-elf'],
   'half-elf': ['human', 'elf', 'half-elf', 'half-orc'],
-  'half-orc': ['human', 'orc', 'half-elf', 'half-orc'],
+  'half-orc': ['human', 'half-elf', 'half-orc'],
   'tiefling': ['human', 'tiefling']
 }
 
@@ -94,7 +93,7 @@ export function findParentRaces (npc: NPC) {
   return { motherRace, fatherRace, lineage }
 }
 
-export function findChildRace (town: Town, motherRace: string, fatherRace: string) {
+export function findChildRace (town: Town, motherRace: RaceName, fatherRace: RaceName) {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
   const races = [motherRace, fatherRace]
@@ -106,9 +105,6 @@ export function findChildRace (town: Town, motherRace: string, fatherRace: strin
   if (races.includes('human')) {
     if (races.includes('elf')) {
       return 'half-elf'
-    }
-    if (races.includes('orc')) {
-      return 'half-orc'
     }
 
     const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
