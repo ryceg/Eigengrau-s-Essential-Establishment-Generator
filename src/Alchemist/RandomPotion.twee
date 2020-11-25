@@ -1,5 +1,5 @@
 :: RandomPotion
-<<link "<h6>Generate a random potion!</h6>">>
+<span class="click-and-remove-link"><<link "<h6>Generate a random potion!</h6>">>
 <<set $randomPotion to lib.createAlchemy({ type: "potion" })>>
 <div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
 <blockquote>$randomPotion.effectReadout</blockquote>
@@ -7,5 +7,5 @@
     \<div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout
     \<blockquote>$randomPotion.effectReadout</blockquote></div>
     \<</replace>>
-<</link>>\
+<</link>></span>\
 <span id="randpotion"></span>

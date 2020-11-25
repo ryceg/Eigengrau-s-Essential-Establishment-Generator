@@ -22,5 +22,5 @@ $building.entertainment
 <<include "Noticeboard">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
-<span class="interactive-only"><<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>></span>
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
 <<run setup.tippy(".btn")>>

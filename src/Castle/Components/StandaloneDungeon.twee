@@ -5,6 +5,6 @@
 \It is rumoured that hidden inside the dungeon is $building.secret.
 <h4>Cells</h4>The cells inside the dungeon are $building.cells.condition, and prisoners are kept in $building.cells.format. 
 \Prisoners of $building.name are treated $building.cells.prisoners.treatment. The jailer, <<profile $building.associatedNPC>>, is $building.jailerType.
-<br><<link "Meet a prisoner">><<set $building.prisoner to setup.castle.dungeon.cells.prisoners.create($town, $building)>><<update>><</link>>
+<br><span class="click-and-remove-link"><<link "Meet a prisoner">><<set $building.prisoner to setup.castle.dungeon.cells.prisoners.create($town, $building)>><<update>><</link>></span>
 <<liveblock>><div id="prisoners"><<if $building.prisoner>>$building.prisoner<</if>></div><</liveblock>>
 <<include "BuildingRelationshipsTable">>

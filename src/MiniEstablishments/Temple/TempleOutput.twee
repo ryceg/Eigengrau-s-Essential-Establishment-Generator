@@ -9,7 +9,7 @@ $building.interiorReadout
 <h3>Priest</h3>
 $building.priestLook.
 The priest greets you, and introduces $associatedNPC.himherself as <<profile $associatedNPC>>. $building.priestChat.
-<span class="interactive-only"><<linkreplace "<h4>Get Temple Blessing</h4>" t8n>>
+<<linkreplace "<h4>Get Temple Blessing</h4>" t8n>>
 <h6>Blessing</h6>
 <div class="descriptive">$building.blessing</div><</linkreplace>>
 <<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
@@ -36,4 +36,4 @@ The priest greets you, and introduces $associatedNPC.himherself as <<profile $as
 <<shop $building, _selling>>
 
 <</linkappend>><</nobr>>
-<<linkreplace "<h4>Church Attendees</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>></span>
+<<linkreplace "<h4>Church Attendees</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
