@@ -1,5 +1,7 @@
 import { randomFloat } from './randomFloat'
 
+const DEFAULT_PROBABILITY = 10
+
 /**
  * @param town Needed because everything needs town to evaluate
  *
@@ -15,9 +17,9 @@ import { randomFloat } from './randomFloat'
  * @param output What should be outputted at the end. Set to 'object' to return the whole object.
  * defaultProbability is the optional default unit. You won't usually need to supply this.
  */
-export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, output = 'function', defaultProbability = 10) => {
+export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, output = 'function') => {
   console.groupCollapsed('Running a weighted random search...')
-  console.log({ args, obj, exclusionFunction, output, defaultProbability })
+  console.log({ args, obj, exclusionFunction, output })
 
   const pool = []
 
@@ -50,7 +52,7 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
 
     if (isValid === true && fnValid === true) {
       pool.push(arg)
-      totalWeight += arg.probability || defaultProbability
+      totalWeight += arg.probability || DEFAULT_PROBABILITY
     }
   }
 
@@ -58,7 +60,7 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
   let selected
 
   for (const item of pool) {
-    random -= item.probability || defaultProbability
+    random -= item.probability || DEFAULT_PROBABILITY
     if (random < 0) {
       selected = item
       break
