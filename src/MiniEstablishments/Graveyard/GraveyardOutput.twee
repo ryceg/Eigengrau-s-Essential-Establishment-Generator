@@ -4,6 +4,6 @@
 <h3> Gravedigger </h3>
 $building.gravediggerLook.
 The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
-<span class="interactive-only"><<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><<replace "#graveyardTable">><<include "GraveyardTable">><</replace>><</link>></span>
+<span class="interactive-only"><span class="click-and-remove-link"><<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><<replace "#graveyardTable">><<include "GraveyardTable">><</replace>><</link>></span></span>
 <div id="grave"></div>
 <div id="graveyardTable"><<linkappend "People Buried Here" t8n>><<include "GraveyardTable">><</linkappend>></div>
