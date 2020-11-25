@@ -103,7 +103,7 @@ interface Arg<T> {
 
 type WRF = <T, A extends Arg<T>>(
   town: unknown,
-  args: Record<string, A>,
+  args: Record<string, A> | A[],
   obj?: T,
   exclusionFunction?: (town: unknown, obj: A) => boolean,
   output?: string,
