@@ -3,6 +3,7 @@ import { Town } from './_common'
 import { townData } from './townData'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { RaceName } from '../npc-generation/raceTraits'
+import { keys } from '../src/utils'
 
 export function townDemographics (town: Town) {
   console.log('Creating town demographics...')
@@ -13,7 +14,7 @@ export function updateDemographics (town: Town, newDemographics: Record<RaceName
   console.log('Updating demographics.')
   console.log('New:')
   console.log(newDemographics)
-  for (const byRace of Object.keys(newDemographics)) {
+  for (const byRace of keys(newDemographics)) {
     town._baseDemographics[byRace] = newDemographics[byRace]
   }
 
