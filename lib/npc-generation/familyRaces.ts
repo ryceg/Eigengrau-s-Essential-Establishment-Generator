@@ -8,7 +8,7 @@ import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
 // Given a NPC to be married, determine the partner race
-export const marriagePools = {
+export const marriagePools: Record<RaceName, RaceName[]> = {
   'dragonborn': ['dragonborn'],
   'dwarf': ['dwarf'],
   'gnome': ['gnome'],

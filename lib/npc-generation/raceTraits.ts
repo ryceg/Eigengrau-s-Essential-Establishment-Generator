@@ -1,7 +1,7 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { dice } from '../src/dice'
 
-export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin'
+export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc'
 
 interface RaceTrait {
   probability: number
