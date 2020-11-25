@@ -1,3 +1,4 @@
+import { Town } from '../town/_common'
 import { randomFloat } from './randomFloat'
 
 const DEFAULT_PROBABILITY = 10
@@ -97,14 +98,14 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
 interface Arg<T> {
   probability?: number
   function?(...args: unknown[]): unknown
-  exclusions?(town: unknown, obj: T): boolean
+  exclusions?(town: Town, obj: T): boolean
   [key: string]: unknown
 }
 
 type WRF = <T, A extends Arg<T>>(
-  town: unknown,
+  town: Town,
   args: Record<string, A> | A[],
   obj?: T,
-  exclusionFunction?: (town: unknown, obj: A) => boolean,
+  exclusionFunction?: (town: Town, obj: A) => boolean,
   output?: string
 ) => unknown
