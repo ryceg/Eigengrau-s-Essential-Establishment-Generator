@@ -106,6 +106,5 @@ type WRF = <T, A extends Arg<T>>(
   args: Record<string, A> | A[],
   obj?: T,
   exclusionFunction?: (town: unknown, obj: A) => boolean,
-  output?: string,
-  defaultProbability?: number
+  output?: string
 ) => unknown
