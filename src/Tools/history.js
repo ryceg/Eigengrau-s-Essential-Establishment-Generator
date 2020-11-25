@@ -33,6 +33,7 @@ setup.history = (object, passageName, linkDescription) => {
         linkDescription
       })
     }
+    // window.location.search = `${passageName}=${object.key}`
     if (window['ga-disable-UA-119249239-1'] !== true && typeof gtag === 'function') {
       gtag('event', 'passage', {
         event_category: 'passage',

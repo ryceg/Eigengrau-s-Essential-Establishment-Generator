@@ -17,10 +17,10 @@
 <h3>Tavern Entertainment</h3>
 $building.entertainment
 <<include "TavernGames">>
-<<link "<h4>Go on a bender</h4>">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
-\<<liveblock>><<if def $building.carousing>><span id="carousing">$building.carousing</span><</if>><</liveblock>>
+<span class="interactive-only"><<link "<h4>Go on a bender</h4>">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
+\<<liveblock>><<if def $building.carousing>><span id="carousing">$building.carousing</span><</if>><</liveblock>></span>
 <<include "Noticeboard">>
 <<include "Rooms">>
 <<include "TavernBrothel">>
-<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
+<span class="interactive-only"><<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>></span>
 <<run setup.tippy(".btn")>>

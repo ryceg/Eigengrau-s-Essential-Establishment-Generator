@@ -1,5 +1,5 @@
 :: TownMicroEventsOutput
-<<nobr>>
+<span class="interactive-only"><<nobr>>
 <<if settings.showSliders is false && random(1, 99) gt 50>>
   <<notify 5000>>Looking for the sliders? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
 <<elseif settings.showSliders is true && random(1, 99) gt 80>>
@@ -17,3 +17,4 @@
   </blockquote>
 <</if>>
 <</nobr>>
+</span>
