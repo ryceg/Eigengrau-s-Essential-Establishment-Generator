@@ -16,8 +16,8 @@ export interface Faction {
     resources: number
     reputation: number
     joiningFee: number
-    meetingAccessibility?: number
-    meetingRegularity?: number
+    meetingAccessibility: number
+    meetingRegularity: number
     leaderCompetence: number
     leaderBribes: number
   }
