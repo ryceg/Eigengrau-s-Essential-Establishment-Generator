@@ -1,4 +1,4 @@
-// uses setup.createStructure, setup.createNPC, setup.createBuilding
+// uses setup.createNPC, setup.createBuilding
 setup.createBrothel = (town, opts = {}) => {
   console.log('Creating a brothel...')
   const brothel = setup.createBuilding(town, 'brothel')

@@ -1,5 +1,5 @@
 
-// uses setup.createStructure, setup.createNPC, setup.createBuilding, setup.createSmithyName
+// uses setup.createNPC, setup.createBuilding, setup.createSmithyName
 setup.createSmithy = function (town, opts = {}) {
   const smithy = (opts.newBuilding || setup.createBuilding)(town, 'smithy')
   console.groupCollapsed('Smithy loading...')

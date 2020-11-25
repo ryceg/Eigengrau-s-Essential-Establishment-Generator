@@ -1,4 +1,4 @@
-// uses setup.createStructure, setup.createNPC, setup.createBuilding
+// uses setup.createNPC, setup.createBuilding
 setup.createAlchemist = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || setup.createBuilding
   const createChemist = opts.newChemist || setup.createChemist

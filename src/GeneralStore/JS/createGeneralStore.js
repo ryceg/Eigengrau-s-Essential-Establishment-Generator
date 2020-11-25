@@ -1,4 +1,4 @@
-// uses setup.createStructure, setup.createNPC, setup.createBuilding, setup.createGeneralStoreName
+// uses setup.createNPC, setup.createBuilding, setup.createGeneralStoreName
 setup.createGeneralStore = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || setup.createBuilding
   const createShopkeep = opts.newShopkeep || setup.createNPC
