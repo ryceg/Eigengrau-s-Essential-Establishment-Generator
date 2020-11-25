@@ -136,9 +136,9 @@ export function findPartnerRace (town: Town, npc: NPC): RaceName {
     .reduce((a, b) => a + b, 0)
 
   let roll = randomFloat(0, 1) * poolSum
-  for (let i = 0; i < pool.length; i++) {
-    roll -= town.baseDemographics[pool[i]]
-    if (roll <= 0) return pool[i]
+  for (const raceName of pool) {
+    roll -= town.baseDemographics[raceName]
+    if (roll <= 0) return raceName
   }
 
   return npc.race
