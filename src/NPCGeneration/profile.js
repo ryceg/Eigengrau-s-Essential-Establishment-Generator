@@ -12,8 +12,7 @@
 setup.profile = (obj, readout, type = 'npcs') => {
   if (typeof obj === 'string') {
     console.warn(`Profile function for ${obj} called with a string.`)
-    const targetObj = getTarget(type)
-    obj = targetObj[type][obj]
+    obj = setup.findViaKey(obj)
   }
 
   // the user-facing text
@@ -26,9 +25,9 @@ setup.profile = (obj, readout, type = 'npcs') => {
 
 /**
  * @param {string} type
- * @returns {Record<string,unknown>}
+ * @returns {Record<string,unknown> | null}
  */
-function getTarget (type) {
+setup.getTarget = (type) => {
   switch (type) {
     case 'npcs':
     case 'npc':
