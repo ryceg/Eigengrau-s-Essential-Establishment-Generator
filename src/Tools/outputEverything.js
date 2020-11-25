@@ -20,15 +20,14 @@ setup.outputEverything = () => {
   for (const building of State.variables.town.buildings) {
     output.buildings[building.key] = setup.textify(building.passageName, building)
   }
-  for (const faction of Object.keys(State.variables.town.factions)) {
-    output.factions[State.variables.town.factions[faction].key] = setup.textify(State.variables.town.factions[faction].passageName, State.variables.town.factions[faction])
+  for (const faction of Object.values(State.variables.town.factions)) {
+    output.factions[faction.key] = setup.textify(faction.passageName, faction)
   }
 
-  for (const npc of Object.keys(State.variables.npcs)) {
-    output.npcs[State.variables.npcs[npc].key] = setup.textify(State.variables.npcs[npc].passageName, State.variables.npcs[npc])
+  for (const npc of Object.values(State.variables.npcs)) {
+    output.npcs[npc.key] = setup.textify(npc.passageName, npc)
   }
   const json = JSON.stringify(output)
-  updateClipboard(json)
   return json
 }
 
@@ -43,18 +42,15 @@ $(document).on(':passageinit', function () {
 })
 
 setup.copyText = () => {
-  const copyText = document.querySelector('#everything')
-  navigator.permissions.query({ name: 'clipboard-write' }).then(result => {
-    if (result.state === 'granted' || result.state === 'prompt') {
-      updateClipboard(copyText)
-    }
-  })
+  const copyText = document.querySelector('#everything').innerHTML
+  const jsonText = JSON.stringify(copyText)
+  updateClipboard(jsonText)
 }
 
 function updateClipboard (copyText) {
   navigator.clipboard.writeText(copyText).then(function () {
-    /* clipboard successfully set */
+    setup.notify('Copied to the clipboard successfully!')
   }, function () {
-    /* clipboard write failed */
+    setup.notify('Copy to the clipboard failed!')
   })
 }
