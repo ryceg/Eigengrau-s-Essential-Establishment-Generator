@@ -6,8 +6,39 @@ setup.textify = function (passageName, currentPassage) {
   const $offshore = $('<div />')
   $offshore.wiki(raw)
   $offshore.find('button').remove()
+  setup.autoclicker($offshore)
+  setup.linkreplaceReplace($offshore)
+  setup.linkappendReplace($offshore)
+  setup.clickAndRemoveLink($offshore)
   $offshore.find('.interactive-only').remove()
   return `${Util.escape($offshore.html())}`
+}
+
+setup.autoclicker = function (raw) {
+  const $el = $('<div />')
+  $el.wiki(raw).find('.autoclick').trigger('click')
+  return $el.html()
+}
+
+setup.clickAndRemoveLink = (raw) => {
+  const $el = $('<div />')
+  $el.wiki(raw).find('.click-and-remove-link').trigger('click')
+  $('a', '.click-and-remove-link').contents().unwrap()
+  return $el.html()
+}
+
+setup.linkreplaceReplace = (raw) => {
+  const $el = $('<div />')
+  $el.wiki(raw).find('.macro-linkreplace').trigger('click')
+  $el.find('.macro-linkreplace-insert').children().unwrap()
+  return $el.html()
+}
+
+setup.linkappendReplace = (raw) => {
+  const $el = $('<div />')
+  $el.wiki(raw).find('.macro-linkappend').trigger('click')
+  $el.find('.macro-linkappend-insert').children().unwrap()
+  return $el.html()
 }
 
 setup.outputEverything = () => {

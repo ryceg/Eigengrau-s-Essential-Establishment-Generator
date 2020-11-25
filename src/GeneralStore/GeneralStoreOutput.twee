@@ -10,4 +10,4 @@ The shopkeep <<print $associatedNPC.greeting.random()>> <<print ['when you come 
 
 <span class="interactive-only"><span class="click-and-remove-link"><<link "<h4>Buy a magic trinket</h4>">><<set $testTrinket to lib.createMagic('trinket')>><<replace "#Trinket">>$associatedNPC.firstName reaches under the shop counter and says "I think you might like this." before pulling out and placing the $testTrinket.name on the counter.<div class='descriptive'><h3>$testTrinket.name</h3>$testTrinket.description</div><</replace>><</link>></span><span id="Trinket"></span></span>
 <<include "generalStoreSell">>
-<span class="interactive-only"><<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>></span>
+<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
