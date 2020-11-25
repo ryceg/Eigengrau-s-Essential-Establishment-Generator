@@ -4,18 +4,14 @@ import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { NPC, NpcRelationship } from '../npc-generation/_common'
-import { townData } from './townData'
+import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
-
-export type EconomicIdeology = keyof typeof townData.economicIdeology
-
-export type PoliticalIdeology = keyof typeof townData.politicalIdeology
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 
 export interface Town {
   name: string
-  type: string
+  type: TownType
   _type: string
   location: string
   population: number

@@ -3,16 +3,15 @@ import { random } from '../src/random'
 import { ThresholdTable } from '../src/rollFromTable'
 import { RaceName } from '../npc-generation/raceTraits'
 import { WeightRecord } from '../types'
-import { EconomicIdeology, PoliticalIdeology, PoliticalSource } from './_common'
+import { PoliticalSource } from './_common'
 import { NPC } from '../npc-generation/_common'
 
-type InternalTownType = 'hamlet' | 'village' | 'town' | 'city'
-type InternalPoliticalIdeology = 'autocracy' | 'meritocracy' | 'democracy' | 'kleptocracy' | 'magocracy' | 'militocracy' | 'oligarchy' | 'sophocracy' | 'theocracy' | 'technocracy'
-type InternalEconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
-// type InternalPoliticalSource = 'absolute monarchy' | 'constitutional monarchy' | 'republic' | 'anarchy'
+export type TownType = 'hamlet' | 'village' | 'town' | 'city'
+export type EconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
+export type PoliticalIdeology = 'autocracy' | 'meritocracy' | 'democracy' | 'kleptocracy' | 'magocracy' | 'militocracy' | 'oligarchy' | 'sophocracy' | 'theocracy' | 'technocracy'
 
-export type TownType = keyof typeof townData.type
 type RollKeys = keyof typeof townData.rollData
+
 interface TownData {
   name: {
     prefix: string[]
@@ -31,7 +30,7 @@ interface TownData {
     }
   }
   type: {
-    [key in InternalTownType]: {
+    [key in TownType]: {
       demographics(): {
         probability: number
         popPercentages: Record<RaceName, number>
@@ -47,7 +46,7 @@ interface TownData {
     }
   }
   economicIdeology: {
-    [key in InternalEconomicIdeology]: {
+    [key in EconomicIdeology]: {
       modifiers: Record<RollKeys, number>
       descriptors: {
         economicIdeologyIC: string
@@ -64,7 +63,7 @@ interface TownData {
     anarchy: Republic
   }
   politicalIdeology: {
-    [key in InternalPoliticalIdeology]: {
+    [key in PoliticalIdeology]: {
       leaderTraits: () => Partial<NPC>
       modifiers: Record<RollKeys, number>
       data: {
