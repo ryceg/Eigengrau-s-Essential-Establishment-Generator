@@ -90,8 +90,7 @@ setup.createParentage = (town, family, npc, forceFather = false, forceMother = f
   }
 }
 
-setup.createChildren = (town, family, marriage, amount,
-  motherRace = 'human', fatherRace = 'human', force = false) => {
+setup.createChildren = (town, family, marriage, amount, motherRace = 'human', fatherRace = 'human', force = false) => {
   if (!force) amount -= marriage.children.length
 
   console.log(`Creating ${amount} siblings...`)
