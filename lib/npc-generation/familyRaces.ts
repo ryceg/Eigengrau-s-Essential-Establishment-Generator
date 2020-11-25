@@ -3,7 +3,6 @@
 import { Town } from '../town/_common'
 import { RaceName } from './raceTraits'
 import { NPC } from './_common'
-import { fetchRace } from './fetchRace'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
@@ -98,29 +97,28 @@ export function findParentRaces (npc: NPC) {
 export function findChildRace (town: Town, motherRace: string, fatherRace: string) {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
-  motherRace = motherRace || fatherRace || fetchRace(town)
-  fatherRace = fatherRace || motherRace || fetchRace(town)
-  const races = []
-  races.push(motherRace, fatherRace)
+  const races = [motherRace, fatherRace]
 
   if (motherRace === fatherRace) {
     return motherRace
   }
+
   if (races.includes('human')) {
     if (races.includes('elf')) {
       return 'half-elf'
-    } else if (races.includes('orc')) {
+    }
+    if (races.includes('orc')) {
       return 'half-orc'
     }
+
     const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
     if (races.find(race => halfbreeds.includes(race))) {
       const otherRace = races.find(race => race !== 'human')
       console.log(races, otherRace)
       if (random(100) > 70) {
         return otherRace
-      } else {
-        return 'human'
       }
+      return 'human'
     }
   } else {
     return motherRace
