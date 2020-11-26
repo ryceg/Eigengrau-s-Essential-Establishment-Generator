@@ -22,8 +22,11 @@ setup.autoclicker = function (raw) {
 
 setup.clickAndRemoveLink = (raw) => {
   const $el = $('<div />')
-  $el.wiki(raw).find('.click-and-remove-link').trigger('click')
-  $('a', '.click-and-remove-link').contents().unwrap()
+  $el.wiki(raw).find('.click-and-remove-link')
+    .trigger('click')
+    .wrapInner('<b></b>')
+    .children('b')
+    .unwrap().unwrap()
   return $el.html()
 }
 
