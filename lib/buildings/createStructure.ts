@@ -40,7 +40,8 @@ export function createStructure (town: Town, building: Building) {
   // FIXME: structure.material does not have a rolls record, and this cannot be used defineRollDataGetter.
   // defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
   console.log('after material')
-
+  structure.material.wealth = 'shabby'
+  structure.roof.wealth = 'decently built'
   const descriptors = [
     `${output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
     `${output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
