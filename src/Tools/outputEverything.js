@@ -3,45 +3,48 @@ setup.textify = function (passageName, currentPassage) {
   if (currentPassage) State.variables.currentPassage = currentPassage
   State.temporary.isTextOutput = true
   const raw = Story.get(passageName).processText()
-  const $offshore = $('<div />')
+  let $offshore = $('<div />')
   $offshore.wiki(raw)
-  $offshore.find('button').remove()
-  setup.autoclicker($offshore)
-  setup.linkreplaceReplace($offshore)
-  setup.linkappendReplace($offshore)
-  setup.clickAndRemoveLink($offshore)
-  $offshore.find('.interactive-only').remove()
+  $offshore = setup.autoclicker($offshore)
+  $offshore = setup.linkreplaceReplace($offshore)
+  $offshore = setup.linkappendReplace($offshore)
+  $offshore = setup.clickAndRemoveLink($offshore)
+  $offshore = setup.removeElement($offshore, 'button')
+  $offshore = setup.removeElement($offshore, '.interactive-only')
+  $offshore = setup.removeElement($offshore, '.error-view')
+
   return `${Util.escape($offshore.html())}`
 }
 
-setup.autoclicker = function (raw) {
-  const $el = $('<div />')
-  $el.wiki(raw).find('.autoclick').trigger('click')
-  return $el.html()
+setup.removeElement = function ($offshore, element) {
+  $offshore.find(element).remove()
+  return $offshore
 }
 
-setup.clickAndRemoveLink = (raw) => {
-  const $el = $('<div />')
-  $el.wiki(raw).find('.click-and-remove-link')
+setup.autoclicker = function ($offshore) {
+  $offshore.find('.autoclick').trigger('click').unwrap()
+  return $offshore
+}
+
+setup.clickAndRemoveLink = ($offshore) => {
+  $offshore.find('.click-and-remove-link')
     .trigger('click')
     .wrapInner('<b></b>')
     .children('b')
     .unwrap().unwrap()
-  return $el.html()
+  return $offshore
 }
 
-setup.linkreplaceReplace = (raw) => {
-  const $el = $('<div />')
-  $el.wiki(raw).find('.macro-linkreplace').trigger('click')
-  $el.find('.macro-linkreplace-insert').children().unwrap()
-  return $el.html()
+setup.linkreplaceReplace = ($offshore) => {
+  $offshore.find('.macro-linkreplace').trigger('click')
+  $offshore.find('.macro-linkreplace-insert').children().unwrap()
+  return $offshore
 }
 
-setup.linkappendReplace = (raw) => {
-  const $el = $('<div />')
-  $el.wiki(raw).find('.macro-linkappend').trigger('click')
-  $el.find('.macro-linkappend-insert').children().unwrap()
-  return $el.html()
+setup.linkappendReplace = ($offshore) => {
+  $offshore.find('.macro-linkappend').trigger('click')
+  $offshore.find('.macro-linkappend-insert').children().unwrap()
+  return $offshore
 }
 
 setup.outputEverything = () => {
@@ -89,8 +92,7 @@ $(document).on(':passageinit', function () {
 })
 
 setup.copyText = () => {
-  const copyText = document.querySelector('#everything').innerHTML
-  const jsonText = JSON.stringify(copyText)
+  const jsonText = JSON.stringify(State.variables.outputEverything)
   updateClipboard(jsonText)
 }
 
