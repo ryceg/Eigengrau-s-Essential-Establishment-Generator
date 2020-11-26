@@ -92,7 +92,7 @@ $(document).on(':passageinit', function () {
 })
 
 setup.copyText = () => {
-  const jsonText = JSON.stringify(State.variables.outputEverything)
+  const jsonText = State.variables.outputEverything
   updateClipboard(jsonText)
 }
 
