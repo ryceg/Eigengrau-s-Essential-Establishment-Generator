@@ -33,7 +33,7 @@ interface TownData {
     [key in TownType]: {
       demographics(): {
         probability: number
-        popPercentages: Record<RaceName, number>
+        popPercentages: Partial<Record<RaceName, number>>
       }[]
       ideologies: {
         economicIdeology: WeightRecord<EconomicIdeology>
