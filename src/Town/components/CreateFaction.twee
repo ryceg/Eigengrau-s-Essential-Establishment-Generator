@@ -1,5 +1,5 @@
 :: CreateFaction
-<<silently>>
+<span class="interactive-only"><<silently>>
     <<set _listbox to '<<listbox "$newFaction">>'>>
     <<for _key range Object.keys(lib.factionData.types)>>
         <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
@@ -14,4 +14,4 @@ _listbox -- <<button "Create new faction">>
   <<set $town.factions[_tempFaction.key] = _tempFaction>>
   <<run console.log($town)>>
   <<update>>
-<</button>>
+<</button>></span>

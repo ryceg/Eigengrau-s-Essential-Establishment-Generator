@@ -1,5 +1,5 @@
 :: CreateFactionNpc
-<<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">>
+<span class="interactive-only"><<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">>
 \<<set _selectedRelationship to $currentPassage.availableRelationships>>
 \<<if _selectedRelationship.base>><<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>><</if>>
   \<<if def _newNPC>>
@@ -16,5 +16,5 @@ You strike up conversation with $currentPassage.randomNPC.himher, and the $curre
     \<</replace>>
     \<<replace "#BuildingRelationshipsTable">><<include "FactionRelationshipsTable">><</replace>>
     \<<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
-\<</button>><</nobr>>
+\<</button>><</nobr>></span>
 <div id="NPC"></div>

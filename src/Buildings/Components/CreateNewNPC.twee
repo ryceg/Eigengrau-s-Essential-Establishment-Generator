@@ -1,5 +1,5 @@
 :: CreateNewNpc
-<<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">><<set $currentPassage.randomNPC to setup.createBuildingRelationshipNpc($town, $building, $associatedNPC, $currentPassage.availableRelationships, {targetKey: _stringRelationship})>>
+<span class="interactive-only"><<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">><<set $currentPassage.randomNPC to setup.createBuildingRelationshipNpc($town, $building, $associatedNPC, $currentPassage.availableRelationships, {targetKey: _stringRelationship})>>
     <<replace "#NPC">>
           <div class="descriptive">
             <h3>$currentPassage.randomNPC.name</h3>
@@ -10,5 +10,5 @@ You strike up conversation with $currentPassage.randomNPC.himher, and the $curre
     <<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
     <<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
 <</button>><</nobr>>
-<div id="NPC"></div>
+<div id="NPC"></div></span>
 <<include "BuildingRelationshipsTable">>

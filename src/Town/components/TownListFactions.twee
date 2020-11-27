@@ -5,7 +5,7 @@
         <th>Name</th>
         <th>Type</th>
         <th>Size</th>
-        <th>Delete</th>
+        <span class="interactive-only"><th>Delete</th></span>
         /* <th>Raw Number</th> */
     </tr>
 <<for _key, _faction range $town.factions>><<capture _key, _faction>>
@@ -13,7 +13,7 @@
     <td><<profile _faction>></td>
     <td><<print _faction.type.toUpperFirst()>> <<print _faction.wordNoun.toUpperFirst()>></td>
     <td><<print lib.toTitleCase(_faction.size)>></td>
-    <td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<update>><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td>
+    <span class="interactive-only"><td><<link "x">><<set $deleted to setup.deleteFaction($town, _key)>><<update>><<notify 5000>>Deleted $deleted.name<</notify>><</link>></td></span>
   </tr>
  /* - A _faction.size _faction.type _faction.wordNoun */
 <</capture>><</for>></table><</nobr>></div><</liveblock>>
