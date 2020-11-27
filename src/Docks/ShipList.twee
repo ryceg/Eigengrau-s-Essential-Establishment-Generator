@@ -6,7 +6,7 @@
       <tr>
         <th>Name</th>
         <th>Type</th>
-        <th>Delete</th>
+        <span class="interactive-only"><th>Delete</th></span>
       </tr>
       <<for _key, _ship range $building.ships>>
         <<capture _key, _ship>>
@@ -20,7 +20,7 @@
             <td>
               <<print _ship.type.toUpperFirst()>>
             </td>
-            <td>
+            <span class="interactive-only"><td>
             <<link "x">>
               <<set _deleted to $building.ships[_ship.key]>>
               <<run setup.deleteNPC(_deleted.captain)>><<if def $building.ships[_ship.key].crew>><<run setup.deleteNPC($building.ships[_ship.key].crew)>><</if>>
@@ -28,7 +28,7 @@
               <<update>>
               <<notify 5000>>Deleted _deleted.name<</notify>>
             <</link>>
-            </td>
+            </td></span>
           </tr>
         <</capture>>
       <</for>>
