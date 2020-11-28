@@ -1,7 +1,7 @@
 
 
 body {
-  background-image: url("/src/Resources/bottom 0001.png");
+  background-image: url("./src/Resources/bottom 0001.png");
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
