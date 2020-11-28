@@ -2,6 +2,8 @@
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 
+const ASSET_PATH_NAME = './src/Resources'
+
 /**
  * @type {import("webpack").Configuration}
  */
@@ -27,7 +29,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './src/Resources', to: 'src/Resources' }
+        { from: ASSET_PATH_NAME, to: ASSET_PATH_NAME }
       ]
     })
   ]
