@@ -48,6 +48,7 @@ or by downloading it from [here.](https://www.motoslave.net/tweego/) and placing
 if the _.twine_ folder does not already exist, just create one.
 
 * Use `yarn test` to run tests.
+* Use `yarn setup-dev` to setup the development environment for the first time
 * Use `yarn build` to build the output files. (Note that this will return a File Not Found error, but it is working) The entire thing will output to the /gh-pages folder as the index.html file.
 * Use `yarn start` to start a development build that automatically rebuilds on file changes.
 
