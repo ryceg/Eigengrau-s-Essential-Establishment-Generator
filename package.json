@@ -18,7 +18,6 @@
     "install-compiler": "node scripts/install-compiler",
     "build": "node scripts/build",
     "start": "node scripts/build --watch",
-    "setup-dev": "mkdir -p ./gh-pages/src && cp -r ./src/Resources ./gh-pages/src",
     "test": "jest",
     "lint": "eslint **/*.{js,ts}"
   },
@@ -41,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
     "chalk": "^4.0.0",
+    "copy-webpack-plugin": "^6.3.2",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-function-call-context": "^1.0.2",

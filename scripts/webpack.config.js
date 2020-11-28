@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
 
 /**
  * @type {import("webpack").Configuration}
@@ -22,5 +23,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.ts']
-  }
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: './src/Resources', to: 'src/Resources' }
+      ]
+    })
+  ]
 }
