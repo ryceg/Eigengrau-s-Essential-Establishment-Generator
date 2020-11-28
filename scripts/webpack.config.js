@@ -29,7 +29,7 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, '../src/Resources'),
-          to: path.resolve('./gh-pages/src/Resources')
+          to: path.resolve(__dirname, '../gh-pages/src/Resources')
         }
       ]
     })
