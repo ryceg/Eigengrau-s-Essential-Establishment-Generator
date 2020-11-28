@@ -123,7 +123,7 @@ footer {
   height: 55px;
   bottom: -2em;
   left: 0;
-  background-image: url("./footer.png");
+  background-image: url("/src/Resources/footer.png");
   background-size: cover;
   z-index: 90;
   column-span: all;
@@ -433,7 +433,7 @@ blockquote {
     background-color: #e5e4c1;
     border-style: solid;
     border-width: 11px;
-    border-image: url("./note-wrap.png") 11;
+    border-image: url("/src/Resources/note-wrap.png") 11;
     border-image-outset: 9px 0;
     box-shadow: 1px 4px 14px #888
 }
@@ -574,7 +574,7 @@ width: 180px;
         left: 0;
         height: 55px;
         width: 100%;
-        background-image: url("./footer.png");
+        background-image: url("/src/Resources/footer.png");
         background-size: cover;
         column-span: all;
     }
