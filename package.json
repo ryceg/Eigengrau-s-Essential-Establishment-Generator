@@ -16,7 +16,7 @@
   "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
   "scripts": {
     "install-compiler": "node scripts/install-compiler",
-    "build": "cp -R src/Resources/* gh-pages && node scripts/build",
+    "build": "cp -R ./src/Resources/* ./gh-pages && node scripts/build",
     "start": "node scripts/build --watch",
     "test": "jest",
     "lint": "eslint **/*.{js,ts}"
