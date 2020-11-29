@@ -10,6 +10,7 @@ export * from './buildings/cullBuildings'
 export * from './buildings/deleteBuildingRelationship'
 export * from './buildings/findBuilding'
 export * from './buildings/findBuildingRelationship'
+export * from './buildings/getSellingTalk'
 export * from './buildings/structureData'
 
 export * from './constructs/bandits'
