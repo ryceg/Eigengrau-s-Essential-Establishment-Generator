@@ -2508,7 +2508,7 @@ setup.initGoodsAndServices = () => {
         'always finding the diamond in the dirt.',
         'being mostly too expensive for common folks.',
         'working closely with royals.',
-        'being execptional gem cutters.',
+        'being exceptional gem cutters.',
         'their collection of odd trinkets.'
       ]
     },
