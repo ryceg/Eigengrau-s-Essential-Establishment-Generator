@@ -134,7 +134,7 @@ footer {
     columns: 1;
   }
   #illustration-buffer {
-    padding-bottom: 0vw;
+    padding-bottom: 20vw;
   }
   #paper {
     top: 15vw
@@ -154,7 +154,7 @@ footer {
     columns: 1;
   }
   #illustration-buffer {
-    padding-bottom: 18vw;
+    padding-bottom: 20vw;
   }
   #paper {
     top: 14vw;
@@ -162,6 +162,25 @@ footer {
   blockquote {
     margin-inline-start: 10px;
     margin-inline-end: 10px;
+  }
+}
+
+@media (min-width: 500px) {
+  body {
+    font-size: 17px
+  }
+  .passage {
+    columns: 1;
+  }
+  blockquote {
+      -webkit-margin-start: .5em;
+      -webkit-margin-end: .5em;
+  }
+  #illustration-buffer {
+    padding-bottom: 25vw;
+  }
+  #paper {
+    top: 13vw
   }
 }
 
@@ -177,7 +196,7 @@ footer {
       -webkit-margin-end: .5em;
   }
   #illustration-buffer {
-    padding-bottom: 26vw;
+    padding-bottom: 28vw;
   }
   #paper {
     top: 13vw
@@ -196,7 +215,7 @@ footer {
       -webkit-margin-end: .5em;
   }
   #illustration-buffer {
-    padding-bottom: 28vw;
+    padding-bottom: 35vw;
   }
   #paper {
     top: 13.5vw
@@ -215,7 +234,7 @@ footer {
   }  
   #illustration-buffer {
     column-span: all;
-    padding: 16vw;
+    padding: 19vw;
   }
   #paper {
     top: 13vw
@@ -235,7 +254,7 @@ footer {
   }  
   #illustration-buffer {
     column-span: all;
-    padding: 17vw;
+    padding: 20vw;
   }
 
   #paper {
