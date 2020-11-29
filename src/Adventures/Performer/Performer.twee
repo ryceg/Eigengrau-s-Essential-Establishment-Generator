@@ -1,0 +1,21 @@
+:: Performer
+<<set $p.company to {}>>
+The Players will enter $p.company.name and be treated to the sight of a panicking $p.company.head.descriptor and a score of weeping and overacting actors. $p.company.head.name will lament their woes;
+
+"Oh I am Ruined! What am I to do, What am I to do!?” [Weeps inconsolably until they notice the players] "Oh, who are you? Have you seen $p.star.name? Or are any of you a doctor? You see, my star actor disappeared yesterday! And their understudy - the only other person who could fill their shoes has been struck down with the flu! Without them the show cannot go on! We need this show to perform for $p.noble.name and show $p.noble.himher why we, the $p.company.name are worthy of $p.noble.hisher attention!.”
+
+CONT TEXT
+
+After accepting the commission from $p.company.head.firstName, the players can choose to ask questions - See.  
+
+After the players finish talking to $p.company.head.firstName, $p.company.head.heshe says 
+
+<span class="descriptive">"Uh… $p.minorActor.firstName, could you come and show these people to $p.star.firstName's room?”</span>
+
+After $p.company.head.heshe says this, $p.tname.firstName pipes up and says
+<span class="descriptive">"I can do it boss, I’ve already got my lines memorized and you know my scene can’t really work without $p.star.firstName there”</span>
+
+$p.company.head.firstName replies
+
+<span class="descriptive">"Oh yes, I guess that works, $p.tname.firstName, please answer any questions they have, $p.minorActor.firstName, you should continue to rehearse your lines, so you don’t mix up yours words again.”</span>
+
