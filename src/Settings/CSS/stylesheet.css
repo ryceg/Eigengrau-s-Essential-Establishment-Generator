@@ -488,7 +488,7 @@ blockquote h5 {
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
-    border-image: url("/src/Resources/sidebars.png") 12 round;
+    border-image: url("./src/Resources/sidebars.png") 12 round;
     border-image-outset: 4px;
     box-shadow:0 0 6px #faf7ea
 }
@@ -520,7 +520,7 @@ descriptive {
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
-    border-image: url("/src/Resources/sidebars.png") 12 round;
+    border-image: url("./src/Resources/sidebars.png") 12 round;
     border-image-outset:4px;
     box-shadow:0 0 6px #faf7ea
 }
@@ -2615,7 +2615,7 @@ pre code {
     border-image-outset:25px 17px;
     border-image-repeat:round;
     border-image-slice:150 200 150 200;
-    border-image-source: url("/src/Resources/table-wrap.png");
+    border-image-source: url("./src/Resources/table-wrap.png");
     border-image-width:47px;
 }
 .classTable h5{
