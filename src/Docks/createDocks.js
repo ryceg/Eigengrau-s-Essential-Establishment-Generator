@@ -1,6 +1,6 @@
-// uses setup.createNPC, setup.createBuilding
+// uses setup.createNPC
 setup.createDocks = (town, opts = {}) => {
-  const createBuilding = opts.newBuilding || setup.createBuilding
+  const createBuilding = opts.newBuilding || lib.createBuilding
 
   const docks = createBuilding(town, 'docks', opts)
   Object.assign(docks, {

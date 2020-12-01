@@ -1,7 +1,7 @@
-// uses setup.createNPC, setup.createBuilding
+// uses setup.createNPC
 setup.createBrothel = (town, opts = {}) => {
   console.log('Creating a brothel...')
-  const brothel = setup.createBuilding(town, 'brothel')
+  const brothel = lib.createBuilding(town, 'brothel', opts.newBuilding)
 
   lib.assign(brothel, {
     name: setup.brothel.name.random(),

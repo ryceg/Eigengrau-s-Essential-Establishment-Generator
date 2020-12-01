@@ -1,6 +1,6 @@
-// uses setup.createNPC, setup.createBuilding, setup.createGeneralStoreName
+// uses setup.createNPC, setup.createGeneralStoreName
 setup.createGeneralStore = (town, opts = {}) => {
-  const createBuilding = opts.newBuilding || setup.createBuilding
+  const createBuilding = opts.newBuilding || lib.createBuilding
   const createShopkeep = opts.newShopkeep || setup.createNPC
 
   const generalStore = createBuilding(town, 'generalStore')

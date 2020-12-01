@@ -1,18 +1,25 @@
-// TODO: convert
-setup.createBuilding = (town, type, base = {}) => {
+import { townData, getUUID, clampRolls, weightedRandomFetcher } from '..'
+import { Town } from '../town/_common'
+import { MaterialType } from './structureData'
+import { Building } from './_common'
+import { random } from '../src/random'
+import { randomFloat } from '../src/randomFloat'
+
+export function createBuilding (town: Town, type: string, base = {}) {
+  console.log('Creating base building...')
   let roadName
   let roadType
 
   // Tables used later
-  if (random(100) < lib.townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
+  if (random(100) < townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
     // Roads are currently only supported with two words
     const randRoad = Object.keys(town.roads).random()
     const roads = town.roads[randRoad].split(' ')
-    roadName = roads[0] || lib.townData.roads.name.random()
-    roadType = roads[1] || lib.townData.roads.type.random()
+    roadName = roads[0] || townData.roads.name.random()
+    roadType = roads[1] || townData.roads.type.random()
   } else {
-    roadName = lib.townData.roads.name.random()
-    roadType = lib.townData.roads.type.random()
+    roadName = townData.roads.name.random()
+    roadType = townData.roads.type.random()
   }
 
   const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
@@ -23,10 +30,10 @@ setup.createBuilding = (town, type, base = {}) => {
     'a dog panting by the door',
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
-    "a sign from the local paper which reads '<<print lib.newspaper.random()>>'"
+    "a sign from the local paper which reads '<<print newspaper.random()>>'"
   ].random()
-  const building = Object.assign({
-    key: lib.getUUID(),
+  const building: Building = Object.assign({
+    key: getUUID(),
     childKeys: [],
     objectType: 'building',
     roadName,
@@ -60,49 +67,39 @@ setup.createBuilding = (town, type, base = {}) => {
 
   town.roads[building.key] = building.road
 
-  if (base.parentKey) {
+  if (building.parentKey) {
     console.log('Has a parent!')
     building.isChild = true
-    building.road = town.roads[base.parentKey]
-    // const parentIndex = lib.findBuildingIndex(town, base.parentKey)
+    building.road = town.roads[building.parentKey]
+    // const parentIndex = findBuildingIndex(town, base.parentKey)
     // town.buildings[parentIndex].childKeys.push(building.key)
     // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
   }
   // building.priceModifier += town.taxes.economics
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
 
-  lib.clampRolls(building.roll)
+  clampRolls(building.roll)
 
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 
   return building
 }
 
-function generateBuildingMaterial (town, mainMaterial, buildingWealth) {
+export function generateBuildingMaterial (town: Town, mainMaterial: string, buildingWealth: number): MaterialType {
   // Set probability for other buildings depending on the building 'tier'
   const buildingTier = getBuildingTier(town.roll.wealth, buildingWealth)
-  const objectKeys = Object.keys(town.materialProbability)
-  objectKeys.forEach((material) => {
-    const tier = [...town.materialProbability[material].tier]
-    if (tier.indexOf(buildingTier) !== -1) {
+  for (const material of Object.keys(town.materialProbability)) {
+    console.log(material)
+    if (town.materialProbability[material].tier.indexOf(buildingTier) !== -1) {
       town.materialProbability[material].probability = 5
     }
-  })
-  town.materialProbability[mainMaterial].probability = 80
-  let tempMaterial = lib.weightedRandomFetcher(town, town.materialProbability, null, null, 'object')
-  if (Object.keys(tempMaterial).includes('variations')) {
-    console.log('Building material has variations. ')
-    tempMaterial = lib.weightedRandomFetcher(town, tempMaterial.variations, null, null, 'object')
   }
+  town.materialProbability[mainMaterial].probability = 80
+  const tempMaterial = weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
   return tempMaterial
 }
 
-/**
- * @param {number} townWealth
- * @param {number} buildingWealth
- * @returns {number}
- */
-function getBuildingTier (townWealth, buildingWealth) {
+export function getBuildingTier (townWealth: number, buildingWealth: number): number {
   const wealth = townWealth + (buildingWealth * 0.2)
   if (wealth >= 70) {
     return 3

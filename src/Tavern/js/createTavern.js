@@ -1,6 +1,6 @@
 
 setup.createTavern = (town, opts = {}) => {
-  const tavern = (opts.newBuilding || setup.createBuilding)(town, 'tavern')
+  const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)

@@ -1,8 +1,8 @@
-// uses setup.createNPC, setup.createBuilding, setup.createDungeonName
+// uses setup.createNPC, setup.createDungeonName
 setup.createDungeon = (town, opts) => {
   console.groupCollapsed('Creating a dungeon!')
   const data = setup.castle.dungeon
-  const dungeon = setup.createBuilding(town, 'dungeon', opts)
+  const dungeon = lib.createBuilding(town, 'dungeon', opts)
   Object.assign(dungeon, {
     knownFor: data.knownFor.random(),
     secret: data.secret.random(),

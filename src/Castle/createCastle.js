@@ -1,7 +1,7 @@
-// uses setup.createNPC, setup.createBuilding, setup.createCastleName, setup.createCastlePopulation, setup.createDungeon
+// uses setup.createNPC, setup.createCastleName, setup.createCastlePopulation, setup.createDungeon
 setup.createCastle = (town, opts = {}) => {
   console.groupCollapsed('Creating a castle...')
-  const castle = setup.createBuilding(town, 'castle', opts)
+  const castle = lib.createBuilding(town, 'castle', opts)
   const data = setup.castle
   Object.assign(castle, {
     builtBy: data.builtBy.random(),
