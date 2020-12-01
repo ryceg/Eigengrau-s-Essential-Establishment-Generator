@@ -2,29 +2,30 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Building {
   key: string
-  passageName: string
+  passageName?: string
   parentKey?: string
   objectType: string
   isChild?: boolean
   type: string
-  name: string
-  wordNoun: string
+  name?: string
+  wordNoun?: string
   associatedNPC?: NPC
-  structure: BuildingStructure
+  structure?: BuildingStructure
   roll: BuildingRolls
-  wealth: string
-  sin: string
-  size: string
-  activity: string
-  roughness: string
-  cleanliness: string
-  diversity: string
-  reputation: string
+  priceModifier?: number
+  wealth?: string
+  size?: string
+  activity?: string
+  roughness?: string
+  sin?: string
+  cleanliness?: string
+  diversity?: string
+  reputation?: string
   material: {
     noun: string
     probability: number
   }
-  tippyDescription: string
+  tippyDescription?: string
   road: string
   notableFeature?: string
   specialty?: string
