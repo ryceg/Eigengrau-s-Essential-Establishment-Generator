@@ -5,6 +5,7 @@ import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { NPC, NpcRelationship } from '../npc-generation/_common'
+import { Road } from './roads'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 
@@ -58,7 +59,7 @@ export interface Town {
     name: string,
     population: number
   }>
-  roads: Record<string, string>
+  roads: Record<string, Road>
   townMaterial: string
   leaderType: string
   leader: NPC
