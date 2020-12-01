@@ -1,26 +1,13 @@
-import { townData, getUUID, clampRolls, weightedRandomFetcher } from '..'
+import { getUUID, clampRolls, weightedRandomFetcher } from '..'
 import { Town } from '../town/_common'
 import { MaterialType } from './structureData'
 import { Building } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
+import { roads } from '../town/roads'
 
 export function createBuilding (town: Town, type: string, base = {}) {
   console.log('Creating base building...')
-  let roadName
-  let roadType
-
-  // Tables used later
-  if (random(100) < townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
-    // Roads are currently only supported with two words
-    const randRoad = Object.keys(town.roads).random()
-    const roads = town.roads[randRoad].split(' ')
-    roadName = roads[0] || townData.roads.name.random()
-    roadType = roads[1] || townData.roads.type.random()
-  } else {
-    roadName = townData.roads.name.random()
-    roadType = townData.roads.type.random()
-  }
 
   const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
   const outside = [
@@ -36,16 +23,6 @@ export function createBuilding (town: Town, type: string, base = {}) {
     key: getUUID(),
     childKeys: [],
     objectType: 'building',
-    roadName,
-    roadType,
-    get road () {
-      return `${this.roadName} ${this.roadType}`
-    },
-    set road (road) {
-      const roads = road.toString().split(' ')
-      this.roadName = roads[0] || ''
-      this.roadType = roads[1] || ''
-    },
     type,
     lighting,
     outside,
@@ -65,7 +42,7 @@ export function createBuilding (town: Town, type: string, base = {}) {
     priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
   }, base)
 
-  town.roads[building.key] = building.road
+  roads.assign(town, building)
 
   if (building.parentKey) {
     console.log('Has a parent!')

@@ -16,10 +16,10 @@ import { Town } from './_common'
 import { random } from '../src/random'
 
 export interface RoadData {
-  name: RoadType
+  name: RoadType | string
   wordNoun: RoadType | 'cul-de-sac'
   probability: number
-  width?(): number
+  width(): number
   hasTraffic?: boolean
   isDeadEnd?: boolean
   material?: string
@@ -29,15 +29,16 @@ export interface RoadData {
 
 export interface Road {
   name: string
+  prefix: string
   key: string
-  readout: string
+  description: string
   wordNoun: string
   width: string
   namesake?: Namesake
   materialUsed: string
   materialDescription: string
   constructionMethod: string
-  type: RoadType
+  type: RoadType | string
   hasTraffic: boolean
   isDeadEnd: boolean
   feature: string
@@ -69,7 +70,8 @@ interface RoadOwnership extends ProperNoun {
 }
 
 interface ProperNoun {
-  name: string
+  roadNameType: string
+  prefix: string
   canBePossessive?: boolean
   isUnique?: boolean
   isBuilding?: string
@@ -101,27 +103,40 @@ export type RoadType =
 'trail'
 
 export const roads = {
+  /** @description Adds checks for road duplication; use this one for assigning to randomly generated buildings. */
   assign: (town: Town, building?: Building): Road => {
-    let road
-    if (random(100) < townData.type[town.type].roadDuplication && Object.keys(town.roads).length > 0) {
+    console.groupCollapsed('Assigning a road...')
+    let road: Road
+    if (random(100) < townData.type[town.type].roadDuplication && Object.values(town.roads).length > 0) {
       road = Object.values(town.roads).random()
     } else {
       road = roads.create(town, building)
+      town.roads[road.key] = road
     }
+
+    if (building && building.key && building.name) {
+      road.inhabitants.buildings[building.key] = building.name
+      building.road = road.key
+    }
+    console.log(road)
+    console.groupEnd()
     return road
   },
+  /** @description Creates the road */
   create: (town: Town, building?: Building): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
+    console.log('Creating a road...')
     const name = roads.name.create(town)
+    console.log('Finding a type...')
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
-    let feature
-    if (Array.isArray(roads.name.type[type.name].features)) {
-      feature = roads.name.type[type.name].features[random(roads.name.type[type.name].features.length - 1)]
+    let feature: string
+    if (roads.name.type[type.name].features && roads.name.type[type.name].features.length > 0) {
+      feature = random(roads.name.type[type.name].features)
     } else {
-      feature = roads.features[random(roads.features.length - 1)]
+      feature = random(roads.features)
     }
     const road: Road = {
-      name,
+      prefix: name.name,
       key: getUUID(),
       feature,
       namesake: name.namesake || undefined,
@@ -130,7 +145,7 @@ export const roads = {
       hasTraffic: type.hasTraffic || true,
       isDeadEnd: type.hasTraffic || false,
       rolls: {
-        width: type.width() || random(2, 50),
+        width: type.width(),
         wealth: random(1, 100)
       },
       inhabitants: {
@@ -142,13 +157,7 @@ export const roads = {
         }
       }
     }
-    if (building) {
-      road.inhabitants.buildings[building.key] = building.name
-    }
-
-    if (road.namesake && !road.namesake.reason) {
-      road.namesake.reason = roads.namesakes.reason(town, road.namesake)
-    }
+    road.name = `${road.prefix} ${road.type}`
 
     for (const [num, description] of roads.width.rolls) {
       if (road.rolls.width > num) {
@@ -156,26 +165,19 @@ export const roads = {
       }
     }
     const material = roads.material.get(town, road)
-    const constructionMethod = material.roadMaterialType[random(material.roadMaterialType.length - 1)]
+    const constructionMethod = random(material.roadMaterialType)
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
-
-    road.readout = `${road.name} is ${articles.output(`${road.width} ${road.constructionMethod}`)} ${road.materialUsed} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature}`
-    if (road.namesake?.reason) road.readout += road.namesake.reason
+    console.log('Orere?')
+    road.description = `${road.name} is ${articles.output(`${road.width} ${road.constructionMethod}`)} ${road.materialUsed} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature}`
+    if (road.namesake?.reason) road.description += road.namesake.reason
 
     return road
   },
-  features: [
-    'Helpful sign posts are dotted along the road pointing out the names of other streets.',
-    'Grated storm drains at regular intervals grant access to the sewer system.',
-    'There are rows of potted plants and herbs, the produce of which people are free to pick at their leisure.',
-    "There's a letterbox at the end of the drive for an impressive looking house.",
-    "There's a wagon with a cracked wheel by the side of the road.",
-    'The street is covered with painted footsteps, a coloured trail seemingly leading off to notable buildings.',
-    'Deep ditches border the road, carrying waste and refuse down the hill.'
-  ],
+
   name: {
     create (town: Town): RoadOwnership {
+      console.log('Creating a road name...')
       const probabilities = {
         properNoun: 5,
         firstName: 2,
@@ -189,198 +191,265 @@ export const roads = {
         firstName: createName({ race, firstOrLast: 'firstName' }),
         lastName: createName({ race, firstOrLast: 'lastName' })
       }
+      console.log('selected ', selected)
       switch (selected) {
         case 'firstName':
           road = {
-            name: namesake.firstName,
+            prefix: namesake.firstName,
             canBePossessive: true,
+            isUnique: false,
+            isBuilding: undefined,
             namesake
           }
-          if (random(1, 100) > 60) road.name += "'s"
+          if (random(1, 100) > 60) road.prefix += "'s"
           break
         case 'lastName':
           road = {
-            name: namesake.lastName,
+            prefix: namesake.lastName,
             canBePossessive: true,
+            isUnique: false,
+            isBuilding: undefined,
             namesake
           }
-          if (random(1, 100) > 90) road.name += "'s"
+          if (random(1, 100) > 90) road.prefix += "'s"
           break
         default:
           road = weightedRandomFetcher(town, roads.name.properNoun, undefined, undefined, 'object') as ProperNoun
       }
-      Object.assign({
-        roadNameType: selected,
-        canBePossessive: false,
-        isUnique: false,
-        isBuilding: false
-      }, road) as RoadOwnership
-
+      road.roadNameType = selected
+      if (road.namesake && !road.namesake.reason) {
+        road.namesake.reason = roads.namesakes.reason(town, road.namesake)
+      }
       return road as RoadOwnership
     },
     properNoun: {
       main: {
-        name: 'main',
+        prefix: 'main',
         isUnique: true,
-        probability: 20
+        probability: 20,
+        isBuilding: false
       },
       keep: {
-        name: 'keep'
+        prefix: 'keep',
+        isUnique: false,
+        isBuilding: false
       },
       king: {
-        name: 'king',
-        canBePossessive: true
+        prefix: 'king',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       queen: {
-        name: 'queen',
-        canBePossessive: true
+        prefix: 'queen',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       prince: {
-        name: 'prince',
-        canBePossessive: true
+        prefix: 'prince',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       princess: {
-        name: 'princess',
-        canBePossessive: true
+        prefix: 'princess',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       lord: {
-        name: 'lord'
+        prefix: 'lord',
+        isUnique: false,
+        isBuilding: false
       },
       ladies: {
-        name: 'ladies'
+        prefix: 'ladies',
+        isUnique: false,
+        isBuilding: false
       },
       noble: {
-        name: 'noble',
-        canBePossessive: true
+        prefix: 'noble',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       duke: {
-        name: 'duke',
-        canBePossessive: true
+        prefix: 'duke',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       duchess: {
-        name: 'duchess',
-        canBePossessive: true
+        prefix: 'duchess',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       rogue: {
-        name: 'rogue',
-        canBePossessive: true
+        prefix: 'rogue',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       priest: {
-        name: 'priest',
-        canBePossessive: true
+        prefix: 'priest',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       abbott: {
-        name: 'abbott',
-        canBePossessive: true
+        prefix: 'abbott',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       pope: {
-        name: 'pope'
+        prefix: 'pope',
+        isUnique: false,
+        isBuilding: false
       },
       spring: {
-        name: 'spring',
-        canBePossessive: true
+        prefix: 'spring',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       winter: {
-        name: 'winter',
-        canBePossessive: true
+        prefix: 'winter',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       summer: {
-        name: 'summer',
-        canBePossessive: true
+        prefix: 'summer',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       autumn: {
-        name: 'autumn',
-        canBePossessive: true
+        prefix: 'autumn',
+        canBePossessive: true,
+        isUnique: false,
+        isBuilding: false
       },
       castle: {
-        name: 'castle',
+        prefix: 'castle',
         isBuilding: 'castle',
+        isUnique: false,
         nameReason: [
           'A castle was meant to be built at the end of the road.'
         ]
       },
       butcher: {
-        name: 'butcher',
+        prefix: 'butcher',
         isBuilding: 'butcher',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       tailor: {
-        name: 'tailor',
+        prefix: 'tailor',
         isBuilding: 'tailor',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       smith: {
-        name: 'smith',
+        prefix: 'smith',
         isBuilding: 'smithy',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       potter: {
-        name: 'potter',
+        prefix: 'potter',
         isBuilding: 'potter',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       baker: {
-        name: 'baker',
+        prefix: 'baker',
         isBuilding: 'bakery',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       farrier: {
-        name: 'farrier',
+        prefix: 'farrier',
         isBuilding: 'smithy',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false
       },
       fisher: {
+        prefix: 'fisher',
         canBePossessive: true,
-        probability: 20
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       old: {
-        name: 'old',
-        probability: 20
+        prefix: 'old',
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       new: {
-        name: 'new',
-        probability: 20
+        prefix: 'new',
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       common: {
-        name: 'common',
-        probability: 20
+        prefix: 'common',
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       high: {
-        name: 'high',
-        probability: 20
+        prefix: 'high',
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       low: {
-        name: 'low',
-        probability: 20
+        prefix: 'low',
+        probability: 20,
+        isUnique: false,
+        isBuilding: false
       },
       north: {
-        name: 'north'
+        prefix: 'north',
+        isUnique: false,
+        isBuilding: false
       },
       south: {
-        name: 'south'
+        prefix: 'south',
+        isUnique: false,
+        isBuilding: false
       },
       west: {
-        name: 'west'
+        prefix: 'west',
+        isUnique: false,
+        isBuilding: false
       },
       east: {
-        name: 'east'
-
+        prefix: 'east',
+        isUnique: false,
+        isBuilding: false
       }
     },
     type: {
       street: {
         name: 'street',
+        width () { return random(0, 90) },
         probability: 8
       },
       lane: {
         name: 'lane',
-        width () { return random(30) },
+        width () { return random(5, 40) },
         features: [
           'Houses lean over into the street on both sides, limiting the amount of sun that is visible. Laundry lines are strung between windows across the road.'
         ],
@@ -390,6 +459,7 @@ export const roads = {
       road: {
         name: 'road',
         probability: 10,
+        width () { return random(10, 90) },
         wordNoun: 'road'
       },
       square: {
@@ -402,6 +472,7 @@ export const roads = {
       way: {
         name: 'way',
         probability: 2,
+        width () { return random(0, 80) },
         wordNoun: 'road'
       },
       crescent: {
@@ -426,10 +497,12 @@ export const roads = {
       row: {
         name: 'row',
         probability: 1,
+        width () { return random(0, 80) },
         wordNoun: 'road'
       },
       dyke: {
         name: 'dyke',
+        width () { return random(0, 60) },
         features: ['The land on either side is rather soggy and prone to being water-logged.'],
         probability: 1,
         wordNoun: 'road'
@@ -458,6 +531,7 @@ export const roads = {
       drive: {
         name: 'drive',
         features: ['There is a nice looking house at the end of the road.'],
+        width () { return random(40, 80) },
         probability: 1,
         wordNoun: 'road'
       },
@@ -476,18 +550,29 @@ export const roads = {
       },
       track: {
         name: 'track',
+        width () { return random(0, 50) },
         probability: 1,
         material: 'dirt',
         exclusions (town: Town) { return town.population < 500 }
       },
       trail: {
         name: 'trail',
+        width () { return random(0, 40) },
         probability: 1,
         material: 'dirt',
         exclusions (town: Town) { return town.population < 400 }
       }
     } as Record<RoadType, RoadData>
   },
+  features: [
+    'Helpful sign posts are dotted along the road pointing out the names of other streets.',
+    'Grated storm drains at regular intervals grant access to the sewer system.',
+    'There are rows of potted plants and herbs, the produce of which people are free to pick at their leisure.',
+    "There's a letterbox at the end of the drive for an impressive looking house.",
+    "There's a wagon with a cracked wheel by the side of the road.",
+    'The street is covered with painted footsteps, a coloured trail seemingly leading off to notable buildings.',
+    'Deep ditches border the road, carrying waste and refuse down the hill.'
+  ],
   namesakes: {
     reason (town: Town, namesake: Namesake): string {
       const fullName = `${namesake.firstName} ${namesake.lastName}`
@@ -505,8 +590,8 @@ export const roads = {
         'It is named after a much loved dog.',
         `It is named after the ${namesake.lastName} family who have lived there for generations.`
       ]
-      const selected = random(reasons.length - 1)
-      return reasons[selected]
+      const selected: string = random(reasons)
+      return selected
     }
   },
   width: {
@@ -527,14 +612,27 @@ export const roads = {
     get (town: Town, road: Road): MaterialType {
       console.log('Getting road material...')
       road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
-      for (const material of Object.keys(town.materialProbability)) {
+      console.log('Maybe Here?')
+      const tempMaterials: Record<string, MaterialType> = {}
+      Object.keys(town.materialProbability).forEach((key) => {
+        tempMaterials[key] = town.materialProbability[key]
+      })
+      for (const material of Object.keys(tempMaterials)) {
         console.log(material)
-        if (town.materialProbability[material].tier.indexOf(road.tier) !== -1) {
-          town.materialProbability[material].probability = 5
+        if (!tempMaterials[material].canBeUsedAsRoad) {
+          delete tempMaterials[material]
+          continue
+        }
+        if (tempMaterials[material].tier.indexOf(road.tier) !== -1) {
+          tempMaterials[material].probability = 5
         }
       }
-      town.materialProbability[town.townMaterial].probability = 80
-      const tempMaterial = weightedRandomFetcher(town, town.materialProbability, undefined, roads.material.exclusions(town.materialProbability), 'object') as MaterialType
+      if (tempMaterials[town.townMaterial]) tempMaterials[town.townMaterial].probability = 80
+      console.log('Here?')
+      console.log(tempMaterials)
+      console.log('Town materials')
+      console.log(town.materialProbability)
+      const tempMaterial = weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions(tempMaterials), 'object') as MaterialType
       return tempMaterial
     },
     exclusions (arg: Record<MaterialTypes, MaterialType>) {
