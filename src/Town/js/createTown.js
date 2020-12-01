@@ -231,12 +231,11 @@ setup.createTown = (base = {}) => {
   lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender].rolls, 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = lib.getTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
-
+  lib.setMaterialProbability(town, possibleMaterials)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
   setup.findPoliceSource(town)
   lib.townRender(town)
-  lib.setMaterialProbability(town, possibleMaterials)
 
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
