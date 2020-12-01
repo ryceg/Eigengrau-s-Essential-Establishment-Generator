@@ -1,4 +1,5 @@
 import { Family } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
+import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building, BuildingRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
@@ -51,12 +52,8 @@ export interface Town {
   guard: {
     funding: string
   }
-  possibleMaterials: string[]
-  materialProbability: {
-    [key: string]: {
-      probability: number
-    }
-  }
+  possibleMaterials: MaterialTypes[]
+  materialProbability: Record<MaterialTypes, MaterialType>
   professions: Record<string, Profession & {
     name: string,
     population: number
