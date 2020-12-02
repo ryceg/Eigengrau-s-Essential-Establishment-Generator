@@ -1,5 +1,5 @@
 
-import { townData } from '..'
+import { toTitleCase, townData } from '..'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
@@ -8,7 +8,7 @@ import { fetchRace } from '../npc-generation/fetchRace'
 import { RaceName } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { getUUID } from '../src/utils'
+import { getUUID, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -62,7 +62,7 @@ interface Namesake {
 }
 
 interface RoadOwnership extends ProperNoun {
-  name: string
+  prefix: string
   roadNameType: RoadNameType
   canBePossessive: boolean
   isUnique: boolean
@@ -114,8 +114,8 @@ export const roads = {
       town.roads[road.key] = road
     }
 
-    if (building && building.key && building.name) {
-      road.inhabitants.buildings[building.key] = building.name
+    if (building) {
+      road.inhabitants.buildings[building.key] = building.type
       building.road = road.key
     }
     console.log(road)
@@ -126,9 +126,10 @@ export const roads = {
   create: (town: Town, building?: Building): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
     console.log('Creating a road...')
-    const name = roads.name.create(town)
+    const roadPrefix = roads.name.create(town)
     console.log('Finding a type...')
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
+    const widthRoll = type.width()
     let feature: string
     if (roads.name.type[type.name].features && roads.name.type[type.name].features.length > 0) {
       feature = random(roads.name.type[type.name].features)
@@ -136,16 +137,16 @@ export const roads = {
       feature = random(roads.features)
     }
     const road: Road = {
-      prefix: name.name,
+      prefix: toTitleCase(roadPrefix.prefix),
       key: getUUID(),
       feature,
-      namesake: name.namesake || undefined,
-      type: type.name,
+      namesake: roadPrefix.namesake || undefined,
+      type: toTitleCase(type.name),
       wordNoun: type.wordNoun || type.name,
       hasTraffic: type.hasTraffic || true,
       isDeadEnd: type.hasTraffic || false,
       rolls: {
-        width: type.width(),
+        width: widthRoll,
         wealth: random(1, 100)
       },
       inhabitants: {
@@ -159,17 +160,23 @@ export const roads = {
     }
     road.name = `${road.prefix} ${road.type}`
 
-    for (const [num, description] of roads.width.rolls) {
-      if (road.rolls.width > num) {
-        road.width = description
-      }
-    }
+    let width = roads.width.rolls.find(desc => {
+      return desc[0] <= widthRoll
+    })
+    if (!width) width = last(roads.width.rolls)
+    road.width = width[1]
     const material = roads.material.get(town, road)
     const constructionMethod = random(material.roadMaterialType)
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
-    console.log('Orere?')
-    road.description = `${road.name} is ${articles.output(`${road.width} ${road.constructionMethod}`)} ${road.materialUsed} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature}`
+    let materialUsedDescriptor
+    if (['gravel', 'dirt'].includes(road.constructionMethod)) {
+      materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
+    } else {
+      materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
+    }
+    road.materialDescription = random(roads.material.types[constructionMethod].description)
+    road.description = ` ${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
     if (road.namesake?.reason) road.description += road.namesake.reason
 
     return road
@@ -445,7 +452,8 @@ export const roads = {
       street: {
         name: 'street',
         width () { return random(0, 90) },
-        probability: 8
+        probability: 8,
+        wordNoun: 'street'
       },
       lane: {
         name: 'lane',
@@ -484,6 +492,7 @@ export const roads = {
       close: {
         name: 'close',
         isDeadEnd: true,
+        width () { return random(40, 80) },
         probability: 2,
         wordNoun: 'cul-de-sac'
       },
@@ -596,16 +605,17 @@ export const roads = {
   },
   width: {
     rolls: [
-      [100, 'wide courtyard'],
+      [100, 'courtyard-sized'],
       [90, 'wide, multi-lane'],
       [80, 'rather wide'],
       [70, 'wide'],
       [60, 'broad'],
       [50, ''],
       [35, 'narrow'],
+      [30, 'rather narrow'],
       [25, 'very narrow'],
-      [10, 'claustrophobic'],
-      [0, 'path']
+      [10, 'path-sized'],
+      [0, 'claustrophobically narrow']
     ] as ThresholdTable
   },
   material: {
