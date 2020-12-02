@@ -62,6 +62,7 @@ interface Namesake {
 }
 
 interface RoadOwnership extends ProperNoun {
+  // we're not using 'name' because road.name w
   prefix: string
   roadNameType: RoadNameType
   canBePossessive: boolean
@@ -76,6 +77,12 @@ interface ProperNoun {
   isUnique?: boolean
   isBuilding?: string
   namesake?: Namesake
+}
+
+interface RoadMaterial {
+  type: string
+  /** @example `Main Street is a narrow paved street. It is ________` */
+  description: string[]
 }
 
 type RoadNameType =
@@ -176,7 +183,7 @@ export const roads = {
       materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
     }
     road.materialDescription = random(roads.material.types[constructionMethod].description)
-    road.description = ` ${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
+    road.description = `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
     if (road.namesake?.reason) road.description += road.namesake.reason
 
     return road
@@ -655,6 +662,7 @@ export const roads = {
           'two thin lines of dirt road with grass growing around and in between them.',
           'well trodden, though slightly muddy.',
           'a desire path, with the grass just gently trodden down.',
+          'made of dirt that has been gently packed down.',
           'made of dirt that has been packed down.',
           'made of dirt that has been packed down. Unfortunately, it was done a long time ago, and is deteriorating slightly.'
         ]
@@ -687,23 +695,6 @@ export const roads = {
           'an arrangement of baked moss and artichoke coloured bricks, made from compressed Gnomegrass and Eldenoak sap mixture.'
         ]
       }
-    }
-  },
-  intendedFunction: {
-    residential: {
-      features: [
-
-      ]
-    },
-    commercial: {
-
-    },
-    communal: {
-
-    },
-    industrial: {
-
-    }
-
+    } as Record<MaterialTypes, RoadMaterial>
   }
 }
