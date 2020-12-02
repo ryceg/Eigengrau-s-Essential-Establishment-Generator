@@ -9,7 +9,7 @@
   <blockquote>
     As you make your way along
     <<if $currentPassage.road>>
-      $currentPassage.road
+      <<print lib.createTippyFull($town.roads[_building.road].description, $town.roads[_building.road].name)>>
     <<else>>
       the road,
     <</if>>
