@@ -42,7 +42,8 @@ export function createBuilding (town: Town, type: string, base = {}) {
     priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
   }, base)
 
-  roads.assign(town, building)
+  const road = roads.assign(town, building)
+  building.road = road.key
 
   if (building.parentKey) {
     console.log('Has a parent!')
