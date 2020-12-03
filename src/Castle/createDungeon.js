@@ -9,6 +9,7 @@ setup.createDungeon = (town, opts) => {
     age: data.age.random(),
     format: data.format.random(),
     wordNoun: ['dungeon', 'oubliette', 'jail', 'prison'].random(),
+    needsWordNoun: false,
     passageName: 'Dungeon',
     initPassage: 'Dungeon',
     buildingType: 'dungeon',
