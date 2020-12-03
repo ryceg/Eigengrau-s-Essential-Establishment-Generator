@@ -7,6 +7,7 @@ setup.createCastle = (town, opts = {}) => {
     builtBy: data.builtBy.random(),
     knownFor: data.knownFor.random(),
     wordNoun: data.name.wordNouns.random(),
+    needsWordNoun: false,
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
     buildingType: 'castle',
