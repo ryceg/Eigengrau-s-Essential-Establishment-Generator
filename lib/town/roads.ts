@@ -16,7 +16,8 @@ import { Town } from './_common'
 import { random } from '../src/random'
 
 export interface RoadData {
-  name: RoadType | string
+  name: RoadType
+  /** @description This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: RoadType | 'cul-de-sac'
   probability: number
   width(): number
@@ -28,16 +29,22 @@ export interface RoadData {
 }
 
 export interface Road {
+  /** @description The full title of the road- "King Street" */
   name: string
+  /** @description The prefix- "King" of "King Street" */
   prefix: string
   key: string
+  /** @description The string that is used as the Tippy. Collates a lot of the other data. */
   description: string
+  capacity: number
+  /** @description This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: string
   width: string
   namesake?: Namesake
   materialUsed: string
   materialDescription: string
   constructionMethod: string
+  /** @description The type of road- a crescent, road, way, etc. */
   type: RoadType | string
   hasTraffic: boolean
   isDeadEnd: boolean
@@ -62,7 +69,7 @@ interface Namesake {
 }
 
 interface RoadOwnership extends ProperNoun {
-  // we're not using 'name' because road.name w
+  // we're not using 'name' because road.name is already being used
   prefix: string
   roadNameType: RoadNameType
   canBePossessive: boolean
@@ -115,13 +122,35 @@ export const roads = {
     console.groupCollapsed('Assigning a road...')
     let road: Road
     if (random(100) < townData.type[town.type].roadDuplication && Object.values(town.roads).length > 0) {
-      road = Object.values(town.roads).random()
+      console.log('Searching for an existing road...')
+      for (const key in town.roads) {
+        console.log('for loop')
+        console.log(key)
+        let allowableNumber = roads.width.numberOfBuildingsAllowed.find(number => {
+          return town.roads[key].rolls.width >= number[0]
+        })
+        console.log(allowableNumber)
+        if (!allowableNumber) allowableNumber = [0, 1]
+        town.roads[key].capacity = allowableNumber[1]
+        console.log('length:')
+        console.log(Object.values(town.roads[key].inhabitants.buildings).length)
+        if (Object.values(town.roads[key].inhabitants.buildings).length + 1 >= allowableNumber[1]) {
+          console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
+          continue
+        } else if (Object.values(town.roads[key].inhabitants.buildings).length + 1 < allowableNumber[1]) {
+          road = town.roads[key]
+          break
+        }
+      }
+      // if it doesn't find a suitable road, make a new one.
+      road = roads.create(town, building)
+      town.roads[road.key] = road
     } else {
       road = roads.create(town, building)
       town.roads[road.key] = road
     }
 
-    if (building) {
+    if (road && building) {
       road.inhabitants.buildings[building.key] = building.type
       building.road = road.key
     }
@@ -611,6 +640,17 @@ export const roads = {
     }
   },
   width: {
+    /**
+     * @example [size, number of buildings allowed]
+     * @description So not everything is all on the same bloody street.
+    */
+    numberOfBuildingsAllowed: [
+      [90, 5],
+      [50, 4],
+      [40, 3],
+      [20, 2],
+      [0, 1]
+    ],
     rolls: [
       [100, 'courtyard-sized'],
       [90, 'wide, multi-lane'],
