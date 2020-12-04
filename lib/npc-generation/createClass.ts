@@ -59,6 +59,6 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
   for (const [amount, origin] of originWage) {
     if (amount >= wageVariation(town, npc)) return origin as string
   }
-
-  throw new Error('Could not get profession origin.')
+  console.error('Could not find a suitable profession origin.')
+  return originWage[5][1] as string
 }
