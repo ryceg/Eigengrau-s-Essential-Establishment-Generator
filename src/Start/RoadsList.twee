@@ -6,6 +6,7 @@
     \<<if def _previousBuilding && _previousBuilding.road === _roadKey>>
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
     \<<else>>
+    
     \<<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_roadKey].description, $town.roads[_roadKey].name)>> is 
     \<</if>>
     \<<if _building.needsWordNoun>>
@@ -14,4 +15,4 @@
     \<<include "BuildingLink">><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
-<</for>>
+\<</for>>

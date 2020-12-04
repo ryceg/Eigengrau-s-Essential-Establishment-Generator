@@ -2,5 +2,4 @@
 \<<set _building.tooltip = _building.key>>
 \<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_building.name)>>
 \<<profile _building _buildingTitle>>
-
 \</span>
