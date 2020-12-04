@@ -39,6 +39,7 @@ export interface Road {
   capacity: number
   /** @description This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: string
+  objectType: 'road'
   width: string
   namesake?: Namesake
   materialUsed: string
@@ -124,20 +125,11 @@ export const roads = {
     if (random(100) < townData.type[town.type].roadDuplication && Object.values(town.roads).length > 0) {
       console.log('Searching for an existing road...')
       for (const key in town.roads) {
-        console.log('for loop')
-        console.log(key)
-        let allowableNumber = roads.width.numberOfBuildingsAllowed.find(number => {
-          return town.roads[key].rolls.width >= number[0]
-        })
-        console.log(allowableNumber)
-        if (!allowableNumber) allowableNumber = [0, 1]
-        town.roads[key].capacity = allowableNumber[1]
-        console.log('length:')
         console.log(Object.values(town.roads[key].inhabitants.buildings).length)
-        if (Object.values(town.roads[key].inhabitants.buildings).length + 1 >= allowableNumber[1]) {
+        if (Object.values(town.roads[key].inhabitants.buildings).length + 1 >= town.roads[key].capacity) {
           console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
           continue
-        } else if (Object.values(town.roads[key].inhabitants.buildings).length + 1 < allowableNumber[1]) {
+        } else if (Object.values(town.roads[key].inhabitants.buildings).length + 1 < town.roads[key].capacity) {
           road = town.roads[key]
           break
         }
@@ -167,14 +159,18 @@ export const roads = {
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
     const widthRoll = type.width()
     let feature: string
-    if (roads.name.type[type.name].features && roads.name.type[type.name].features.length > 0) {
-      feature = random(roads.name.type[type.name].features)
+    if (roads.name.type[type.name].features) {
+      if (roads.name.type[type.name].features.length > 0 && random(100) > 50) {
+        feature = random(roads.name.type[type.name].features)
+      }
     } else {
       feature = random(roads.features)
     }
+
     const road: Road = {
       prefix: toTitleCase(roadPrefix.prefix),
       key: getUUID(),
+      objectType: 'road',
       feature,
       namesake: roadPrefix.namesake || undefined,
       type: toTitleCase(type.name),
@@ -201,8 +197,9 @@ export const roads = {
     })
     if (!width) width = last(roads.width.rolls)
     road.width = width[1]
+    road.capacity = roads.width.getCapacity(road)
     const material = roads.material.get(town, road)
-    const constructionMethod = random(material.roadMaterialType)
+    const constructionMethod = random(material.roadMaterialType) as string
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
     let materialUsedDescriptor
@@ -644,13 +641,21 @@ export const roads = {
      * @example [size, number of buildings allowed]
      * @description So not everything is all on the same bloody street.
     */
-    numberOfBuildingsAllowed: [
+    capacity: [
       [90, 5],
       [50, 4],
       [40, 3],
       [20, 2],
       [0, 1]
     ],
+    getCapacity (road: Road): number {
+      let allowableNumber = roads.width.capacity.find(number => {
+        return road.rolls.width >= number[0]
+      })
+      console.log(allowableNumber)
+      if (!allowableNumber) allowableNumber = [0, 1]
+      return allowableNumber[1]
+    },
     rolls: [
       [100, 'courtyard-sized'],
       [90, 'wide, multi-lane'],
