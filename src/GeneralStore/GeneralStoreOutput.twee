@@ -3,7 +3,7 @@
 \<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 \<<set $currentPassage.availableRelationships to lib.generalStore.get.customers>>
 \<span class="interactive-only"><h1>$building.name</h1></span><<include "TownMicroEventsOutput">>
-<<print lib.firstCharacter("You")>> make your way down $building.road, and enter $building.structure.generalStoreDescriptor and see that inside, the $building.size building is $building.cleanliness. $building.clutter You notice $building.note. The store's shopkeep is currently $building.idle.
+<<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.structure.generalStoreDescriptor and see that inside, the $building.size building is $building.cleanliness. $building.clutter You notice $building.note. The store's shopkeep is currently $building.idle.
 
 <h3>Shopkeeper</h3>
 The shopkeep <<print $associatedNPC.greeting.random()>> <<print ['when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around'].random()>>. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.owner of the General Store, and $building.say. $building.shopkeepNote.
