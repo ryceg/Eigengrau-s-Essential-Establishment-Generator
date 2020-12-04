@@ -1220,7 +1220,7 @@ setup.initNpcData = () => {
         probability: 5,
         // type: ['says', 'doesnt', 'hides'],
         exclusions (town, npc) {
-          return !(npc.beard || (npc.gender !== 'man' && random(0, 100) <= npc.beardProbability))
+          return !(npc.beard || (npc.gender !== 'man' && random(1, 100) <= npc.beardProbability))
         },
         function (town, npc) {
           return `${npc.name} doesn't say ${npc.heshe} wants to grow a beard.`
