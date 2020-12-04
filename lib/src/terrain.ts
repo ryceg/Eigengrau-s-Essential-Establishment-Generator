@@ -1,4 +1,3 @@
-import { MaterialTypes } from '../buildings/structureData'
 import { WeightRecord } from '../types'
 import { dice } from './dice'
 import { random } from './random'
@@ -31,7 +30,7 @@ interface LocationData {
   origin: string[]
   vegetation: Record<string, number>
   plants: WeightRecord<string>
-  possibleMaterials: MaterialTypes[]
+  possibleMaterials: string[]
 }
 
 export const terrain: Record<Biome, TerrainData> = {
