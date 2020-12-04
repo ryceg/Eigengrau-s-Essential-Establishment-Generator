@@ -13,7 +13,7 @@ setup.createDungeon = (town, opts) => {
     passageName: 'Dungeon',
     initPassage: 'Dungeon',
     buildingType: 'dungeon',
-    objectType: 'room',
+    objectType: 'building',
     cells: {
       prisoners: {
         treatment: data.cells.prisoners.treatment.random()

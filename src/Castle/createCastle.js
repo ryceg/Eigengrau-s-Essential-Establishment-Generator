@@ -11,6 +11,7 @@ setup.createCastle = (town, opts = {}) => {
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
     buildingType: 'castle',
+    objectType: 'building',
     defense: {
       reason: [
         data.location[town.location].defenseReason.random()
