@@ -42,9 +42,6 @@ export function createBuilding (town: Town, type: string, base = {}) {
     priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
   }, base)
 
-  const road = roads.assign(town, building)
-  building.road = road.key
-
   if (building.parentKey) {
     console.log('Has a parent!')
     building.isChild = true
@@ -52,6 +49,9 @@ export function createBuilding (town: Town, type: string, base = {}) {
     // const parentIndex = findBuildingIndex(town, base.parentKey)
     // town.buildings[parentIndex].childKeys.push(building.key)
     // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
+  } else {
+    const road = roads.assign(town, building)
+    building.road = road.key
   }
   // building.priceModifier += town.taxes.economics
   building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
