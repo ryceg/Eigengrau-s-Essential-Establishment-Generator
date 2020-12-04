@@ -1,11 +1,16 @@
-type Town = import('../lib/town/_common').Town
+import { Weather } from '../lib/index'
+import { Town } from '../lib/town/_common'
+
 type NPC = import('../lib/npc-generation/_common').NPC
 
 interface Setup {
+  renderWeather(town: Town, biome: string, weather: Weather): void
+  createWeather(town: Town, biome: string, weather: Weather): Weather
+  toCelsius(temperature: number);
   init(): void
   initMisc(): void
   npcTaxRate(town: Town, npc: NPC): number
-  profile(obj: any, base?: string, type?: string): string
+  profile(obj: NPC | Building | Faction, base?: string, type?: string): string
   createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
   expandFamily(town: Town, npc: NPC): void
