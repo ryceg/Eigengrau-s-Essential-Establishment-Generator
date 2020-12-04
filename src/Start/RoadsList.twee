@@ -8,7 +8,7 @@
     \<<else>>
     \<<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_roadKey].description, $town.roads[_roadKey].name)>> is 
     \<</if>>
-    \<<if _building.needsWordNoun === true>>
+    \<<if _building.needsWordNoun>>
       \the _building.wordNoun 
     \<</if>>
     \<<include "BuildingLink">><<set _previousBuilding to _building>><</capture>>
