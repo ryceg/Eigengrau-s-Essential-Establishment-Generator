@@ -17,8 +17,8 @@ setup.profileTooltip = function (id, obj) {
           case 'faction':
             span.title = obj.tippyDescription || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
             break
-          case 'guard':
-            span.title = obj.tippyDescription || `${obj.name}, the guards.`
+          case 'road':
+            span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
             break
           default:
             console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
