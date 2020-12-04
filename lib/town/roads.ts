@@ -14,6 +14,7 @@ import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { Town } from './_common'
 import { random } from '../src/random'
+import { fetchGender } from '../src/genderData'
 
 export interface RoadData {
   name: RoadType
@@ -162,6 +163,8 @@ export const roads = {
     if (roads.name.type[type.name].features) {
       if (roads.name.type[type.name].features.length > 0 && random(100) > 50) {
         feature = random(roads.name.type[type.name].features)
+      } else {
+        feature = random(roads.features)
       }
     } else {
       feature = random(roads.features)
@@ -226,8 +229,10 @@ export const roads = {
       const selected = weightRandom(probabilities)
       let road: ProperNoun
       const race = fetchRace(town)
+      const gender = fetchGender(town)
       const namesake = {
         race,
+        gender,
         firstName: createName({ race, firstOrLast: 'firstName' }),
         lastName: createName({ race, firstOrLast: 'lastName' })
       }
@@ -492,7 +497,8 @@ export const roads = {
         name: 'lane',
         width () { return random(5, 40) },
         features: [
-          'Houses lean over into the street on both sides, limiting the amount of sun that is visible. Laundry lines are strung between windows across the road.'
+          'Houses lean over into the street on both sides, limiting the amount of sun that is visible.',
+          'Laundry lines are strung between windows across the road.'
         ],
         probability: 5,
         wordNoun: 'lane'
@@ -501,14 +507,26 @@ export const roads = {
         name: 'road',
         probability: 10,
         width () { return random(10, 90) },
-        wordNoun: 'road'
+        wordNoun: 'road',
+        features: [
+          'There is a large rock to the side of the road.',
+          'The road has a groove along the middle designating which side people should travel on.',
+          'The road has the occasional pothole.',
+          'There are some potholes which litter the road.'
+        ]
       },
       square: {
         name: 'square',
         width () { return random(92, 99) },
         hasTraffic: false,
         wordNoun: 'square',
-        probability: 2
+        probability: 2,
+        features: [
+          'It looks like the square is an excellent place to meet friends, with several tables set up in the middle for the public to use.',
+          'The square has a handy map board in the middle, detailing where everything is.',
+          'There is a statue of someone dead and important in the middle of the square.',
+          'There are the occasional street sellers hawking their goods in the square.'
+        ]
       },
       way: {
         name: 'way',
@@ -520,7 +538,11 @@ export const roads = {
         name: 'crescent',
         width () { return random(40, 80) },
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        features: [
+          'A row of houses and buildings is splayed out, with enough room for a horse and cart to turn around.',
+          'An arch of houses is punctuated by a single large tree in between them, with a picnic table beneath it.'
+        ]
       },
       close: {
         name: 'close',
@@ -545,7 +567,9 @@ export const roads = {
       dyke: {
         name: 'dyke',
         width () { return random(0, 60) },
-        features: ['The land on either side is rather soggy and prone to being water-logged.'],
+        features: [
+          'The land on either side is rather soggy and prone to being water-logged.'
+        ],
         probability: 1,
         wordNoun: 'road'
       },
@@ -572,7 +596,9 @@ export const roads = {
       },
       drive: {
         name: 'drive',
-        features: ['There is a nice looking house at the end of the road.'],
+        features: [
+          'There is a nice looking house at the end of the road.'
+        ],
         width () { return random(40, 80) },
         probability: 1,
         wordNoun: 'road'
@@ -580,7 +606,10 @@ export const roads = {
       boulevard: {
         name: 'boulevard',
         width () { return random(50, 90) },
-        features: ['There is a median through the middle of the road.', 'Trees are planted along the sides.'],
+        features: [
+          'There is a median through the middle of the road.',
+          'Trees are planted along the sides.'
+        ],
         probability: 1,
         wordNoun: 'road'
       },
@@ -588,13 +617,18 @@ export const roads = {
         name: 'plaza',
         width () { return random(50, 90) },
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        features: [
+          'There are some street sellers hawking their wares in the plaza.',
+          'There\'s a well in the centre of the plaza.'
+        ]
       },
       track: {
         name: 'track',
         width () { return random(0, 50) },
         probability: 1,
         material: 'dirt',
+        wordNoun: 'track',
         exclusions (town: Town) { return town.population < 500 }
       },
       trail: {
@@ -602,6 +636,7 @@ export const roads = {
         width () { return random(0, 40) },
         probability: 1,
         material: 'dirt',
+        wordNoun: 'trail',
         exclusions (town: Town) { return town.population < 400 }
       }
     } as Record<RoadType, RoadData>
@@ -630,7 +665,9 @@ export const roads = {
         `It is named after ${fullName}, who was an adventurer who killed the hags that had stolen some of the children of ${town.name}.`,
         'It is named after somebody who changed the street name as a prank- it stuck, and never got changed back.',
         'It is named after a much loved dog.',
-        `It is named after the ${namesake.lastName} family who have lived there for generations.`
+        'It is named after a much loved cat.',
+        `It is named after the ${namesake.lastName} family who have lived there for generations.`,
+        `It is named after the ${namesake.lastName} family who wield an amount of political power.`
       ]
       const selected: string = random(reasons)
       return selected

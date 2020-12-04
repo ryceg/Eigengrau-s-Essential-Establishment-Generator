@@ -30,6 +30,7 @@ export interface Town {
     arcana: number
     equality: number
     religiosity: number
+    genderMakeup: number
   }
   taxes: {
     welfare: number
