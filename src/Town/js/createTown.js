@@ -174,7 +174,9 @@ setup.createTown = (base = {}) => {
       military: lib.dice(2, 50),
       law: lib.dice(2, 50),
       arcana: lib.dice(2, 50),
-      equality: lib.dice(2, 50) - 20
+      equality: lib.dice(2, 50) - 20,
+      /** @description Percentage of the dominant gender */
+      genderMakeup: random(49, 51)
     }
   }, base)
 
