@@ -2,17 +2,29 @@ import { random } from './random'
 import { dice } from './dice'
 import { ThresholdTable } from './rollFromTable'
 
-interface Weather {
-  roll: {
-    cloud: number
-    precipitation: number
-    precipitationIntensity: number
-  }
+export interface Weather {
+  temperature: number
+  tempVariation: number
+  currentSeason: string
   timer: {
-    cloud: number
     precipitation: number
+    cloud: number
+    temperature: number
+  }
+  roll: {
+    precipitationIntensity: number
+    precipitation: number
+    cloud: number
+  }
+  readout: {
+    precipitation: string
+    cloud: string
+    temperature: string
+    full: string
   }
   precipitation: string | false
+  precipitationLevel: number
+  precipitationIntensity: number
   cloudIntensity: string
 }
 
