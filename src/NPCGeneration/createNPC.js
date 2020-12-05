@@ -1,7 +1,6 @@
 /** @type {Partial<NPC>} */
 const defaultBase = {
-  isShallow: true,
-  roll: {}
+  isShallow: true
 }
 /** @returns {NPC} npc */
 setup.createNPC = (town, base = defaultBase) => {
@@ -14,6 +13,12 @@ setup.createNPC = (town, base = defaultBase) => {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   const data = setup.npcData
 
+  base.roll = {
+    professionLuck: lib.dice(5, 10) - 27,
+    physicalTrait: lib.random(1, 100),
+    gregariousness: lib.dice(3, 6),
+    conformity: lib.dice(2, 50)
+  }
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
     base.isThrowaway = base.isThrowaway || true
@@ -68,20 +73,6 @@ setup.createNPC = (town, base = defaultBase) => {
     },
     religion: {
 
-    },
-    roll: {
-      professionLuck: lib.dice(5, 10) - 27,
-      /**
-      * @param {Town} town
-      * @param {NPC} npc
-      * @returns {number} */
-
-      physicalTrait: lib.random(1, 100),
-      gregariousness: lib.dice(3, 6),
-      // conformity: 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care"
-      // TODO: conformity would ideally be used in testing for breaking gender norms, but it is only initialised AFTER the test.
-      // not really sure how to go about fixing it.
-      conformity: lib.dice(2, 50)
     },
     finances: {
       creditors: {},
