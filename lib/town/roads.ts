@@ -30,23 +30,25 @@ export interface RoadData {
 }
 
 export interface Road {
-  /** @description The full title of the road- "King Street" */
+  /** The full title of the road- "King Street" */
   name: string
-  /** @description The prefix- "King" of "King Street" */
+  /** The prefix- "King" of "King Street" */
   prefix: string
   key: string
-  /** @description The string that is used as the Tippy. Collates a lot of the other data. */
+  /** The string that is used as the Tippy. Collates a lot of the other data.
+   * @example `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
+  */
   description: string
   capacity: number
-  /** @description This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
+  /** This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: string
   objectType: 'road'
   width: string
   namesake?: Namesake
-  materialUsed: string
+  materialUsed: MaterialTypes
   materialDescription: string
   constructionMethod: string
-  /** @description The type of road- a crescent, road, way, etc. */
+  /** The type of road- a crescent, road, way, etc. */
   type: RoadType | string
   hasTraffic: boolean
   isDeadEnd: boolean
@@ -76,7 +78,7 @@ interface RoadOwnership extends ProperNoun {
   roadNameType: RoadNameType
   canBePossessive: boolean
   isUnique: boolean
-  isBuilding: string
+  isBuilding: string | false
 }
 
 interface ProperNoun {
@@ -84,7 +86,7 @@ interface ProperNoun {
   prefix: string
   canBePossessive?: boolean
   isUnique?: boolean
-  isBuilding?: string
+  isBuilding?: string | false
   namesake?: Namesake
 }
 
@@ -151,7 +153,7 @@ export const roads = {
     console.groupEnd()
     return road
   },
-  /** @description Creates the road */
+  /** Creates the road */
   create: (town: Town, building?: Building): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
     console.log('Creating a road...')
