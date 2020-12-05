@@ -38,10 +38,30 @@ export interface NPC {
   ageYears: number
   adventure?: string
   profession: string
+  /**
+   * @description In the style of Xanathar's Class Origins, for the professions.
+   */
   professionOrigin: string
   professionSuccess: string
   background: BackgroundName
-  roll: Record<string, number>
+  roll: {
+    /**
+     * @description How lucky/good someone is at their job.
+     */
+    professionLuck: number
+    /**
+     * @description "Rarity" of the trait- not really a super important attribute.
+     */
+    physicalTrait: number
+    /**
+     * @description 100 is an exceedingly charismatic person, 1 is uber-awkward.
+     */
+    gregariousness: number
+    /**
+     * @description 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care"
+     */
+    conformity: number
+  }
   partnerID?: string
   lifeEvents: string[]
   callbackFunction?(town: Town): any
@@ -66,9 +86,17 @@ export interface NPC {
   isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
+  /**
+   * @description How the NPC acts when they're calm.
+   */
   calmTrait: string
+    /**
+   * @description How the NPC acts when they're stressed.
+   */
   stressTrait: string
-  relaxedTrait: string
+  /**
+   * @decription A noticeable vocal pattern.
+   */
   vocalPattern: string
   pronouns: {
     heshe: string
@@ -93,6 +121,9 @@ export interface NPC {
   note?: string
   descriptors: string[]
   descriptor: string
+  /**
+   * @description In the style of Xanathar's Background Origins
+   */
   backgroundOrigin: string
   birthplace: string
   siblingNumber: number
@@ -104,8 +135,18 @@ export interface NPC {
   familyLifestyle: string
   familyUnit: string
   knewParents: boolean
+    /**
+   * @description In the style of PHB bonds.
+   */
   bond: string
+  /**
+   * @description In the style of PHB ideals.
+   */
   ideal: string
+    /**
+   * @description In the style of PHB flaws.
+   */
+  flaw?: string
   greeting?: string[]
   death?: {
     murderer: null | string

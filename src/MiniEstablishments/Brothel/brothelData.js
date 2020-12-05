@@ -290,37 +290,37 @@ setup.brothel = {
     'a mean old madam': {
       age: 'venerable',
       gender: 'woman',
-      relaxedTrait: 'mean',
+      calmTrait: 'mean',
       profession: 'pimp'
     },
     'a large madam with a no-nonsense attitude': {
       gender: 'woman',
       weight: 'plump',
-      relaxedTrait: 'sensible',
+      calmTrait: 'sensible',
       profession: 'pimp'
     },
     'a warm motherly figure': {
       gender: 'woman',
       weight: 'plump',
-      relaxedTrait: 'kind',
+      calmTrait: 'kind',
       profession: 'pimp'
     },
     'a surly brute': {
       gender: 'man',
       weight: 'muscular',
-      relaxedTrait: 'mean',
+      calmTrait: 'mean',
       profession: 'pimp'
     },
     'a tyrannical and cruel fellow': {
       gender: 'man',
       age: 'middle-aged',
-      relaxedTrait: 'mean',
+      calmTrait: 'mean',
       profession: 'pimp'
     },
     'a sultry seductress': {
       gender: 'woman',
       age: 'relatively young',
-      relaxedTrait: 'flirtatious',
+      calmTrait: 'flirtatious',
       profession: 'pimp'
     },
     'a charming witch': {
@@ -333,12 +333,12 @@ setup.brothel = {
       gender: 'woman',
       weight: 'plump',
       age: 'relatively young',
-      relaxedTrait: 'flirtatious',
+      calmTrait: 'flirtatious',
       profession: 'pimp'
     },
     'a rugged and grizzled rogue': {
       gender: 'man',
-      relaxedTrait: 'mean',
+      calmTrait: 'mean',
       profession: 'pimp'
     }
   },
