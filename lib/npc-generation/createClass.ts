@@ -24,11 +24,6 @@ export function createClass (town: Town, npc: NPC) {
   npc.background = npc.background || background
 }
 
-/**
- * @param {NPC} npc
- * @param {Town} town
- * @returns {string}
- */
 function getProfessionOrigin (npc: NPC, town: Town): string {
   const profession: Profession = findProfession(town, npc)
 
