@@ -159,7 +159,7 @@ export const roads = {
     console.log('Finding a type...')
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
     const widthRoll = type.width()
-    const feature = roads.get.features(town, type)
+    const feature = roads.get.features(type)
 
     const road: Road = {
       prefix: toTitleCase(roadPrefix.prefix),
@@ -633,16 +633,9 @@ export const roads = {
     } as Record<RoadType, RoadData>
   },
   get: {
-    features (town: Town, type: RoadData): string {
-      if (roads.name.type[type.name].features) {
-        if (roads.name.type[type.name].features.length > 0 && random(100) > 50) {
-          return random(roads.name.type[type.name].features)
-        } else {
-          return random(roads.features)
-        }
-      } else {
-        return random(roads.features)
-      }
+    features (type: RoadData): string {
+      if (roads.name.type[type.name].features && random(100) > 50) return random(roads.name.type[type.name].features)
+      return random(roads.features)
     }
   },
   features: [
