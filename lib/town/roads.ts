@@ -159,16 +159,7 @@ export const roads = {
     console.log('Finding a type...')
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
     const widthRoll = type.width()
-    let feature: string
-    if (roads.name.type[type.name].features) {
-      if (roads.name.type[type.name].features.length > 0 && random(100) > 50) {
-        feature = random(roads.name.type[type.name].features)
-      } else {
-        feature = random(roads.features)
-      }
-    } else {
-      feature = random(roads.features)
-    }
+    const feature = roads.get.features(town, type)
 
     const road: Road = {
       prefix: toTitleCase(roadPrefix.prefix),
@@ -640,6 +631,19 @@ export const roads = {
         exclusions (town: Town) { return town.population < 400 }
       }
     } as Record<RoadType, RoadData>
+  },
+  get: {
+    features (town: Town, type: RoadData): string {
+      if (roads.name.type[type.name].features) {
+        if (roads.name.type[type.name].features.length > 0 && random(100) > 50) {
+          return random(roads.name.type[type.name].features)
+        } else {
+          return random(roads.features)
+        }
+      } else {
+        return random(roads.features)
+      }
+    }
   },
   features: [
     'Helpful sign posts are dotted along the road pointing out the names of other streets.',
