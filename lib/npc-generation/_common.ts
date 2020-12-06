@@ -45,22 +45,16 @@ export interface NPC {
   professionSuccess: string
   background: BackgroundName
   roll: {
-    /**
-     * @description How lucky/good someone is at their job.
-     */
+    /** How lucky/good someone is at their job. */
     professionLuck: number
-    /**
-     * @description "Rarity" of the trait- not really a super important attribute.
-     */
+    /** "Rarity" of the trait- not really a super important attribute. */
     physicalTrait: number
-    /**
-     * @description 100 is an exceedingly charismatic person, 1 is uber-awkward.
-     */
+    /** 100 is an exceedingly charismatic person, 1 is uber-awkward. */
     gregariousness: number
-    /**
-     * @description 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care"
-     */
+    /** 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care" */
     conformity: number
+    /** The number used to determine their gender. */
+    gender: number
   }
   partnerID?: string
   lifeEvents: string[]
