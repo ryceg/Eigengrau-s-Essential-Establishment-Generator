@@ -1,3 +1,4 @@
+// Uses setup.getMarriages, setup.knewParents
 /** @type {import("../../lib/index").ThresholdTable} */
 const birthplaceTable = [
   [50, 'at home'],
@@ -109,6 +110,7 @@ const familyUnits = {
   }
 }
 
+// Uses setup.knewParents, setup.getFatherMother
 /**
  * @param {Town} town
  * @param {NPC} npc
@@ -163,6 +165,7 @@ setup.createHistory = function (town, npc) {
   npc.childhoodMemories = createChildhoodMemories(town, npc)
 }
 
+// Uses setup.createNPC, setup.createRelationship
 /**
  * @param {Town} town
  * @param {NPC} npc
