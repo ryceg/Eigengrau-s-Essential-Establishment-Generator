@@ -1,4 +1,4 @@
-import { LifestyleStandard, RaceName } from '../../../lib/index'
+import { LifestyleStandardName, RaceName } from '../../../lib/index'
 import { NPC, SocialClassName } from '../../../lib/npc-generation/_common'
 import { Town } from '../../../lib/town/_common'
 
@@ -46,5 +46,7 @@ export interface Marriage {
   parents: string[]
   children: any[]
   socialClass?: SocialClassName
-  lifestyle?: LifestyleStandard
+  lifestyle?: LifestyleStandardName
+  familyUnit?: string
+  home?: string
 }

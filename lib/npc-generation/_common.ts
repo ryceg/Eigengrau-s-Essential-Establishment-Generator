@@ -1,6 +1,7 @@
 import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
+import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export type SocialClassName =
@@ -101,7 +102,7 @@ export interface NPC {
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
-  familyLifestyle: string
+  familyLifestyle: LifestyleStandardName
   familyUnit: string
   knewParents: boolean
   bond: string
