@@ -67,7 +67,7 @@ export const patreonCharacters = {
     height: 'tall, but with a bit of a slouch',
     heightInches: 72,
     weight: 'muscular',
-    weightRoll: 180,
+    weightPounds: 180,
     hairColour: 'shaved bald',
     hairType: 'shiny',
     scar: 'scars everywhere. Not even in cool places. Just everywhere. Hands, legs, arms, chest, back, neck, face, ears, knees, some too close to the groin.',

@@ -15,8 +15,8 @@ export function setRace (npc: NPC) {
   }
 
   npc.heightInches = genderTraits.baseHeight + genderTraits.heightModifier()
-  npc.weightRoll = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
-  npc.bmi = Math.trunc((npc.weightRoll / (npc.heightInches * npc.heightInches)) * raceData.bmiModifier)
+  npc.weightPounds = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
+  npc.bmi = Math.trunc((npc.weightPounds / (npc.heightInches * npc.heightInches)) * raceData.bmiModifier)
   npc.weight = npc.weight || closestMatch(bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
   for (const [height, description] of heightChart) {

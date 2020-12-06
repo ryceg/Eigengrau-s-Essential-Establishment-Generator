@@ -76,9 +76,9 @@ setup.metricHeight = (height, isMetric) => {
  */
 setup.metricWeight = (npc, isMetric) => {
   if (isMetric === true) {
-    return `${(npc.weightRoll / 2.2046).toFixed(1)}kg (with a BMI of ${npc.bmi})`
+    return `${(npc.weightPounds / 2.2046).toFixed(1)}kg (with a BMI of ${npc.bmi})`
   } else {
-    return `${npc.weightRoll}lbs. (with a BMI of ${npc.bmi})`
+    return `${npc.weightPounds}lbs. (with a BMI of ${npc.bmi})`
   }
 }
 
@@ -115,10 +115,10 @@ setup.profileWeightTooltip = function (id, char) {
     const span = document.getElementById(id)
     if (span) {
       if (settings.showMetric === true) {
-        span.title = `${(char.weightRoll / 2.2046).toFixed(1)}kg (with a BMI of ${char.bmi})`
+        span.title = `${(char.weightPounds / 2.2046).toFixed(1)}kg (with a BMI of ${char.bmi})`
         tippy(`#${span.id}`)
       } else {
-        span.title = `${char.weightRoll}lbs. (with a BMI of ${char.bmi})`
+        span.title = `${char.weightPounds}lbs. (with a BMI of ${char.bmi})`
       }
 
       tippy(`#${span.id}`)
