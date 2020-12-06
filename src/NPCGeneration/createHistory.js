@@ -40,72 +40,72 @@ const birthplaceTable = [
 const familyUnits = {
   bothParents: {
     probability: 25,
-    exclusions: (town, obj) => obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my mother and father'
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, obj) => lib.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
     descriptor: 'my single stepmother'
   },
   singleMother: {
     probability: 14,
-    exclusions: (town, obj) => obj.npc.knewParents && !obj.father,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
     descriptor: 'my single mother'
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, obj) => lib.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
     descriptor: 'my single stepfather'
   },
   singleFather: {
     probability: 14,
-    exclusions: (town, obj) => obj.npc.knewParents && !obj.mother,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
     descriptor: 'my single father'
   },
   adoptiveFamily: {
     probability: 10,
-    exclusions: (town, obj) => !obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my adoptive family'
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, obj) => obj.mother && lib.knewParents(town, obj.mother),
+    exclusions: (town, familyUnitObj) => familyUnitObj.mother && lib.knewParents(town, familyUnitObj.mother),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, obj) => obj.father && lib.knewParents(town, obj.father),
+    exclusions: (town, familyUnitObj) => familyUnitObj.father && lib.knewParents(town, familyUnitObj.father),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
     probability: 8,
-    exclusions: (town, obj) => obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my extended family'
   },
   guardian: {
     probability: 2,
-    exclusions: (town, obj) => !obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my guardian'
   },
   orphanage: {
     probability: 2,
-    exclusions: (town, obj) => !obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the orphanage'
   },
   temple: {
     probability: 1,
-    exclusions: (town, obj) => !obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the temple'
   },
   institution: {
     probability: 1,
-    exclusions: (town, obj) => !obj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the institution'
   },
   streets: {
     probability: 1,
-    exclusions: (town, obj) => !obj.npc.knewParents && !['aristocracy', 'nobility'].includes(obj.npc.socialClass),
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
@@ -121,6 +121,7 @@ setup.createHistory = function (town, npc) {
 
   if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
+  /** @type {import("./Relationships/createFamilyMembers").Marriage} */
   const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
 
@@ -134,8 +135,9 @@ setup.createHistory = function (town, npc) {
       npc.familyUnit = parentMarriage.familyUnit
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
-      const obj = { npc, father, mother }
-      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, obj, null, 'descriptor')
+      const familyUnitObj = { npc, father, mother }
+      /** @type {string} */
+      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, familyUnitObj, null, 'descriptor')
       if (parentMarriage) {
         lib.assign(parentMarriage, { familyUnit: npc.familyUnit })
       }
