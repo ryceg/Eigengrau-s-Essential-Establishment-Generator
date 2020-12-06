@@ -1,11 +1,11 @@
 
 import { toTitleCase, townData } from '..'
 import { getBuildingTier } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes } from '../buildings/structureData'
+import { MaterialType, MaterialTypes, RoadMaterialTypes } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
 import { createName } from '../npc-generation/createName'
 import { fetchRace } from '../npc-generation/fetchRace'
-import { RaceName } from '../npc-generation/raceTraits'
+import { RaceName, raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
 import { getUUID, last } from '../src/utils'
@@ -195,14 +195,16 @@ export const roads = {
     road.width = width[1]
     road.capacity = roads.width.getCapacity(road)
     const material = roads.material.get(town, road)
-    const constructionMethod = random(material.roadMaterialType) as string
+    const constructionMethod = random(material.roadMaterialType) as RoadMaterialTypes
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
     let materialUsedDescriptor
     if (['gravel', 'dirt'].includes(road.constructionMethod)) {
       materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
+    } else if (['brick'].includes(road.constructionMethod)) {
+      materialUsedDescriptor = `${road.materialUsed} ${road.constructionMethod}`
     } else {
-      materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
+      materialUsedDescriptor = `${road.constructionMethod} ${road.materialUsed}`
     }
     road.materialDescription = random(roads.material.types[constructionMethod].description)
     road.description = `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
@@ -653,20 +655,42 @@ export const roads = {
     reason (town: Town, namesake: Namesake): string {
       const fullName = `${namesake.firstName} ${namesake.lastName}`
       const race = namesake.race
+      const namedAfter = random([
+        'It was named after',
+        'It has been named after',
+        'Its name comes from',
+        'The name comes from',
+        "The road's name comes from",
+        'The road was named after'
+      ])
       const reasons = [
-        `It is named after ${fullName}, who was ${articles.output(race)} who ruled wisely for many years.`,
-        `It is named after ${fullName}, who was ${articles.output(race)} who bought the naming rights to the road.`,
-        `It is named after ${fullName}, who was ${articles.output(race)} who brought riches to the people of ${town.name}.`,
-        `It is named after ${fullName}, who was the person who built the road.`,
-        `It is named after ${fullName}, who fought with the council for many years to have the road renamed after them.`,
-        `It is named after ${fullName}, who was a well respected local who was killed in war.`,
-        `It is named after ${fullName}, who was a much beloved prostitute, one of whose clients bought the road as a thankyou.`,
-        `It is named after ${fullName}, who was an adventurer who killed the hags that had stolen some of the children of ${town.name}.`,
-        'It is named after somebody who changed the street name as a prank- it stuck, and never got changed back.',
-        'It is named after a much loved dog.',
-        'It is named after a much loved cat.',
-        `It is named after the ${namesake.lastName} family who have lived there for generations.`,
-        `It is named after the ${namesake.lastName} family who wield an amount of political power.`
+        `${namedAfter} ${fullName}, who was ${articles.output(race)} who ruled wisely for many years.`,
+        `${namedAfter} ${fullName}, who was ${articles.output(race)} who bought the naming rights to the road.`,
+        `${namedAfter} ${fullName}, who was ${articles.output(race)} who brought riches to the people of ${town.name}.`,
+        `${namedAfter} ${fullName}, who was the person who built the road.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who sat on the council for many years.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who cared for orphans.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who lived there before setting off into the world, becoming relatively famous.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who produced a staggering ${random(12, 21)} children.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who once killed an ogre that was threatening the ${town.type} of ${town.name} with a sling.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who helped establish the ${town.type} of ${town.name}.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who was one of the first settlers of ${town.name}.`,
+        `${namedAfter} ${fullName}, ${articles.output(race)} who lived in ${town.name} for many, many years, maintaining the oral history.`,
+        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} judge who was renowned in ${town.name} for being totally impartial and fair.`,
+        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} guard who was renowned in ${town.name} for capturing dangerous criminals.`,
+        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} politician who was beloved in ${town.name} for various social reforms.`,
+        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} soldier who prevented a war.`,
+        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} messenger who delivered a critical message to the guards of ${town.name} after three days of non-stop running.`,
+        `${namedAfter} ${fullName}, who fought with the council for many years to have the road renamed after them.`,
+        `${namedAfter} ${fullName}, who was a well respected local who was killed in war.`,
+        `${namedAfter} ${fullName}, who was a very respected local who was captured in war, but did not reveal any secrets while being tortured.`,
+        `${namedAfter} ${fullName}, who was a much beloved prostitute, one of whose clients bought the road as a thankyou.`,
+        `${namedAfter} ${fullName}, who was an adventurer who killed the hags that had stolen some of the children of ${town.name}.`,
+        `${namedAfter} somebody who changed the street name as a prank- it stuck, and never got changed back.`,
+        `${namedAfter} a much loved dog.`,
+        `${namedAfter} a much loved cat.`,
+        `${namedAfter} the ${namesake.lastName} family who have lived there for generations.`,
+        `${namedAfter} the ${namesake.lastName} family who wield an amount of political power.`
       ]
       const selected: string = random(reasons)
       return selected
@@ -776,6 +800,6 @@ export const roads = {
           'an arrangement of baked moss and artichoke coloured bricks, made from compressed Gnomegrass and Eldenoak sap mixture.'
         ]
       }
-    } as Record<MaterialTypes, RoadMaterial>
+    } as Record<RoadMaterialTypes, RoadMaterial>
   }
 }

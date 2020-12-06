@@ -18,7 +18,7 @@ export interface MaterialType {
 
 export type MaterialTypes = keyof typeof structureData.material.types
 
-type RoadMaterialTypes = 'dirt' | 'gravel' | 'pavement' | 'brick'
+export type RoadMaterialTypes = 'dirt' | 'gravel' | 'pavement' | 'brick'
 
 export const structureData = {
   colour: [
