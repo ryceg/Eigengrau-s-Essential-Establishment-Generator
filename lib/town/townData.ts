@@ -5,6 +5,7 @@ import { RaceName } from '../npc-generation/raceTraits'
 import { WeightRecord } from '../types'
 import { PoliticalSource } from './_common'
 import { NPC } from '../npc-generation/_common'
+import { FactionType } from '../faction/factionData'
 
 export type TownType = 'hamlet' | 'village' | 'town' | 'city'
 export type EconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
@@ -69,7 +70,7 @@ interface TownData {
       data: {
         isFaction: boolean
         leaderType: string
-        governmentType: string
+        governmentType: FactionType
         politicalIdeologyIC: string
         description: string
       }
