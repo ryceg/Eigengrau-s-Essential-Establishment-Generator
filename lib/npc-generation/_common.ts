@@ -40,9 +40,7 @@ export interface NPC {
   ageYears: number
   adventure?: string
   profession: ProfessionNames
-  /**
-   * @description In the style of Xanathar's Class Origins, for the professions.
-   */
+  /** In the style of Xanathar's Class Origins, for the professions. */
   professionOrigin: string
   professionSuccess: string
   background: BackgroundName
@@ -84,13 +82,9 @@ export interface NPC {
   isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
-  /**
-   * @description How the NPC acts when they're calm.
-   */
+  /** How the NPC acts when they're calm. */
   calmTrait: string
-    /**
-   * @description How the NPC acts when they're stressed.
-   */
+    /** How the NPC acts when they're stressed. */
   stressTrait: string
   /**
    * @decription A noticeable vocal pattern.
@@ -119,9 +113,7 @@ export interface NPC {
   note?: string
   descriptors: string[]
   descriptor: string
-  /**
-   * @description In the style of Xanathar's Background Origins
-   */
+  /** In the style of Xanathar's Background Origins */
   backgroundOrigin: string
   birthplace: string
   siblingNumber: number
@@ -133,17 +125,11 @@ export interface NPC {
   familyLifestyle: string
   familyUnit: string
   knewParents: boolean
-    /**
-   * @description In the style of PHB bonds.
-   */
+    /** In the style of PHB bonds. */
   bond: string
-  /**
-   * @description In the style of PHB ideals.
-   */
+  /** In the style of PHB ideals. */
   ideal: string
-    /**
-   * @description In the style of PHB flaws.
-   */
+    /** In the style of PHB flaws. */
   flaw?: string
   greeting?: string[]
   death?: {
