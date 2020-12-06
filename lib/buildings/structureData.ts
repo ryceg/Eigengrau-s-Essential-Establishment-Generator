@@ -13,7 +13,7 @@ export interface MaterialType {
   tier: number[]
   alwaysAvailable?: boolean
   canBeUsedAsRoad: boolean
-  roadMaterialType?: RoadMaterialTypes[]
+  roadMaterialType: RoadMaterialTypes[]
 }
 
 export type MaterialTypes = keyof typeof structureData.material.types
@@ -71,64 +71,74 @@ export const structureData = {
         probability: 10,
         tier: [1, 2],
         noun: 'log',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'split log': {
         probability: 10,
         tier: [1, 2],
         noun: 'split log',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'wood': {
         probability: 10,
         tier: [1, 2],
         noun: 'wood',
         alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'timber': {
         probability: 10,
         tier: [1, 2],
         noun: 'timber',
         alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'plank': {
         probability: 10,
         tier: [1, 2],
         noun: 'plank',
         alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'terra cotta': {
         probability: 30,
         tier: [1],
         noun: 'terra cotta',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'adobe': {
         probability: 30,
         tier: [1],
         noun: 'adobe',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'daub': {
         probability: 30,
         tier: [1],
         noun: 'daub',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'cob': {
         probability: 5,
         tier: [1],
         noun: 'cob',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'plaster': {
         probability: 30,
         tier: [3],
         noun: 'plaster',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'rock': {
         probability: 10,
@@ -141,7 +151,8 @@ export const structureData = {
         probability: 15,
         tier: [1],
         noun: 'straw',
-        canBeUsedAsRoad: false
+        canBeUsedAsRoad: false,
+        roadMaterialType: []
       },
       'hewn rock': {
         probability: 5,
@@ -154,7 +165,7 @@ export const structureData = {
         probability: 5,
         tier: [2],
         noun: 'stone',
-        canBeUsedAsRoad: false,
+        canBeUsedAsRoad: true,
         roadMaterialType: ['pavement', 'gravel']
       },
       'brick': {
@@ -162,7 +173,7 @@ export const structureData = {
         tier: [3],
         noun: 'brick',
         canBeUsedAsRoad: false,
-        roadMaterialType: ['brick']
+        roadMaterialType: []
       },
       'clay': {
         probability: 5,
@@ -175,7 +186,7 @@ export const structureData = {
         probability: 5,
         tier: [1],
         noun: 'cobblestone',
-        canBeUsedAsRoad: false,
+        canBeUsedAsRoad: true,
         roadMaterialType: ['gravel']
       },
       'limestone': {
