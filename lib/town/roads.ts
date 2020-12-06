@@ -138,10 +138,10 @@ export const roads = {
         }
       }
       // if it doesn't find a suitable road, make a new one.
-      road = roads.create(town, building)
+      road = roads.create(town)
       town.roads[road.key] = road
     } else {
-      road = roads.create(town, building)
+      road = roads.create(town)
       town.roads[road.key] = road
     }
 
@@ -154,7 +154,7 @@ export const roads = {
     return road
   },
   /** Creates the road */
-  create: (town: Town, building?: Building): Road => {
+  create: (town: Town): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
     console.log('Creating a road...')
     const roadPrefix = roads.name.create(town)
@@ -184,7 +184,15 @@ export const roads = {
         },
         factions: {
         }
-      }
+      },
+      name: '',
+      description: '',
+      capacity: 1,
+      tier: 1,
+      width: '',
+      materialUsed: '',
+      materialDescription: '',
+      constructionMethod: ''
     }
     road.name = `${road.prefix} ${road.type}`
 
@@ -195,7 +203,7 @@ export const roads = {
     road.width = width[1]
     road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
     road.capacity = roads.width.getCapacity(road)
-    const material = roads.material.get(town, road)
+    const material: MaterialType = roads.material.get(town, road)
     const constructionMethod = random(material.roadMaterialType) as RoadMaterialTypes
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
@@ -236,6 +244,7 @@ export const roads = {
       switch (selected) {
         case 'firstName':
           road = {
+            roadNameType: 'firstName',
             prefix: namesake.firstName,
             canBePossessive: true,
             isUnique: false,
@@ -246,6 +255,7 @@ export const roads = {
           break
         case 'lastName':
           road = {
+            roadNameType: 'lastName',
             prefix: namesake.lastName,
             canBePossessive: true,
             isUnique: false,
