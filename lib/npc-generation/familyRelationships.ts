@@ -84,7 +84,7 @@ export function knewParents (town: Town, npc: NPC) {
 }
 
 export function getMarriages (town: Town, npc: NPC) {
-  if (!npc) return []
+  if (!npc) return false
   const family = town.families[npc.family]
   const node = family.members[npc.key]
   return !!node.parentMarriage
