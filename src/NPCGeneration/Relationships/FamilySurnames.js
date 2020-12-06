@@ -10,6 +10,7 @@ setup.marriageIsMatrilineal = marriage => {
 /**
  * @param {import("./createFamilyMembers").Marriage} marriage
  * @description Given a marriage with at least one child, determine parent surnames
+ * @warn Uses State.variables.npcs
  */
 setup.getParentSurnames = marriage => {
   let familyName, fatherSurname, motherSurname
@@ -24,10 +25,10 @@ setup.getParentSurnames = marriage => {
   return { fatherSurname, motherSurname }
 }
 
-// uses State.variables.npcs
 /**
  * @param {import("./createFamilyMembers").Marriage} marriage
  * @description Given a marriage with at least one parent or child, determine child surnames
+ * @warn uses State.variables.npcs
  */
 setup.getChildSurname = marriage => {
   if (marriage.children.length !== 0) { return State.variables.npcs[marriage.children[0]].lastName }

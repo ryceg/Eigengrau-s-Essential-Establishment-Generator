@@ -2,6 +2,7 @@
 // don't bother creating a FamilyData.d.ts
 // you'll waste your time like me
 // uses State.variables.npcs
+
 setup.familyData = {
   parentStageTable: [
     [55, 'young adult'],
@@ -21,7 +22,9 @@ setup.familyData = {
     const { baseAge } = lib.raceTraits[race].ageTraits['young adult']
     return npc.ageYears + random(-baseAge, baseAge)
   },
-
+  /**
+ * @warn Uses State.variables.npcs
+ */
   childAge: (marriage) => {
     if (marriage.parents.length > 0) {
       // find the youngest parent
