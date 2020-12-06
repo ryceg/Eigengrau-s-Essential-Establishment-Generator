@@ -193,6 +193,7 @@ export const roads = {
     })
     if (!width) width = last(roads.width.rolls)
     road.width = width[1]
+    road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
     road.capacity = roads.width.getCapacity(road)
     const material = roads.material.get(town, road)
     const constructionMethod = random(material.roadMaterialType) as RoadMaterialTypes
@@ -758,9 +759,8 @@ export const roads = {
   material: {
     get (town: Town, road: Road): MaterialType {
       console.log('Getting road material...')
-      road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
-      console.log('Maybe Here?')
       const tempMaterials: Record<string, MaterialType> = {}
+      // cloning town.materialProbability so we can mutate it
       Object.keys(town.materialProbability).forEach((key) => {
         tempMaterials[key] = town.materialProbability[key]
       })
@@ -775,10 +775,6 @@ export const roads = {
         }
       }
       if (tempMaterials[town.townMaterial]) tempMaterials[town.townMaterial].probability = 80
-      console.log('Here?')
-      console.log(tempMaterials)
-      console.log('Town materials')
-      console.log(town.materialProbability)
       const tempMaterial = weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions(tempMaterials), 'object') as MaterialType
       return tempMaterial
     },
