@@ -1,4 +1,4 @@
-// uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage, setup.createFamily
+// uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage
 setup.brothel = {
   rollData: {
     wealth: {
@@ -390,7 +390,7 @@ setup.brothel = {
         gender: 'woman',
         note: 'The bastard daughter of a noble house.',
         callbackFunction (town, npc) {
-          if (!npc.family) setup.createFamily(town, npc)
+          if (!npc.family) lib.createFamily(town, npc)
           setup.createParentage(town, npc.family, npc, true)
         }
       },

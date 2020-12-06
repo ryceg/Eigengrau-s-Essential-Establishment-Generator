@@ -3,7 +3,7 @@ setup.expandNPC = function (town, npc) {
   npc.hasHistory = true
   npc.isShallow = false
 
-  if (npc.family === undefined) setup.createFamily(town, npc)
+  if (npc.family === undefined) lib.createFamily(town, npc)
 
   // Creating life events first may be counterintuitive,
   // but some life events force us to create new family members
@@ -13,10 +13,10 @@ setup.expandNPC = function (town, npc) {
   Object.keys(relatives).forEach((key) => {
     const relative = State.variables.npcs[key]
     const relationship = relatives[key]
-    const inverse = setup.familyRelationships.inverse(npc, relationship)
+    const inverse = lib.familyRelationships.inverse(npc, relationship)
     setup.createRelationship(town, npc, relative,
-      setup.familyRelationships.verbose(relationship),
-      setup.familyRelationships.verbose(inverse))
+      lib.familyRelationships.verbose(relationship),
+      lib.familyRelationships.verbose(inverse))
   })
 
   setup.createHistory(town, npc)

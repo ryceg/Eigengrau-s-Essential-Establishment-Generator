@@ -61,7 +61,7 @@ interface Doesnt {
 
 interface LifeEvent {
   probability: number
-  exclusions(town: Town, npc: NPC): boolean
+  exclusions?(town: Town, npc: NPC): boolean
   function(town: Town, npc: NPC): string
   [key: string]: any
 }

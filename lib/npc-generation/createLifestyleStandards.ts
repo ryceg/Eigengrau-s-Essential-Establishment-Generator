@@ -8,7 +8,7 @@ import { articles } from '../src/articles'
 import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
-import { lifestyleStandards } from './lifestyleStandards'
+import { LifestyleStandardName, lifestyleStandards } from './lifestyleStandards'
 import { Marriage } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
 
 const homeTable = [
@@ -22,7 +22,7 @@ const homeTable = [
   [20, 'a large house'],
   [20, 'a mansion'],
   [40, 'a palace'] // unreachable without biases
-] as ThresholdTable
+] as [number, string][]
 
 export function createLifestyleStandards (town: Town, npc: NPC) {
   console.groupCollapsed(`Creating living standards for ${npc.name}`)
@@ -91,7 +91,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
 }
 
 export function createFamilyLifestyle (marriage: Marriage) {
-  const lifestyle = rollFromTable(socialClass[marriage.socialClass || 'commoner'].lifestyleStandards, 100)
+  const lifestyle: LifestyleStandardName = rollFromTable(socialClass[marriage.socialClass || 'commoner'].lifestyleStandards, 100) as LifestyleStandardName
   const home = rollFromTable(homeTable, 100, lifestyleStandards[marriage.lifestyle || 'modest'].homeBias)
 
   assign(marriage, { lifestyle, home })
