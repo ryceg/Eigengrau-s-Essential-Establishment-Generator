@@ -1,7 +1,39 @@
+import { WeightRecord } from '../types'
 import { dice } from './dice'
 import { random } from './random'
 
-export const terrain = {
+export type Biome = 'temperate' | 'tropical' | 'arid' | 'polar'
+export type Seasons = 'spring' | 'summer' | 'autumn' | 'winter'
+
+export interface TerrainData {
+  weather: WeatherData
+   start: string[]
+   location: Record<string, LocationData>
+}
+
+interface WeatherData {
+  tempVariation: Record<number, TempVariation>
+  season: Record<Seasons, SeasonData>
+}
+
+export interface SeasonData {
+  precipitationLevel: number
+  precipitationIntensity: number
+  baseTemp: number
+}
+interface TempVariation {
+  temperature(): number
+  temperatureTimer(): number
+}
+interface LocationData {
+  precipitationIntensity: number
+  origin: string[]
+  vegetation: Record<string, number>
+  plants: WeightRecord<string>
+  possibleMaterials: string[]
+}
+
+export const terrain: Record<Biome, TerrainData> = {
   temperate: {
     weather: {
       tempVariation: {
@@ -139,7 +171,12 @@ export const terrain = {
           lush: 3,
           thick: 6
         },
-        plants: [],
+        plants: {
+          // TODO: expand out the plants for everything past this point- they're all placeholder text.
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'plains': {
@@ -156,7 +193,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'mountains': {
@@ -175,7 +216,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'river coast': {
@@ -190,7 +235,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       }
     }
@@ -262,7 +311,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'forest': {
@@ -283,7 +336,11 @@ export const terrain = {
           lush: 3,
           thick: 6
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
@@ -301,7 +358,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
@@ -318,7 +379,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
 
       },
@@ -338,7 +403,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
@@ -353,7 +422,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'jungle': {
@@ -370,7 +443,11 @@ export const terrain = {
           lush: 1,
           thick: 9
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'volcanic field': {
@@ -390,7 +467,11 @@ export const terrain = {
           sparse: 3,
           lush: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
@@ -471,7 +552,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw']
       },
       'forest': {
@@ -493,7 +578,11 @@ export const terrain = {
           lush: 3,
           thick: 6
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
@@ -513,7 +602,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
@@ -531,7 +624,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'mountains': {
@@ -551,7 +648,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
@@ -567,7 +668,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'wasteland': {
@@ -583,10 +688,15 @@ export const terrain = {
           sparse: 3,
           lush: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'oasis': {
+        precipitationIntensity: 1,
         origin: [
           'a series of natural springs',
           'a series of natural springs',
@@ -600,7 +710,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
@@ -681,7 +795,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'forest': {
@@ -703,7 +821,11 @@ export const terrain = {
           lush: 3,
           thick: 6
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'hills': {
@@ -723,7 +845,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'plains': {
@@ -741,7 +867,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'mountains': {
@@ -761,7 +891,11 @@ export const terrain = {
           lush: 1,
           thick: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'river coast': {
@@ -777,7 +911,11 @@ export const terrain = {
           lush: 4,
           thick: 3
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'tundra': {
@@ -794,7 +932,11 @@ export const terrain = {
           sparse: 3,
           lush: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'ice sheet': {
@@ -811,7 +953,11 @@ export const terrain = {
           sparse: 3,
           lush: 1
         },
-        plants: [],
+        plants: {
+          shrubs: 1,
+          bush: 1,
+          trees: 2
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       }
     }
