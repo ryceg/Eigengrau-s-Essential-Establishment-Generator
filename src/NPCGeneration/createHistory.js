@@ -1,4 +1,3 @@
-// Uses setup.getMarriages, setup.knewParents
 /** @type {import("../../lib/index").ThresholdTable} */
 const birthplaceTable = [
   [50, 'at home'],
@@ -36,6 +35,7 @@ const birthplaceTable = [
 
 /**
  * @type {Record<string, import("./createHistory").FamilyUnit>}
+ * @warn Uses State.variables.npcs, lib.getMarriages
  */
 const familyUnits = {
   bothParents: {
@@ -45,7 +45,7 @@ const familyUnits = {
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, obj) => setup.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
+    exclusions: (town, obj) => lib.getMarriages(town, State.variables.npcs[obj.father]).length > 1,
     descriptor: 'my single stepmother'
   },
   singleMother: {
@@ -55,7 +55,7 @@ const familyUnits = {
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, obj) => setup.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
+    exclusions: (town, obj) => lib.getMarriages(town, State.variables.npcs[obj.mother]).length > 1,
     descriptor: 'my single stepfather'
   },
   singleFather: {
@@ -70,12 +70,12 @@ const familyUnits = {
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, obj) => obj.mother && setup.knewParents(town, obj.mother),
+    exclusions: (town, obj) => obj.mother && lib.knewParents(town, obj.mother),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, obj) => obj.father && setup.knewParents(town, obj.father),
+    exclusions: (town, obj) => obj.father && lib.knewParents(town, obj.father),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
@@ -110,11 +110,10 @@ const familyUnits = {
   }
 }
 
-// Uses setup.knewParents, setup.getFatherMother
 /**
- * @param {Town} town
- * @param {NPC} npc
- * @returns {void}
+ * @param {import("../../lib/town/_common").Town} town
+ * @param {import("../../lib/npc-generation/_common").NPC} npc
+ * @warn Uses setup.getFatherMother
  */
 setup.createHistory = function (town, npc) {
   console.log(`creating history for ${npc.name}...`)
@@ -125,7 +124,7 @@ setup.createHistory = function (town, npc) {
   const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
 
-  npc.knewParents = setup.knewParents(town, npc)
+  npc.knewParents = lib.knewParents(town, npc)
   npc.siblingNumber = parentMarriage
     ? parentMarriage.children.length - 1
     : 0
@@ -165,11 +164,11 @@ setup.createHistory = function (town, npc) {
   npc.childhoodMemories = createChildhoodMemories(town, npc)
 }
 
-// Uses setup.createNPC, setup.createRelationship
 /**
- * @param {Town} town
- * @param {NPC} npc
+ * @param {import("../../lib/town/_common").Town} town
+ * @param {import("../../lib/npc-generation/_common").NPC} npc
  * @returns {string}
+ * @warn Uses setup.createNPC, setup.createRelationship
  */
 function createChildhoodMemories (town, npc) {
   if (npc.childhoodMemories) {

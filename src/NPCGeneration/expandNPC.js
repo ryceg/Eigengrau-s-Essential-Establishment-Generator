@@ -3,7 +3,7 @@ setup.expandNPC = function (town, npc) {
   npc.hasHistory = true
   npc.isShallow = false
 
-  if (npc.family === undefined) setup.createFamily(town, npc)
+  if (npc.family === undefined) lib.createFamily(town, npc)
 
   // Creating life events first may be counterintuitive,
   // but some life events force us to create new family members

@@ -1,29 +1,24 @@
 const MARRIAGE_PERCENT = 55
 const REMARRIAGE_PERCENT = 9
 
-setup.createFamily = function (town, npc) {
-  const key = `${npc.lastName} family`
-  const family = {
-    key,
-    members: {}
-  }
-  family.members[npc.key] = {
-    key: npc.key,
-    parentMarriage: undefined,
-    marriages: undefined,
-    canRemarry: true
-  }
-  town.families[key] = family
-  npc.family = key
-}
-
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @warn Uses setup.createParentage, setup.createMarriage
+ */
 setup.expandFamily = function (town, npc) {
+  /**
+   * @type {import("./createFamilyMembers").Family}
+   */
   const family = town.families[npc.family]
   const node = family.members[npc.key]
 
   setup.createParentage(town, family, npc)
 
   // Marriages and descendants
+  /**
+   * @type {number}
+   */
   const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
   if (npc.ageYears <= marriageMin) {
     node.marriages = []
@@ -48,12 +43,16 @@ setup.expandFamily = function (town, npc) {
   }
 }
 
+// Uses setup.expandFamily
 setup.fetchFamily = function (town, npc, depth = 2) {
   // We fetch nodes in breadth-first order.
   const relativeList = [{ key: npc.key, depth: 0, relationship: '', gender: npc.gender }]
   const relatives = {}
   console.log(`fetching ${npc.key} relativeList...`)
 
+  /**
+   * @type {import("./createFamilyMembers").Family}
+   */
   const family = town.families[npc.family]
   console.log(family)
 
