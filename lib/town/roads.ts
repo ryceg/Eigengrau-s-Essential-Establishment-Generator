@@ -493,7 +493,9 @@ export const roads = {
         width () { return random(5, 40) },
         features: [
           'Houses lean over into the street on both sides, limiting the amount of sun that is visible.',
-          'Laundry lines are strung between windows across the road.'
+          'Laundry lines are strung between windows across the road.',
+          'There is a table with a pitcher of water out the front of one of the houses.',
+          'A swing hangs from a lone tree.'
         ],
         probability: 5,
         wordNoun: 'lane'
@@ -563,7 +565,8 @@ export const roads = {
         name: 'dyke',
         width () { return random(0, 60) },
         features: [
-          'The land on either side is rather soggy and prone to being water-logged.'
+          'The land on either side is rather soggy and prone to being water-logged.',
+          'Weeds grow rampant along the sides of the road, fed by the water running off to the sides.'
         ],
         probability: 1,
         wordNoun: 'road'
@@ -573,6 +576,7 @@ export const roads = {
         width () { return random(40, 80) },
         features: [
           'A line of trees dots the sides.',
+          'A couple of sad looking trees dot the sides of the road.',
           'Wrought iron oil-burning street lamps illuminate the broad avenue well into the late evening hours.'],
         probability: 1,
         wordNoun: 'road'
@@ -583,20 +587,24 @@ export const roads = {
         features: [
           'There is a pile of rotten logs to the side.',
           'Several barrels are stacked haphazardly.',
+          'There are some vegetable scraps that have clearly been dumped out of a window',
           'There are some empty alcohol bottles on the ground.'
         ],
         hasTraffic: false,
         probability: 1,
-        wordNoun: 'alley'
+        wordNoun: 'alley',
+        exclusions (town: Town) { return town.population > 4000 }
       },
       drive: {
         name: 'drive',
         features: [
-          'There is a nice looking house at the end of the road.'
+          'There is a nice looking house at the end of the road.',
+          'There is a collection of three slightly larger than average houses bundled at the end of the drive.'
         ],
         width () { return random(40, 80) },
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        isDeadEnd: true
       },
       boulevard: {
         name: 'boulevard',
@@ -624,6 +632,12 @@ export const roads = {
         probability: 1,
         material: 'dirt',
         wordNoun: 'track',
+        features: [
+          'It\'s obvious that this track is shared by some of the local wildlife as well.',
+          'There\'s some native plants growing along the side of the track.',
+          'There are some edible native fruits growing on the side of the track.',
+          'It\'s a desire path, which has been trodden into submission.'
+        ],
         exclusions (town: Town) { return town.population < 500 }
       },
       trail: {
@@ -632,6 +646,13 @@ export const roads = {
         probability: 1,
         material: 'dirt',
         wordNoun: 'trail',
+        features: [
+          'There are some animal droppings on the trail.',
+          'There\'s a half-rotted rabbit which clearly met an untimely demise that has been kicked to the side of the trail.',
+          'There is a tiny little skeleton of some small mammal buried in the grass.',
+          'The weeds are thick, and in parts it is difficult to actually discern where the trail is.',
+          'The weeds threaten to overthrow the trail\'s relative order.'
+        ],
         exclusions (town: Town) { return town.population < 400 }
       }
     } as Record<RoadType, RoadData>
@@ -649,7 +670,11 @@ export const roads = {
     "There's a letterbox at the end of the drive for an impressive looking house.",
     "There's a wagon with a cracked wheel by the side of the road.",
     'The street is covered with painted footsteps, a coloured trail seemingly leading off to notable buildings.',
-    'Deep ditches border the road, carrying waste and refuse down the hill.'
+    'Deep ditches border the road, carrying waste and refuse down the hill.',
+    'There\'s a bench on the side of the road, with the wood being smoothed out from many sittings.',
+    'There\'s a laundry line connecting two houses that are slightly closer together than usual.',
+    'A crude drawing of an animal carved into a brick wall, affectionately labeled “R.E. Was here.”',
+    'One of the houses on the side leans concerningly far over the road.'
   ],
   namesakes: {
     reason (town: Town, namesake: Namesake): string {
