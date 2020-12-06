@@ -1,6 +1,8 @@
 import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
+import { ReligionStrength } from './createReligiosity'
+import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export type SocialClassName =
@@ -37,7 +39,7 @@ export interface NPC {
   ageStage: AgeName
   ageYears: number
   adventure?: string
-  profession: string
+  profession: ProfessionNames
   /**
    * @description In the style of Xanathar's Class Origins, for the professions.
    */
@@ -55,6 +57,8 @@ export interface NPC {
     conformity: number
     /** The number used to determine their gender. */
     gender: number
+    /** How religious they are */
+    religiosity: number
   }
   partnerID?: string
   lifeEvents: string[]
@@ -65,11 +69,11 @@ export interface NPC {
     debtors: Record<string, number>
   }
   religion: {
-    strength: string
+    strength: ReligionStrength
   }
   socialClass: SocialClassName
-  professionType: string
-  professionSector: string
+  professionType: ProfessionType
+  professionSector: ProfessionSector
   hasClass: boolean
   dndClass?: ClassName
   weapon?: string

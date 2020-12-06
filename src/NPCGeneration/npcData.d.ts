@@ -1,3 +1,5 @@
+import { BackgroundName, ClassName, RaceName } from '../../lib/index'
+
 interface Setup {
   initNpcData(): void
   npcData: {
@@ -38,18 +40,15 @@ interface Setup {
     adventure: string[]
     hairColour: string[]
     hairType: string[]
-    dndClass: string[]
-    background: string[]
+    dndClass: ClassName[]
+    background: BackgroundName[]
     pockets: string[]
     value: string[]
     drive: string[]
     belief: string[]
-    race: string[]
+    race: RaceName[]
     standardLanguages: string[]
     exoticLanguages: string[]
-    religion: {
-      strength: [number, string][]
-    }
   }
 }
 
