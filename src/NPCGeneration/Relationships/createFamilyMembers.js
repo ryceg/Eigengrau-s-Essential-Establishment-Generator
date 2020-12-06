@@ -5,12 +5,17 @@ const VERY_OLD_ABSENCE_PERCENT = 70
 const ORPHAN_PERCENT = 10
 
 /**
- * General function for inserting individual relatives.
- * Returns the corresponding relative, or undefined
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {Partial<import("../../../lib/npc-generation/_common").NPC>} base
+ * @param {boolean} force
+ * @description General function for inserting individual relatives. Returns the corresponding relative, or undefined
  */
 setup.createRelative = (town, family, base = {}, force = false) => {
   // sanity-check
   if (base.ageYears <= 0) return
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   if (base.race === 'devil') return
   if (!base.lastName) delete base.lastName
 
@@ -38,6 +43,14 @@ setup.createRelative = (town, family, base = {}, force = false) => {
   return relative
 }
 
+/**
+ *
+* @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @param {boolean} forceFather
+ * * @param {boolean} forceMother
+ */
 setup.createParentage = (town, family, npc, forceFather = false, forceMother = false) => {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {

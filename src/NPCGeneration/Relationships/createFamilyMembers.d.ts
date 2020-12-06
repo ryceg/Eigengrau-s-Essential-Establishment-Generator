@@ -1,3 +1,6 @@
+import { RaceName } from '../../../lib/index'
+import { NPC } from '../../../lib/npc-generation/_common'
+import { Town } from '../../../lib/town/_common'
 
 interface Setup {
   createRelative(
