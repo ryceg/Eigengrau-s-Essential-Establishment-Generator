@@ -14,13 +14,13 @@ export function setRace (npc: NPC) {
     npc.beard = random(raceData.beard)
   }
 
-  npc.heightRoll = genderTraits.baseHeight + genderTraits.heightModifier()
+  npc.heightInches = genderTraits.baseHeight + genderTraits.heightModifier()
   npc.weightRoll = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
-  npc.bmi = Math.trunc((npc.weightRoll / (npc.heightRoll * npc.heightRoll)) * raceData.bmiModifier)
+  npc.bmi = Math.trunc((npc.weightRoll / (npc.heightInches * npc.heightInches)) * raceData.bmiModifier)
   npc.weight = npc.weight || closestMatch(bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
   for (const [height, description] of heightChart) {
-    if (height >= npc.heightRoll) {
+    if (height >= npc.heightInches) {
       npc.height = description
     }
   }

@@ -25,7 +25,7 @@ export interface NPC {
   raceName: RaceName
   beard: string
   skinColour: string
-  heightRoll: number
+  heightInches: number
   height: string
   weightRoll: number
   weight: string

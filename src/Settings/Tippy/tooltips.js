@@ -88,17 +88,17 @@ setup.metricWeight = (npc, isMetric) => {
  */
 setup.profileHeightTooltip = function (id, char, heightVar) {
   if (heightVar) {
-    char.heightRoll = heightVar
+    char.heightInches = heightVar
   }
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
       if (settings.showMetric === true) {
-        span.title = `${(char.heightRoll * 0.0254).toFixed(2)}m`
+        span.title = `${(char.heightInches * 0.0254).toFixed(2)}m`
         tippy(`#${span.id}`)
       } else {
-        const feet = Math.trunc(char.heightRoll / 12)
-        const inches = Math.round(char.heightRoll - Math.trunc(feet * 12))
+        const feet = Math.trunc(char.heightInches / 12)
+        const inches = Math.round(char.heightInches - Math.trunc(feet * 12))
         if (inches === 0) {
           span.title = `${feet}ft. `
         } else {
