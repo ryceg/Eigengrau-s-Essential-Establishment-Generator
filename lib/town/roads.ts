@@ -660,8 +660,9 @@ export const roads = {
   },
   get: {
     features (type: RoadData): string {
-      if (roads.name.type[type.name].features && random(100) > 50) {
-        return random(roads.name.type[type.name].features)
+      const roadType = roads.name.type[type.name]
+      if (roadType.features && random(100) > 50) {
+        return random(roadType.features)
       }
       return random(roads.features)
     }
