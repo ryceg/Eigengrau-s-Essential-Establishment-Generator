@@ -212,7 +212,6 @@ export const roads = {
 
     return road
   },
-
   name: {
     create (town: Town): RoadOwnership {
       console.log('Creating a road name...')
@@ -659,7 +658,9 @@ export const roads = {
   },
   get: {
     features (type: RoadData): string {
-      if (roads.name.type[type.name].features && random(100) > 50) return random(roads.name.type[type.name].features)
+      if (roads.name.type[type.name].features && random(100) > 50) {
+        return random(roads.name.type[type.name].features)
+      }
       return random(roads.features)
     }
   },
