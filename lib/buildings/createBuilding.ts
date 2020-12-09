@@ -6,11 +6,11 @@ import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 import { roads } from '../town/roads'
 
-export function createBuilding (town: Town, type: string, base = {}) {
+export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
   console.log('Creating base building...')
 
-  const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
-  const outside = [
+  const lighting = random(['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'])
+  const outside = random([
     'a horse grazing on the bushes nearby',
     'a rusted shovel near a somewhat overgrown flowerbed',
     'a well with an old rope, but no bucket to go on the end',
@@ -18,10 +18,10 @@ export function createBuilding (town: Town, type: string, base = {}) {
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '<<print newspaper.random()>>'"
-  ].random()
-  const building: Building = Object.assign({
+  ])
+
+  const building: Building = {
     key: getUUID(),
-    childKeys: [],
     objectType: 'building',
     type,
     lighting,
@@ -39,8 +39,9 @@ export function createBuilding (town: Town, type: string, base = {}) {
       expertise: random(1, 100),
       activity: random(1, 100)
     },
-    priceModifier: getPriceModifier()
-  }, base)
+    priceModifier: getPriceModifier(),
+    ...base
+  }
 
   if (building.parentKey) {
     console.log('Has a parent!')
