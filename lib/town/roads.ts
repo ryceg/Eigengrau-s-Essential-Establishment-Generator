@@ -774,7 +774,9 @@ export const roads = {
           tempMaterials[material].probability = 5
         }
       }
-      if (tempMaterials[town.townMaterial]) tempMaterials[town.townMaterial].probability = 80
+      if (tempMaterials[town.townMaterial]) {
+        tempMaterials[town.townMaterial].probability = 80
+      }
       const tempMaterial = weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions(tempMaterials), 'object') as MaterialType
       return tempMaterial
     },
