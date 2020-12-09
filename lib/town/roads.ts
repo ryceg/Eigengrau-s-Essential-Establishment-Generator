@@ -199,14 +199,7 @@ export const roads = {
     const constructionMethod = random(material.roadMaterialTypes)
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
-    let materialUsedDescriptor
-    if (['gravel', 'dirt'].includes(road.constructionMethod)) {
-      materialUsedDescriptor = `${road.constructionMethod} and ${road.materialUsed}`
-    } else if (['brick'].includes(road.constructionMethod)) {
-      materialUsedDescriptor = `${road.materialUsed} ${road.constructionMethod}`
-    } else {
-      materialUsedDescriptor = `${road.constructionMethod} ${road.materialUsed}`
-    }
+    const materialUsedDescriptor = getUsedMaterialDescriptor(road)
     road.materialDescription = random(roads.material.types[constructionMethod].description)
     road.description = `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
     if (road.namesake?.reason) road.description += road.namesake.reason
@@ -824,4 +817,14 @@ const properNouns: Record<string, ProperNoun & { probability?: number }> = {
     isUnique: false,
     isBuilding: false
   }
+}
+
+function getUsedMaterialDescriptor (road: Road) {
+  if (['gravel', 'dirt'].includes(road.constructionMethod)) {
+    return `${road.constructionMethod} and ${road.materialUsed}`
+  }
+  if (['brick'].includes(road.constructionMethod)) {
+    return `${road.materialUsed} ${road.constructionMethod}`
+  }
+  return `${road.constructionMethod} ${road.materialUsed}`
 }
