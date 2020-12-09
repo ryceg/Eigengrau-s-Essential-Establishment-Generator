@@ -39,7 +39,7 @@ export function createBuilding (town: Town, type: string, base = {}) {
       expertise: random(1, 100),
       activity: random(1, 100)
     },
-    priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
+    priceModifier: getPriceModifier()
   }, base)
 
   if (building.parentKey) {
@@ -54,13 +54,16 @@ export function createBuilding (town: Town, type: string, base = {}) {
     building.road = road.key
   }
   // building.priceModifier += town.taxes.economics
-  building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
 
   clampRolls(building.roll)
 
   building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
 
   return building
+}
+
+function getPriceModifier (): number {
+  return Math.clamp(Math.floor(randomFloat(1) * 8) - random([0, 10]), -10, 10)
 }
 
 export function generateBuildingMaterial (town: Town, mainMaterial: string, buildingWealth: number): MaterialType {
