@@ -1,4 +1,4 @@
-import { getUUID, clampRolls, weightedRandomFetcher } from '..'
+import { getUUID, clampRolls, weightedRandomFetcher, findBuilding } from '..'
 import { Town } from '../town/_common'
 import { MaterialType } from './structureData'
 import { Building } from './_common'
@@ -65,7 +65,8 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
 function getBuildingRoad (building: Building, town: Town): Road {
   if (building.parentKey) {
     console.log('Has a parent!')
-    return town.roads[building.parentKey]
+    const parentBuilding: Building | undefined = findBuilding(town, building.parentKey)
+    if (parentBuilding) return town.roads[parentBuilding.road]
   }
   return roads.assign(town, building)
 }
