@@ -1,3 +1,8 @@
+/**
+ * @warn Uses State.variables.npcs
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc1
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc2
+ */
 setup.setAsPartners = (npc1, npc2) => {
   const npcs = State.variables.npcs
   if (!npc1 || !npc2 || !npc1.key || !npc2.key) {

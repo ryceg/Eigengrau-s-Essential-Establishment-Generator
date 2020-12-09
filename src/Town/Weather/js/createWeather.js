@@ -4,6 +4,12 @@
  * Basically, temperature, precipitation,
  * and precipitation intensity are each independently tracked.
  */
+/**
+ * @param {import("../../../../lib/town/_common").Town} town
+ * @param {string} biome
+ * @param {import("../../../../lib/index").Weather} weather
+ * @returns {import("../../../../lib/index").Weather}
+ */
 setup.createWeather = (town, biome, weather) => {
   console.groupCollapsed('Creating weather...')
 
@@ -44,8 +50,10 @@ setup.createWeather = (town, biome, weather) => {
       weather.timer.cloud -= time
     }
   } else {
+    /** @type {import("../../../../lib/src/terrain").SeasonData} */
     const seasonData = lib.terrain[biome].weather.season[currentSeason]
 
+    /** @interface Weather */
     weather = {
       temperature: seasonData.baseTemp || lib.terrain.temperate.weather.season.summer.baseTemp,
       tempVariation: lib.dice(2, 50),
@@ -63,21 +71,20 @@ setup.createWeather = (town, biome, weather) => {
       readout: {
         precipitation: '',
         cloud: '',
-        temperature: ''
+        temperature: '',
+        full: ''
       },
+      precipitation: '',
+      cloudIntensity: '',
       precipitationLevel: seasonData.precipitationLevel,
       precipitationIntensity: seasonData.precipitationIntensity
     }
   }
-  // console.log('weather:')
-  // console.log(weather)
   weather.precipitationLevel.clamp(1, 4)
   weather.precipitationIntensity.clamp(1, 4)
 
-  setup.renderWeather(town, biome, weather)
+  setup.renderWeather(town, weather, biome)
   town.weather = weather
-  // console.log('weather after render:')
-  // console.log(weather)
   console.groupEnd()
   return weather
 }

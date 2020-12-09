@@ -1,4 +1,4 @@
-// uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage, setup.createFamily
+/** @warn uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage */
 setup.brothel = {
   rollData: {
     wealth: {
@@ -63,7 +63,6 @@ setup.brothel = {
       ]
     }
   },
-  // Name of the brothel
   name: [
     'Daisies', 'The Don', 'Blinkers', "The Prude's Suspenders", 'Gold’s Dust', 'The Velvet Fang', 'The Whisper Home', 'The Hook', 'Over the River', 'Slooshes', 'The Rapid Rascal', 'The Stoat',
     'The Fidgety Ferret', 'Long Shaft', 'The Guards', 'Chastity’s', 'The Mask', 'The Red Dress', 'Jewels', 'Silken Flute', 'The Nag’s Head', 'Drummers', 'Sailors Choice', 'Blacksmiths Envy',
@@ -91,7 +90,6 @@ setup.brothel = {
     'The Kings Head', 'The Queens Head', 'The Red Lion', 'The Drunken Sailor', 'The Plough', 'The Dancing Dragon', 'Lusty Maidens', 'Mermaid Gait', 'Lone Wenches Inn', 'The Sour Sow', 'The Rusty Tub', 'The Lacy Curtain',
     'The Porcelain Candle', 'Golden Embrace', 'The Pink Petticoat', 'The Silky Kisses', 'The Red Slipper', "The Lady's Skirt"
   ],
-  // Apparently, it specializes in __
   specialty: [
     'really weird stuff, for those with the most interesting fetishes',
     'illegal stuff. If this is found out, the place would be burnt down, and the owners hung. It is clearly kept in great secret',
@@ -104,13 +102,12 @@ setup.brothel = {
     'the sale of mind-altering drugs',
     'stuff with exotic/magical ingredients, potions, etc',
     'magical delights',
-    'being an all male brothel',
+    'male escorts',
     'elaborate and erotic stage shows',
     'discrete service for high end clientele',
     'helping people live out their most twisted sexual fantasies',
     'incredibly dominant women'
   ],
-  // When people talk about the brothel, they say __
   talk: () => [
     [
       'you can pay for services with things other than coin',
@@ -190,8 +187,7 @@ setup.brothel = {
   brothelScents: [
     'vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'
   ],
-  // these are the lines used to select the notice action in BrothelOutput
-  // You notice_
+
   notice: () => [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
@@ -255,8 +251,10 @@ setup.brothel = {
     'several pieces of pottery with very vulgar acts painted on them',
     'a great many nude statues placed all around the room'
   ],
-  // these are the lines used to pick the pimp's idle action in brothelOutput
-  // The master/mistress is _
+  /**
+   * @description these are the lines used to pick the pimp's idle action in brothelOutput
+   * @example The master/mistress is ____
+   * */
   idle: () => [
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
@@ -342,7 +340,7 @@ setup.brothel = {
       profession: 'pimp'
     }
   },
-  // this creates a new NPC with specific traits for readout in the BrothelOutput
+  /** Creates a new NPC with specific traits for readout in the BrothelOutput */
   harlot: {
     create (town, brothel, base = {}) {
       const harlotType = Object.keys(setup.brothel.harlot.type).random()
@@ -390,7 +388,7 @@ setup.brothel = {
         gender: 'woman',
         note: 'The bastard daughter of a noble house.',
         callbackFunction (town, npc) {
-          if (!npc.family) setup.createFamily(town, npc)
+          if (!npc.family) lib.createFamily(town, npc)
           setup.createParentage(town, npc.family, npc, true)
         }
       },

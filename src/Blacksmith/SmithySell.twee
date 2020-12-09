@@ -1,15 +1,6 @@
 :: SmithySell
 <<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive">
-<<switch $town.type>>
-  <<case "city">>
-  $associatedNPC.name smiles, and says "You're looking to buy something? Name it, here at $building.name, we stock everything the average man could possibly need!"
-  <<case "town">>
-  $associatedNPC.name says "Well, what is it you need? We specialise in <<print $building.weapons.random()>>s, but can do just about anything for you."
-  <<case "village">>
-  $associatedNPC.name says "Sure, what are you after? <<print $building.mundane.random().toUpperFirst()>>? We've got some new traps, very good, guaranteed to kill immediately! Or we have some swords for the more up close and personal."
-  <<case "hamlet">>
-  $associatedNPC.name smiles, and says "What are you after? We can do just about anything you could possibly need; <<print $building.mundane.random()>>, <<print $building.mundane.random()>>, you name it!"
-<</switch>></div>
+<<print lib.getSellingTalk($town, $building, $associatedNPC)>></div>
 
 <<switch $town.type>>
   <<case "city">>
@@ -32,5 +23,4 @@
     }
 }>>
 <<shop $building, _selling>>
-</table>
 <</nobr>><</linkappend>>

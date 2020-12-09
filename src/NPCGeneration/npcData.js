@@ -275,9 +275,6 @@ setup.initNpcData = () => {
       },
       festival: {
         probability: 5,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.festival function')
           const placement = setup.npcData.lifeEvents.festival.placement.random()
@@ -445,9 +442,6 @@ setup.initNpcData = () => {
       },
       trinket: {
         probability: 5,
-        exclusions (town, npc) {
-          return true
-        },
         function () {
           const trinket = lib.createMagic('trinket')
           console.log('called lifeEvents.trinket function')
@@ -561,9 +555,6 @@ setup.initNpcData = () => {
       },
       journey: {
         probability: 3,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.journey function')
           const prefix = setup.npcData.lifeEvents.journey.prefix.random()
@@ -676,9 +667,6 @@ setup.initNpcData = () => {
       },
       lostChild: {
         probability: 3,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.lostChild function')
           const treeType = lib.flora.tree.typeArticle.random()
@@ -818,50 +806,47 @@ setup.initNpcData = () => {
           'but I sacrificed much to finish the trip'
         ]
       },
-      meetFriendNPC: {
-        probability: 8,
-        exclusions (town, npc) {
-          return true
-        },
-        function (town, npc) {
-          console.log('called lifeEvents.meetFriendNPC function')
-          let friend
-          if (random(100) > 50) {
-            console.log('Finding an already existing friend!')
-            friend = Object.values(State.variables.npcs).find(({ socialClass, relationships }) => {
-              return socialClass === npc.socialClass && !relationships[npc.key]
-            })
-            if (friend === undefined) {
-              console.log(`Nobody was in the same caste as ${npc.name}`)
-              friend = setup.createNPC(town, {
-                isShallow: true,
-                socialClass: npc.socialClass
-              })
-            }
-          } else {
-            friend = setup.createNPC(town, {
-              isShallow: true
-            })
-          }
-          setup.createRelationship(town, npc, friend, 'friend', 'friend')
-          if (npc.hasClass === false) {
-            // Descriptions and stuff goes here
-            return [
-              `I met my ${setup.profile(friend, 'best buddy')} on some travel.`,
-              `I lost contact with an ${setup.profile(friend, 'old friend')}, and reconnected with ${setup.profile(friend, friend.himher)} on a pilgrimage.`,
-              `I made a ${setup.profile(friend, 'good friend')} during a drinking contest.`,
-              `we were attacked by raiders, and I was saved by a ${setup.profile(friend, 'traveler')} passing through. We are best of friends to this day.`
-            ].random()
-          } else {
-            return [
-              `I made a ${setup.profile(friend, 'friend')} for life in my travels.`,
-              `I was poor as a churchmouse, but then ${setup.profile(friend, 'a total stranger')} helped me get a job. I owe everything I am today to his compassion.`,
-              'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.',
-              `I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my ${setup.profile(friend, 'best friend')}.`
-            ].random()
-          }
-        }
-      },
+      // meetFriendNPC: {
+      //   probability: 8,
+      //   function (town, npc) {
+      //     console.log('called lifeEvents.meetFriendNPC function')
+      //     let friend
+      //     if (random(100) > 50) {
+      //       console.log('Finding an already existing friend!')
+      //       friend = Object.values(State.variables.npcs).find(({ socialClass, relationships }) => {
+      //         return socialClass === npc.socialClass && !relationships[npc.key]
+      //       })
+      //       if (friend === undefined) {
+      //         console.log(`Nobody was in the same caste as ${npc.name}`)
+      //         friend = setup.createNPC(town, {
+      //           isShallow: true,
+      //           socialClass: npc.socialClass
+      //         })
+      //       }
+      //     } else {
+      //       friend = setup.createNPC(town, {
+      //         isShallow: true
+      //       })
+      //     }
+      //     setup.createRelationship(town, npc, friend, 'friend', 'friend')
+      //     if (npc.hasClass === false) {
+      //       // Descriptions and stuff goes here
+      //       return [
+      //         `I met my ${setup.profile(friend, 'best buddy')} on some travel.`,
+      //         `I lost contact with an ${setup.profile(friend, 'old friend')}, and reconnected with ${setup.profile(friend, friend.himher)} on a pilgrimage.`,
+      //         `I made a ${setup.profile(friend, 'good friend')} during a drinking contest.`,
+      //         `we were attacked by raiders, and I was saved by a ${setup.profile(friend, 'traveler')} passing through. We are best of friends to this day.`
+      //       ].random()
+      //     } else {
+      //       return [
+      //         `I made a ${setup.profile(friend, 'friend')} for life in my travels.`,
+      //         `I was poor as a churchmouse, but then ${setup.profile(friend, 'a total stranger')} helped me get a job. I owe everything I am today to his compassion.`,
+      //         'I went traveling for a while, and found myself in the company of all manner of folk, who I like to think helped teach me how to be a bit wiser.',
+      //         `I took an odd job delivering a package to the town over. Never would have thought that that sort of thing could be life-changing, but it was- it's where I met my ${setup.profile(friend, 'best friend')}.`
+      //       ].random()
+      //     }
+      //   }
+      // },
       meetEnemyNPC: {
         probability: 8,
         exclusions (town, npc) {
@@ -970,9 +955,6 @@ setup.initNpcData = () => {
       },
       meetImportantNPC: {
         probability: 5,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.meetImportantNPC function')
           return [
@@ -1037,9 +1019,6 @@ setup.initNpcData = () => {
       },
       supernatural: {
         probability: 2,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.supernatural function')
           return [
@@ -1054,9 +1033,6 @@ setup.initNpcData = () => {
       },
       miracle: {
         probability: 2,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.miracle function')
           const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.random()
@@ -1178,9 +1154,6 @@ setup.initNpcData = () => {
       },
       arcaneMatters: {
         probability: 4,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.arcaneMatters function')
           return [
@@ -1197,9 +1170,6 @@ setup.initNpcData = () => {
       },
       weirdStuff: {
         probability: 1,
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           console.log('called lifeEvents.weirdStuff function')
           return [
@@ -1239,9 +1209,6 @@ setup.initNpcData = () => {
       'has a sizeable inheritance': {
         probability: 5,
         // type: ['says', 'doesnt', 'hides'],
-        exclusions (town, npc) {
-          return true
-        },
         function (town, npc) {
           npc.wealth += 50000
           return `${npc.name} doesn't say ${npc.heshe} has a sizeable inheritance.`
