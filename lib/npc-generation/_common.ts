@@ -56,6 +56,8 @@ export interface NPC {
     conformity: number
     /** The number used to determine their gender. */
     gender: number
+    /** The number used to determine their religious fervor. */
+    religiosity: number
   }
   partnerID?: string
   lifeEvents: string[]

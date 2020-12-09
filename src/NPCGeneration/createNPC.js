@@ -18,7 +18,8 @@ setup.createNPC = (town, base = defaultBase) => {
     physicalTrait: lib.random(1, 100),
     gregariousness: lib.dice(3, 6),
     conformity: lib.dice(2, 50),
-    gender: lib.random(1, 100)
+    gender: lib.random(1, 100),
+    religiosity: 0
   }
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
