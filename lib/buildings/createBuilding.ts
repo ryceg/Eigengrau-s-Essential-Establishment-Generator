@@ -49,7 +49,8 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
     ...base
   }
 
-  clampRolls(building.roll)
+  // Not sure why we need to typecast this.
+  clampRolls(building.roll as unknown as Record<string, number>)
 
   const road = getBuildingRoad(building, town)
 
