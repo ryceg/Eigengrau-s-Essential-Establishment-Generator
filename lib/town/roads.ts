@@ -465,24 +465,26 @@ export const roads = {
         "The road's name comes from",
         'The road was named after'
       ])
-      const reasons = [
-        `${namedAfter} ${fullName}, who was ${articles.output(race)} who ruled wisely for many years.`,
-        `${namedAfter} ${fullName}, who was ${articles.output(race)} who bought the naming rights to the road.`,
-        `${namedAfter} ${fullName}, who was ${articles.output(race)} who brought riches to the people of ${town.name}.`,
+      const raceOutput = articles.output(race)
+      const raceAdjectiveOutput = articles.output(raceTraits[race].raceWords.raceAdjective)
+      return random([
+        `${namedAfter} ${fullName}, who was ${raceOutput} who ruled wisely for many years.`,
+        `${namedAfter} ${fullName}, who was ${raceOutput} who bought the naming rights to the road.`,
+        `${namedAfter} ${fullName}, who was ${raceOutput} who brought riches to the people of ${town.name}.`,
         `${namedAfter} ${fullName}, who was the person who built the road.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who sat on the council for many years.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who cared for orphans.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who lived there before setting off into the world, becoming relatively famous.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who produced a staggering ${random(12, 21)} children.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who once killed an ogre that was threatening the ${town.type} of ${town.name} with a sling.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who helped establish the ${town.type} of ${town.name}.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who was one of the first settlers of ${town.name}.`,
-        `${namedAfter} ${fullName}, ${articles.output(race)} who lived in ${town.name} for many, many years, maintaining the oral history.`,
-        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} judge who was renowned in ${town.name} for being totally impartial and fair.`,
-        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} guard who was renowned in ${town.name} for capturing dangerous criminals.`,
-        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} politician who was beloved in ${town.name} for various social reforms.`,
-        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} soldier who prevented a war.`,
-        `${namedAfter} ${fullName}, ${articles.output(raceTraits[race].raceWords.raceAdjective)} messenger who delivered a critical message to the guards of ${town.name} after three days of non-stop running.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who sat on the council for many years.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who cared for orphans.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who lived there before setting off into the world, becoming relatively famous.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who produced a staggering ${random(12, 21)} children.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who once killed an ogre that was threatening the ${town.type} of ${town.name} with a sling.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who helped establish the ${town.type} of ${town.name}.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who was one of the first settlers of ${town.name}.`,
+        `${namedAfter} ${fullName}, ${raceOutput} who lived in ${town.name} for many, many years, maintaining the oral history.`,
+        `${namedAfter} ${fullName}, ${raceAdjectiveOutput} judge who was renowned in ${town.name} for being totally impartial and fair.`,
+        `${namedAfter} ${fullName}, ${raceAdjectiveOutput} guard who was renowned in ${town.name} for capturing dangerous criminals.`,
+        `${namedAfter} ${fullName}, ${raceAdjectiveOutput} politician who was beloved in ${town.name} for various social reforms.`,
+        `${namedAfter} ${fullName}, ${raceAdjectiveOutput} soldier who prevented a war.`,
+        `${namedAfter} ${fullName}, ${raceAdjectiveOutput} messenger who delivered a critical message to the guards of ${town.name} after three days of non-stop running.`,
         `${namedAfter} ${fullName}, who fought with the council for many years to have the road renamed after them.`,
         `${namedAfter} ${fullName}, who was a well respected local who was killed in war.`,
         `${namedAfter} ${fullName}, who was a very respected local who was captured in war, but did not reveal any secrets while being tortured.`,
@@ -493,9 +495,7 @@ export const roads = {
         `${namedAfter} a much loved cat.`,
         `${namedAfter} the ${namesake.lastName} family who have lived there for generations.`,
         `${namedAfter} the ${namesake.lastName} family who wield an amount of political power.`
-      ]
-      const selected: string = random(reasons)
-      return selected
+      ])
     }
   },
   width: {
