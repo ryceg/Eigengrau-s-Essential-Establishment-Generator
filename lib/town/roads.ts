@@ -247,21 +247,19 @@ export const roads = {
       switch (selected) {
         case 'firstName':
           road = {
-            prefix: namesake.firstName,
+            prefix: random(1, 100) > 60 ? `${namesake.firstName}'s` : namesake.firstName,
             canBePossessive: true,
             isUnique: false,
             namesake
           }
-          if (random(1, 100) > 60) road.prefix += "'s"
           break
         case 'lastName':
           road = {
-            prefix: namesake.lastName,
+            prefix: random(1, 100) > 90 ? `${namesake.lastName}'s` : namesake.lastName,
             canBePossessive: true,
             isUnique: false,
             namesake
           }
-          if (random(1, 100) > 90) road.prefix += "'s"
           break
         default:
           road = weightedRandomFetcher(town, properNouns, undefined, undefined, 'object') as ProperNoun
