@@ -12,7 +12,6 @@ export interface MaterialType {
   noun: string
   tier: number[]
   alwaysAvailable?: boolean
-  canBeUsedAsRoad: boolean
   roadMaterialTypes?: RoadMaterialType[]
 }
 
@@ -70,65 +69,55 @@ export const structureData = {
       'log': {
         probability: 10,
         tier: [1, 2],
-        noun: 'log',
-        canBeUsedAsRoad: false
+        noun: 'log'
       },
       'split log': {
         probability: 10,
         tier: [1, 2],
-        noun: 'split log',
-        canBeUsedAsRoad: false
+        noun: 'split log'
       },
       'wood': {
         probability: 10,
         tier: [1, 2],
         noun: 'wood',
-        alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        alwaysAvailable: true
       },
       'timber': {
         probability: 10,
         tier: [1, 2],
         noun: 'timber',
-        alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        alwaysAvailable: true
       },
       'plank': {
         probability: 10,
         tier: [1, 2],
         noun: 'plank',
-        alwaysAvailable: true,
-        canBeUsedAsRoad: false
+        alwaysAvailable: true
       },
       'terra cotta': {
         probability: 30,
         tier: [1],
-        noun: 'terra cotta',
-        canBeUsedAsRoad: false
+        noun: 'terra cotta'
       },
       'adobe': {
         probability: 30,
         tier: [1],
-        noun: 'adobe',
-        canBeUsedAsRoad: false
+        noun: 'adobe'
       },
       'daub': {
         probability: 30,
         tier: [1],
-        noun: 'daub',
-        canBeUsedAsRoad: false
+        noun: 'daub'
       },
       'cob': {
         probability: 5,
         tier: [1],
-        noun: 'cob',
-        canBeUsedAsRoad: false
+        noun: 'cob'
       },
       'plaster': {
         probability: 30,
         tier: [3],
-        noun: 'plaster',
-        canBeUsedAsRoad: false
+        noun: 'plaster'
       },
       'rock': {
         probability: 10,
@@ -140,28 +129,24 @@ export const structureData = {
       'straw': {
         probability: 15,
         tier: [1],
-        noun: 'straw',
-        canBeUsedAsRoad: false
+        noun: 'straw'
       },
       'hewn rock': {
         probability: 5,
         tier: [2],
         noun: 'hewn rock',
-        canBeUsedAsRoad: false,
         roadMaterialTypes: ['gravel']
       },
       'stone': {
         probability: 5,
         tier: [2],
         noun: 'stone',
-        canBeUsedAsRoad: false,
         roadMaterialTypes: ['pavement', 'gravel']
       },
       'brick': {
         probability: 1,
         tier: [3],
         noun: 'brick',
-        canBeUsedAsRoad: false,
         roadMaterialTypes: ['brick']
       },
       'clay': {
@@ -175,7 +160,6 @@ export const structureData = {
         probability: 5,
         tier: [1],
         noun: 'cobblestone',
-        canBeUsedAsRoad: false,
         roadMaterialTypes: ['gravel']
       },
       'limestone': {

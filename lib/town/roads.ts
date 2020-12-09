@@ -7,7 +7,7 @@ import { fetchRace } from '../npc-generation/fetchRace'
 import { RaceName, raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { assign, getUUID, last } from '../src/utils'
+import { assign, getUUID, keys, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -199,6 +199,9 @@ export const roads = {
     })
 
     const material = roads.material.get(town, road as Road)
+    if (typeof material.roadMaterialTypes === 'undefined') {
+      throw new Error('Could not get array of road material types.')
+    }
     const constructionMethod = random(material.roadMaterialTypes)
 
     assign(road, {
@@ -553,12 +556,12 @@ export const roads = {
       console.log('Getting road material...')
       const tempMaterials: Record<string, MaterialType> = {}
       // cloning town.materialProbability so we can mutate it
-      Object.keys(town.materialProbability).forEach((key) => {
+      keys(town.materialProbability).forEach(key => {
         tempMaterials[key] = town.materialProbability[key]
       })
-      for (const material of Object.keys(tempMaterials)) {
+      for (const material of keys(tempMaterials)) {
         console.log(material)
-        if (!tempMaterials[material].canBeUsedAsRoad) {
+        if (!tempMaterials[material].roadMaterialTypes) {
           delete tempMaterials[material]
           continue
         }
@@ -572,7 +575,7 @@ export const roads = {
       return weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions, 'object') as MaterialType
     },
     exclusions (town: Town, arg: MaterialType) {
-      return arg.canBeUsedAsRoad
+      return !!arg.roadMaterialTypes
     },
     types: {
       dirt: {
