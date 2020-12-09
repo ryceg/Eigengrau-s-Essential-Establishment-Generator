@@ -188,11 +188,11 @@ export const roads = {
     }
     road.name = `${road.prefix} ${road.type}`
 
-    let width = roads.width.rolls.find(desc => {
-      return desc[0] <= widthRoll
-    })
-    if (!width) width = last(roads.width.rolls)
-    road.width = width[1]
+    const [, widthDescription] = roads.width.rolls.find(([threshold]) => {
+      return threshold <= widthRoll
+    }) || last(roads.width.rolls)
+
+    road.width = widthDescription
     road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
     road.capacity = roads.width.getCapacity(road)
     const material = roads.material.get(town, road)
