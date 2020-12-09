@@ -45,7 +45,7 @@ export function createBuilding (town: Town, type: string, base = {}) {
   if (building.parentKey) {
     console.log('Has a parent!')
     building.isChild = true
-    building.road = town.roads[building.parentKey]
+    building.road = town.roads[building.parentKey].key
     // const parentIndex = findBuildingIndex(town, base.parentKey)
     // town.buildings[parentIndex].childKeys.push(building.key)
     // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
