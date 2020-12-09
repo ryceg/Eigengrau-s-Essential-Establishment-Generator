@@ -163,10 +163,15 @@ export const roads = {
     const widthRoll = type.width()
     const feature = roads.get.features(type)
 
-    const road: Road = {
+    const [, width] = roads.width.rolls.find(([threshold]) => {
+      return threshold <= widthRoll
+    }) || last(roads.width.rolls)
+
+    const road = {
       prefix: toTitleCase(roadPrefix.prefix),
       key: getUUID(),
-      objectType: 'road',
+      width,
+      objectType: 'road' as const,
       feature,
       namesake: roadPrefix.namesake || undefined,
       type: toTitleCase(type.name),
@@ -186,23 +191,34 @@ export const roads = {
         }
       }
     }
-    road.name = `${road.prefix} ${road.type}`
 
-    const [, widthDescription] = roads.width.rolls.find(([threshold]) => {
-      return threshold <= widthRoll
-    }) || last(roads.width.rolls)
+    assign(road, {
+      name: `${road.prefix} ${road.type}`,
+      tier: getBuildingTier(town.roll.wealth, road.rolls.wealth),
+      capacity: roads.width.getCapacity(road as Road)
+    })
 
-    road.width = widthDescription
-    road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
-    road.capacity = roads.width.getCapacity(road)
-    const material = roads.material.get(town, road)
+    const material = roads.material.get(town, road as Road)
     const constructionMethod = random(material.roadMaterialTypes)
-    road.constructionMethod = roads.material.types[constructionMethod].type
-    road.materialUsed = material.noun
+
+    assign(road, {
+      constructionMethod: roads.material.types[constructionMethod].type,
+      materialUsed: material.noun
+    })
+
     const materialUsedDescriptor = getUsedMaterialDescriptor(road)
-    road.materialDescription = random(roads.material.types[constructionMethod].description)
-    road.description = `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
-    if (road.namesake?.reason) road.description += road.namesake.reason
+
+    assign(road, {
+      materialDescription: random(roads.material.types[constructionMethod].description)
+    })
+
+    assign(road, {
+      description: `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
+    })
+
+    if (road.namesake?.reason) {
+      road.description += road.namesake.reason
+    }
 
     return road
   },
@@ -819,7 +835,12 @@ const properNouns: Record<string, ProperNoun & { probability?: number }> = {
   }
 }
 
-function getUsedMaterialDescriptor (road: Road) {
+interface ConstructedRoad {
+  constructionMethod: string
+  materialUsed: string
+}
+
+function getUsedMaterialDescriptor (road: ConstructedRoad) {
   if (['gravel', 'dirt'].includes(road.constructionMethod)) {
     return `${road.constructionMethod} and ${road.materialUsed}`
   }
