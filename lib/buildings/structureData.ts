@@ -13,12 +13,12 @@ export interface MaterialType {
   tier: number[]
   alwaysAvailable?: boolean
   canBeUsedAsRoad: boolean
-  roadMaterialType?: RoadMaterialTypes[]
+  roadMaterialTypes?: RoadMaterialType[]
 }
 
 export type MaterialTypes = keyof typeof structureData.material.types
 
-export type RoadMaterialTypes = 'dirt' | 'gravel' | 'pavement' | 'brick'
+export type RoadMaterialType = 'dirt' | 'gravel' | 'pavement' | 'brick'
 
 export const structureData = {
   colour: [
@@ -135,7 +135,7 @@ export const structureData = {
         tier: [1],
         noun: 'rock',
         canBeUsedAsRoad: true,
-        roadMaterialType: ['pavement', 'gravel']
+        roadMaterialTypes: ['pavement', 'gravel']
       },
       'straw': {
         probability: 15,
@@ -148,49 +148,49 @@ export const structureData = {
         tier: [2],
         noun: 'hewn rock',
         canBeUsedAsRoad: false,
-        roadMaterialType: ['gravel']
+        roadMaterialTypes: ['gravel']
       },
       'stone': {
         probability: 5,
         tier: [2],
         noun: 'stone',
         canBeUsedAsRoad: false,
-        roadMaterialType: ['pavement', 'gravel']
+        roadMaterialTypes: ['pavement', 'gravel']
       },
       'brick': {
         probability: 1,
         tier: [3],
         noun: 'brick',
         canBeUsedAsRoad: false,
-        roadMaterialType: ['brick']
+        roadMaterialTypes: ['brick']
       },
       'clay': {
         probability: 5,
         tier: [1],
         noun: 'clay',
         canBeUsedAsRoad: true,
-        roadMaterialType: ['dirt']
+        roadMaterialTypes: ['dirt']
       },
       'cobblestone': {
         probability: 5,
         tier: [1],
         noun: 'cobblestone',
         canBeUsedAsRoad: false,
-        roadMaterialType: ['gravel']
+        roadMaterialTypes: ['gravel']
       },
       'limestone': {
         probability: 5,
         tier: [3],
         noun: 'limestone',
         canBeUsedAsRoad: true,
-        roadMaterialType: ['pavement', 'brick', 'gravel']
+        roadMaterialTypes: ['pavement', 'brick', 'gravel']
       },
       'gypsum': {
         probability: 5,
         tier: [3],
         noun: 'gypsum',
         canBeUsedAsRoad: true,
-        roadMaterialType: ['dirt']
+        roadMaterialTypes: ['dirt']
       }
     } as Record<string, MaterialType>
   },

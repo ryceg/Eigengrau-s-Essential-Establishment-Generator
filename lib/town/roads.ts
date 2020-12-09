@@ -1,6 +1,6 @@
 import { toTitleCase, townData } from '../'
 import { getBuildingTier } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes, RoadMaterialTypes } from '../buildings/structureData'
+import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
 import { createName } from '../npc-generation/createName'
 import { fetchRace } from '../npc-generation/fetchRace'
@@ -196,7 +196,7 @@ export const roads = {
     road.tier = getBuildingTier(town.roll.wealth, road.rolls.wealth)
     road.capacity = roads.width.getCapacity(road)
     const material = roads.material.get(town, road)
-    const constructionMethod = random(material.roadMaterialType) as RoadMaterialTypes
+    const constructionMethod = random(material.roadMaterialTypes)
     road.constructionMethod = roads.material.types[constructionMethod].type
     road.materialUsed = material.noun
     let materialUsedDescriptor
@@ -605,7 +605,7 @@ export const roads = {
           'an arrangement of baked moss and artichoke coloured bricks, made from compressed Gnomegrass and Eldenoak sap mixture.'
         ]
       }
-    } as Record<RoadMaterialTypes, RoadMaterial>
+    } as Record<RoadMaterialType, RoadMaterial>
   }
 }
 
