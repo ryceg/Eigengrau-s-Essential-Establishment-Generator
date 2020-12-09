@@ -154,7 +154,7 @@ export const roads = {
     return road
   },
   /** Creates the road */
-  create: (town: Town, building?: Building): Road => {
+  create: (town: Town): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
     console.log('Creating a road...')
     const roadPrefix = roads.name.create(town)
