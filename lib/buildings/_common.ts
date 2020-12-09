@@ -10,7 +10,6 @@ export interface Building {
   outside: string
   passageName?: string
   parentKey?: string
-  isChild?: boolean
   name?: string
   wordNoun?: string
   needsWordNoun?: boolean

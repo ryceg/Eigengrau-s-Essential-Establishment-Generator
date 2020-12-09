@@ -4,7 +4,8 @@ import { MaterialType } from './structureData'
 import { Building } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
-import { roads } from '../town/roads'
+import { Road, roads } from '../town/roads'
+import { assign } from '../src/utils'
 
 export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
   console.log('Creating base building...')
@@ -23,6 +24,7 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   const building: Building = {
     key: getUUID(),
     objectType: 'building',
+    road: '',
     type,
     lighting,
     outside,
@@ -40,27 +42,31 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
       activity: random(1, 100)
     },
     priceModifier: getPriceModifier(),
+    material: {
+      noun: '',
+      probability: 0
+    },
     ...base
   }
 
-  if (building.parentKey) {
-    console.log('Has a parent!')
-    building.isChild = true
-    building.road = town.roads[building.parentKey].key
-    // const parentIndex = findBuildingIndex(town, base.parentKey)
-    // town.buildings[parentIndex].childKeys.push(building.key)
-    // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
-  } else {
-    const road = roads.assign(town, building)
-    building.road = road.key
-  }
-  // building.priceModifier += town.taxes.economics
-
   clampRolls(building.roll)
 
-  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
+  const road = getBuildingRoad(building, town)
+
+  assign(building, {
+    road: road.key,
+    material: generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
+  })
 
   return building
+}
+
+function getBuildingRoad (building: Building, town: Town): Road {
+  if (building.parentKey) {
+    console.log('Has a parent!')
+    return town.roads[building.parentKey]
+  }
+  return roads.assign(town, building)
 }
 
 function getPriceModifier (): number {

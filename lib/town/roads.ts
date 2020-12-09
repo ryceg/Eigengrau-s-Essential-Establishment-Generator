@@ -120,7 +120,9 @@ export type RoadType =
 'trail'
 
 export const roads = {
-  /** @description Adds checks for road duplication; use this one for assigning to randomly generated buildings. */
+  /**
+   * Adds checks for road duplication; use this one for assigning to randomly generated buildings.
+   */
   assign: (town: Town, building?: Building): Road => {
     console.groupCollapsed('Assigning a road...')
     let road: Road
