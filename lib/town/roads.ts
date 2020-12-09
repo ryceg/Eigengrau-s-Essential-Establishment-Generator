@@ -94,29 +94,26 @@ interface RoadMaterial {
   description: string[]
 }
 
-type RoadNameType =
-'properNoun' |
-'firstName' |
-'lastName'
+type RoadNameType = 'properNoun' | 'firstName' | 'lastName'
 
 export type RoadType =
-'street' |
-'lane' |
-'road' |
-'square' |
-'way' |
-'crescent' |
-'close' |
-'wynd' |
-'row' |
-'dyke' |
-'avenue' |
-'alley' |
-'drive' |
-'boulevard' |
-'plaza' |
-'track' |
-'trail'
+  | 'street'
+  | 'lane'
+  | 'road'
+  | 'square'
+  | 'way'
+  | 'crescent'
+  | 'close'
+  | 'wynd'
+  | 'row'
+  | 'dyke'
+  | 'avenue'
+  | 'alley'
+  | 'drive'
+  | 'boulevard'
+  | 'plaza'
+  | 'track'
+  | 'trail'
 
 export const roads = {
   /**
