@@ -1,5 +1,4 @@
-
-import { toTitleCase, townData } from '..'
+import { toTitleCase, townData } from '../'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialTypes } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
@@ -12,9 +11,9 @@ import { getUUID, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
-import { Town } from './_common'
 import { random } from '../src/random'
 import { fetchGender } from '../src/genderData'
+import { Town } from './_common'
 
 export interface RoadData {
   name: RoadType
@@ -66,10 +65,10 @@ export interface Road {
 }
 
 interface Namesake {
-    firstName: string
-    lastName: string
-    race: RaceName
-    reason?: string
+  firstName: string
+  lastName: string
+  race: RaceName
+  reason?: string
 }
 
 interface RoadOwnership extends ProperNoun {

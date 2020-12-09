@@ -17,7 +17,8 @@ setup.createNPC = (town, base = defaultBase) => {
     professionLuck: lib.dice(5, 10) - 27,
     physicalTrait: lib.random(1, 100),
     gregariousness: lib.dice(3, 6),
-    conformity: lib.dice(2, 50)
+    conformity: lib.dice(2, 50),
+    gender: lib.random(1, 100)
   }
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
@@ -31,7 +32,9 @@ setup.createNPC = (town, base = defaultBase) => {
   }
 
   lib.initSexistProfession(town, base)
-  lib.initGenderNpc(town, base)
+  console.log('Initialising gender.')
+  base.gender = lib.getNpcGender(town, base)
+  lib.assignFunctionalGenderRoll(town, base)
 
   const race = base.race || lib.fetchRace(town, base)
 
