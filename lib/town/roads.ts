@@ -17,7 +17,7 @@ import { Town } from './_common'
 
 export interface RoadData {
   name: RoadType
-  /** @description This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
+  /** This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: RoadType | 'cul-de-sac'
   probability: number
   width(): number
