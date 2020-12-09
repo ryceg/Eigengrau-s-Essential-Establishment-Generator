@@ -138,10 +138,10 @@ export const roads = {
         }
       }
       // if it doesn't find a suitable road, make a new one.
-      road = roads.create(town, building)
+      road = roads.create(town)
       town.roads[road.key] = road
     } else {
-      road = roads.create(town, building)
+      road = roads.create(town)
       town.roads[road.key] = road
     }
 
