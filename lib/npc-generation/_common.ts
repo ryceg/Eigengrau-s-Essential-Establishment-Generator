@@ -58,7 +58,7 @@ export interface NPC {
   }
   partnerID?: string
   lifeEvents: string[]
-  callbackFunction?(town: Town): any
+  callbackFunction?(town: Town): void
   wealth: number
   finances: {
     creditors: Record<string, number>
