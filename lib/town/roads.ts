@@ -777,10 +777,9 @@ export const roads = {
       if (tempMaterials[town.townMaterial]) {
         tempMaterials[town.townMaterial].probability = 80
       }
-      const tempMaterial = weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions(tempMaterials), 'object') as MaterialType
-      return tempMaterial
+      return weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions, 'object') as MaterialType
     },
-    exclusions (arg: Record<MaterialTypes, MaterialType>) {
+    exclusions (town: Town, arg: MaterialType) {
       return arg.canBeUsedAsRoad
     },
     types: {
