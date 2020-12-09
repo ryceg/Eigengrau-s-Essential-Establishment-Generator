@@ -7,7 +7,7 @@ import { fetchRace } from '../npc-generation/fetchRace'
 import { RaceName, raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { getUUID, last } from '../src/utils'
+import { assign, getUUID, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -81,7 +81,6 @@ interface RoadOwnership extends ProperNoun {
 }
 
 interface ProperNoun {
-  roadNameType: string
   prefix: string
   canBePossessive?: boolean
   isUnique?: boolean
@@ -223,7 +222,6 @@ export const roads = {
         lastName: 2
       } as WeightRecord<RoadNameType>
       const selected = weightRandom(probabilities)
-      let road: ProperNoun
       const race = fetchRace(town)
       const gender = fetchGender(town)
       const namesake = {
@@ -233,13 +231,13 @@ export const roads = {
         lastName: createName({ race, firstOrLast: 'lastName' })
       }
       console.log('selected ', selected)
+      let road: ProperNoun
       switch (selected) {
         case 'firstName':
           road = {
             prefix: namesake.firstName,
             canBePossessive: true,
             isUnique: false,
-            isBuilding: undefined,
             namesake
           }
           if (random(1, 100) > 60) road.prefix += "'s"
@@ -249,238 +247,20 @@ export const roads = {
             prefix: namesake.lastName,
             canBePossessive: true,
             isUnique: false,
-            isBuilding: undefined,
             namesake
           }
           if (random(1, 100) > 90) road.prefix += "'s"
           break
         default:
-          road = weightedRandomFetcher(town, roads.name.properNoun, undefined, undefined, 'object') as ProperNoun
+          road = weightedRandomFetcher(town, properNouns, undefined, undefined, 'object') as ProperNoun
       }
-      road.roadNameType = selected
+      assign(road, {
+        roadNameType: selected
+      })
       if (road.namesake && !road.namesake.reason) {
         road.namesake.reason = roads.namesakes.reason(town, road.namesake)
       }
       return road as RoadOwnership
-    },
-    properNoun: {
-      main: {
-        prefix: 'main',
-        isUnique: true,
-        probability: 20,
-        isBuilding: false
-      },
-      keep: {
-        prefix: 'keep',
-        isUnique: false,
-        isBuilding: false
-      },
-      king: {
-        prefix: 'king',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      queen: {
-        prefix: 'queen',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      prince: {
-        prefix: 'prince',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      princess: {
-        prefix: 'princess',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      lord: {
-        prefix: 'lord',
-        isUnique: false,
-        isBuilding: false
-      },
-      ladies: {
-        prefix: 'ladies',
-        isUnique: false,
-        isBuilding: false
-      },
-      noble: {
-        prefix: 'noble',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      duke: {
-        prefix: 'duke',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      duchess: {
-        prefix: 'duchess',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      rogue: {
-        prefix: 'rogue',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      priest: {
-        prefix: 'priest',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      abbott: {
-        prefix: 'abbott',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      pope: {
-        prefix: 'pope',
-        isUnique: false,
-        isBuilding: false
-      },
-      spring: {
-        prefix: 'spring',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      winter: {
-        prefix: 'winter',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      summer: {
-        prefix: 'summer',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      autumn: {
-        prefix: 'autumn',
-        canBePossessive: true,
-        isUnique: false,
-        isBuilding: false
-      },
-      castle: {
-        prefix: 'castle',
-        isBuilding: 'castle',
-        isUnique: false,
-        nameReason: [
-          'A castle was meant to be built at the end of the road.'
-        ]
-      },
-      butcher: {
-        prefix: 'butcher',
-        isBuilding: 'butcher',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      tailor: {
-        prefix: 'tailor',
-        isBuilding: 'tailor',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      smith: {
-        prefix: 'smith',
-        isBuilding: 'smithy',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      potter: {
-        prefix: 'potter',
-        isBuilding: 'potter',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      baker: {
-        prefix: 'baker',
-        isBuilding: 'bakery',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      farrier: {
-        prefix: 'farrier',
-        isBuilding: 'smithy',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false
-      },
-      fisher: {
-        prefix: 'fisher',
-        canBePossessive: true,
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      old: {
-        prefix: 'old',
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      new: {
-        prefix: 'new',
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      common: {
-        prefix: 'common',
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      high: {
-        prefix: 'high',
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      low: {
-        prefix: 'low',
-        probability: 20,
-        isUnique: false,
-        isBuilding: false
-      },
-      north: {
-        prefix: 'north',
-        isUnique: false,
-        isBuilding: false
-      },
-      south: {
-        prefix: 'south',
-        isUnique: false,
-        isBuilding: false
-      },
-      west: {
-        prefix: 'west',
-        isUnique: false,
-        isBuilding: false
-      },
-      east: {
-        prefix: 'east',
-        isUnique: false,
-        isBuilding: false
-      }
     },
     type: {
       street: {
@@ -826,5 +606,222 @@ export const roads = {
         ]
       }
     } as Record<RoadMaterialTypes, RoadMaterial>
+  }
+}
+
+const properNouns: Record<string, ProperNoun & { probability?: number }> = {
+  main: {
+    prefix: 'main',
+    isUnique: true,
+    probability: 20,
+    isBuilding: false
+  },
+  keep: {
+    prefix: 'keep',
+    isUnique: false,
+    isBuilding: false
+  },
+  king: {
+    prefix: 'king',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  queen: {
+    prefix: 'queen',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  prince: {
+    prefix: 'prince',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  princess: {
+    prefix: 'princess',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  lord: {
+    prefix: 'lord',
+    isUnique: false,
+    isBuilding: false
+  },
+  ladies: {
+    prefix: 'ladies',
+    isUnique: false,
+    isBuilding: false
+  },
+  noble: {
+    prefix: 'noble',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  duke: {
+    prefix: 'duke',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  duchess: {
+    prefix: 'duchess',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  rogue: {
+    prefix: 'rogue',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  priest: {
+    prefix: 'priest',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  abbott: {
+    prefix: 'abbott',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  pope: {
+    prefix: 'pope',
+    isUnique: false,
+    isBuilding: false
+  },
+  spring: {
+    prefix: 'spring',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  winter: {
+    prefix: 'winter',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  summer: {
+    prefix: 'summer',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  autumn: {
+    prefix: 'autumn',
+    canBePossessive: true,
+    isUnique: false,
+    isBuilding: false
+  },
+  castle: {
+    prefix: 'castle',
+    isBuilding: 'castle',
+    isUnique: false
+  },
+  butcher: {
+    prefix: 'butcher',
+    isBuilding: 'butcher',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  tailor: {
+    prefix: 'tailor',
+    isBuilding: 'tailor',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  smith: {
+    prefix: 'smith',
+    isBuilding: 'smithy',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  potter: {
+    prefix: 'potter',
+    isBuilding: 'potter',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  baker: {
+    prefix: 'baker',
+    isBuilding: 'bakery',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  farrier: {
+    prefix: 'farrier',
+    isBuilding: 'smithy',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false
+  },
+  fisher: {
+    prefix: 'fisher',
+    canBePossessive: true,
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  old: {
+    prefix: 'old',
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  new: {
+    prefix: 'new',
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  common: {
+    prefix: 'common',
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  high: {
+    prefix: 'high',
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  low: {
+    prefix: 'low',
+    probability: 20,
+    isUnique: false,
+    isBuilding: false
+  },
+  north: {
+    prefix: 'north',
+    isUnique: false,
+    isBuilding: false
+  },
+  south: {
+    prefix: 'south',
+    isUnique: false,
+    isBuilding: false
+  },
+  west: {
+    prefix: 'west',
+    isUnique: false,
+    isBuilding: false
+  },
+  east: {
+    prefix: 'east',
+    isUnique: false,
+    isBuilding: false
   }
 }
