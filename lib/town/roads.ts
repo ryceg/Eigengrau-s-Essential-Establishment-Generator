@@ -186,14 +186,7 @@ export const roads = {
         },
         factions: {
         }
-      },
-      name: '',
-      description: '',
-      capacity: 1,
-      tier: 1,
-      materialUsed: '',
-      materialDescription: '',
-      constructionMethod: ''
+      }
     }
 
     assign(road, {
