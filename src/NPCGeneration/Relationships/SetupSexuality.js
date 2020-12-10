@@ -17,7 +17,7 @@ setup.createSexuality = function (npc) {
   }
 
   if (!npc.roll.kinsey) {
-    const roll = random(0, 100)
+    const roll = random(1, 100)
     npc.roll.sexuality = npc.roll.sexuality || roll || 47 + lib.dice(13, 4)
     npc.roll.kinsey = getKinseyRoll(npc.roll.sexuality)
   }

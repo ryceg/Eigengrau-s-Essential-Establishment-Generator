@@ -5,7 +5,7 @@ import { GenderName, RaceName, raceTraits } from './raceTraits'
 interface Params {
   race?: RaceName
   gender?: GenderName
-  firstOrLast?: 'lastName'
+  firstOrLast?: 'lastName' | 'firstName'
 }
 
 export function createName (parameters: Params = {}) {

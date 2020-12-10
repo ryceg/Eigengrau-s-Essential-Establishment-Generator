@@ -105,6 +105,6 @@ type WRF = <T, A extends Arg<T>>(
   town: Town,
   args: Record<string, A> | A[],
   obj?: T,
-  exclusionFunction?: (town: Town, obj: A) => boolean,
+  exclusionFunction?: (town: Town, arg: A) => boolean,
   output?: keyof A | 'object'
 ) => unknown

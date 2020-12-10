@@ -1,18 +1,19 @@
-// uses setup.createNPC, setup.createBuilding, setup.createDungeonName
+// uses setup.createNPC, setup.createDungeonName
 setup.createDungeon = (town, opts) => {
   console.groupCollapsed('Creating a dungeon!')
   const data = setup.castle.dungeon
-  const dungeon = setup.createBuilding(town, 'dungeon', opts)
+  const dungeon = lib.createBuilding(town, 'dungeon', opts)
   Object.assign(dungeon, {
     knownFor: data.knownFor.random(),
     secret: data.secret.random(),
     age: data.age.random(),
     format: data.format.random(),
     wordNoun: ['dungeon', 'oubliette', 'jail', 'prison'].random(),
+    needsWordNoun: false,
     passageName: 'Dungeon',
     initPassage: 'Dungeon',
     buildingType: 'dungeon',
-    objectType: 'room',
+    objectType: 'building',
     cells: {
       prisoners: {
         treatment: data.cells.prisoners.treatment.random()
@@ -35,6 +36,8 @@ setup.createDungeon = (town, opts) => {
 
   if (opts.parentKey) {
     dungeon.location = data.location.castle.random()
+    dungeon.objectType = 'room'
+    dungeon.parentKey = opts.parentKey
   } else {
     dungeon.location = data.location.standalone.random()
     lib.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })

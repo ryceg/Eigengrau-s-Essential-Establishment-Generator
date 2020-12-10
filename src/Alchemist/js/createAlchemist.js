@@ -1,6 +1,6 @@
-// uses setup.createNPC, setup.createBuilding
+// uses setup.createNPC
 setup.createAlchemist = (town, opts = {}) => {
-  const createBuilding = opts.newBuilding || setup.createBuilding
+  const createBuilding = opts.newBuilding || lib.createBuilding
   const createChemist = opts.newChemist || setup.createChemist
 
   console.groupCollapsed('Alchemist loading...')

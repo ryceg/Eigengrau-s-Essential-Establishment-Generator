@@ -1,7 +1,7 @@
 setup.createTemple = (town, opts = {}) => {
   console.log('Creating a temple...')
 
-  const temple = (opts.newBuilding || setup.createBuilding)(town, 'temple')
+  const temple = (opts.newBuilding || lib.createBuilding)(town, 'temple')
   const data = setup.temple
 
   const npc = setup.createNPC(town, {

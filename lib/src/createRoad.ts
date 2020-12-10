@@ -43,7 +43,7 @@ function getRoadTypeAttributes (type: string): RoadTypeAttributes {
     case 'road':
       return {
         descriptiveType: random(['crossroads', 'droveway', 'patrol road', 'dirt road', 'busy droveway', 'busy dirt road', 'military road', 'cobblestone road', 'busy cobblestone road', 'crumbling cobblestone road', 'paved road', 'busy paved road', 'crumbling paved road']),
-        traffic: random(['which is dotted with dead campsites where many a weary traveler has mad camp for the night', ', occassionally passing a patrol shack', 'that has plenty of wheel tracks', 'that has road markers and signage dotted every now and then', 'that has checkpoints or guard posts every couple of miles', 'which seems to have been marred by time or, perhaps warfare', 'which passes a tavern that seems to be doing very well']),
+        traffic: random(['which is dotted with dead campsites where many a weary traveler has made camp for the night', ', occassionally passing a patrol shack', 'that has plenty of wheel tracks', 'that has road markers and signage dotted every now and then', 'that has checkpoints or guard posts every couple of miles', 'which seems to have been marred by time or, perhaps warfare', 'which passes a tavern that seems to be doing very well']),
         encounter: random(['a marching army', 'a merchant caravan', 'a wedding party', 'another adventuring party', 'a group of pilgrims', 'some escaped convicts', 'a funeral procession', 'a plague cart', 'some farmers', 'a knight errant', 'a wounded knight', 'a lone horse, trotting the other way', 'a band of mercenaries', 'a traveling theatre troupe', 'a courier', 'some beggars', 'a caravan of slavers', 'a traveling lady', 'some robbers', 'a caravan of gypsies', 'a lone zombie'])
       }
   }

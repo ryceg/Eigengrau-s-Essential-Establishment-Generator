@@ -19,7 +19,7 @@
   This has been implemented to ensure that the creation of new buildings is saved and no data is lost. */
   <<run State.create(passage())>>
 <</button>></span>
-<span id="buildings"><<include "BuildingsList">></span>
+<span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
 [[OutputEverything]]
 <<include "Popup">>

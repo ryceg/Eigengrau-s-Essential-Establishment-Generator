@@ -11,7 +11,13 @@ export interface MaterialType {
   probability: number
   noun: string
   tier: number[]
+  alwaysAvailable?: boolean
+  roadMaterialTypes?: RoadMaterialType[]
 }
+
+export type MaterialTypes = keyof typeof structureData.material.types
+
+export type RoadMaterialType = 'dirt' | 'gravel' | 'pavement' | 'brick'
 
 export const structureData = {
   colour: [
@@ -73,17 +79,20 @@ export const structureData = {
       'wood': {
         probability: 10,
         tier: [1, 2],
-        noun: 'wood'
+        noun: 'wood',
+        alwaysAvailable: true
       },
       'timber': {
         probability: 10,
         tier: [1, 2],
-        noun: 'timber'
+        noun: 'timber',
+        alwaysAvailable: true
       },
       'plank': {
         probability: 10,
         tier: [1, 2],
-        noun: 'plank'
+        noun: 'plank',
+        alwaysAvailable: true
       },
       'terra cotta': {
         probability: 30,
@@ -113,7 +122,9 @@ export const structureData = {
       'rock': {
         probability: 10,
         tier: [1],
-        noun: 'rock'
+        noun: 'rock',
+        canBeUsedAsRoad: true,
+        roadMaterialTypes: ['pavement', 'gravel']
       },
       'straw': {
         probability: 15,
@@ -123,37 +134,47 @@ export const structureData = {
       'hewn rock': {
         probability: 5,
         tier: [2],
-        noun: 'hewn rock'
+        noun: 'hewn rock',
+        roadMaterialTypes: ['gravel']
       },
       'stone': {
         probability: 5,
         tier: [2],
-        noun: 'stone'
+        noun: 'stone',
+        roadMaterialTypes: ['pavement', 'gravel']
       },
       'brick': {
         probability: 1,
         tier: [3],
-        noun: 'brick'
+        noun: 'brick',
+        roadMaterialTypes: ['brick']
       },
       'clay': {
         probability: 5,
         tier: [1],
-        noun: 'clay'
+        noun: 'clay',
+        canBeUsedAsRoad: true,
+        roadMaterialTypes: ['dirt']
       },
       'cobblestone': {
         probability: 5,
         tier: [1],
-        noun: 'cobblestone'
+        noun: 'cobblestone',
+        roadMaterialTypes: ['gravel']
       },
       'limestone': {
         probability: 5,
         tier: [3],
-        noun: 'limestone'
+        noun: 'limestone',
+        canBeUsedAsRoad: true,
+        roadMaterialTypes: ['pavement', 'brick', 'gravel']
       },
       'gypsum': {
         probability: 5,
         tier: [3],
-        noun: 'gypsum'
+        noun: 'gypsum',
+        canBeUsedAsRoad: true,
+        roadMaterialTypes: ['dirt']
       }
     } as Record<string, MaterialType>
   },

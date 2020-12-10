@@ -1,4 +1,5 @@
 import { Town } from '../town/_common'
+import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
@@ -13,7 +14,9 @@ export function createStructure (town: Town, building: Building) {
   const structure = building.structure || {
     descriptor: '',
     descriptors: [],
-    material: {},
+    material: {
+      noun: ''
+    },
     roof: {}
   }
 
@@ -25,12 +28,17 @@ export function createStructure (town: Town, building: Building) {
   const roof = weightedRandomFetcher(town, structureData.roof.types, null, undefined, 'object') as RoofType
 
   if (roof.canBeColoured) {
-    structure.roof.colour = random(structureData.roof.colour)
-    structure.roof.verb = `${structure.roof.colour} ${structure.roof.verb}`
-    structure.roof.noun = `${structure.roof.colour} ${structure.roof.noun}`
+    const colour = random(structureData.roof.colour)
+    assign(structure.roof, {
+      colour,
+      verb: `${colour} ${roof.verb}`,
+      noun: `${colour} ${roof.noun}`
+    })
   } else {
-    structure.roof.verb = roof.verb
-    structure.roof.noun = roof.noun
+    assign(structure.roof, {
+      verb: roof.verb,
+      noun: roof.noun
+    })
   }
 
   console.log('before roof')
@@ -40,8 +48,14 @@ export function createStructure (town: Town, building: Building) {
   // FIXME: structure.material does not have a rolls record, and this cannot be used defineRollDataGetter.
   // defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
   console.log('after material')
-  structure.material.wealth = 'shabby'
-  structure.roof.wealth = 'decently built'
+
+  assign(structure.material, {
+    wealth: 'shabby'
+  })
+  assign(structure.roof, {
+    wealth: 'decently built'
+  })
+
   const descriptors = [
     `${output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
     `${output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
@@ -56,7 +70,9 @@ export function createStructure (town: Town, building: Building) {
   console.log(structure)
   console.groupEnd()
 
-  building.structure = structure
+  assign(building, {
+    structure
+  })
 }
 
 function addUniqueDescriptor (descriptors: string[], description: string) {

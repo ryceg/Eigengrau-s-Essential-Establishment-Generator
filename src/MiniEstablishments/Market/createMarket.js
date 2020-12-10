@@ -1,5 +1,5 @@
 setup.createMarket = (town, opts = {}) => {
-  const market = (opts.newBuilding || setup.createBuilding)(town, 'market')
+  const market = (opts.newBuilding || lib.createBuilding)(town, 'market')
 
   Object.assign(market, {
     initPassage: 'MarketOutput',
@@ -18,7 +18,7 @@ setup.createMarket = (town, opts = {}) => {
   market.name = [
     'The Markets',
     `The Markets of ${town.name}`,
-    `The ${[town.name, market.road].random()} ${market.wordNoun}`
+    `The ${[town.name, town.roads[market.road].name].random()} ${market.wordNoun}`
   ].random()
   market.notableFeature = market.draw
   market.tippyDescription = `${lib.articles.output(market.wordNoun).toUpperFirst()} that's ${market.size}. It is ${market.cleanliness}, and is known for ${market.notableFeature}.`

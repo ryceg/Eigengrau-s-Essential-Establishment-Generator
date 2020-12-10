@@ -2,29 +2,34 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Building {
   key: string
-  passageName: string
-  parentKey?: string
+  /** @description 'building', 'faction', 'npc', or 'room'. */
   objectType: string
-  isChild?: boolean
+  /** @description The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
-  name: string
-  wordNoun: string
+  lighting: string
+  outside: string
+  passageName?: string
+  parentKey?: string
+  name?: string
+  wordNoun?: string
+  needsWordNoun?: boolean
   associatedNPC?: NPC
-  structure: BuildingStructure
+  structure?: BuildingStructure
   roll: BuildingRolls
-  wealth: string
-  sin: string
-  size: string
-  activity: string
-  roughness: string
-  cleanliness: string
-  diversity: string
-  reputation: string
+  priceModifier?: number
+  wealth?: string
+  size?: string
+  activity?: string
+  roughness?: string
+  sin?: string
+  cleanliness?: string
+  diversity?: string
+  reputation?: string
   material: {
     noun: string
     probability: number
   }
-  tippyDescription: string
+  tippyDescription?: string
   road: string
   notableFeature?: string
   specialty?: string

@@ -5,7 +5,7 @@ setup.initGoodsAndServices = () => {
       create: (type) => (town, opts = {}) => {
         // this is the template for the creation of generic buildings; i.e. those that are present in this list.
         // It is *not* for taverns, town squares, castles, or anything large scale.
-        // this is why it is distinct from the setup.createBuilding() function; everything needs setup.createBuilding, not everything needs setup.goodsAndServices.default.create()
+        // this is why it is distinct from the lib.createBuilding() function; everything needs lib.createBuilding, not everything needs setup.goodsAndServices.default.create()
         console.groupCollapsed(`setup.goodsAndServices.default.create()ing ${lib.articles.output(type)}`)
         const building = {
           type,
@@ -13,7 +13,7 @@ setup.initGoodsAndServices = () => {
           passageName: 'GenericPassage',
           initPassage: 'GenericPassage'
         }
-        Object.assign(building, (opts.newBuilding || setup.createBuilding)(town, building.type))
+        Object.assign(building, (opts.newBuilding || lib.createBuilding)(town, building.type))
         building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.random() || 'building'
         building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat()
         setup.goodsAndServices[type].create(town, building, opts)
@@ -40,7 +40,7 @@ setup.initGoodsAndServices = () => {
         building.fruit = lib.flora.fruit.fruitS.random()
         building.fruits = lib.flora.fruit.fruitP.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
         return building
       },
       name: {
@@ -51,7 +51,7 @@ setup.initGoodsAndServices = () => {
             `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
             `The ${name.foodAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `The ${name.beast.random().toUpperFirst()}'s ${name.noun.random().toUpperFirst()}`,
             `${name.adjective.random().toUpperFirst()} ${[`${building.associatedNPC.firstName}'s `, name.beast.random().toUpperFirst()].random()} ${name.wordNoun.random().toUpperFirst()}`,
@@ -411,7 +411,7 @@ setup.initGoodsAndServices = () => {
         building.flower2 = lib.flora.flower.stemP.random()
         building.flower = lib.flora.flower.stemS.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
         return building
       },
       name: {
@@ -421,7 +421,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `The ${name.adjective.random().toUpperFirst()} ${lib.flora.flower.stemS.random().toUpperFirst()}`,
             `The ${lib.flora.flower.stemS.random().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
@@ -693,7 +693,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -703,7 +703,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             unique
@@ -1386,7 +1386,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -1396,7 +1396,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             unique
@@ -1732,7 +1732,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -1742,7 +1742,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.lastName}'s Shoe Repair`,
@@ -1992,7 +1992,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `A ${building.type} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `A ${building.type} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -2002,7 +2002,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.lastName}'s ${name.noun.random().toUpperFirst()}`,
@@ -2285,7 +2285,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = setup.goodsAndServices[building.type].notableFeature.random()
         building.specialty = setup.goodsAndServices[building.type].specialty.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
         return building
       },
       name: {
@@ -2296,7 +2296,7 @@ setup.initGoodsAndServices = () => {
             `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random(), name.wordNoun.random()].random().toUpperFirst()}`,
             `The ${name.jewelleryAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `The ${name.adjective.random().toUpperFirst()} ${name.nounJewelledGood.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.lastName}'s ${name.noun.random().toUpperFirst()}`,
@@ -2528,7 +2528,7 @@ setup.initGoodsAndServices = () => {
         building.notableFeature = typeData.notableFeature.random()
         building.specialty = typeData.specialty.random()
 
-        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${building.road}. Their specialty is ${building.specialty}.`
+        building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
         return building
       },
       name: {
@@ -2538,7 +2538,7 @@ setup.initGoodsAndServices = () => {
           return [
             `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
             `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${building.road} ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
             `${building.associatedNPC.lastName}'s ${name.noun.random().toUpperFirst()}`,

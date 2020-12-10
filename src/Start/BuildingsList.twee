@@ -1,12 +1,12 @@
 :: BuildingsList
 <<for _key, _building range $town.buildings>><<capture _key, _building>>
     \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
-    \<span @id="_building.name">
+    \<span @id="_building.name"><<set _road to $town.roads[_building.road]>>
     \<<if def _previousBuilding && _previousBuilding.road === _building.road>>
 
-      \<<print ["Also on _building.road is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
+      \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
     \<<else>>
-    <<print ["On ", "Along ", "Over on "].random()>> _building.road is 
+    <<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_building.road].description, $town.roads[_building.road].name)>> is 
     \<</if>>
     \<<if _building.needsWordNoun !== false>>
       \the _building.wordNoun 

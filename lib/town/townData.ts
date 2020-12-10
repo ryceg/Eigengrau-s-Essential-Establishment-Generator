@@ -1243,7 +1243,6 @@ export const townData: TownData = {
       'a down on his luck artist asks if they might commission him for a portrait of one of them.',
       'a cutpurse is tackled and beaten by two city watch officers.',
       "a screaming child throws a tantrum because his/her mother/father won't buy him a trinket.",
-      'yYour mama sends you a nice cloth hat with earflaps.',
       'an old man says that his cookoo bird will tell your fortune.',
       'a sleeping dragon (because snorelax is copyrighted) blocks your path',
       'you run into a random acolyte in a temple with a bag on his head handing out grease scrolls',

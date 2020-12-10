@@ -1,9 +1,11 @@
 import { Family } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
+import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building, BuildingRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { GenderName, RaceName } from '../npc-generation/raceTraits'
 import { NPC, NpcRelationship } from '../npc-generation/_common'
+import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
@@ -29,6 +31,7 @@ export interface Town {
     arcana: number
     equality: number
     religiosity: number
+    genderMakeup: number
   }
   taxes: {
     welfare: number
@@ -52,17 +55,13 @@ export interface Town {
   guard: {
     funding: string
   }
-  possibleMaterials: string[]
-  materialProbability: {
-    [key: string]: {
-      probability: number
-    }
-  }
+  possibleMaterials: MaterialTypes[]
+  materialProbability: Record<MaterialTypes, MaterialType>
   professions: Record<string, Profession & {
     name: string,
     population: number
   }>
-  roads: Record<string, string>
+  roads: Record<string, Road>
   townMaterial: string
   leaderType: string
   leader: NPC

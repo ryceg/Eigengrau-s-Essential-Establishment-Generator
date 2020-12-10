@@ -6,34 +6,20 @@ import { articles } from '../src/articles'
 import { findProfession } from '../src/findProfession'
 import { random } from '../src/random'
 import { wageVariation } from './npcFinances'
+import { ThresholdTable } from '../src/rollFromTable'
+import { Profession } from './professions'
+import { BackgroundName } from './backgroundTraits'
 
 export function createClass (town: Town, npc: NPC) {
   console.log(`Assigning class traits to "${npc.name}".`)
 
-  /** @type {string} */
-  let background
-  /** @type {string} */
-  let classWeapon
   const profession = findProfession(town, npc)
-  if (profession.background) {
-    background = weightRandom(profession.background)
-  } else {
-    background = weightRandom(socialClass[npc.socialClass].defaultBackground)
-  }
-
-  npc.professionOrigin = npc.professionOrigin || getProfessionOrigin(npc, town)
-  npc.background = npc.background || background
-  npc.weapon = npc.weapon || classWeapon
+  npc.professionOrigin ||= getProfessionOrigin(npc, town)
+  npc.background ||= getProfessionBackground(profession, npc)
 }
 
-/**
- * @param {NPC} npc
- * @param {Town} town
- * @returns {string}
- */
 function getProfessionOrigin (npc: NPC, town: Town): string {
-  /** @type {import("../../lib/index").Profession} */
-  const profession = findProfession(town, npc)
+  const profession: Profession = findProfession(town, npc)
 
   if (profession.professionOrigin) {
     return random(profession.professionOrigin)
@@ -41,7 +27,6 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
 
   const professionWithArticle = articles.output(npc.profession)
 
-  /** @type {[number, string][]} */
   const originWage = [
     [-25, `I've tried to do a good job as ${professionWithArticle} but am just rubbish at it. I don't think I'm good at anything, really.`],
     [-20, `I've been trying to make it as ${professionWithArticle} but suck at it. I'm beginning to think I was never meant to be ${professionWithArticle}.`],
@@ -54,11 +39,18 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
     [15, `It turns out that I'm pretty good at being ${professionWithArticle}! I enjoy the work.`],
     [20, `It turns out that I'm really good at being ${professionWithArticle}. It's actually kinda easy.`],
     [25, `Not to brag, but I'm a born natural at being ${professionWithArticle}. It's fun, very rewarding work.`]
-  ]
+  ] as ThresholdTable
 
   for (const [amount, origin] of originWage) {
-    if (amount >= wageVariation(town, npc)) return origin as string
+    if (amount >= wageVariation(town, npc)) return origin
   }
+  console.error('Could not find a suitable profession origin.')
+  return originWage[5][1]
+}
 
-  throw new Error('Could not get profession origin.')
+function getProfessionBackground (profession: Profession, npc: NPC): BackgroundName {
+  if (profession.background) {
+    return weightRandom(profession.background)
+  }
+  return weightRandom(socialClass[npc.socialClass].defaultBackground)
 }
