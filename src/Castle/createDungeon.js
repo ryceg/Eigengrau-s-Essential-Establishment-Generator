@@ -36,6 +36,8 @@ setup.createDungeon = (town, opts) => {
 
   if (opts.parentKey) {
     dungeon.location = data.location.castle.random()
+    dungeon.objectType = 'room'
+    dungeon.parentKey = opts.parentKey
   } else {
     dungeon.location = data.location.standalone.random()
     lib.createBuildingRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
