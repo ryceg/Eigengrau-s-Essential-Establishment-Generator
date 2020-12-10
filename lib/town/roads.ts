@@ -157,9 +157,9 @@ export const roads = {
     const roadPrefix = roads.name.create(town)
     console.log('Finding a type...')
     const type = weightedRandomFetcher(town, roads.name.type, null, undefined, 'object') as RoadData
-    const widthRoll = type.width()
     const feature = roads.get.features(type)
 
+    const widthRoll = type.width()
     const [, width] = roads.width.rolls.find(([threshold]) => {
       return threshold <= widthRoll
     }) || last(roads.width.rolls)

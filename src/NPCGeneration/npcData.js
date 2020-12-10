@@ -1243,22 +1243,6 @@ setup.initNpcData = () => {
     belief: ['piety', 'pragmatism', 'cleverness', 'stoicism', 'reason', 'self-deserving', 'dogma', 'forgiveness', 'learning', 'tough love', 'honor', 'loyalty', 'optimism', 'respect', 'self-discipline', 'integrity'],
     race: ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'],
     standardLanguages: ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
-    exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon'],
-    religion: {
-      strength: [
-        // npc.name is a _______
-        [100, 'fanatical true believer'],
-        [90, 'unshakingly devoted believer'],
-        [80, 'conspicuously faithful believer'],
-        [70, 'outspoken believer'],
-        [60, 'quiet true believer'],
-        [50, 'casual observer'],
-        [40, 'open-minded seeker'],
-        [30, 'cautious listener'],
-        [20, 'critical student'],
-        [10, 'outspoken cynic'],
-        [0, 'broken heretic']
-      ]
-    }
+    exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon']
   }
 }

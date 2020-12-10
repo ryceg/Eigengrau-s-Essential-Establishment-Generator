@@ -1,6 +1,8 @@
 import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
+import { ReligionStrength } from './createReligiosity'
+import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
@@ -38,10 +40,8 @@ export interface NPC {
   ageStage: AgeName
   ageYears: number
   adventure?: string
-  profession: string
-  /**
-   * @description In the style of Xanathar's Class Origins, for the professions.
-   */
+  profession: ProfessionNames
+  /** In the style of Xanathar's Class Origins, for the professions. */
   professionOrigin: string
   professionSuccess: string
   background: BackgroundName
@@ -69,11 +69,11 @@ export interface NPC {
     debtors: Record<string, number>
   }
   religion: {
-    strength: string
+    strength: ReligionStrength
   }
   socialClass: SocialClassName
-  professionType: string
-  professionSector: string
+  professionType: ProfessionType
+  professionSector: ProfessionSector
   hasClass: boolean
   dndClass?: ClassName
   weapon?: string
@@ -84,13 +84,9 @@ export interface NPC {
   isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
-  /**
-   * @description How the NPC acts when they're calm.
-   */
+  /** How the NPC acts when they're calm. */
   calmTrait: string
-    /**
-   * @description How the NPC acts when they're stressed.
-   */
+    /** How the NPC acts when they're stressed. */
   stressTrait: string
   /**
    * @decription A noticeable vocal pattern.
@@ -119,9 +115,7 @@ export interface NPC {
   note?: string
   descriptors: string[]
   descriptor: string
-  /**
-   * @description In the style of Xanathar's Background Origins
-   */
+  /** In the style of Xanathar's Background Origins */
   backgroundOrigin: string
   birthplace: string
   siblingNumber: number
@@ -133,17 +127,11 @@ export interface NPC {
   familyLifestyle: LifestyleStandardName
   familyUnit: string
   knewParents: boolean
-    /**
-   * @description In the style of PHB bonds.
-   */
+    /** In the style of PHB bonds. */
   bond: string
-  /**
-   * @description In the style of PHB ideals.
-   */
+  /** In the style of PHB ideals. */
   ideal: string
-    /**
-   * @description In the style of PHB flaws.
-   */
+    /** In the style of PHB flaws. */
   flaw?: string
   greeting?: string[]
   death?: {

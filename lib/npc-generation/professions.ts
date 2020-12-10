@@ -5,7 +5,7 @@ import { Town } from '../town/_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
 
-type Type =
+export type ProfessionType =
   | ''
   | 'family'
   | 'dndClass'
@@ -14,7 +14,7 @@ type Type =
   | 'profession'
   | 'business'
 
-type Sector =
+export type ProfessionSector =
   | 'family'
   | 'adventuring'
   | 'agriculture'
@@ -38,12 +38,13 @@ type Sector =
   | 'self employed'
   | 'caregiver'
   | 'naval'
+export type ProfessionNames = keyof typeof professions
 
 export interface Profession {
   /** the population required to support one person with this profession */
   sv: number
-  type: Type
-  sector: Sector
+  type: ProfessionType
+  sector: ProfessionSector
   /**
    * Any words that should be filtered into it.
    */

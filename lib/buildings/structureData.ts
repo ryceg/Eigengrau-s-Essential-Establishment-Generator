@@ -123,7 +123,6 @@ export const structureData = {
         probability: 10,
         tier: [1],
         noun: 'rock',
-        canBeUsedAsRoad: true,
         roadMaterialTypes: ['pavement', 'gravel']
       },
       'straw': {
