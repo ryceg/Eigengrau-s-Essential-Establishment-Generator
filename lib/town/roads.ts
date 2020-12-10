@@ -191,7 +191,6 @@ export const roads = {
       description: '',
       capacity: 1,
       tier: 1,
-      width: '',
       materialUsed: '',
       materialDescription: '',
       constructionMethod: ''
