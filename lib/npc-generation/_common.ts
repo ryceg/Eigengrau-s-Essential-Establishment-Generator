@@ -5,6 +5,7 @@ import { ReligionStrength } from './createReligiosity'
 import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
+import { Height } from './setRace'
 
 export type SocialClassName =
   | 'indentured servitude'
@@ -26,10 +27,13 @@ export interface NPC {
   gender: GenderName
   race: RaceName
   raceName: RaceName
+  eyes: string
   beard: string
+  hairColour: string
+  hairType: string
   skinColour: string
   heightInches: number
-  height: string
+  height: Height
   weightPounds: number
   weight: string
   raceRoll: number
@@ -77,6 +81,7 @@ export interface NPC {
   hasClass: boolean
   dndClass?: ClassName
   weapon?: string
+  idle?: string[]
   canBeCustom?: boolean
   isThrowaway?: boolean
   isShallow?: boolean

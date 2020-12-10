@@ -26,6 +26,9 @@ export function setRace (npc: NPC) {
   }
 }
 
+// TODO: fix type
+export type Height = typeof heightChart[0][1]
+
 const heightChart: ThresholdTable = [
   [78, 'giraffe-like'],
   [77, 'extremely tall'],
@@ -35,7 +38,9 @@ const heightChart: ThresholdTable = [
   [73, 'reasonably tall'],
   [72, 'tall'],
   [71, 'taller than average'],
+  [70.5, 'average height'],
   [70, 'average sized'],
+  [69.5, 'medium height'],
   [69, 'medium sized'],
   [68, 'on the short side'],
   [67, 'somewhat short'],

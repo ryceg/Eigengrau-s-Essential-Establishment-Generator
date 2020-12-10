@@ -1,4 +1,6 @@
-export const patreonCharacters = {
+import { NPC } from '../npc-generation/_common'
+
+export const patreonCharacters: Record<string, Partial<NPC>> = {
   'Tylien Birchbottom': {
     firstName: 'Tylien',
     lastName: 'Birchbottom',
@@ -16,13 +18,11 @@ export const patreonCharacters = {
     background: 'outlander',
     hairColour: 'brown',
     hairType: 'wispy',
-    scar: 'lashes on his back that have scarred over',
     physicalTrait: 'lashes on his back that have scarred over',
     trait: 'constantly forgets things, and has to write things down in his journal to be able to remember them properly.',
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave'],
     professionOrigin: "I've been making a decent living hunting game, selling the pelts to the blacksmith for spare change. I'm searching for a cure to my memory decay- every day, I have to write more things down. I need to learn why these things are happening to me... To find out who or whatever the beast of shadows that stalks me is.",
     backgroundOrigin: "I was kidnapped by a cult at the age of 14. They used me in a ritual to summon an ancient being known as 'the beast of shadows'. Half-way through, guards rescued me. Things got better, and then got a lot worse- I woke speaking tongues, and found myself losing time. As my powers grew, so did my lost time, so I started to keep a journal. Nowadays I can barely remember more than a week into my past now.",
-    owner: 'owner',
     calmTrait: 'unintentionally funny',
     stressTrait: 'distant',
     vocalPattern: 'speaks rather quickly',
@@ -43,9 +43,8 @@ export const patreonCharacters = {
     heightInches: 66,
     weight: 'slightly pot-bellied',
     hairColour: 'brilliant white',
-    scar: 'a faint cut of a Drow dagger from a long-forgotten skirmish',
+    physicalTrait: 'a faint cut of a Drow dagger from a long-forgotten skirmish',
     beard: 'a quite respectable beard',
-    physicalTrait: 'a respectable beard',
     trait: "doesn't like to boast, and lets his enemies' perception of an unassuming old man be their downfall.",
     calmTrait: 'quiet',
     stressTrait: 'distant',
@@ -70,10 +69,9 @@ export const patreonCharacters = {
     weightPounds: 180,
     hairColour: 'shaved bald',
     hairType: 'shiny',
-    scar: 'scars everywhere. Not even in cool places. Just everywhere. Hands, legs, arms, chest, back, neck, face, ears, knees, some too close to the groin.',
+    physicalTrait: 'scars everywhere. Not even in cool places. Just everywhere. Hands, legs, arms, chest, back, neck, face, ears, knees, some too close to the groin.',
     beard: 'a quite respectable beard',
-    physicalTrait: 'a respectable beard',
-    inventory: 'a ritual wooden mask',
+    // inventory: 'a ritual wooden mask',
     trait: 'Brugo always tries to relate to people through pain, which is often not a great topic for conversation',
     stressTrait: 'begin to hurt himself when under stress. Scratching, hitting, and biting his lip. Never hurts himself with a weapon or to do permanent damage',
     calmTrait: 'stoic and pensive. Brugo likes to observe the world and people around him when he has a peaceful moment.',
