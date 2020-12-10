@@ -1,4 +1,7 @@
 // uses State.variables.npcs so can't be translated
+/**
+ * @type {import("../../lib/npc-generation/_common").SocialClassName[]}
+ */
 const socialClassArray = [
   'indentured servitude',
   'paupery',
@@ -23,6 +26,7 @@ const adultSocialMobilityTable = [
 /**
  *
  * @param {import("../../lib/npc-generation/_common").SocialClassName} socialClass
+ * @returns {import("../../lib/npc-generation/_common").SocialClassName}
  */
 setup.relativeSocialClass = function (socialClass) {
   let classIndex = socialClassArray.indexOf(socialClass)
@@ -36,7 +40,8 @@ setup.relativeSocialClass = function (socialClass) {
 
 /**
  * @param {import("./Relationships/createFamilyMembers").Marriage} marriage
- * @returns {string}
+ * @returns {import("../../lib/npc-generation/_common").SocialClassName}
+ * @warn Uses State.variables.npcs
  * */
 setup.familySocialClass = function (marriage) {
   if (marriage.parents.length === 0) {

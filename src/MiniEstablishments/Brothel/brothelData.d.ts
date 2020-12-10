@@ -23,11 +23,17 @@ interface Setup {
       }
     }
     name: string[]
+    /** @example "Apparently, it specializes in ____" */
     specialty: string[]
+    /** @example "When people talk about the brothel, they say ____" */
     talk(): string[]
     rumour: string[]
     brothelColours: string[]
     brothelScents: string[]
+    /**
+     * @description these are the lines used to select the notice action in BrothelOutput
+     * @example "You notice _____"
+     */
     notice(): string[]
     idle(): string[]
     pimp: Record<string, Partial<NPC>>

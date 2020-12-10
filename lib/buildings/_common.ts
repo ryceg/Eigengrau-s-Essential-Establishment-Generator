@@ -6,9 +6,10 @@ export interface Building {
   objectType: string
   /** @description The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
+  lighting: string
+  outside: string
   passageName?: string
   parentKey?: string
-  isChild?: boolean
   name?: string
   wordNoun?: string
   needsWordNoun?: boolean

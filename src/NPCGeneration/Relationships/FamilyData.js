@@ -2,26 +2,37 @@
 // don't bother creating a FamilyData.d.ts
 // you'll waste your time like me
 // uses State.variables.npcs
+
 setup.familyData = {
   parentStageTable: [
     [55, 'young adult'],
     [35, 'settled adult'],
     [10, 'elderly']
   ],
-
+  /**
+   * @param {import("../../../lib/npc-generation/_common").NPC} npc
+   * @returns {number}
+   */
   parentAge: (npc) => {
     const race = npc.race || 'human'
     const parentStage = lib.rollFromTable(setup.familyData.parentStageTable, 100)
     const { baseAge, ageModifier } = lib.raceTraits[race].ageTraits[parentStage]
     return npc.ageYears + baseAge + ageModifier()
   },
-
+  /**
+   * @param {import("../../../lib/npc-generation/_common").NPC} npc
+   * @returns {number}
+   */
   siblingAge: (npc) => {
     const race = npc.race || 'human'
     const { baseAge } = lib.raceTraits[race].ageTraits['young adult']
     return npc.ageYears + random(-baseAge, baseAge)
   },
-
+  /**
+   * @param {import("./createFamilyMembers").Marriage} marriage
+   * @returns {number}
+   * @warn Uses State.variables.npcs
+   */
   childAge: (marriage) => {
     if (marriage.parents.length > 0) {
       // find the youngest parent
@@ -37,7 +48,10 @@ setup.familyData = {
       return 0
     }
   },
-
+  /**
+   * @param {import("../../../lib/npc-generation/_common").NPC} npc
+   * @returns {number}
+   */
   partnerAge: (npc) => {
     const race = npc.race || 'human'
     const { baseAge } = lib.raceTraits[race].ageTraits['young adult']
@@ -58,7 +72,10 @@ setup.familyData = {
         return random(4, 11)
     }
   },
-
+  /**
+   * @param {import("../../../lib/npc-generation/_common").NPC} npc
+   * @returns {Partial<import("../../../lib/npc-generation/_common").NPC>}
+   */
   relativeBase: (npc) => ({
     // lastName: npc.lastName,
     race: npc.race,

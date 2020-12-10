@@ -94,7 +94,7 @@ export function findParentRaces (npc: NPC) {
   return { motherRace, fatherRace, lineage }
 }
 
-export function findChildRace (town: Town, motherRace: string, fatherRace: string) {
+export function findChildRace (town: Town, motherRace: RaceName, fatherRace: RaceName): RaceName {
   console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
 
   const races = [motherRace, fatherRace]
@@ -116,13 +116,14 @@ export function findChildRace (town: Town, motherRace: string, fatherRace: strin
       const otherRace = races.find(race => race !== 'human')
       console.log(races, otherRace)
       if (random(100) > 70) {
-        return otherRace
+        return otherRace as RaceName
       }
       return 'human'
     }
   } else {
     return motherRace
   }
+  return motherRace
 }
 
 export function findPartnerRace (town: Town, npc: NPC): RaceName {

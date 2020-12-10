@@ -1,3 +1,6 @@
+import { LifestyleStandardName, RaceName } from '../../../lib/index'
+import { NPC, SocialClassName } from '../../../lib/npc-generation/_common'
+import { Town } from '../../../lib/town/_common'
 
 interface Setup {
   createRelative(
@@ -42,6 +45,8 @@ export interface Family {
 export interface Marriage {
   parents: string[]
   children: any[]
-  socialClass?: string
-  lifestyle?: string
+  socialClass?: SocialClassName
+  lifestyle?: LifestyleStandardName
+  familyUnit?: string
+  home?: string
 }

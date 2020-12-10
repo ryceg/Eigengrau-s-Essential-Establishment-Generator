@@ -5,24 +5,23 @@ interface Setup {
 
 export interface Dungeon {
   knownFor: string
-    secret: string
-    age: string
+  secret: string
+  age: string
+  format: string
+  wordNoun: string
+  passageName: string
+  initPassage: string
+  tippyDescription: string
+  buildingType: string
+  objectType: string
+  cells: {
+    prisoners: {
+      treatment: string
+    },
+    condition: string
     format: string
-    wordNoun: string
-    passageName: string
-    initPassage: string
-    tippyDescription: string
-    tippyDescription: string
-    buildingType: string
-    objectType: string
-    cells: {
-      prisoners: {
-        treatment: string
-      },
-      condition: string
-      format: string
-    }
-    jailerType: string
-    associatedNPC: NPC
-    location: string
+  }
+  jailerType: string
+  associatedNPC: NPC
+  location: string
 }

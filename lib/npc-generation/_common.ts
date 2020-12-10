@@ -3,6 +3,7 @@ import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { ReligionStrength } from './createReligiosity'
 import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
+import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
 export type SocialClassName =
@@ -27,9 +28,9 @@ export interface NPC {
   raceName: RaceName
   beard: string
   skinColour: string
-  heightRoll: number
+  heightInches: number
   height: string
-  weightRoll: number
+  weightPounds: number
   weight: string
   raceRoll: number
   bmi: number
@@ -55,12 +56,13 @@ export interface NPC {
     conformity: number
     /** The number used to determine their gender. */
     gender: number
-    /** How religious they are */
+    /** The number used to determine their religious fervor. */
     religiosity: number
+    socialClass: number
   }
   partnerID?: string
   lifeEvents: string[]
-  callbackFunction?(town: Town): any
+  callbackFunction?(town: Town): void
   wealth: number
   finances: {
     creditors: Record<string, number>
@@ -122,7 +124,7 @@ export interface NPC {
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
-  familyLifestyle: string
+  familyLifestyle: LifestyleStandardName
   familyUnit: string
   knewParents: boolean
     /** In the style of PHB bonds. */

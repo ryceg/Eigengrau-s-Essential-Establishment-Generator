@@ -1024,7 +1024,7 @@ setup.initTavernData = () => {
         return `The ${setup.profile(npc, 'barmaid')} is a doppelganger. When she returns to your table with your drinks she has taken the form of one of your party.`
       },
       priest (town) {
-        const npc = setup.createNPC(town, { profession: 'priest', weight: 'fat', weightRoll: 200 })
+        const npc = setup.createNPC(town, { profession: 'priest', weight: 'fat', weightPounds: 200 })
         return `A ${setup.profile(npc, 'fat priest')} is doing an excellent jiggly dance in rhythm with the music. Either that or a gelatinous cube has made it's way onto the dance floor?`
       }
     },

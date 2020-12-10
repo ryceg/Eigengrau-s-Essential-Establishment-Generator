@@ -1,16 +1,21 @@
-// uses setup.createNPC
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
 const VERY_OLD_ABSENCE_PERCENT = 70
 const ORPHAN_PERCENT = 10
 
 /**
- * General function for inserting individual relatives.
- * Returns the corresponding relative, or undefined
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {Partial<import("../../../lib/npc-generation/_common").NPC>} base
+ * @param {boolean} force
+ * @warn Uses setup.createNPC
+ * @description General function for inserting individual relatives. Returns the corresponding relative, or undefined
  */
 setup.createRelative = (town, family, base = {}, force = false) => {
   // sanity-check
   if (base.ageYears <= 0) return
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   if (base.race === 'devil') return
   if (!base.lastName) delete base.lastName
 
@@ -38,6 +43,14 @@ setup.createRelative = (town, family, base = {}, force = false) => {
   return relative
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @param {boolean} forceFather
+ * @param {boolean} forceMother
+ * @warn Uses setup.getParentSurnames, setup.familyData, setup.relativeSocialClass, setup.createRelative, setup.createChildren, setup.familySocialClass
+ */
 setup.createParentage = (town, family, npc, forceFather = false, forceMother = false) => {
   const node = family.members[npc.key]
   if (node.parentMarriage === undefined) {
@@ -90,6 +103,16 @@ setup.createParentage = (town, family, npc, forceFather = false, forceMother = f
   }
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {import("./createFamilyMembers").Marriage} marriage
+ * @param {number} amount
+ * @param {import("../../../lib/index").RaceName} motherRace
+ * @param {import("../../../lib/index").RaceName} fatherRace
+ * @param {boolean} force
+ * @warn Uses setup.getParentSurnames, setup.familyData, setup.relativeSocialClass, setup.createRelative, setup.createChildren, setup.familySocialClass
+ */
 setup.createChildren = (town, family, marriage, amount, motherRace = 'human', fatherRace = 'human', force = false) => {
   if (!force) amount -= marriage.children.length
 
@@ -101,9 +124,9 @@ setup.createChildren = (town, family, marriage, amount, motherRace = 'human', fa
 
   const inserted = []
   for (let k = 0; k < amount; k++) {
+    /** @type {Partial<import("../../../lib/npc-generation/_common").NPC>} */
     const siblingBase = {
       race: lib.findChildRace(town, motherRace, fatherRace),
-      gender: ['man', 'woman'].random(),
       ageYears: setup.familyData.childAge(marriage),
       lastName: surname,
       socialClass: siblingClass,
@@ -129,8 +152,17 @@ setup.createChildren = (town, family, marriage, amount, motherRace = 'human', fa
   return inserted
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("./createFamilyMembers").Family} family
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @param {boolean} force
+ * @returns {import("./createFamilyMembers").Marriage}
+ * @warn Uses setup.getParentSurnames, setup.familyData, setup.relativeSocialClass, setup.createRelative, setup.createChildren, setup.familySocialClass
+ */
 setup.createMarriage = (town, family, npc, force = false) => {
   const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
+  /** @type {import("./createFamilyMembers").Marriage} */
   const newMarriage = {
     parents: [npc.key],
     children: []
@@ -139,12 +171,17 @@ setup.createMarriage = (town, family, npc, force = false) => {
   // TODO finish support for non-heterosexual marriages
   const partnerBase = Object.assign({}, setup.familyData.relativeBase(npc), {
     gender: lib.getOppositeGender(npc.gender),
+    /** @type {number} */
     ageYears: setup.familyData.partnerAge(npc),
     race: lib.findPartnerRace(town, npc),
+    /** @type {import("../../../lib/npc-generation/_common").SocialClassName} */
     socialClass: setup.relativeSocialClass(setup.relativeSocialClass(npc.socialClass))
   })
   partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)
 
+  /**
+   * @type {import("../../../lib/npc-generation/_common").NPC}
+   */
   const partner = setup.createRelative(town, family, partnerBase, force)
 
   if (partner) {

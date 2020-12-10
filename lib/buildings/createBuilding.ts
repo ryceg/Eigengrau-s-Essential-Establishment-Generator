@@ -1,16 +1,17 @@
-import { getUUID, clampRolls, weightedRandomFetcher } from '..'
+import { getUUID, clampRolls, weightedRandomFetcher, findBuilding } from '..'
 import { Town } from '../town/_common'
 import { MaterialType } from './structureData'
 import { Building } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
-import { roads } from '../town/roads'
+import { Road, roads } from '../town/roads'
+import { assign } from '../src/utils'
 
-export function createBuilding (town: Town, type: string, base = {}) {
+export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
   console.log('Creating base building...')
 
-  const lighting = ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random()
-  const outside = [
+  const lighting = random(['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'])
+  const outside = random([
     'a horse grazing on the bushes nearby',
     'a rusted shovel near a somewhat overgrown flowerbed',
     'a well with an old rope, but no bucket to go on the end',
@@ -18,11 +19,12 @@ export function createBuilding (town: Town, type: string, base = {}) {
     'a cat lazily lounging in the shade',
     'a muddy pair of boots by the door',
     "a sign from the local paper which reads '<<print newspaper.random()>>'"
-  ].random()
-  const building: Building = Object.assign({
+  ])
+
+  const building: Building = {
     key: getUUID(),
-    childKeys: [],
     objectType: 'building',
+    road: '',
     type,
     lighting,
     outside,
@@ -39,28 +41,38 @@ export function createBuilding (town: Town, type: string, base = {}) {
       expertise: random(1, 100),
       activity: random(1, 100)
     },
-    priceModifier: Math.floor(randomFloat(1) * 8) - [0, 10].random()
-  }, base)
-
-  if (building.parentKey) {
-    console.log('Has a parent!')
-    building.isChild = true
-    building.road = town.roads[building.parentKey]
-    // const parentIndex = findBuildingIndex(town, base.parentKey)
-    // town.buildings[parentIndex].childKeys.push(building.key)
-    // console.log(`Linking together ${building.key} and ${town.buildings[parentIndex].key}`)
-  } else {
-    const road = roads.assign(town, building)
-    building.road = road.key
+    priceModifier: getPriceModifier(),
+    material: {
+      noun: '',
+      probability: 0
+    },
+    ...base
   }
-  // building.priceModifier += town.taxes.economics
-  building.priceModifier = Math.clamp(building.priceModifier, -10, 10)
 
-  clampRolls(building.roll)
+  // Not sure why we need to typecast this.
+  clampRolls(building.roll as unknown as Record<string, number>)
 
-  building.material = generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
+  const road = getBuildingRoad(building, town)
+
+  assign(building, {
+    road: road.key,
+    material: generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
+  })
 
   return building
+}
+
+function getBuildingRoad (building: Building, town: Town): Road {
+  if (building.parentKey) {
+    console.log('Has a parent!')
+    const parentBuilding: Building | undefined = findBuilding(town, building.parentKey)
+    if (parentBuilding) return town.roads[parentBuilding.road]
+  }
+  return roads.assign(town, building)
+}
+
+function getPriceModifier (): number {
+  return Math.clamp(Math.floor(randomFloat(1) * 8) - random([0, 10]), -10, 10)
 }
 
 export function generateBuildingMaterial (town: Town, mainMaterial: string, buildingWealth: number): MaterialType {

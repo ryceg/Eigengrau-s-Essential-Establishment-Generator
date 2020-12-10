@@ -1,8 +1,9 @@
 :: RoadsList
 <<for _roadKey, _road range $town.roads>><<capture _roadKey, _road>>
   \<<for _buildingKey, _obj range _road.inhabitants.buildings>><<set _building to lib.findInArray($town.buildings, "key", _buildingKey)>><<capture _buildingKey, _building>>
-  \<<if !Object.keys(_road.inhabitants.buildings).length>><<continue>>
-  \<</if>>
+    \<<if !Object.keys(_road.inhabitants.buildings).length>><<continue>><</if>>
+    \<<if !_building>><<continue>><</if>>
+    \<<if _building.objectType === 'room' || _building.parentKey>><<continue>><</if>>
     \<<if def _previousBuilding && _previousBuilding.road === _roadKey>>
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
     \<<else>>

@@ -1,12 +1,12 @@
-setup.createSexuality = function (npc) {
-  /**
-   * @description this is just one person's efforts to increase diversity and make an attempt at relatively realistic sexuality modeling
+/**
+ * @param {import("../../../lib/npc-generation/_common").NPC} npc
+ * @description this is just one person's efforts to increase diversity and make an attempt at relatively realistic sexuality modeling
    * I cannot guarantee exact representation, and make no promises for such a thing- this is, at the end of the day, meant to be a tool for DMs.
    * I would, however, be very open to feedback and ways that I could improve the system.
-   */
-  // Using the Kinsey scale, bastardised to fit my methods.
-
-  // if a partner exists, then we need to make sure that it's an acceptable gender.
+ * @warn Uses State.variables.npcs
+ */
+setup.createSexuality = function (npc) {
+  // if a partner exists, then we need to make sure that they are an acceptable gender.
   if (npc.partnerID !== undefined) {
     if (State.variables.npcs[npc.partnerID].gender === npc.gender) {
       npc.roll.kinsey = 6

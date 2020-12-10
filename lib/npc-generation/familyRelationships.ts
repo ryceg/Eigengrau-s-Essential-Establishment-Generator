@@ -1,12 +1,20 @@
-// TODO: convert
-setup.familyRelationships = {
-  // Specific names when traversing the family tree
-  // (the bracketed ones should never occur)
-  // the capital letters stand for the four types of relationship:
-  // B = brother / sister
-  // C = couple (marriage)
-  // D = descendant (child)
-  // E = elder (parent)
+import { Town } from '../town/_common'
+import { NPC } from './_common'
+
+export const familyRelationships = {
+  /**
+   * Specific names for relatives in the family tree. Capital letters stand for the four types of relationship:
+   *
+   * `B = brother / sister`
+   *
+   * `C = couple (marriage)`
+   *
+   * `D = descendant (child)`
+   *
+   * `E = elder (parent).`
+   *
+   * Entries in parentheses should never occur.
+   */
   nouns: {
     Em: 'father',
     Ew: 'mother',
@@ -48,12 +56,12 @@ setup.familyRelationships = {
     CBw: 'sister-in-law',
     CCm: 'co-husband',
     CCw: 'co-wife'
-  },
-  verbose: (key) => {
-    if (key in setup.familyRelationships.nouns) return setup.familyRelationships.nouns[key]
+  } as Record<string, string>,
+  verbose: (key: string) => {
+    if (key in familyRelationships.nouns) return familyRelationships.nouns[key]
     return 'relative'
   },
-  inverse: (npc, key) => {
+  inverse: (npc: NPC, key: string) => {
     let inverse = ''
     for (let i = 0; i < key.length - 1; i++) {
       if (key[i] === 'E') {
@@ -68,37 +76,33 @@ setup.familyRelationships = {
   }
 }
 
-// TODO: convert
-setup.knewParents = function (town, npc) {
+export function knewParents (town: Town, npc: NPC) {
   if (!npc) return false
   const family = town.families[npc.family]
   const node = family.members[npc.key]
   return !!node.parentMarriage
 }
 
-// TODO: convert
-setup.getMarriages = function (town, npc) {
-  if (!npc) return []
+export function getMarriages (town: Town, npc: NPC) {
+  if (!npc) return false
   const family = town.families[npc.family]
   const node = family.members[npc.key]
   return !!node.parentMarriage
 }
 
-// uses State.variables.npcs
-setup.getFatherMother = function (town, npc) {
-  let father, mother
-
-  const family = town.families[npc.family]
-  const node = family.members[npc.key]
-
-  if (node.parentMarriage) {
-    father = node.parentMarriage.parents.find(key => {
-      return State.variables.npcs[key].gender === 'man'
-    })
-    mother = node.parentMarriage.parents.find(key => {
-      return State.variables.npcs[key].gender === 'woman'
-    })
+export function createFamily (town: Town, npc: NPC) {
+  const key = `${npc.lastName} family`
+  const family = {
+    key,
+    members: {
+      [npc.key]: {
+        key: npc.key,
+        parentMarriage: undefined,
+        marriages: undefined,
+        canRemarry: true
+      }
+    }
   }
-
-  return { father, mother }
+  town.families[key] = family
+  npc.family = key
 }

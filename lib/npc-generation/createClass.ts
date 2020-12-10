@@ -13,15 +13,9 @@ import { BackgroundName } from './backgroundTraits'
 export function createClass (town: Town, npc: NPC) {
   console.log(`Assigning class traits to "${npc.name}".`)
 
-  let background: BackgroundName
   const profession = findProfession(town, npc)
-  if (profession.background) {
-    background = weightRandom(profession.background)
-  } else {
-    background = weightRandom(socialClass[npc.socialClass].defaultBackground)
-  }
-  npc.professionOrigin = npc.professionOrigin || getProfessionOrigin(npc, town)
-  npc.background = npc.background || background
+  npc.professionOrigin ||= getProfessionOrigin(npc, town)
+  npc.background ||= getProfessionBackground(profession, npc)
 }
 
 function getProfessionOrigin (npc: NPC, town: Town): string {
@@ -52,4 +46,11 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
   }
   console.error('Could not find a suitable profession origin.')
   return originWage[5][1]
+}
+
+function getProfessionBackground (profession: Profession, npc: NPC): BackgroundName {
+  if (profession.background) {
+    return weightRandom(profession.background)
+  }
+  return weightRandom(socialClass[npc.socialClass].defaultBackground)
 }
