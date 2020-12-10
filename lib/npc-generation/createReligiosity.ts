@@ -2,6 +2,7 @@ import { fm, dice } from '..'
 import { ThresholdTable } from '../src/rollFromTable'
 import { Town } from '../town/_common'
 import { NPC } from './_common'
+import { random } from '../src/random'
 
 export type ReligionStrength =
 'fanatical true believer' |
