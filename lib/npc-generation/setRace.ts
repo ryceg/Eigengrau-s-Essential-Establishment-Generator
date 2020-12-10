@@ -26,7 +26,7 @@ export function setRace (npc: NPC) {
   }
 }
 
-// TODO: fix type
+// TODO: fix type so it forces conformity to the threshold table
 export type Height = typeof heightChart[0][1]
 
 const heightChart: ThresholdTable = [
