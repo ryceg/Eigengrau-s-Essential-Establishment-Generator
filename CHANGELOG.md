@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Tavern illustration
+- General Store illustration
+- Foundry export functionality
 - Road history and descriptions
 - Roads can now have namesakes
 ### Changed
@@ -16,6 +19,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a bug with marriages
 - Fixed a bug with tavern sleep
 - Ported over a lot of code to TypeScript
+- Fixed a bug with general store crud
+- Fixed a bug with general store owners reading books
+- Toned down the road reproduction rate for cities and towns
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
