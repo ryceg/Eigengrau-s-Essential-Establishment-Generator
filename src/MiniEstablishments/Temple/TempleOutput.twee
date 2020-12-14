@@ -1,8 +1,10 @@
 :: TempleOutput
 <<nobr>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentPassage.availableRelationships to setup.temple.get.customers>><</nobr>>
-<span class="interactive-only"><h1>$building.name</h1></span><<include "TownMicroEventsOutput">><<print lib.firstCharacter("You")>> come across $building.structure.templeDescriptor. $building.guardReadout
+<<set $currentPassage.availableRelationships to setup.temple.get.customers>>
+<span class="interactive-only"><h1>$building.name</h1></span>
+<<include "TownMicroEventsOutput">><</nobr>>
+<<print lib.firstCharacter("You")>> come across $building.structure.templeDescriptor. $building.guardReadout
 $building.interiorReadout
 <br>$building.aboutReadout
 
