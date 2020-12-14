@@ -1,4 +1,9 @@
 /* eslint-disable no-undef */
+/**
+ * Gets the price modifier.
+ * @param {number | import("../../lib/buildings/_common").Building} priceModSource
+ * @returns {number}
+ */
 setup.getPriceMod = function (priceModSource) {
   /** @param {number} priceModSource */
   console.log(priceModSource)
