@@ -112,34 +112,33 @@ setup.createGeneralStoreName = (town, generalStore) => {
 
   switch (roll) {
     case 1:
-      generalStore.name = `The ${adjective} ${noun}`
+      generalStore.name = lib.toTitleCase(`The ${adjective} ${noun}`)
       break
     case 2:
-      generalStore.name = `${associatedNPC.firstName}'s ${adjective} ${rider}`
+      generalStore.name = lib.toTitleCase(`${associatedNPC.firstName}'s ${adjective} ${rider}`)
       break
     case 3:
-      generalStore.name = associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
+      generalStore.name = lib.toTitleCase(associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random())
       break
     case 4:
-      generalStore.name = `The ${adjective} ${rider}`
+      generalStore.name = lib.toTitleCase(`The ${adjective} ${rider}`)
       break
     case 5:
-      generalStore.name = `The ${adjective} ${noun}`
+      generalStore.name = lib.toTitleCase(`The ${adjective} ${noun}`)
       break
     case 6:
-      generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
+      generalStore.name = lib.toTitleCase(`The ${noun} and ${family.toUpperFirst()}`)
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     case 7:
-      generalStore.name = `${associatedNPC.firstName} and ${family.toUpperFirst()}`
+      generalStore.name = lib.toTitleCase(`${associatedNPC.firstName} and ${family.toUpperFirst()}`)
       generalStore.assistant = setup.createNPC(town, fam[family])
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     default:
-      generalStore.name = `The ${adjective} Adventurer's Store`
+      generalStore.name = lib.toTitleCase(`The ${adjective} Adventurer's Store`)
   }
-  generalStore.name = lib.toTitleCase(generalStore.name)
 }
