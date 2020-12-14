@@ -19,7 +19,7 @@ setup.createDocks = (town, opts = {}) => {
   })
   lib.createBuildingRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
 
-  docks.name = [
+  docks.name = lib.toTitleCase([
     `The ${['Old', 'New', '', ''].random()} ${[`${town.name}`, `${town.name}`, '', '', ''].random()} ${docks.wordNoun.toUpperFirst()}`,
     `${[
       docks.associatedNPC.lastName,
@@ -28,8 +28,8 @@ setup.createDocks = (town, opts = {}) => {
         docks.associatedNPC.firstName,
         docks.associatedNPC.lastName
       ].random()} Beach`
-    ].random()} ${docks.wordNoun.toUpperFirst()}`
-  ].random()
+    ].random()} ${docks.wordNoun}`
+  ].random())
 
   const rollDataVariables = ['size', 'cleanliness', 'activity']
   for (const propName of rollDataVariables) {

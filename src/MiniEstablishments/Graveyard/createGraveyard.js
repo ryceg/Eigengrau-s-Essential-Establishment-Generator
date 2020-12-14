@@ -19,11 +19,11 @@ setup.createGraveyard = (town, opts = {}) => {
   })
 
   lib.assign(graveyard, {
-    name: lib.random([
+    name: lib.toTitleCase(lib.random([
       `${town.name} ${graveyard.wordNoun.toUpperFirst()}`,
       `${graveyard.nameSuffix} ${graveyard.namePrefix} ${graveyard.wordNoun.toUpperFirst()}`,
       `St. ${lib.createName({ race: graveyard.associatedNPC.race })}'s ${graveyard.wordNoun.toUpperFirst()}`
-    ])
+    ]))
   })
 
   lib.assign(graveyard, {

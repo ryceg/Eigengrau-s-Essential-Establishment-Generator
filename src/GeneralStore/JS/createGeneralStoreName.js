@@ -112,15 +112,20 @@ setup.createGeneralStoreName = (town, generalStore) => {
 
   switch (roll) {
     case 1:
-      return `The ${adjective} ${noun}`
+      generalStore.name = `The ${adjective} ${noun}`
+      break
     case 2:
-      return `${associatedNPC.firstName}'s ${adjective} ${rider}`
+      generalStore.name = `${associatedNPC.firstName}'s ${adjective} ${rider}`
+      break
     case 3:
-      return associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
+      generalStore.name = associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random()
+      break
     case 4:
-      return `The ${adjective} ${rider}`
+      generalStore.name = `The ${adjective} ${rider}`
+      break
     case 5:
-      return `The ${adjective} ${noun}`
+      generalStore.name = `The ${adjective} ${noun}`
+      break
     case 6:
       generalStore.name = `The ${noun} and ${family.toUpperFirst()}`
       generalStore.assistant = setup.createNPC(town, fam[family])
@@ -134,6 +139,7 @@ setup.createGeneralStoreName = (town, generalStore) => {
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     default:
-      return `The ${adjective} Adventurer's Store`
+      generalStore.name = `The ${adjective} Adventurer's Store`
   }
+  generalStore.name = lib.toTitleCase(generalStore.name)
 }
