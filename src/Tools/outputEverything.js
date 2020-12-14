@@ -53,7 +53,7 @@ setup.outputEverything = () => {
     town: setup.textify('TownOutput'),
     buildings: {},
     factions: {},
-    npcs: {}
+    NPCs: {}
   }
   for (const building of State.variables.town.buildings) {
     output.buildings[building.key] = {
@@ -71,7 +71,7 @@ setup.outputEverything = () => {
   }
 
   for (const npc of Object.values(State.variables.npcs)) {
-    output.npcs[npc.key] = {
+    output.NPCs[npc.key] = {
       name: npc.name,
       key: npc.key,
       output: setup.textify(npc.passageName, npc)
