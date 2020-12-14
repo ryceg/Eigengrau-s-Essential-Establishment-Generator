@@ -10,6 +10,7 @@ setup.initGoodsAndServices = () => {
         const building = {
           type,
           buildingType: type,
+          objectType: 'building',
           passageName: 'GenericPassage',
           initPassage: 'GenericPassage'
         }
