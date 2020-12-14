@@ -70,6 +70,7 @@ export interface NPC {
   }
   religion: {
     strength: ReligionStrength
+    deity: string
   }
   socialClass: SocialClassName
   professionType: ProfessionType

@@ -1,7 +1,14 @@
 import { KeysMatching } from '../types'
 
 /**
- * FIXME: Somebody explain what this function does.
+ *
+ * @param array The array of objects
+ * @param readout The key for the readout text
+ * @param key1 Key for first value
+ * @param key2 Key for second value
+ * @param val1 Location of first roll
+ * @param val2 Location of second roll
+ * @example closestMatch(lib.alchemistData.get.priceTalk($building), "priceTalk", "priceModifier", "wealth", $building.priceModifier, $building.roll.wealth)
  */
 export function closestMatch<
   T extends Record<R, string> & Record<K1 | K2, number>,

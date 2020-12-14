@@ -61,6 +61,9 @@ export interface Town {
     name: string,
     population: number
   }>
+  religion: {
+    deity: string
+  }
   roads: Record<string, Road>
   townMaterial: string
   leaderType: string

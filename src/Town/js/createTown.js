@@ -36,6 +36,8 @@ setup.createTown = (base = {}) => {
     buildings: [],
     families: {
     },
+    religion: {
+    },
     bans: {
       alcoholDiscouraged: false,
       alcohol: false,
@@ -189,6 +191,9 @@ setup.createTown = (base = {}) => {
   town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.materialProbability = lib.structureData.material.types
+
+  // TODO: Make town religion deities a little more solid.
+  town.religion.deity = lib.religion.saint.random()
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
