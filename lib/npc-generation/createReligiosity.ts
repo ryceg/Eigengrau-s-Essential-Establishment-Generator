@@ -108,6 +108,7 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
       gregariousness: 100,
       note: `${npc.firstName} is a quiet follower of ${selectedGod}, but does not draw much attention to ${npc.hisher} choice of deity.`
     },
+    // TODO: complete the two dimensional array.
     {
       strength: 60,
       gregariousness: 80,
