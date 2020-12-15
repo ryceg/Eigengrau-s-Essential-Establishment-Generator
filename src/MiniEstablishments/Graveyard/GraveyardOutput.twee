@@ -6,7 +6,7 @@
 <span class="interactive-only"><h1>$building.name</h1></span>
 <</nobr>>
 <<print lib.firstCharacter("You")>> walk down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>> to the $building.wordNoun. It is $building.location, and is $building.size. You enter the $building.wordNoun $building.entrance. It's mostly $building.cleanliness. As you enter you notice $building.feature.
-<h3> Gravedigger </h3>
+<h3>Gravedigger</h3>
 $building.gravediggerLook.
 The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
 <span class="temporarily-removed"><span class="click-and-remove-link"><<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.graveStone.create($town)>><<update>><<print $building.grave.readout>><</link>></span></span>
