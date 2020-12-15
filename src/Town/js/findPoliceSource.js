@@ -25,18 +25,31 @@ setup.findPoliceSource = (town) => {
         setup.makePolice(town, guards)
         return
       }
-    } else {
-      const guards = setup.createFaction(town, {
-        type: 'guards',
-        isPolicing: true
-      })
-      town.factions[guards.key] = guards
-      setup.makePolice(town, guards)
-      return
+    }
+  }
+  const guards = setup.createFaction(town, {
+    type: 'guards',
+    isPolicing: true
+  })
+  town.factions[guards.key] = guards
+  setup.makePolice(town, guards)
+}
+
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ */
+setup.findPolice = (town) => {
+  for (const faction in town.factions) {
+    if (town.factions[faction].isPolicing) {
+      return faction
     }
   }
 }
 
+/**
+ * @param {import("../../../lib/town/_common").Town} town
+ * @param {import("../../../lib/faction/_common").Faction} faction
+ */
 setup.makePolice = (town, faction) => {
   town.guard = faction
   faction.isPolicing = true

@@ -18,8 +18,10 @@ const homeTable = [
   [5, 'a village in the middle of the wilderness'],
   [5, 'an encampment'],
   [10, 'an apartment in a rundown neighborhood'],
-  [20, 'a small house'],
-  [20, 'a large house'],
+  [15, 'a small house'],
+  [5, 'a nice house'],
+  [15, 'a large house'],
+  [5, 'a very impressive house'],
   [20, 'a mansion'],
   [40, 'a palace'] // unreachable without biases
 ] as [number, string][]

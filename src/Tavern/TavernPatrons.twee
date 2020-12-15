@@ -1,3 +1,3 @@
 :: TavernPatrons
-<span class="click-and-remove-link"><<link "<h4>Who else is here?</h4>">><<set $building.patron to setup.tavern.get.patrons($town, $building)>><<replace "#patron">><<include "TavernPatrons">>
-$building.patron<</replace>><</link>></span>
+<span class="click-and-remove-link"><<link "<h4>Who else is here?</h4>">><<set $building.patron to setup.tavern.get.patrons($town, $building)>><<update>><</link>></span>
+<<liveblock>><<if $building.patron>>$building.patron<</if>><</liveblock>>

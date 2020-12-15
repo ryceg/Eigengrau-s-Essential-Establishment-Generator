@@ -48,7 +48,7 @@
     \<th><<print lib.toTitleCase(_tableHeaders.left)>></th>
     \<th><<print lib.toTitleCase(_tableHeaders.right)>></th></tr>
 \<<for _i, _type range Object.keys($args[1].category)>>
-	\<h6><<print lib.toTitleCase(_type)>></h6>
+\<tr><th><<print lib.toTitleCase(_type)>></th><th></th></tr>
 	\<<set _availableItems to lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === _type
@@ -89,15 +89,10 @@
 <<widget "building">><<nobr>>
 <<set _building = $args[0],
 	_readout = $args[1] || _building.name>>
-<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_readout)>>
+<span @id="_building.tooltip" class="tip">
+<<set _buildingTitle to lib.toTitleCase(_readout)>>
 <<link "_buildingTitle">>
 <<set $currentPassage to _building>>
-	/*<<if _building.parentKey>>
-		<<set $currentPassage to lib.findInArray($town.buildings, "key", _building.parentKey)>>
-		<<else>>
-		<<set $currentPassage to _building>>
-	<</if>>*/
-  
   <<run setup.history(_building, null, _readout)>>
   <<run console.log(_building)>>
   <<if settings.showSliders>>
@@ -107,7 +102,7 @@
   <</if>>
 <</link>>
 </span>
-<<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
+<<run setup.profileTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
 <</nobr>><</widget>>
 
 <<widget "profile">>

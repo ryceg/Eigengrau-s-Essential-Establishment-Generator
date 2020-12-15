@@ -4,6 +4,7 @@
     \<<if !Object.keys(_road.inhabitants.buildings).length>><<continue>><</if>>
     \<<if !_building>><<continue>><</if>>
     \<<if _building.objectType === 'room' || _building.parentKey>><<continue>><</if>>
+    \<<set _line to _building.name>><span @id='_line'>
     \<<if def _previousBuilding && _previousBuilding.road === _roadKey>>
 
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
@@ -17,7 +18,7 @@
     \<<if _building.needsWordNoun>>
       \the _building.wordNoun 
     \<</if>>
-    \<<include "BuildingLink">><<set _previousBuilding to _building>><</capture>>
+    \<<include "BuildingLink">></span><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
 \<</for>>

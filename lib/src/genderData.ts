@@ -52,6 +52,13 @@ export function getOppositeGender (gender: GenderName): GenderName {
   return genderData[gender].oppositeGender
 }
 
+export function validateNpcGender (town: Town, npc: NPC): GenderName {
+  if (npc.roll.gender <= town.roll.genderMakeup) {
+    return town.dominantGender
+  }
+  return getOppositeGender(town.dominantGender)
+}
+
 export function getNpcGender (town: Town, npc: NPC): GenderName {
   if (npc.gender) {
     return npc.gender

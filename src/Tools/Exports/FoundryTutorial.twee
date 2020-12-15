@@ -1,0 +1,15 @@
+:: FoundryTutorial
+<h3>Installation</h3>
+1. Go in the ''Add-on Modules'' section in __Foundry__.
+2. Click ''Install Module''
+3. Search for ''EEEG-Importer'' or paste the manifest ({{{.json}}} file) from https://github.com/HadaIonut/EEEG-importer/releases/ and install the module.
+<h3>Usage</h3>
+1. Go into the journal entries directory
+2. Click on the EEEG-import button located at the top of the tab.
+3. Copy the above text into the text box window in Foundry
+4. Click the ''import'' button
+5. Enjoy!
+<h4>Additional features</h4>
+* Importing NPCs as actors: With this feature you can make all NPCs into actors (these actors don't have stats generated, so they only have the name and the biography added).
+* Configuring locations for NPCs as journal entries: In case anyone wants to have a single folder with all the actors then they can do so
+* Configuring locations for NPCs as actors: Select a folder (or the main directory) where the actors are placed

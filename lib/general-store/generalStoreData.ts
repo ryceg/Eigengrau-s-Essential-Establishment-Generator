@@ -124,7 +124,7 @@ export const generalStore = {
     'sharpening a knife',
     'cutting an apple into bite sized pieces',
     'biting into an apple',
-    "reading a book titled '<<print books.pun.random()>>'",
+    "reading a book titled '<<print lib.books.pun.random()>>'",
     're-stocking one of the shelves',
     'posing near the front of the store for some sort of painting',
     'polishing a grappling hook',

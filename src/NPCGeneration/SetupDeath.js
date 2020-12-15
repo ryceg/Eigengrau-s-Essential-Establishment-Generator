@@ -6,7 +6,7 @@ const death = {
   whileAdventuring (town, npc, text) {
     const whilst = [
       'returning from an adventure',
-      `on ${npc.pronouns.hisher} way to an adventure`,
+      `on ${npc.hisher} way to an adventure`,
       'on the toilet',
       'casting a spell',
       'getting black-out drunk',
@@ -176,7 +176,7 @@ const death = {
       }
     }
 
-    npc.death.burialConditions = `${npc.pronouns.heshe.toUpperFirst()} was buried in ${npc.death.graveStandard}${townHelpDescription}`
+    npc.death.burialConditions = `${npc.heshe.toUpperFirst()} was buried in ${npc.death.graveStandard}${townHelpDescription}`
     return npc
   },
   bodyCondition: [

@@ -127,4 +127,5 @@ setup.createSmithyName = (town, smithy) => {
     default:
       smithy.name = `The ${adjective} Smithy`
   }
+  smithy.name = lib.toTitleCase(smithy.name)
 }

@@ -1,5 +1,5 @@
 :: NPCListboxes
-\<<set _randomNPC to {
+\<<liveblock>><span id="NPCListboxes"><<set _randomNPC to {
   gender: ["man", "woman"].random(),
   race: Object.keys(lib.raceTraits).random(),
   ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random()
@@ -12,4 +12,4 @@
 \/*\ -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>>*/
 \ -- <<if passage() is "FactionProfile">><<listbox "_stringRelationship" autoselect>><<optionsfrom $currentPassage.availableRelationships>><</listbox>>
 \<<else>>
-\<<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationshipDescription })>><</listbox>><</if>>
+\<<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationshipDescription })>><</listbox>><</if>></span><</liveblock>>

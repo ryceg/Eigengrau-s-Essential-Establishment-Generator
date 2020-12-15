@@ -7,7 +7,7 @@ Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>
 <<if $data.isPatreon is true>><span class="tip" title="Thank you for your continued support!">
-    <div id="patreon">[img[patreon][https://www.patreon.com/bePatron?u=399997]]</div>
+    <div id="patreon">[img[patreon][https://www.patreon.com/join/eigengrausgenerator?]]</div>
 </span>
 <<else>><span class="tip" title="Thank you for your support!">
     <div id="kofi">[img[kofi][https://ko-fi.com/Q5Q8O5AA]]</div>

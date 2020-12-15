@@ -36,18 +36,18 @@ setup.createTemple = (town, opts = {}) => {
   lib.createStructure(town, temple)
 
   lib.assign(temple.structure, {
-    templeDescriptor: `${lib.articles.output(temple.structure.material.wealth).toUpperFirst()} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
+    templeDescriptor: `${lib.articles.output(temple.structure.material.wealth)} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
   })
 
   lib.assign(temple, {
-    name: lib.random([
+    name: lib.toTitleCase(lib.random([
       `The ${data.name.adjective.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()} of ${data.name.plural.random().toUpperFirst()}`,
       `The ${temple.wordNoun.toUpperFirst()} of ${data.name.soleNoun.random().toUpperFirst()}`,
       `The ${temple.wordNoun.toUpperFirst()} of ${data.name.adjective.random().toUpperFirst()} ${data.name.plural.random().toUpperFirst()}`,
       `The ${data.name.colour.random().toUpperFirst()} ${temple.wordNoun.toUpperFirst()}${['', ` of ${data.name.plural.random().toUpperFirst()}`, ` of ${data.name.soleNoun.random().toUpperFirst()}`].random()}`,
       `${['', 'St.'].random()} ${lib.createName({ race: temple.associatedNPC.race })}'s ${temple.wordNoun.toUpperFirst()}`,
       `${['', 'St.'].random()} ${lib.createName({ race: temple.associatedNPC.race })}'s ${data.name.soleNoun.random().toUpperFirst()}`
-    ]),
+    ])),
     blessing: `${temple.blessingConvey}. ${temple.blessingGift}.`
   })
 

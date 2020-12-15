@@ -2,8 +2,8 @@
 /**
  *
  * @param {import("../../lib/town/_common").Town} town
- * @param {Record<string, NPC>} npcs
- * @returns {Record<string, NPC>}
+ * @param {Record<string, import("../../lib/npc-generation/_common").NPC>} npcs
+ * @returns {Record<string, import("../../lib/npc-generation/_common").NPC>}
  */
 setup.checkRaces = function (town, npcs) {
   console.groupCollapsed('Checking the races...')
@@ -11,15 +11,17 @@ setup.checkRaces = function (town, npcs) {
   for (const npcKey in npcs) {
     const npc = npcs[npcKey]
     const race = lib.fetchRace(town, npc)
+    const gender = lib.validateNpcGender(town, npc)
     console.log(npc.race, 'to a', race)
-    if (npc.race !== race) {
-      console.log(`${npc.name}'s race now does not match! Changing ${npc.pronouns.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
+    if (npc.race !== race || npc.gender !== gender) {
+      console.log(`${npc.name}'s race or gender now does not match! Changing ${npc.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
       npcs[npcKey] = setup.createNPC(town, {
         race,
+        gender,
         keyIsAlreadyDefined: true,
         key: npc.key,
-        gender: npc.gender,
         profession: npc.profession,
+        background: npc.background,
         ageStage: npc.ageStage,
         socialClass: npc.socialClass,
         dndClass: npc.dndClass,
