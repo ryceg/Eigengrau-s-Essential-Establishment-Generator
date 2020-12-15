@@ -1,5 +1,5 @@
 :: GraveyardTable
-<<nobr>>
+<<nobr>><<liveblock>>
 <table>
   <tr>
     <th>Name</th>
@@ -14,4 +14,4 @@
   <span class="interactive-only"><td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<goto "TownOutput">><</link>></td></span>
   </tr>
   <</if>><</capture>><</for>>
-  </table><</nobr>>
+  </table><</liveblock>><</nobr>>
