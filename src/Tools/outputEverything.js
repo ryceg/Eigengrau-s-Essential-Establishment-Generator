@@ -28,10 +28,11 @@ setup.autoclicker = function ($offshore) {
 
 setup.clickAndRemoveLink = ($offshore) => {
   $offshore.find('.click-and-remove-link')
+    .find('a')
     .trigger('click')
     .wrapInner('<b></b>')
-    .children('b')
-    .unwrap().unwrap()
+    .children()
+    .unwrap()
   return $offshore
 }
 
@@ -42,8 +43,9 @@ setup.linkreplaceReplace = ($offshore) => {
 }
 
 setup.linkappendReplace = ($offshore) => {
-  $offshore.find('.macro-linkappend').trigger('click')
+  $offshore.find('.macro-linkappend').trigger('click').children().unwrap()
   $offshore.find('.macro-linkappend-insert').children().unwrap()
+  $offshore.find('.macro-linkappend-in').children().unwrap()
   return $offshore
 }
 
