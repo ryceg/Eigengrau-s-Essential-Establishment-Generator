@@ -48,7 +48,7 @@
     \<th><<print lib.toTitleCase(_tableHeaders.left)>></th>
     \<th><<print lib.toTitleCase(_tableHeaders.right)>></th></tr>
 \<<for _i, _type range Object.keys($args[1].category)>>
-	\<h6><<print lib.toTitleCase(_type)>></h6>
+\<tr><th><<print lib.toTitleCase(_type)>></th><th></th></tr>
 	\<<set _availableItems to lib.inventory.filter(function (item) {
   return item.availability <= _availability
   && item.type === _type
