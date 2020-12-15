@@ -4,6 +4,7 @@
  * @param {import("../../../lib/town/_common").Town} town
  * @param {import("./createSmithy").Smithy} smithy
  * @param {import("../../../lib/npc-generation/_common").NPC} blacksmith
+ * @returns {string}
  */
 setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   if (!blacksmith) { blacksmith = smithy.associatedNPC || setup.createNPC(town, { profession: 'blacksmith' }) }
@@ -126,20 +127,22 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     }
   ]
 
-  const actions = {
-    veryUnsure: {
+  const actions = [
+    {
+      title: 'veryUnsure',
       exclusions (town, smithy) {
         return smithy.roll.expertise < 20
       },
       function (town, smithy) {
         return [
-          `${smithy.associatedNPC.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${blacksmith.smithy.pronouns.heshe.toUpperFirst()} puts it back in, ${blacksmith.smithy.pronouns.hisher} furtive glances betraying a lack of experience.`,
-          `${smithy.associatedNPC.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.associatedNPC.pronouns.heshe} unsurprisingly has little success.`,
-          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and manages to get a black soot all over ${smithy.associatedNPC.pronouns.hisher} face.`
+          `${smithy.associatedNPC.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${smithy.associatedNPC.heshe.toUpperFirst()} puts it back in, ${smithy.associatedNPC.hisher} furtive glances betraying a lack of experience.`,
+          `${smithy.associatedNPC.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.associatedNPC.heshe} unsurprisingly has little success.`,
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.hisher} face with a gloved hand, and manages to get a black soot all over ${smithy.associatedNPC.hisher} face.`
         ].random()
       }
     },
-    unsure: {
+    {
+      title: 'unsure',
       exclusions (town, smithy) {
         return smithy.roll.expertise < 40
       },
@@ -147,11 +150,12 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return [
           `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing at the sudden sound of the metal cooling.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill most of it onto the floor.`,
-          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, smudging ${smithy.associatedNPC.pronouns.hisher} face slightly with a black soot.`
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.hisher} face with a gloved hand, smudging ${smithy.associatedNPC.hisher} face slightly with a black soot.`
         ].random()
       }
     },
-    okay: {
+    {
+      title: 'okay',
       exclusions (town, smithy) {
         return smithy.roll.expertise < 50
       },
@@ -159,23 +163,25 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return [
           `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing slightly at the sudden sound of the metal cooling.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill some.`,
-          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     },
-    decentlyPracticed: {
+    {
+      title: 'decentlyPracticed',
       exclusions (town, smithy) {
         return smithy.roll.expertise > 60
       },
       function (town, smithy) {
         return [
-          `${smithy.associatedNPC.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.associatedNPC.pronouns.heshe} puts it back in.`,
+          `${smithy.associatedNPC.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.associatedNPC.heshe} puts it back in.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
-          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     },
-    wellPracticed: {
+    {
+      title: 'wellPracticed',
       exclusions (town, smithy) {
         return smithy.roll.expertise > 80
       },
@@ -183,20 +189,20 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         return [
           `${smithy.associatedNPC.firstName} pulls a glowing hot piece of iron out of the forge with a familiarity only earnt by thousands of repetitions.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
-          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.pronouns.hisher} face with a gloved hand, and removes the glove.`
+          `${smithy.associatedNPC.firstName} wipes ${smithy.associatedNPC.hisher} face with a gloved hand, and removes the glove.`
         ].random()
       }
     }
-  }
+  ]
   /**
    * @param {import("../../../lib/town/_common").Town} town
    * @param {import("../../../lib/npc-generation/_common").NPC} blacksmith
    */
   const binder = function (town, blacksmith) {
     return [
-      `${blacksmith.pronouns.heshe.toUpperFirst()} wipes ${blacksmith.pronouns.hisher} brow, and replies`,
+      `${blacksmith.heshe.toUpperFirst()} wipes ${blacksmith.hisher} brow, and replies`,
       `${blacksmith.firstName} shifts a couple ingots, and says`,
-      `${blacksmith.firstName} takes off ${blacksmith.pronouns.hisher} heavy apron, and says`,
+      `${blacksmith.firstName} takes off ${blacksmith.hisher} heavy apron, and says`,
       `${blacksmith.firstName} says`,
       `${blacksmith.firstName} gives a couple half-hearted attempts at sweeping the floor with a broom, and says`
     ].random()
