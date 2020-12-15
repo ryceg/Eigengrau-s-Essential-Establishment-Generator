@@ -7,7 +7,7 @@ import { fetchRace } from '../npc-generation/fetchRace'
 import { RaceName, raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { assign, getUUID, keys, last } from '../src/utils'
+import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -187,13 +187,13 @@ export const roads = {
     }) || last(roads.width.rolls)
 
     const road = {
-      prefix: toTitleCase(roadPrefix.prefix),
+      prefix: capitalizeFirstLetter(roadPrefix.prefix),
       key: getUUID(),
       width,
       objectType: 'road' as const,
       feature,
       namesake: roadPrefix.namesake || undefined,
-      type: toTitleCase(type.name),
+      type: capitalizeFirstLetter(type.name),
       wordNoun: type.wordNoun || type.name,
       hasTraffic: type.hasTraffic || true,
       isDeadEnd: type.hasTraffic || false,
@@ -214,7 +214,7 @@ export const roads = {
     }
 
     assign(road, {
-      name: `${road.prefix} ${road.type}`,
+      name: toTitleCase(`${road.prefix} ${road.type}`),
       tier: getBuildingTier(town.roll.wealth, road.rolls.wealth),
       capacity: roads.width.getCapacity(road as Road)
     })
