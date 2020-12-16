@@ -4,13 +4,10 @@
 <</if>>
 <<set $toolbox.drinker to setup.createNPC($town, {
   isThrowaway: true
-})>>
-    <<replace "#NPC">>
-          \<div class="descriptive">
-            \<h3>$toolbox.drinker.name</h3>
-            \ <<print lib.articles.output($toolbox.drinker.descriptor)>> is currently <<print $toolbox.drinker.idle.random()>> in the corner. You strike up conversation with $toolbox.drinker.himher, and the $toolbox.drinker.descriptor introduces $toolbox.drinker.himherself as <<profile $toolbox.drinker>>, a <<print $toolbox.drinker.profession || $toolbox.drinker.profession>> who is <<print $toolbox.drinker.adventure || "looking for a drinking buddy">>. You talk about your backgrounds, and $toolbox.drinker.heshe says "I was <<print lib.articles.output($toolbox.drinker.background)>> before I was <<print lib.articles.output($toolbox.drinker.profession)>>. $toolbox.drinker.backgroundOrigin $toolbox.drinker.bond"</div>
-    <</replace>>
-<</link>></span>\
-<<if def $toolbox.drinker>>\<div class="descriptive">
-  \<h3>$toolbox.drinker.name</h3>
-  \ <<print lib.articles.output($toolbox.drinker.descriptor)>> is currently <<print $toolbox.drinker.idle.random()>> in the corner. You strike up conversation with $toolbox.drinker.himher, and the $toolbox.drinker.descriptor introduces $toolbox.drinker.himherself as <<profile $toolbox.drinker>>, a <<print $toolbox.drinker.profession || $toolbox.drinker.profession>> who is <<print $toolbox.drinker.adventure || "looking for a drinking buddy">>. You talk about your backgrounds, and $toolbox.drinker.heshe says "I was <<print lib.articles.output($toolbox.drinker.background)>> before I was <<print lib.articles.output($toolbox.drinker.profession)>>. $toolbox.drinker.backgroundOrigin $toolbox.drinker.bond"</div><<else>><span id="NPC"></span><</if>>
+})>><<update>>
+<</link>></span>
+<<liveblock>>
+<<if def $toolbox.drinker>>
+  <div class="descriptive"><h3>$toolbox.drinker.name</h3>
+  <<print lib.articles.output($toolbox.drinker.descriptor)>> is currently <<print $toolbox.drinker.idle.random()>> in the corner. You strike up conversation with $toolbox.drinker.himher, and the $toolbox.drinker.descriptor introduces $toolbox.drinker.himherself as <<profile $toolbox.drinker>>, a <<print $toolbox.drinker.profession || $toolbox.drinker.profession>> who is <<print $toolbox.drinker.adventure || "looking for a drinking buddy">>. You talk about your backgrounds, and $toolbox.drinker.heshe says "I was <<print lib.articles.output($toolbox.drinker.background)>> before I was <<print lib.articles.output($toolbox.drinker.profession)>>. $toolbox.drinker.backgroundOrigin $toolbox.drinker.bond"
+  </div><</if>><</liveblock>>
