@@ -1,4 +1,4 @@
 :: GMBinderTutorial
 Copy paste the above into a [[GMBinder|https://www.gmbinder.com/]] document.
 
-You can likely use any {{{.html}}} renderer, but this is optimized for GMBinder. You need to set the document to not use the default GMBinder theme in the document settings in order for it to look like the DMG.
+You can likely use any {{{.html}}} renderer, but this is optimized for GMBinder. You need to set the document to not use the default GMBinder theme in the document settings in order for it to look like the DMG. Note that GMBinder does not support hyperlinking.
