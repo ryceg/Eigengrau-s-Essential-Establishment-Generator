@@ -55,11 +55,21 @@ function settingShowBiomeGeneration () {
   if (settings.showBiomeGeneration !== showBiomeGeneration) {
     State.metadata.set('showBiomeGeneration', settings.showBiomeGeneration)
   }
+  setup.addGtagEvent({
+    event_category: 'customise biome',
+    event_action: 'clicked',
+    event_label: 'customised in settings'
+  })
 }
 
 function settingHideAds () {
   if (settings.hideAds === true) {
     settings.hideAds = true
+    setup.addGtagEvent({
+      event_category: 'hide ads',
+      event_action: 'clicked',
+      event_label: 'customised in settings'
+    })
   } else {
     settings.hideAds = false
   }
