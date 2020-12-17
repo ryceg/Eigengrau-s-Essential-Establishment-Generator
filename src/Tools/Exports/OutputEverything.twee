@@ -1,0 +1,16 @@
+:: OutputEverything [force-one-column, squash-errors]
+<<listbox "_exportOptions">>
+  <<option "GMBinder">>
+  <<option "Foundry">>
+<</listbox>> -- <<button "Export">>
+<<switch _exportOptions>>
+  <<case "GMBinder">>
+    <<set _exportType to setup.outputGMBinder()>>
+  <<default>>
+    <<set _exportType to JSON.stringify(setup.outputEverything())>>
+<</switch>>
+<<replace "#everything">>
+  <<button "Copy">><<run setup.copyText()>><</button>> -- <<textbox "$outputEverything" _exportType>>
+<</replace>>
+<</button>>
+<span id="everything"></span>
