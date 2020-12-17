@@ -7,8 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
-- Road history and descriptions
-- Roads can now have namesakes
+- Changed license to MIT
+- Road system
+- Export to Foundry VTT 
+- Export to GMBinder
+- Export to JSON
+- Faction editing
 ### Changed
 - Buildings are ordered via road.
 - Overhauled the faction resources.
