@@ -46,14 +46,35 @@ function addGMBinderPosttext () {
 
 function addGMBinderPretext () {
   return `<style>
-  .phb#p1{ text-align:center; }
-  .phb#p1:after{ display:none; }
-  .dotted {
-    border-bottom: 1px dotted #000;
-    text-decoration: none;
-    cursor: help;
-  }
-</style>
+  /* Background */
+    .phb{ background-image: url('https://gmbinder.com/images/UCIUXyr.jpg') }
+    .phb{ background-size: cover }
+  
+  /* Notes */
+    .phb blockquote {background-color: #ebcec3}
+    .phb hr + blockquote tr:nth-child(odd) td {background-color: #FDF1DC;}
+  
+  /* Tables */
+    .phb hr+section blockquote tr:nth-child(odd) td {background-color:transparent; }
+    table tr:nth-child(odd) td {background-color: #ebcec3}
+  
+  /* Footer */
+    .phb .pageNumber {color: rgba(0, 0, 0, 0.6)}
+    .phb .footnote {color: rgba(0, 0, 0, 0.6)}
+    .phb:after{ background-image: url('https://gmbinder.com/images/EsLXSby.png') }
+    
+      .dotted {
+      border-bottom: 1px dotted #000;
+      text-decoration: none;
+      cursor: help;
+    }
+    
+    a {
+        color: #111;
+        text-decoration: none;
+        font-weight: bold
+    }
+  </style>
 
 <div style='margin-top:450px;'></div>
 
