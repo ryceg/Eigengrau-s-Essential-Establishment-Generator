@@ -74,6 +74,9 @@ function addGMBinderPretext () {
         text-decoration: none;
         font-weight: bold
     }
+    a:hover {
+      text-decoration: none;
+    }
   </style>
 
 <div style='margin-top:450px;'></div>
