@@ -55,8 +55,8 @@ function addGMBinderPretext () {
     .phb hr + blockquote tr:nth-child(odd) td {background-color: #FDF1DC;}
   
   /* Tables */
-    .phb hr+section blockquote tr:nth-child(odd) td {background-color:transparent; }
-    table tr:nth-child(odd) td {background-color: #ebcec3}
+    .phb hr+section blockquote tr:nth-child(odd) 
+    td {background-color:transparent; }
   
   /* Footer */
     .phb .pageNumber {color: rgba(0, 0, 0, 0.6)}
