@@ -1,5 +1,5 @@
 :: TownListProfessions
-<span class='interactive-only'><<set _count to 0>>
+<<set _count to 0>>
 <table>
   <tr>
     <th>Profession</th>
@@ -24,4 +24,4 @@
           \<<profile _npc>><</for>>
       \<<else>><span class="interactive-only"><<link "Create _article">><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $currentPassage.passageName>><</link>></span>
     \<</if>></td></tr><</capture>><</nobr>><</for>>
-</table>Total: <<print _count.toFixed(2)>>% of the total population.</span>
+</table>Total: <<print _count.toFixed(2)>>% of the total population.
