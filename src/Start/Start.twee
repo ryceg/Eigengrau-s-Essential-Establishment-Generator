@@ -1,5 +1,5 @@
 :: Start
-\<<if !_isTextOutput>><div id="illustration-banner">[img[banner]]</div><div id="illustration-buffer"><img id="illustration" src=./src/Resources/townIllustration.jpg></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+\<<if !_isTextOutput>><div id="illustration-banner">[img[banner]]</div><div id="illustration-buffer"><img id="illustration" src=./src/Resources/town-illustration.jpg></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
 \<h3>Quick Scenario Generator</h3><<include "CreateScenario">><</if>>
 \<h2>The <<print $town.type.toUpperFirst()>> of $town.name</h2>
 \<<print lib.firstCharacter($town.name)>> is a <<print lib.createTippyFull("With a population of " + $town.population + ".", $town.type)>> located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <span @title="lib.formatPercentile(lib.sortArray($town.demographicPercentile))" class="tip dotted"><<print lib.getPredominantRace($town.demographicPercentile).amountDescriptive>></span>. They are 
