@@ -36,7 +36,20 @@ function addGMBinderPart (type) {
     <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/general-store-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
-`
+`,
+    factions: `
+    <img src='https://cdnb.artstation.com/p/assets/images/images/019/755/997/large/juho-huttunen-bittervine-emissary.jpg?1564881662' class='cover-illustration' style="position:absolute; left:0; top:250px">
+
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0008.png' class='watercolour'>
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0005.png' class='watercolour'>
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0008.png' class='watercolour' style="transform:rotate(180deg)">
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0005.png' class='watercolour' style="transform:rotate(180deg)">
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0005.png' class='watercolour' style="transform:rotate(180deg)">`
   }
   let result = `<div class='partpage-dmg'>
 
