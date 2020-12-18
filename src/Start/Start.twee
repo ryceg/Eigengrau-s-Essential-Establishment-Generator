@@ -8,17 +8,7 @@
 \<<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */
 \<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>.
 <span class="tip" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><<goto "TownOutput">><</link>></span>
-<span class="interactive-only"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
-<</listbox>> -- <<button "Create New Building">>
-  <<run console.log('Creating a new ' + $newBuilding)>>
-  <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>
-  <<run console.log(_latestBuilding)>>
-  <<replace "#buildings">><<include "BuildingsList">><</replace>><<run document.getElementById(_latestBuilding.name).className = 'highlight'>>
-  /* State.create() is an undocumented feature that adds a Moment (the current state) to the story's History. 
-  Notably, it may not play nicely with the Back and Forward navigation. 
-  This has been implemented to ensure that the creation of new buildings is saved and no data is lost. */
-  <<run State.create(passage())>>
-<</button>></span>
+<<include "CreateBuilding">>
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
 [[OutputEverything]]
