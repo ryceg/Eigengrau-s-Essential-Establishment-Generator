@@ -108,6 +108,7 @@ function addGMBinderPosttext () {
    
     This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by [Rhys Gray](http://rhysgraymusic.com).
   * Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
+  * Watercolour stains by [/u/flamableconcrete](https://watercolors.giantsoup.com/)
   * [Original seed used](https://eeegen.com/${location.hash} "Original source")
   * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
   * [Discord](https://discord.gg/4wYNwp2)
