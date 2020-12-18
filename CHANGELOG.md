@@ -8,29 +8,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
-- Changed license to MIT
-- Road system
-- Export to JSON
-- Faction editing
-- Tavern illustration
-- General Store illustration
-- Foundry export functionality
+- Changed license to MIT.
+- Road system.
+- Export to JSON.
+- Faction editing.
+- Tavern illustration.
+- General Store illustration.
+- Foundry export functionality.
+
+### Changed
 - Buildings are ordered via road.
 - Overhauled the faction resources.
 - Changed the errors to be slightly less obtrusive.
-- Fixed a bug with marriages
-- Fixed a bug with tavern sleep
-- Ported over a lot of code to TypeScript
+- Fixed a bug with marriages.
+- Fixed a bug with tavern sleep.
+- Ported over a lot of code to TypeScript.
 - Fixed an issue with mercenaries in the town square.
-- Fixed a bug with general store crud
-- Fixed a bug with general store owners reading books
-- Toned down the road reproduction rate for cities and towns
+- Fixed a bug with general store crud.
+- Fixed a bug with general store owners reading books.
+- Toned down the road reproduction rate for cities and towns.
+- Changed so only the link is highlighted when creating a new building.
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
+- Individual NPC export (just copy + paste, you'll be fine.)
 
 ### Known issues
 - On some machines, the faction profile page does not render (however, the text is still there and inspectable via element).
+- NPC history is still sometimes broken.
+
 ## 2.6.3
 
 ### Added
