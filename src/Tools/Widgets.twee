@@ -89,7 +89,7 @@
 <<widget "building">><<nobr>>
 <<set _building = $args[0],
 	_readout = $args[1] || _building.name>>
-<span @id="_building.key" class="tip">
+<span @id="_building.tooltip" class="tip">
 <<set _buildingTitle to lib.toTitleCase(_readout)>>
 <<link "_buildingTitle">>
 <<set $currentPassage to _building>>
@@ -102,7 +102,7 @@
   <</if>>
 <</link>>
 </span>
-<<run setup.profileTooltip(_building.key, _building)>><<run setup.tippy(".btn")>>
+<<run setup.profileTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
 <</nobr>><</widget>>
 
 <<widget "profile">>

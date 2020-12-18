@@ -1,6 +1,7 @@
 :: BuildingsList
 <<for _key, _building range $town.buildings>><<capture _key, _building>>
-    \<span @id="_building.key"><<set _road to $town.roads[_building.road]>>
+    \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
+    \<span @id="_building.name"><<set _road to $town.roads[_building.road]>>
     \<<if def _previousBuilding && _previousBuilding.road === _building.road>>
 
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
@@ -10,7 +11,7 @@
     \<<if _building.needsWordNoun !== false>>
       \the _building.wordNoun 
     \<</if>>
-    \<<building _building>></span>
+    \<<include "BuildingLink">></span>
   \<</capture>><<set _previousBuilding to _building>>
 <</for>>
 

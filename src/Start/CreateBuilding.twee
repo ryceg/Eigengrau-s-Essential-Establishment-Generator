@@ -4,7 +4,8 @@
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>
   <<run console.log(_latestBuilding)>>
-  <<update>>
+  <<replace "#buildings">><<include "RoadsList">>
+  <</replace>>
   <<run document.getElementById(_latestBuilding.name).className = 'highlight'>>
   /* State.create() is an undocumented feature that adds a Moment (the current state) to the story's History. 
   Notably, it may not play nicely with the Back and Forward navigation. 
