@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a bug with marriages
 - Fixed a bug with tavern sleep
 - Ported over a lot of code to TypeScript
+- Fixed an issue with mercenaries in the town square.
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
