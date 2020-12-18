@@ -31,6 +31,11 @@ function addGMBinderPart (type) {
 <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/tavern-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
+`,
+    NPCs: `
+    <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/general-store-illustration.jpg?raw=true' class='cover-illustration'>
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 `
   }
   let result = `<div class='partpage-dmg'>
