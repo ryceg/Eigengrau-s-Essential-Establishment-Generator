@@ -154,7 +154,9 @@ setup.createHistory = function (town, npc) {
   } else {
     // create a temporary marriage for this orphan
     const marriage = {
-      socialClass: npc.socialClass || 'peasantry'
+      socialClass: npc.socialClass,
+      parents: [],
+      children: []
     }
 
     /** @param {import("./Relationships/createFamilyMembers").Marriage} marriage */

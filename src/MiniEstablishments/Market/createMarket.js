@@ -15,11 +15,11 @@ setup.createMarket = (town, opts = {}) => {
     crowd: lib.market.crowd.random()
   })
 
-  market.name = [
+  market.name = lib.toTitleCase([
     'The Markets',
     `The Markets of ${town.name}`,
     `The ${[town.name, town.roads[market.road].name].random()} ${market.wordNoun}`
-  ].random()
+  ].random())
   market.notableFeature = market.draw
   market.tippyDescription = `${lib.articles.output(market.wordNoun).toUpperFirst()} that's ${market.size}. It is ${market.cleanliness}, and is known for ${market.notableFeature}.`
   return market

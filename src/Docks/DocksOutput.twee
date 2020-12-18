@@ -1,7 +1,7 @@
 :: DocksOutput
 \<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 \<<set $currentPassage.availableRelationships to setup.docks.get.customers>>
-\<h1><<print $building.name.toUpperFirst()>></h1><<print lib.firstCharacter("You")>> walk down to the docks, which are known best for $building.notableFeature. You notice $building.notice. The docks are $building.sizeDescriptive, and is $building.cleanlinessDescriptive. It's currently $building.activity.
+\<span class="interactive-only"><h1><<print $building.name.toUpperFirst()>></h1></span><<print lib.firstCharacter("You")>> walk down to the docks, which are known best for $building.notableFeature. You notice $building.notice. The docks are $building.sizeDescriptive, and is $building.cleanlinessDescriptive. It's currently $building.activity.
 <<button "Create a ship">>
 <<run setup.docks.ships.create($town, $building)>><<update>><</button>><<include "ShipList">>
 <<linkreplace "<h4>People Around</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>

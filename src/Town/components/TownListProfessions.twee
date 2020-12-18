@@ -22,6 +22,6 @@
       \<<elseif _npcs.length > 1>>
         \<<for _i, _npc range _npcs>>
           \<<profile _npc>><</for>>
-      \<<else>><<link "Create _article">><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $currentPassage.passageName>><</link>>
+      \<<else>><span class="interactive-only"><<link "Create _article">><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><<goto $currentPassage.passageName>><</link>></span>
     \<</if>></td></tr><</capture>><</nobr>><</for>>
 </table>Total: <<print _count.toFixed(2)>>% of the total population.

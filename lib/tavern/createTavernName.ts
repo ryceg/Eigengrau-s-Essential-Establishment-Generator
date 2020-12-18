@@ -1,4 +1,5 @@
 import { random } from '../src/random'
+import { toTitleCase } from '../src/toTitleCase'
 
 export function createTavernName () {
   const verb = random(['Moping', 'Drowning', 'Hanging', 'Belching', 'Running', 'Walking', 'Hunting', 'Fighting', 'Swinging', 'Breaking', 'Working', 'Fermenting', 'Flowering', 'Worrying', 'Following', 'Flowing', 'Complaining', 'Standing', 'Joking', 'Laughing', 'Panting', 'Boarding', 'Lounging', 'Cutting', 'Singing', 'Staring', 'Goading', 'Disappointing', 'Faltering', 'Binding', 'Winding', 'Sundering', 'Longing', 'Fumbling', 'Bumbling', 'Stumbling', 'Pining', 'Whining', 'Flying', 'Hoarding', 'Whoring', 'Warring', 'Winking', 'Skittering', 'Slithering', 'Snoring', 'Snorting', 'Playing', 'Practicing', 'Grappling', 'Burning', 'Flaming', 'Freezing', 'Poisoning', 'Burying', 'Throwing', 'Sparking', 'Steaming', 'Smiting', 'Chittering', 'Chattering', 'Mumbling', 'Grating', 'Plowing', 'Biting', 'Howling', 'Roaring', 'Shouting', 'Pouring', 'Squeaking', 'Stinging', 'Charging', 'Bleating', 'Stabbing', 'Goring', 'Poking', 'Swallowing', 'Sucking', 'Drinking', 'Sneaking', 'Hiding', 'Slashing', 'Limping', 'Tripping', 'Shifting', 'Sliding', 'Blinding', 'Piercing', 'Bludgeoning', 'Crushing', 'Hopping', 'Thundering', 'Hushing', 'Crying', 'Wailing', 'Mourning', 'Darkening', 'Piling', 'Digging', 'Flinging'])
@@ -8,15 +9,15 @@ export function createTavernName () {
 
   switch (random(1, 5)) {
     case 1:
-      return `The ${adjective} ${nounA}`
+      return toTitleCase(`The ${adjective} ${nounA}`)
     case 2:
-      return `The ${nounA} and ${nounB}`
+      return toTitleCase(`The ${nounA} and ${nounB}`)
     case 3:
-      return `The ${nounA} and the ${nounB}`
+      return toTitleCase(`The ${nounA} and the ${nounB}`)
     case 4:
-      return `The ${verb} ${nounA}`
+      return toTitleCase(`The ${verb} ${nounA}`)
     case 5:
-      return `The ${verb} ${nounA} and the ${nounB}`
+      return toTitleCase(`The ${verb} ${nounA} and the ${nounB}`)
   }
 
   throw new Error('Roll out of bounds.')

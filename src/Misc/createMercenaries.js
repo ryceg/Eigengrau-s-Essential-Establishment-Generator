@@ -1,6 +1,6 @@
 // uses setup.createNPC
 setup.createMercenaries = function (town) {
-  const mercenaries = {
+  const mercenariesData = {
     colours: [
       'black',
       'red',
@@ -18,7 +18,7 @@ setup.createMercenaries = function (town) {
       'light blue',
       'magenta',
       'dark green',
-      'olive green'].random(),
+      'olive green'],
     insignia: [
       'a skull',
       'a ghost',
@@ -62,7 +62,7 @@ setup.createMercenaries = function (town) {
       'a gold bar',
       'an axe',
       'a potion bottle'
-    ].random(),
+    ],
     commanderTrait: [
       'a brazen outlaw',
       'a charismatic demagogue',
@@ -76,21 +76,67 @@ setup.createMercenaries = function (town) {
       'a former arena champion',
       'an ex-gladiator',
       'an escaped slave'
-    ].random(),
+    ],
+    commander: {
+      'a brazen outlaw': {
+        background: 'criminal'
+      },
+      'a charismatic demagogue': {
+        background: 'charlatan',
+        calmTrait: 'charismatic',
+        stressTrait: 'manipulative'
+      },
+      'a mysterious foreigner': {
+        background: 'outlander'
+      },
+      'an outcast from a prominent family': {
+        background: 'noble'
+      },
+      'a ruthless killer': {
+        background: 'criminal'
+      },
+      'a dashing swashbuckler': {
+        background: 'sailor',
+        profession: 'fighter'
+      },
+      'a brutish thug': {
+        background: 'criminal',
+        profession: 'fighter'
+      },
+      'a celebrated war hero': {
+        background: 'soldier',
+        profession: 'fighter'
+      },
+      'a disgraced knight': {
+        background: 'criminal',
+        profession: 'paladin'
+      },
+      'a former arena champion': {
+        background: 'gladiator',
+        profession: 'fighter'
+      },
+      'an ex-gladiator': {
+        background: 'gladiator',
+        profession: 'fighter'
+      },
+      'an escaped slave': {
+        background: 'criminal'
+      }
+    },
     attitude: [
       'friendly and loyal',
       'respectful and business-like',
       'cautious and uncertain',
       'terrified and tight-lipped',
       'disappointed and rude',
-      'angry and rebellious'].random(),
+      'angry and rebellious'],
     currently: [
       'gainfully employed as guards',
       'gainfully employed in war',
       'under contract with some criminals',
       'under contract with some merchants',
       'under contract with some nobles',
-      'looking for work'].random(),
+      'looking for work'],
     specializes: [
       'siege-breaking',
       'holding a redoubt or fort',
@@ -101,7 +147,7 @@ setup.createMercenaries = function (town) {
       'patrolling',
       'flanking maneuvers',
       'guerilla tactics',
-      'raiding and pillaging'].random(),
+      'raiding and pillaging'],
     notorious: [
       'taking no prisoners',
       'leaving the dead to be eaten by beasts',
@@ -110,7 +156,7 @@ setup.createMercenaries = function (town) {
       'burning villages and fields',
       'betraying their employers',
       'singing bawdy songs',
-      'drinking too much ale and wine'].random(),
+      'drinking too much ale and wine'],
     tactics: [
       'hit-and-run tactics',
       'direct assaults on the enemy',
@@ -119,7 +165,7 @@ setup.createMercenaries = function (town) {
       'masterful combat maneuvers',
       'complete lack of mercy',
       'taunting and jeering the enemy',
-      'dirty tactics'].random(),
+      'dirty tactics'],
     armour: [
       'exotic robes',
       'leather armor',
@@ -128,7 +174,7 @@ setup.createMercenaries = function (town) {
       'ringmail',
       'chainmail',
       'scale armor',
-      'plate armor'].random(),
+      'plate armor'],
     weapon: [
       'longswords',
       'longswords and shields',
@@ -141,10 +187,20 @@ setup.createMercenaries = function (town) {
       'battleaxes and shields',
       'warhammers',
       'scimitars',
-      'scimitars and a shields'].random()
+      'scimitars and shields']
   }
-
-  mercenaries.captain = createMercenaryCaptain(mercenaries.commanderTrait, town)
+  const mercenaries = {
+    colours: mercenariesData.colours.random(),
+    insignia: mercenariesData.insignia.random(),
+    commanderTrait: Object.keys(mercenariesData.commander).random(),
+    attitude: mercenariesData.attitude.random(),
+    currently: mercenariesData.currently.random(),
+    specializes: mercenariesData.specializes.random(),
+    notorious: mercenariesData.notorious.random(),
+    tactics: mercenariesData.tactics.random(),
+    armour: mercenariesData.armour.random(),
+    weapon: mercenariesData.weapon.random()
+  }
 
   mercenaries.name = [
     `The ${lib.factionData.types.mercenaries.names.group.random()} of ${lib.factionData.types.mercenaries.names.adjective.random()} ${lib.factionData.types.mercenaries.names.main.random()}`,
@@ -155,80 +211,7 @@ setup.createMercenaries = function (town) {
     lib.factionData.types.mercenaries.names.unique.random()
   ].random()
 
-  mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their commander ${setup.profile(mercenaries.captain)}, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
+  mercenaries.readout = `A group of mercenaries sit in the corner of the room, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}; they are ${mercenaries.name}, a company that is famous for their ${mercenaries.tactics}. They are ${mercenaries.attitude} towards their commander, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are currently ${mercenaries.currently}.`
   mercenaries.tippyWord = lib.createTippyFull(mercenaries.readout, 'mercenaries')
   return mercenaries
-}
-
-/**
- * @param {string} trait
- * @param {Town} town
- * @returns {NPC}
- */
-function createMercenaryCaptain (trait, town) {
-  const { createNPC } = setup
-
-  switch (trait) {
-    case 'a brazen outlaw':
-      return createNPC(town, {
-        background: 'criminal'
-      })
-    case 'a charismatic demagogue':
-      return createNPC(town, {
-        background: 'charlatan',
-        calmTrait: 'charismatic',
-        stressTrait: 'manipulative'
-      })
-    case 'a mysterious foreigner':
-      return createNPC(town, {
-        background: 'outlander'
-      })
-    case 'an outcast from a prominent family':
-      return createNPC(town, {
-        background: 'noble'
-      })
-    case 'a ruthless killer':
-      return createNPC(town, {
-        background: 'criminal'
-      })
-    case 'a dashing swashbuckler':
-      return createNPC(town, {
-        background: 'sailor',
-        profession: 'fighter'
-      })
-    case 'a brutish thug':
-      return createNPC(town, {
-        background: 'criminal',
-        profession: 'fighter'
-      })
-    case 'a celebrated war hero':
-      return createNPC(town, {
-        background: 'soldier',
-        profession: 'fighter'
-      })
-    case 'a disgraced knight':
-      return createNPC(town, {
-        background: 'criminal',
-        profession: 'paladin'
-      })
-    case 'a former arena champion':
-      return createNPC(town, {
-        background: 'gladiator',
-        profession: 'fighter'
-      })
-    case 'an ex-gladiator':
-      return createNPC(town, {
-        background: 'gladiator',
-        profession: 'fighter'
-      })
-    case 'an escaped slave':
-      return createNPC(town, {
-        background: 'criminal'
-      })
-    default:
-      return createNPC(town, {
-        background: 'soldier',
-        profession: 'fighter'
-      })
-  }
 }

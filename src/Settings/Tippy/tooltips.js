@@ -9,13 +9,13 @@ setup.profileTooltip = function (id, obj) {
             span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
             break
           case 'building':
-            span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
             break
           case 'room':
-            span.title = obj.tippyDescription || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
             break
           case 'faction':
-            span.title = obj.tippyDescription || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
+            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
             break
           case 'road':
             span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
