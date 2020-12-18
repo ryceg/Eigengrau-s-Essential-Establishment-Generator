@@ -24,6 +24,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
+
+### Known issues
+- On some machines, the faction profile page does not render (however, the text is still there and inspectable via element).
 ## 2.6.3
 
 ### Added
