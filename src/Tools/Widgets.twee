@@ -89,15 +89,10 @@
 <<widget "building">><<nobr>>
 <<set _building = $args[0],
 	_readout = $args[1] || _building.name>>
-<span @id="_building.tooltip" class="tip"><<set _buildingTitle to lib.toTitleCase(_readout)>>
+<span @id="_building.key" class="tip">
+<<set _buildingTitle to lib.toTitleCase(_readout)>>
 <<link "_buildingTitle">>
 <<set $currentPassage to _building>>
-	/*<<if _building.parentKey>>
-		<<set $currentPassage to lib.findInArray($town.buildings, "key", _building.parentKey)>>
-		<<else>>
-		<<set $currentPassage to _building>>
-	<</if>>*/
-  
   <<run setup.history(_building, null, _readout)>>
   <<run console.log(_building)>>
   <<if settings.showSliders>>
@@ -107,7 +102,7 @@
   <</if>>
 <</link>>
 </span>
-<<run setup.buildingTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
+<<run setup.profileTooltip(_building.key, _building)>><<run setup.tippy(".btn")>>
 <</nobr>><</widget>>
 
 <<widget "profile">>
