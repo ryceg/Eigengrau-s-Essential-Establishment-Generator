@@ -4,16 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.7
 
 ### Added
+
 - Changed license to MIT
 - Road system
-- Export to Foundry VTT 
-- Export to GMBinder
 - Export to JSON
 - Faction editing
-### Changed
+- Tavern illustration
+- General Store illustration
+- Foundry export functionality
 - Buildings are ordered via road.
 - Overhauled the faction resources.
 - Changed the errors to be slightly less obtrusive.
@@ -21,6 +22,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a bug with tavern sleep
 - Ported over a lot of code to TypeScript
 - Fixed an issue with mercenaries in the town square.
+- Fixed a bug with general store crud
+- Fixed a bug with general store owners reading books
+- Toned down the road reproduction rate for cities and towns
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
