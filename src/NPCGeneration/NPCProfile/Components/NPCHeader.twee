@@ -12,9 +12,8 @@ $currentNPC.title
     <<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>>
     <<goto "NPCProfileEdit">>
   <</button>>
-<</if>> -- 
-
-<<listbox "$currentNPC.outputOption">>
+<</if>>
+/* <<listbox "$currentNPC.outputOption">>
   <<option "JSON">>
   <<option "GMBinder">>
   <<option "LegendKeeper">>
@@ -28,7 +27,7 @@ $currentNPC.title
   <<case "LegendKeeper">>
     <<run setup.history($currentNPC, "NPCProfileLK", "LK Markdown for " + $currentNPC.name)>><<goto "NPCProfileLKMarkdown">>
   <</switch>>
-<</button>>   
+<</button>>    */
 <<if $currentNPC.isThrowaway === true>> -- 
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
 <</if>><</nobr>>
