@@ -1,5 +1,5 @@
 :: TavernDrinker
-<span class="click-and-remove-link"><<link "<h4>Meet one of the patrons!</h4>">><<if def _newNPC>>
+<span class="interactive-only"><<link "<h4>Meet one of the patrons!</h4>">><<if def _newNPC>>
   <<run setup.deleteNPC($npcs[_newNPC])>>
 <</if>>
 <<set $toolbox.drinker to setup.createNPC($town, {

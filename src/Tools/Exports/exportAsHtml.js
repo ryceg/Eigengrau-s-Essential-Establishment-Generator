@@ -13,6 +13,7 @@ setup.exportAsHtml = function (passageName, currentPassage) {
   $offshore = setup.removeElement($offshore, '#illustration')
   $offshore = setup.removeElement($offshore, '#paper')
   $offshore = setup.removeElement($offshore, '.error-view')
+  $offshore = setup.removeElement($offshore, '.temporarily-removed')
   $offshore = setup.removeElement($offshore, '.interactive-only')
   // if you need to escape the characters, you can use ${Util.escape($offshore.html())}
   return `${$offshore.html()}`

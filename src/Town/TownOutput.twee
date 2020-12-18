@@ -13,11 +13,13 @@
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 <<linkappend "<h3>Racial Demographics</h3>" t8n>><<include "TownListRaces">><</linkappend>>
 <<linkappend "<h3>List of Factions</h3>" t8n>><<include "TownListFactions">><</linkappend>>
-<<linkappend "<h3>List of NPCs</h3>" t8n>><<include "TownListNpcs">><</linkappend>><<if _exportType === 'GMBinder'>><<nobr>> 
+<<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>><<if _exportType === 'GMBinder'>>
+
 \\pagebreakNum 
 
-<</nobr>><</if>>
-<<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>>
+<</if>>
+
+<<linkappend "<h3>List of NPCs</h3>" t8n>><<include "TownListNpcs">><</linkappend>>
 <<linkappend "<h3>List of Throwaway NPCs</h3>" t8n>><<include "TownListThrowaway">><</linkappend>>
 <span class='interactive-only'><<linkappend "<h3>Professions in $town.name</h3>" t8n>><<include "TownListProfessions">><</linkappend>></span>
 
