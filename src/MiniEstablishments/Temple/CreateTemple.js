@@ -36,7 +36,7 @@ setup.createTemple = (town, opts = {}) => {
   lib.createStructure(town, temple)
 
   lib.assign(temple.structure, {
-    templeDescriptor: `${lib.articles.output(temple.structure.material.wealth).toUpperFirst()} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
+    templeDescriptor: `${lib.articles.output(temple.structure.material.wealth)} ${temple.structure.material.noun} ${temple.wordNoun} with a ${temple.structure.roof.verb} roof`
   })
 
   lib.assign(temple, {
