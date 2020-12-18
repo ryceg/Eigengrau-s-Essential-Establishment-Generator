@@ -11,6 +11,7 @@ setup.outputGMBinder = () => {
     factions: 'factions',
     NPCs: 'NPCs'
   }
+
   for (const type in target) {
     string += addGMBinderPart(type)
     string += addPageBreak()
@@ -25,23 +26,96 @@ setup.outputGMBinder = () => {
 }
 
 function addGMBinderPart (type) {
-  return `<div class='partpage-dmg'>
+  const partIllustrations = {
+    buildings: `
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/tavern-illustration.jpg?raw=true' class='cover-illustration'>
 
-<h1>${type}</h1>
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
+`
+  }
+  let result = `<div class='partpage-dmg'>
 
-</div>`
+  <h1>${type}</h1>
+  
+  `
+  if (partIllustrations[type]) {
+    result += partIllustrations[type]
+  }
+  result += `
+  </div>
+  `
+  return result
 }
 
 function addGMBinderPosttext () {
   return `
-  > ##### Made Using Eigengrau's Generator
-  > This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator. 
-  >
-  > * [Original seed used](https://eeegen.com/${location.hash} "Original source")
-  > * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
-  > * [Discord](https://discord.gg/4wYNwp2)
-  > * [GitHub](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/t)
-  `
+  \\pagebreak
+   
+   <style>
+     /** Change the p2 to whatever page number is the last page in your document **/
+     .phb#p2:after { display:none; }
+   </style>
+   
+   <div class='back-cover-image'></div>
+   
+   <div style='margin-top:20px;'></div>
+   
+   <div class='back-cover-header'>
+   
+  Made Using
+  
+  Eigengrau's
+  
+  Generator
+   
+   </div>
+   
+   <div class='back-cover-text'>
+   
+    ##### Made Using A Generator Unlike Any Other
+    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by Rhys Gray.
+  * Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
+  * [Original seed used](https://eeegen.com/#healthyimpishhairstreak "Original source")
+  * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
+  * [Discord](https://discord.gg/4wYNwp2)
+  * [GitHub](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/t)
+    
+   </div>
+   
+   <div class='back-cover-diamond' style='top: 679px;'></div>
+   
+   <div style='margin-top:35px;'></div>
+   
+   <div class='back-cover-close'>
+   
+  You're probably going to want to delete either this side or the following, which is in the right hand column so you can credit the other people that helped you make this. That's alright- but please do credit us!
+   
+   </div>
+   
+   
+   
+   <div class='back-cover-logo-link'>
+   
+   [EIGENGRAUSGENERATOR.COM](https://eigengrausgenerator.com)
+   
+   </div>
+   
+   \\columnbreak
+   
+   <div class='back-cover-right'>
+   
+   ##### Made Using Eigengrau's Generator
+   
+    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by Rhys Gray.
+  * Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
+  * [Original seed used](https://eeegen.com/#healthyimpishhairstreak "Original source")
+  * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
+  * [Discord](https://discord.gg/4wYNwp2)
+  * [GitHub](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/t)
+    
+   
+   </div>
+   `
 }
 
 function addGMBinderPretext () {
@@ -77,6 +151,22 @@ function addGMBinderPretext () {
     a:hover {
       text-decoration: none;
     }
+    
+   .cover-illustration {
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: -65px;
+    }
+    
+   .watercolour {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 816px;
+        transform: rotate(180deg);
+    }
   </style>
 
 <div style='margin-top:450px;'></div>
@@ -87,6 +177,15 @@ function addGMBinderPretext () {
 <div class='wide'>
 
 ##### Created using Eigengrau's Generator
+
+###### Developed by Rhys Gray
+
+Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
+
+
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/townIllustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
+
+<img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour' style="transform:rotate(0deg);">
 
 </div>
 
