@@ -148,6 +148,7 @@ export const roads = {
         }
       }
       // if it doesn't find a suitable road, make a new one.
+      // @ts-expect-error Road might be defined if it's selected above.
       if (!road) {
         road = roads.create(town, {
           type: random(roads.width.largeRoads),
@@ -245,12 +246,12 @@ export const roads = {
     }
 
     if (type.precedingText) {
-      road.precedingText = type.precedingText(town, road)
+      road.precedingText = type.precedingText(town, road as Road)
     } else {
-      road.precedingText = roads.precedingText.default(town, road)
+      road.precedingText = roads.precedingText.default(town, road as Road)
     }
 
-    return road
+    return road as Road
   },
   name: {
     create (town: Town): RoadOwnership {
