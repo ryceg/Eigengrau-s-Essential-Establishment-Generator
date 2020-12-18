@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: eigengrausgenerator.com
+Token: 5fcbc313ee8b1cfa0739e6c3c9ec7bc093793b68990f58ec4b5fb9baf39e301c
