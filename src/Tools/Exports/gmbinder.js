@@ -72,8 +72,8 @@ function addGMBinderPosttext () {
    
    <div class='back-cover-text'>
    
-    ##### Made Using A Generator Unlike Any Other
-    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by Rhys Gray.
+    ##### Made Using [A Generator Unlike Any Other](https://eigengrausgenerator.com)
+    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by [Rhys Gray](http://rhysgraymusic.com).
   * Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
   * [Original seed used](https://eeegen.com/#healthyimpishhairstreak "Original source")
   * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
@@ -104,11 +104,11 @@ function addGMBinderPosttext () {
    
    <div class='back-cover-right'>
    
-   ##### Made Using Eigengrau's Generator
+   ##### Made Using [Eigengrau's Generator](https://eigengrausgenerator.com)
    
-    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by Rhys Gray.
+    This (or parts of this document) was made using [Eigengrau's Generator](https://eeegen.com), an open source TTRPG generator developed by [Rhys Gray](http://rhysgraymusic.com).
   * Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
-  * [Original seed used](https://eeegen.com/#healthyimpishhairstreak "Original source")
+  * [Original seed used](https://eeegen.com/${location.hash} "Original source")
   * [Patreon](https://www.patreon.com/join/eigengrausgenerator?)
   * [Discord](https://discord.gg/4wYNwp2)
   * [GitHub](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/t)
@@ -176,9 +176,9 @@ function addGMBinderPretext () {
 <div style='margin-top:25px'></div>
 <div class='wide'>
 
-##### Created using Eigengrau's Generator
+##### Created using [Eigengrau's Generator](https://eigengrausgenerator.com)
 
-###### Developed by Rhys Gray
+###### Developed by [Rhys Gray](http://rhysgraymusic.com)
 
 Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
 
