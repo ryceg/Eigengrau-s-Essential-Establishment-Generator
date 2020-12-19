@@ -16,6 +16,9 @@ interface GuardhouseData {
     }[]
   }
   get: {
+    event: {
+      function(): string
+    }[]
     officeItems: string[]
     officeDescription: {
       wealth: number
@@ -114,7 +117,6 @@ export const guardhouseData: GuardhouseData = {
         return "the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair."
       }
     }
-
   ],
   evidenceLocker: {
     // Inside the evidence locker, there is ___
@@ -222,6 +224,37 @@ export const guardhouseData: GuardhouseData = {
     ]
   },
   get: {
+    /** @example `At the moment, ______ */
+    event: [
+      {
+        function () { return 'an execution is taking place.' }
+      },
+      {
+        function () { return "a guard is taking down a witness's statement." }
+      },
+      {
+        function () { return 'a duo of two people in handcuffs are currently trying to throw each other under the bus.' }
+      },
+      {
+        function () { return 'a celebration is taking place; the guardhouse is decked in cheer and decor, the joyous noise audible outside.' }
+      },
+      {
+        function () { return 'a community program is going on. Townsfolk of all ages are seen inside, eagerly waiting. One of the guards is currently leading a small discussion.' }
+      },
+      {
+        function () { return "a sizable number of people in the midst of a heated discussion. They're threatening something if their demands aren't accepted." }
+      },
+      {
+        function () { return 'a person of authority performing an inspection of the guardhouse.' }
+      },
+      {
+        function () { return "a noble is arguing about some fine which was levied against them- they clearly don't think that it's fair." }
+      },
+      {
+        function () { return 'a husband and wife are shouting, trying to get into the guard house, but are being blocked. They are screaming about the guards ignoring their child who has gone missing, but the guards are totally disinterested- a stark contract to the frantic parents, they seem unperturbed, even annoyed.' }
+      }
+
+    ],
     officeItems: [
       // There is ____
       'a fine looking sword which has a gem embedded in the pommel- looks mostly decorative, but could definitely hurt someone if it was put to use.',
@@ -362,8 +395,8 @@ export const guardhouseData: GuardhouseData = {
         description: 'This is a tiny hole in the wall that serves as the local constabulary. There are a few heavily rusted weapons piled in the corner, but no furniture.'
       }
     ],
+    /** @example `In the holding cell is ${reason}` */
     holdingCell: [
-      // In the holding cell is ${reason}
       {
         reason: 'a gnome dressed in black rogues gear caught beating up a man in an alley. She claims she was stopping him from committing a crime.',
         base: {
