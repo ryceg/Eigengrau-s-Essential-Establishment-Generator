@@ -1,0 +1,20 @@
+:: GuardhouseOutput
+<<nobr>>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+<<set $associatedFaction to setup.findPolice($town)>>
+<span class="interactive-only"><h1>$building.name</h1></span>
+<</nobr>><<print lib.firstCharacter("You")>> come across the guardhouse, which is run by <<profile $building.associatedFaction>>. 
+
+<h4>Office</h4>
+<<print lib.closestMatch(lib.guardhouseData.get.officeDescription($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>>
+<<include "PolicingFaction">>
+<<link '<h4>Evidence Locker</h4>'>><<set $building.evidence to weightedRandomFetcher(town, lib.guardhouseData.evidenceLocker.items, guardhouse, undefined)>><<update>>
+<</link>>
+<<liveblock>><<if $building.evidence>>$building.evidence<</if>>
+<</liveblock>>
+<<link '<h4>Holding Cell</h4>'>><<set $building.holdingCell to weightedRandomFetcher(town, lib.guardhouseData.get.holdingCell, guardhouse, undefined, 'object')>><<set $building.prisoner to setup.createNPC($town, $building.holdingCell.base)>><<update>>
+<</link>>
+<<liveblock>><<if $building.holdingCell>>In the holding cell is <<profile $building.holdingCell.prisoner $building.holdingCell.reason>><</if>>
+<</liveblock>>
+
