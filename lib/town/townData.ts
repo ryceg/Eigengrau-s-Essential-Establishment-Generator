@@ -622,7 +622,7 @@ export const townData: TownData = {
         ])
       },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3]),
-      roadDuplication: 70,
+      roadDuplication: 60,
       modifiers: {
         wealth: 15,
         reputation: 5,
@@ -752,7 +752,7 @@ export const townData: TownData = {
         ])
       },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]),
-      roadDuplication: 90,
+      roadDuplication: 70,
       modifiers: {
         wealth: 5,
         reputation: 20,

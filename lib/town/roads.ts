@@ -1,4 +1,4 @@
-import { toTitleCase, townData } from '../'
+import { createTippyFull, toTitleCase, townData } from '../'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
@@ -7,7 +7,7 @@ import { fetchRace } from '../npc-generation/fetchRace'
 import { RaceName, raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { assign, getUUID, keys, last } from '../src/utils'
+import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -26,6 +26,7 @@ export interface RoadData {
   material?: string
   exclusions?(town: Town): boolean
   features?: string[]
+  precedingText?(town: Town, road: Road): string
 }
 
 export interface Road {
@@ -38,7 +39,19 @@ export interface Road {
    * @example `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
   */
   description: string
+  /**
+   * Preceding text which overrides the regular text.
+   * @example `Along ${road.name} is the smithy Sharpened Hammer.` becomes `____________ is the smithy Sharpened Hammer.`
+   */
+  precedingText: string
+  /**
+   * Total number of 'slots'
+   */
   capacity: number
+  /**
+   * Current number of 'slots'
+   */
+  currentOccupancy: number
   /** This is distinct from the name- "you walk down the crescent" doesn't sound natural. A crescent is a type of road. */
   wordNoun: string
   objectType: 'road'
@@ -122,21 +135,30 @@ export const roads = {
   assign: (town: Town, building?: Building): Road => {
     console.groupCollapsed('Assigning a road...')
     let road: Road
-    if (random(100) < townData.type[town.type].roadDuplication && Object.values(town.roads).length > 0) {
+    if (random(100) < townData.type[town.type].roadDuplication) {
       console.log('Searching for an existing road...')
       for (const key in town.roads) {
         console.log(Object.values(town.roads[key].inhabitants.buildings).length)
-        if (Object.values(town.roads[key].inhabitants.buildings).length + 1 >= town.roads[key].capacity) {
+        if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
           console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
           continue
-        } else if (Object.values(town.roads[key].inhabitants.buildings).length + 1 < town.roads[key].capacity) {
+        } else if (town.roads[key].currentOccupancy < town.roads[key].capacity) {
           road = town.roads[key]
           break
         }
       }
       // if it doesn't find a suitable road, make a new one.
-      road = roads.create(town)
-      town.roads[road.key] = road
+      // @ts-expect-error Road might be defined if it's selected above.
+      if (!road) {
+        road = roads.create(town, {
+          type: random(roads.width.largeRoads),
+          rolls: {
+            width: random(80, 100),
+            wealth: random(1, 100)
+          }
+        })
+        town.roads[road.key] = road
+      }
     } else {
       road = roads.create(town)
       town.roads[road.key] = road
@@ -144,6 +166,7 @@ export const roads = {
 
     if (road && building) {
       road.inhabitants.buildings[building.key] = building.type
+      road.currentOccupancy += building.roadSizeRequirement || Math.max(2, building.roll.size / 5)
       building.road = road.key
     }
     console.log(road)
@@ -151,7 +174,7 @@ export const roads = {
     return road
   },
   /** Creates the road */
-  create: (town: Town): Road => {
+  create: (town: Town, opts?: Partial<Road>): Road => {
     // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
     console.log('Creating a road...')
     const roadPrefix = roads.name.create(town)
@@ -165,13 +188,13 @@ export const roads = {
     }) || last(roads.width.rolls)
 
     const road = {
-      prefix: toTitleCase(roadPrefix.prefix),
+      prefix: capitalizeFirstLetter(roadPrefix.prefix),
       key: getUUID(),
       width,
       objectType: 'road' as const,
       feature,
       namesake: roadPrefix.namesake || undefined,
-      type: toTitleCase(type.name),
+      type: capitalizeFirstLetter(type.name),
       wordNoun: type.wordNoun || type.name,
       hasTraffic: type.hasTraffic || true,
       isDeadEnd: type.hasTraffic || false,
@@ -179,6 +202,7 @@ export const roads = {
         width: widthRoll,
         wealth: random(1, 100)
       },
+      currentOccupancy: 0,
       inhabitants: {
         npcs: {
         },
@@ -186,11 +210,12 @@ export const roads = {
         },
         factions: {
         }
-      }
+      },
+      ...opts
     }
 
     assign(road, {
-      name: `${road.prefix} ${road.type}`,
+      name: toTitleCase(`${road.prefix} ${road.type}`),
       tier: getBuildingTier(town.roll.wealth, road.rolls.wealth),
       capacity: roads.width.getCapacity(road as Road)
     })
@@ -220,7 +245,13 @@ export const roads = {
       road.description += road.namesake.reason
     }
 
-    return road
+    if (type.precedingText) {
+      road.precedingText = type.precedingText(town, road as Road)
+    } else {
+      road.precedingText = roads.precedingText.default(town, road as Road)
+    }
+
+    return road as Road
   },
   name: {
     create (town: Town): RoadOwnership {
@@ -311,7 +342,22 @@ export const roads = {
           'The square has a handy map board in the middle, detailing where everything is.',
           'There is a statue of someone dead and important in the middle of the square.',
           'There are the occasional street sellers hawking their goods in the square.'
-        ]
+        ],
+        precedingText (town: Town, road: Road) {
+          const text = [
+            {
+              function () { return `${createTippyFull(road.description, road.name)} houses` }
+            },
+            {
+              function () { return `The former site of a building, the now clear ${createTippyFull(road.description, road.name)} is home to` }
+            },
+            {
+              function () { return `There's a nice little square, ${createTippyFull(road.description, road.name)}, where there is` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       way: {
         name: 'way',
@@ -327,27 +373,103 @@ export const roads = {
         features: [
           'A row of houses and buildings is splayed out, with enough room for a horse and cart to turn around.',
           'An arch of houses is punctuated by a single large tree in between them, with a picnic table beneath it.'
-        ]
+        ],
+        precedingText (town: Town, road: Road) {
+          const isTheRoad = random([
+            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. On it is`,
+            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}, on which is`,
+            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}, where there is`
+          ])
+          const text = [
+            {
+              function () { return `Further into the residential area ${isTheRoad}` }
+            },
+            {
+              function () { return `At the bottom of a hill ${isTheRoad}` }
+            },
+            {
+              function () { return `At the top of a small hill ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       close: {
         name: 'close',
         isDeadEnd: true,
         width () { return random(40, 80) },
         probability: 2,
-        wordNoun: 'cul-de-sac'
+        wordNoun: 'cul-de-sac',
+        precedingText (town: Town, road: Road) {
+          const isTheRoad = random([
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Just near the end of the road is`,
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Perhaps twenty paces from the end of it is`,
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Near the end is`
+          ])
+          const text = [
+            {
+              function () { return `The street ${createTippyFull(road.description, road.name)} comes to an abrupt end, terminating in` }
+            },
+            {
+              function () { return `At the bottom of a hill ${isTheRoad}` }
+            },
+            {
+              function () { return `At the top of a small hill ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       wynd: {
         name: 'wynd',
         width () { return random(30) },
         hasTraffic: false,
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        precedingText (town: Town, road: Road) {
+          const isTheRoad = random([
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Just near the end of the road is`,
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Perhaps twenty paces from the end of it is`,
+              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Near the end is`
+          ])
+          const text = [
+            {
+              function () { return `The road ${createTippyFull(road.description, road.name)} twists around, with many turns. On the side is` }
+            },
+            {
+              function () { return `The road ${createTippyFull(road.description, road.name)} is quite windy indeed. Nestled in between a bend is` }
+            },
+            {
+              function () { return `Snaking along ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       row: {
         name: 'row',
         probability: 1,
         width () { return random(0, 80) },
-        wordNoun: 'road'
+        wordNoun: 'road',
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `${createTippyFull(road.description, road.name)} is home to` }
+            },
+            {
+              function () { return `Slightly further afield is ${createTippyFull(road.description, road.name)}, where there is` }
+            },
+            {
+              function () { return `Running parallel to other roads ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       dyke: {
         name: 'dyke',
@@ -367,7 +489,22 @@ export const roads = {
           'A couple of sad looking trees dot the sides of the road.',
           'Wrought iron oil-burning street lamps illuminate the broad avenue well into the late evening hours.'],
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        precedingText (town: Town, road: Road) {
+          const text = [
+            {
+              function () { return `${createTippyFull(road.description, road.name)} is a nice looking street, which houses` }
+            },
+            {
+              function () { return `There's a couple houses along ${createTippyFull(road.description, road.name)}, and nestled in between them is` }
+            },
+            {
+              function () { return `There's an island in the middle of ${createTippyFull(road.description, road.name)}, where there is` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       alley: {
         name: 'alley',
@@ -381,7 +518,23 @@ export const roads = {
         hasTraffic: false,
         probability: 1,
         wordNoun: 'alley',
-        exclusions (town: Town) { return town.population > 4000 }
+        exclusions (town: Town) { return town.population > 4000 },
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `${createTippyFull(road.description, road.name)} is a relatively shady looking alleyway, which houses` }
+            },
+            {
+              function () { return `Running alongside two rows of buildings is ${createTippyFull(road.description, road.name)}. One of the spaces is filled by` }
+            },
+            {
+              function () { return `There's a little alley, which ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       drive: {
         name: 'drive',
@@ -392,7 +545,23 @@ export const roads = {
         width () { return random(40, 80) },
         probability: 1,
         wordNoun: 'road',
-        isDeadEnd: true
+        isDeadEnd: true,
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `${createTippyFull(road.description, road.name)} looks to be residential. There is, however, ` }
+            },
+            {
+              function () { return `There's a couple houses along ${createTippyFull(road.description, road.name)}, and nestled in between them is` }
+            },
+            {
+              function () { return `There's a little dead end for houses, which ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       boulevard: {
         name: 'boulevard',
@@ -402,7 +571,23 @@ export const roads = {
           'Trees are planted along the sides.'
         ],
         probability: 1,
-        wordNoun: 'road'
+        wordNoun: 'road',
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `Off a junction is ${createTippyFull(road.description, road.name)}, where there is` }
+            },
+            {
+              function () { return `A side street in the ${town.type} leads to another, which in turn ${isTheRoad}` }
+            },
+            {
+              function () { return `There's a clear space in ${town.name}, which ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       plaza: {
         name: 'plaza',
@@ -412,7 +597,23 @@ export const roads = {
         features: [
           'There are some street sellers hawking their wares in the plaza.',
           'There\'s a well in the centre of the plaza.'
-        ]
+        ],
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `In the heart of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+            },
+            {
+              function () { return `In the centre of the ${town.type} ${isTheRoad}` }
+            },
+            {
+              function () { return `There's a clear space in ${town.name}, which ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       track: {
         name: 'track',
@@ -426,7 +627,23 @@ export const roads = {
           'There are some edible native fruits growing on the side of the track.',
           'It\'s a desire path, which has been trodden into submission.'
         ],
-        exclusions (town: Town) { return town.population < 500 }
+        exclusions (town: Town) { return town.population < 500 },
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `Further out of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+            },
+            {
+              function () { return `Out of the ${town.type} proper ${isTheRoad}` }
+            },
+            {
+              function () { return `At the top of a small hill outside of ${town.name} ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       },
       trail: {
         name: 'trail',
@@ -441,7 +658,23 @@ export const roads = {
           'The weeds are thick, and in parts it is difficult to actually discern where the trail is.',
           'The weeds threaten to overthrow the trail\'s relative order.'
         ],
-        exclusions (town: Town) { return town.population < 400 }
+        exclusions (town: Town) { return town.population < 500 },
+        precedingText (town: Town, road: Road) {
+          const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+          const text = [
+            {
+              function () { return `Further out of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+            },
+            {
+              function () { return `Out of the ${town.type} proper ${isTheRoad}` }
+            },
+            {
+              function () { return `At the top of a small hill outside of ${town.name} ${isTheRoad}` }
+            }
+          ]
+          const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+          return result
+        }
       }
     } as Record<RoadType, RoadData>
   },
@@ -512,17 +745,70 @@ export const roads = {
       ])
     }
   },
+  precedingText: {
+    default (town: Town, road: Road): string {
+      const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
+      const text = [
+        {
+          function () { return `The ${road.wordNoun} ${createTippyFull(road.description, road.name)} comes to an abrupt end, terminating in` }
+        },
+        {
+          function () { return `At the bottom of a hill ${isTheRoad}` }
+        },
+        {
+          function () { return `Further towards the centre of ${town.name} ${isTheRoad}` }
+        },
+        {
+          function () { return `Nearby ${isTheRoad}` }
+        },
+        {
+          function () { return `On ${createTippyFull(road.description, road.name)} is` }
+        },
+        {
+          function () { return `Along ${createTippyFull(road.description, road.name)} is` }
+        },
+        {
+          function () { return `Over on ${createTippyFull(road.description, road.name)} is` }
+        },
+        {
+          function () { return `At the top of a small hill ${isTheRoad}` }
+        }
+      ]
+      const result = weightedRandomFetcher(town, text, road, undefined, 'function')
+      return result as string
+    },
+    isTheRoad (town: Town, road: Road, overrides?: {
+      pre: string[],
+      after: string[]
+    }): string {
+      let pre = [
+        `is the ${road.wordNoun}`,
+        'is'
+      ]
+      let after = [
+        '. Along it is',
+        '. Nearby is',
+        '. Near it is',
+        ', and nearby is'
+      ]
+      if (overrides) {
+        if (overrides.pre) pre = overrides.pre
+        if (overrides.after) after = overrides.after
+      }
+      return `${random(pre)} ${createTippyFull(road.description, road.name)}${random(after)} `
+    }
+  },
   width: {
     /**
      * @example [size, number of buildings allowed]
      * @description So not everything is all on the same bloody street.
     */
     capacity: [
-      [90, 5],
-      [50, 4],
-      [40, 3],
-      [20, 2],
-      [0, 1]
+      [90, 20],
+      [50, 10],
+      [40, 7],
+      [20, 4],
+      [0, 2]
     ],
     getCapacity (road: Road): number {
       let allowableNumber = roads.width.capacity.find(number => {
@@ -544,7 +830,8 @@ export const roads = {
       [25, 'very narrow'],
       [10, 'path-sized'],
       [0, 'claustrophobically narrow']
-    ] as ThresholdTable
+    ] as ThresholdTable,
+    largeRoads: ['plaza', 'road', 'row', 'crescent', 'way', 'square']
   },
   material: {
     get (town: Town, road: Road): MaterialType {
