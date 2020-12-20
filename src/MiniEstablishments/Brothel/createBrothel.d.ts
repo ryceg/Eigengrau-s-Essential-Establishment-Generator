@@ -20,7 +20,7 @@ interface Brothel {
   notice: string
   idle: string
   owner: string
-  notableFeature?: string
+  notableFeature: string
   wealth: string
   size: string
   cleanliness: string

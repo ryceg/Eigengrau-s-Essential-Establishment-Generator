@@ -698,6 +698,7 @@ export const roads = {
     'There\'s a bench on the side of the road, with the wood being smoothed out from many sittings.',
     'There\'s a laundry line connecting two houses that are slightly closer together than usual.',
     'A crude drawing of an animal carved into a brick wall, affectionately labeled “R.E. Was here.”',
+    'A tree has a little heart carved into it, with the name Claire inside.',
     'One of the houses on the side leans concerningly far over the road.'
   ],
   namesakes: {

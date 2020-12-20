@@ -20,6 +20,7 @@ setup.createStartBuildings = town => {
     'Graveyard': ['gravedigger', 'sexton'],
     'Dungeon': ['jailer', 'bailiff'],
     'Castle': ['castellan', 'king'],
+    'Guardhouse': ['city watch', 'captain', 'bailiff', 'guard'],
     'Smithy': ['weaponsmith', 'blacksmith', 'farrier', 'armorer'],
     'Florist': ['florist', 'botanist'],
     'Jeweller': ['lapidary', 'goldsmith', 'silversmith', 'jeweller'],

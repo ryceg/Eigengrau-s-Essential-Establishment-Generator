@@ -37,11 +37,12 @@ setup.findPoliceSource = (town) => {
 
 /**
  * @param {import("../../../lib/town/_common").Town} town
+ * @returns {import("../../../lib/faction/_common").Faction}
  */
 setup.findPolice = (town) => {
   for (const faction in town.factions) {
     if (town.factions[faction].isPolicing) {
-      return faction
+      return town.factions[faction]
     }
   }
 }
