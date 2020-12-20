@@ -1,7 +1,6 @@
 /**
  * Creates the guardhouse.
  * @param {import("../../../lib/town/_common").Town} town
- * @param {Partial<import("../../../lib/buildings/_common").Building>} opts
  */
 setup.createGuardhouse = (town, opts) => {
   const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse')
@@ -43,7 +42,6 @@ setup.createGuardhouseName = (town) => {
     'Bastion',
     'Hillside Watchtower'
   ]
-  if (lib.findInArray(town.buildings, 'buildingType', 'docks')) potentialUniqueNames.push('The Dockside Guardhouse')
   if (random(3) > 2) {
     return lib.toTitleCase(potentialUniqueNames.random())
   } else {
