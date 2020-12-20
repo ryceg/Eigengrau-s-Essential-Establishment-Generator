@@ -1,6 +1,6 @@
 :: FactionPolitics
-<h3>Politics</h3>$currentPassage.name have $currentPassage.alliesDescription; <<nobr>>
-<<if $currentPassage.allies.length == 2>>
+<h3>Politics</h3>$currentPassage.name have $currentPassage.alliesDescription; 
+\<<if $currentPassage.allies.length == 2>>
     <<print $currentPassage.allies[0].toUpperFirst()>> and $currentPassage.allies[1] can be called on for aid.
   <<elseif $currentPassage.allies.length == 1>>
     <<print $currentPassage.allies[0].toUpperFirst()>> are the only others they can rely on.
@@ -15,9 +15,8 @@
         _allies,
     <</for>>
     and <<print $currentPassage.allies[$currentPassage.allies.length - 1]>>.
-<</if>><</nobr>>
-
-$currentPassage.name have $currentPassage.rivalsDescription; <<nobr>><<if $currentPassage.rivals.length == 2>>
+<</if>>
+$currentPassage.name have $currentPassage.rivalsDescription; <<if $currentPassage.rivals.length == 2>>
     <<print $currentPassage.rivals[0].toUpperFirst()>> and $currentPassage.rivals[1] are the only that wish $currentPassage.name ill.
   <<elseif $currentPassage.rivals.length == 1>>
     <<print $currentPassage.rivals[0].toUpperFirst()>> are the enemies of $currentPassage.name.
@@ -32,4 +31,4 @@ $currentPassage.name have $currentPassage.rivalsDescription; <<nobr>><<if $curre
         _rivals,
     <</for>>
     and <<print $currentPassage.rivals[$currentPassage.rivals.length - 1]>>.
-<</if>><</nobr>>
+<</if>>
