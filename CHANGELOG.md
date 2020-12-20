@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Export to JSON.
 - Faction editing.
 - Tavern illustration.
+- Guardhouses
 - General Store illustration.
 - Foundry export functionality.
 
@@ -34,7 +35,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Individual NPC export (just copy + paste, you'll be fine.)
 
 ### Known issues
-- On some machines, the faction profile page does not render (however, the text is still there and inspectable via element).
 - NPC history is still sometimes broken.
 
 ## 2.6.3

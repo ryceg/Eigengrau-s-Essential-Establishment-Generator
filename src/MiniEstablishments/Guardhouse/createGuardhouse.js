@@ -16,12 +16,14 @@ setup.createGuardhouse = (town, opts) => {
   })
   lib.createBuildingRelationship(town, guardhouse, guardhouse.associatedNPC, { relationship: 'worker', reciprocalRelationship: 'place of employment' })
   guardhouse.notableFeature = lib.weightedRandomFetcher(town, lib.guardhouseData.notableFeature, guardhouse, undefined, 'function')
+
   guardhouse.name = setup.createGuardhouseName(town)
   lib.createStructure(town, guardhouse)
   const props = ['cleanliness', 'expertise']
   for (const propName of props) {
     lib.defineRollDataGetter(guardhouse, lib.guardhouseData.rollData[propName].rolls, propName)
   }
+  guardhouse.tippyDescription = `A ${guardhouse.wordNoun} whose guards are ${guardhouse.expertise}. It is known for ${guardhouse.notableFeature}`
   return guardhouse
 }
 

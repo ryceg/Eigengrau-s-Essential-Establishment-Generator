@@ -5,7 +5,7 @@
 <<run setup.init()>>
 <<set $data to {
 	isPatreon: [true, false].random(),
-	versionNumber: "2.6.3"
+	versionNumber: "2.7"
 }>>
 
 <<set Config.history.maxStates to 15>>
