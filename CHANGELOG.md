@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Guardhouses
 - General Store illustration.
 - Foundry export functionality.
+- GMBinder export functionality.
 
 ### Changed
 - Buildings are ordered via road.
