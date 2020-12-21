@@ -137,32 +137,32 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 40,
       gregariousness: 100,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, but ${npc.heshe} is respectful of and interested in learning about all other religions.`
     },
     {
       strength: 40,
       gregariousness: 80,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, but ${npc.heshe} is accepting of those who practice all faiths.`
     },
     {
       strength: 40,
       gregariousness: 60,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and is generally private about ${npc.hisher} faith, in the hopes of not offending those who practice other religions.`
     },
     {
       strength: 40,
       gregariousness: 40,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and can act a bit prickly towards those who openly practice other faiths.`
     },
     {
       strength: 40,
       gregariousness: 20,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and can be quite rude towards those who worship "inferior" gods.`
     },
     {
       strength: 40,
       gregariousness: 0,
-      note: `${npc.name} is a casual follower of ${selectedGod}`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and ${npc.heshe} likes to provoke heated "debates" with people who follow other religions.`
     },
     {
       strength: 20,
@@ -187,7 +187,7 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 20,
       gregariousness: 20,
-      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Because of ${npc.hisher} doubts, ${npc.heshe} enjoys spirited debates about the flaws of various religions – both other peoples' faiths and ${npc.hisher} own.`
+      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Because of ${npc.hisher} doubts, ${npc.heshe} enjoys spirited debates about the flaws of various religions– both other peoples' faiths and ${npc.hisher} own.`
     },
     {
       strength: 20,
