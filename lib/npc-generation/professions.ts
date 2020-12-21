@@ -75,11 +75,16 @@ export interface Profession {
   socialClass: SocialClassName
   /** reason for becoming the profession */
   professionOrigin?: string[]
+  bond?: string[]
+  ideal?: string[]
+  flaw?: string[]
+  personalityTrait?: string[]
   function?(town: unknown, npc: NPC): void
   socialClassRoll(): number
   relationships?(town: Partial<Town>, npc: NPC): Record<string, Relationship>
   exclusions?(npc: NPC): boolean | undefined
   background?: WeightRecord<BackgroundName>
+
 }
 
 export const professions: Record<string, Profession> = {
@@ -776,6 +781,37 @@ export const professions: Record<string, Profession> = {
       'I was just a kitchen hand when this place started. The owner and I worked through thick and thin, and when his daughter died, he had nobody to leave it to, except for me.',
       "My parents bought this place as an investment. I don't know what they were thinking- when have you ever heard of a pub being profitable?"
     ],
+    ideal: [
+      'A fine drink can make a bad day better or a good day great. I strive to change lives in the small way that I can.',
+      'There\'s a profit to every endeavor. I\'ll make sure I\'m the one profiting.',
+      'A wild wind put me into this place and here I\'ll stay until the next wild wind blows.',
+      'It is every bartender\'s sacred duty to listen. Those that would fail to understand that aren\'t suited to this work.',
+      'Keep smiling. Though inside you are broken and in pain, just keep smiling.',
+      'You love few things in live, but those few you do you will never stop loving.',
+      'Nobody is too low that they cannot be lifted up and nobody is so high they cannot be brought down.',
+      'The value of an honest person cannot be underestimated.  Inversely, the cost of a villain can be incalculable.'
+    ],
+    bond: [
+      'There is a regular that has been coming in for years. There\'s nothing I wouldn\'t give to see more of her.',
+      'The serving girls are like daughters to me. Anyone that doesn\'t show them proper respect will have to answer to me.',
+      'People rely on me to always be here so I am. Sick or well, poor or rich, ready or not.',
+      'This place is my home. I would die protecting it.',
+      'An adventurer once saved my life. I\'ve been waiting here for years, hoping that he would one day walk in our door so I can finally thank him properly.',
+      'An adventurer once robbed this establishment and humiliated me and my colleagues. I have a bottle of poison whiskey waiting for her in case she ever comes by again.',
+      ' A local nobleman once came in here on a slow night looking for some company. We spent the evening drinking and trading tales. We still keep in touch.',
+      'My ma swore she\'d come back as a ghost to haunt this place I know I\'ll never leave her.'
+    ],
+    flaw: [
+      'I can do addition of course, I\'m not an idiot. Only up to five though.',
+      'I hit on every beautiful woman who comes in here and get upset when they don\'t respond, and usually get a few teeth knocked out too.',
+      'Anyone who dare to complain about the quality of service or our brews will be stabbed in the neck in a broken bottle.',
+      'When the owners aren\'t around,  I double the price and pocket the difference, and sometimes the principle too.',
+      'You slayed a horde of Orcs? Well I slayed three horde of Orcs, eight giants, and two dragons all by myself when I was an adventurer. What do you mean what type of giant? Giants are giants!',
+      'I\'m always in debt, no matter how much tips I get, my gambling debt accumulates even faster.',
+      'I sometimes offend people I really shouldn\'t, my tongue just has a mind of its own.',
+      'I can\'t hold a secret even if I tried, heck, folks don\'t even need to buy a drink before I spill out every shamefully embellished rumours of this town.',
+      'Whether it\'s a fight that\'s about breaking out, or a group of ruffians coming here looking for trouble, or a mouthy kid harassing the serving wench. It doesn\'t matter what kind of conflict it is, I\'d be the first one to duck behind the counter and sneak out from the back, shaking and leaving a trail of piss.'
+    ],
     background: {
       'commoner': 8,
       'noble': 3,
@@ -939,7 +975,23 @@ export const professions: Record<string, Profession> = {
     },
     professionOrigin: [
       'I had an apprenticeship, and have been butchering ever since.',
-      "There's nothing quite like a nice sausage, right? Well, I'm picky, and like sausages my way."
+      "There's nothing quite like a nice sausage, right? Well, I'm picky, and like sausages my way.",
+      'I use to hunt with my tribesman, but they aren\'t with me any more. At least my skills in dressing up a carcass still comes in handy.',
+      'I was a back alley surgeon until I lost a life too many. Now at least my "patient"\'s young ones won\'t cry over their passing... I suppose.',
+      'My father was a butcher, his father was a butcher, his father before him was a butcher, and his father before him as well. My son? A vegetarian, from his mother\'s side of the family.',
+      'If only I wasn\'t crippled by those damn monsters, I could still be adventuring somewhere with my [weapon or focus] in hand. Or at the very least, I could\'ve retired with something better than this butcher shop, like a nice spice shop.',
+      'Even though I failed at mage\'s college and as a apprentice for an enchanter, at least I\'m putting my magical training to good use by making my cuts to be clean and tasty with prestidigitation and some restorative magic.',
+      'I learned the trade at my uncle\'s side, he bought me my first cleaver when I was 11. We traveled all over the countryside, visiting farms and taking care of their stock.',
+      'My family ran a tavern & my father always complained about the price of meat so I became a butcher to help out by selling him meat at a cheaper price. With 7 siblings,  I was happy to get out of there anyway.',
+      'I was a hunter by trade. I was too cheap to take my game to the town\'s butcher, so I learned to break it down myself. Pretty soon all my mates were bringing me their kills, so I opened this shop.'
+    ],
+    personalityTrait: [
+      'I tend to over explain the types of cuts of meat to my customers.',
+      'I\'m a food snob- I can\'t help but judge those that can settle for sausages and offal.',
+      'Pragmatic. Everything dies at some point, might as well make use of it.',
+      'I feel most at peace when I\'m turning an dead animal into nicely presented cuts.',
+      'I like to laugh and crack jokes, even when I\'m elbow deep in guts.',
+      'I never stop working. Even when there is nothing to do and no customer in sight, you can still catch me cleaning or prepping.'
     ],
     relationships (town, npc) {
       return {
@@ -1421,6 +1473,44 @@ export const professions: Record<string, Profession> = {
     },
     professionOrigin: [
       'Keeping the peace is easy enough. Might as well get paid for it.'
+    ],
+    ideal: [
+      'By serving justice, I serve the people.',
+      'Safety is job one. My safety. If that means shirking my duties to avoid dangerous situations, then so be it.',
+      'Close Rank.  We must protect our fellow men from the evils of the world, and there are no greater evil than the ingrates who complain about us. They must be silenced. (evil)',
+      'Authoritarian.  As I obey my captain,  who bows to the nobles,so must the lowly peasants submit to my absolute authority over them (Lawful)',
+      'Morally Fluid.  A little extra from the wealthy, a bit leniency towards the poor; thus so benefits everyone including myself. (chaotic)',
+      'Respect. My rank earns me the respect from others I\'ve never gotten before. I will defend it with everything I have.'
+    ],
+    personalityTrait: [
+      'Everyone should respect my authority.',
+      'I overlook smaller infractions for the right amount of coin.',
+      'I love my town more than life itself.',
+      'I will root out crime no matter the effort. No stone shall be left unturned.',
+      'I have stumbled my way into this position, and I am terrified of having to actually aprehend a criminal.',
+      'I show mercy where I can. Sometimes I just can\'t stomach to punish the less fortunate for their attempts to survive.',
+      'I love making new friends! And I love this job where I get to meet so many interesting people.',
+      'If there is one thing I hate about being a guard, it\'s having to stand about cold and wet when it rains. And the mud, don\'t forget the foul disgusting mud. And snow in winters too, and noisy kids running about, and nosy older folks asking about my private bussiness, and the flies, and...'
+    ],
+    bond: [
+      'This is the only job I am qualified for. I have no other choice than to do it.',
+      'The captain gave this opportunity to make something of myself. I will not pass up the opportunity.',
+      'It is an honor to serve in the lord\'s household. I would give my life to protect him and his family from any harm.',
+      'I serve in this miserable post to fulfill my family\'s obligation. I\'d do anything to keep them away from the filth I serve with.',
+      'I sometimes wishes that I was doing something else, adventuring or growing peaches perhaps. But my peers are my friends and family,  I simply can\'t just leave them.',
+      'Twenty-eight lives were taken that night and we still don\'t know who; I shall find out whoever who did this and end their life.',
+      'The bribe and protection money I get shall promote my family\'s position.',
+      'I\'m guilty of a terrible crime, and I\'m in just the right position to silence anyone who might find out about it.'
+    ],
+    flaw: [
+      'Nearsighted. Everything past 20 feet is blurry.',
+      'Lazy. Often takes a rest in a quiet alleyway instead of completing their patrol circuit.',
+      'I am easily distractible. I find it difficult to focus on a boring job. Easy to distract.',
+      'Tyrannical.  If someone is truly innocent, they\'d have nothing to hide. If they have a problem being tied up as I ransack their posessions to do my job, that\'s their problem',
+      'Hemaphobe. I can do my job just fine, as long as I\'m kept away from the sight of blood.',
+      'Corrupt. A little bribe here and there and everywhere keeps the world go around.',
+      'Haunted.  My dreams use to be plagued by the vision of folks I failed to protect, but I no longer dream about them. Now I see them during my waking hours.',
+      'Complacent. Other towns may have trouble with bandits or demons, but our town is quiet. Nothing bad ever happens here.'
     ]
   },
   'guildmaster': {
@@ -1561,7 +1651,15 @@ export const professions: Record<string, Profession> = {
       return 20 + dice(8, 6)
     },
     professionOrigin: [
-      'I know that jailing is not a pretty profession, but somebody has to do it- might as well be me, right?'
+      'I know that jailing is not a pretty profession, but somebody has to do it- might as well be me, right?',
+      'I used to be captain of the guard, until the incident. I got demoted to jailer & now I\'m almost as much a prisoner as these poor wretches. It makes ya think, we\'re all just one unlucky move away from having everything taken away.  Life is precarious.',
+      'I use to sell flatbread two corners away from the jail, and I envy the warden so. They work in the shade in summer, by the fire in winter, and their monthly wage was triple of mine for sitting on their bum all day. When a position opened up, I bribed the head warden with everything I had and it worth every silver.',
+      'The screams, the branding, the begging, the blood dripping down my hand, the thrashing as my whip tear their flesh... I can never get enough of it. This is the job I\'ve always destined to do and I used every connection I had to be here.',
+      'What can I say; I am lazy. Here neglecting the needs of my prisoners is actually rewarded.  I can think of no position, short of being born a noble, that would suit me better.',
+      'Four years ago, my lover took off with some wench and all our golds that was meant for our child\'s resurrection, without so much as a note. I\'m still in this line of work to save up the gold for my dead child, that\'s what keeps me going everyday. But it I were to be perfectly honest with myself, I don\'t see much point in it anymore.',
+      'I took a job here to be closer to the other warden- imagine my disappointment when I find out that they had already hired a cart to move away to the big city! Still, the pay is decent and job easy.',
+      'I inherited this position from my adoptive mother, who inherited from her old mentor. It\'s an honest, if not savoury, line of work, and I\'m glad of it.',
+      'After seven years of being a secret lover, I was cast aside, totally out of the blue! Luckily, I did gather enough blackmail materials to negotiate this position as a final parting present.'
     ],
     relationships (town, npc) {
       return {
@@ -1617,7 +1715,17 @@ export const professions: Record<string, Profession> = {
     socialClass: 'commoner',
     socialClassRoll () {
       return 50 + dice(8, 6)
-    }
+    },
+    bond: [
+      'I have a rival in the city nearby, and I\'m convinced that he is using dark magic because his business is doing better than mine.',
+      'There is a very special commission for someone influential yet anonymous I\'ve been working for a long time, and I might get in trouble if something happens to it.',
+      'No one knows that I owe my success to an enchanting creature that lives in the wilderness nearby.  For years, I have accepted its gifts of fine jewels and metals, occasionally repaying my benefactor with small favors.  However, how these favors have changed over time has begun to keep me up at night about what it will next ask me to do.',
+      'My master took me on as an apprentice to teach me the trade, he also took me into his home and became my surrogate father. I owe him my enduring love and endless devotion.',
+      'The first gemstone I cut became famous and I was not credited.',
+      'I grew up in a mining town, and I work extra hard to sell the jewels mined there, as my way of supporting friends and family back home.',
+      'My revenues go to my family, first and foremost.  This job is about the money and I optimize to help my family',
+      'I have a very small amount of very regular customers and my world revolves around their commissioned orders'
+    ]
   },
   'judge': {
     sv: 850,
@@ -1640,6 +1748,16 @@ export const professions: Record<string, Profession> = {
     domSub: 'dom',
     dailyWage: 350,
     socialClass: 'nobility',
+    ideal: [
+      '<b>Integrity</b>. My morals and principles are the upmost things I respect.',
+      "<b>Obedience</b>. I have sworn to carry out my liege's will, and I will do so, no matter what it is.",
+      '<b>Chivalry</b>. I have a strict code of social mores that I strive to uphold and through them I strive to be a paragon of knighthood.',
+      "<b>Courtesy</b>. There is always a proper way to behave, no matter the social situation. As a symbol of my liege's power, it is important to also demonstrate courtly manners.",
+      '<b>Power</b>. I respect power and strive for more. I have greater ambitions than being sworn to a liege.',
+      '<b>Friendship</b>. I serve people best when I know them well and can sympathize with their struggles. I keep up strong personal connections with the towns in my region.',
+      '<b>Courage</b>. I have trained all my life to face horrors most would struggle to look in the eye.',
+      '<b>Piety</b>. I serve a power greater than any earthly lord. I fight for the glory of my deity.'
+    ],
     socialClassRoll () {
       return 75 + dice(8, 6)
     },
@@ -1699,7 +1817,49 @@ export const professions: Record<string, Profession> = {
     socialClass: 'commoner',
     socialClassRoll () {
       return 50 + dice(8, 6)
-    }
+    },
+    professionOrigin: [
+      'I was always a curious child, and took up an apprenticeship as a librarian as a way to sate my curiosity.',
+      'I was left mostly alone with servants in a large estate, while my parents were running their trading business. I took to reading everything in the library to pass the time. At 12 I received my first scribe.',
+      'I spent so much time at the local library that people just assumed I worked there.',
+      'I wanted to be a writer, but never had the means or the inspiration. I took up librarianship to at least be close to books.',
+      'The outside world is scary, being in here with my books is much safer, but still exciting.',
+      'My deity places the utmost importance on the safekeeping and propagation of knowledge; I became a librarian in the service of our faith.',
+      'I\'ve done my fair share of adventuring and catalogued my travels as I went. I wanted a place to share my stories and relax.',
+      'I was once an academic, but I found that I loved the books more than anything else.',
+      'A half a scrap of paper with a half a prophecy led me to libraries is search of an answer.',
+      'To my father\'s dismay, I would hole myself up in our estate\'s library instead of attending my knightly lessons in the practice yard.'
+    ],
+    ideal: [
+      'I will find you that book, no matter the time or effort needed.',
+      'There is no forbidden knowledge.',
+      'Knowledge is sacred & must be protected at all costs.',
+      'I am there to protect you from the knowledge you should not know',
+      'If you control the information, you control the narrative',
+      'Organization, organization, organization.',
+      'Knowledge is power.',
+      'Oral tradition is useless; whatever is unwritten is unnecessary.',
+      'All people deserve access to knowledge.',
+      'There should be no limitations to the acquisition of knowledge.'
+    ],
+    flaw: [
+      'I won\'t loan a book if I don\'t think you\'ll take good care of it.',
+      'Obsessively arranges books by size, from largest to smallest, without regard for subject, title, or author.',
+      'Respects the silence of the library so much that they refuse to let anyone speak at all.',
+      'Always handles books with pristinely clean gloved hands.',
+      'I\'m dyslexic, and have trouble following narratives.',
+      'Pulls books for you that they think are more interesting instead of the one you actually asked for.',
+      'Knows every book in the library, but can never recall its title; can immediately locate whichever one it is that they are thinking of.',
+      'Sneezes constantly from the dust collected on the books.',
+      'Gossips endlessly about which books people have been looking for.'
+
+    ],
+    personalityTrait: [
+
+    ],
+    bond: [
+
+    ]
   },
   'linguist': {
     sv: 5150,
@@ -1811,6 +1971,16 @@ export const professions: Record<string, Profession> = {
       'Some people just have the gift of the gab- I have a talent for sales.',
       'I love gold. Unashamedly, I really do. So what? Selling is an honest living. Sue me.',
       'I spent my youth selling whatever scraps I could find, never got tired of it.'
+    ],
+    ideal: [
+      '<b>Capitalism</b>. Capitalism inherently self-corrects, and the free market leads to riches for everyone.',
+      '<b>Mercantilism</b>. Maximise exports and minimise imports, and be as self sufficient as possible.',
+      '<b>Colonialism</b>. Create colonies which produces the raw resources which the homeland will make into finished goods',
+      '<b>Pious</b>. A proportion of their profits/goods is to be dedicated to a god or used to glorify them.',
+      '<b>Prosperity Gospel</b>. The gods reward those that are good with wealth. If you\'re earning money, it\'s because you\'re doing the right thing.',
+      '<b>Shared Rewards</b>. My employees deserve to be rewarded for their hard work when my business is prosperous.',
+      '<b>Charity</b>. Being able to help others is more important than lining your own pockets.',
+      '<b>Experience</b>. I love traveling and sharing items with other.'
     ],
     background: {
       'commoner': 8,
@@ -2123,6 +2293,34 @@ export const professions: Record<string, Profession> = {
       'I dared to dream that I could change the world, and rise above the others.',
       'I became furious with the corruption in politics, so I decided to enter the rat-race myself.',
       'I thought that I could do a better job than the last guy. I was right.'
+    ],
+    ideal: [
+      'Ruthless. Politics is a brutal game. I play to win at any cost.',
+      'Dedicated. My job is to insure the best for my people; I place their best interest above all else',
+      'Self-important. I\'m the only one capable of leading; I will assume the burden of leading this nation.',
+      'Corrupt. I will act in the interests of those who pay me the most.',
+      'Ambition.  No one deserve to lead these people and benefits from them other than me and my descendents; I shall do anything to see to it.',
+      'Puppet. Someone else is always pulling the strings.',
+      'Bureaucrat. The law is supreme. Everything must be done according to the rules, there are no exceptions.',
+      'Pragmatic. Beholden to no strict ideology, I choose whichever direction seems best at the time.'
+    ],
+    bond: [
+      'Long have my ancestors served the royal household. It is an obligation and an honor.',
+      'I owe my post to my "friends". Soon they will come to collect...',
+      "I'm in love with a political opponent.",
+      'I\'d sacrifice everything to protect my people, including my honour, my life and my dignity.',
+      'I\'ll someday wrought revenge on the enemy of my family, even if I\'d need to sacrifice the life of people I serve to do so.',
+      'An insult to my countrymen is a personal insult to me, and I deal ruin and destruction to those who insults me.',
+      'I hope to do right by my people, and make my children proud of me when they grow up and bear witness to the fruit of my work.'
+    ],
+    flaw: [
+      'I\'m always right, and those that disagree are just too stupid to see it.',
+      'I am paralyzed by indecisiveness. Nobody can know.',
+      'I have a propensity for pillow talk; should any of my mistresses disclosed my state secrets, it would be disastrous.',
+      'I owe an enormous gambling debt to an unsavory character; now they own me and I must use my position to do their bidding.',
+      'I am crippled by indecision. I over think all the decisions I have to make because o don’t want to anger anyone.',
+      'I\'m only interested in being the power behind the throne. I don\'t actually care about who I rule, just that I\'m in control.',
+      'I pass laws and dole out judgements arbitrarily on my whims, it\'s just the perks of the job.'
     ],
     background: {
       'commoner': 8,
@@ -2709,7 +2907,27 @@ export const professions: Record<string, Profession> = {
     socialClass: 'peasantry',
     socialClassRoll () {
       return 20 + dice(8, 6)
-    }
+    },
+    personalityTrait: [
+      'Precise. The measurements must be exact.',
+      'I love designing clothing, pattern-making and sewing so much that I\'ve forgo all other interests in life.',
+      'I\'m a hopeless romantic, the sole reason I got into sewing in the first place is because since I was a little girl/boy/hatchling/faunt/dwarfling/changling, I\'ve wanted to make my wedding tunic someday.',
+      'I think la haute couture is the highest form of all the seven great arts, even more so than painting or music. And I look down on shoemaking, pottery, wood carving, and all other mundane and soulness crafts with disdain.',
+      'Do. Not. Haggle. In. My. Shop.',
+      'They say "don\'t mistake drinking a bottle of gin with having a personality." I say hogwash and balderdash! Have you try drinking three bottle of gin before lunch?',
+      'Phoning it in. I inherited this family business, but that doesn\'t mean I have to enjoy it.',
+      'Generous. I hate to see people in torn or ill-fitting clothes, and I\'ll do all I can to help them.'
+    ],
+    flaw: [
+      'Why pay apprentices and assistants back wages when you can just accusing them of stealing and fire them?',
+      'It might have been me, without proof of course, who was responsible for setting my competitor\'s shop on fire.',
+      'My works are simply of the very best, even the king\'s royal mantle is a potato sack next to mine, and you can\'t convince me otherwise.',
+      'A good piece of cloth is simply irresistible. I\'m often reprimanded for caressing strangers on the street.',
+      'With my massive meaty hands, it takes me forever to thread my needle; but once I get going... oh, my fine stitches are to die for.',
+      'They call me a fashion diva for working exclusively in leather and silk; the truth is I\'m allergic to wool and animal hair.',
+      'True arts takes time, so what if it takes me 2 weeks to make a tunic?',
+      'Everything I make is just a slightly too small.'
+    ]
   },
   'tanner': {
     sv: 200,
@@ -4740,7 +4958,19 @@ export const professions: Record<string, Profession> = {
     socialClass: 'peasantry',
     socialClassRoll () {
       return 20 + dice(8, 6)
-    }
+    },
+    professionOrigin: [
+      'I was a bored schoolteacher who has stumbled my way into pirating success',
+      'I was trying to feed their triton brethren.',
+      'I was a commercial sailor whose ship was beset upon by pirates. The crew defeated the pirates, took their ship, and decided they were better at pirating than most pirates.',
+      'I lost at a game of Liars Dice with the first mate of the Defiant, since I had no money on the last round and I was drunk as piss, I bet my service. And here I am.',
+      'Participated in a mutiny while serving in the crew aboard the Golden Tiger. Now, it\'s an easy choice between the pirating life or a hangman\'s noose.',
+      'After getting kicked out of/rejected from every tavern and theater troupe, I took to the sea',
+      'Once a respected admiral in a high court, I had been betrayed by a scheming courtier. Now, with some of my most loyal sailors behind me, I serve only myself.',
+      'I er, accidentally boarded the wrong ship years ago and was afraid to say anything.',
+      'I inherited a map and am looking for the lost treasure. <blockquote>The map is a fake the father used as a prop when talking about the made up adventures of his youth</blockquote>'
+
+    ]
   },
   'wannabe pirate': {
     sv: 1500,
