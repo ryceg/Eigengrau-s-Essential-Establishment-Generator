@@ -1,6 +1,23 @@
-export type BackgroundName = 'acolyte' | 'criminal' | 'folk hero' | 'noble' | 'sage' | 'soldier' |
-'charlatan' | 'entertainer' | 'guild artisan' | 'gladiator' | 'hermit' | 'knight' | 'outlander' | 'pirate' | 'sailor' | 'urchin' |
-'commoner' | 'merchant' | 'child' | 'peasant' | 'guard' | 'politician'
+export type BackgroundName =
+'acolyte' |
+'criminal' |
+'folk hero' |
+'noble' |
+'sage' |
+'soldier' |
+'charlatan' |
+'entertainer' |
+'guild artisan' |
+'gladiator' |
+'hermit' |
+'outlander' |
+'pirate' |
+'sailor' |
+'urchin' |
+'commoner' |
+'child' |
+'peasant' |
+'pauper'
 
 interface BackgroundTrait {
   backgroundOrigin: string[] | null
@@ -570,115 +587,6 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
     ],
     wealth: 500
   },
-  'guard': {
-    backgroundOrigin: [
-      'My grandfather was a Guard, serving the town. My father was a guard, serving the town. So now I am a Guard, serving the town.'
-
-    ],
-    ideal: [
-      'By serving justice, I serve the people.',
-      'Safety is job one. My safety. If that means shirking my duties to avoid dangerous situations, then so be it.',
-      'Close Rank.  We must protect our fellow men from the evils of the world, and there are no greater evil than the ingrates who complain about us. They must be silenced. (evil)',
-      'Authoritarian.  As I obey my captain,  who bows to the nobles,so must the lowly peasants submit to my absolute authority over them (Lawful)',
-      'Morally Fluid.  A little extra from the wealthy, a bit leniency towards the poor; thus so benefits everyone including myself. (chaotic)',
-      'Respect. My rank earns me the respect from others I\'ve never gotten before. I will defend it with everything I have.'
-    ],
-    personalityTrait: [
-      'Everyone should respect my authority.',
-      'I overlook smaller infractions for the right amount of coin.',
-      'I love my town more than life itself.',
-      'I will root out crime no matter the effort. No stone shall be left unturned.',
-      'I have stumbled my way into this position, and I am terrified of having to actually aprehend a criminal.',
-      'I show mercy where I can. Sometimes I just can\'t stomach to punish the less fortunate for their attempts to survive.',
-      'I love making new friends! And I love this job where I get to meet so many interesting people.',
-      'If there is one thing I hate about being a guard, it\'s having to stand about cold and wet when it rains. And the mud, don\'t forget the foul disgusting mud. And snow in winters too, and noisy kids running about, and nosy older folks asking about my private bussiness, and the flies, and...'
-    ],
-    bond: [
-      'This is the only job I am qualified for. I have no other choice than to do it.',
-      'The captain gave this opportunity to make something of myself. I will not pass up the opportunity.',
-      'It is an honor to serve in the lord\'s household. I would give my life to protect him and his family from any harm.',
-      'I serve in this miserable post to fulfill my family\'s obligation. I\'d do anything to keep them away from the filth I serve with.',
-      'I sometimes wishes that I was doing something else, adventuring or growing peaches perhaps. But my peers are my friends and family,  I simply can\'t just leave them.',
-      'Twenty-eight lives were taken that night and we still don\'t know who; I shall find out whoever who did this and end their life.',
-      'The bribe and protection money I get shall promote my family\'s position.',
-      'I\'m guilty of a terrible crime, and I\'m in just the right position to silence anyone who might find out about it.'
-    ],
-    flaw: [
-      'Nearsighted. Everything past 20 feet is blurry.',
-      'Lazy. Often takes a rest in a quiet alleyway instead of completing their patrol circuit.',
-      'I am easily distractible. I find it difficult to focus on a boring job. Easy to distract.',
-      'Tyrannical.  If someone is truly innocent, they\'d have nothing to hide. If they have a problem being tied up as I ransack their posessions to do my job, that\'s their problem',
-      'Hemaphobe. I can do my job just fine, as long as I\'m kept away from the sight of blood.',
-      'Corrupt. A little bribe here and there and everywhere keeps the world go around.',
-      'Haunted.  My dreams use to be plagued by the vision of folks I failed to protect, but I no longer dream about them. Now I see them during my waking hours.',
-      'Complacent. Other towns may have trouble with bandits or demons, but our town is quiet. Nothing bad ever happens here.'
-    ],
-    wealth: 1000
-  },
-  'politician': {
-    backgroundOrigin: [
-      'I used to be a simple town clerk but 27 years of blackmail, poison, "accidents" and contracted killings, here I am! What a ride.'
-
-    ],
-    ideal: [
-      'Ruthless. Politics is a brutal game. I play to win at any cost.',
-      'Dedicated. My job is to insure the best for my people; I place their best interest above all else',
-      'Self-important. I\'m the only one capable of leading; I will assume the burden of leading this nation.',
-      'Corrupt. I will act in the interests of those who pay me the most.',
-      'Ambition.  No one deserve to lead these people and benefits from them other than me and my descendents; I shall do anything to see to it.',
-      'Puppet. Someone else is always pulling the strings.',
-      'Bureaucrat. The law is supreme. Everything must be done according to the rules, there are no exceptions.',
-      'Pragmatic. Beholden to no strict ideology, I choose whichever direction seems best at the time.'
-    ],
-    personalityTrait: [
-
-    ],
-    bond: [
-      'Long have my ancestors served the royal household. It is an obligation and an honor.',
-      'I owe my post to my "friends". Soon they will come to collect...',
-      "I'm in love with a political opponent.",
-      'I\'d sacrifice everything to protect my people, including my honour, my life and my dignity.',
-      'I\'ll someday wrought revenge on the enemy of my family, even if I\'d need to sacrifice the life of people I serve to do so.',
-      'An insult to my countrymen is a personal insult to me, and I deal ruin and destruction to those who insults me.',
-      'I hope to do right by my people, and make my children proud of me when they grow up and bear witness to the fruit of my work.'
-    ],
-    flaw: [
-      'I\'m always right, and those that disagree are just too stupid to see it.',
-      'I am paralyzed by indecisiveness. Nobody can know.',
-      'I have a propensity for pillow talk; should any of my mistresses disclosed my state secrets, it would be disastrous.',
-      'I owe an enormous gambling debt to an unsavory character; now they own me and I must use my position to do their bidding.',
-      'I am crippled by indecision. I over think all the decisions I have to make because o don’t want to anger anyone.',
-      'I\'m only interested in being the power behind the throne. I don\'t actually care about who I rule, just that I\'m in control.',
-      'I pass laws and dole out judgements arbitrarily on my whims, it\'s just the perks of the job.'
-    ],
-    wealth: 1000
-  },
-  'knight': {
-    backgroundOrigin: [
-
-    ],
-    ideal: [
-      '<b>Integrity</b>. My morals and principles are the upmost things I respect.',
-      "<b>Obedience</b>. I have sworn to carry out my liege's will, and I will do so, no matter what it is.",
-      '<b>Chivalry</b>. I have a strict code of social mores that I strive to uphold and through them I strive to be a paragon of knighthood.',
-      "<b>Courtesy</b>. There is always a proper way to behave, no matter the social situation. As a symbol of my liege's power, it is important to also demonstrate courtly manners.",
-      '<b>Power</b>. I respect power and strive for more. I have greater ambitions than being sworn to a liege.',
-      '<b>Friendship</b>. I serve people best when I know them well and can sympathize with their struggles. I keep up strong personal connections with the towns in my region.',
-      '<b>Courage</b>. I have trained all my life to face horrors most would struggle to look in the eye.',
-      '<b>Piety</b>. I serve a power greater than any earthly lord. I fight for the glory of my deity.'
-
-    ],
-    flaw: [
-
-    ],
-    personalityTrait: [
-
-    ],
-    bond: [
-
-    ],
-    wealth: 1000
-  },
   'peasant': {
     backgroundOrigin: [
 
@@ -720,85 +628,6 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
     ],
     wealth: 10
   },
-  'merchant': {
-    backgroundOrigin: [
-
-    ],
-    ideal: [
-      '<b>Capitalism</b>. Capitalism inherently self-corrects, and the free market leads to riches for everyone.',
-      '<b>Mercantilism</b>. Maximise exports and minimise imports, and be as self sufficient as possible.',
-      '<b>Colonialism</b>. Create colonies which produces the raw resources which the homeland will make into finished goods',
-      '<b>Pious</b>. A proportion of their profits/goods is to be dedicated to a god or used to glorify them.',
-      '<b>Prosperity Gospel</b>. The gods reward those that are good with wealth. If you\'re earning money, it\'s because you\'re doing the right thing.',
-      '<b>Shared Rewards</b>. My employees deserve to be rewarded for their hard work when my business is prosperous.',
-      '<b>Charity</b>. Being able to help others is more important than lining your own pockets.',
-      '<b>Experience</b>. I love traveling and sharing items with other.'
-    ],
-    flaw: [
-
-    ],
-    personalityTrait: [
-
-    ],
-    bond: [
-
-    ],
-    wealth: 1000
-  },
-  'pirate': {
-    backgroundOrigin: [
-      'I was a bored schoolteacher who has stumbled my way into pirating success',
-      'I was trying to feed their triton brethren.',
-      'I was a commercial sailor whose ship was beset upon by pirates. The crew defeated the pirates, took their ship, and decided they were better at pirating than most pirates.',
-      'I lost at a game of Liars Dice with the first mate of the Defiant, since I had no money on the last round and I was drunk as piss, I bet my service. And here I am.',
-      'Participated in a mutiny while serving in the crew aboard the Golden Tiger. Now, it\'s an easy choice between the pirating life or a hangman\'s noose.',
-      'After getting kicked out of/rejected from every tavern and theater troupe, I took to the sea',
-      'Once a respected admiral in a high court, I had been betrayed by a scheming courtier. Now, with some of my most loyal sailors behind me, I serve only myself.',
-      'I er, accidentally boarded the wrong ship years ago and was afraid to say anything.',
-      'I inherited a map and am looking for the lost treasure. <blockquote>The map is a fake the father used as a prop when talking about the made up adventures of his youth</blockquote>'
-
-    ],
-    ideal: [
-
-    ],
-    personalityTrait: [
-
-    ],
-    bond: [
-
-    ],
-    flaw: [
-
-    ],
-    wealth: 1000
-  },
-  'child': {
-    backgroundOrigin: [
-
-    ],
-    ideal: [
-      'I think that you should always share.',
-      'If someone else doesn\'t have something that you do have, you should share it.',
-      'Having fun is the best!',
-      'I want to be as good as my mum when I grow up!'
-    ],
-    flaw: [
-
-    ],
-    personalityTrait: [
-      'I like running around outside',
-      'I love catching fish',
-      'I am always in the mood for a game',
-      'I am constantly hungry'
-    ],
-    bond: [
-      'I want my dog to come back from the farm',
-      'I miss my sister',
-      'I wish my dad could play with me more',
-      'I want to have another little brother'
-    ],
-    wealth: 1
-  },
   'pauper': {
     backgroundOrigin: [
 
@@ -826,48 +655,30 @@ export const backgroundTraits: Record<BackgroundName, BackgroundTrait> = {
     ],
     wealth: 1
   },
-  'librarian': {
+  'child': {
     backgroundOrigin: [
-      'I was always a curious child, and took up an apprenticeship as a librarian as a way to sate my curiosity.',
-      'I was left mostly alone with servants in a large estate, while my parents were running their trading business. I took to reading everything in the library to pass the time. At 12 I received my first scribe.',
-      'I spent so much time at the local library that people just assumed I worked there.',
-      'I wanted to be a writer, but never had the means or the inspiration. I took up librarianship to at least be close to books.',
-      'The outside world is scary, being in here with my books is much safer, but still exciting.',
-      'My deity places the utmost importance on the safekeeping and propagation of knowledge; I became a librarian in the service of our faith.',
-      'I\'ve done my fair share of adventuring and catalogued my travels as I went. I wanted a place to share my stories and relax.',
-      'I was once an academic, but I found that I loved the books more than anything else.',
-      'A half a scrap of paper with a half a prophecy led me to libraries is search of an answer.',
-      'To my father\'s dismay, I would hole myself up in our estate\'s library instead of attending my knightly lessons in the practice yard.'
+
     ],
     ideal: [
-      'I will find you that book, no matter the time or effort needed.',
-      'There is no forbidden knowledge.',
-      'Knowledge is sacred & must be protected at all costs.',
-      'I am there to protect you from the knowledge you should not know',
-      'If you control the information, you control the narrative',
-      'Organization, organization, organization.',
-      'Knowledge is power.',
-      'Oral tradition is useless; whatever is unwritten is unnecessary.',
-      'All people deserve access to knowledge.',
-      'There should be no limitations to the acquisition of knowledge.'
+      'I think that you should always share.',
+      'If someone else doesn\'t have something that you do have, you should share it.',
+      'Having fun is the best!',
+      'I want to be as good as my mum when I grow up!'
     ],
     flaw: [
-      'I won\'t loan a book if I don\'t think you\'ll take good care of it.',
-      'Obsessively arranges books by size, from largest to smallest, without regard for subject, title, or author.',
-      'Respects the silence of the library so much that they refuse to let anyone speak at all.',
-      'Always handles books with pristinely clean gloved hands.',
-      'I\'m dyslexic, and have trouble following narratives.',
-      'Pulls books for you that they think are more interesting instead of the one you actually asked for.',
-      'Knows every book in the library, but can never recall its title; can immediately locate whichever one it is that they are thinking of.',
-      'Sneezes constantly from the dust collected on the books.',
-      'Gossips endlessly about which books people have been looking for.'
 
     ],
     personalityTrait: [
-
+      'I like running around outside',
+      'I love catching fish',
+      'I am always in the mood for a game',
+      'I am constantly hungry'
     ],
     bond: [
-
+      'I want my dog to come back from the farm',
+      'I miss my sister',
+      'I wish my dad could play with me more',
+      'I want to have another little brother'
     ],
     wealth: 1
   }
