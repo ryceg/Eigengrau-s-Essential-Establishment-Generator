@@ -6,7 +6,7 @@
 $currentNPC.firstName $currentNPC.trait. 
 \<<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>
 \When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 
-\Religion-wise, $currentNPC.firstName is <<print lib.articles.output($currentNPC.religion.strength)>>. 
+\Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>>. 
 
 
 \<<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
