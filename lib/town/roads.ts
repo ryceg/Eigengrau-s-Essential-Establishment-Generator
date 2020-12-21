@@ -4,7 +4,7 @@ import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/stru
 import { Building } from '../buildings/_common'
 import { createName } from '../npc-generation/createName'
 import { fetchRace } from '../npc-generation/fetchRace'
-import { RaceName, raceTraits } from '../npc-generation/raceTraits'
+import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
 import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
@@ -14,6 +14,7 @@ import { WeightRecord } from '../types'
 import { random } from '../src/random'
 import { fetchGender } from '../src/genderData'
 import { Town } from './_common'
+import { Namesake } from '../npc-generation/_common'
 
 export interface RoadData {
   name: RoadType
@@ -75,13 +76,6 @@ export interface Road {
     buildings: Record<string, string>
     factions: Record<string, string>
   }
-}
-
-interface Namesake {
-  firstName: string
-  lastName: string
-  race: RaceName
-  reason?: string
 }
 
 interface RoadOwnership extends ProperNoun {
