@@ -33,8 +33,8 @@
     "preset": "ts-jest"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "@types/jquery": "^3.5.4",
+    "@types/jest": "^26.0.19",
+    "@types/jquery": "^3.5.5",
     "@types/twine-sugarcube": "^2.33.1",
     "@types/webpack": "^4.41.25",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
