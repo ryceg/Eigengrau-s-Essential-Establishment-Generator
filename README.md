@@ -31,6 +31,8 @@ NOTE: The live build is often several weeks or months behind the current build h
 
 **[DISCORD](https://discord.gg/A543VC5)**
 
+The Discord is where the main realtime discussion happens- GitHub Discussions is for more in-depth discussion about future features.
+
 Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Contributing :black_nib:
