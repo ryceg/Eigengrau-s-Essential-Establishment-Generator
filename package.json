@@ -58,9 +58,9 @@
     "yauzl": "^2.10.0"
   },
   "dependencies": {
-    "@sentry/browser": "^5.27.6",
-    "@sentry/integrations": "^5.27.6",
-    "@sentry/tracing": "^5.27.6",
+    "@sentry/browser": "^5.29.2",
+    "@sentry/integrations": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "jscodeshift": "^0.11.0",
     "ts-loader": "^8.0.11",
     "webpack": "^5.6.0",
