@@ -159,3 +159,13 @@ export interface NpcRelationship {
   relation: string
   description: string | null
 }
+
+export interface Namesake {
+  firstName?: string
+  lastName?: string
+  gender: GenderName
+  race: RaceName
+  profession?: ProfessionNames
+  reason?: string
+  note?: string
+}
