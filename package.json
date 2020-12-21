@@ -32,7 +32,10 @@
   "jest": {
     "preset": "ts-jest"
   },
-  "devDependencies": {
+  "dependencies": {
+    "@sentry/browser": "^5.29.2",
+    "@sentry/integrations": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "@types/jest": "^26.0.19",
     "@types/jquery": "^3.5.5",
     "@types/twine-sugarcube": "^2.33.1",
@@ -51,19 +54,14 @@
     "eslint-plugin-standard": "^5.0.0",
     "husky": "^4.3.6",
     "jest": "^26.6.3",
+    "jscodeshift": "^0.11.0",
     "lint-staged": "^10.5.3",
     "shelljs": "^0.8.3",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.1.3",
-    "yauzl": "^2.10.0"
-  },
-  "dependencies": {
-    "@sentry/browser": "^5.29.2",
-    "@sentry/integrations": "^5.29.2",
-    "@sentry/tracing": "^5.29.2",
-    "jscodeshift": "^0.11.0",
     "ts-loader": "^8.0.12",
+    "typescript": "^4.1.3",
     "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "yauzl": "^2.10.0"
   }
 }
