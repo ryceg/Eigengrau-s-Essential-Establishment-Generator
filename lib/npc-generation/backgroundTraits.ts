@@ -11,7 +11,6 @@ export type BackgroundName =
 'gladiator' |
 'hermit' |
 'outlander' |
-'pirate' |
 'sailor' |
 'urchin' |
 'commoner' |
