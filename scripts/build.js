@@ -91,6 +91,7 @@ async function copyFiles (args) {
 
 async function bundleJS (args) {
   const watch = args.includes('--watch')
+  const configs = require('./rollup.config')
   if (watch) {
     for (const config of configs) {
       const watcher = rollup.watch(config)
