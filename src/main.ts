@@ -1,4 +1,11 @@
 /**
+ * Tweego ignores TS files; they won't be imported into the final app. Rollup
+ * bundles all the code imported here into a single JS file (`/src/init.js`) to be
+ * loaded by Tweego alongside loose scripts in `/src`
+*/
+import './NPCGeneration/Relationships/getFatherMother'
+
+/**
  * Initializes the data structures.
  *
  * Since some objects depends on others,
