@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
 tooling
+src/init.js
 gh-pages/**/*
 !gh-pages/Resources/**/*
 !gh-pages/CNAME

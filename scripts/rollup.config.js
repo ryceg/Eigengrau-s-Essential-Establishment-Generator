@@ -13,7 +13,7 @@ const plugins = [
   // avoids issues with the Node-specific variable `process`.
   replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
   json(),
-  babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled' }),
+  babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled', sourceMaps: !isProduction }),
   nodeResolve({ browser: true }),
   commonjs({ extensions: ['.js', '.ts', '.json'] })
 ]

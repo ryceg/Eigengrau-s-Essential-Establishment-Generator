@@ -7,7 +7,9 @@ const chokidar = require('chokidar')
 const cpy = require('cpy')
 const rollup = require('rollup')
 
-function parseArgs () {
+const tweego = path.resolve(utils.twineFolder, 'tweego')
+
+const parseArgs = () => {
   // Extract extra arguments.
   const [, , ...flags] = process.argv
   return [
@@ -18,10 +20,9 @@ function parseArgs () {
   ]
 }
 
-function verifyInstall () {
-  const tw = path.resolve(utils.twineFolder, 'tweego')
+const verifyInstall = () => {
   // Verify correct tweego installation
-  if (!fs.existsSync(tw) && !fs.existsSync(`${tw}.exe`)) {
+  if (!fs.existsSync(tweego) && !fs.existsSync(`${tweego}.exe`)) {
     utils.logError('Cannot find path to tweego.')
     utils.logError('Perhaps tweego has not been downloaded.')
     utils.logError('Try running `yarn install-compiler` first.')
@@ -31,21 +32,19 @@ function verifyInstall () {
   // Verify executable permissions on unix systems.
   if (['linux', 'darwin'].includes(process.platform)) {
     try {
-      fs.accessSync(tw, fs.constants.X_OK)
+      fs.accessSync(tweego, fs.constants.X_OK)
     } catch (err) {
-      utils.logError(`${tw} does not have permissions to execute.
-    If you are on a Unix-based system you can grant permissions with 'chmod +x ${tw}'`)
+      utils.logError(`${tweego} does not have permissions to execute.
+    If you are on a Unix-based system you can grant permissions with 'chmod +x ${tweego}'`)
       process.exit(1)
     }
   }
 }
 
-function tweego (args) {
-  const tw = path.resolve(utils.twineFolder, 'tweego')
-
+const runTweego = (args) => {
   // Run tweego with arguments.
   utils.logAction('Running tweego!')
-  const tweegoProcess = spawn(tw, args)
+  const tweegoProcess = spawn(tweego, args)
 
   // Log messages from the tweego process.
   tweegoProcess.stderr.on('data', data => {
@@ -67,7 +66,7 @@ function tweego (args) {
   })
 }
 
-async function copyFiles (args) {
+const copyFiles = async (args) => {
   const watch = args.includes('--watch')
   const source = path.resolve(__dirname, '../src/Resources')
   const destination = path.resolve(__dirname, '../gh-pages/src/Resources')
@@ -89,7 +88,7 @@ async function copyFiles (args) {
   }
 }
 
-async function bundleJS (args) {
+const bundleJS = async (args) => {
   const watch = args.includes('--watch')
   const configs = require('./rollup.config')
   if (watch) {
@@ -125,6 +124,6 @@ async function bundleJS (args) {
   utils.logAction('Compiling scripts...')
   await bundleJS(args)
   utils.logAction('Copying files...')
-  tweego(args)
+  runTweego(args)
   await copyFiles(args)
 })()

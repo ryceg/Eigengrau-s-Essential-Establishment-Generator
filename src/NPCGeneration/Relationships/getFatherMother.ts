@@ -12,8 +12,6 @@ interface Parents {
   mother?: NPC
 }
 
-console.log('bar')
-
 // uses State.variables.npcs
 export function getFatherMother (town, npc) {
   let father: NPC
