@@ -1,51 +1,51 @@
 import { ThresholdTable } from './rollFromTable'
 
 type CookingMethods =
-| ''
-| 'ingredient'
-| 'raw'
-| 'boiled'
-| 'sauteed'
-| 'roasted'
-| 'pickled'
-| 'braised'
-| 'toasted'
-| 'fried'
-| 'fermented'
-| 'spiced'
+  ''
+  | 'ingredient'
+  | 'raw'
+  | 'boiled'
+  | 'sauteed'
+  | 'roasted'
+  | 'pickled'
+  | 'braised'
+  | 'toasted'
+  | 'fried'
+  | 'fermented'
+  | 'spiced'
 
 type DishTypes =
   'main'
-| 'entree'
-| 'dessert'
-| 'side'
+  | 'entree'
+  | 'dessert'
+  | 'side'
 
 type IngredientNames = keyof typeof ingredients
 
 /** The 'dairy', 'meat', 'seafood' and 'animal product' autoflag their non-vegan / vegetarian-ness. */
 type IngredientCategories =
   'staple'
-| 'grain'
-| 'meat'
-| 'dairy'
-| 'seafood'
-| 'animal product'
-| 'fruit'
-| 'vegetable'
-| 'berry'
-| 'spice'
-| 'baking'
-| 'alcohol'
+  | 'grain'
+  | 'meat'
+  | 'dairy'
+  | 'seafood'
+  | 'animal product'
+  | 'fruit'
+  | 'vegetable'
+  | 'berry'
+  | 'spice'
+  | 'baking'
+  | 'alcohol'
 
 type CookingElements =
   'sauce'
-| 'crust'
-| 'garnish'
-| ''
+  | 'crust'
+  | 'garnish'
+  | ''
 
 type DishTastes =
   'savoury'
-| 'sweet'
+  | 'sweet'
 
 interface Dishes {
   /** Override, for when you want a fancy name for your dish. */
@@ -61,7 +61,7 @@ interface Dishes {
   /** Can be an array (fried rice can be a main or a side).
    * @default 'main'
   */
-  dishType?: DishTypes[]
+  dishTypes?: DishTypes[]
   /** For use in conjunction with cooking elements to distinguish between savoury sauces and sweet ones.
    * @default 'savoury'
   */
@@ -192,7 +192,7 @@ export const food: Record<string, Dishes> = {
   },
   cake: {
     dishTastes: 'sweet',
-    dishType: ['dessert'],
+    dishTypes: ['dessert'],
     ingredients: ['sugar', 'eggs', 'milk', 'flour'],
     types: [
       {
