@@ -38,14 +38,21 @@ type IngredientCategories =
   | 'alcohol'
 
 type CookingElements =
-  'sauce'
+    'sauce'
   | 'crust'
   | 'garnish'
   | ''
 
 type DishTastes =
-  'savoury'
+    'savoury'
   | 'sweet'
+  | 'umami'
+  | 'sour'
+  | 'spicy'
+  | 'salty'
+  | 'rich'
+  | 'bitter'
+  | 'alcoholic'
 
 interface Dishes {
   /** Override, for when you want a fancy name for your dish. */
@@ -65,7 +72,7 @@ interface Dishes {
   /** For use in conjunction with cooking elements to distinguish between savoury sauces and sweet ones.
    * @default 'savoury'
   */
-  dishTastes?: DishTastes
+  dishTastes?: DishTastes[]
   /** Override- typically is derived from the cost of ingredients. Cooking surcharge is calculated later (to account for things like communist towns, etc.) */
   cost?: number
   /** For when there's a very difficult dish, or it's cheaper than the cost of the ingredients (i.e. spoiled bread, etc.)
@@ -191,7 +198,7 @@ export const food: Record<string, Dishes> = {
     ]
   },
   cake: {
-    dishTastes: 'sweet',
+    dishTastes: ['sweet'],
     dishTypes: ['dessert'],
     ingredients: ['sugar', 'eggs', 'milk', 'flour'],
     types: [
