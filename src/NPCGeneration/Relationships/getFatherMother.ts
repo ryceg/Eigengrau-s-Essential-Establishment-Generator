@@ -15,7 +15,7 @@ interface Parents {
 console.log('bar')
 
 // uses State.variables.npcs
-export function getFatherMother (town, npc) {
+export function getFatherMother (town: Town, npc: NPC) {
   let father: NPC
   let mother: NPC
 
