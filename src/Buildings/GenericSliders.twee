@@ -14,6 +14,6 @@
   <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.townData.rollData.sliderTooltips[_key].tooltip><<print lib.townData.rollData.sliderTooltips[_key].preceding>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
   <</for>>
 
-<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[output|TavernOutput]]

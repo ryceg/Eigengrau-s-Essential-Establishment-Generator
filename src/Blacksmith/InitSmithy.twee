@@ -7,18 +7,18 @@
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
 
-<span class="tip" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How wealthy is the patronage?">Smithy Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How large is the smithy?">Smithy Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How large is the smithy?">Smithy Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or does the guy just shoe horses?">Smithy Reputation: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Is it well known, or does the guy just shoe horses?">Smithy Reputation: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How clean is the smithy?">Smithy Cleanliness: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How clean is the smithy?">Smithy Cleanliness: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How skilled is the blacksmith?">Smithy Expertise: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How skilled is the blacksmith?">Smithy Expertise: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
 
-<span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?">Smithy Activity: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
 
-<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How do the prices here compare to your average blacksmith?">Smithy Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[smithy|SmithyOutput]]

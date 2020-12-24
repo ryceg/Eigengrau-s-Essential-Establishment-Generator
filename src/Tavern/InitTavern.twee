@@ -11,20 +11,20 @@
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
 
-<span class="tip" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How wealthy is the patronage?">Tavern Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How crowded is the tavern?">Tavern Population: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How crowded is the tavern?">Tavern Population: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
 
-<span class="tip" title="How large is the tavern?">Tavern Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How large is the tavern?">Tavern Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
 
-<span class="tip" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?">Tavern Reputation: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$town.buildings[$currentPassage.index].roll.roughness" $town.buildings[$currentPassage.index].roll.roughness 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How likely is there to be a fight?">Tavern Roughness: <<numberslider "$town.buildings[$currentPassage.index].roll.roughness" $town.buildings[$currentPassage.index].roll.roughness 1 100 1>></span>
 
-<span class="tip" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$town.buildings[$currentPassage.index].roll.sin" $town.buildings[$currentPassage.index].roll.sin 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Is it a respectable venue, or a wretched hive of scum and villainy?">Tavern Sin: <<numberslider "$town.buildings[$currentPassage.index].roll.sin" $town.buildings[$currentPassage.index].roll.sin 1 100 1>></span>
 
-<span class="tip" title="Is it clean?">Tavern Cleanliness: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Is it clean?">Tavern Cleanliness: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[output|TavernOutput]]

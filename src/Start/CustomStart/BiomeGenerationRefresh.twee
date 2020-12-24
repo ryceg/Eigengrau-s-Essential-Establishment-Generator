@@ -11,12 +11,12 @@
   politicalIdeology: lib.politicalIdeologyPairs,
   politicalSource: ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]
 }>><span class="auto-update"><<print lib.firstCharacter($tempTown.name)>> is located in the <<listbox "$tempTown.terrain" autoselect>><<optionsfrom $listboxes.terrain>><</listbox>> 
-\<span class="tip" title="This changes based on the terrain- refresh to update"><<listbox "$tempTown.location" autoselect>><<optionsfrom $listboxes.location>><</listbox>></span>
+\<span class="tip" role="tooltip" tabindex="0" title="This changes based on the terrain- refresh to update"><<listbox "$tempTown.location" autoselect>><<optionsfrom $listboxes.location>><</listbox>></span>
 \, where the vegetation is <<listbox "$tempTown.vegetation" autoselect>><<optionsfrom $listboxes.vegetation>><</listbox>>. 
-\$tempTown.name grew around <span class="tip" title="This changes based on the terrain and location- refresh to update"><<listbox "$tempTown.origin" autoselect>><<optionsfrom $listboxes.origin>><</listbox>></span>. 
+\$tempTown.name grew around <span class="tip" role="tooltip" tabindex="0" title="This changes based on the terrain and location- refresh to update"><<listbox "$tempTown.origin" autoselect>><<optionsfrom $listboxes.origin>><</listbox>></span>. 
 \They harvest <<listbox "$tempTown.primaryCrop" autoselect>><<optionsfrom $listboxes.primaryCrop>><</listbox>>
 \, and nearby is a region rich with <<listbox "$tempTown.primaryExport" autoselect>><<optionsfrom $listboxes.primaryExport>><</listbox>>. It is currently <<listbox "$tempTown.currentSeason" autoselect>><<optionsfrom $listboxes.season>><</listbox>>.
 
-Politically, they are a <<nobr>><span class="tip" title="How does the economy work?"><<listbox "$tempTown.economicIdeology" autoselect>><<optionsfrom $listboxes.economicIdeology>><</listbox>></span>
-<span class="tip" title="Who leads the people?"><<listbox "$tempTown.politicalIdeology" autoselect>><<optionsfrom $listboxes.politicalIdeology>><</listbox>></span>
-<span class="tip" title="Why do they rule? Are they elected, or born into power?"><<listbox "$tempTown.politicalSource" autoselect>><<optionsfrom $listboxes.politicalSource>><</listbox>></span><</nobr>><</liveblock>>
+Politically, they are a <<nobr>><span class="tip" role="tooltip" tabindex="0" title="How does the economy work?"><<listbox "$tempTown.economicIdeology" autoselect>><<optionsfrom $listboxes.economicIdeology>><</listbox>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Who leads the people?"><<listbox "$tempTown.politicalIdeology" autoselect>><<optionsfrom $listboxes.politicalIdeology>><</listbox>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Why do they rule? Are they elected, or born into power?"><<listbox "$tempTown.politicalSource" autoselect>><<optionsfrom $listboxes.politicalSource>><</listbox>></span><</nobr>><</liveblock>>
