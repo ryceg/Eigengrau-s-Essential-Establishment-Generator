@@ -3,7 +3,7 @@
 \<<if def $currentNPC.key>>
     \<<button "Edit $currentNPC.name">><<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>><<goto "NPCProfileEdit">><</button>>
 \<</if>> -- 
-\<label for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
+\<label name="Output option" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
   <<option "Regular">>
   <<option "JSON">>
   <<option "GMBinder">>
