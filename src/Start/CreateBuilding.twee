@@ -1,6 +1,6 @@
 :: CreateBuilding
-<span class="interactive-only"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
-<</listbox>> -- <<button "Create New Building">>
+<span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
+<</listbox>></label> -- <<button "Create New Building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>
   <<run console.log(_latestBuilding)>>

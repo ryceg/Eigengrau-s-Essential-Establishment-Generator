@@ -13,11 +13,11 @@ $currentNPC.title
     <<goto "NPCProfileEdit">>
   <</button>>
 <</if>>
-/* <<listbox "$currentNPC.outputOption">>
+/* <label name="NPC output" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
   <<option "JSON">>
   <<option "GMBinder">>
   <<option "LegendKeeper">>
-<</listbox>> --
+<</listbox>></label> --
 <<button "Output">>
   <<switch $currentNPC.outputOption>>
   <<case "JSON">>

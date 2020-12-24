@@ -9,7 +9,7 @@
     <</link>> -- <span class="auto-update"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
 <</liveblock>>
 
-Type: <span class="type"><<listbox "$town.factions[$currentPassage.key].type" autoselect>><<optionsfrom Object.keys(lib.factionData)>><</listbox>></span>
+<label for="listbox-townfactionscurrentpassagekeytype">Type:</label> <span class="type"><<listbox "$town.factions[$currentPassage.key].type" autoselect>><<optionsfrom Object.keys(lib.factionData)>><</listbox>></span>
 <table>
   <tr>
     <th>Attribute Slider</th>
@@ -19,10 +19,10 @@ Type: <span class="type"><<listbox "$town.factions[$currentPassage.key].type" au
   <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.factionSliders[_key].description><<print lib.factionSliders[_key].preceding>></td><td style="21vw"> <<numberslider "$town.factions[$currentPassage.key].roll[_key]" $town.factions[$currentPassage.key].roll[_key] 1 100 1>></td></tr><</if>>
   <</capture>><</for>>
 </table>
-<<liveblock>>Motivation: <<listbox "$town.factions[$currentPassage.key].motivation" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].motivation)>><</listbox>>
-Member's Trait: <<listbox "$town.factions[$currentPassage.key].membersTrait" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].membersTrait)>><</listbox>>
-Leadership Type: <<listbox "$town.factions[$currentPassage.key].leadershipType" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].leader.format)>><</listbox>>
-Joining Requirement: <<listbox "$town.factions[$currentPassage.key].joiningRequirement" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$currentPassage.type].joiningRequirement).concatUnique([
+<<liveblock>><label for="listbox-townfactionscurrentpassagekeymotivation">Motivation:</label> <<listbox "$town.factions[$currentPassage.key].motivation" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].motivation)>><</listbox>>
+<label for="listbox-townfactionscurrentpassagekeymemberstrait">Member's Trait:</label> <<listbox "$town.factions[$currentPassage.key].membersTrait" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].membersTrait)>><</listbox>>
+<label for="listbox-townfactionscurrentpassagekeyleadershiptype">Leadership Type:</label> <<listbox "$town.factions[$currentPassage.key].leadershipType" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].leader.format)>><</listbox>>
+<label for="listbox-townfactionscurrentpassagekeyjoiningrequirement">Joining Requirement:</label> <<listbox "$town.factions[$currentPassage.key].joiningRequirement" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$currentPassage.type].joiningRequirement).concatUnique([
   'a display of bravery',
   'a display of loyalty',
   'a display of skill',
@@ -33,7 +33,7 @@ Joining Requirement: <<listbox "$town.factions[$currentPassage.key].joiningRequi
   'referral by several members',
   'some social status',
   'to be called on for a favour'])>><</listbox>>
-Joining Initiation: <<listbox "$town.factions[$currentPassage.key].joiningInitiation" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$currentPassage.type].joiningInitiation).concatUnique([
+<label for="listbox-townfactionscurrentpassagekeyjoininginitiation">Joining Initiation: </label><<listbox "$town.factions[$currentPassage.key].joiningInitiation" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$currentPassage.type].joiningInitiation).concatUnique([
   'a mission',
   'a secret ritual',
   'a secret task',
