@@ -7,7 +7,7 @@ import { ConstructUtils } from '../constructs/_common'
  * **Note the lack of a closing span.**
  */
 export const createTippy = (readout: string) => {
-  return `<span class="tip" title=${JSON.stringify(readout)}><<run setup.tippy("span.tip")>>`
+  return `<span class="tip" role="tooltip" tabindex="0" title=${JSON.stringify(readout)}><<run setup.tippy("span.tip")>>`
 }
 
 /**
@@ -24,7 +24,7 @@ export const createTippyWord = (tippy: string, word: string) => {
  * The function that should be used most of the time.
  */
 export const createTippyFull = (readout: string, word: string) => {
-  return `<span class="tip dotted" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
+  return `<span class="tip dotted" role="tooltip" tabindex="0" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
 }
 
 export function createAutoTippy<C extends ConstructUtils> (utils: C, ...args: Parameters<C['create']>) {
