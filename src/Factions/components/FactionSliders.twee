@@ -6,7 +6,7 @@
 <<liveblock>>
     <<link "reroll">>
         <<set $town.factions[$currentPassage.key].name to lib.setFactionName($town, $town.factions[$currentPassage.key])>><<update>>
-    <</link>> -- <span class="auto-update"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
+    <</link>> -- <span class="auto-update"><label name="Rename the faction"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></label></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
 <</liveblock>>
 
 <label for="listbox-townfactionscurrentpassagekeytype">Type:</label> <span class="type"><<listbox "$town.factions[$currentPassage.key].type" autoselect>><<optionsfrom Object.keys(lib.factionData)>><</listbox>></span>
@@ -16,7 +16,7 @@
     <th>Percentage Value</th>
   </tr>
   <<for _key, _obj range lib.factionSliders>><<capture _key, _obj>><<run lib.clampRolls($town.factions[$currentPassage.key].roll)>>
-  <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.factionSliders[_key].description><<print lib.factionSliders[_key].preceding>></td><td style="21vw"> <<numberslider "$town.factions[$currentPassage.key].roll[_key]" $town.factions[$currentPassage.key].roll[_key] 1 100 1>></td></tr><</if>>
+  <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.factionSliders[_key].description><label for="numberslider-townfactionscurrentpassagekeyrollkey"><<print lib.factionSliders[_key].preceding>></label></td><td style="21vw"> <<numberslider "$town.factions[$currentPassage.key].roll[_key]" $town.factions[$currentPassage.key].roll[_key] 1 100 1>></td></tr><</if>>
   <</capture>><</for>>
 </table>
 <<liveblock>><label for="listbox-townfactionscurrentpassagekeymotivation">Motivation:</label> <<listbox "$town.factions[$currentPassage.key].motivation" autoselect>><<optionsfrom Object.keys(lib.factionData.types[$town.factions[$currentPassage.key].type].motivation)>><</listbox>>

@@ -3,23 +3,23 @@
 \<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
 \<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
 \<<set _name to $town.buildings[$currentPassage.index].name>>
-<<linkreplace "Rename <strong>_name</strong>">><h3><<textbox "$town.buildings[$currentPassage.index].name" _name>></h3><</linkreplace>>
+<<linkreplace "Rename <strong>_name</strong>">><h3><label name="Rename the general store"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label></h3><</linkreplace>>
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
 
-<span class="tip" role="tooltip" tabindex="0" title="How wealthy is the patronage?">General Store Wealth: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth">General Store Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="How large is it?">General Store Size: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How large is it?"><label for="numberslider-input-townbuildingscurrentpassageindexrollsize">General Store Size</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="Is it well known, or another no-name shop?">General Store Reputation: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="Is it well known, or another no-name shop?"><label for="numberslider-input-townbuildingscurrentpassageindexrollreputation">General Store Reputation</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="How clean is it?">General Store Cleanliness: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How clean is it?"><label for="numberslider-input-townbuildingscurrentpassageindexrollcleanliness">General Store Cleanliness</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="How busy is it? Are they getting much custom at the moment?">General Store Activity: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How busy is it? Are they getting much custom at the moment?"><label for="numberslider-input-townbuildingscurrentpassageindexrollactivity">General Store Activity</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="How likely is it to find magic here?">General Store Magic: <<numberslider "$town.buildings[$currentPassage.index].roll.magic" $town.buildings[$currentPassage.index].roll.magic 1 100 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How likely is it to find magic here?"><label for="numberslider-input-townbuildingscurrentpassageindexrollmagic">General Store Magic</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.magic" $town.buildings[$currentPassage.index].roll.magic 1 100 1>></span>
 
-<span class="tip" role="tooltip" tabindex="0" title="How much cheaper or more expensive than average is it?">General Store Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<span class="tip" role="tooltip" tabindex="0" title="How much cheaper or more expensive than average is it?">General <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier">Store Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 
 When you're ready, here's the [[general store|generalStoreOutput]]

@@ -17,7 +17,7 @@
     <<link "reroll">>
         <<set $tempTown.name to setup.createTownName()>><<update>>
     <</link>>
-        <span class="auto-update"><<textbox "$tempTown.name" $tempTown.name>></span>
+        <span class="auto-update"><label name="Town name"><<textbox "$tempTown.name" $tempTown.name>></label></span>
 <</liveblock>>
 <</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>

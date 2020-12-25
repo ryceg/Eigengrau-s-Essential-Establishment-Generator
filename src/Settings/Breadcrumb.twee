@@ -2,44 +2,44 @@
 <<nobr>>
 <<if ndef $town>>
   <<liveblock>>
-    <<link "The $tempTown.type of $tempTown.name">>
+    <nav><<link "The $tempTown.type of $tempTown.name">>
       <<unset $currentPassage>>
       <<unset $currentNPC>>
       <<set $history to []>>
       <<set $town to setup.createTown($tempTown)>>
       <<goto "Start">>
-    <</link>>
+    <</link>></nav>
   <</liveblock>>
 <<else>>
   <<set $town.ignoreGender to settings.ignoreGender>>
   <<liveblock>>
-    <<link "The $town.type of $town.name">>
+    <nav><<link "The $town.type of $town.name">>
       <<unset $currentPassage>>
       <<unset $currentNPC>>
       <<set $history to []>>
       <<goto "Start">>
-    <</link>>
+    <</link>></nav>
   <</liveblock>>
 <</if>>
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>>
   <<capture _i, _passage, _link>>
     <<if _i < $history.length - 1>>
       <<liveblock>>
-        <span class="breadcrumb-link">
+        <nav class="breadcrumb-link">
           <<link _link>>
             <<set $currentPassage to _passage.data>>
             <<goto _passage.passageName>>
             <<run $history.length = _i>>
             <<run setup.history(_passage.data, _passage.passageName, _passage.linkDescription)>>
           <</link>>
-        </span>
+        </nav>
       <</liveblock>>
     <</if>>
   <</capture>>
 <</for>>
 <<if def $history.last()>>
-  <span class="breadcrumb-link last">
+  <nav class="breadcrumb-link last">
     <<print lib.toTitleCase($history.last().linkDescription)>>
-  </span>
+  </nav>
 <</if>>
 <</nobr>>

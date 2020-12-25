@@ -6,14 +6,15 @@
     <<replace "#name">>
             \<<set $town.buildings[$currentPassage.index].name to lib.createname()>> <<textbox "$town.buildings[$currentPassage.index].name" _name>>
     <</replace>><</link>>
-<span id="name"><<textbox "$town.buildings[$currentPassage.index].name" _name>></span><</nobr>>
+<span id="name"><label name="Rename this building"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label></span><</nobr>>
 
 <<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
 
-  <<for _key, _obj range lib.townData.rollData.sliderTooltips>>
-  <<if _obj.isHidden>><<continue>><<else>><tr><td class="tip" @title=lib.townData.rollData.sliderTooltips[_key].tooltip><<print lib.townData.rollData.sliderTooltips[_key].preceding>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
-  <</for>>
-
-<span class="tip" role="tooltip" tabindex="0" title="How expensive is the tavern?">Tavern Price Modifier: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<<nobr>><<for _key, _obj range lib.townData.rollData.sliderTooltips>>
+  <<if _obj.isHidden>>
+    <<continue>>
+  <<else>>
+    <tr><td class="tip" @title=lib.townData.rollData.sliderTooltips[_key].tooltip><label for="townrollkey"><<print lib.townData.rollData.sliderTooltips[_key].preceding>></label></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
+<</for>><</nobr>>
 
 When you're ready, here's the [[output|TavernOutput]]
