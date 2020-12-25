@@ -2,6 +2,10 @@
 \<<set $currentPassage to $town.factions[$currentPassage.key]>><<set $currentFaction to $town.factions[$currentPassage.key]>><<run console.log($currentPassage)>>
 \<<set $currentPassage.availableRelationships to lib.factionData.types[$currentPassage.type].members.professions>>
 \<span class="interactive-only"><h1>$currentPassage.name</h1></span>
+\<<button "Edit $currentPassage.name">>
+    <<run setup.history($currentPassage, "FactionSliders", "Editing " + $currentPassage.name)>>
+    <<goto "FactionSliders">>
+  <</button>>
 <<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.
 <<if $currentPassage.isPolicing>><<include "PolicingFaction">><</if>>
 <<include "FactionGovernance">>
