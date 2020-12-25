@@ -7,7 +7,7 @@
 \<<else>>
 \<<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */
 \<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>.
-<span class="tip" role="tooltip" tabindex="0" tabindex="0" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name">><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><<goto "TownOutput">><</link>></span>
+<span class="tip" role="tooltip" tabindex="0" tabindex="0" title="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name" TownOutput>><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><</link>></span>
 <<include "CreateBuilding">>
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
