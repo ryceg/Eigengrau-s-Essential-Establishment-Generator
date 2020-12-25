@@ -3,7 +3,7 @@ import { Town } from '../lib/town/_common'
 
 type NPC = import('../lib/npc-generation/_common').NPC
 
-interface Setup {
+export interface Setup {
   renderWeather(town: Town, biome: string, weather: Weather): void
   createWeather(town: Town, biome: string, weather: Weather): Weather
   toCelsius(temperature: number);
@@ -43,7 +43,7 @@ interface Setup {
   createTownName(town: Town): string
 }
 
-interface FamilyData {
+export interface FamilyData {
   parentStageTable: string[string[]]
   parentAge(npc: NPC): number
   siblingAge(npc: NPC): number
@@ -53,13 +53,13 @@ interface FamilyData {
   relativeBase(npc: NPC): Partial<NPC>
 }
 
-interface CreateNameParameters {
+export interface CreateNameParameters {
   race?: string
   gender?: string
   firstOrLast?: string
 }
 
-interface Customer {
+export interface Customer {
   relationshipDescription: string
   relationships: {
     building: {
@@ -73,4 +73,15 @@ interface Customer {
   }
   base?: Partial<NPC>
   description(brothel: Building, npc: NPC)
+}
+
+export interface History {
+  data: {
+    key: string
+    passageName: string
+    objectType: string
+    linkDescription: string
+  },
+  passageName: string,
+  linkDescription: string
 }
