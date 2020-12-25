@@ -7,8 +7,10 @@
     "esModuleInterop": true ,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "esnext"],
   },
+  "include": ["lib"],
   "exclude": ["node_modules", "gh-pages"]
 }
