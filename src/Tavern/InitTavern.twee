@@ -9,7 +9,7 @@
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$town.buildings[$currentPassage.index].name" _name>></span><</nobr>>
 
-<<button "Delete _name">><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><<goto "Start">><</button>>
+<<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>
 
 <span class="tip" role="tooltip" tabindex="0" title="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth">Tavern Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 

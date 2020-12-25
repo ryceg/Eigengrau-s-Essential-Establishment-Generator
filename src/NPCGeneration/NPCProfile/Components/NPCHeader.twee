@@ -8,9 +8,8 @@
 $currentNPC.title
 <</if>>$currentNPC.name</h1></span>
 <<if def $currentNPC.key>>
-  <<button "Edit $currentNPC.name">>
+  <<button "Edit $currentNPC.name" NPCProfileEdit>>
     <<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>>
-    <<goto "NPCProfileEdit">>
   <</button>>
 <</if>>
 /* <label name="NPC output" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>

@@ -60,5 +60,5 @@
 <</for>>
 </table><</nobr>><</liveblock>>
 
-<<button "Save Changes">><<set $town to setup.createTown($tempTown)>><<goto "Start">>
+<<button "Save Changes" Start>><<set $town to setup.createTown($tempTown)>>
 <</button>>

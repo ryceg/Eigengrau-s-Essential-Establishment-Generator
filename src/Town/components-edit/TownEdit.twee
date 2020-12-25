@@ -21,8 +21,7 @@
 ----
 <<nobr>>
 <<include "EditRaces">><</nobr>>
-<<button "Save Changes">>
+<<button "Save Changes" TownOutput>>
   <<include "Rerender">>
   <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
-  <<goto "TownOutput">>
 <</button>>

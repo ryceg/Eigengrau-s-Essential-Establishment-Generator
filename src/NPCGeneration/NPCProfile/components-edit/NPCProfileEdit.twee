@@ -1,7 +1,7 @@
 :: NPCProfileEdit [force-one-column]
 <<liveblock>><span class="auto-update"><h1><<include "NPCSaveEdits">><<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><label name="name"><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></label></h1></span>
 \<<set $currentPassage.deleteEnabled to true>>
-<<include "NPCEditListbox">><label name="replace NPC" for="listbox-replacenpc"><<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom lib.patreonCharacters>><</listbox>></label> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC">><<run setup.deleteNPC($npcs[$currentPassage.key])>><<goto "Start">><</button>>
+<<include "NPCEditListbox">><label name="replace NPC" for="listbox-replacenpc"><<listbox "_replaceNpc" autoselect>><<optionsfrom $npcs>><<optionsfrom lib.patreonCharacters>><</listbox>></label> -- <<button "Replace NPC">><<set $npcs[$currentPassage.key] to setup.createNPC($town, _replaceNpc)>><</button>> -- <<button "Delete this NPC" Start>><<run setup.deleteNPC($npcs[$currentPassage.key])>><</button>>
 
 <<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><<print $npcs[$currentPassage.key].name>> is <<print lib.articles.find($npcs[$currentPassage.key].age)>> <span @id="_age" class="tip"><label name="age"><<textbox "$npcs[$currentPassage.key].age" $npcs[$currentPassage.key].age>></label></span> <span class="auto-update"><span class="tip" role="tooltip" tabindex="0" title="Non binary options coming soon!">_gender</span> _race</span>. <<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> is <span @id="_height" class="tip"><label name="height"><<textbox "$npcs[$currentPassage.key].height" $npcs[$currentPassage.key].height>></label></span> and <span @id="_weight" class="tip"><label name="weight"><<textbox "$npcs[$currentPassage.key].weight" $npcs[$currentPassage.key].weight>></label></span>, and has <label name="eyes"><<textbox "$npcs[$currentPassage.key].eyes" $npcs[$currentPassage.key].eyes>></label> eyes<<if def $npcs[$currentPassage.key].beard>> and <<print lib.articles.find($npcs[$currentPassage.key].beard)>> <label name="beard"><<textbox "$npcs[$currentPassage.key].beard" $npcs[$currentPassage.key].beard>></label>,<</if>> with <label name="skinColour"><<textbox "$npcs[$currentPassage.key].skinColour" $npcs[$currentPassage.key].skinColour>></label> skin. 
 \The most notable physical trait of <<print $npcs[$currentPassage.key].firstName>> is that <<print $npcs[$currentPassage.key].heshe>> has <label name="physicalTrait"><<textbox "$npcs[$currentPassage.key].physicalTrait" $npcs[$currentPassage.key].physicalTrait>></label>.
@@ -41,7 +41,6 @@
 
 <<include "NPCRelationshipsTable">>
 
-<<button "Save changes">>
+<<button "Save changes" NPCProfileEdit>>
   <<include "NPCSaveEdits">>
-  <<goto "NPCProfileEdit">>
 <</button>><</liveblock>>

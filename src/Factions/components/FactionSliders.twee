@@ -6,7 +6,7 @@
 <<liveblock>>
     <<link "reroll">>
         <<set $town.factions[$currentPassage.key].name to lib.setFactionName($town, $town.factions[$currentPassage.key])>><<update>>
-    <</link>> -- <span class="auto-update"><label name="Rename the faction"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></label></span> -- <<button "Delete $currentPassage.name">><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><<goto "Start">><</button>>
+    <</link>> -- <span class="auto-update"><label name="Rename the faction"><<textbox "$town.factions[$currentPassage.key].name" $town.factions[$currentPassage.key].name>></label></span> -- <<button "Delete $currentPassage.name" Start>><<run setup.deleteFaction($town, $town.factions[$currentPassage.key])>><</button>>
 <</liveblock>>
 
 <label for="listbox-townfactionscurrentpassagekeytype">Type:</label> <span class="type"><<listbox "$town.factions[$currentPassage.key].type" autoselect>><<optionsfrom Object.keys(lib.factionData)>><</listbox>></span>
@@ -42,4 +42,4 @@
   'nothing particularly interesting'])>><</listbox>><</liveblock>>
 
 
-<<button "Save">><<set $town.factions[$currentPassage.key] to setup.createFaction($town, $town.factions[$currentPassage.key])>><<goto "FactionProfile">><</button>>
+<<button "Save" FactionProfile>><<set $town.factions[$currentPassage.key] to setup.createFaction($town, $town.factions[$currentPassage.key])>><</button>>
