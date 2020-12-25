@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changes
 - Fixed some images not displaying properly in the GMBinder export.
+- Add labels and accessibility features to elements (people that use screenreaders, please let me know if an element is missing features!)
 
 ## 2.7
 
