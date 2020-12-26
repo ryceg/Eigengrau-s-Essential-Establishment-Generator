@@ -1,4 +1,5 @@
-import { NPC } from '../lib/npc-generation/_common'
+import { NPC } from './lib/npc-generation/_common'
+import { Town } from './lib/town/_common'
 
 /*******************************************************************************
   SugarCube overrides.
