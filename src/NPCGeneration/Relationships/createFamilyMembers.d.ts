@@ -39,7 +39,14 @@ interface Setup {
 
 export interface Family {
   key: string
-  members: Record<string, any>
+  members: Record<string, FamilyMember>
+}
+
+export interface FamilyMember {
+  key: string
+  parentMarriage?: Marriage
+  marriages?: Marriage[],
+  canRemarry: boolean
 }
 
 export interface Marriage {
