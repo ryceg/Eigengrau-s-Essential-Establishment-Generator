@@ -16,6 +16,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Run type checking
+        run: yarn type
+
       - name: Install twine compiler
         run: yarn install-compiler
 
