@@ -1,21 +1,17 @@
 import type { NPC } from '../../../lib/npc-generation/_common'
 import type { Town } from '../../../lib/town/_common'
 
-declare global {
-  interface Setup {
-    getFatherMother(town: Town, npc: NPC): Parents
-  }
-}
-
 interface Parents {
   father?: NPC
   mother?: NPC
 }
 
-// uses State.variables.npcs
-export function getFatherMother (town: Town, npc: NPC) {
-  let father: NPC
-  let mother: NPC
+/**
+ * @warn Uses State.variables.npcs
+ */
+function getFatherMother (town: Town, npc: NPC): Parents {
+  let father: NPC | undefined
+  let mother: NPC | undefined
 
   const family = town.families[npc.family]
   const node = family.members[npc.key]
@@ -30,6 +26,12 @@ export function getFatherMother (town: Town, npc: NPC) {
   }
 
   return { father, mother }
+}
+
+declare global {
+  interface Setup {
+    getFatherMother: typeof getFatherMother
+  }
 }
 
 setup.getFatherMother = getFatherMother
