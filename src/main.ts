@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 /**
  * Tweego ignores TS files; they won't be imported into the final app. Rollup
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
