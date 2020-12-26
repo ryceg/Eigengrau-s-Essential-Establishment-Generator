@@ -2,16 +2,16 @@ import type { NPC } from '../../../lib/npc-generation/_common'
 import type { Town } from '../../../lib/town/_common'
 
 interface Parents {
-  father?: NPC
-  mother?: NPC
+  father?: string
+  mother?: string
 }
 
 /**
  * @warn Uses State.variables.npcs
  */
 function getFatherMother (town: Town, npc: NPC): Parents {
-  let father: NPC | undefined
-  let mother: NPC | undefined
+  let father: string | undefined
+  let mother: string | undefined
 
   const family = town.families[npc.family]
   const node = family.members[npc.key]
