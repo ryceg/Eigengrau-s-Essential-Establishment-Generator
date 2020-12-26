@@ -4,6 +4,7 @@
  * loaded by Tweego alongside loose scripts in `/src`
 */
 import './NPCGeneration/Relationships/getFatherMother'
+import './NPCGeneration/Relationships/setAsPartners'
 
 /**
  * Initializes the data structures.

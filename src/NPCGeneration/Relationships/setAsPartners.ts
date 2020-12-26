@@ -1,9 +1,9 @@
+import { NPC } from '../../../lib/npc-generation/_common'
+
 /**
  * @warn Uses State.variables.npcs
- * @param {import("../../../lib/npc-generation/_common").NPC} npc1
- * @param {import("../../../lib/npc-generation/_common").NPC} npc2
  */
-setup.setAsPartners = (npc1, npc2) => {
+function setAsPartners (npc1: NPC, npc2: NPC): void {
   const npcs = State.variables.npcs
   if (!npc1 || !npc2 || !npc1.key || !npc2.key) {
     console.warn('Called setAsPartners() with a null/undefined argument')
@@ -27,3 +27,11 @@ setup.setAsPartners = (npc1, npc2) => {
   npc2.partnerID = npc1.key
   console.log(`${npc1.name} and ${npc2.name} are officially a couple!`)
 }
+
+declare global {
+  interface Setup {
+    setAsPartners: typeof setAsPartners
+  }
+}
+
+setup.setAsPartners = setAsPartners
