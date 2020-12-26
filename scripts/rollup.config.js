@@ -26,7 +26,8 @@ module.exports = [
   {
     input: 'src/main.ts',
     plugins,
-    output: { file: 'src/init.js', format: 'iife' }
+    external: ['@lib'],
+    output: { file: 'src/init.js', format: 'iife', globals: { '@lib': 'lib' } }
   },
   {
     input: 'lib/index.ts',
