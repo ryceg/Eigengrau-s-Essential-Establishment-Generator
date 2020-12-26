@@ -11,6 +11,5 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "esnext"],
   },
-  "include": ["lib"],
-  "exclude": ["node_modules", "gh-pages"]
+  "exclude": ["node_modules", "gh-pages", "src/**/*.d.ts"]
 }
