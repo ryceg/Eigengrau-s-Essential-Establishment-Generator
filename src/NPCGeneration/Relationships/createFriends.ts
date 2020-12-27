@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Relationship, Town } from '@lib'
+import { createRelationship } from './createRelationship'
 
 interface Friend {
   probability?: number
@@ -150,8 +151,7 @@ export const createFriends = (town: Town, npc: NPC) => {
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
     // @ts-ignore
     const friend = setup.createNPC(town, friendObj.base)
-    // @ts-ignore
-    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
+    createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 
   for (let step = 0; step < friendsNumber; step++) {
