@@ -3,4 +3,4 @@
     <<replace "#random">>
             $town.landmark
     <</replace>><</link>></span>
-is <span id="random">$town.landmark</span><</nobr>>
+is <span id="random">$town.landmark</span><<run lib.addTippyAccessibility()>><</nobr>>

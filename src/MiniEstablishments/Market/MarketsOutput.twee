@@ -13,9 +13,9 @@
 <</link>><<liveblock>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>><</liveblock>></span>
 
 <span class="interactive-only">A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
-<<listbox "$building.magicSelection">>
+<label name="Type of magic" for="listbox-buildingmagicselection"><<listbox "$building.magicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
-<</listbox>> -- <<button "Create a magic item!">>
+<</listbox>></label> -- <<button "Create a magic item!">>
   <<set $building.magicType to $building.magicSelection>>
   <<switch $building.magicType>>
     <<case "ring">><<nobr>>

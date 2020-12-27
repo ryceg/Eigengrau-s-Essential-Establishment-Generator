@@ -1,9 +1,9 @@
 :: OutputEverything [force-one-column, squash-errors]
-<<listbox "_exportType">>
+<label name="Export type" for="listbox-exporttype"><<listbox "_exportType">>
   <<option "GMBinder">>
   <<option "Foundry">>
   <<option "Raw JSON">>
-<</listbox>> -- <span class="tip" title="This can take a while."><<button "Export">>
+<</listbox>></label> -- <span class="tip" title="This can take a while."><<button "Export">>
 <<run setup.addGtagEvent({
   event_category: 'export',
   event_action: 'loaded',
@@ -25,4 +25,4 @@
 <</replace>>
 <</button>></span>
 <span id="everything"></span>
-<span id="tutorial"></span>
+<span id="tutorial"></span><<run lib.addTippyAccessibility()>>
