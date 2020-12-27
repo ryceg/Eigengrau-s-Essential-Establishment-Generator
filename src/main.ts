@@ -11,6 +11,7 @@ import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
 import { getFamily } from './NPCGeneration/Relationships/getFamily'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
+import { checkRaces } from './NPCGeneration/checkRaces'
 
 declare global {
   interface Setup {
@@ -22,6 +23,7 @@ declare global {
     createFriends: typeof createFriends
     getFamily: typeof getFamily
     getFatherMother: typeof getFatherMother
+    checkRaces: typeof checkRaces
   }
 }
 
@@ -33,7 +35,8 @@ Object.assign(setup, {
   createSexuality,
   createFriends,
   getFamily,
-  getFatherMother
+  getFatherMother,
+  checkRaces
 })
 
 /**

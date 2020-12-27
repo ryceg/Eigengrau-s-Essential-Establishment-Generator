@@ -27,7 +27,6 @@ export interface Setup {
   npcDeath(town: Town, npc: NPC, base?: Partial<NPC>): NPC
   createDeadNPC(town: Town, base?: Partial<NPC>): NPC
   expandNPC(town: Town, npc: NPC)
-  checkRaces(town: Town, npcs: Record<string, NPC>)
 
   createStartBuildings(town: Town): void
   createStartFactions(town: Town): void
