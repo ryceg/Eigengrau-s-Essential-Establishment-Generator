@@ -2,6 +2,7 @@
 import { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@lib'
 import { getChildSurname, getParentSurnames } from './getSurnames'
 import { getChildAge, getParentAge, getPartnerAge, getRelativeBase, siblingRoll } from './familyUtils'
+import { setAsPartners } from './setAsPartners'
 
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
@@ -129,7 +130,7 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
   const partner = createRelative(town, family, partnerBase, force)
 
   if (partner) {
-    setup.setAsPartners(npc, partner)
+    setAsPartners(npc, partner)
     newMarriage.parents.push(partner.key)
     family.members[partner.key].marriages = [newMarriage]
   }
