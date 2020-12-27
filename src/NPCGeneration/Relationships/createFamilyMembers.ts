@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@lib'
+import { getChildSurname, getParentSurnames } from './getSurnames'
 
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
@@ -61,8 +62,7 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
 
     const { motherRace, fatherRace, lineage } = lib.findParentRaces(npc)
     npc.parentalLineage = lineage
-    // @ts-ignore
-    const { fatherSurname, motherSurname } = setup.getParentSurnames(marriage)
+    const { fatherSurname, motherSurname } = getParentSurnames(marriage)
 
     // @ts-ignore
     const fatherBase = Object.assign({}, setup.familyData.relativeBase(npc), {
@@ -155,8 +155,7 @@ const createChildren = (town: Town, family: Family, marriage: Marriage, amount: 
   console.log(`Creating ${amount} siblings...`)
   console.log(family)
 
-  // @ts-ignore
-  const surname = setup.getChildSurname(marriage)
+  const surname = getChildSurname(marriage)
   const siblingClass = marriage.socialClass
 
   const inserted: string[] = []
