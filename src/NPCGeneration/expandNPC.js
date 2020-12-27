@@ -9,7 +9,7 @@ setup.expandNPC = function (town, npc) {
   // but some life events force us to create new family members
   setup.createLifeEvents(town, npc)
 
-  const relatives = setup.fetchFamily(town, npc)
+  const relatives = setup.getFamily(town, npc)
   Object.keys(relatives).forEach((key) => {
     const relative = State.variables.npcs[key]
     const relationship = relatives[key]

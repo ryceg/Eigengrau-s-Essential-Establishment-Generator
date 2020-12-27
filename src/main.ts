@@ -9,6 +9,7 @@ import { createMarriage, createParentage, createRelative } from './NPCGeneration
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
 import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
+import { getFamily } from './NPCGeneration/Relationships/getFamily'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 
 declare global {
@@ -19,6 +20,7 @@ declare global {
     createRelationship: typeof createRelationship
     createSexuality: typeof createSexuality
     createFriends: typeof createFriends
+    getFamily: typeof getFamily
     getFatherMother: typeof getFatherMother
   }
 }
@@ -30,6 +32,7 @@ Object.assign(setup, {
   createRelationship,
   createSexuality,
   createFriends,
+  getFamily,
   getFatherMother
 })
 
