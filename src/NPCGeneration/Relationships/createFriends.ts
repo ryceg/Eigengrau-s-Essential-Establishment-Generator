@@ -12,7 +12,7 @@ interface Friend {
 }
 
 /**
- * Uses setup.createRelationship, setup.createNPC
+ * Uses setup.createNPC
  */
 export const createFriends = (town: Town, npc: NPC) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
@@ -195,8 +195,7 @@ function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc
     // @ts-ignore
     // FIXME: weightedRandomFetcher expects a record, while relationships is an array.
     const relObj = lib.weightedRandomFetcher(town, relationships, npc, null, 'object') as Relationship
-    // @ts-ignore
-    setup.createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
+    createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
   }
   return friend
 }
@@ -208,11 +207,9 @@ function findFriendInSameProfessionSector (town: Town, npcs: Record<string, NPC>
   })
   if (friend) {
     if (npc.profession === friend.profession) {
-      // @ts-ignore
-      setup.createRelationship(town, npc, friend, 'peer', 'peer')
+      createRelationship(town, npc, friend, 'peer', 'peer')
     } else {
-      // @ts-ignore
-      setup.createRelationship(town, npc, friend, 'industry peer', 'industry peer')
+      createRelationship(town, npc, friend, 'industry peer', 'industry peer')
     }
   }
   return friend

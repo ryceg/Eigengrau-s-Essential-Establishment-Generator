@@ -1,4 +1,5 @@
 import { NPC, Town } from '@lib'
+import { createMarriage, createParentage } from './createFamilyMembers'
 
 const MARRIAGE_PERCENT = 55
 const REMARRIAGE_PERCENT = 9
@@ -71,14 +72,11 @@ export const getFamily = (town: Town, npc: NPC, depth = 2) => {
   return relatives
 }
 
-/**
- * @warn Uses setup.createParentage, setup.createMarriage
- */
 const expandFamily = (town: Town, npc: NPC) => {
   const family = town.families[npc.family]
   const node = family.members[npc.key]
 
-  setup.createParentage(town, family, npc)
+  createParentage(town, family, npc)
 
   // Marriages and descendants
   const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
@@ -90,14 +88,14 @@ const expandFamily = (town: Town, npc: NPC) => {
   if (node.marriages === undefined) {
     node.marriages = []
     if (random(1, 100) <= MARRIAGE_PERCENT) {
-      const newMarriage = setup.createMarriage(town, family, npc)
+      const newMarriage = createMarriage(town, family, npc)
       node.marriages.push(newMarriage)
     }
   }
 
   while (node.canRemarry) {
     if (random(1, 100) <= REMARRIAGE_PERCENT) {
-      const newMarriage = setup.createMarriage(town, family, npc, true)
+      const newMarriage = createMarriage(town, family, npc, true)
       node.marriages.push(newMarriage)
     } else {
       node.canRemarry = false
