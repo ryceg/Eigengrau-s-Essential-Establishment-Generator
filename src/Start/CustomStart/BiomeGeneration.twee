@@ -37,28 +37,28 @@
 <tr><td class="tip" title="How do they treat law-breakers here?">Reform-based law -- Punishment-based law:</td><td style="21vw"> <<numberslider "$tempTown.roll.law" $tempTown.roll.law 1 100 1>></td></tr>
 <tr><td class="tip" title="How religious are they here?">Atheistic -- Extremely Religious:</td><td style="21vw"> <<numberslider "$tempTown.roll.religiosity" $tempTown.roll.religiosity 1 100 1>></td></tr>
 <tr><td class="tip" title="What percentage of the population is of the dominant gender?">Gender makeup (percentage of the dominant gender):</td><td style="21vw"> <<numberslider "$tempTown.roll.genderMakeup" $tempTown.roll.genderMakeup 1 100 1>></td></tr>
-<tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" role="tooltip" tabindex="0" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Town dominant gender" for="listbox-temptowndominantgender"><<listbox "$tempTown.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></td></tr>
+<tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Town dominant gender" for="listbox-temptowndominantgender"><<listbox "$tempTown.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></td></tr>
 </table>
 ----
 
 <<liveblock>><<run lib.updateDemographics($tempTown, $tempTown._baseDemographics)>>$tempTown.name is a <<print setup.getTownType($tempTown)>> comprised <<print lib.getPredominantRace($tempTown._demographicPercentile).amountDescriptive>>.
-<span class="races-slider"><span class="tip" role="tooltip" tabindex="0" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span></span>
+<span class="races-slider"><span class="tip" title="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span></span>
 <<nobr>><table class="sortable">
     <tr>
         <th>Race</th>
         <th>Population</th>
         <th>Percentage</th>
-        <th><span class="tip" role="tooltip" tabindex="0" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
+        <th><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">Raw Number</span></th>
     </tr>
 <<for _race, _percentage range $tempTown._demographicPercentile>>
     <tr>
         <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($tempTown.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><span class="races-slider"><span class="tip" role="tooltip" tabindex="0" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$tempTown._baseDemographics['" + _race + "']"` $tempTown._baseDemographics[_race] 0 100 1>></span></span></td>
+        <td><span class="races-slider"><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$tempTown._baseDemographics['" + _race + "']"` $tempTown._baseDemographics[_race] 0 100 1>></span></span></td>
     </tr>
 <</for>>
-</table><</nobr>><</liveblock>>
+</table><</nobr>><<run lib.addTippyAccessibility()>><</liveblock>>
 
 <<button "Save Changes" Start>><<set $town to setup.createTown($tempTown)>>
 <</button>>

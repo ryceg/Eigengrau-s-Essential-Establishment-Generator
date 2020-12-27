@@ -33,3 +33,8 @@ export function createAutoTippy<C extends ConstructUtils> (utils: C, ...args: Pa
     return createTippyFull(utils.readout(construct), word || construct.$type)
   }
 }
+
+export function addTippyAccessibility () {
+  $('.tip').attr('role', 'tooltip')
+  $('.tip').attr('tabindex', '0')
+}

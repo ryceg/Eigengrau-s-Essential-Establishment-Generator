@@ -6,16 +6,16 @@
 Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>
-<<if $data.isPatreon is true>><span class="tip" role="tooltip" tabindex="0" title="Thank you for your continued support!">
+<<if $data.isPatreon is true>><span class="tip" title="Thank you for your continued support!">
     <div id="patreon">[img["Become a Patron!"|patreon][https://www.patreon.com/join/eigengrausgenerator?]]</div>
 </span>
-<<else>><span class="tip" role="tooltip" tabindex="0" title="Thank you for your support!">
+<<else>><span class="tip" title="Thank you for your support!">
     <div id="kofi">[img["Tip me on Ko-Fi!"|kofi][https://ko-fi.com/Q5Q8O5AA]]</div>
 </span><</if>>
-<span class="tip" role="tooltip" tabindex="0" title="Come join our community!">
+<span class="tip" title="Come join our community!">
     <div id="patreon">[img["Join us on Discord!"|discord][https://discord.gg/A543VC5]]</div>
 </span>
-<span class="tip" role="tooltip" tabindex="0" title="Check out the repository!">
+<span class="tip" title="Check out the repository!">
     <div id="github">[img["Visit our GitHub!"|github][https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator]]</div>
 </span>
-<</if>><</nobr>>
+<</if>><</nobr>><<run lib.addTippyAccessibility()>>
