@@ -1,11 +1,11 @@
-// uses setup.createNPC
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+import { NPC, Town } from '@lib'
+
 /**
- *
- * @param {import("../../lib/town/_common").Town} town
- * @param {Record<string, import("../../lib/npc-generation/_common").NPC>} npcs
- * @returns {Record<string, import("../../lib/npc-generation/_common").NPC>}
+ * Uses `setup.createNPC`
  */
-setup.checkRaces = function (town, npcs) {
+export const checkRaces = (town: Town, npcs: Record<string, NPC>): Record<string, NPC> => {
   console.groupCollapsed('Checking the races...')
   console.log({ npcs })
   for (const npcKey in npcs) {
@@ -15,6 +15,7 @@ setup.checkRaces = function (town, npcs) {
     console.log(npc.race, 'to a', race)
     if (npc.race !== race || npc.gender !== gender) {
       console.log(`${npc.name}'s race or gender now does not match! Changing ${npc.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
+      // @ts-ignore
       npcs[npcKey] = setup.createNPC(town, {
         race,
         gender,
@@ -35,8 +36,7 @@ setup.checkRaces = function (town, npcs) {
       })
     }
   }
-  console.log('npcs:')
-  console.log(npcs)
+  console.log('npcs:', npcs)
   console.groupEnd()
   return npcs
 }
