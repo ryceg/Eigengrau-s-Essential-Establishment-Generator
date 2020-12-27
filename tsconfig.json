@@ -13,7 +13,6 @@
     "baseUrl": "./",
     "paths": {
       "@lib": ["./lib/index.ts"],
-      "@lib/types": ["./lib/types.ts"]
     }
   },
   "exclude": ["node_modules", "gh-pages", "src/**/*.d.ts"]

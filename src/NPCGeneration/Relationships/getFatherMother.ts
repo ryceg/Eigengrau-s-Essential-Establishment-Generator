@@ -1,5 +1,4 @@
-import type { NPC } from '../../../lib/npc-generation/_common'
-import type { Town } from '../../../lib/town/_common'
+import type { NPC, Town } from '@lib'
 
 interface Parents {
   father?: string
