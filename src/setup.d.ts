@@ -19,8 +19,6 @@ export interface Setup {
 
   fetchFamily(town: Town, npc: NPC): Family
   createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
-  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force?: boolean)
-  familyData: FamilyData
 
   createHistory(town: Town, npc: NPC): void
   createLifeEvents(town: Town, npc: NPC): void
@@ -41,16 +39,6 @@ export interface Setup {
   makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
   createTownName(town: Town): string
-}
-
-export interface FamilyData {
-  parentStageTable: string[string[]]
-  parentAge(npc: NPC): number
-  siblingAge(npc: NPC): number
-  childAge(marriage: Marriage): number
-  partnerAge(npc: NPC): number
-  siblingRoll(): number
-  relativeBase(npc: NPC): Partial<NPC>
 }
 
 export interface CreateNameParameters {

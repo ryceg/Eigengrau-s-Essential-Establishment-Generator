@@ -121,7 +121,7 @@ export interface NPC {
   birthplace: string
   siblingNumber: number
   childhoodMemories: string
-  parentalLineage: string
+  parentalLineage?: string
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
@@ -169,4 +169,26 @@ export interface Namesake {
   profession?: ProfessionNames
   reason?: string
   note?: string
+}
+
+export interface Marriage {
+  parents: string[]
+  children: string[]
+  socialClass?: SocialClassName
+  lifestyle?: LifestyleStandardName
+  familyUnit?: string
+  home?: string
+}
+
+export interface Family {
+  key: string
+  members: Record<string, FamilyMember>
+}
+
+export interface FamilyMember {
+  key: string
+  parentMarriage?: Marriage
+  marriages?: Marriage[],
+  canRemarry: boolean
+  siblings?: string[]
 }

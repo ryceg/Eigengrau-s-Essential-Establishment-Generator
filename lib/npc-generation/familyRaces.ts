@@ -24,7 +24,10 @@ export const marriagePools: Record<RaceName, RaceName[]> = {
 export function findParentRaces (npc: NPC) {
   const parentalLineageRoll = random(1, 8)
 
-  let lineage, fatherRace, motherRace
+  let lineage: string | undefined
+  let fatherRace!: RaceName | 'devil'
+  let motherRace!: RaceName | 'devil'
+
   switch (npc.race) {
     case 'half-orc':
       if (parentalLineageRoll === 8) {
@@ -90,7 +93,9 @@ export function findParentRaces (npc: NPC) {
   }
 
   // For the sake of symmetry
-  if (random(1, 2) === 2) [motherRace, fatherRace] = [fatherRace, motherRace]
+  if (random(1, 2) === 2) {
+    [motherRace, fatherRace] = [fatherRace, motherRace]
+  }
   return { motherRace, fatherRace, lineage }
 }
 

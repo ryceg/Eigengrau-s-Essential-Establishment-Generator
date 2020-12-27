@@ -1,4 +1,5 @@
-import { NPC } from '../lib/npc-generation/_common'
+import { NPC } from './lib/npc-generation/_common'
+import { Town } from './lib/town/_common'
 
 /*******************************************************************************
   SugarCube overrides.
@@ -23,10 +24,10 @@ declare module 'twine-sugarcube' {
     npcs: Record<string, NPC>
     [key: string]: unknown
   }
-}
 
-declare global {
-  const setup: Setup
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface SugarCubeSetupObject extends Setup {
+  }
 }
 
 export {}

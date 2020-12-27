@@ -10,7 +10,10 @@
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "esnext"],
+    "baseUrl": "./",
+    "paths": {
+      "@lib": ["./lib/index.ts"],
+    }
   },
-  "include": ["lib"],
-  "exclude": ["node_modules", "gh-pages"]
+  "exclude": ["node_modules", "gh-pages", "src/**/*.d.ts"]
 }

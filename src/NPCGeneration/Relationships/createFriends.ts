@@ -1,15 +1,27 @@
-// uses setup.createRelationship, setup.createNPC
-// has a .d.ts
-setup.createFriends = (town, npc) => {
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import type { NPC, Relationship, Town } from '@lib'
+
+interface Friend {
+  probability?: number
+  exclusions?(town: Town, npc: NPC): boolean
+  relationship: string
+  reciprocalRelationship?: string
+  base: Partial<NPC>
+}
+
+/**
+ * Uses setup.createRelationship, setup.createNPC
+ */
+export const createFriends = (town: Town, npc: NPC) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
   const professionData = lib.professions[npc.profession]
 
-  if (professionData.type === 'business') friendsNumber += 2
-  /**
- * @type {Record<string, import("./createFriends").FriendsType>}
- */
-  const friendsTypes = {
+  if (professionData.type === 'business') {
+    friendsNumber += 2
+  }
+
+  const friendsTypes: Record<string, Friend> = {
     'drinking buddy': {
       relationship: 'drinking buddy',
       base: {
@@ -58,7 +70,9 @@ setup.createFriends = (town, npc) => {
       relationship: 'dealer',
       reciprocalRelationship: 'drug buyer',
       probability: 1,
-      exclusions (town, npc) { if (town.roll.sin < 10) return false },
+      exclusions (town) {
+        return town.roll.sin >= 10
+      },
       base: {
         socialClass: npc.socialClass || 'commoner',
         profession: 'drug dealer'
@@ -74,7 +88,9 @@ setup.createFriends = (town, npc) => {
       relationship: 'pastor',
       reciprocalRelationship: 'goes to church',
       probability: 2,
-      exclusions (town, npc) { if (town.roll.religiosity < 20 || npc.roll.religiosity < 20 || npc.profession === 'pastor') return false },
+      exclusions (town, npc) {
+        return !(town.roll.religiosity < 20 || npc.roll.religiosity < 20 || npc.profession === 'pastor')
+      },
       base: {
         socialClass: npc.socialClass || 'commoner',
         profession: 'pastor'
@@ -84,7 +100,9 @@ setup.createFriends = (town, npc) => {
       relationship: 'customer',
       reciprocalRelationship: npc.profession,
       probability: 20,
-      exclusions (town, npc) { if (professionData.type !== 'business') return false },
+      exclusions () {
+        return professionData.type === 'business'
+      },
       base: {
         canBeCustom: true,
         isShallow: true
@@ -93,7 +111,10 @@ setup.createFriends = (town, npc) => {
     'servant': {
       relationship: 'employee',
       reciprocalRelationship: 'employer',
-      exclusions (town, npc) { if (!['wealthy', 'aristocratic'].includes(lib.npcLifestyleStandard(town, npc).lifestyleStandard) && !(lib.npcProfit(town, npc) > -5 || lib.npcProfit(town, npc) < -100)) { return false } },
+      exclusions (town, npc) {
+        // FIXME: Make more readable. Perhaps split into multiple if conditions.
+        return !(!['wealthy', 'aristocratic'].includes(lib.npcLifestyleStandard(town, npc).lifestyleStandard) && !(lib.npcProfit(town, npc) > -5 || lib.npcProfit(town, npc) < -100))
+      },
       base: {
         profession: 'servant'
       }
@@ -123,19 +144,13 @@ setup.createFriends = (town, npc) => {
     console.log(friendsTypes)
   }
 
-  /**
-   *
-   * @param {Town} town
-   * @param {import("../../../lib/npc-generation/_common").NPC} npc
-   * @param {Record<string, import("./createFriends").FriendsType>} friendsTypes
-   */
-  const createNewFriend = (town, npc, friendsTypes) => {
+  const createNewFriend = (town: Town, npc: NPC, friendsTypes: Record<string, Friend>) => {
     console.log('Creating a new friend!')
-    /**
-    * @type {import("./createFriends").FriendsType}
-    */
-    const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, null, 'object')
+
+    const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
+    // @ts-ignore
     const friend = setup.createNPC(town, friendObj.base)
+    // @ts-ignore
     setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 
@@ -163,48 +178,39 @@ setup.createFriends = (town, npc) => {
   console.groupEnd()
 }
 
-/**
- * @param {import("../../../lib/town/_common").Town} town
- * @param {import("../../../lib/npc-generation/_common").NPC} npc
- * @param {import("../../../lib/npc-generation/_common").NPC} otherNpc
- */
-function basicFilterNpc (town, npc, otherNpc) {
-  return !town.npcRelations[otherNpc.key].map(r => r.targetNpcKey).includes(npc.key) && otherNpc.key !== npc.key
+function basicFilterNpc (town: Town, npc: NPC, otherNpc: NPC) {
+  const related = town.npcRelations[otherNpc.key].map(r => r.targetNpcKey)
+  return !related.includes(npc.key) && otherNpc.key !== npc.key
 }
 
-/**
- * @param {import("../../../lib/town/_common").Town} town
- * @param {Record<string, import("../../../lib/npc-generation/_common").NPC>} npcs
- * @param {import("../../../lib/npc-generation/_common").NPC} npc
- */
-function sameSocialClass (town, npcs, npc) {
+function sameSocialClass (town: Town, npcs: Record<string, NPC>, npc: NPC) {
   console.log('Looking for a friend of the same social class...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.socialClass === npc.socialClass
   })
-  console.log('friend:')
-  console.log(friend)
+  console.log('friend:', friend)
   if (typeof friend === 'object') {
-    const relObj = lib.weightedRandomFetcher(town, lib.socialClass[npc.socialClass].relationships(npc, friend), npc, null, 'object')
+    const relationships = lib.socialClass[npc.socialClass].relationships(npc, friend)
+    // @ts-ignore
+    // FIXME: weightedRandomFetcher expects a record, while relationships is an array.
+    const relObj = lib.weightedRandomFetcher(town, relationships, npc, null, 'object') as Relationship
+    // @ts-ignore
     setup.createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
   }
   return friend
 }
 
-/**
- * @param {import("../../../lib/town/_common").Town} town
- * @param {Record<string, import("../../../lib/npc-generation/_common").NPC>} npcs
- * @param {import("../../../lib/npc-generation/_common").NPC} npc
- */
-function sameProfessionSector (town, npcs, npc) {
+function sameProfessionSector (town: Town, npcs: Record<string, NPC>, npc: NPC) {
   console.log('Looking for a friend of the same profession sector...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.professionSector === npc.professionSector
   })
   if (friend) {
     if (npc.profession === friend.profession) {
+      // @ts-ignore
       setup.createRelationship(town, npc, friend, 'peer', 'peer')
     } else {
+      // @ts-ignore
       setup.createRelationship(town, npc, friend, 'industry peer', 'industry peer')
     }
   }
