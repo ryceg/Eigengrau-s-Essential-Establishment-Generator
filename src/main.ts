@@ -5,8 +5,20 @@
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
  * loaded by Tweego alongside loose scripts in `/src`
 */
-import './NPCGeneration/Relationships/getFatherMother'
-import './NPCGeneration/Relationships/setAsPartners'
+import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
+import { setAsPartners } from './NPCGeneration/Relationships/setAsPartners'
+
+declare global {
+  interface Setup {
+    getFatherMother: typeof getFatherMother
+    setAsPartners: typeof setAsPartners
+  }
+}
+
+Object.assign(setup, {
+  getFatherMother,
+  setAsPartners
+})
 
 /**
  * Initializes the data structures.

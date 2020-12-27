@@ -9,7 +9,7 @@ interface Parents {
 /**
  * @warn Uses State.variables.npcs
  */
-function getFatherMother (town: Town, npc: NPC): Parents {
+export const getFatherMother = (town: Town, npc: NPC): Parents => {
   let father: string | undefined
   let mother: string | undefined
 
@@ -27,11 +27,3 @@ function getFatherMother (town: Town, npc: NPC): Parents {
 
   return { father, mother }
 }
-
-declare global {
-  interface Setup {
-    getFatherMother: typeof getFatherMother
-  }
-}
-
-setup.getFatherMother = getFatherMother
