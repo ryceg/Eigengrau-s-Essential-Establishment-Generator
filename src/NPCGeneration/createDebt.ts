@@ -36,7 +36,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
-  if (profit < -300 || lib.socialClass[npc.socialClass].key <= 3) {
+  if (profit < -300 || lib.socialClass[npc.socialClass].landRate <= 3) {
     const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') || createDebtor(town)
     createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
