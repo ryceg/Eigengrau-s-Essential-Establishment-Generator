@@ -45,17 +45,17 @@ export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, t
     npcsToClean.push({ source: targetNPC.key, partner: sourceNPC.key })
   }
 
+  const { npcRelations } = town
+
   /* Remove "old" partners first */
   for (const npc of npcsToClean) {
-    const oldRelationship = town.npcRelations[npc.source].map(
-      relationship => relationship.targetNpcKey
-    ).indexOf(npc.partner)
-    town.npcRelations[npc.source].splice(oldRelationship)
+    const oldRelationship = npcRelations[npc.source].map(relationship => relationship.targetNpcKey)
+    npcRelations[npc.source].splice(oldRelationship.indexOf(npc.partner))
   }
 
   /* Create new relationship between these two */
-  town.npcRelations[sourceNPC.key].push(buildRelationship(targetNPC, type))
-  town.npcRelations[targetNPC.key].push(buildRelationship(sourceNPC, targetType))
+  npcRelations[sourceNPC.key].push(buildRelationship(targetNPC, type))
+  npcRelations[targetNPC.key].push(buildRelationship(sourceNPC, targetType))
 }
 
 function checkPreviousRelationships (town: Town, sourceNPC: NPC, targetNPC: NPC) {
