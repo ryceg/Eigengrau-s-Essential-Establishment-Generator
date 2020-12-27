@@ -36,6 +36,10 @@ body {
   z-index: -2;
 }
 
+nav {
+  display: inline;
+}
+
 #illustration-buffer {
   padding-bottom: 5vw;
 }
