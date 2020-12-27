@@ -5,10 +5,10 @@
   ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random(),
   profession: Object.keys(lib.professions).random()
 }>>
-<span class="interactive-only">\<<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>>
-\ -- <<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "settled adult", "settled adult", "elderly"]>><</listbox>>
-\ -- <<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>>
-\ -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>>
+<span class="interactive-only">\<label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
+\ -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "settled adult", "settled adult", "elderly"]>><</listbox>></label>
+\ -- <label name="NPC race" for="listbox-randomnpcrace"><<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>
+\ -- <label name="NPC profession" for="listbox-randomnpcprofession"><<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>
 \ -- <<button "Create NPC">>
   \<<if def _newNPC>>
     \<<run setup.deleteNPC($npcs[_newNPC])>>

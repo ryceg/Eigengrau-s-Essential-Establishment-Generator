@@ -20,17 +20,16 @@ I really cannot stress enough how new traffic to the site helps us- tell Kotaku,
 <</fadein>>
 <<fadein 1s 20s>>\
 Select from the dropdown to access the tool (this will be sent to me for data analytics). I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!
-<span class="tooltip" title="I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!"><<listbox "_patronSurvey">>
+<span class="tooltip" title="I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!"><label name="Select survey option" for="listbox-patronsurvey"><<listbox "_patronSurvey">>
 <<option "Sorry, not gonna happen. Paying for things isn't my style.">>
 <<option "I am already a Patron! :)">>
 <<option "I have tweeted it out or something instead of paying">>
 <<option "I will say that I'll share it but will probably forget">>
-<</listbox>></span> -- <<button "Submit my answer and take me to the good stuff!">>
+<</listbox>></label></span> -- <<button "Submit my answer and take me to the good stuff!" OutputEverything>>
 <<run setup.addGtagEvent({
   event_category: 'outputEverything',
   event_action: 'loaded',
   event_label: _patronSurvey
 })>>
 <<run State.metadata.set("seenPatreon", true)>>
-<<goto "OutputEverything">>
 <</button>><</fadein>>

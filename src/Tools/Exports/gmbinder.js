@@ -38,8 +38,8 @@ function addGMBinderPart (type) {
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 `,
     factions: `
-    <img src='https://cdnb.artstation.com/p/assets/images/images/019/755/997/large/juho-huttunen-bittervine-emissary.jpg?1564881662' class='cover-illustration' style="position:absolute; left:0; top:250px">
 
+<img src='https://cdnb.artstation.com/p/assets/images/images/019/755/997/large/juho-huttunen-bittervine-emissary.jpg?1564881662' class='cover-illustration' style="position:absolute; left:0; top:250px">
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0008.png' class='watercolour'>
 
@@ -202,7 +202,7 @@ function addGMBinderPretext () {
 Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
 
 
-<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/townIllustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/town-illustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour' style="transform:rotate(0deg);">
 

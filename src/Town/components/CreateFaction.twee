@@ -1,10 +1,10 @@
 :: CreateFaction
 <span class="interactive-only"><<silently>>
-    <<set _listbox to '<<listbox "$newFaction">>'>>
+    <<set _listbox to '<label name="Faction type" for="listbox-newfaction"><<listbox "$newFaction">>'>>
     <<for _key range Object.keys(lib.factionData.types)>>
         <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
     <</for>>
-    <<set _listbox += '<</listbox>>'>>
+    <<set _listbox += '<</listbox>></label>'>>
 <</silently>>\
 _listbox -- <<button "Create new faction">>
   <<run console.log('Creating a new ' + $newFaction)>>

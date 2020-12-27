@@ -1,13 +1,13 @@
 :: NPCProfileLKMarkdown
 <h1><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>><<run setup.expandNPC($town, $npcs[$currentPassage.key])>><</if>><<set $currentNPC to $npcs[$currentPassage.key]>><<run console.groupCollapsed($currentNPC.name)>><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name</h1>
 \<<if def $currentNPC.key>>
-    \<<button "Edit $currentNPC.name">><<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>><<goto "NPCProfileEdit">><</button>>
+    \<<button "Edit $currentNPC.name" NPCProfileEdit>><<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>><</button>>
 \<</if>> -- 
-\<<listbox "$currentNPC.outputOption">>
+\<label name="Output option" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
   <<option "Regular">>
   <<option "JSON">>
   <<option "GMBinder">>
-\<</listbox>> --
+\<</listbox>></label> --
 \<<button "Output">>
   \<<switch $currentNPC.outputOption>>
   <<case "Regular">>

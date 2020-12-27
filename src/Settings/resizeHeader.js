@@ -20,3 +20,5 @@ function isScrolledOver (amount) {
 }
 
 window.addEventListener('scroll', scrollFunction)
+
+$(document.documentElement).attr('lang', 'en')

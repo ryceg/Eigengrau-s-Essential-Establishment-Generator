@@ -1,7 +1,8 @@
 :: CookieConsent
-<div id="cookie"><<notify 500000 'cookie'>><<button "X Close">>
+<div id="cookie"><<notify 500000 'cookie'>><<button "X Disallow">><<set settings.disableAnalytics to true>><<run State.metadata.set('disableAnalytics', settings.disableAnalytics)>>
+    <<run window['ga-disable-UA-119249239-1'] = settings.disableAnalytics>><<include "RemoveCookieNotifier">><</button>><<button "X Close">>
   <<include "RemoveCookieNotifier">>
-<</button>>We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
+<</button>> -- We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
 
 If you don't want to be tracked, you can turn it off in settings, install the Google Analytics Opt Out add on, or build the generator from source on our GitHub page.
 
