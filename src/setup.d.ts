@@ -13,11 +13,9 @@ export interface Setup {
   profile(obj: NPC | Building | Faction, base?: string, type?: string): string
   createClass(town: Town, npc: NPC): void
   createFamily(town: Town, npc: NPC): void
-  expandFamily(town: Town, npc: NPC): void
   createParentage(town: Town, family: Family, npc: NPC, forceFather?: boolean, forceMother?: boolean): void
   createRelative(town: Town, family: Family, base: Partial<NPC>, force?: boolean): NPC
 
-  fetchFamily(town: Town, npc: NPC): Family
   createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
 
   createHistory(town: Town, npc: NPC): void
