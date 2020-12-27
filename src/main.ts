@@ -5,12 +5,16 @@
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
  * loaded by Tweego alongside loose scripts in `/src`
 */
+import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { setAsPartners } from './NPCGeneration/Relationships/setAsPartners'
 
 declare global {
   interface Setup {
+    createMarriage: typeof createMarriage
+    createParentage: typeof createParentage
+    createRelative: typeof createRelative
     createFriends: typeof createFriends
     getFatherMother: typeof getFatherMother
     setAsPartners: typeof setAsPartners
@@ -18,6 +22,9 @@ declare global {
 }
 
 Object.assign(setup, {
+  createMarriage,
+  createParentage,
+  createRelative,
   createFriends,
   getFatherMother,
   setAsPartners

@@ -1,5 +1,5 @@
 import { Town } from '../town/_common'
-import { NPC } from './_common'
+import { Marriage, NPC } from './_common'
 import { findProfession } from '../src/findProfession'
 import { createTippyFull } from '../src/tippy'
 import { capitalizeFirstLetter, assign } from '../src/utils'
@@ -9,7 +9,6 @@ import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { LifestyleStandardName, lifestyleStandards } from './lifestyleStandards'
-import { Marriage } from '../../src/NPCGeneration/Relationships/createFamilyMembers'
 
 const homeTable = [
   [0, 'on the streets'], // unreachable without biases

@@ -19,7 +19,6 @@ export interface Setup {
 
   fetchFamily(town: Town, npc: NPC): Family
   createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
-  createChildren(town: Town, family: Family, marriage: Marriage, amount: number, motherRace: string, fatherRace: string, force?: boolean)
   familyData: FamilyData
 
   createHistory(town: Town, npc: NPC): void
