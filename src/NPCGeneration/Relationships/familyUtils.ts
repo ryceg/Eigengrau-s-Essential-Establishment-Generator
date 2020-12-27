@@ -20,8 +20,8 @@ export const getSiblingAge = (npc: NPC): number => {
 }
 
 /**
-   * @warn Uses State.variables.npcs
-   */
+ * @warn Uses State.variables.npcs
+ */
 export const getChildAge = (marriage: Marriage): number => {
   if (marriage.parents.length > 0) {
     // find the youngest parent
