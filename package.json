@@ -19,7 +19,7 @@
     "build": "cross-env NODE_ENV=production node scripts/build",
     "start": "node scripts/build --watch",
     "test": "jest",
-    "lint": "eslint '**/*.{js,ts}'",
+    "lint": "eslint \"**/*.{js,ts}\"",
     "type": "tsc"
   },
   "husky": {
