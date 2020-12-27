@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Relationship, Town } from '@lib'
 import { createRelationship } from './createRelationship'
+import { getPartnerGender } from './createSexuality'
 
 interface Friend {
   probability?: number
@@ -33,14 +34,14 @@ export const createFriends = (town: Town, npc: NPC) => {
     'old flame': {
       relationship: 'old flame',
       base: {
-        gender: npc.partnerGenderProbability(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage
       }
     },
     'ex': {
       relationship: 'ex',
       base: {
-        gender: npc.partnerGenderProbability(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage
       }
     },
@@ -48,7 +49,7 @@ export const createFriends = (town: Town, npc: NPC) => {
       relationship: 'secret crush',
       reciprocalRelationship: ['friend', 'friend', 'friend', 'just a friend', 'creepy stalker', 'secret crush'].random(),
       base: {
-        gender: npc.partnerGenderProbability(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage,
         socialClass: npc.socialClass || 'commoner'
       }
