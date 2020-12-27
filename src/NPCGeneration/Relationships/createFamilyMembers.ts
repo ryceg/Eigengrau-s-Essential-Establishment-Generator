@@ -155,6 +155,7 @@ const createChildren = (town: Town, family: Family, marriage: Marriage, amount: 
   console.log(`Creating ${amount} siblings...`)
   console.log(family)
 
+  // @ts-ignore
   const surname = getChildSurname(marriage)
   const siblingClass = marriage.socialClass
 
