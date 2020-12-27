@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Relationship, Town } from '@lib'
+import { createRelationship } from './createRelationship'
 
 interface Friend {
   probability?: number
@@ -150,8 +151,7 @@ export const createFriends = (town: Town, npc: NPC) => {
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
     // @ts-ignore
     const friend = setup.createNPC(town, friendObj.base)
-    // @ts-ignore
-    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
+    createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 
   for (let step = 0; step < friendsNumber; step++) {
@@ -163,10 +163,10 @@ export const createFriends = (town: Town, npc: NPC) => {
     }
 
     console.log('Finding an already existing NPC for a friend!')
-    let friend = sameSocialClass(town, State.variables.npcs, npc)
+    let friend = findFriendOfSameSocialClass(town, State.variables.npcs, npc)
     if (typeof friend === 'undefined') {
       console.log(`Nobody was in the same caste as ${npc.name}`)
-      friend = sameProfessionSector(town, State.variables.npcs, npc)
+      friend = findFriendInSameProfessionSector(town, State.variables.npcs, npc)
     }
     if (typeof friend === 'undefined') {
       console.log(`Nobody was in the same profession sector as ${npc.name}`)
@@ -183,7 +183,7 @@ function basicFilterNpc (town: Town, npc: NPC, otherNpc: NPC) {
   return !related.includes(npc.key) && otherNpc.key !== npc.key
 }
 
-function sameSocialClass (town: Town, npcs: Record<string, NPC>, npc: NPC) {
+function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc: NPC) {
   console.log('Looking for a friend of the same social class...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.socialClass === npc.socialClass
@@ -200,7 +200,7 @@ function sameSocialClass (town: Town, npcs: Record<string, NPC>, npc: NPC) {
   return friend
 }
 
-function sameProfessionSector (town: Town, npcs: Record<string, NPC>, npc: NPC) {
+function findFriendInSameProfessionSector (town: Town, npcs: Record<string, NPC>, npc: NPC) {
   console.log('Looking for a friend of the same profession sector...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.professionSector === npc.professionSector

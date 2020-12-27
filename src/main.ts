@@ -6,6 +6,7 @@
  * loaded by Tweego alongside loose scripts in `/src`
 */
 import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
+import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 
@@ -14,6 +15,7 @@ declare global {
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
     createRelative: typeof createRelative
+    createRelationship: typeof createRelationship
     createFriends: typeof createFriends
     getFatherMother: typeof getFatherMother
   }
@@ -23,6 +25,7 @@ Object.assign(setup, {
   createMarriage,
   createParentage,
   createRelative,
+  createRelationship,
   createFriends,
   getFatherMother
 })
