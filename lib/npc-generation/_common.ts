@@ -59,6 +59,8 @@ export interface NPC {
     /** The number used to determine their religious fervor. */
     religiosity: number
     socialClass: number
+    kinsey: number
+    sexuality?: number
   }
   partnerID?: string
   lifeEvents: string[]
