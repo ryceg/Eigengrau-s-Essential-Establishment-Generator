@@ -15,6 +15,7 @@ import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
 import { getWakeupByWealth } from './Tavern/js/getWakeUpByWealth'
 import { createBartender } from './Tavern/js/createBartender'
+import { createTavern } from './Tavern/js/createTavern'
 
 declare global {
   interface Setup {
@@ -30,6 +31,7 @@ declare global {
     createDebt: typeof createDebt
     getWakeupByWealth: typeof getWakeupByWealth
     createBartender: typeof createBartender
+    createTavern: typeof createTavern
   }
 }
 
@@ -45,7 +47,8 @@ Object.assign(setup, {
   checkRaces,
   createDebt,
   getWakeupByWealth,
-  createBartender
+  createBartender,
+  createTavern
 })
 
 /**

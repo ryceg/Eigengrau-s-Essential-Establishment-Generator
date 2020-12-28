@@ -1,11 +1,13 @@
-
-setup.createTavern = (town, opts = {}) => {
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { NPC, Tavern, Town } from '@lib'
+export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
   const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
+  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC) as NPC
   tavern.bartender = tavern.associatedNPC
+  // @ts-ignore
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
     gender: 'woman',
