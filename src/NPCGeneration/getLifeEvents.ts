@@ -25,17 +25,17 @@ export const getLifeEvents = (npc: NPC) => {
     return total + lib.random([
       lifeEvent.toUpperFirst(),
       lifeEvent.toUpperFirst(),
-        `How could I ever forget the time ${lifeEvent} `,
-        `After that, ${lifeEvent}`,
-        `Not to mention there was the time ${lifeEvent}`,
-        `Oh, and I can't forget the time ${lifeEvent} `,
-        `There was this one time, ${lifeEvent} `,
-        `Once ${lifeEvent} `,
-        `One time ${lifeEvent} `,
-        `You might not believe it, but ${lifeEvent} `,
-        `I forget exactly when, but at one point, ${lifeEvent} `,
-        `At one point ${lifeEvent} `,
-        `I'll always remember the time ${lifeEvent} `
+      `How could I ever forget the time ${lifeEvent} `,
+      `After that, ${lifeEvent}`,
+      `Not to mention there was the time ${lifeEvent}`,
+      `Oh, and I can't forget the time ${lifeEvent} `,
+      `There was this one time, ${lifeEvent} `,
+      `Once ${lifeEvent} `,
+      `One time ${lifeEvent} `,
+      `You might not believe it, but ${lifeEvent} `,
+      `I forget exactly when, but at one point, ${lifeEvent} `,
+      `At one point ${lifeEvent} `,
+      `I'll always remember the time ${lifeEvent} `
     ])
   }, '')
 
