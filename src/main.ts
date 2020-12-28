@@ -13,6 +13,8 @@ import { getFamily } from './NPCGeneration/Relationships/getFamily'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
+import { getWakeupByWealth } from './Tavern/js/getWakeUpByWealth'
+import { createBartender } from './Tavern/js/createBartender'
 
 declare global {
   interface Setup {
@@ -26,6 +28,8 @@ declare global {
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
     createDebt: typeof createDebt
+    getWakeupByWealth: typeof getWakeupByWealth
+    createBartender: typeof createBartender
   }
 }
 
@@ -39,7 +43,9 @@ Object.assign(setup, {
   getFamily,
   getFatherMother,
   checkRaces,
-  createDebt
+  createDebt,
+  getWakeupByWealth,
+  createBartender
 })
 
 /**
