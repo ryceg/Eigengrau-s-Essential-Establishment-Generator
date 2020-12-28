@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { NPC, Town } from '@lib'
+import type { Town } from '@lib'
 import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
 
 export const plothooks = [
@@ -128,14 +128,14 @@ export const plothooks = [
     exclusions (town: Town) {
       return town.professions.zookeeper.population > 0 && town.roll.wealth > 50
     },
-    function (_town: Town) {
+    function () {
       return 'The city has a zoo filled with wondrous and dangerous creatures brought from far places. Just recently, some of the creatures escaped and now there is a royal reward for recovering the rare animals unharmed. How can this be done?'
     }
   },
   {
     summary: 'The Plague',
     type: ['event'],
-    function (_town: Town) {
+    function () {
       return 'The sector of the city lies under quarantine after an outbreak of a mysterious fever. The party is being kept inside, and one of its members is starting to show symptoms of the illness. Do they try to escape, risking further contagion, or do they try to find a cure from the inside?'
     }
   },
@@ -249,7 +249,7 @@ export const plothooks = [
   {
     summary: 'The One True God',
     type: ['event'],
-    function (_town: Town) {
+    function () {
       return 'There is but one accepted religion in town. What about the party cleric who serves what is here deemed a false god?'
     }
   },
@@ -260,7 +260,7 @@ export const plothooks = [
       object: 'building',
       type: 'docks'
     },
-    function (_town: Town) {
+    function () {
       return "A fast ship in the bay is bombarding the helpless port with siege engines. It's out of range for the locals to deal with, and possibly not alone."
     }
   },
@@ -336,7 +336,7 @@ export const plothooks = [
   {
     summary: 'The Bad Architect',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return "A string of building construction accidents has occurred lately throughout the city. Fortunately, no one's been seriously hurt, but the accidents are increasing in size and damage. The local guild has put up flyers asking for help in solving their problem."
     }
   },
@@ -389,7 +389,7 @@ export const plothooks = [
     exclusions (town: Town) {
       return town.population > 3500
     },
-    function (_town: Town) {
+    function () {
       return 'As the PCs are travelling from one district to another they are confronted by a traffic jam. A building has fallen in and the umber hulk responsible is hiding, waiting for a snack to move near it.'
     }
   },
@@ -422,14 +422,14 @@ export const plothooks = [
   {
     summary: 'Doppelganger Dead Or Alive',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return "The piece of paper bears large block letters, stating 'WANTED', with an illustration underneath- the faces below bear a remarkable similarity to your own..."
     }
   },
   {
     summary: 'Eggs',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return "The paper has the headline 'HENS STOPPED LAYING, EGGS COST 2 SILVER! Apparently, all hens in the area have stopped laying eggs, and has driven the price of eggs sky high."
     }
   },
@@ -517,7 +517,7 @@ export const plothooks = [
   {
     summary: 'Sunk Ore',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'Strong Swimmer Needed! My simpleton apprentice left my ore cart unattended on the bridge and the blasted thing tumbled into the river! Hopefully the ore is still in there somewhere, I’ll pay gold to anyone who can get me my ore!'
     }
   },
@@ -539,7 +539,7 @@ export const plothooks = [
     summary: 'Squirrel Hunting',
 
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'Squirrel Hunting: A squirrel has been seen in town stealing jewellery from citizens. We think there may be more than one squirrel involved — they always head west after the theft. They need to be captured or killed; a bonus available if stolen items are returned.'
     }
   },
@@ -593,7 +593,7 @@ export const plothooks = [
   {
     summary: 'Wandering Skeleton',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'Wandering Skeleton: Wandering Skeleton seen on the outskirts of town. It appears armed with a sword, shield and horned helmet. Dispatch this skeleton and we’ll offer you 10% off anything in town.'
     }
   },
@@ -639,7 +639,7 @@ export const plothooks = [
   {
     summary: 'Mushroom Forager',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'Our beloved mushroom forager, has not returned from the forest. He was last seen four days ago. Need help finding him(her?)!'
     }
   },
@@ -800,7 +800,7 @@ export const plothooks = [
   {
     summary: 'Destroy The Bell',
     type: ['paper'],
-    exclusions (town: Town, _npc: NPC) {
+    exclusions (town: Town) {
       return town.population > 5000
     },
     function (town: Town) {
@@ -833,7 +833,7 @@ export const plothooks = [
   {
     summary: 'Weird Well Water',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'The well water has started tasting funny, someone should look into that.'
     }
   },
@@ -894,7 +894,7 @@ export const plothooks = [
   {
     summary: 'Mines Hiring',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'A notice to those on hard times that the mines are hiring, the tag line on the bottom says ‘We’ve cleared out the danger that once struck our mine and threatened the safety of the miners, we are confident that resuming our operations shall be fruitful and safe for all.’ (Underneath that is a hand written note directly under the text, ‘So much for your confidence.’)'
     }
   },
@@ -1080,7 +1080,7 @@ export const plothooks = [
   {
     summary: 'Barghests Trap',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'BIG AWARD MONEY!! Near forest there is cave. In cave small monster. Need help with monster. WILL AWARD BIG MONEY!! (A barghest’s trap, prepared by goblins to lure adventurers in and devour them alive)'
     }
   },
@@ -1449,7 +1449,7 @@ export const plothooks = [
   {
     summary: 'Thieves Cant Thieve Here',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'A set of seemingly innocuous symbols is carved into the side of a barrel underneath the board, all in Thieves’ Cant. The symbols are being used for a purpose they’re very much not meant for, and the message is patchy and uncertain. ‘Dangerous Area.’ ‘Owner not home.’ ‘Owner is Vigilant.’ Meaning: One for the rogues! The local thieves’ guild has found that their missions in the area have ended… poorly. Their new recruits are raving about some kind of spirit, and the veterans insist that something just isn’t right.'
     }
   },
@@ -1537,7 +1537,7 @@ export const plothooks = [
   {
     summary: 'Riddle Maker Needed',
     type: ['paper'],
-    function (_town: Town) {
+    function () {
       return 'Looking for riddle maker. You make riddles, we buy ’em! For more information contact your local Wizards Association.'
     }
   },
@@ -1694,7 +1694,7 @@ export const plothooks = [
       object: 'building',
       type: 'tavern'
     },
-    function (_town: Town) {
+    function () {
       return 'Ten sailors come up to the party, laughing drunkenly. They seem interested in buying you all drinks, and are more than happy to chat and joke with anyone who seems jovial. If any PCs accept their offer of drinks, they will wake up to find themselves press-ganged into service on a pirate ship.'
     }
   },
