@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
+import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 
 interface Options {
   newBuilding?(town: Town, type: string): Building
@@ -21,16 +22,18 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     bartender: tavern.associatedNPC
   })
 
-  // @ts-ignore
-  tavern.barmaid = setup.createNPC(town, {
-    isShallow: true,
-    gender: 'woman',
-    background: 'commoner',
-    hasClass: false,
-    profession: 'barmaid'
+  lib.assign(tavern, {
+    // @ts-ignore
+    barmaid: setup.createNPC(town, {
+      isShallow: true,
+      gender: 'woman',
+      background: 'commoner',
+      hasClass: false,
+      profession: 'barmaid'
+    })
   })
-  // @ts-ignore
-  setup.createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
+
+  createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
   // @ts-ignore
   lib.createBuildingRelationship(town, tavern, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'place of employment' })
 
