@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { NPC, Tavern } from '@lib'
+import type { NPC, Tavern } from '@lib'
 
 export const getWakeUpByWealth = (tavern: Tavern): string => {
   const bartender = tavern.associatedNPC as NPC

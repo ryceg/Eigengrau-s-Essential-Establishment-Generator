@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { NPC, Tavern, Town } from '@lib'
+import type { NPC, Tavern, Town } from '@lib'
 
 export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
   const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { NPC, Tavern, Town } from '@lib'
+import type { NPC, Tavern, Town } from '@lib'
 
 export const createBartender = function (town: Town, tavern: Tavern, opts: Partial<NPC>) {
   // @ts-ignore
