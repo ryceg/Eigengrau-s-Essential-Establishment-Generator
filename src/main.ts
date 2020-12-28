@@ -13,7 +13,7 @@ import { getFamily } from './NPCGeneration/Relationships/getFamily'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
-import { getWakeupByWealth } from './Tavern/js/getWakeUpByWealth'
+import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
 import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
 
@@ -29,7 +29,7 @@ declare global {
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
     createDebt: typeof createDebt
-    getWakeupByWealth: typeof getWakeupByWealth
+    getWakeUpByWealth: typeof getWakeUpByWealth
     createBartender: typeof createBartender
     createTavern: typeof createTavern
   }
