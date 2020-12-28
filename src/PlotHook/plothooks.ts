@@ -450,7 +450,7 @@ export const plothooks = [
     summary: 'Hubert',
     type: ['paper'],
     exclusions (town: Town) {
-      return town.population > 3000 || town.roll.magic > 70
+      return town.population > 3000
     },
     function (town: Town) {
       // @ts-ignore
@@ -475,7 +475,7 @@ export const plothooks = [
   {
     summary: 'Guard The Garlic',
     type: ['paper'],
-    exclusions (town: Town, _npc: NPC) {
+    exclusions (town: Town) {
       return town.population > 500
     },
     function (town: Town) {
@@ -486,7 +486,7 @@ export const plothooks = [
         note: 'Is hosting a banquet for vampires.'
       })
       // @ts-ignore
-      return `${setup.profile(npc, 'I')}need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. <<money 20000>> per person, payed upfront. No questions asked. (All the guests are vampires.)`
+      return `${setup.profile(npc, 'I')} need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. <<money 20000>> per person, payed upfront. No questions asked. (All the guests are vampires.)`
     }
   },
   {
