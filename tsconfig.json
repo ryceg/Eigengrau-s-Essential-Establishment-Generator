@@ -3,6 +3,7 @@
     "module": "esnext",
     "target": "es2015",
     "strict": true,
+    "noImplicitAny": true,
     "sourceMap": true,
     "esModuleInterop": true ,
     "resolveJsonModule": true,
