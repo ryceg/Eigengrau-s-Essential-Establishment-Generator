@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Town } from '@lib'
 
-export const createBartender = function (town: Town, tavern: Building, opts: Partial<NPC>): NPC {
+export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC>): NPC => {
   // @ts-ignore
   const bartender = setup.createNPC(town, Object.assign({
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].random(),
