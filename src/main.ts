@@ -29,7 +29,7 @@ declare global {
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
     createDebt: typeof createDebt
-    getWakeupByWealth: typeof getWakeUpByWealth
+    getWakeUpByWealth: typeof getWakeUpByWealth
     createBartender: typeof createBartender
     createTavern: typeof createTavern
   }
@@ -46,7 +46,7 @@ Object.assign(setup, {
   getFatherMother,
   checkRaces,
   createDebt,
-  getWakeupByWealth,
+  getWakeUpByWealth,
   createBartender,
   createTavern
 })
