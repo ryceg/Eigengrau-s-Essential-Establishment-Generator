@@ -175,6 +175,7 @@ export const plothooks = [
       type: 'smithy'
     },
     function (town: Town) {
+      // @ts-ignore
       const smithy = lib.findInArray(town.buildings, 'buildingType', 'smithy') || setup.createNewBuilding(town, 'smithy')
       console.log(smithy)
       // var blacksmith = smithy.associatedNPC
@@ -200,6 +201,7 @@ export const plothooks = [
       return town.population > 3000 && town.roll.wealth < 90
     },
     function (town: Town) {
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'wizards')
       // @ts-ignore
       const npc = setup.createNPC(town, {
@@ -308,6 +310,7 @@ export const plothooks = [
       type: ['thieves', 'assassins']
     },
     function (town: Town) {
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'thieves')
       // @ts-ignore
       return `PCs are marked by a ${setup.profile(faction, 'guild of thieves', 'town.factions')}, for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.`
@@ -450,6 +453,7 @@ export const plothooks = [
       return town.population > 3000 || town.roll.magic > 70
     },
     function (town: Town) {
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'wizards')
       return `${'‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "'}${JSON.stringify(faction.name)}">><<set $currentPassage to {faction: ${JSON.stringify(faction)}}>><<goto "FactionProfile">><</link>> . Please return if found!’`
     }
@@ -608,6 +612,7 @@ export const plothooks = [
     summary: 'Bard Wanted',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       console.log('Taverns:')
       console.log(building)
@@ -680,8 +685,9 @@ export const plothooks = [
     summary: 'Koboliam Ore',
     type: ['paper'],
     function (town: Town) {
-      const blacksmithPool = town.buildings.smithy
-      const smithy = lib.getRandomValue(blacksmithPool)
+      // FIXME
+      // @ts-ignore
+      const smithy = lib.findInArray(town.buildings, 'buildingType', 'smithy') || setup.createNewBuilding(town, 'Smithy')
       // @ts-ignore
       return `Koboliam Ore Needed: A local ${setup.profile(smithy.associatedNPC, 'blacksmith')} needs Koboliam Ore, which is only found in the Myriad caves to the North. Once a Kobold stronghold, this abandoned cave is full of traps and possibly other dangers — will pay top gold for each block of Ore.`
     }
@@ -816,6 +822,7 @@ export const plothooks = [
     summary: 'Need Bartender',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // @ts-ignore
       return `Needed bartender. Looking to employ a bartender for my inn, ${setup.profile(building, null, 'town.buildings')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
@@ -959,6 +966,7 @@ export const plothooks = [
     summary: 'A Muse-ment',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // @ts-ignore
       const npc = setup.createNPC(town, {
@@ -1000,6 +1008,7 @@ export const plothooks = [
     summary: 'Who Am I',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // @ts-ignore
       const npc = setup.createNPC(town, {
@@ -1015,6 +1024,7 @@ export const plothooks = [
     summary: 'Bouncers Needed',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // #
       // @ts-ignore
@@ -1316,6 +1326,7 @@ export const plothooks = [
     summary: 'Berate Me',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // @ts-ignore
       const npc = setup.createNPC(town, {
@@ -1363,6 +1374,7 @@ export const plothooks = [
     summary: 'Huckleberry',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // @ts-ignore
       const npc = setup.createNPC(town, {
@@ -1644,6 +1656,7 @@ export const plothooks = [
         profession: 'druid',
         ageStage: 'settled adult'
       })
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'druids')
       // @ts-ignore
       return `A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ${druid1} and ${druid2}, are more than happy to introduce the party to ${setup.profile(faction, '', 'town.factions')}.`
@@ -1666,6 +1679,7 @@ export const plothooks = [
     summary: 'The Crack',
     type: ['event'],
     function (town: Town) {
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'mercenaries')
       // @ts-ignore
       return `A huge crack has recently appeared in the center of the town square. ${setup.profile(faction, '', 'town.factions')} are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.`
@@ -1729,6 +1743,7 @@ export const plothooks = [
     summary: 'Brimstone!',
     type: ['paper'],
     function (town: Town) {
+      // @ts-ignore
       const faction = setup.factionsForType(town, 'type', 'clergy')
       // @ts-ignore
       return `Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ${setup.profile(faction, '', 'town.factions')}!`
