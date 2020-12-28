@@ -1,5 +1,9 @@
-// Uses State.variables.npcs, State.variables.town
-setup.deleteNPC = npc => {
+import { NPC } from '@lib'
+
+/**
+ * Uses State.variables.npcs
+ */
+export const deleteNPC = (npc: string | NPC) => {
   if (!npc) return
   console.log('Deleting NPC!', npc)
 
@@ -12,33 +16,38 @@ setup.deleteNPC = npc => {
   delete State.variables.npcs[npc.key]
 }
 
-setup.deleteThrowawayNPCs = () => {
+/**
+ * Uses State.variables.npcs
+ */
+export const deleteThrowawayNPCs = () => {
   const npcs = Object.values(State.variables.npcs)
 
   for (const npc of npcs) {
     if (npc.isThrowaway === true) {
-      setup.deleteNPC(npc)
+      deleteNPC(npc)
     }
   }
 }
 
-function removeForeignRelations (npc) {
+function removeForeignRelations (npc: NPC) {
   const town = State.variables.town
 
   const npcsWithRelationshipsToNpc = town.npcRelations[npc.key].map(r => r.targetNpcKey)
   for (const npcWRTN in npcsWithRelationshipsToNpc) {
-    if (town.npcRelations[npcWRTN]) {
-      const index = town.npcRelations[npcWRTN].map(r => r.targetNpcKey).indexOf(npc)
-      town.npcRelations[npcWRTN].splice(index, 1)
+    const relations = town.npcRelations[npcWRTN]
+    if (relations) {
+      lib.removeFromArrayByPredicate(relations, r => r.targetNpcKey === npc.key)
     }
   }
 }
 
-function deleteOwnRelations (npc) {
+function deleteOwnRelations (npc: NPC) {
   delete State.variables.town.npcRelations[npc.key]
 }
 
-function deleteRelations (npc) {
-  if (State.variables.town.npcRelations[npc.key]) removeForeignRelations(npc)
+function deleteRelations (npc: NPC) {
+  if (State.variables.town.npcRelations[npc.key]) {
+    removeForeignRelations(npc)
+  }
   deleteOwnRelations(npc)
 }
