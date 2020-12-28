@@ -46,7 +46,7 @@ Object.assign(setup, {
   getFatherMother,
   checkRaces,
   createDebt,
-  getWakeupByWealth,
+  getWakeUpByWealth,
   createBartender,
   createTavern
 })
