@@ -1,3 +1,18 @@
+import { Town, NPC } from '@lib'
+
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+export type FamilyUnit = {
+  probability: number
+  exclusions (town: Town, obj: FamilyUnitObj): boolean
+  descriptor: string
+}
+
+export type FamilyUnitObj = {
+  npc: NPC
+  father: any
+  mother: any
+}
+
 /** @type {import("../../lib/index").ThresholdTable} */
 const birthplaceTable = [
   [50, 'at home'],
@@ -40,72 +55,72 @@ const birthplaceTable = [
 const familyUnits = {
   bothParents: {
     probability: 25,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my mother and father'
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
     descriptor: 'my single stepmother'
   },
   singleMother: {
     probability: 14,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
     descriptor: 'my single mother'
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
     descriptor: 'my single stepfather'
   },
   singleFather: {
     probability: 14,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
     descriptor: 'my single father'
   },
   adoptiveFamily: {
     probability: 10,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my adoptive family'
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => familyUnitObj.mother && lib.knewParents(town, familyUnitObj.mother),
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.mother && lib.knewParents(town, familyUnitObj.mother),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, familyUnitObj) => familyUnitObj.father && lib.knewParents(town, familyUnitObj.father),
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.father && lib.knewParents(town, familyUnitObj.father),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
     probability: 8,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my extended family'
   },
   guardian: {
     probability: 2,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my guardian'
   },
   orphanage: {
     probability: 2,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the orphanage'
   },
   temple: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the temple'
   },
   institution: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the institution'
   },
   streets: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
+    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
@@ -115,7 +130,7 @@ const familyUnits = {
  * @param {import("../../lib/npc-generation/_common").NPC} npc
  * @warn Uses setup.getFatherMother
  */
-setup.createHistory = function (town, npc) {
+export const createHistory = (town: Town, npc: NPC) => {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
@@ -136,8 +151,7 @@ setup.createHistory = function (town, npc) {
     } else {
       const { father, mother } = setup.getFatherMother(town, npc)
       const familyUnitObj = { npc, father, mother }
-      /** @type {string} */
-      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, familyUnitObj, null, 'descriptor')
+      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, familyUnitObj, undefined, 'descriptor') as string
       if (parentMarriage) {
         lib.assign(parentMarriage, { familyUnit: npc.familyUnit })
       }
@@ -169,21 +183,20 @@ setup.createHistory = function (town, npc) {
 }
 
 /**
- * @param {import("../../lib/town/_common").Town} town
- * @param {import("../../lib/npc-generation/_common").NPC} npc
- * @returns {string}
  * @warn Uses setup.createNPC, setup.createRelationship
  */
-function createChildhoodMemories (town, npc) {
+function createChildhoodMemories (town: Town, npc: NPC) {
   if (npc.childhoodMemories) {
     return npc.childhoodMemories
   }
 
   if (npc.roll.gregariousness >= 18) {
+    // @ts-ignore
     const friend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
+    // @ts-ignore
     const bestFriend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
@@ -194,6 +207,7 @@ function createChildhoodMemories (town, npc) {
   }
 
   if (npc.roll.gregariousness >= 16) {
+    // @ts-ignore
     const friend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
@@ -203,6 +217,7 @@ function createChildhoodMemories (town, npc) {
   }
 
   if (npc.roll.gregariousness >= 13) {
+    // @ts-ignore
     const friend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
@@ -224,12 +239,15 @@ function createChildhoodMemories (town, npc) {
   }
 
   if (npc.roll.gregariousness < 4) {
+    // @ts-ignore
     const friend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(1, 3),
+      // @ts-ignore
       childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${setup.profile(npc, npc.firstName)}`
     })
     setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
     return 'I am still haunted by my childhood, where I was treated badly by my peers'
   }
+  return 'I had a few close friends, and my childhood was a relatively normal one'
 }
