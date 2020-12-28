@@ -14,6 +14,7 @@ import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
+import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 
 declare global {
   interface Setup {
@@ -29,6 +30,7 @@ declare global {
     createDebt: typeof createDebt
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
+    getLifeEvents: typeof getLifeEvents
   }
 }
 
@@ -44,7 +46,8 @@ Object.assign(setup, {
   checkRaces,
   createDebt,
   deleteNPC,
-  deleteThrowawayNPCs
+  deleteThrowawayNPCs,
+  getLifeEvents
 })
 
 /**
