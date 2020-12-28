@@ -99,15 +99,16 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
       tavern.notableFeature = `its ${tavern.draw}`
   }
   lib.tavernModifiers(town, tavern)
-  tavern.lodging = 0
-  tavern.colour1 = getRandomTavernColour()
-  tavern.colour2 = getRandomTavernColour()
 
-  // Define entertainment if large enough
-  if (tavern.roll.size >= 30) {
+  lib.assign(tavern, {
+    lodging: 0,
+    colour1: getRandomTavernColour(),
+    colour2: getRandomTavernColour(),
     // @ts-ignore
-    tavern.entertainment = setup.tavern.get.entertainment(tavern)
-  } else tavern.entertainment = ''
+    // Define entertainment if large enough
+    entertainment: tavern.roll.size >= 30 ? setup.tavern.get.entertainment(tavern) : ''
+  })
+
   // Define tavern feature based on wealth
   if (tavern.roll.wealth <= 35) {
     // @ts-ignore
