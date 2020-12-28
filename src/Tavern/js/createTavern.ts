@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { NPC, Tavern, Town } from '@lib'
+
 export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
   const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
 
@@ -23,9 +24,11 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
+    // @ts-ignore
     stageDescriptor: setup.tavern.stageDescriptor.random(),
     wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
+    // @ts-ignore
     fun: setup.tavern.fun.random(),
     type: [
       'quiet and low-key bar',
@@ -50,11 +53,14 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
       'brothel',
       'brothel'
     ].random(),
+    // @ts-ignore
     // patrons: setup.tavern.patrons.random(),
+    // @ts-ignore
     game: setup.tavern.games.random()
   })
   tavern.roll.bedCleanliness = random(1, 100)
 
+  // @ts-ignore
   Object.assign(tavern, setup.tavern.get.draws(town, tavern))
 
   if (tavern.draw === 'proximity to the church') {
@@ -79,14 +85,18 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
 
   // Define entertainment if large enough
   if (tavern.roll.size >= 30) {
+    // @ts-ignore
     tavern.entertainment = setup.tavern.get.entertainment(tavern)
   } else tavern.entertainment = ''
   // Define tavern feature based on wealth
   if (tavern.roll.wealth <= 35) {
+    // @ts-ignore
     tavern.feature = setup.tavern.get.cheapFeature(tavern)
   } else if (tavern.roll.wealth <= 65) {
+    // @ts-ignore
     tavern.feature = setup.tavern.get.averageFeature(tavern)
   } else if (tavern.roll.wealth > 65) {
+    // @ts-ignore
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
   // Sets up building structure and creates building description
@@ -95,6 +105,7 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
+    // @ts-ignore
     lib.defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
   }
   // lib.tavernRender(tavern)
@@ -102,28 +113,6 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
   console.log(tavern)
   console.groupEnd()
   return tavern
-}
-
-setup.getTavernLodging = tavern => {
-  console.log(`Fetching ${tavern.name} lodging.`)
-  const { wealth } = setup.tavern.rollData
-
-  const [,, lodging] = wealth.rolls.find(([threshold]) => {
-    return threshold <= tavern.roll.wealth
-  }) || lib.last(wealth.rolls)
-
-  return lodging
-}
-
-setup.getTavernBedCleanliness = (tavern) => {
-  console.log(`Fetching ${tavern.name} bed cleanliness.`)
-  const { cleanliness } = setup.tavern.rollData
-
-  const [, bedCleanliness] = cleanliness.rolls.find(([threshold]) => {
-    return threshold <= tavern.roll.bedCleanliness
-  }) || lib.last(cleanliness.rolls)
-
-  return bedCleanliness
 }
 
 function getRandomTavernColour () {
