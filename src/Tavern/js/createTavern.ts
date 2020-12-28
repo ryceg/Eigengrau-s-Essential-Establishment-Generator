@@ -1,13 +1,26 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { NPC, Tavern, Town } from '@lib'
+import type { Building, NPC, Tavern, Town } from '@lib'
 
-export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
+interface Options {
+  newBuilding?(town: Town, type: string): Building
+  newBartender?(town: Town, tavern: Building, base?: Partial<NPC>): NPC
+  associatedNPC?: Partial<NPC>
+}
+
+export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
-  tavern.associatedNPC = (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC) as NPC
-  tavern.bartender = tavern.associatedNPC
+
+  lib.assign(tavern, {
+    associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
+  })
+
+  lib.assign(tavern, {
+    bartender: tavern.associatedNPC
+  })
+
   // @ts-ignore
   tavern.barmaid = setup.createNPC(town, {
     isShallow: true,
@@ -16,8 +29,9 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
     hasClass: false,
     profession: 'barmaid'
   })
+  // @ts-ignore
   setup.createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
-
+  // @ts-ignore
   lib.createBuildingRelationship(town, tavern, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'place of employment' })
 
   Object.assign(tavern, {
@@ -58,7 +72,10 @@ export const createTavern = (town: Town, opts: unknown = {}): Tavern => {
     // @ts-ignore
     game: setup.tavern.games.random()
   })
-  tavern.roll.bedCleanliness = random(1, 100)
+
+  lib.assign(tavern.roll, {
+    bedCleanliness: random(1, 100)
+  })
 
   // @ts-ignore
   Object.assign(tavern, setup.tavern.get.draws(town, tavern))
