@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Town } from '@lib'
+import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
+
 export const plothooks = [
   {
     summary: 'Roleplay Questions',
@@ -183,7 +185,7 @@ export const plothooks = [
       const npc = setup.createNPC(town, {
         profession: 'blacksmith'
       })
-      setup.createRelationship(town, npc, smithy.associatedNPC, 'competitor on a contract', 'competitor on a contract')
+      createRelationship(town, npc, smithy.associatedNPC, 'competitor on a contract', 'competitor on a contract')
       lib.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
       // TODO: fix this
       // @ts-ignore
@@ -1583,7 +1585,7 @@ export const plothooks = [
         hasClass: true,
         gender: 'man'
       })
-      setup.createRelationship(town, npc, secondNpc, 'friend', 'friend')
+      createRelationship(town, npc, secondNpc, 'friend', 'friend')
       // @ts-ignore
       return `Help! My good friend ${setup.profile(secondNpc)} has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ${setup.profile(npc, npc.firstName)}.`
     }
@@ -1632,7 +1634,7 @@ export const plothooks = [
         background: 'noble',
         race: 'elf'
       })
-      setup.createRelationship(town, npc, secondNpc, 'rival', 'rival')
+      createRelationship(town, npc, secondNpc, 'rival', 'rival')
       // @ts-ignore
       return `Help settle a minor dispute between two noble Elven houses! House ${setup.profile(npc, npc.lastName)} is looking for adventurers to help draw the domain lines with the House ${setup.profile(secondNpc, secondNpc.lastName)} border. If you are strong of arm and fleet of foot, inquire at the ${setup.profile(npc, npc.lastName)} Manor.`
     }
