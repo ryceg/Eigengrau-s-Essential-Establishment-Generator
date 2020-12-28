@@ -34,8 +34,10 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   })
 
   createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
-  // @ts-ignore
-  lib.createBuildingRelationship(town, tavern, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'place of employment' })
+  lib.createBuildingRelationship(town, tavern, tavern.barmaid, {
+    relationship: 'employee',
+    reciprocalRelationship: 'place of employment'
+  })
 
   Object.assign(tavern, {
     passageName: 'TavernOutput',
