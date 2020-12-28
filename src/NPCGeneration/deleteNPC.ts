@@ -36,13 +36,9 @@ function removeForeignRelations (npc: NPC) {
   for (const npcWRTN in npcsWithRelationshipsToNpc) {
     const relations = town.npcRelations[npcWRTN]
     if (relations) {
-      removeFromArray(relations, r => r.targetNpcKey === npc.key)
+      lib.removeFromArrayByPredicate(relations, r => r.targetNpcKey === npc.key)
     }
   }
-}
-
-function removeFromArray<T> (array: T[], predicate: (value: T, index: number, array: T[]) => boolean) {
-  array.splice(array.findIndex(predicate), 1)
 }
 
 function deleteOwnRelations (npc: NPC) {
