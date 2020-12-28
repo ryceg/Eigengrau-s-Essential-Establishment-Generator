@@ -13,7 +13,7 @@ const plugins = [
   // avoids issues with the Node-specific variable `process`.
   replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
   json(),
-  babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled', sourceMaps: !isProduction }),
+  babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled' }),
   nodeResolve({ browser: true }),
   commonjs({ extensions: ['.js', '.ts', '.json'] })
 ]
@@ -27,11 +27,11 @@ module.exports = [
     input: 'src/main.ts',
     plugins,
     external: ['@lib'],
-    output: { file: 'src/init.js', format: 'iife', globals: { '@lib': 'lib' } }
+    output: { file: 'src/init.js', format: 'iife', globals: { '@lib': 'lib' }, sourcemap: 'inline' }
   },
   {
     input: 'lib/index.ts',
     plugins,
-    output: { format: 'iife', name: 'lib', file: './gh-pages/main.js' }
+    output: { format: 'iife', name: 'lib', file: './gh-pages/main.js', sourcemap: true }
   }
 ]
