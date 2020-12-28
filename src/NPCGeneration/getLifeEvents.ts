@@ -29,9 +29,9 @@ export const getLifeEvents = (npc: NPC) => {
         `Once ${lifeEvent} `,
         `One time ${lifeEvent} `,
         `You might not believe it, but ${lifeEvent} `,
-        `I forget exactly when, but at one point, ${lifeEvent}`,
-        `At one point ${lifeEvent}`,
-        `I'll always remember the time ${lifeEvent}`
+        `I forget exactly when, but at one point, ${lifeEvent} `,
+        `At one point ${lifeEvent} `,
+        `I'll always remember the time ${lifeEvent} `
       ])
     }, '')
   }
