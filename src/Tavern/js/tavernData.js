@@ -1103,7 +1103,7 @@ setup.initTavernData = () => {
         name: 'Deep Grog',
         type: 'Blackest Tot',
         cost: 44,
-        description: "The darkest of naval rum taken from sunken sips mixed with saltwater taken from the pelagic depths of the Elemental Plane of Water. Black and cold, with a syrupy mouth feel. Tastes of brine and molasses with a distinct bitterness. Reserved for first time travelers to The City of Glass, and served as a shot with a still beating fish heart. Also disparagingly known as Aboleth's Piss.",
+        description: "The darkest of naval rum taken from sunken sips mixed with saltwater taken from the pelagic depths of the Elemental Plane of Water. Black and cold, with a syrupy mouthfeel. Tastes of brine and molasses with a distinct bitterness. Reserved for first time travelers to The City of Glass, and served as a shot with a still beating fish heart. Also disparagingly known as Aboleth's Piss.",
         author: 'twocalf'
       },
       {
@@ -1151,7 +1151,7 @@ setup.initTavernData = () => {
       'I said “you know what, I don’t believe your prophecies!” And all they did was dismiss me, and walked away. Can you believe that?',
       'I wouldn’t let anyone down, I’ve spent my life keeping people alive.',
       'We are always looking for farmhands, all we ever get is henchmen around here, what is up with that?',
-      'I could do with a few less adventurer’s in this town, they come in and drink all the good ale!',
+      'I could do with a few less adventurers in this town, they come in and drink all the good ale!',
       'That blacksmith is making a suit of gold armour! Well at least I think it was gold anyways, it was really shiney!',
       "You know what is weird, it's like there’s a sense of something else going on, like we are all in the imagination of some mad genius, is it just me?",
       'Never seen a mermaid, I saw a goat swim once though.',
@@ -1205,7 +1205,7 @@ setup.initTavernData = () => {
       'Hold my beer while I kiss your elf.',
       'Everyone knows there’s no such thing as lizardmen, old ladies made that up to scare their grandkids.',
       'I’m not saying that I’m the king, I’m just saying have you ever seen us both in a room at the same time?',
-      'I hear that Orc’s dance when they beat up adventurer’s, is that true?',
+      'I hear that Orcs dance when they beat up adventurers, is that true?',
       'So there we were sitting in the “Green Dragon”, our feet up on a stool, listening to some good music, and in walks this great big guy who’s quite grumbly!',
       'Most of the stories you will hear in here are unlikely and in some cases lies.',
       'If you’re ever on fire, stop, drop and roll. Well that is unless it’s magical fire, then I have no idea.',
