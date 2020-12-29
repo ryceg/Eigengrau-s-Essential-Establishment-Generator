@@ -174,7 +174,6 @@ export const createHistory = (town: Town, npc: NPC) => {
       children: []
     }
 
-    /** @param {import("./Relationships/createFamilyMembers").Marriage} marriage */
     lib.createFamilyLifestyle(marriage)
     npc.familyLifestyle = marriage.lifestyle
     npc.familyHome = marriage.home
