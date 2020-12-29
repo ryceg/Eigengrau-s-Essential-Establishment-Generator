@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town, NPC, Marriage, ThresholdTable } from '@lib'
 import { profile } from './profile'
 import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
 
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-export type FamilyUnit = {
+type FamilyUnit = {
   probability: number
   exclusions (town: Town, obj: FamilyUnitObj): boolean
   descriptor: string
 }
 
-export type FamilyUnitObj = {
+type FamilyUnitObj = {
   npc: NPC
   father: unknown
   mother: unknown
