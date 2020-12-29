@@ -53,6 +53,6 @@ export const getTarget = (type: string): Record<string, NPC | Faction> | Buildin
   }
 
   // TODO: add a function to find the correct object.
-  console.error(`setup.profile called with the type of ${type}!`)
+  console.error(`profile called with the type of ${type}!`)
   return State.variables.npcs
 }
