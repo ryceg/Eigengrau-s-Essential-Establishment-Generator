@@ -33,16 +33,6 @@ export const profileTooltip = (id: string, obj: NPC | Building | Faction | Road)
   })
 }
 
-export const itemTooltip = (id: string, item: any) => {
-  jQuery(() => {
-    const span = document.getElementById(id)
-    if (span) {
-      span.title = item.description || item
-      tippy(`#${span.id}`)
-    }
-  })
-}
-
 export const profileAgeTooltip = (id: string, char: NPC) => {
   jQuery(() => {
     const span = document.getElementById(id)
