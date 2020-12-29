@@ -8,7 +8,7 @@ import { articles } from '../src/articles'
 import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
-import { LifestyleStandardName, lifestyleStandards } from './lifestyleStandards'
+import { lifestyleStandards } from './lifestyleStandards'
 
 const homeTable = [
   [0, 'on the streets'], // unreachable without biases
@@ -92,7 +92,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
 }
 
 export function createFamilyLifestyle (marriage: Marriage) {
-  const lifestyle: LifestyleStandardName = rollFromTable(socialClass[marriage.socialClass || 'commoner'].lifestyleStandards, 100) as LifestyleStandardName
+  const lifestyle = rollFromTable(socialClass[marriage.socialClass || 'commoner'].lifestyleStandards, 100)
   const home = rollFromTable(homeTable, 100, lifestyleStandards[marriage.lifestyle || 'modest'].homeBias)
 
   assign(marriage, { lifestyle, home })
