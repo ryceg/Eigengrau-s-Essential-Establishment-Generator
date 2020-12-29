@@ -1,5 +1,6 @@
 import type { Town, NPC, Marriage, ThresholdTable } from '@lib'
 import { profile } from './profile'
+import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -176,7 +177,7 @@ export const createHistory = (town: Town, npc: NPC) => {
 }
 
 /**
- * @warn Uses setup.createNPC, setup.createRelationship
+ * @warn Uses setup.createNPC
  */
 function createChildhoodMemories (town: Town, npc: NPC) {
   if (npc.childhoodMemories) {
@@ -194,8 +195,8 @@ function createChildhoodMemories (town: Town, npc: NPC) {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
-    setup.createRelationship(town, npc, friend, 'best friend', 'best friend')
-    setup.createRelationship(town, npc, bestFriend, 'childhood friend', 'childhood friend')
+    createRelationship(town, npc, friend, 'best friend', 'best friend')
+    createRelationship(town, npc, bestFriend, 'childhood friend', 'childhood friend')
     return 'Everyone knew who I was, and I had friends everywhere I went'
   }
 
@@ -205,7 +206,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
-    setup.createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
+    createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
     return 'I always found it easy to make friends, and I loved being around people'
   }
 
@@ -215,7 +216,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
-    setup.createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
+    createRelationship(town, npc, friend, 'childhood friend', 'childhood friend')
     return 'I had several friends, and my childhood was generally a happy one'
   }
 
@@ -238,7 +239,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
       ageYears: npc.ageYears += random(1, 3),
       childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${profile(npc, npc.firstName)}`
     })
-    setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
+    createRelationship(town, npc, friend, 'bully', 'victim of bullying')
     return 'I am still haunted by my childhood, where I was treated badly by my peers'
   }
   return 'I had a few close friends, and my childhood was a relatively normal one'
