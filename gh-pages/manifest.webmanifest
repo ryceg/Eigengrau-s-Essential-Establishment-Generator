@@ -4,18 +4,18 @@
   "description": "A town generator suitable for out-of-the-box play in any fantasy TTRPG setting.",
   "icons": [
     {
-      "src": "/src/Resources/pwa-icon-192.png",
+      "src": "/src/Resources/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/src/Resources/pwa-icon-512.png",
+      "src": "/src/Resources/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "/?source=pwa",
-  "background_color": "#dedede",
+  "background_color": "#111111",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#dedede"
