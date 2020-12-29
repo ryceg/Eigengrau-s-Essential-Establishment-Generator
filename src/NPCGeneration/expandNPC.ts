@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
 import { NPC, Town } from '@lib'
 import { createHistory } from './createHistory'
 import { createLifeEvents } from './createLifeEvents'
