@@ -75,10 +75,6 @@ export const buildingTooltip = (id: string, building: Building) => {
   })
 }
 
-/**
- * @param {Town} town
- * @param {string} type
- * */
 export const politicsDescription = (town: Town, type: string) => {
   let description
   switch (type) {
@@ -102,12 +98,11 @@ export const politicsDescription = (town: Town, type: string) => {
   return description
 }
 
-/** @param {Town} town */
 export const politicsTooltip = (id: string, type: string, town: Town) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      span.title = setup.politicsDescription(town, type)
+      span.title = politicsDescription(town, type)
       tippy(`#${span.id}`)
     }
   })
