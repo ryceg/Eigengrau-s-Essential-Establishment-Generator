@@ -20,6 +20,10 @@ import { createLifeEvents } from './NPCGeneration/createLifeEvents'
 import { createHistory } from './NPCGeneration/createHistory'
 import { profile } from './NPCGeneration/profile'
 import { findViaKey, findContainerViaKey } from './Tools/findViaKey'
+import { money } from './Tools/money'
+import { getPriceMod } from './Tools/getPriceMod'
+import { history } from './Tools/history'
+import { addGtagEvent } from './Tools/addGtagEvent'
 
 declare global {
   interface Setup {
@@ -41,6 +45,10 @@ declare global {
     createTavern: typeof createTavern
     findViaKey: typeof findViaKey
     findContainerViaKey: typeof findContainerViaKey
+    money: typeof money
+    getPriceMod: typeof getPriceMod
+    history: typeof history
+    addGtagEvent: typeof addGtagEvent
   }
 }
 
@@ -62,7 +70,11 @@ Object.assign(setup, {
   createBartender,
   createTavern,
   findViaKey,
-  findContainerViaKey
+  findContainerViaKey,
+  money,
+  getPriceMod,
+  history,
+  addGtagEvent
 })
 
 /**
