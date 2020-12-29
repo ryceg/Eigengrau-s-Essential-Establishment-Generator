@@ -10,7 +10,7 @@ import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
 
-const homeTable = [
+const homeTable: ThresholdTable<string> = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
   [10, 'no real permanent address'],
@@ -23,7 +23,7 @@ const homeTable = [
   [5, 'a very impressive house'],
   [20, 'a mansion'],
   [40, 'a palace'] // unreachable without biases
-] as [number, string][]
+]
 
 export function createLifestyleStandards (town: Town, npc: NPC) {
   console.groupCollapsed(`Creating living standards for ${npc.name}`)
