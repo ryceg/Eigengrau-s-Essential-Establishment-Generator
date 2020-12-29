@@ -1,5 +1,6 @@
-import { Town, NPC, Marriage } from '@lib'
+import type { Town, NPC, Marriage, ThresholdTable } from '@lib'
 import { profile } from './profile'
+import { getFatherMother } from './Relationships/getFatherMother'
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 export type FamilyUnit = {
@@ -10,12 +11,11 @@ export type FamilyUnit = {
 
 export type FamilyUnitObj = {
   npc: NPC
-  father: any
-  mother: any
+  father: unknown
+  mother: unknown
 }
 
-/** @type {import("../../lib/index").ThresholdTable} */
-const birthplaceTable = [
+const birthplaceTable: ThresholdTable = [
   [50, 'at home'],
   [5, 'in the home of a friend'],
   [9, 'in the home of a midwife'],
@@ -50,94 +50,87 @@ const birthplaceTable = [
 ]
 
 /**
- * @type {Record<string, import("./createHistory").FamilyUnit>}
  * @warn Uses State.variables.npcs, lib.getMarriages
  */
-const familyUnits = {
+const familyUnits: Record<string, FamilyUnit> = {
   bothParents: {
     probability: 25,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my mother and father'
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
     descriptor: 'my single stepmother'
   },
   singleMother: {
     probability: 14,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
     descriptor: 'my single mother'
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
     descriptor: 'my single stepfather'
   },
   singleFather: {
     probability: 14,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
     descriptor: 'my single father'
   },
   adoptiveFamily: {
     probability: 10,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my adoptive family'
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.mother && lib.knewParents(town, familyUnitObj.mother),
+    exclusions: (town, familyUnitObj) => familyUnitObj.mother && lib.knewParents(town, familyUnitObj.mother),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.father && lib.knewParents(town, familyUnitObj.father),
+    exclusions: (town, familyUnitObj) => familyUnitObj.father && lib.knewParents(town, familyUnitObj.father),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
     probability: 8,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my extended family'
   },
   guardian: {
     probability: 2,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my guardian'
   },
   orphanage: {
     probability: 2,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the orphanage'
   },
   temple: {
     probability: 1,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the temple'
   },
   institution: {
     probability: 1,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the institution'
   },
   streets: {
     probability: 1,
-    exclusions: (town: Town, familyUnitObj: FamilyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
+    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
 
-/**
- * @param {import("../../lib/town/_common").Town} town
- * @param {import("../../lib/npc-generation/_common").NPC} npc
- * @warn Uses setup.getFatherMother
- */
 export const createHistory = (town: Town, npc: NPC) => {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
   if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
-  /** @type {import("./Relationships/createFamilyMembers").Marriage} */
   const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
 
@@ -150,7 +143,7 @@ export const createHistory = (town: Town, npc: NPC) => {
     if (parentMarriage && parentMarriage.familyUnit) {
       npc.familyUnit = parentMarriage.familyUnit
     } else {
-      const { father, mother } = setup.getFatherMother(town, npc)
+      const { father, mother } = getFatherMother(town, npc)
       const familyUnitObj = { npc, father, mother }
       npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, familyUnitObj, undefined, 'descriptor') as string
       if (parentMarriage) {
