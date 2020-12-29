@@ -25,6 +25,7 @@ import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
+import { profileTooltip, itemTooltip, profileAgeTooltip, metricHeight, metricWeight, profileHeightTooltip, profileWeightTooltip, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
 
 declare global {
   interface Setup {
@@ -51,6 +52,16 @@ declare global {
     history: typeof history
     addGtagEvent: typeof addGtagEvent
     tippy: typeof tippy
+    profileTooltip: typeof profileTooltip
+    itemTooltip: typeof itemTooltip
+    profileAgeTooltip: typeof profileAgeTooltip
+    metricHeight: typeof metricHeight
+    metricWeight: typeof metricWeight
+    profileHeightTooltip: typeof profileHeightTooltip
+    profileWeightTooltip: typeof profileWeightTooltip
+    buildingTooltip: typeof buildingTooltip
+    politicsDescription: typeof politicsDescription
+    politicsTooltip: typeof politicsTooltip
   }
 }
 
@@ -77,7 +88,17 @@ Object.assign(setup, {
   getPriceMod,
   history,
   addGtagEvent,
-  tippy
+  tippy,
+  profileTooltip,
+  itemTooltip,
+  profileAgeTooltip,
+  metricHeight,
+  metricWeight,
+  profileHeightTooltip,
+  profileWeightTooltip,
+  buildingTooltip,
+  politicsDescription,
+  politicsTooltip
 })
 
 /**

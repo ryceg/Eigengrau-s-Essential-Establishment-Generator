@@ -1,5 +1,7 @@
+import { NPC, Building, Faction, Road, Town } from '@lib'
+
 /* global setup tippy jQuery settings */
-setup.profileTooltip = function (id, obj) {
+export const profileTooltip = function (id: string, obj: NPC | Building | Faction | Road) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -9,10 +11,10 @@ setup.profileTooltip = function (id, obj) {
             span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
             break
           case 'building':
-            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
             break
           case 'room':
-            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size || obj._size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness || obj._cleanliness}, and is known for ${obj.notableFeature}.`
+            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
             break
           case 'faction':
             span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
@@ -31,7 +33,7 @@ setup.profileTooltip = function (id, obj) {
   })
 }
 
-setup.itemTooltip = function (id, item) {
+export const itemTooltip = function (id: string, item: any) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -41,8 +43,7 @@ setup.itemTooltip = function (id, item) {
   })
 }
 
-/** @param {NPC} char */
-setup.profileAgeTooltip = function (id, char) {
+export const profileAgeTooltip = function (id: string, char: NPC) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -52,11 +53,7 @@ setup.profileAgeTooltip = function (id, char) {
   })
 }
 
-/**
- * @param {number} height
- * @param {boolean} isMetric
- */
-setup.metricHeight = (height, isMetric) => {
+export const metricHeight = (height: number, isMetric: boolean) => {
   if (isMetric === true) {
     return `${(height * 0.0254).toFixed(2)}m`
   } else {
@@ -70,11 +67,7 @@ setup.metricHeight = (height, isMetric) => {
   }
 }
 
-/**
- * @param {NPC} npc
- * @param {boolean} isMetric
- */
-setup.metricWeight = (npc, isMetric) => {
+export const metricWeight = (npc: NPC, isMetric: boolean) => {
   if (isMetric === true) {
     return `${(npc.weightPounds / 2.2046).toFixed(1)}kg (with a BMI of ${npc.bmi})`
   } else {
@@ -86,7 +79,7 @@ setup.metricWeight = (npc, isMetric) => {
  * @param {NPC} char
  * @param {number} heightVar
  */
-setup.profileHeightTooltip = function (id, char, heightVar) {
+export const profileHeightTooltip = (id: string, char: NPC, heightVar: number) => {
   if (heightVar) {
     char.heightInches = heightVar
   }
@@ -110,7 +103,7 @@ setup.profileHeightTooltip = function (id, char, heightVar) {
   })
 }
 
-setup.profileWeightTooltip = function (id, char) {
+export const profileWeightTooltip = function (id: string, char: NPC) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -127,11 +120,11 @@ setup.profileWeightTooltip = function (id, char) {
   )
 }
 
-setup.buildingTooltip = function (id, building) {
+export const buildingTooltip = (id: string, building: Building) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      span.title = building.tippyDescription || `${lib.articles.output(building.size || building._size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness || building._cleanliness}, and is known for ${building.notableFeature}.`
+      span.title = building.tippyDescription || `${lib.articles.output(building.size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness}, and is known for ${building.notableFeature}.`
       tippy(`#${span.id}`)
     }
   })
@@ -141,7 +134,7 @@ setup.buildingTooltip = function (id, building) {
  * @param {Town} town
  * @param {string} type
  * */
-setup.politicsDescription = (town, type) => {
+export const politicsDescription = (town: Town, type: string) => {
   let description
   switch (type) {
     case 'politicalIdeology':
@@ -165,7 +158,7 @@ setup.politicsDescription = (town, type) => {
 }
 
 /** @param {Town} town */
-setup.politicsTooltip = function (id, type, town) {
+export const politicsTooltip = function (id: string, type: string, town: Town) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
