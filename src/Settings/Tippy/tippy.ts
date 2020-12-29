@@ -1,4 +1,4 @@
-setup.tippy = function (selector) {
+export const tippy = function (selector: string) {
   addEventListener('load', function () {
     tippy(selector)
   })
@@ -8,13 +8,13 @@ setup.tippy = function (selector) {
 
 const tip = tippy('[title]')
 
-tippy.browser.onUserInputChange = type => {
+tippy.browser.onUserInputChange = (type: string) => {
   const method = type === 'touch' ? 'disable' : 'enable'
   for (const tooltip of tip.tooltips) {
     tooltip[method]()
   }
 }
 
-$(document).on(':passageend', function (ev) {
+$(document).on(':passageend', function () {
   tippy('.tip')
 })

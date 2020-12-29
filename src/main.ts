@@ -24,6 +24,7 @@ import { money } from './Tools/money'
 import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
+import { tippy } from './Settings/Tippy/tippy'
 
 declare global {
   interface Setup {
@@ -49,6 +50,7 @@ declare global {
     getPriceMod: typeof getPriceMod
     history: typeof history
     addGtagEvent: typeof addGtagEvent
+    tippy: typeof tippy
   }
 }
 
@@ -74,7 +76,8 @@ Object.assign(setup, {
   money,
   getPriceMod,
   history,
-  addGtagEvent
+  addGtagEvent,
+  tippy
 })
 
 /**
