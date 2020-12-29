@@ -1,7 +1,7 @@
 import { NPC, Building, Faction, Road, Town } from '@lib'
 
 /* global setup tippy jQuery settings */
-export const profileTooltip = function (id: string, obj: NPC | Building | Faction | Road) {
+export const profileTooltip = (id: string, obj: NPC | Building | Faction | Road) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -33,7 +33,7 @@ export const profileTooltip = function (id: string, obj: NPC | Building | Factio
   })
 }
 
-export const itemTooltip = function (id: string, item: any) {
+export const itemTooltip = (id: string, item: any) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -43,7 +43,7 @@ export const itemTooltip = function (id: string, item: any) {
   })
 }
 
-export const profileAgeTooltip = function (id: string, char: NPC) {
+export const profileAgeTooltip = (id: string, char: NPC) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -103,7 +103,7 @@ export const profileHeightTooltip = (id: string, char: NPC, heightVar: number) =
   })
 }
 
-export const profileWeightTooltip = function (id: string, char: NPC) {
+export const profileWeightTooltip = (id: string, char: NPC) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -158,7 +158,7 @@ export const politicsDescription = (town: Town, type: string) => {
 }
 
 /** @param {Town} town */
-export const politicsTooltip = function (id: string, type: string, town: Town) {
+export const politicsTooltip = (id: string, type: string, town: Town) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
