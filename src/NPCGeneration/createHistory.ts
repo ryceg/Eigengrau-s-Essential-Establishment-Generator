@@ -1,4 +1,4 @@
-import { Town, NPC } from '@lib'
+import { Town, NPC, Marriage } from '@lib'
 import { profile } from './profile'
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -167,8 +167,8 @@ export const createHistory = (town: Town, npc: NPC) => {
     npc.familyLifestyle = parentMarriage.lifestyle
     npc.familyHome = parentMarriage.home
   } else {
-    // create a temporary marriage for this orphan
-    const marriage = {
+    // Create a temporary marriage for this orphan.
+    const marriage: Marriage = {
       socialClass: npc.socialClass,
       parents: [],
       children: []
