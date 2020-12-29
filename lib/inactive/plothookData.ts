@@ -345,7 +345,7 @@ export const plothook = {
     //     }
     //   },
     //   function: function (town) {
-    //     var faction = setup.factionsForType(town, 'type', 'wizards')
+    //     var faction = factionsForType(town, 'type', 'wizards')
     //     return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $currentPassage to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
     //   }
     // },
