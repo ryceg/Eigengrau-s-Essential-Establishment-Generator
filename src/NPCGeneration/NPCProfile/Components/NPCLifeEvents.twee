@@ -1,27 +1,3 @@
 :: NPCLifeEvents
 <<linkreplace "Life events" t8n>><div class='npcReplace'>Life Events</div><div class='descriptive'>Well, I certainly have a tale or two...
-\<<if $currentNPC.lifeEvents.length == 2>>
-    When I was younger, <<print $currentNPC.lifeEvents[0]>> Later in my life, <<print $currentNPC.lifeEvents[1]>>
-  \<<elseif $currentNPC.lifeEvents.length == 1>>
-     This one time $currentNPC.lifeEvents <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
-  \<<else>>
-    \This one time <<print $currentNPC.lifeEvents[0]>>
-    \<<for _lifeEvent range $currentNPC.lifeEvents.slice(1, -1)>>
-        <<print [
-          "<<print _lifeEvent.toUpperFirst()>>",
-          "<<print _lifeEvent.toUpperFirst()>>",
-          "How could I ever forget the time _lifeEvent ",
-          "After that, _lifeEvent",
-          "Not to mention there was the time _lifeEvent",
-          "Oh, and I can't forget the time _lifeEvent ",
-          "There was this one time, _lifeEvent ",
-          "Once _lifeEvent",
-          "One time _lifeEvent",
-          "You might not believe it, but _lifeEvent",
-          "I forget exactly when, but at one point, _lifeEvent",
-          "At one point _lifeEvent",
-          "I'll always remember the time _lifeEvent"
-          ].random()>>
-    \<</for>>
-    At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
-<</if>></div><</linkreplace>>
+\<<print setup.getLifeEvents($currentNPC)>></div><</linkreplace>>

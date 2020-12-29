@@ -17,25 +17,7 @@
 <<linkreplace "Becoming a _profession" t8n>><div class='descriptive'>"<<textarea "$npcs[$currentPassage.key].backgroundOrigin" $npcs[$currentPassage.key].backgroundOrigin>> <<textarea "$npcs[$currentPassage.key].professionOrigin" $npcs[$currentPassage.key].professionOrigin>> That's how I became <<print lib.articles.output($npcs[$currentPassage.key].profession)>>. <<textarea "$npcs[$currentPassage.key].bond" $npcs[$currentPassage.key].bond>> <<textarea "$npcs[$currentPassage.key].ideal" $npcs[$currentPassage.key].ideal>>"</div><</linkreplace>>
 
 <<linkreplace "Life events" t8n>><div class='descriptive'>Well, I certainly have a tale or two...
-\<<if $npcs[$currentPassage.key].lifeEvents.length == 2>>
-    When I was about twenty, <<print $npcs[$currentPassage.key].lifeEvents[0].toUpperFirst()>>. A couple years later, $npcs[$currentPassage.key].lifeEvents[1]
-  \<<elseif $npcs[$currentPassage.key].lifeEvents.length == 1>>
-    $npcs[$currentPassage.key].lifeEvents. <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
-  \<<else>>
-    \<<print $npcs[$currentPassage.key].lifeEvents[0].toUpperFirst()>>.
-    \<<for _lifeEvents range $npcs[$currentPassage.key].lifeEvents.slice(1, -1)>>
-        <<print [
-          "_lifeEvents ",
-          "And then, after a couple weeks, _lifeEvents ",
-          "And then I spent a couple months at home. Then, when I next ventured out, _lifeEvents ",
-          "Oh, and I can't forget the time _lifeEvents ",
-          "And then, maybe a week after that, _lifeEvents ",
-          "I tried settling down for a bit. That didn't work so well, so _lifeEvents ",
-          "I forget exactly when, but at one point, _lifeEvents "
-          ].random()>>
-    \<</for>>
-    Then last year, <<print $npcs[$currentPassage.key].lifeEvents[$npcs[$currentPassage.key].lifeEvents.length - 1]>>
-<</if>></div><</linkreplace>>
+\<<print setup.getLifeEvents($currentNPC)>></div><</linkreplace>>
 
 <<if def $npcs[$currentPassage.key].partnerID>><<print $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
 
