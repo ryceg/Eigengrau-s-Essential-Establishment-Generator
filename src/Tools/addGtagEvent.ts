@@ -1,4 +1,4 @@
-setup.addGtagEvent = (options = {
+export const addGtagEvent = (options = {
   event_category: 'passage',
   event_action: 'loaded',
   event_label: passage()
