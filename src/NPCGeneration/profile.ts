@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // uses State.variables.npcs, State.variables.town
+
+import { NPC, Building, Faction, Road } from '@lib'
+import { findViaKey } from 'src/Tools/findViaKey'
+
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
@@ -9,16 +14,21 @@
  * TODO: update documentation here.
  * For factions, point towards `town.factions`
  */
-setup.profile = (obj, readout, type = 'npcs') => {
+export const profile = (obj: NPC | Building | Faction | Road, readout?: string, type = 'npcs'): string => {
+  let result
   if (typeof obj === 'string') {
     console.warn(`Profile function for ${obj} called with a string.`)
-    obj = setup.findViaKey(obj)
+    result = findViaKey(obj)
+  } else {
+    result = obj
   }
-
+  if (!readout) {
+    readout = result.name
+  }
   // the user-facing text
-  const text = JSON.stringify(readout || obj.name || obj.descriptor)
+  const text = JSON.stringify(readout)
 
-  const key = JSON.stringify(obj.key)
+  const key = JSON.stringify(result.key)
 
   return `<<profile \`$${type}[${key}] \`${text}>>`
 }
@@ -27,7 +37,7 @@ setup.profile = (obj, readout, type = 'npcs') => {
  * @param {string} type
  * @returns {Record<string,unknown> | null}
  */
-setup.getTarget = (type) => {
+export const getTarget = (type: string): Record<string, NPC | Faction> | Building[] => {
   switch (type) {
     case 'npcs':
     case 'npc':
@@ -43,6 +53,6 @@ setup.getTarget = (type) => {
   }
 
   // TODO: add a function to find the correct object.
-  console.error(`setup.profile called with the type of ${type}!`)
+  console.error(`profile called with the type of ${type}!`)
   return State.variables.npcs
 }

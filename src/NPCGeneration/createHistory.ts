@@ -1,4 +1,5 @@
 import { Town, NPC } from '@lib'
+import { profile } from './profile'
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 export type FamilyUnit = {
@@ -243,8 +244,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
     const friend = setup.createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(1, 3),
-      // @ts-ignore
-      childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${setup.profile(npc, npc.firstName)}`
+      childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${profile(npc, npc.firstName)}`
     })
     setup.createRelationship(town, npc, friend, 'bully', 'victim of bullying')
     return 'I am still haunted by my childhood, where I was treated badly by my peers'

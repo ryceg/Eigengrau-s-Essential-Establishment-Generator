@@ -18,6 +18,8 @@ import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
 import { createLifeEvents } from './NPCGeneration/createLifeEvents'
 import { createHistory } from './NPCGeneration/createHistory'
+import { profile } from './NPCGeneration/profile'
+import { findViaKey, findContainerViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
@@ -33,9 +35,12 @@ declare global {
     createDebt: typeof createDebt
     createLifeEvents: typeof createLifeEvents
     createHistory: typeof createHistory
+    profile: typeof profile
     getWakeUpByWealth: typeof getWakeUpByWealth
     createBartender: typeof createBartender
     createTavern: typeof createTavern
+    findViaKey: typeof findViaKey
+    findContainerViaKey: typeof findContainerViaKey
   }
 }
 
@@ -52,9 +57,12 @@ Object.assign(setup, {
   createDebt,
   createLifeEvents,
   createHistory,
+  profile,
   getWakeUpByWealth,
   createBartender,
-  createTavern
+  createTavern,
+  findViaKey,
+  findContainerViaKey
 })
 
 /**
