@@ -5,6 +5,7 @@
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
  * loaded by Tweego alongside loose scripts in `/src`
 */
+import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
 import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
@@ -27,9 +28,12 @@ import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
 import { profileTooltip, itemTooltip, profileAgeTooltip, metricHeight, metricWeight, profileHeightTooltip, profileWeightTooltip, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
+import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
+import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 
 declare global {
   interface Setup {
+    deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
     createRelative: typeof createRelative
@@ -64,10 +68,14 @@ declare global {
     buildingTooltip: typeof buildingTooltip
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
+    deleteNPC: typeof deleteNPC
+    deleteThrowawayNPCs: typeof deleteThrowawayNPCs
+    getLifeEvents: typeof getLifeEvents
   }
 }
 
 Object.assign(setup, {
+  deleteBuilding,
   createMarriage,
   createParentage,
   createRelative,
@@ -101,7 +109,10 @@ Object.assign(setup, {
   profileWeightTooltip,
   buildingTooltip,
   politicsDescription,
-  politicsTooltip
+  politicsTooltip,
+  deleteNPC,
+  deleteThrowawayNPCs,
+  getLifeEvents
 })
 
 /**
