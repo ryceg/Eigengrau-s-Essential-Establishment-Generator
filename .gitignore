@@ -5,5 +5,6 @@ src/init.js
 gh-pages/**/*
 !gh-pages/Resources/**/*
 !gh-pages/CNAME
+!gh-pages/manifest.webmanifest
 .twine
 *.log
