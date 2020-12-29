@@ -86,7 +86,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   Object.assign(tavern, setup.tavern.get.draws(town, tavern))
 
   if (tavern.draw === 'proximity to the church') {
-    if (tavern.type.indexOf(['gambling den', 'proximity to the brothel', 'raucous dive']) !== -1) {
+    if (['gambling den', 'proximity to the brothel', 'raucous dive'].includes(tavern.type)) {
       tavern.draw = 'proximity to the brothel'
     } else if (tavern.type === 'brothel') {
       tavern.draw = 'cheap prices for customers'
