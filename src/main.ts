@@ -18,6 +18,7 @@ import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
 import { createLifeEvents } from './NPCGeneration/createLifeEvents'
 import { createHistory } from './NPCGeneration/createHistory'
+import { expandNPC } from './NPCGeneration/expandNPC'
 import { profile } from './NPCGeneration/profile'
 import { findViaKey, findContainerViaKey } from './Tools/findViaKey'
 import { money } from './Tools/money'
@@ -41,6 +42,7 @@ declare global {
     createDebt: typeof createDebt
     createLifeEvents: typeof createLifeEvents
     createHistory: typeof createHistory
+    expandNPC: typeof expandNPC
     profile: typeof profile
     getWakeUpByWealth: typeof getWakeUpByWealth
     createBartender: typeof createBartender
@@ -78,6 +80,7 @@ Object.assign(setup, {
   createDebt,
   createLifeEvents,
   createHistory,
+  expandNPC,
   profile,
   getWakeUpByWealth,
   createBartender,
