@@ -1,5 +1,5 @@
-export const tippy = function (selector: string) {
-  addEventListener('load', function () {
+export const tippy = (selector: string) => {
+  addEventListener('load', () => {
     tippy(selector)
   })
   // I'm really not sure why it doesn't work without the delay here.
@@ -15,6 +15,6 @@ tippy.browser.onUserInputChange = (type: string) => {
   }
 }
 
-$(document).on(':passageend', function () {
+$(document).on(':passageend', () => {
   tippy('.tip')
 })
