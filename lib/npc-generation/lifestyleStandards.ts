@@ -3,23 +3,23 @@ import { SocialClassName } from './_common'
 
 export interface LifestyleStandard {
   dailyWagePercentage: number
-    incomeThreshold: number
-    lifestyleStandard: LifestyleStandardName
-    lifestyleDescription: string
-    homeBias: number,
-    socialClass: {
-      table: ThresholdTable<SocialClassName>
-    }
+  incomeThreshold: number
+  lifestyleStandard: LifestyleStandardName
+  lifestyleDescription: string
+  homeBias: number
+  socialClass: {
+    table: ThresholdTable<SocialClassName>
+  }
 }
 
 export type LifestyleStandardName =
-'aristocratic' |
-'wealthy' |
-'comfortable' |
-'modest' |
-'poor' |
-'squalid' |
-'wretched'
+  | 'aristocratic'
+  | 'wealthy'
+  | 'comfortable'
+  | 'modest'
+  | 'poor'
+  | 'squalid'
+  | 'wretched'
 
 export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard> = {
   aristocratic: {
