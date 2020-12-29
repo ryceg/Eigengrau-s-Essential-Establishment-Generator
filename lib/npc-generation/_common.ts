@@ -16,7 +16,7 @@ export type SocialClassName =
 
 export interface NPC {
   key: string
-  objectType: string
+  objectType: 'npc'
   passageName: string
   name: string
   formalName: string
