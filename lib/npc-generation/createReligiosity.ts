@@ -192,7 +192,7 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 20,
       gregariousness: 0,
-      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Despite ${npc.hisher} supposed faith, ${npc.heshe} enjoys ragging on any and all religions, and will openly criticize any faithful people $npc{heshe} meets.`
+      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Despite ${npc.hisher} supposed faith, ${npc.heshe} enjoys ragging on any and all religions, and will openly criticize any faithful people ${npc.heshe} meets.`
     },
     {
       strength: 0,

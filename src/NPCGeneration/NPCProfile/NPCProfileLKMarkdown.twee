@@ -1,13 +1,13 @@
 :: NPCProfileLKMarkdown
 <h1><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>><<run setup.expandNPC($town, $npcs[$currentPassage.key])>><</if>><<set $currentNPC to $npcs[$currentPassage.key]>><<run console.groupCollapsed($currentNPC.name)>><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name</h1>
 \<<if def $currentNPC.key>>
-    \<<button "Edit $currentNPC.name">><<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>><<goto "NPCProfileEdit">><</button>>
+    \<<button "Edit $currentNPC.name" NPCProfileEdit>><<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>><</button>>
 \<</if>> -- 
-\<<listbox "$currentNPC.outputOption">>
+\<label name="Output option" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
   <<option "Regular">>
   <<option "JSON">>
   <<option "GMBinder">>
-\<</listbox>> --
+\<</listbox>></label> --
 \<<button "Output">>
   \<<switch $currentNPC.outputOption>>
   <<case "Regular">>
@@ -59,30 +59,6 @@ $currentNPC.backgroundOrigin $currentNPC.professionOrigin $currentNPC.bond $curr
 
 """### Life Events"""
 
-\<<if $currentNPC.lifeEvents.length == 2>>
-    When I was younger, <<print $currentNPC.lifeEvents[0]>> Later in my life, <<print $currentNPC.lifeEvents[1]>>
-  \<<elseif $currentNPC.lifeEvents.length == 1>>
-     This one time $currentNPC.lifeEvents <<print ["Nothing else really would stand out", "I'm afraid that's all that would impress the likes of you", "I'm afraid that I've still got quite a ways to go in the ways of impressive tales, that's about it.", "And that's really honestly about it...", "Uh, that's really the only interesting story I have, to be honest."].random()>>
-  \<<else>>
-    \This one time <<print $currentNPC.lifeEvents[0]>>
-    \<<for _lifeEvent range $currentNPC.lifeEvents.slice(1, -1)>>
-        <<print [
-          "<<print _lifeEvent.toUpperFirst()>>",
-          "<<print _lifeEvent.toUpperFirst()>>",
-          "How could I ever forget the time _lifeEvent ",
-          "After that, _lifeEvent",
-          "Not to mention there was the time _lifeEvent",
-          "Oh, and I can't forget the time _lifeEvent ",
-          "There was this one time, _lifeEvent ",
-          "Once _lifeEvent",
-          "One time _lifeEvent",
-          "You might not believe it, but _lifeEvent",
-          "I forget exactly when, but at one point, _lifeEvent",
-          "At one point _lifeEvent",
-          "I'll always remember the time _lifeEvent"
-          ].random()>>
-    \<</for>>
-    At one point, <<print $currentNPC.lifeEvents[$currentNPC.lifeEvents.length - 1]>>
-<</if>>
+\<<print setup.getLifeEvents($currentNPC)>>
 
 <<run console.groupEnd()>><<run console.log($currentNPC)>>

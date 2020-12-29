@@ -174,6 +174,7 @@ export const townData: TownData = {
     },
     size: {
       tooltip: 'How much land is covered?',
+      isHidden: true,
       preceding: 'Tiny -- Sprawling'
     },
     reputation: {
@@ -227,6 +228,11 @@ export const townData: TownData = {
     sin: {
       tooltip: 'How much of a culture of crime is there?',
       preceding: 'Squeaky clean -- Wretched hive of scum and villainy',
+      hasRolls: false
+    },
+    genderMakeup: {
+      tooltip: 'What percentage of the population does the \'dominant\' gender make up?',
+      preceding: 'Gender makeup (percentage of people that are the dominant gender):',
       hasRolls: false
     },
     guardFunding: {
@@ -616,7 +622,7 @@ export const townData: TownData = {
         ])
       },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3]),
-      roadDuplication: 70,
+      roadDuplication: 60,
       modifiers: {
         wealth: 15,
         reputation: 5,
@@ -746,7 +752,7 @@ export const townData: TownData = {
         ])
       },
       startFactionsNumber: () => random([1, 1, 2, 2, 2, 3, 3, 3, 3, 4]),
-      roadDuplication: 90,
+      roadDuplication: 70,
       modifiers: {
         wealth: 5,
         reputation: 20,

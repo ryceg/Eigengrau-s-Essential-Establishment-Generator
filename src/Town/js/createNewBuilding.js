@@ -16,6 +16,7 @@ setup.initBuildingTypes = () => {
     'Florist': setup.goodsAndServices.default.create('florist'),
     'General Store': setup.createGeneralStore,
     'Graveyard': setup.createGraveyard,
+    'Guardhouse': setup.createGuardhouse,
     'Jeweller': setup.goodsAndServices.default.create('jeweller'),
     'Market': setup.createMarket,
     'Smithy': setup.createSmithy,

@@ -1,8 +1,10 @@
 
 :: StoryMenu
 
-<<link "Toolbox">><<run setup.history({passageName: "Toolbox", linkDescription: "Toolbox", name: "Toolbox"})>><<goto "Toolbox">><</link>>
+<<link "Toolbox" Toolbox>><<run setup.history({passageName: "Toolbox", linkDescription: "Toolbox", name: "Toolbox"})>><</link>>
+
+<<link "Export to Foundry or GMBinder">><<if State.metadata.get('seenPatreon') === true>><<goto "OutputEverything">><<else>><<goto "Survey">><</if>><</link>>
 
 [[Submit a bug or suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose]]
 
-<<link "Credits / Legal">><<goto "Credits">><</link>>
+<<link "Credits / Legal" Credits>><</link>>

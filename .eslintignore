@@ -1,2 +1,3 @@
 **/*.min.js
 gh-pages
+src/init.js

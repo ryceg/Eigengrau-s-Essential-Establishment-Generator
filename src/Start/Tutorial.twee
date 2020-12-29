@@ -27,4 +27,10 @@ Eigengrau's Generator is open source, and totally free to use. If you enjoy usin
 Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://www.reddit.com/r/EigengrausGenerator]]! I don't bite.\
 <</fadein>>
 
- <<button "Let's start!">><<set $town to setup.createTown($tempTown)>><<goto "Start">><</button>> -- <<button "Customise the town first">><<goto "BiomeGeneration">><</button>>    --      <span id="remember"><<button "Ok, never show me the tutorial again.">><<run State.metadata.set("showTutorial", false)>><<replace "#remember">>Okay, got it! You can switch it on in the settings if you need it.<</replace>><</button>></span>
+ <<button "Let's start!" Start>><<set $town to setup.createTown($tempTown)>><</button>> -- <<button "Customise the town first" BiomeGeneration>>
+ <<run setup.addGtagEvent({
+  event_category: 'customise',
+  event_action: 'clicked',
+  event_label: 'customise during tutorial'
+})>>
+ <</button>>    --      <span id="remember"><<button "Ok, never show me the tutorial again.">><<run State.metadata.set("showTutorial", false)>><<replace "#remember">>Okay, got it! You can switch it on in the settings if you need it.<</replace>><</button>></span>

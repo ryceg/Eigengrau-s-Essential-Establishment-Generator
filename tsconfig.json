@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2015",
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true ,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom", "esnext"],
+    "baseUrl": "./",
+    "paths": {
+      "@lib": ["./lib/index.ts"],
+    }
+  },
+  "exclude": ["node_modules", "gh-pages", "src/**/*.d.ts"]
+}

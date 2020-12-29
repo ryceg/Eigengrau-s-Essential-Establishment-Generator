@@ -23,14 +23,6 @@ if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
   settings.forceOneColumn = State.metadata.get('forceOneColumn')
 }
 
-if (State.metadata.get('showVerboseErrors') !== settings.showVerboseErrors) {
-  settings.showVerboseErrors = State.metadata.get('showVerboseErrors')
-}
-
-if (settings.showVerboseErrors) {
-  jQuery('error-view').css('display', 'block')
-}
-
 if (settings.forceOneColumn) {
   jQuery('html').addClass('force-one-column')
 }
@@ -55,11 +47,21 @@ function settingShowBiomeGeneration () {
   if (settings.showBiomeGeneration !== showBiomeGeneration) {
     State.metadata.set('showBiomeGeneration', settings.showBiomeGeneration)
   }
+  setup.addGtagEvent({
+    event_category: 'customise biome',
+    event_action: 'clicked',
+    event_label: 'customised in settings'
+  })
 }
 
 function settingHideAds () {
   if (settings.hideAds === true) {
     settings.hideAds = true
+    setup.addGtagEvent({
+      event_category: 'hide ads',
+      event_action: 'clicked',
+      event_label: 'customised in settings'
+    })
   } else {
     settings.hideAds = false
   }
@@ -82,18 +84,6 @@ function settingForceOneColumn () {
     jQuery('html').addClass('force-one-column')
   } else {
     jQuery('html').removeClass('force-one-column')
-  }
-}
-
-function settingShowVerboseErrors () {
-  const showVerboseErrors = State.metadata.get('showVerboseErrors')
-  if (settings.showVerboseErrors !== showVerboseErrors) {
-    State.metadata.set('showVerboseErrors', settings.showVerboseErrors)
-  }
-  if (settings.showVerboseErrors) {
-    jQuery('error-view').css('display', 'block')
-  } else {
-    jQuery('error-view').css('display', 'none')
   }
 }
 
@@ -139,11 +129,6 @@ Setting.addToggle('forceOneColumn', {
 Setting.addToggle('hideAds', {
   label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
   onChange: settingHideAds
-})
-
-Setting.addToggle('showVerboseErrors', {
-  label: '<span id="verboseErrors" class="tip dotted" title="This shows the SugarCube errors.">Show debugging information?</span>',
-  onChange: settingShowVerboseErrors
 })
 
 Setting.addToggle('disableAnalytics', {

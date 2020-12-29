@@ -10,17 +10,15 @@ declare const lib: typeof import('./lib/index')
  * Plugins & global functions.
  */
 
-function tippy(selector: string | NodeList, options?: any): any
+declare function tippy(selector: string | NodeList, options?: any): any
 
 /*
  * NodeJS
  */
 
-declare const global: NodeJS.Global & Record<string, any>
-
-function gtag(event: string, action: string, data: {
+declare function gtag(event: string, action: string, data: {
   event_category?: string,
   event_label?: string,
   event_action?: string,
   value?: string
-})
+}): void

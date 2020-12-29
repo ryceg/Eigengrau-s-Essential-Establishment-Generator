@@ -1,5 +1,5 @@
 :: TownOutput
-<span class="interactive-only"><<button "Edit $town.name">><<run setup.history($town, null, "Editing town")>><<goto "TownEdit">><</button>></span>
+<span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, null, "Editing town")>><</button>></span>
 \<<set _politicalIdeologyDescription to "tip">><<run setup.politicsTooltip(_politicalIdeologyDescription, "politicalIdeology", $town)>>
 \<<set _economicIdeologyDescription to "tip2">><<run setup.politicsTooltip(_economicIdeologyDescription, "economicIdeology", $town)>>
 \<<set _politicalSourceDescription to "tip3">><<run setup.politicsTooltip(_politicalSourceDescription, "politicalSource", $town)>>
@@ -13,10 +13,15 @@
 <h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
 <<linkappend "<h3>Racial Demographics</h3>" t8n>><<include "TownListRaces">><</linkappend>>
 <<linkappend "<h3>List of Factions</h3>" t8n>><<include "TownListFactions">><</linkappend>>
+<<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>><<if _exportType === 'GMBinder'>>
+
+\\pagebreakNum 
+
+<</if>>
+
 <<linkappend "<h3>List of NPCs</h3>" t8n>><<include "TownListNpcs">><</linkappend>>
-<<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>>
 <<linkappend "<h3>List of Throwaway NPCs</h3>" t8n>><<include "TownListThrowaway">><</linkappend>>
-<<linkappend "<h3>Professions in $town.name</h3>" t8n>><<include "TownListProfessions">><</linkappend>>
+<span class='interactive-only'><<linkappend "<h3>Professions in $town.name</h3>" t8n>><<include "TownListProfessions">><</linkappend>></span>
 
 
 

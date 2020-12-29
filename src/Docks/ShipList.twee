@@ -12,9 +12,8 @@
         <<capture _key, _ship>>
           <tr>
             <td>
-            <<link "_ship.name">>
+            <<link "_ship.name" ShipProfile>>
               <<set $currentPassage to {shipKey: _key}>>
-              <<goto "ShipProfile">>
             <</link>>
             </td>
             <td>

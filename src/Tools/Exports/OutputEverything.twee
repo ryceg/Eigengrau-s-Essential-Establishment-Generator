@@ -1,0 +1,28 @@
+:: OutputEverything [force-one-column, squash-errors]
+<label name="Export type" for="listbox-exporttype"><<listbox "_exportType">>
+  <<option "GMBinder">>
+  <<option "Foundry">>
+  <<option "Raw JSON">>
+<</listbox>></label> -- <span class="tip" title="This can take a while."><<button "Export">>
+<<run setup.addGtagEvent({
+  event_category: 'export',
+  event_action: 'loaded',
+  event_label: _exportType
+})>>
+<<switch _exportType>>
+  <<case "GMBinder">>
+    <<set _exportContent to setup.outputGMBinder()>>
+    <<replace "#tutorial">><<include "GMBinderTutorial">><</replace>>
+  <<case "Raw JSON">>
+    <<set _exportContent to JSON.stringify($town) + JSON.stringify($npcs) + JSON.stringify($npcs)>>
+    <<replace "#tutorial">>This is all of the data from the {{{$town}}} and {{{$npcs}}} objects, for whatever purposes you may desire.<</replace>>
+  <<case "Foundry">>
+    <<set _exportContent to JSON.stringify(setup.outputEverything())>>
+    <<replace "#tutorial">><<include "FoundryTutorial">><</replace>>
+<</switch>>
+<<replace "#everything">>
+  <<button "Copy">><<run setup.copyText()>><</button>> -- <<textbox "$outputEverything" _exportContent>>
+<</replace>>
+<</button>></span>
+<span id="everything"></span>
+<span id="tutorial"></span><<run lib.addTippyAccessibility()>>

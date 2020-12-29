@@ -1,51 +1,33 @@
 // uses State.variables.history
 setup.history = (object, passageName, linkDescription) => {
+  addToHistory(object, passageName, linkDescription)
+  // window.location.search = `${passageName}=${object.key}`
+  setup.addGtagEvent()
+}
+
+/**
+ * Adds to the history
+ * @param {any} object
+ * @param {string} passageName
+ * @param {string} linkDescription
+ */
+function addToHistory (object, passageName, linkDescription) {
   const history = State.variables.history
   passageName = passageName || object.passageName
-  linkDescription = linkDescription || object.name
-  history.find(state => {
-    if (state.data.key === object.key) {
-      console.log('Existing object in the breadcrumb!')
-      // history.splice(index)
-    }
-  })
+  linkDescription = linkDescription || object.linkDescription || object.name
+  object.objectType = object.objectType || object.passageName
+  const key = object.parentKey || object.key || passageName
+  if (history.length > 0 && history.last().data.key === key) return
   if (Array.isArray(history)) {
-    if (object.parentKey) {
-      history.push({
-        data: {
-          key: object.parentKey,
-          passageName: object.passageName || passageName,
-          objectType: object.objectType,
-          linkDescription: object.linkDescription || linkDescription
-        },
-        passageName: object.passageName,
-        linkDescription: object.linkDescription
-      })
-    } else {
-      history.push({
-        data: {
-          key: object.key,
-          passageName: object.passageName || passageName,
-          objectType: object.objectType,
-          linkDescription: object.linkDescription || linkDescription
-        },
+    history.push({
+      data: {
+        key,
+        objectType: object.objectType,
         passageName,
         linkDescription
-      })
-    }
-    // window.location.search = `${passageName}=${object.key}`
-    if (window['ga-disable-UA-119249239-1'] !== true && typeof gtag === 'function') {
-      gtag('event', 'passage', {
-        event_category: 'passage',
-        event_action: 'loaded',
-        event_label: passageName
-      })
-      gtag('event', 'passage', {
-        event_category: 'seed',
-        event_action: 'used',
-        event_label: location.hash
-      })
-    } else if (window['ga-disable-UA-119249239-1'] === true || typeof gtag !== 'function') {
-    }
+      },
+      passageName,
+      linkDescription
+    })
   }
 }

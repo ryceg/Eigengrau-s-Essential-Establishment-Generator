@@ -4,21 +4,46 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.7.1
+
+### Changes
+- Fixed some images not displaying properly in the GMBinder export.
+- Add labels and accessibility features to elements (people that use screenreaders, please let me know if an element is missing features!)
+
+## 2.7
 
 ### Added
-- Road history and descriptions
-- Roads can now have namesakes
+
+- Changed license to MIT.
+- Road system.
+- Export to JSON.
+- Faction editing.
+- Tavern illustration.
+- Guardhouses
+- General Store illustration.
+- Foundry export functionality.
+- GMBinder export functionality.
+
 ### Changed
 - Buildings are ordered via road.
 - Overhauled the faction resources.
 - Changed the errors to be slightly less obtrusive.
-- Fixed a bug with marriages
-- Fixed a bug with tavern sleep
-- Ported over a lot of code to TypeScript
+- Fixed a bug with marriages.
+- Fixed a bug with tavern sleep.
+- Ported over a lot of code to TypeScript.
+- Fixed an issue with mercenaries in the town square.
+- Fixed a bug with general store crud.
+- Fixed a bug with general store owners reading books.
+- Toned down the road reproduction rate for cities and towns.
+- Changed so only the link is highlighted when creating a new building.
 
 ### Removed
 - Weapons in NPC profile (for now- they'll be back!)
+- Individual NPC export (just copy + paste, you'll be fine.)
+
+### Known issues
+- NPC history is still sometimes broken.
+
 ## 2.6.3
 
 ### Added

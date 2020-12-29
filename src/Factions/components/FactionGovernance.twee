@@ -1,10 +1,9 @@
 :: FactionGovernance
-<h3>Governance</h3><<nobr>>
+<h3>Governance</h3>
 It's ruled by 
-<<switch $currentPassage.leadershipType>>
-  <<case "group">>
-  <<print lib.articles.output($currentPassage.leaderGroupTitle)>> of $currentPassage.leaderGroupSize, who were $currentPassage.leaderQualification. They are $currentPassage.leaderCompetence, and their positions on the $currentPassage.leaderGroupTitle are $currentPassage.stability<<if def $currentPassage.stabilityCause>> due to $currentPassage.stabilityCause<</if>>. Their meetings are held $currentPassage.meetingRegularity, and are $currentPassage.meetingAccessibility. Bribes to the $currentPassage.leaderGroupTitle $currentPassage.leaderBribes.
-  <<default>><<set _leader to $currentPassage.leader>>
-  <<profile $npcs[$currentPassage.leader.key]>>, who was $currentPassage.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentPassage.leaderCompetence, and _leader.hisher position is $currentPassage.stability<<if def $currentPassage.stabilityCause>> due to $currentPassage.stabilityCause<</if>>. Bribes $currentPassage.leaderBribes.
+\<<switch $currentPassage.leadershipType>>
+  \<<case "group">>
+  \<<print lib.articles.output($currentPassage.leaderGroupTitle)>> of $currentPassage.leaderGroupSize, who were $currentPassage.leaderQualification. They are $currentPassage.leaderCompetence, and their positions on the $currentPassage.leaderGroupTitle are $currentPassage.stability<<if def $currentPassage.stabilityCause>> due to $currentPassage.stabilityCause<</if>>. Their meetings are held $currentPassage.meetingRegularity, and are $currentPassage.meetingAccessibility. Bribes to the $currentPassage.leaderGroupTitle $currentPassage.leaderBribes.
+  \<<default>><<set _leader to $currentPassage.leader>>
+  \<<profile $npcs[$currentPassage.leader.key]>>, who was $currentPassage.leaderQualification. <<print _leader.heshe.toUpperFirst()>> is $currentPassage.leaderCompetence, and _leader.hisher position is $currentPassage.stability<<if def $currentPassage.stabilityCause>> due to $currentPassage.stabilityCause<</if>>. Bribes $currentPassage.leaderBribes.
 <</switch>>
-<</nobr>>

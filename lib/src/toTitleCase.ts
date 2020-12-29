@@ -29,4 +29,4 @@ const LOWER_CASE_WORDS = [
   'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'
 ]
 
-const UPPER_CASE_WORDS = ['Id', 'Tv']
+const UPPER_CASE_WORDS = ['Id', 'Tv', 'NPC', 'NPCs']

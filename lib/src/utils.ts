@@ -131,6 +131,13 @@ export function removeFromArray<T> (array: T[], value: T) {
 }
 
 /**
+ * Uses a predicate callback to remove a value from an array.
+ */
+export function removeFromArrayByPredicate<T> (array: T[], predicate: (value: T, index: number, array: T[]) => boolean) {
+  array.splice(array.findIndex(predicate), 1)
+}
+
+/**
  * Calls a function N number of times.
  */
 export function repeat (fn: (index: number) => void, times: number) {

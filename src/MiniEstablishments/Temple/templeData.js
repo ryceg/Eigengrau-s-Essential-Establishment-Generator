@@ -623,8 +623,8 @@ setup.temple = {
     '$associatedNPC.firstName has you kneel, and then walks around you throwing a chalky powder into the air while chanting softly',
     'A temple priest whispers a prayer over a glass of wine and then has you drink it',
     'The priest dunks you backwards into a large vat of water, completely submerging your head, while reciting an ancient blessing',
-    '$associatedNPC.firstName takes your hand and slits it open with a silver knife. priest.heshe takes your bleeding palm and spill a few drops into a vat of water while chanting in an unknown language',
-    'The priest has you hold a small holy statue while $associatedNPC.heShe mumbles a holy blessing'
+    '$associatedNPC.firstName takes your hand and slits it open with a silver knife. $associatedNPC.heshe takes your bleeding palm and spill a few drops into a vat of water while chanting in an unknown language',
+    'The priest has you hold a small holy statue while $associatedNPC.heshe mumbles a holy blessing'
   ],
   blessingGift: [
     'Afterwards, the priest tells you that you have been blessed with <<print ["holy sight", "holy strength", "holy movement", "holy skill", "holy power", "holy light", "a holy spirit", "true sight", "a pure heart", "holy luck", "a new outlook", "wisdom beyond yourself", "a holy enlightenment"].random()>>, but does not explain what that means',

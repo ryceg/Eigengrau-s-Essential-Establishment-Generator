@@ -1,9 +1,14 @@
 :: GraveyardOutput
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<set $building.associatedNPC to $npcs[$building.associatedNPC.key]>><<set $buildingTree to $building.graveyardTree>><span class="interactive-only"><h1>$building.name</h1></span>
-<<print lib.firstCharacter("You")>> walk down $town.roads[<<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>].name to the $building.wordNoun. It is $building.location, and is $building.size. You enter the $building.wordNoun $building.entrance. It's mostly $building.cleanliness. As you enter you notice $building.feature.
-<h3> Gravedigger </h3>
+<<nobr>>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+<<set $buildingTree to $building.graveyardTree>>
+<span class="interactive-only"><h1>$building.name</h1></span>
+<</nobr>>
+<<print lib.firstCharacter("You")>> walk down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>> to the $building.wordNoun. It is $building.location, and is $building.size. You enter the $building.wordNoun $building.entrance. It's mostly $building.cleanliness. As you enter you notice $building.feature.
+<h3>Gravedigger</h3>
 $building.gravediggerLook.
-The gravedigger greets you as you come near, and introduces $building.associatedNPC.himherself as <<profile $building.associatedNPC>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
-<span class="click-and-remove-link"><<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.graveStone.create($town)>><<replace "#grave">><<print $building.grave.readout>><</replace>><<replace "#graveyardTable">><<include "GraveyardTable">><</replace>><</link>></span>
-<div id="grave"></div>
+The gravedigger greets you as you come near, and introduces $associatedNPC.himherself as <<profile $associatedNPC>>. <<print $associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.
+<span class="temporarily-removed"><span class="click-and-remove-link"><<link "Visit a grave">><<run console.log("Creating a grave!")>><<set $building.grave to setup.graveStone.create($town)>><<update>><<print $building.grave.readout>><</link>></span></span>
+<<liveblock>><<if $building.grave>><div id="grave">$building.grave.readout</div><</if>><</liveblock>>
 <div id="graveyardTable"><<linkappend "People Buried Here" t8n>><<include "GraveyardTable">><</linkappend>></div>

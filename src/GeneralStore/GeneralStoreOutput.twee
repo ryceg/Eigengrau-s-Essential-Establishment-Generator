@@ -1,13 +1,14 @@
 :: generalStoreOutput [generalStore]
+\\<div id="illustration-buffer"><img id="illustration" src=./src/Resources/general-store-illustration.jpg></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
 \<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 \<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 \<<set $currentPassage.availableRelationships to lib.generalStore.get.customers>>
 \<span class="interactive-only"><h1>$building.name</h1></span><<include "TownMicroEventsOutput">>
-<<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.structure.generalStoreDescriptor and see that inside, the $building.size building is $building.cleanliness. $building.clutter You notice $building.note. The store's shopkeep is currently $building.idle.
+<<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.structure.descriptor and see that inside, the $building.size building is $building.cleanliness.<<if $building.clutter>> $building.clutter<</if>> You notice $building.note. The store's shopkeep is currently $building.idle.
 
 <h3>Shopkeeper</h3>
 The shopkeep <<print $associatedNPC.greeting.random()>> <<print ['when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around'].random()>>. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.owner of the General Store, and $building.say. $building.shopkeepNote.
 
-<span class="interactive-only"><span class="click-and-remove-link"><<link "<h4>Buy a magic trinket</h4>">><<set $testTrinket to lib.createMagic('trinket')>><<replace "#Trinket">>$associatedNPC.firstName reaches under the shop counter and says "I think you might like this." before pulling out and placing the $testTrinket.name on the counter.<div class='descriptive'><h3>$testTrinket.name</h3>$testTrinket.description</div><</replace>><</link>></span><span id="Trinket"></span></span>
+<span class="interactive-only"><span class="click-and-remove-link"><<link "<h4>Buy a magic trinket</h4>">><<set $toolbox.trinket to lib.createMagic('trinket')>><<replace "#Trinket">>$associatedNPC.firstName reaches under the shop counter and says "I think you might like this." before pulling out and placing the $toolbox.trinket.name on the counter.<div class='descriptive'><h3>$toolbox.trinket.name</h3>$toolbox.trinket.description</div><</replace>><</link>></span><span id="Trinket"></span></span>
 <<include "generalStoreSell">>
 <<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>

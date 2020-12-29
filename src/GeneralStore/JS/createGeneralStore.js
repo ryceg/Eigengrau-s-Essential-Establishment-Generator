@@ -25,8 +25,8 @@ setup.createGeneralStore = (town, opts = {}) => {
     buildingType: 'generalStore'
   })
   lib.createStructure(town, generalStore)
-  generalStore.structure.generalStoreDescriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`
-  generalStore.name = setup.createGeneralStoreName(town, generalStore)
+  generalStore.structure.descriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`
+  setup.createGeneralStoreName(town, generalStore)
   lib.generalStoreModifiers(town, generalStore)
 
   const props = ['wealth', 'cleanliness', 'size', 'expertise']

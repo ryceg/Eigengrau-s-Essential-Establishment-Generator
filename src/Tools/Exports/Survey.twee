@@ -1,0 +1,35 @@
+:: Survey [force-one-column]
+
+This is intended to be a $5 Patreon only feature. 
+
+<<fadein 1s 2s>>\
+However, because the Generator is both open source *and* a {{{.html}}} file, it would be trivial for anyone that really wanted to get at this feature to do so.
+<</fadein>>
+<<fadein 1s 5s>>\
+So, there's no point in trying to prevent people from accessing it. It's the good ol' honesty box approach- I'm asking you to please respect my wishes, and if you are unable to give any financial support, but _really_ want to use it, then at least share the generator.
+<</fadein>>
+<<fadein 1s 8s>>\
+We get around 200 hits per day, which is a drop in the bucket compared to other random generation sites.
+<</fadein>>
+<<fadein 1s 11s>>\
+I really cannot stress enough how new traffic to the site helps us- tell Kotaku, Geek and Sundry, and every other major blog to come check us out! 
+<</fadein>>
+<<fadein 1s 15s>>\
+<span id="patreon-colour" background-color="#f96854"><<button "Become a patron">><<run window.open('https://www.patreon.com/join/eigengrausgenerator?')>><</button>></span> -- <<button "Post to social media">><<run UI.share()>><</button>>
+
+<</fadein>>
+<<fadein 1s 20s>>\
+Select from the dropdown to access the tool (this will be sent to me for data analytics). I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!
+<span class="tooltip" title="I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!"><label name="Select survey option" for="listbox-patronsurvey"><<listbox "_patronSurvey">>
+<<option "Sorry, not gonna happen. Paying for things isn't my style.">>
+<<option "I am already a Patron! :)">>
+<<option "I have tweeted it out or something instead of paying">>
+<<option "I will say that I'll share it but will probably forget">>
+<</listbox>></label></span> -- <<button "Submit my answer and take me to the good stuff!" OutputEverything>>
+<<run setup.addGtagEvent({
+  event_category: 'outputEverything',
+  event_action: 'loaded',
+  event_label: _patronSurvey
+})>>
+<<run State.metadata.set("seenPatreon", true)>>
+<</button>><</fadein>>

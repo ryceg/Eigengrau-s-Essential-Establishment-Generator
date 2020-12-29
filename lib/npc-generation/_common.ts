@@ -59,6 +59,8 @@ export interface NPC {
     /** The number used to determine their religious fervor. */
     religiosity: number
     socialClass: number
+    kinsey: number
+    sexuality?: number
   }
   partnerID?: string
   lifeEvents: string[]
@@ -121,7 +123,7 @@ export interface NPC {
   birthplace: string
   siblingNumber: number
   childhoodMemories: string
-  parentalLineage: string
+  parentalLineage?: string
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
@@ -159,4 +161,36 @@ export interface NpcRelationship {
   targetNpcKey: string
   relation: string
   description: string | null
+}
+
+export interface Namesake {
+  firstName?: string
+  lastName?: string
+  gender: GenderName
+  race: RaceName
+  profession?: ProfessionNames
+  reason?: string
+  note?: string
+}
+
+export interface Marriage {
+  parents: string[]
+  children: string[]
+  socialClass?: SocialClassName
+  lifestyle?: LifestyleStandardName
+  familyUnit?: string
+  home?: string
+}
+
+export interface Family {
+  key: string
+  members: Record<string, FamilyMember>
+}
+
+export interface FamilyMember {
+  key: string
+  parentMarriage?: Marriage
+  marriages?: Marriage[],
+  canRemarry: boolean
+  siblings?: string[]
 }
