@@ -76,26 +76,20 @@ export const buildingTooltip = (id: string, building: Building) => {
 }
 
 export const politicsDescription = (town: Town, type: string) => {
-  let description
   switch (type) {
     case 'politicalIdeology':
-      description = lib.townData.politicalIdeology[town.politicalIdeology].data.description
-      break
+      return lib.townData.politicalIdeology[town.politicalIdeology].data.description
     case 'economicIdeology':
-      description = lib.townData.economicIdeology[town.economicIdeology].descriptors.tippy
-      break
+      return lib.townData.economicIdeology[town.economicIdeology].descriptors.tippy
     case 'politicalSource':
       if (town.politicalSource === 'absolute monarchy' || town.politicalSource === 'constitutional monarchy') {
         if (town.politicalIdeology === 'autocracy') {
-          description = lib.townData.politicalSource[town.politicalSource].autocracy.description
-        } else {
-          description = lib.townData.politicalSource[town.politicalSource].default.description
+          return lib.townData.politicalSource[town.politicalSource].autocracy.description
         }
-      } else {
-        description = lib.townData.politicalSource[town.politicalSource].description
+        return lib.townData.politicalSource[town.politicalSource].default.description
       }
+      return lib.townData.politicalSource[town.politicalSource].description
   }
-  return description
 }
 
 export const politicsTooltip = (id: string, type: string, town: Town) => {
