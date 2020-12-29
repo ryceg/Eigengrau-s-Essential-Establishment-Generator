@@ -1,6 +1,6 @@
 import { NPC, Building, Faction, Road, Town } from '@lib'
 
-/* global setup tippy jQuery settings */
+/** global setup tippy jQuery settings */
 export const profileTooltip = (id: string, obj: NPC | Building | Faction | Road) => {
   jQuery(() => {
     const span = document.getElementById(id)
@@ -63,51 +63,6 @@ export const metricWeight = (npc: NPC, isMetric: boolean) => {
   } else {
     return `${npc.weightPounds}lbs. (with a BMI of ${npc.bmi})`
   }
-}
-
-/**
- * @param {NPC} char
- * @param {number} heightVar
- */
-export const profileHeightTooltip = (id: string, char: NPC, heightVar: number) => {
-  if (heightVar) {
-    char.heightInches = heightVar
-  }
-  jQuery(() => {
-    const span = document.getElementById(id)
-    if (span) {
-      if (settings.showMetric === true) {
-        span.title = `${(char.heightInches * 0.0254).toFixed(2)}m`
-        tippy(`#${span.id}`)
-      } else {
-        const feet = Math.trunc(char.heightInches / 12)
-        const inches = Math.round(char.heightInches - Math.trunc(feet * 12))
-        if (inches === 0) {
-          span.title = `${feet}ft. `
-        } else {
-          span.title = `${feet}ft. ${inches}"`
-        }
-        tippy(`#${span.id}`)
-      }
-    }
-  })
-}
-
-export const profileWeightTooltip = (id: string, char: NPC) => {
-  jQuery(() => {
-    const span = document.getElementById(id)
-    if (span) {
-      if (settings.showMetric === true) {
-        span.title = `${(char.weightPounds / 2.2046).toFixed(1)}kg (with a BMI of ${char.bmi})`
-        tippy(`#${span.id}`)
-      } else {
-        span.title = `${char.weightPounds}lbs. (with a BMI of ${char.bmi})`
-      }
-
-      tippy(`#${span.id}`)
-    }
-  }
-  )
 }
 
 export const buildingTooltip = (id: string, building: Building) => {
