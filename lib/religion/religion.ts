@@ -112,6 +112,8 @@ export interface Deity {
   */
   symbol: string | string[]
   combat: {
+    /** For when you want to describe how your deity fights in battle. */
+    description: string
     /** Their weapon of choice
      * @example Zeus: 'lightning'
      * @usage 'In combat, Zeus uses `lightning`.
@@ -120,8 +122,6 @@ export interface Deity {
     /** For descriptions about combat.
      * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
      */
-    description: string
-    /** For when you want to describe how your deity fights in battle. */
     tactics: string
   }
   /** For things that the deity owns.
