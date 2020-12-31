@@ -1,5 +1,4 @@
-import { AgeName, GenderName, RaceName } from 'lib/npc-generation/raceTraits'
-import { NPC } from 'lib/npc-generation/_common'
+import { AgeName, GenderName, NPC, RaceName } from '@lib'
 
 interface Followers {
   description: string
@@ -122,11 +121,7 @@ export interface Deity {
   /** For things that the deity owns.
    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
-  possessions: {
-    name: string
-    wordNoun: string
-    powers: string
-  }[]
+  possessions: Possession[]
   followers: Followers
   /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
    * Expressed as a 0-100.
@@ -142,13 +137,7 @@ export interface Deity {
   /** Manifesting an avatar can be energy intensive; deities that wish to announce their presence may sometimes do so through a more economic way, by means of a supernatural event, such as an item glowing a specific colour, a duck appearing out of nowhere, etc. */
   manifestations: {
     /** A deity can have multiple different avatars, some more rare than others. */
-    avatars: {
-      name: string
-      appearance: string
-      description: string
-      frequency: string
-      powers: string
-    }[]
+    avatars: Avatar[]
     animals: string[]
     plants: string[]
     monsters: string[]
@@ -158,6 +147,20 @@ export interface Deity {
   }
   beliefs: string
   heresies: string
+}
+
+interface Possession {
+  name: string
+  wordNoun: string
+  powers: string
+}
+
+interface Avatar {
+  name: string
+  appearance: string
+  description: string
+  frequency: string
+  powers: string
 }
 
 interface ReligionData {
