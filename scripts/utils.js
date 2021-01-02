@@ -28,7 +28,7 @@ module.exports = {
         x64: 'https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip'
       }
     },
-    storyFormats: 'https://github.com/tmedwards/sugarcube-2/releases/download/v2.33.2/sugarcube-2.33.2-for-twine-2.1-local.zip'
+    storyFormats: 'https://github.com/tmedwards/sugarcube-2/releases/download/v2.33.4/sugarcube-2.33.4-for-twine-2.1-local.zip  '
   },
 
   // Logging
