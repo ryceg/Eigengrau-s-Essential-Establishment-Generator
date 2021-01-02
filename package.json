@@ -45,7 +45,7 @@
     "@sentry/tracing": "^5.29.2",
     "@types/jest": "^26.0.19",
     "@types/jquery": "^3.5.5",
-    "@types/twine-sugarcube": "^2.33.4",
+    "@types/twine-sugarcube": "^2.33.2",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "chalk": "^4.0.0",
