@@ -90,7 +90,6 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
       tavern.draw = 'proximity to the brothel'
     } else if (tavern.type === 'brothel') {
       tavern.draw = 'cheap prices for customers'
-      tavern.hasBrothel = true
     }
   }
   switch (tavern.draw) {
