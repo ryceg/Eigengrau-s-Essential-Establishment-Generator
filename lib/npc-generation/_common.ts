@@ -120,14 +120,19 @@ export interface NPC {
   descriptor: string
   /** In the style of Xanathar's Background Origins */
   backgroundOrigin: string
+  /** @example 'In a camp' */
   birthplace: string
   siblingNumber: number
+  /**
+   * Influenced by `npc.roll.gregariousness`.
+   * @example 'I had some friends growing up, and my childhood was generally a happy one. */
   childhoodMemories: string
   parentalLineage?: string
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
   familyLifestyle: LifestyleStandardName
+  /** @example 'my maternal grandparents' */
   familyUnit: string
   knewParents: boolean
     /** In the style of PHB bonds. */

@@ -6,7 +6,7 @@ import { LifestyleStandard, lifestyleStandards } from './lifestyleStandards'
 import { socialClass } from './socialClass'
 import { keys } from '../src/utils'
 
-/** town.roll.wealth increases or decreases npc.professionLuck by up to 10%, reflecting the strength of the economy. The expected range is between -25 and 25. */
+/** `town.roll.wealth` increases or decreases npc.professionLuck by up to 10%, reflecting the strength of the economy. The expected range is between -25 and 25. */
 export function wageVariation (town: Town, npc: NPC): number {
   return calcPercentage(npc.roll.professionLuck, (town.roll.wealth - 50) / 5)
 }

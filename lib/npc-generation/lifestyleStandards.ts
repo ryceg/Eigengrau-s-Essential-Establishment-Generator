@@ -2,10 +2,13 @@ import { ThresholdTable } from '../src/rollFromTable'
 import { SocialClassName } from './_common'
 
 export interface LifestyleStandard {
+  /** Percentage of their daily wage which goes towards their lifestyle. */
   dailyWagePercentage: number
+  /** Amount needed to be able to afford this lifestyle. */
   incomeThreshold: number
   lifestyleStandard: LifestyleStandardName
   lifestyleDescription: string
+  /** Influences the home that the NPC grew up in. */
   homeBias: number
   socialClass: {
     table: ThresholdTable<SocialClassName>
