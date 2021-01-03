@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
+import { articles, assign, createBuilding, createBuildingRelationship, createStructure, createTavernName, tavernModifiers } from '@lib'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 
 interface Options {
@@ -9,20 +10,20 @@ interface Options {
 }
 
 export const createTavern = (town: Town, opts: Options = {}): Tavern => {
-  const tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
+  const tavern: Tavern = (opts.newBuilding || createBuilding)(town, 'tavern')
 
-  tavern.name = lib.createTavernName()
+  tavern.name = createTavernName()
   console.groupCollapsed(tavern.name)
 
-  lib.assign(tavern, {
+  assign(tavern, {
     associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   })
 
-  lib.assign(tavern, {
+  assign(tavern, {
     bartender: tavern.associatedNPC
   })
 
-  lib.assign(tavern, {
+  assign(tavern, {
     // @ts-ignore
     barmaid: setup.createNPC(town, {
       isShallow: true,
@@ -34,7 +35,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   })
 
   createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
-  lib.createBuildingRelationship(town, tavern, tavern.barmaid, {
+  createBuildingRelationship(town, tavern, tavern.barmaid, {
     relationship: 'employee',
     reciprocalRelationship: 'place of employment'
   })
@@ -78,7 +79,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     game: setup.tavern.games.random()
   })
 
-  lib.assign(tavern.roll, {
+  assign(tavern.roll, {
     bedCleanliness: random(1, 100)
   })
 
@@ -99,9 +100,9 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     default:
       tavern.notableFeature = `its ${tavern.draw}`
   }
-  lib.tavernModifiers(town, tavern)
+  tavernModifiers(town, tavern)
 
-  lib.assign(tavern, {
+  assign(tavern, {
     lodging: 0,
     colour1: getRandomTavernColour(),
     colour2: getRandomTavernColour(),
@@ -122,16 +123,16 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
   // Sets up building structure and creates building description
-  lib.createStructure(town, tavern)
-  tavern.structure.tavernDescriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
+  createStructure(town, tavern)
+  tavern.structure.descriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${articles.output(tavern.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
     // @ts-ignore
-    lib.defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
+    defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
   }
-  // lib.tavernRender(tavern)
-  tavern.tippyDescription = `${lib.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
+  // tavernRender(tavern)
+  tavern.tippyDescription = `${articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
   console.log(tavern)
   console.groupEnd()
   return tavern
