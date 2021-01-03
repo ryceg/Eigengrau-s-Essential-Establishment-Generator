@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Town, NPC, Marriage, ThresholdTable, weightedRandomFetcher, assign, knewParents, createFamilyLifestyle, getMarriages, rollFromTable } from '@lib'
+import { Town, NPC, Marriage, ThresholdTable, weightedRandomFetcher, assign, knewParents, createFamilyLifestyle, getMarriages, rollFromTable, LifestyleStandardName } from '@lib'
 import { profile } from './profile'
 import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
@@ -57,7 +57,7 @@ const birthplaceTable: ThresholdTable = [
 const familyUnits: Record<string, FamilyUnit> = {
   bothParents: {
     probability: 25,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my mother and father'
   },
   singleStepmother: {
@@ -67,7 +67,7 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleMother: {
     probability: 14,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
+    exclusions: (_town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.father,
     descriptor: 'my single mother'
   },
   singleStepfather: {
@@ -77,52 +77,52 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleFather: {
     probability: 14,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
+    exclusions: (_town, familyUnitObj) => familyUnitObj.npc.knewParents && !familyUnitObj.mother,
     descriptor: 'my single father'
   },
   adoptiveFamily: {
     probability: 10,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my adoptive family'
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => { if (familyUnitObj.mother && knewParents(town, State.variables.npcs[familyUnitObj.mother])) return true },
+    exclusions: (town, familyUnitObj) => { return knewParents(town, State.variables.npcs[familyUnitObj.mother]) },
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, familyUnitObj) => { if (familyUnitObj.father && knewParents(town, State.variables.npcs[familyUnitObj.father])) return true },
+    exclusions: (town, familyUnitObj) => { return knewParents(town, State.variables.npcs[familyUnitObj.father]) },
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
     probability: 8,
-    exclusions: (town, familyUnitObj) => familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => familyUnitObj.npc.knewParents,
     descriptor: 'my extended family'
   },
   guardian: {
     probability: 2,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'my guardian'
   },
   orphanage: {
     probability: 2,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the orphanage'
   },
   temple: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the temple'
   },
   institution: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents,
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents,
     descriptor: 'the institution'
   },
   streets: {
     probability: 1,
-    exclusions: (town, familyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
+    exclusions: (_town, familyUnitObj) => !familyUnitObj.npc.knewParents && !['aristocracy', 'nobility'].includes(familyUnitObj.npc.socialClass),
     descriptor: 'the streets'
   }
 }
@@ -158,9 +158,9 @@ export const createHistory = (town: Town, npc: NPC) => {
     if (!parentMarriage.lifestyle) {
       createFamilyLifestyle(parentMarriage)
     }
-
-    npc.familyLifestyle = parentMarriage.lifestyle
-    npc.familyHome = parentMarriage.home
+    // createFamilyLifestyle ensures that they are defined.
+    npc.familyLifestyle = parentMarriage.lifestyle as LifestyleStandardName
+    npc.familyHome = parentMarriage.home as string
   } else {
     // Create a temporary marriage for this orphan.
     const marriage: Marriage = {
@@ -170,8 +170,9 @@ export const createHistory = (town: Town, npc: NPC) => {
     }
 
     createFamilyLifestyle(marriage)
-    npc.familyLifestyle = marriage.lifestyle
-    npc.familyHome = marriage.home
+    // createFamilyLifestyle ensures that they are defined.
+    npc.familyLifestyle = marriage.lifestyle as LifestyleStandardName
+    npc.familyHome = marriage.home as string
   }
 
   npc.childhoodMemories = createChildhoodMemories(town, npc)
