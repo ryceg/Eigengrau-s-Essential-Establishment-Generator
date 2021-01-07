@@ -97,7 +97,9 @@ export interface Deity {
   gender: GenderName | 'none'
   /** The race the deity appears as. */
   race: RaceName | string
-  /** For spirits and other things that shouldn't be called gods, goddesses, or deities. */
+  /** For spirits and other things that shouldn't be called gods, goddesses, or deities.
+   * @default 'god'
+  */
   wordNoun?: string
   /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
   domains: string[]
