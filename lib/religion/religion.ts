@@ -1,9 +1,10 @@
 import { AgeName, GenderName, NPC, RaceName } from '@lib'
+import { AlignmentsAbbreviated } from 'lib/src/worldType'
 
 interface Followers {
   description: string
   favouredWeapon: string
-  holyDays: string[]
+  holyDays: Record<string, string[]>
   race?: RaceName
   gender?: GenderName
   age?: AgeName
@@ -103,19 +104,22 @@ export interface Deity {
   /** For channel divinity spells and features. */
   channelDivinity: string[]
   /** Alignments, for those that are still stuck on 2nd Edition. */
-  alignment: 'LG' | 'NG' | 'CG' | 'LN' | 'LG' | 'LE' | 'N' | 'LN' | 'CN'
+  alignment: AlignmentsAbbreviated
   /** The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
    * @example Zeus: 'fist full of lightning bolts'
   */
   symbol: string | string[]
   combat: {
-    /** For when you want to describe how your deity fights in battle. */
-    description: string
     /** Their weapon of choice
      * @example Zeus: 'lightning'
      * @usage 'In combat, Zeus uses `lightning`.
      */
     weapon: string
+    /** For descriptions about combat.
+     * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
+     */
+    description: string
+    /** For when you want to describe how your deity fights in battle. */
     tactics: string
   }
   /** For things that the deity owns.
@@ -175,7 +179,9 @@ export const religion: ReligionData = {
       followers: {
         description: '',
         favouredWeapon: '',
-        holyDays: []
+        holyDays: {
+          default: []
+        }
       },
       gods: [
         {
@@ -208,7 +214,9 @@ export const religion: ReligionData = {
           followers: {
             description: 'Zeus is followed by many, of all different race and creed.',
             favouredWeapon: 'spear',
-            holyDays: ['June 12']
+            holyDays: {
+              earth: ['June 12']
+            }
           },
           personality: {
             just: 70,
