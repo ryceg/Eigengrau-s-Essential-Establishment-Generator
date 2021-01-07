@@ -1,7 +1,8 @@
-import { NPC, Building, Faction, Road, Town } from '@lib'
+import { NPC, Building, Town } from '@lib'
 
 /** global setup tippy jQuery settings */
-export const profileTooltip = (id: string, obj: NPC | Building | Faction | Road) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const profileTooltip = (id: string, obj: any) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
@@ -69,6 +70,8 @@ export const buildingTooltip = (id: string, building: Building) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
+      // FIXME
+      // @ts-expect-error To be fixed at a later date.
       span.title = building.tippyDescription || `${lib.articles.output(building.size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness}, and is known for ${building.notableFeature}.`
       tippy(`#${span.id}`)
     }
@@ -96,6 +99,8 @@ export const politicsTooltip = (id: string, type: string, town: Town) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
+      // @ts-expect-error Will have to fix this later.
+      // FIXME
       span.title = politicsDescription(town, type)
       tippy(`#${span.id}`)
     }

@@ -7,9 +7,10 @@ export const tippy = (selector: string) => {
 }
 
 const tip = tippy('[title]')
-
+// @ts-expect-error I don't know how to fix this error, but it works. Trust me.
 tippy.browser.onUserInputChange = (type: string) => {
   const method = type === 'touch' ? 'disable' : 'enable'
+  // @ts-expect-error This one too.
   for (const tooltip of tip.tooltips) {
     tooltip[method]()
   }

@@ -10,12 +10,15 @@ interface Options {
 }
 
 export const createTavern = (town: Town, opts: Options = {}): Tavern => {
+  // FIXME
+  // @ts-expect-error Reassuring TS that it's okay that the function doesn't populate it perfectly is unfortunately beyond me.
   const tavern: Tavern = (opts.newBuilding || createBuilding)(town, 'tavern')
 
   tavern.name = createTavernName()
   console.groupCollapsed(tavern.name)
 
   assign(tavern, {
+    // @ts-ignore
     associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   })
 

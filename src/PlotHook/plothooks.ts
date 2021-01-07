@@ -630,6 +630,7 @@ export const plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: false
       })
+      // @ts-ignore
       return `The town of ${setup.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(npc)} for details.`
     }
   },
