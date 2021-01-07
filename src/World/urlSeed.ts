@@ -1,4 +1,4 @@
-setup.urlSeed = () => {
+export const urlSeed = () => {
   const seed = getValidSeed(location.hash.replace('#', ''))
 
   console.log(`Setting the location hash to ${seed}`)
@@ -17,10 +17,10 @@ $(document).one(':enginerestart', () => {
 
 /**
  * Validates and adjust a seed.
- * @param {string} seed - Seed to validate/adjust.
- * @returns {string} A valid seed.
+ * @param seed - Seed to validate/adjust.
+ * @returns A valid seed.
  */
-function getValidSeed (seed) {
+function getValidSeed (seed: string): string {
   if (seed.length <= 0) {
     console.log('Creating a seed...')
     return createSeed()
@@ -36,9 +36,9 @@ function getValidSeed (seed) {
 
 /**
  * Creates a new seed.
- * @returns {string}
  */
 function createSeed () {
-  const { adjectives, animals } = lib.urlData
-  return adjectives.random() + adjectives.random() + animals.random()
+  const { random, urlData } = lib
+  const { adjectives, animals } = urlData
+  return random(adjectives) + random(adjectives) + random(animals)
 }

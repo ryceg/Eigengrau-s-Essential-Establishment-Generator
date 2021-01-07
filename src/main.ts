@@ -16,6 +16,7 @@ import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { urlSeed } from './World/urlSeed'
 
 declare global {
   interface Setup {
@@ -33,6 +34,7 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
+    urlSeed: typeof urlSeed
   }
 }
 
@@ -50,7 +52,8 @@ Object.assign(setup, {
   createDebt,
   deleteNPC,
   deleteThrowawayNPCs,
-  getLifeEvents
+  getLifeEvents,
+  urlSeed
 })
 
 /**
