@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
+
+import type { Building } from '@lib'
+
 /**
  * Gets the price modifier.
- * @param {number | import("../../lib/buildings/_common").Building} priceModSource
- * @returns {number}
  */
-setup.getPriceMod = function (priceModSource) {
-  /** @param {number} priceModSource */
+export const getPriceMod = (priceModSource: number | Building): number => {
   console.log(priceModSource)
   if (typeof priceModSource === 'object') {
     if (typeof priceModSource.priceModifier === 'number') {
@@ -13,7 +12,6 @@ setup.getPriceMod = function (priceModSource) {
     }
   } else if (typeof priceModSource === 'number') {
     return Number(1 - (priceModSource / 100))
-  } else {
-    return 1
   }
+  return 1
 }
