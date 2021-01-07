@@ -17,6 +17,7 @@ import { createDebt } from './NPCGeneration/createDebt'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { getPriceMod } from './Settings/getPriceMod'
+import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 
 declare global {
@@ -36,6 +37,7 @@ declare global {
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
     getPriceMod: typeof getPriceMod
+    graveStone: typeof graveStone
     urlSeed: typeof urlSeed
   }
 }
@@ -56,6 +58,7 @@ Object.assign(setup, {
   deleteThrowawayNPCs,
   getLifeEvents,
   getPriceMod,
+  graveStone,
   urlSeed
 })
 
