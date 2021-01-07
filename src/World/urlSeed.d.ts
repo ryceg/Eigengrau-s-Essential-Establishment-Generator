@@ -1,3 +1,0 @@
-interface Setup {
-  urlSeed(): void
-}
