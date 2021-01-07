@@ -1,0 +1,42 @@
+:: DeityProfile
+\<<set $currentPassage to $town.religions[$currentPassage.key]>>
+\<span class="interactive-only"><h1>$currentPassage.name</h1></span>
+\<<button "Edit $currentPassage.name" DeitySliders>>
+    <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
+  <</button>>
+<<print lib.firstCharacter($currentPassage.name)>>, <<print $currentPassage.titles.random()>>, is the $currentPassage.wordNoun of $currentPassage.portfolios. <<print $currentPassage.hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>. 
+$currentPassage.description $currentPassage.appearance
+<h2>History</h2>
+<h2>Beliefs and Heresies</h2>
+<h2>Combat</h2>
+$currentPassage.combat.description
+\$currentPassage.heshe uses $currentPassage.combat.weapon in combat. $currentPassage.combat.tactics
+<h2>Followers</h2>
+$currentPassage.followers.description
+\In combat, $currentPassage.hisher followers favour the $currentPassage.followers.favouredWeapon. Their holy days are $currentPassage.followers.holyDays.earth
+<h3>Excluded</h3>
+$currentPassage.followers.excluded.description
+<h2>Manifestations</h2>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Appearance</th>
+  <th>Description</th>
+  <th>Frequency</th>
+  <th>Powers</th>
+</tr>
+<<for _i to 0; _i lt $currentPassage.manifestations.avatars.length; _i++>>
+<tr>
+  <td>$currentPassage.manifestations.avatars[_i].name</td>
+  <td>$currentPassage.manifestations.avatars[_i].appearance</td>
+  <td>$currentPassage.manifestations.avatars[_i].description</td>
+  <td>$currentPassage.manifestations.avatars[_i].frequency</td>
+  <td>$currentPassage.manifestations.avatars[_i].powers</td>
+</tr>
+<</for>>
+<tr>
+  <th>Type</th>
+  <th>Appears as</th>
+</tr>
+
+</table>
