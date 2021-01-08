@@ -30,7 +30,6 @@ import { tippy } from './Settings/Tippy/tippy'
 import { profileTooltip, profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
-import { getPriceMod } from './Settings/getPriceMod'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 
@@ -113,7 +112,6 @@ Object.assign(setup, {
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
-  getPriceMod,
   graveStone,
   urlSeed
 })
