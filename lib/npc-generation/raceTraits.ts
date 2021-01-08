@@ -34,8 +34,6 @@ interface AgeTrait {
   ageModifier(): number
 }
 
-export type GenderName = 'man' | 'woman'
-
 interface GenderTrait {
   firstName: string[]
   beardProbability: number
