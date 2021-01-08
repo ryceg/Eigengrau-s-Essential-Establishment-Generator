@@ -181,7 +181,6 @@ export function townRender (town: Town) {
   }
 
   town.guard.funding = getGuardFunding(town)
-  town.hasBrothel = getHasBrothel(town)
 
   return town
 }
@@ -268,10 +267,4 @@ function getGuardFunding (town: Town) {
   if (roll > 30) return 'The guard is underfunded, and their equipment is always in slight disrepair. Their officers are held accountable for their actions when public pressure fors for it, though $town.guard.name does not have the funding to perform training exercises.'
   if (roll > 20) return 'The guard is quite underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when public pressure calls for it, though $town.guard.name does not have the funding to perform any training exercises.'
   return 'The guard is severely underfunded, and their equipment is always in disrepair. Their officers are held accountable for their actions only when $town.rulerType calls for it, though $town.guard.name does not have the funding to train their recruits, resulting in bullies being commonplace.'
-}
-
-function getHasBrothel (town: Town) {
-  if (town.roll.sin > 75 && town.population > 300) return true
-  if (town.roll.sin > 20 && town.population > 1250) return true
-  return false
 }

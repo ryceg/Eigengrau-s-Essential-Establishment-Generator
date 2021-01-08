@@ -1,8 +1,10 @@
+import { addGtagEvent } from './addGtagEvent'
+
 // uses State.variables.history
-setup.history = (object, passageName, linkDescription) => {
+export const history = (object: any, passageName: string, linkDescription: string) => {
   addToHistory(object, passageName, linkDescription)
   // window.location.search = `${passageName}=${object.key}`
-  setup.addGtagEvent()
+  addGtagEvent()
 }
 
 /**
@@ -11,8 +13,8 @@ setup.history = (object, passageName, linkDescription) => {
  * @param {string} passageName
  * @param {string} linkDescription
  */
-function addToHistory (object, passageName, linkDescription) {
-  const history = State.variables.history
+function addToHistory (object: any, passageName: string, linkDescription: string) {
+  const history = State.variables.history as any[]
   passageName = passageName || object.passageName
   linkDescription = linkDescription || object.linkDescription || object.name
   object.objectType = object.objectType || object.passageName

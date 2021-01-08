@@ -3,7 +3,7 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Faction {
   type: FactionType
-  objectType: string
+  objectType: 'faction'
   passageName: string
   key: string
   name: string

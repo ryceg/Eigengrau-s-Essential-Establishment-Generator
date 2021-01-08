@@ -345,7 +345,7 @@ export const plothook = {
     //     }
     //   },
     //   function: function (town) {
-    //     var faction = setup.factionsForType(town, 'type', 'wizards')
+    //     var faction = factionsForType(town, 'type', 'wizards')
     //     return '‘Missing: a large turtle named Hubert who has escaped from the research department at ' + '<<link "' + JSON.stringify(faction.name) + '">><<set $currentPassage to {faction: ' + JSON.stringify(faction) + '}>><<goto "FactionProfile">><</link>> . Please return if found!’'
     //   }
     // },
@@ -360,7 +360,7 @@ export const plothook = {
     //       dndClass: 'sorcerer'
     //     })
     //     var cabin = setup.misc.cabin.create()
-    //     return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. 1GP/chicken to return them, no questions asked.’ (Poster is True Neutral ' + setup.profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
+    //     return 'Chicken Wrangler Needed! Some jerks smashed my coop and now 100 chickens are loose. 1GP/chicken to return them, no questions asked.’ (Poster is True Neutral ' + profile(npc, 'witch') + ' that lives in a ' + cabin.tippyWord + ' in old haunted forest; all the chickens have been enlarged.)'
     //   }
     // },
     // 'Guard The Garlic': {
@@ -376,7 +376,7 @@ export const plothook = {
     //       profession: 'noble',
     //       note: 'Is hosting a banquet for vampires.'
     //     })
-    //     return setup.profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. 200gp per person, payed upfront. No questions asked. (All the guests are vampires.)'
+    //     return profile(npc, 'I') + 'need men to form a small honour garrison for the banquet I am holding in my manor. Important people are involved, so discretion is mandatory. 200gp per person, payed upfront. No questions asked. (All the guests are vampires.)'
     //   }
     // },
     // 'Books': {
@@ -389,7 +389,7 @@ export const plothook = {
     //       background: 'sage',
     //       profession: 'librarian'
     //     })
-    //     return setup.profile(npc, 'My') + ' book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)'
+    //     return profile(npc, 'My') + ' book store has a shipment of rare books coming in and needs people to help unload them. Will pay 100 gold per person and not responsible for any injuries incurred on the job. (Caution: dangerous magic and pet books around.)'
     //   }
     // },
     // 'Rat Exterminator': {
@@ -399,7 +399,7 @@ export const plothook = {
     //   },
     //   function: function (town) {
     //     var npc = setup.createNPC(town)
-    //     return 'Exterminator needed: ' + setup.profile(npc, "I've") + ' got a mess of rats in my basement. Bring me 10 rat tails in return for payment. (Listed address has no basement and owner has no rat problem. The advert has a typo and should point to a house further down the way.)'
+    //     return 'Exterminator needed: ' + profile(npc, "I've") + ' got a mess of rats in my basement. Bring me 10 rat tails in return for payment. (Listed address has no basement and owner has no rat problem. The advert has a typo and should point to a house further down the way.)'
     //   }
     // },
     // 'Sunk Ore': {
@@ -421,7 +421,7 @@ export const plothook = {
     //       ageStage: 'elderly',
     //       gender: 'woman'
     //     })
-    //     return 'Sick Grandmother: My ' + setup.profile(npc, 'grandmother') + ' is sick and needs a shipment of medicine. Our normal courier has gone missing, so we desperately need it delivered. Expedited fee available with a bonus upon delivery (Grandma makes a mean elven bread.)'
+    //     return 'Sick Grandmother: My ' + profile(npc, 'grandmother') + ' is sick and needs a shipment of medicine. Our normal courier has gone missing, so we desperately need it delivered. Expedited fee available with a bonus upon delivery (Grandma makes a mean elven bread.)'
     //   }
     // },
     // 'Squirrel Hunting': {
@@ -442,7 +442,7 @@ export const plothook = {
     //     var npc = setup.createNPC(town, {
     //       gender: 'woman'
     //     })
-    //     return 'Earrings Stolen: ' + setup.profile(npc, 'My') + ' wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.'
+    //     return 'Earrings Stolen: ' + profile(npc, 'My') + ' wagon was robbed by bandits in the eastern forest. Among the items taken where heirloom earrings that were given to me by my mother. Please find them. Reward available.'
     //   }
     // },
     // 'Magic Bakery': {
@@ -455,7 +455,7 @@ export const plothook = {
     //       profession: 'baker',
     //       hasClass: false
     //     })
-    //     return 'TEST SUBJECT NEEDED! ' + setup.profile(npc, 'We') + ' at the Barrington Bakery are looking for subjects to test out our new magical breads. We infuse magic into the mixing process for a, hopefully, tasteful bread. You will need to taste each bread, and have our scholar review the side effects. You will be paid per day.'
+    //     return 'TEST SUBJECT NEEDED! ' + profile(npc, 'We') + ' at the Barrington Bakery are looking for subjects to test out our new magical breads. We infuse magic into the mixing process for a, hopefully, tasteful bread. You will need to taste each bread, and have our scholar review the side effects. You will be paid per day.'
     //   }
     // },
     // 'Trophy Arrow': {
@@ -468,7 +468,7 @@ export const plothook = {
     //       profession: 'alchemist',
     //       hasClass: false
     //     })
-    //     return 'Lost Arrow: While practicing with a bow, my son lost a trophy arrow (he was not supposed to use). He was practicing in the Northern plains and thinks the arrow went into the forbidden forest. Please retrieve this arrow. As an ' + setup.profile(npc, 'alchemist') + ', I will pay in healing potions.'
+    //     return 'Lost Arrow: While practicing with a bow, my son lost a trophy arrow (he was not supposed to use). He was practicing in the Northern plains and thinks the arrow went into the forbidden forest. Please retrieve this arrow. As an ' + profile(npc, 'alchemist') + ', I will pay in healing potions.'
     //   }
     // },
     // 'Goblin Encampment': {
@@ -500,7 +500,7 @@ export const plothook = {
     //       profession: 'alchemist',
     //       hasClass: false
     //     })
-    //     return 'Kobold Flour: ' + setup.profile(npc, 'Local baker') + ' seeks Kobold Flour for the upcoming Monster festival. This specialty item can only be found in Kobold encampments. Will pay 10gp per pound (maximum of 100 pounds).'
+    //     return 'Kobold Flour: ' + profile(npc, 'Local baker') + ' seeks Kobold Flour for the upcoming Monster festival. This specialty item can only be found in Kobold encampments. Will pay 10gp per pound (maximum of 100 pounds).'
     //   }
     // },
     // 'Bard Wanted': {
@@ -525,7 +525,7 @@ export const plothook = {
     //       hasClass: false,
     //       background: ['noble', 'commoner'].random()
     //     })
-    //     return '' + setup.profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
+    //     return '' + profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
     //   }
     // },
     // 'Mushroom Forager': {
@@ -547,7 +547,7 @@ export const plothook = {
     //       background: 'noble',
     //       hasClass: false
     //     })
-    //     return 'Lost mail! Important documents might have been intercepted. The courier I’ve been expecting has not arrived. Please inquire at the City Hall, ask for ' + setup.profile(npc) + '.'
+    //     return 'Lost mail! Important documents might have been intercepted. The courier I’ve been expecting has not arrived. Please inquire at the City Hall, ask for ' + profile(npc) + '.'
     //   }
     // },
     // 'Sporting Match': {
@@ -559,7 +559,7 @@ export const plothook = {
     //     var npc = setup.createNPC(town, {
     //       hasClass: false
     //     })
-    //     return 'The town of ' + setup.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + setup.profile(npc) + ' for details.'
+    //     return 'The town of ' + setup.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + profile(npc) + ' for details.'
     //   }
     // },
     // 'Tarot Cards': {
@@ -573,7 +573,7 @@ export const plothook = {
     //       gender: 'woman',
     //       hasClass: false
     //     })
-    //     return 'Lady ' + setup.profile(npc, npc.firstName) + ' will read your future in the cards. I know you will show up. Where am I? Don’t worry, dear. Fate will guide you.'
+    //     return 'Lady ' + profile(npc, npc.firstName) + ' will read your future in the cards. I know you will show up. Where am I? Don’t worry, dear. Fate will guide you.'
     //   }
     // }
   },

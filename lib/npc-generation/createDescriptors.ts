@@ -3,8 +3,7 @@ import { NPC } from './_common'
 export function createDescriptors (npc: NPC): void {
   console.log(`assigning descriptors to ${npc.name}...`)
   // remember adjectival precedence!
-  // opinion  size    age   shape       colour  origin  material  purpose     noun
-  // lovely   little  old   rectangular green   French  silver    whittling   knife
+  /** @see https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Style-Guide#adjectives */
   const descriptors = [
     `${npc.age || npc.ageStage} ${npc.raceName}`,
     `${npc.skinColour} skinned ${npc.height} ${npc.raceName}`,
@@ -15,10 +14,6 @@ export function createDescriptors (npc: NPC): void {
 
   if (npc.beard) {
     descriptors.push(`${npc.raceName} with ${articles.output(npc.beard)}`)
-  }
-
-  if (npc.hasClass) {
-    descriptors.push(npc.profession)
   }
 
   npc.descriptors = descriptors

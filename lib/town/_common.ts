@@ -47,7 +47,6 @@ export interface Town {
   law: string
   sin: string
   arcana: string
-  hasBrothel: boolean
   pregen?: boolean
   dualLeaders: boolean
   reuseNpcProbability: number
