@@ -259,6 +259,4 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
     tavernRoll.sin += 5
     tavernRoll.wealth -= 8
   }
-
-  return tavern
 }

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Town, Faction } from '@lib'
+
 /**
  * Returns a random faction that has a certain attribute.
  *
@@ -12,7 +15,7 @@
  *
  * @returns {Faction}
  */
-setup.factionsForType = (town, variable, value) => {
+export const factionsForType = <K extends keyof Faction>(town: Town, variable: K, value: Faction[K]): Faction => {
   const found = []
   for (const faction of Object.values(town.factions)) {
     if (faction[variable] === value) {
@@ -20,6 +23,7 @@ setup.factionsForType = (town, variable, value) => {
     }
   }
   if (found.length === 0) {
+    // @ts-ignore
     const tempFaction = setup.createFaction(town, {
       [variable]: value,
       isThrowaway: true

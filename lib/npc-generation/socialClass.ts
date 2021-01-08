@@ -2,12 +2,13 @@ import { NPC } from './_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
 import { ThresholdTable } from '../src/rollFromTable'
+import { LifestyleStandardName } from './lifestyleStandards'
 interface SocialClass {
   landRate: number
   socialClassRollThreshold: number
   probability: number
   lifestyle: string[]
-  lifestyleStandards: ThresholdTable
+  lifestyleStandards: ThresholdTable<LifestyleStandardName>
   defaultBackground: WeightRecord<BackgroundName>
   relationships(npc: NPC, otherNpc: NPC): Customer[]
 }

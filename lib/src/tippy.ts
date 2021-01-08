@@ -1,4 +1,4 @@
-import { ConstructUtils } from '../constructs/_common'
+import { Construct, ConstructUtils } from '../constructs/_common'
 
 /**
  * To be used when you want to wrap a tippy around
@@ -27,7 +27,7 @@ export const createTippyFull = (readout: string, word: string) => {
   return `<span class="tip dotted" role="tooltip" tabindex="0" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
 }
 
-export function createAutoTippy<C extends ConstructUtils> (utils: C, ...args: Parameters<C['create']>) {
+export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, ...args: Parameters<ConstructUtils<C>['create']>) {
   return function autoTippy (word?: string) {
     const construct = utils.create(...args)
     return createTippyFull(utils.readout(construct), word || construct.$type)

@@ -2,9 +2,9 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Building {
   key: string
-  /** @description 'building', 'faction', 'npc', or 'room'. */
-  objectType: string
-  /** @description The type of building- 'castle', 'townSquare', 'generalStore', etc. */
+  /** 'building', 'faction', 'npc', or 'room'. */
+  objectType: 'building'
+  /** The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
   lighting: string
   outside: string

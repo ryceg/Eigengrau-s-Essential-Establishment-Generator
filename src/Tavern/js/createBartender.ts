@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { NPC, Tavern, Town } from '@lib'
-export const createBartender = function (town: Town, tavern: Tavern, opts: Partial<NPC>) {
+import type { Building, NPC, Town } from '@lib'
+
+export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC>): NPC => {
   // @ts-ignore
   const bartender = setup.createNPC(town, Object.assign({
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].random(),
     profession: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].random()
   }, opts))
+
   lib.assign(bartender, {
     greeting: [
       'nods at you',
@@ -35,7 +37,13 @@ export const createBartender = function (town: Town, tavern: Tavern, opts: Parti
       'barking orders at one of the barmaids',
       'breaking up a fight in front of the bar']
   })
-  if (tavern) lib.createBuildingRelationship(town, tavern, bartender, { relationship: 'owner', reciprocalRelationship: 'business' })
+
+  if (tavern) {
+    lib.createBuildingRelationship(town, tavern, bartender, {
+      relationship: 'owner',
+      reciprocalRelationship: 'business'
+    })
+  }
 
   return bartender
 }

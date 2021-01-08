@@ -73,6 +73,7 @@ setup.createNPC = (town, base = defaultBase) => {
     ageStage,
     ageYears: lib.getAgeInYears(race, ageStage),
     muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
+    lifeEvents: [],
     pronouns: {
 
     },
