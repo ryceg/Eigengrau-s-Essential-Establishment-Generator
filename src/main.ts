@@ -19,6 +19,9 @@ import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { getPriceMod } from './Settings/getPriceMod'
+import { graveStone } from './World/graveStone'
+import { urlSeed } from './World/urlSeed'
 
 declare global {
   interface Setup {
@@ -39,6 +42,9 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
+    getPriceMod: typeof getPriceMod
+    graveStone: typeof graveStone
+    urlSeed: typeof urlSeed
   }
 }
 
@@ -59,7 +65,10 @@ Object.assign(setup, {
   createTavern,
   deleteNPC,
   deleteThrowawayNPCs,
-  getLifeEvents
+  getLifeEvents,
+  getPriceMod,
+  graveStone,
+  urlSeed
 })
 
 /**
