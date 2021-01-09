@@ -1,4 +1,8 @@
-setup.createTownName = function (town) {
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Town } from '@lib'
+import { random } from '../../../lib/src/random'
+
+export const createTownName = (town: Town) => {
   const prefix = ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan',
     'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger',
     'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Spin', 'Aber', 'Acc', 'Ock',
@@ -18,14 +22,15 @@ setup.createTownName = function (town) {
   if (random(100) > 90) {
     console.log('Named a founder!')
     if (town) {
+      // @ts-ignore
       const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
       town.founder = npc.key
       name = npc + suffix.random()
     } else {
-      name = lib.raceTraits.human.lastName.random() + suffix.random()
+      name = random(lib.raceTraits.human.lastName) + random(suffix)
     }
   } else {
-    name = prefix.random() + suffix.random()
+    name = random(prefix) + random(suffix)
   }
 
   // linguisticDrift runs some RegEx on the names.
@@ -36,7 +41,7 @@ setup.createTownName = function (town) {
     // Replace existing names of buildings if they reference town name
     town.buildings.forEach(building => {
       building.name = building.name.replace(town.name, driftName)
-      building.tippyDescription = building.tippyDescription.replace(town.name, driftName)
+      if (building.tippyDescription) building.tippyDescription = building.tippyDescription.replace(town.name, driftName)
     })
   }
 

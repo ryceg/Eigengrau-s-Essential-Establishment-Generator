@@ -10,7 +10,7 @@ export interface Building {
   outside: string
   passageName?: string
   parentKey?: string
-  name?: string
+  name: string
   wordNoun?: string
   needsWordNoun?: boolean
   associatedNPC?: NPC

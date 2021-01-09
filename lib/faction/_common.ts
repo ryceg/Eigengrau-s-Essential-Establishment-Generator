@@ -2,6 +2,7 @@ import type { FactionType } from './factionData'
 import { NPC } from '../npc-generation/_common'
 
 export interface Faction {
+  associatedTown: string
   type: FactionType
   objectType: 'faction'
   passageName: string

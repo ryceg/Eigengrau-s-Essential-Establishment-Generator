@@ -34,6 +34,8 @@ import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 import { createTownLeader } from './Town/js/createTownLeader'
 import { createSocioPolitics } from './Town/js/createSocioPolitics'
+import { createTownName } from './Town/js/createTownName'
+import { createStartBuildings } from './Town/js/createStartBuildings'
 
 declare global {
   interface Setup {
@@ -77,6 +79,8 @@ declare global {
     urlSeed: typeof urlSeed
     createTownLeader: typeof createTownLeader
     createSocioPolitics: typeof createSocioPolitics
+    createTownName: typeof createTownName
+    createStartBuildings: typeof createStartBuildings
   }
 }
 
@@ -119,7 +123,9 @@ Object.assign(setup, {
   graveStone,
   urlSeed,
   createTownLeader,
-  createSocioPolitics
+  createSocioPolitics,
+  createTownName,
+  createStartBuildings
 })
 
 /**

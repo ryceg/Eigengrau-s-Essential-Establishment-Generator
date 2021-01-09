@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { ProfessionNames, Town } from '@lib'
+
 // uses setup.createNewBuilding
-setup.createStartBuildings = town => {
+export const createStartBuildings = (town: Town) => {
   console.log('Creating starting buildings...', town)
 
   const buildingsToCreate = [
@@ -12,7 +15,7 @@ setup.createStartBuildings = town => {
     buildingsToCreate.push({ buildingType: 'Docks' })
   }
 
-  const professions = {
+  const professions: Record<string, ProfessionNames[]> = {
     'Tavern': ['bartender'],
     'Alchemist': ['alchemist', 'wizard'],
     'Bakery': ['pastry chef', 'baker'],
@@ -37,9 +40,11 @@ setup.createStartBuildings = town => {
     for (const profession of professions[buildingType]) {
       console.log(professions[buildingType])
       if (town.professions[profession] && town.professions[profession].population > 0) {
+        // @ts-ignore
         buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
         if (town.professions[profession].population > 5) {
           // there's a LOT of this profession = a second
+          // @ts-ignore
           buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
         }
       }
@@ -48,6 +53,7 @@ setup.createStartBuildings = town => {
 
   for (const building of lib.cullBuildings(buildingsToCreate)) {
     console.log(`Creating ${lib.articles.output(building.buildingType)}...`)
+    // @ts-ignore
     setup.createNewBuilding(town, building.buildingType, building.opts)
   }
 }
