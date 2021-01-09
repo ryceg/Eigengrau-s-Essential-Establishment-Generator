@@ -32,6 +32,8 @@ import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
+import { deleteFaction } from './Factions/deleteFaction'
+import { leaderFaction } from './Factions/leader'
 
 declare global {
   interface Setup {
@@ -73,6 +75,8 @@ declare global {
     getPriceMod: typeof getPriceMod
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
+    deleteFaction: typeof deleteFaction
+    leaderFaction: typeof leaderFaction
   }
 }
 
@@ -113,7 +117,9 @@ Object.assign(setup, {
   deleteThrowawayNPCs,
   getLifeEvents,
   graveStone,
-  urlSeed
+  urlSeed,
+  deleteFaction,
+  leaderFaction
 })
 
 /**
