@@ -36,6 +36,8 @@ import { createTownLeader } from './Town/js/createTownLeader'
 import { createSocioPolitics } from './Town/js/createSocioPolitics'
 import { createTownName } from './Town/js/createTownName'
 import { createStartBuildings } from './Town/js/createStartBuildings'
+import { createStartFactions } from './Town/js/createStartFactions'
+import { findPoliceSource, findPolice, makePolice } from './Town/js/findPoliceSource'
 
 declare global {
   interface Setup {
@@ -81,6 +83,10 @@ declare global {
     createSocioPolitics: typeof createSocioPolitics
     createTownName: typeof createTownName
     createStartBuildings: typeof createStartBuildings
+    createStartFactions: typeof createStartFactions
+    findPoliceSource: typeof findPoliceSource
+    findPolice: typeof findPolice
+    makePolice: typeof makePolice
   }
 }
 
@@ -125,7 +131,11 @@ Object.assign(setup, {
   createTownLeader,
   createSocioPolitics,
   createTownName,
-  createStartBuildings
+  createStartBuildings,
+  createStartFactions,
+  findPoliceSource,
+  findPolice,
+  makePolice
 })
 
 /**
