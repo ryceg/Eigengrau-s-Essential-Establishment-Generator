@@ -32,6 +32,8 @@ import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
+import { createGeneralStore } from './GeneralStore/JS/createGeneralStore'
+import { createGeneralStoreName } from './GeneralStore/JS/createGeneralStoreName'
 
 declare global {
   interface Setup {
@@ -73,6 +75,8 @@ declare global {
     getPriceMod: typeof getPriceMod
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
+    createGeneralStore: typeof createGeneralStore
+    createGeneralStoreName: typeof createGeneralStoreName
   }
 }
 
@@ -113,7 +117,9 @@ Object.assign(setup, {
   deleteThrowawayNPCs,
   getLifeEvents,
   graveStone,
-  urlSeed
+  urlSeed,
+  createGeneralStore,
+  createGeneralStoreName
 })
 
 /**

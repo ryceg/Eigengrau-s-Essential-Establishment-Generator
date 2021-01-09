@@ -1,8 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { GeneralStore, Town } from '@lib'
+import { random } from '../../../lib/src/random'
+
+// @ts-ignore
 // uses setup.createNPC
-setup.createGeneralStoreName = (town, generalStore) => {
+export const createGeneralStoreName = (town: Town, generalStore: GeneralStore) => {
   const adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost', 'Fancy'].random()
   const noun = ['Mount', 'Saddle', 'Guild', 'Fangs', 'Man', 'Pardon', 'Pleasure', 'Belt', 'Staff', 'Shield', 'Prince', 'Master', 'Servant', 'Meal', 'Prince', 'Favor', 'Love', 'Word', 'Scribe', 'Apprentice', 'Acolyte', 'Dress', 'Goddess', 'God', 'Gold', 'Purse', 'Trap', 'King', 'Son', 'Sister', 'Mother', 'Daughter', 'Cry', 'Shout', 'Cupboard', 'Pantry', 'Queen', 'Wealth', 'Star', 'Void', 'Woman', 'Man', 'Whore', 'Butcher', 'Anvil', 'Tome', 'Sacrifice', 'Armor', 'Cup', 'Pot', 'Stove', 'Stool', 'Princess', 'Chain', 'Sword', 'Pork', 'Grain', 'Tooth', 'Lance', 'Axe', 'Scabbard', 'Knife', 'Dagger', 'Spear', 'Bow', 'Crossbow', 'Quarterstaff', 'Staff', 'Fire', 'Ice', 'Wind', 'Earth', 'Water', 'Stone', 'Ladle', 'Monastery', 'Chalice', 'Goblet', 'Dungeon', 'Lust', 'Lantern', 'Bone', 'Life', 'Stone', 'Mistress', 'Mind', 'Treasure', 'Barter', 'Armorer', 'Butler', 'Page', 'Tome', 'Feather', 'Shadow', 'Friend', 'Labyrinth', 'Mountain', 'Hope', 'Boot', 'Gauntlet'].random()
-  const family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].random()
+  const family = random(['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'])
   const rider = ['Shop', 'Bazaar', 'Convenience Store', 'Trading Post', 'Warehouse', 'Antiquerie', 'Adventure Supplier', 'Supplier', 'Goods', 'Goods and Bads', 'Stock Shop', 'Wares'].random()
   const professions = ['shopkeep', "shopkeep's assistant", "shopkeep's assistant", "shopkeep's assistant"]
 
@@ -128,14 +133,20 @@ setup.createGeneralStoreName = (town, generalStore) => {
       break
     case 6:
       generalStore.name = lib.toTitleCase(`The ${noun} and ${family.toUpperFirst()}`)
+      // @ts-ignore
       generalStore.assistant = setup.createNPC(town, fam[family])
+      // @ts-ignore
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
+        // @ts-ignore
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     case 7:
       generalStore.name = lib.toTitleCase(`${associatedNPC.firstName} and ${family.toUpperFirst()}`)
+      // @ts-ignore
       generalStore.assistant = setup.createNPC(town, fam[family])
+      // @ts-ignore
       setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
+        // @ts-ignore
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     default:
