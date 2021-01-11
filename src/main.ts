@@ -32,6 +32,9 @@ import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
+import { renderWeather } from './World/renderWeather'
+import { createWeather } from './World/createWeather'
+import { toCelsius } from './World/toCelsius'
 
 declare global {
   interface Setup {
@@ -73,6 +76,9 @@ declare global {
     getPriceMod: typeof getPriceMod
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
+    renderWeather: typeof renderWeather
+    createWeather: typeof createWeather
+    toCelsius: typeof toCelsius
   }
 }
 
@@ -113,7 +119,10 @@ Object.assign(setup, {
   deleteThrowawayNPCs,
   getLifeEvents,
   graveStone,
-  urlSeed
+  urlSeed,
+  renderWeather,
+  createWeather,
+  toCelsius
 })
 
 /**

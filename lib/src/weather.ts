@@ -1,11 +1,12 @@
 import { random } from './random'
 import { dice } from './dice'
 import { ThresholdTable } from './rollFromTable'
+import { Seasons } from './terrain'
 
 export interface Weather {
   temperature: number
   tempVariation: number
-  currentSeason: string
+  currentSeason: Seasons
   timer: {
     precipitation: number
     cloud: number
@@ -22,13 +23,62 @@ export interface Weather {
     temperature: string
     full: string
   }
-  precipitation: string | false
-  precipitationLevel: number
-  precipitationIntensity: number
-  cloudIntensity: string
+  hasPrecipitation: boolean
+  precipitation: PrecipitationTypes
+  precipitationLevel: PrecipitationLevels
+  precipitationIntensity: PrecipitationIntensityLevels
+  cloudIntensity: CloudIntensities
 }
 
-export const weather = {
+export type PrecipitationIntensityLevels = 1 | 2 | 3 | 4
+export type PrecipitationLevels = 1 | 2 | 3 | 4
+
+type PrecipitationTypes =
+  'no precipitation'
+| 'light rain'
+| 'rain'
+| 'drizzle'
+| 'heavy rain'
+| 'light fog'
+| 'medium fog'
+| 'heavy fog'
+| 'light snow'
+| 'medium snow'
+| 'heavy snow'
+| 'thunderstorm'
+
+type CloudIntensities =
+  'extremely overcast'
+| 'overcast'
+| 'thick clouds'
+| 'heavy clouds'
+| 'medium clouds'
+| 'light clouds'
+| 'clear'
+
+interface PrecipitationIntensities {
+  cloud(weather: Weather): void
+  freezing(weather: Weather): void
+  raining(weather: Weather): void
+}
+
+interface PrecipitationLevelFunction {
+  1(weather: Weather): boolean
+  2(weather: Weather): boolean
+  3(weather: Weather): boolean
+  4(weather: Weather): boolean
+  5(weather: Weather): boolean
+}
+
+interface WeatherData {
+  precipitationIntensity: Record<PrecipitationIntensityLevels, PrecipitationIntensities>
+  precipitationLevel: PrecipitationLevelFunction
+  precipitationDescriptors: Record<PrecipitationTypes, string[]>
+  cloudIntensityDescriptors: Record<CloudIntensities, string[]>
+  temperatureDescriptors: ThresholdTable<string>
+}
+
+export const weather: WeatherData = {
   precipitationIntensity: {
     1: {
       cloud (weather: Weather) {
@@ -41,7 +91,7 @@ export const weather = {
         } else if (weather.roll.cloud > 50) {
           weather.cloudIntensity = 'light clouds'
           weather.timer.cloud = random(6, 10)
-        } else if (weather.roll.cloud <= 50 && weather.precipitation === false) {
+        } else if (weather.roll.cloud <= 50 && weather.precipitation === 'no precipitation') {
           weather.cloudIntensity = 'clear'
           weather.timer.cloud = dice(3, 6)
         } else {
@@ -103,7 +153,7 @@ export const weather = {
         } else if (weather.roll.cloud > 50) {
           weather.cloudIntensity = 'light clouds'
           weather.timer.cloud = random(6, 10)
-        } else if (weather.roll.cloud <= 50 && weather.precipitation === false) {
+        } else if (weather.roll.cloud <= 50 && weather.precipitation === 'no precipitation') {
           weather.cloudIntensity = 'clear'
           weather.timer.cloud = random(8, 12)
         } else {
@@ -157,7 +207,7 @@ export const weather = {
     3: {
       cloud (weather: Weather) {
         if (weather.roll.cloud > 35) {
-          weather.cloudIntensity = 'extremely overcase'
+          weather.cloudIntensity = 'extremely overcast'
           weather.timer.cloud = random(8, 12)
         } else if (weather.roll.cloud > 10) {
           weather.cloudIntensity = 'thick clouds'
@@ -362,7 +412,7 @@ export const weather = {
       'there are a couple cumulonimbus clouds lazily drifting across the sky',
       "there are a couple clouds, but it's not quite overcast"
     ],
-    'none': [
+    'clear': [
       "there's not a cloud in sight",
       "there aren't any clouds in the sky",
       'there are no clouds on the horizon',
@@ -397,5 +447,5 @@ export const weather = {
     [0, 'extremely cold'],
     [-5, 'bitterly cold'],
     [-10, 'painfully cold']
-  ] as ThresholdTable
+  ]
 }
