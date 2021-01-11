@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Faction, NPC, Town } from '@lib'
+import { random } from '../../lib/src/random'
+
 // uses setup.createNPC, setup.deleteNPC
-setup.leaderFaction = function (town, faction) {
+export const leaderFaction = (town: Town, faction: Faction) => {
   console.log('determining leaders...')
 
-  faction.leaderQualification = getLeaderQualification(faction)
+  faction.leaderQualification = getLeaderQualification(faction) as string
 
   faction.leaderBribes = lib.matchFirst.largerThan(faction.roll.leaderBribes, {
     95: 'will never, under any circumstances be accepted',
@@ -18,7 +22,7 @@ setup.leaderFaction = function (town, faction) {
     20: 'will usually be accepted',
     10: 'are a regular part of business',
     5: 'depend on circumstances'
-  }, 'are expected')
+  }, 'are expected') as string
 
   faction.leaderCompetence = lib.matchFirst.largerThan(faction.roll.leaderCompetence, {
     95: 'ruthlessly efficient',
@@ -34,20 +38,24 @@ setup.leaderFaction = function (town, faction) {
     20: 'very incompetent',
     10: 'unbelievably incompetent',
     5: 'of mild competence'
-  }, 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel')
+  }, 'incompetent to the point of being unable to pour water out of a boot with the instructions written on the heel') as string
 
   switch (faction.leadershipType) {
     case 'individual': {
       const leaderTraits = lib.factionData.types[faction.type].leader.base
       for (const key in leaderTraits) {
+        // @ts-ignore
         if (Array.isArray(leaderTraits[key])) {
-          leaderTraits[key] = leaderTraits[key].random()
+          // @ts-ignore
+          leaderTraits[key] = random(leaderTraits[key])
         }
       }
+      // @ts-ignore
       faction.leader = faction.leader || setup.createNPC(town, leaderTraits)
+      // @ts-ignore
       lib.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
       if (faction.isPoliticalPower === true) {
-        town.leader = faction.leader
+        town.leader = faction.leader as NPC
       }
       break
     }
@@ -65,26 +73,26 @@ setup.leaderFaction = function (town, faction) {
   return faction
 }
 
-/** @returns {string} */
-function getLeaderQualification (faction) {
+function getLeaderQualification (faction: Faction) {
   if (faction.age === 'brand new' || faction.age === 'very new') {
     if (faction.leadershipType === 'group') {
-      return ['the original founders', 'the original founders', 'the first appointed leaders'].random()
+      return random(['the original founders', 'the original founders', 'the first appointed leaders'])
     }
-    return ['the original founder', 'the original founder', 'the first appointed leader'].random()
+    return random(['the original founder', 'the original founder', 'the first appointed leader'])
   }
   return lib.weightRandom(lib.factionData.types[faction.type].leader.qualification)
 }
 
 /** @returns {string} */
-function getStabilityCause (faction) {
+function getStabilityCause (faction: Faction): string {
   if (faction.roll.stability <= 30) {
-    return ['internal power struggles', 'conflicts with rivaling factions'].random()
+    return random(['internal power struggles', 'conflicts with rivaling factions'])
   }
   if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
-    return ['the lack of infighting for the leadership role'].random()
+    return random(['the lack of infighting for the leadership role'])
   }
   if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
-    return [`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'].random()
+    return random([`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'])
   }
+  return 'internal power struggles'
 }
