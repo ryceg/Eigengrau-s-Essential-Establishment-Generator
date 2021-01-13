@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 export const tippy = (selector: string) => {
   addEventListener('load', () => {
     tippy(selector)
@@ -8,15 +7,15 @@ export const tippy = (selector: string) => {
 }
 
 const tip = tippy('[title]')
-// @ts-ignore I don't know how to fix this error, but it works. Trust me.
+// @ts-expect-error I don't know how to fix this error, but it works. Trust me.
 tippy.browser.onUserInputChange = (type: string) => {
   const method = type === 'touch' ? 'disable' : 'enable'
-  // @ts-ignore This one too.
+  // @ts-expect-error This one too.
   for (const tooltip of tip.tooltips) {
     tooltip[method]()
   }
 }
 
-$(document).on(':passageend', function () {
+$(document).on(':passageend', () => {
   tippy('.tip')
 })

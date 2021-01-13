@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Relationship, Town } from '@lib'
+import { createRelationship } from './createRelationship'
+import { getPartnerGender } from './createSexuality'
 
 interface Friend {
   probability?: number
@@ -32,16 +34,14 @@ export const createFriends = (town: Town, npc: NPC) => {
     'old flame': {
       relationship: 'old flame',
       base: {
-        // @ts-ignore
-        gender: setup.getPartnerGender(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage
       }
     },
     'ex': {
       relationship: 'ex',
       base: {
-        // @ts-ignore
-        gender: setup.getPartnerGender(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage
       }
     },
@@ -49,8 +49,7 @@ export const createFriends = (town: Town, npc: NPC) => {
       relationship: 'secret crush',
       reciprocalRelationship: ['friend', 'friend', 'friend', 'just a friend', 'creepy stalker', 'secret crush'].random(),
       base: {
-        // @ts-ignore
-        gender: setup.getPartnerGender(npc),
+        gender: getPartnerGender(npc),
         ageStage: npc.ageStage,
         socialClass: npc.socialClass || 'commoner'
       }
@@ -153,7 +152,7 @@ export const createFriends = (town: Town, npc: NPC) => {
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
     // @ts-ignore
     const friend = setup.createNPC(town, friendObj.base)
-    setup.createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
+    createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 
   for (let step = 0; step < friendsNumber; step++) {
@@ -196,7 +195,7 @@ function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc
     // @ts-ignore
     // FIXME: weightedRandomFetcher expects a record, while relationships is an array.
     const relObj = lib.weightedRandomFetcher(town, relationships, npc, null, 'object') as Relationship
-    setup.createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
+    createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
   }
   return friend
 }
@@ -208,9 +207,9 @@ function findFriendInSameProfessionSector (town: Town, npcs: Record<string, NPC>
   })
   if (friend) {
     if (npc.profession === friend.profession) {
-      setup.createRelationship(town, npc, friend, 'peer', 'peer')
+      createRelationship(town, npc, friend, 'peer', 'peer')
     } else {
-      setup.createRelationship(town, npc, friend, 'industry peer', 'industry peer')
+      createRelationship(town, npc, friend, 'industry peer', 'industry peer')
     }
   }
   return friend

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
 import { articles, assign, createBuilding, createBuildingRelationship, createStructure, createTavernName, tavernModifiers } from '@lib'
+import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 
 interface Options {
   newBuilding?(town: Town, type: string): Building
@@ -36,7 +37,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     })
   })
 
-  setup.createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
+  createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
   createBuildingRelationship(town, tavern, tavern.barmaid, {
     relationship: 'employee',
     reciprocalRelationship: 'place of employment'
@@ -126,7 +127,6 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   }
   // Sets up building structure and creates building description
   createStructure(town, tavern)
-  // @ts-ignore
   tavern.structure.descriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${articles.output(tavern.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
@@ -135,7 +135,6 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
   }
   // tavernRender(tavern)
-  // @ts-ignore
   tavern.tippyDescription = `${articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
   console.log(tavern)
   console.groupEnd()
