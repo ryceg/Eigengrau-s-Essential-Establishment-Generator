@@ -35,6 +35,9 @@ import { urlSeed } from './World/urlSeed'
 import { renderWeather } from './World/renderWeather'
 import { createWeather } from './World/createWeather'
 import { toCelsius } from './World/toCelsius'
+import { deleteFaction } from './Factions/deleteFaction'
+import { leaderFaction } from './Factions/leader'
+import { plothooks } from './PlotHook/plothooks'
 
 declare global {
   interface Setup {
@@ -79,6 +82,9 @@ declare global {
     renderWeather: typeof renderWeather
     createWeather: typeof createWeather
     toCelsius: typeof toCelsius
+    deleteFaction: typeof deleteFaction
+    leaderFaction: typeof leaderFaction
+    plothooks: typeof plothooks
   }
 }
 
@@ -122,7 +128,10 @@ Object.assign(setup, {
   urlSeed,
   renderWeather,
   createWeather,
-  toCelsius
+  toCelsius,
+  deleteFaction,
+  leaderFaction,
+  plothooks
 })
 
 /**

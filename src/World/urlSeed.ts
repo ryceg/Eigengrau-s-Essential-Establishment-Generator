@@ -38,7 +38,6 @@ function getValidSeed (seed: string): string {
  * Creates a new seed.
  */
 function createSeed () {
-  const { random, urlData } = lib
-  const { adjectives, animals } = urlData
-  return random(adjectives) + random(adjectives) + random(animals)
+  const { adjectives, animals } = lib.urlData
+  return `${adjectives.random()}${adjectives.random()}${animals.random()}`
 }

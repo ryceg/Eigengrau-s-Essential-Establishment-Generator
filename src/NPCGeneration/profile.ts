@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // uses State.variables.npcs, State.variables.town
 
-import { NPC, Building, Faction, Road } from '@lib'
-import { findViaKey } from 'src/Tools/findViaKey'
+import type { NPC, Building, Faction, Road } from '@lib'
+import { findViaKey } from '../Tools/findViaKey'
 
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
  * @param readout - The text that you wish to be read out. Defaults to the object name or descriptor.
  * @param type - The type of object it is- it points towards npcs as a default.
- * @returns {string}
+ *
  * For buildings, point towards town.buildings.tavern
  * TODO: update documentation here.
  * For factions, point towards `town.factions`

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
-import { articles, assign, createBuilding, createBuildingRelationship, createStructure, createTavernName, tavernModifiers } from '@lib'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 
 interface Options {
@@ -12,21 +11,21 @@ interface Options {
 export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   // FIXME
   // @ts-expect-error Reassuring TS that it's okay that the function doesn't populate it perfectly is unfortunately beyond me.
-  const tavern: Tavern = (opts.newBuilding || createBuilding)(town, 'tavern')
+  const tavern: Tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
 
-  tavern.name = createTavernName()
+  tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
 
-  assign(tavern, {
+  lib.assign(tavern, {
     // @ts-ignore
     associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   })
 
-  assign(tavern, {
+  lib.assign(tavern, {
     bartender: tavern.associatedNPC
   })
 
-  assign(tavern, {
+  lib.assign(tavern, {
     // @ts-ignore
     barmaid: setup.createNPC(town, {
       isShallow: true,
@@ -38,12 +37,12 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   })
 
   createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
-  createBuildingRelationship(town, tavern, tavern.barmaid, {
+  lib.createBuildingRelationship(town, tavern, tavern.barmaid, {
     relationship: 'employee',
     reciprocalRelationship: 'place of employment'
   })
 
-  Object.assign(tavern, {
+  lib.assign(tavern, {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
@@ -82,12 +81,12 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     game: setup.tavern.games.random()
   })
 
-  assign(tavern.roll, {
+  lib.assign(tavern.roll, {
     bedCleanliness: random(1, 100)
   })
 
   // @ts-ignore
-  Object.assign(tavern, setup.tavern.get.draws(town, tavern))
+  lib.assign(tavern, setup.tavern.get.draws(town, tavern))
 
   if (tavern.draw === 'proximity to the church') {
     if (['gambling den', 'proximity to the brothel', 'raucous dive'].includes(tavern.type)) {
@@ -103,9 +102,9 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     default:
       tavern.notableFeature = `its ${tavern.draw}`
   }
-  tavernModifiers(town, tavern)
+  lib.tavernModifiers(town, tavern)
 
-  assign(tavern, {
+  lib.assign(tavern, {
     lodging: 0,
     colour1: getRandomTavernColour(),
     colour2: getRandomTavernColour(),
@@ -126,24 +125,24 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     tavern.feature = setup.tavern.get.wealthyFeature(tavern)
   }
   // Sets up building structure and creates building description
-  createStructure(town, tavern)
-  tavern.structure.descriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${articles.output(tavern.structure.roof.verb)} roof`
+  lib.createStructure(town, tavern)
+  tavern.structure.descriptor = `${tavern.structure.material.wealth} ${tavern.structure.material.noun} ${tavern.wordNoun} with ${lib.articles.output(tavern.structure.roof.verb)} roof`
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
     // @ts-ignore
-    defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
   }
   // tavernRender(tavern)
-  tavern.tippyDescription = `${articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
+  tavern.tippyDescription = `${lib.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
   console.log(tavern)
   console.groupEnd()
   return tavern
 }
 
 function getRandomTavernColour () {
-  const { colours, random } = lib
+  const { colours } = lib
   const available = [colours.yellow, colours.orange, colours.red, colours.purple, colours.blue, colours.green, colours.brown, colours.black, colours.white]
-  const selected = random(available)
-  return random(selected.colour)
+  const selected = lib.random(available)
+  return lib.random(selected.colour)
 }

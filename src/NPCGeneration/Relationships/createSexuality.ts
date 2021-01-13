@@ -1,4 +1,4 @@
-import { GenderName, NPC } from '@lib'
+import type { GenderName, NPC } from '@lib'
 
 /**
  * This is just one person's efforts to increase diversity and make an attempt at relatively realistic sexuality modeling

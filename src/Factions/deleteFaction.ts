@@ -1,6 +1,10 @@
+import type { Town } from '@lib'
+
 // uses setup.deleteNPC
-setup.deleteFaction = function (town, key) {
+export const deleteFaction = (town: Town, key: string) => {
   console.log(town, key)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   if (town.factions[key].leader) setup.deleteNPC(town.factions[key].leader.key)
   if (key in town.factions) {
     const deleted = town.factions[key]

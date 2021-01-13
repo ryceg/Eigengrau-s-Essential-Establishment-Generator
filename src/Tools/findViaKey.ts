@@ -1,10 +1,5 @@
-import { Building, Faction, NPC } from '@lib'
+import type { Building, Faction, NPC } from '@lib'
 
-/**
- *
- * @param {string} key
- * @returns {import("../../lib/npc-generation/_common").NPC|import("../../lib/faction/_common").Faction|Building}
- */
 export const findViaKey = (key: string): Faction | Building | NPC => {
   if (State.variables.npcs[key]) return State.variables.npcs[key]
   if (State.variables.town.factions[key]) return State.variables.town.factions[key]
@@ -16,8 +11,12 @@ export const findViaKey = (key: string): Faction | Building | NPC => {
 }
 
 export const findContainerViaKey = (key: string) => {
-  if (State.variables.npcs[key]) return State.variables.npcs
-  if (State.variables.town.factions[key]) return State.variables.town.factions
+  if (State.variables.npcs[key]) {
+    return State.variables.npcs
+  }
+  if (State.variables.town.factions[key]) {
+    return State.variables.town.factions
+  }
   return State.variables.town.buildings.find(building => {
     return building.key === key
   })
