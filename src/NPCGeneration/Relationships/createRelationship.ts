@@ -1,4 +1,4 @@
-import { NPC, Town } from '@lib'
+import type { NPC, Town } from '@lib'
 
 type RelationshipType = string | {
   relationship: string

@@ -1,4 +1,4 @@
-import { NPC, Town } from '@lib'
+import type { NPC, Town } from '@lib'
 import { createHistory } from './createHistory'
 import { createLifeEvents } from './createLifeEvents'
 import { createFriends } from './Relationships/createFriends'

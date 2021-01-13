@@ -1,4 +1,4 @@
-import { NPC, Town } from '@lib'
+import type { NPC, Town } from '@lib'
 import { createMarriage, createParentage } from './createFamilyMembers'
 
 const MARRIAGE_PERCENT = 55

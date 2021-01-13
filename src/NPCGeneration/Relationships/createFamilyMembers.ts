@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@lib'
+import type { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@lib'
 import { getChildSurname, getParentSurnames } from './getSurnames'
 import { getChildAge, getParentAge, getPartnerAge, getRelativeBase, siblingRoll } from './familyUtils'
 import { setAsPartners } from './setAsPartners'

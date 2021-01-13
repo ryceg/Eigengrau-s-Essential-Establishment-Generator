@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { NPC, Town } from '@lib'
+import type { NPC, Town } from '@lib'
 
 /**
  * Uses `setup.createNPC`

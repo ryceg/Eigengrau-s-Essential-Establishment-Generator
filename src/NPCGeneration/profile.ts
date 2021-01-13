@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // uses State.variables.npcs, State.variables.town
 
-import { NPC, Building, Faction, Road } from '@lib'
+import type { NPC, Building, Faction, Road } from '@lib'
 import { findViaKey } from '../Tools/findViaKey'
 
 /**

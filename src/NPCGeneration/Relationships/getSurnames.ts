@@ -1,4 +1,4 @@
-import { Marriage } from '@lib'
+import type { Marriage } from '@lib'
 
 /**
  * Given a marriage with at least one child, determine parent surnames
