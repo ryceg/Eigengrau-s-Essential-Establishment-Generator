@@ -82,7 +82,6 @@ function getLeaderQualification (faction: Faction) {
   return lib.weightRandom(lib.factionData.types[faction.type].leader.qualification)
 }
 
-/** @returns {string} */
 function getStabilityCause (faction: Faction): string {
   if (faction.roll.stability <= 30) {
     return lib.random(['internal power struggles', 'conflicts with rivaling factions'])
