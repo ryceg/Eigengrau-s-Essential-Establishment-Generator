@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from 'src/NPCGeneration/profile'
-import { factionsForType } from 'src/Tools/factionsForType'
+import { profile } from '../NPCGeneration/profile'
+import { factionsForType } from '../Tools/factionsForType'
 import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
 
 export const plothooks = [
