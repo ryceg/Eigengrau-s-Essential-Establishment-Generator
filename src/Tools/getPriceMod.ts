@@ -1,4 +1,5 @@
-import { Building } from '@lib'
+import type { Building } from '@lib'
+
 /**
  * Gets the price modifier.
  */

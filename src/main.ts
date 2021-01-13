@@ -34,6 +34,7 @@ import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
+import { plothooks } from './PlotHook/plothooks'
 
 declare global {
   interface Setup {
@@ -77,6 +78,7 @@ declare global {
     urlSeed: typeof urlSeed
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
+    plothooks: typeof plothooks
   }
 }
 
@@ -119,7 +121,8 @@ Object.assign(setup, {
   graveStone,
   urlSeed,
   deleteFaction,
-  leaderFaction
+  leaderFaction,
+  plothooks
 })
 
 /**

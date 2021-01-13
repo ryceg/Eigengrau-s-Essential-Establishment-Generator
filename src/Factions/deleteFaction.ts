@@ -1,4 +1,4 @@
-import { Town } from '@lib'
+import type { Town } from '@lib'
 
 // uses setup.deleteNPC
 export const deleteFaction = (town: Town, key: string) => {

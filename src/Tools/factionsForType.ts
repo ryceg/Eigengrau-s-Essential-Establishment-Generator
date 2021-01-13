@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Town, Faction } from '@lib'
+import type { Town, Faction } from '@lib'
 
 /**
  * Returns a random faction that has a certain attribute.
