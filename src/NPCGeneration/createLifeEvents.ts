@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { dice, NPC, Town, weightedRandomFetcher } from '@lib'
+import type { NPC, Town } from '@lib'
 
 export const createLifeEvents = (town: Town, npc: NPC) => {
   console.groupCollapsed(`creating life events for ${npc.name}...`)
@@ -7,7 +7,7 @@ export const createLifeEvents = (town: Town, npc: NPC) => {
 
   npc.lifeEvents = []
   if (npc.ageYears > 60) {
-    lifeEventsNumber = dice(2, 6)
+    lifeEventsNumber = lib.dice(2, 6)
   } else if (npc.ageYears > 50) {
     lifeEventsNumber = lib.random(1, 7)
   } else if (npc.ageYears > 40) {
@@ -31,7 +31,7 @@ export const createLifeEvents = (town: Town, npc: NPC) => {
 
   for (let i = 0; i < lifeEventsNumber; i++) {
     // @ts-ignore
-    npc.lifeEvents.push(weightedRandomFetcher(town, setup.npcData.lifeEvents, npc))
+    npc.lifeEvents.push(lib.weightedRandomFetcher(town, setup.npcData.lifeEvents, npc))
   }
 
   console.groupEnd()
