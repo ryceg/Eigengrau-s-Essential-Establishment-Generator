@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { NPC, Town } from '@lib'
-import { createRelationship } from './Relationships/createRelationship'
 
 /**
   * Uses `setup.createNPC`
@@ -31,14 +30,16 @@ export const createDebt = (town: Town, npc: NPC): void => {
 
   if (profit < -40) {
     const debtor = findDebtor(town, npc, 'moneylender') || createDebtor(town)
-    createRelationship(town, npc, debtor, 'debtor', 'creditor')
+    // @ts-ignore
+    setup.createRelationship(town, npc, debtor, 'debtor', 'creditor')
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || lib.socialClass[npc.socialClass].landRate <= 3) {
     const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') || createDebtor(town)
-    createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
+    // @ts-ignore
+    setup.createRelationship(town, npc, predatoryDebtor, 'predatory debtor', 'creditor')
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
   }

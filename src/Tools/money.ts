@@ -1,8 +1,6 @@
-import { getPriceMod } from 'src/Tools/getPriceMod'
-
 // uses settings.silverStandard, setup.getPriceMod
 export const money = (copper: number, priceMod: number) => {
-  if (priceMod) copper = Math.round(copper * getPriceMod(priceMod))
+  if (priceMod) copper = Math.round(copper * setup.getPriceMod(priceMod))
   let silver
   let gold
   let isNegative = false

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Faction, NPC, Town } from '@lib'
-import { random } from '../../lib/src/random'
+import { Faction, NPC, Town, random } from '@lib'
 
 // uses setup.createNPC, setup.deleteNPC
 export const leaderFaction = (town: Town, faction: Faction) => {

@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { dice, NPC, Town, weightedRandomFetcher } from '@lib'
-import { random } from '../../lib/src/random'
+const { random } = lib
 // uses setup.npcData.lifeEvents so can't be translated
-/**
- * @param {import("../../lib/town/_common").Town} town
- * @param {import("../../lib/npc-generation/_common").NPC} npc
- */
 export const createLifeEvents = (town: Town, npc: NPC) => {
   console.groupCollapsed(`creating life events for ${npc.name}...`)
   let lifeEventsNumber: number
