@@ -17,6 +17,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   console.groupCollapsed(tavern.name)
 
   lib.assign(tavern, {
+    // @ts-ignore
     associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
   })
 
