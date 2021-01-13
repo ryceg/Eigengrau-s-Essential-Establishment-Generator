@@ -46,7 +46,7 @@ export const leaderFaction = (town: Town, faction: Faction) => {
         // @ts-ignore
         if (Array.isArray(leaderTraits[key])) {
           // @ts-ignore
-          leaderTraits[key] = random(leaderTraits[key])
+          leaderTraits[key] = lib.random(leaderTraits[key])
         }
       }
       // @ts-ignore
