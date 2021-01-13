@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Town, NPC, Marriage, ThresholdTable, weightedRandomFetcher, assign, knewParents, createFamilyLifestyle, getMarriages, rollFromTable, LifestyleStandardName } from '@lib'
+import type { Town, NPC, Marriage, ThresholdTable, LifestyleStandardName } from '@lib'
 import { profile } from './profile'
 import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
@@ -62,7 +62,7 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => getMarriages(town, State.variables.npcs[familyUnitObj.father]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
     descriptor: 'my single stepmother'
   },
   singleMother: {
@@ -72,7 +72,7 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
     descriptor: 'my single stepfather'
   },
   singleFather: {
@@ -87,12 +87,12 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => { return knewParents(town, State.variables.npcs[familyUnitObj.mother]) },
+    exclusions: (town, familyUnitObj) => lib.knewParents(town, State.variables.npcs[familyUnitObj.mother]),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, familyUnitObj) => { return knewParents(town, State.variables.npcs[familyUnitObj.father]) },
+    exclusions: (town, familyUnitObj) => lib.knewParents(town, State.variables.npcs[familyUnitObj.father]),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {
@@ -131,12 +131,12 @@ export const createHistory = (town: Town, npc: NPC) => {
   console.log(`creating history for ${npc.name}...`)
   // let wealthModifier
 
-  if (!npc.birthplace) npc.birthplace = rollFromTable(birthplaceTable, 100)
+  if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
   const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
   console.log(parentMarriage)
 
-  npc.knewParents = knewParents(town, npc)
+  npc.knewParents = lib.knewParents(town, npc)
   npc.siblingNumber = parentMarriage
     ? parentMarriage.children.length - 1
     : 0
@@ -147,16 +147,16 @@ export const createHistory = (town: Town, npc: NPC) => {
     } else {
       const { father, mother } = getFatherMother(town, npc)
       const familyUnitObj = { npc, father, mother }
-      npc.familyUnit = weightedRandomFetcher(town, familyUnits, familyUnitObj, undefined, 'descriptor') as string
+      npc.familyUnit = lib.weightedRandomFetcher(town, familyUnits, familyUnitObj, undefined, 'descriptor') as string
       if (parentMarriage) {
-        assign(parentMarriage, { familyUnit: npc.familyUnit })
+        lib.assign(parentMarriage, { familyUnit: npc.familyUnit })
       }
     }
   }
 
   if (parentMarriage) {
     if (!parentMarriage.lifestyle) {
-      createFamilyLifestyle(parentMarriage)
+      lib.createFamilyLifestyle(parentMarriage)
     }
     // createFamilyLifestyle ensures that they are defined.
     npc.familyLifestyle = parentMarriage.lifestyle as LifestyleStandardName
@@ -169,7 +169,7 @@ export const createHistory = (town: Town, npc: NPC) => {
       children: []
     }
 
-    createFamilyLifestyle(marriage)
+    lib.createFamilyLifestyle(marriage)
     // createFamilyLifestyle ensures that they are defined.
     npc.familyLifestyle = marriage.lifestyle as LifestyleStandardName
     npc.familyHome = marriage.home as string

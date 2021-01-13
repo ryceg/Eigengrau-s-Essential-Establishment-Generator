@@ -1,4 +1,4 @@
-import { NPC, Building, Town } from '@lib'
+import type { NPC, Building, Town } from '@lib'
 
 /** global setup tippy jQuery settings */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
