@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Faction, NPC, Town } from '@lib'
-import { random } from '../../lib/src/random'
+import type { Faction, NPC, Town } from '@lib'
 
 // uses setup.createNPC, setup.deleteNPC
 export const leaderFaction = (town: Town, faction: Faction) => {
@@ -76,9 +75,9 @@ export const leaderFaction = (town: Town, faction: Faction) => {
 function getLeaderQualification (faction: Faction) {
   if (faction.age === 'brand new' || faction.age === 'very new') {
     if (faction.leadershipType === 'group') {
-      return random(['the original founders', 'the original founders', 'the first appointed leaders'])
+      return lib.random(['the original founders', 'the original founders', 'the first appointed leaders'])
     }
-    return random(['the original founder', 'the original founder', 'the first appointed leader'])
+    return lib.random(['the original founder', 'the original founder', 'the first appointed leader'])
   }
   return lib.weightRandom(lib.factionData.types[faction.type].leader.qualification)
 }
@@ -86,13 +85,13 @@ function getLeaderQualification (faction: Faction) {
 /** @returns {string} */
 function getStabilityCause (faction: Faction): string {
   if (faction.roll.stability <= 30) {
-    return random(['internal power struggles', 'conflicts with rivaling factions'])
+    return lib.random(['internal power struggles', 'conflicts with rivaling factions'])
   }
   if (faction.roll.stability >= 70 && faction.leadershipType === 'individual') {
-    return random(['the lack of infighting for the leadership role'])
+    return lib.random(['the lack of infighting for the leadership role'])
   }
   if (faction.roll.stability >= 70 && faction.leadershipType === 'group') {
-    return random([`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'])
+    return lib.random([`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'])
   }
   return 'internal power struggles'
 }
