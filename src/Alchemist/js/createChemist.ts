@@ -12,7 +12,7 @@ interface Options {
  */
 export const createChemist = (town: Town, opts: Partial<Options> = {}): NPC => {
   // @ts-ignore
-  return setup.createNPC(town, lib.assign({
+  return setup.createNPC(town, {
     profession: ['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].random(),
     background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),
     idle: [
@@ -71,6 +71,7 @@ export const createChemist = (town: Town, opts: Partial<Options> = {}): NPC => {
       'chats with you all about $associatedNPC.hisher newest stock, none of which is particularly out of the ordinary',
       'talks about the many uses for <<print lib.alchemistData.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
       'tries to push various products on you all as you look about the shop'
-    ]
-  }, opts.npc))
+    ],
+    ...opts.npc
+  })
 }
