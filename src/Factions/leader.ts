@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Faction, NPC, Town } from '@lib'
+import { createNPC } from '../NPCGeneration/createNPC'
 
 // uses setup.createNPC, setup.deleteNPC
 export const leaderFaction = (town: Town, faction: Faction) => {
@@ -49,8 +50,7 @@ export const leaderFaction = (town: Town, faction: Faction) => {
           leaderTraits[key] = lib.random(leaderTraits[key])
         }
       }
-      // @ts-ignore
-      faction.leader = faction.leader || setup.createNPC(town, leaderTraits)
+      faction.leader = faction.leader || createNPC(town, leaderTraits)
       // @ts-ignore
       lib.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
       if (faction.isPoliticalPower === true) {

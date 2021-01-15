@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
+import { createNPC } from '../../NPCGeneration/createNPC'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 
 interface Options {
@@ -26,8 +27,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   })
 
   lib.assign(tavern, {
-    // @ts-ignore
-    barmaid: setup.createNPC(town, {
+    barmaid: createNPC(town, {
       isShallow: true,
       gender: 'woman',
       background: 'commoner',

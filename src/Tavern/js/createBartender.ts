@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Town } from '@lib'
+import { createNPC } from '../../NPCGeneration/createNPC'
 
 export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC>): NPC => {
-  // @ts-ignore
-  const bartender = setup.createNPC(town, Object.assign({
-    owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager'].random(),
-    profession: ['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'].random()
-  }, opts))
+  const bartender = createNPC(town, {
+    owner: lib.random(['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager']),
+    profession: lib.random(['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard']),
+    ...opts
+  })
 
   lib.assign(bartender, {
     greeting: [

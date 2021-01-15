@@ -9,7 +9,6 @@ interface Options {
 
 /**
  * Creates an alchemist building.
- * @warn Uses setup.createNPC
  */
 export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchemist => {
   console.groupCollapsed('Alchemist loading...')
