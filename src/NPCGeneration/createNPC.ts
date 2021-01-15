@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { AgeName, GenderName, NPC, RaceName, Town } from '@lib'
+import { createDebt } from './createDebt'
+import { createSexuality } from './Relationships/createSexuality'
 
 const defaultBase: Partial<NPC> = {
   isShallow: true
@@ -135,7 +137,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     },
     knownLanguages: lib.raceTraits[race].knownLanguages,
     reading: lib.random(data.reading),
-    family: undefined,
     ...base
   }
 
@@ -152,19 +153,23 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
+    // @ts-ignore
     if (lib.findProfession(town, npc).type !== 'dndClass') {
       npc.hasClass = false
     } else {
       npc.hasClass = true
       npc.adventure = lib.random(data.adventure) || 'looking for work'
-      npc.profession = npc.dndClass
+      npc.profession = npc.dndClass || npc.profession
     }
   }
 
+  // @ts-ignore
   lib.createPersonality(npc)
 
+  // @ts-ignore
   lib.setAge(npc)
 
+  // @ts-ignore
   lib.setRace(npc)
 
   if (!npc.physicalTrait) {
@@ -193,9 +198,14 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
       npc.physicalTrait = lib.random(data.tattoo)
     }
   }
+
+  // @ts-ignore
   lib.createSocialClass(town, npc)
+
+  // @ts-ignore
   lib.createClass(town, npc)
 
+  // @ts-ignore
   lib.createBackground(npc)
 
   lib.assign(npc, {
@@ -203,17 +213,25 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     formalName: npc.formalName || `${npc.title} ${npc.lastName}`
   })
 
-  setup.createSexuality(npc)
+  // @ts-ignore
+  createSexuality(npc)
 
+  // @ts-ignore
   lib.createLifestyleStandards(town, npc)
+
+  // @ts-ignore
   lib.createReligiosity(town, npc)
 
   if (lib.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
-    setup.createDebt(town, npc)
+    createDebt(town, npc)
   }
-  if (npc.hasHistory !== false) setup.expandNPC(town, npc)
+
+  if (npc.hasHistory !== false) {
+    setup.expandNPC(town, npc)
+  }
 
   if (!npc.keyIsAlreadyDefined) {
+    // @ts-ignore
     State.variables.npcs[npc.key] = npc
   }
 

@@ -9,12 +9,10 @@ import { createAlchemist } from './Alchemist/js/createAlchemist'
 import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
-import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
 import { getFamily } from './NPCGeneration/Relationships/getFamily'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
-import { createDebt } from './NPCGeneration/createDebt'
 import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
 import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
@@ -45,12 +43,10 @@ declare global {
     createParentage: typeof createParentage
     createRelative: typeof createRelative
     createRelationship: typeof createRelationship
-    createSexuality: typeof createSexuality
     createFriends: typeof createFriends
     getFamily: typeof getFamily
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
-    createDebt: typeof createDebt
     createLifeEvents: typeof createLifeEvents
     createHistory: typeof createHistory
     expandNPC: typeof expandNPC
@@ -91,12 +87,10 @@ Object.assign(setup, {
   createParentage,
   createRelative,
   createRelationship,
-  createSexuality,
   createFriends,
   getFamily,
   getFatherMother,
   checkRaces,
-  createDebt,
   createLifeEvents,
   createHistory,
   expandNPC,
