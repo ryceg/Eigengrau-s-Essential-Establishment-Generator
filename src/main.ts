@@ -12,7 +12,6 @@ import { createRelationship } from './NPCGeneration/Relationships/createRelation
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
 import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
-import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
 import { expandNPC } from './NPCGeneration/expandNPC'
 import { profile } from './NPCGeneration/profile'
@@ -44,7 +43,6 @@ declare global {
     expandNPC: typeof expandNPC
     profile: typeof profile
     getWakeUpByWealth: typeof getWakeUpByWealth
-    createBartender: typeof createBartender
     createTavern: typeof createTavern
     findViaKey: typeof findViaKey
     findContainerViaKey: typeof findContainerViaKey
@@ -84,7 +82,6 @@ Object.assign(setup, {
   expandNPC,
   profile,
   getWakeUpByWealth,
-  createBartender,
   createTavern,
   findViaKey,
   findContainerViaKey,

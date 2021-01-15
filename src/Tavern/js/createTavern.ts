@@ -2,6 +2,7 @@
 import type { Building, NPC, Tavern, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
+import { createBartender } from './createBartender'
 
 interface Options {
   newBuilding?(town: Town, type: string): Building
@@ -18,8 +19,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   console.groupCollapsed(tavern.name)
 
   lib.assign(tavern, {
-    // @ts-ignore
-    associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
+    associatedNPC: (opts.newBartender || createBartender)(town, tavern, opts.associatedNPC)
   })
 
   lib.assign(tavern, {
