@@ -43,6 +43,7 @@ export interface BuildingStructure {
   material: BuildingMaterial
   roof: BuildingRoof
 }
+
 export interface BuildingRoof {
   canBeColoured: boolean
   colour: string
