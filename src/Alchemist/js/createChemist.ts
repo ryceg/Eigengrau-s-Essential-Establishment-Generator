@@ -13,8 +13,8 @@ interface Options {
 export const createChemist = (town: Town, opts: Partial<Options> = {}): NPC => {
   // @ts-ignore
   return setup.createNPC(town, {
-    profession: ['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock'].random(),
-    background: ['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner'].random(),
+    profession: lib.random(['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock']),
+    background: lib.random(['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner']),
     idle: [
       'talking with a customer',
       'picking $associatedNPC.hisher nose',

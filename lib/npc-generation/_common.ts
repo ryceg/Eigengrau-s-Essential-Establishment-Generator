@@ -155,6 +155,7 @@ export interface NPC {
   hairType: string
   scar?: string
   owner?: string
+  chitchat?: string
 }
 
 export interface Relationship {

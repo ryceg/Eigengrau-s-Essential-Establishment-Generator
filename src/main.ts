@@ -27,6 +27,7 @@ import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
 import { profileTooltip, profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
+import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { graveStone } from './World/graveStone'
@@ -68,6 +69,7 @@ declare global {
     buildingTooltip: typeof buildingTooltip
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
+    createNPC: typeof createNPC
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
@@ -112,6 +114,7 @@ Object.assign(setup, {
   buildingTooltip,
   politicsDescription,
   politicsTooltip,
+  createNPC,
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
