@@ -420,7 +420,7 @@ export const plothooks = [
         race: 'orc',
         hasClass: true,
         profession: 'barbarian',
-        background: 'bandit'
+        background: 'criminal'
       })
       return `Wanted Dead or Alive – ${profile(npc)}, Orc Chieftain to the south! Warning: very heavily armed and dangerous. Has many henchmen. Reward: <<money 100000>>’`
     }
@@ -596,7 +596,7 @@ export const plothooks = [
       const npc = setup.createNPC(town, {
         profession: 'merchant',
         hasClass: false,
-        background: ['noble', 'commoner'].random()
+        background: lib.random(['noble', 'commoner'])
       })
       // @ts-ignore
       return `${profile(npc, 'Merchant')} looking for armed security to escort us to ${setup.createTownName()}.`
@@ -677,7 +677,7 @@ export const plothooks = [
         hasClass: false,
         background: 'noble',
         gender: 'woman',
-        ageStage: ['child', 'young adult'].random()
+        ageStage: lib.random(['child', 'young adult'])
       })
       return `Bandit Kidnappers! Our ${profile(npc, 'beloved daughter')} has been captured by Bandits! They have not made any demands, but we want her back. They were last seen Northwest of the old tower — a reward for our daughter (alive), plus a bonus for the head of each bandit.`
     }
@@ -690,7 +690,7 @@ export const plothooks = [
       const npc = setup.createNPC(town, {
         hasClass: true,
         profession: 'fighter',
-        ageStage: ['child', 'young adult'].random(),
+        ageStage: lib.random(['child', 'young adult']),
         gender: 'man'
       })
       return `Family Bandits! My ${profile(npc, 'son')} and his two friends have left the village to become bandits. Find them and teach them the error of their ways. Reward if they return — must be alive.`

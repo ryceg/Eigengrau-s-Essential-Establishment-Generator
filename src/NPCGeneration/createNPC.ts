@@ -11,7 +11,7 @@ const defaultBase: Partial<NPC> = {
  * Creates a standard NPC.
  */
 export const createNPC = (town: Town, base = defaultBase): NPC => {
-  if (!town) {
+  if (typeof town === 'undefined') {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
 
@@ -174,9 +174,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // @ts-ignore
   lib.setRace(npc)
 
-  if (!npc.physicalTrait) {
-    npc.physicalTrait = getPhysicalTrait(npc)
-  }
+  // @ts-ignore
+  npc.physicalTrait ??= getPhysicalTrait(npc)
 
   // @ts-ignore
   lib.createSocialClass(town, npc)
@@ -188,6 +187,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   lib.createBackground(npc)
 
   lib.assign(npc, {
+    // @ts-ignore
     descriptors: lib.createDescriptors(npc),
     formalName: npc.formalName || `${npc.title} ${npc.lastName}`
   })
@@ -201,11 +201,14 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // @ts-ignore
   lib.createReligiosity(town, npc)
 
+  // @ts-ignore
   if (lib.npcProfit(town, npc) < 0 && npc.isShallow !== true) {
+    // @ts-ignore
     createDebt(town, npc)
   }
 
   if (npc.hasHistory !== false) {
+    // @ts-ignore
     setup.expandNPC(town, npc)
   }
 
@@ -217,11 +220,13 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   State.temporary.newNPC = npc
 
   if (npc.callbackFunction) {
-    npc.callbackFunction(town, npc, base)
+    // @ts-ignore
+    npc.callbackFunction(town, npc)
   }
 
   console.log(npc)
   console.groupEnd()
+  // @ts-ignore
   return npc
 }
 

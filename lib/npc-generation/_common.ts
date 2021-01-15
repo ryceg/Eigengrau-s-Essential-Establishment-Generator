@@ -64,7 +64,7 @@ export interface NPC {
   }
   partnerID?: string
   lifeEvents: string[]
-  callbackFunction?(town: Town): void
+  callbackFunction?(town: Town, npc: NPC): void
   wealth: number
   finances: {
     creditors: Record<string, number>
@@ -154,7 +154,8 @@ export interface NPC {
   hairType: string
   scar?: string
   owner?: string
-  chitchat?: string
+  chitchat?: string[]
+  inventory?: string
 }
 
 export interface Relationship {
