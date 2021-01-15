@@ -46,6 +46,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   for (const propName of ['wealth', 'size', 'cleanliness', 'expertise'] as const) {
     const { rolls } = lib.alchemistData.rollData[propName]
+    // @ts-ignore (Apparently BuildingRoll is not indexable. Should be fixable, somehow?)
     lib.defineRollDataGetter(alchemist, rolls, propName)
   }
 
