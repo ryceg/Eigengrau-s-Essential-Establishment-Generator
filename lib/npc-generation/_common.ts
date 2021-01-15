@@ -84,7 +84,6 @@ export interface NPC {
   isThrowaway?: boolean
   isShallow?: boolean
   hasHistory?: boolean
-  isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
   /** How the NPC acts when they're calm. */

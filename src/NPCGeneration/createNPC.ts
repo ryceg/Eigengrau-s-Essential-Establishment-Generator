@@ -46,7 +46,9 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   lib.initSexistProfession(town, base as NPC)
   console.log('Initialising gender.')
-  base.gender = lib.getNpcGender(town, base as NPC)
+  lib.assign(base, {
+    gender: lib.getNpcGender(town, base as NPC)
+  })
   lib.assignFunctionalGenderRoll(town, base as NPC)
 
   const race = base.race || lib.fetchRace(town, base)
