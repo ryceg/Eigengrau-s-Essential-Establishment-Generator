@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { AgeName, GenderName, NPC, RaceName, Town } from '@lib'
 
-const defaultBase = {
+const defaultBase: Partial<NPC> = {
   isShallow: true
 }
 
@@ -34,46 +34,45 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
-    base.isThrowaway = base.isThrowaway || true
-    // base.canBeCustom = base.canBeCustom || true
-    base.hasHistory = base.hasHistory || false
+    base.isThrowaway = base.isThrowaway ?? true
+    base.hasHistory = base.hasHistory ?? false
   }
 
   if (base.canBeCustom === true && lib.random(1, 100) > 99) {
     base = lib.getRandomValue(lib.patreonCharacters)
   }
 
-  lib.initSexistProfession(town, base)
+  lib.initSexistProfession(town, base as NPC)
   console.log('Initialising gender.')
-  base.gender = lib.getNpcGender(town, base)
-  lib.assignFunctionalGenderRoll(town, base)
+  base.gender = lib.getNpcGender(town, base as NPC)
+  lib.assignFunctionalGenderRoll(town, base as NPC)
 
   const race = base.race || lib.fetchRace(town, base)
 
   console.log('Fetching profession.')
-  const profession = base.profession || lib.fetchProfessionChance(town, base)
+  const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
   const firstName = base.firstName || getFirstName(race, base.gender)
   const lastName = base.lastName || getLastName(race)
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
-  if (lib.findProfession(town, base, profession).type === 'dndClass') {
+  if (lib.findProfession(town, base as NPC, profession).type === 'dndClass') {
     base.hasClass = true
     dndClass = base.dndClass || profession
   }
 
   // The local variables are then assigned to npc.
   // We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
-  const npc = lib.assign({
+  const npc = {
     key: base.key || lib.getUUID(),
-    objectType: 'npc',
+    objectType: 'npc' as const,
     passageName: 'NPCProfile',
     _gender: base.gender,
     _race: race,
     firstName,
     lastName,
-    get name () {
+    get name (): string {
       return `${this.firstName} ${this.lastName}`
     },
     set name (name) {
@@ -85,12 +84,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     ageYears: lib.getAgeInYears(race, ageStage),
     muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     lifeEvents: [],
-    pronouns: {
-
-    },
-    religion: {
-
-    },
+    pronouns: {},
+    religion: {},
     finances: {
       creditors: {},
       debtors: {}
@@ -105,8 +100,9 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
       this.hairType = hairs[0] || ''
       this.hairColour = hairs[1] || ''
     },
-    get descriptor () {
-      return this.descriptors.random()
+    get descriptor (): string {
+      // @ts-ignore
+      return lib.random(this.descriptors)
     },
     eyes: lib.random(lib.raceTraits[race].eyes),
     skinColour: lib.random(data.skinColour),
@@ -117,42 +113,43 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
     idle: data.idle,
-    get gender () {
+    get gender (): GenderName {
       return this._gender
     },
     set gender (gender) {
       this._gender = gender
       Object.assign(this, lib.genderData[gender])
     },
-    get race () {
+    get race (): RaceName {
       return this._race
     },
     set race (race) {
       this._race = race
       Object.assign(this, lib.raceTraits[race].raceWords)
     },
-    get raceNote () {
+    get raceNote (): string {
       if (this._race === 'human') {
         return `${this.height} ${this.gender}`
-      } else {
-        return lib.raceTraits[this._race].raceWords.raceName
       }
+      return lib.raceTraits[this._race].raceWords.raceName
     },
     knownLanguages: lib.raceTraits[race].knownLanguages,
     reading: lib.random(data.reading),
-
-    family: undefined
-  }, base)
+    family: undefined,
+    ...base
+  }
 
   // Add npc to npcRelations
   town.npcRelations[npc.key] = []
 
-  npc.gender = npc.gender || npc._gender
-  npc.race = npc.race || npc._race
-  Object.assign(npc, lib.genderData[npc.gender])
-  Object.assign(npc.pronouns, lib.genderData[npc.gender])
+  lib.assign(npc, {
+    gender: npc.gender || npc._gender,
+    race: npc.race || npc._race
+  })
 
-  Object.assign(npc, lib.raceTraits[npc.race].raceWords)
+  lib.assign(npc, lib.genderData[npc.gender])
+  lib.assign(npc.pronouns, lib.genderData[npc.gender])
+  lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
     if (lib.findProfession(town, npc).type !== 'dndClass') {
@@ -165,7 +162,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   }
 
   lib.createPersonality(npc)
-  // lib.createName(npc)
 
   lib.setAge(npc)
 
@@ -202,9 +198,10 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   lib.createBackground(npc)
 
-  lib.createDescriptors(npc)
-  npc.formalName = npc.formalName || `${npc.title} ${npc.lastName}`
-  if (!npc.keyIsAlreadyDefined) State.variables.npcs[npc.key] = npc
+  lib.assign(npc, {
+    descriptors: lib.createDescriptors(npc),
+    formalName: npc.formalName || `${npc.title} ${npc.lastName}`
+  })
 
   setup.createSexuality(npc)
 
@@ -215,6 +212,10 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     setup.createDebt(town, npc)
   }
   if (npc.hasHistory !== false) setup.expandNPC(town, npc)
+
+  if (!npc.keyIsAlreadyDefined) {
+    State.variables.npcs[npc.key] = npc
+  }
 
   State.temporary.newNPC = npc
 
