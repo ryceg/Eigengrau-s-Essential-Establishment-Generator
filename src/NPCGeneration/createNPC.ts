@@ -76,9 +76,9 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
       return `${this.firstName} ${this.lastName}`
     },
     set name (name) {
-      const words = name.toString().split(' ')
-      this.firstName = words[0] || ''
-      this.lastName = words[1] || ''
+      const [firstName, lastName] = name.toString().split(' ')
+      this.firstName = firstName || ''
+      this.lastName = lastName || ''
     },
     ageStage,
     ageYears: lib.getAgeInYears(race, ageStage),
