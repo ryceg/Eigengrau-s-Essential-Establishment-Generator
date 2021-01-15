@@ -19,7 +19,6 @@ export interface Setup {
   createMarriage(town: Town, family: Family, npc: NPC, force?: boolean): Marriage
 
   createHistory(town: Town, npc: NPC): void
-  createLifeEvents(town: Town, npc: NPC): void
   createName(parameters: CreateNameParameters): string
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
