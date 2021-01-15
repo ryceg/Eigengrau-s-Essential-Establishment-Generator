@@ -63,14 +63,14 @@ export interface BuildingRolls {
   landSize?: number
   age?: number
   condition?: number
-  activity?: number
-  diversity?: number
-  expertise?: number
+  activity: number
+  diversity: number
+  expertise: number
   magic?: number
-  population?: number
-  reputation?: number
-  roughness?: number
-  sin?: number
+  population: number
+  reputation: number
+  roughness: number
+  sin: number
 }
 
 export interface BuildingRelationship {
