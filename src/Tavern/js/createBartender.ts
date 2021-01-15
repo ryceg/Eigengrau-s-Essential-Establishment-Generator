@@ -2,7 +2,7 @@
 import type { Building, NPC, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 
-export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC>): NPC => {
+export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC> = {}): NPC => {
   const bartender = createNPC(town, {
     owner: lib.random(['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'manager', 'acting manager']),
     profession: lib.random(['bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'bartender', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard']),
