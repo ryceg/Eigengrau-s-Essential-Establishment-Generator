@@ -9,7 +9,7 @@ $currentNPC.firstName $currentNPC.trait.
 \Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>>. 
 
 
-\<<if lib.isBreakingGenderNorms($currentNPC) && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif lib.isBreakingGenderNorms($currentNPC) && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
+\<<if lib.isBreakingGenderNorms($town, $currentNPC) && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif lib.isBreakingGenderNorms($town, $currentNPC) && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
 \<<if lib.socialClass[$currentNPC.socialClass].lifestyle.includes(lib.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class
 \<<else>>
