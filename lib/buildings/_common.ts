@@ -17,7 +17,7 @@ export interface Building {
   structure?: BuildingStructure
   roll: BuildingRolls
   roadSizeRequirement?: number
-  priceModifier?: number
+  priceModifier: number
   wealth?: string
   size?: string
   activity?: string
