@@ -2,7 +2,7 @@ import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { ReligionStrength } from './createReligiosity'
-import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
+import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
@@ -40,7 +40,7 @@ export interface NPC {
   ageStage: AgeName
   ageYears: number
   adventure?: string
-  profession: ProfessionNames
+  profession: ProfessionName
   /** In the style of Xanathar's Class Origins, for the professions. */
   professionOrigin: string
   professionSuccess: string
@@ -180,7 +180,7 @@ export interface Namesake {
   lastName?: string
   gender: GenderName
   race: RaceName
-  profession?: ProfessionNames
+  profession?: ProfessionName
   reason?: string
   note?: string
 }

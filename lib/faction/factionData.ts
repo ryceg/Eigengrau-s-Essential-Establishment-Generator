@@ -1,6 +1,6 @@
 import { BackgroundName } from '../npc-generation/backgroundTraits'
 import { ClassName } from '../npc-generation/classTraits'
-import { ProfessionNames } from '../npc-generation/professions'
+import { ProfessionName } from '../npc-generation/professions'
 import { ThresholdTable } from '../src/rollFromTable'
 import { WeightRecord } from '../types'
 
@@ -70,14 +70,14 @@ interface Leader {
 interface Members {
   membershipIsMutuallyExclusive: boolean
   membershipIsTotallyExclusive: boolean
-  professions: ProfessionNames[]
+  professions: ProfessionName[]
 }
 
 interface LeaderTraits {
   title?: string
   hasClass: boolean
   dndClass?: ClassName[]
-  profession?: ProfessionNames
+  profession?: ProfessionName
   background?: BackgroundName | BackgroundName[]
 }
 

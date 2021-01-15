@@ -38,7 +38,8 @@ export type ProfessionSector =
   | 'self employed'
   | 'caregiver'
   | 'naval'
-export type ProfessionNames = keyof typeof professions
+
+export type ProfessionName = keyof typeof professions
 
 export interface Profession {
   /** the population required to support one person with this profession */
