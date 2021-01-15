@@ -42,14 +42,7 @@ export const leaderFaction = (town: Town, faction: Faction) => {
 
   switch (faction.leadershipType) {
     case 'individual': {
-      const leaderTraits = lib.factionData.types[faction.type].leader.base
-      for (const key in leaderTraits) {
-        // @ts-ignore
-        if (Array.isArray(leaderTraits[key])) {
-          // @ts-ignore
-          leaderTraits[key] = lib.random(leaderTraits[key])
-        }
-      }
+      const leaderTraits = flattenObject(lib.factionData.types[faction.type].leader.base)
       faction.leader = faction.leader || createNPC(town, leaderTraits)
       // @ts-ignore
       lib.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
@@ -93,4 +86,21 @@ function getStabilityCause (faction: Faction): string {
     return lib.random([`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'])
   }
   return 'internal power struggles'
+}
+
+function flattenObject <T> (obj: T) {
+  const flat = { ...obj }
+  for (const key of lib.keys(obj)) {
+    const value = obj[key]
+    if (Array.isArray(value)) {
+      flat[key] = lib.random(value)
+    }
+  }
+
+  // This allows us to resolve array values to their singular values.
+  type FlatObject<T> = {
+    [K in keyof T]: T[K] extends Array<infer A> ? A : T[K]
+  }
+
+  return flat as FlatObject<T>
 }
