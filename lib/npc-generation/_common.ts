@@ -149,6 +149,12 @@ export interface NPC {
     cause: string
     timeSinceDeath: number
   }
+  eyes: string
+  idle: string[]
+  hairColour: string
+  hairType: string
+  scar?: string
+  owner?: string
 }
 
 export interface Relationship {
