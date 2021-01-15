@@ -7,7 +7,7 @@
 */
 import { createAlchemist } from './Alchemist/js/createAlchemist'
 import { deleteBuilding } from './Buildings/deleteBuilding'
-import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
+import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
 import { createFriends } from './NPCGeneration/Relationships/createFriends'
 import { getFamily } from './NPCGeneration/Relationships/getFamily'
@@ -40,7 +40,6 @@ declare global {
     deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
-    createRelative: typeof createRelative
     createRelationship: typeof createRelationship
     createFriends: typeof createFriends
     getFamily: typeof getFamily
@@ -83,7 +82,6 @@ Object.assign(setup, {
   deleteBuilding,
   createMarriage,
   createParentage,
-  createRelative,
   createRelationship,
   createFriends,
   getFamily,
