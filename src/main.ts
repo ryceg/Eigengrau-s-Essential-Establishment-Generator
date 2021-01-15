@@ -5,6 +5,7 @@
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
  * loaded by Tweego alongside loose scripts in `/src`
 */
+import { createAlchemist } from './Alchemist/js/createAlchemist'
 import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
@@ -38,6 +39,7 @@ import { plothooks } from './PlotHook/plothooks'
 
 declare global {
   interface Setup {
+    createAlchemist: typeof createAlchemist
     deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
@@ -83,6 +85,7 @@ declare global {
 }
 
 Object.assign(setup, {
+  createAlchemist,
   deleteBuilding,
   createMarriage,
   createParentage,
