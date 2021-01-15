@@ -15,7 +15,6 @@ import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
 import { createTavern } from './Tavern/js/createTavern'
 import { expandNPC } from './NPCGeneration/expandNPC'
 import { profile } from './NPCGeneration/profile'
-import { findViaKey, findContainerViaKey } from './Tools/findViaKey'
 import { money } from './Tools/money'
 import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
@@ -44,8 +43,6 @@ declare global {
     profile: typeof profile
     getWakeUpByWealth: typeof getWakeUpByWealth
     createTavern: typeof createTavern
-    findViaKey: typeof findViaKey
-    findContainerViaKey: typeof findContainerViaKey
     money: typeof money
     getPriceMod: typeof getPriceMod
     history: typeof history
@@ -83,8 +80,6 @@ Object.assign(setup, {
   profile,
   getWakeUpByWealth,
   createTavern,
-  findViaKey,
-  findContainerViaKey,
   money,
   getPriceMod,
   history,
