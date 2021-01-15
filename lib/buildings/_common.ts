@@ -17,7 +17,7 @@ export interface Building {
   structure?: BuildingStructure
   roll: BuildingRolls
   roadSizeRequirement?: number
-  priceModifier?: number
+  priceModifier: number
   wealth?: string
   size?: string
   activity?: string
@@ -43,6 +43,7 @@ export interface BuildingStructure {
   material: BuildingMaterial
   roof: BuildingRoof
 }
+
 export interface BuildingRoof {
   canBeColoured: boolean
   colour: string
@@ -63,14 +64,14 @@ export interface BuildingRolls {
   landSize?: number
   age?: number
   condition?: number
-  activity?: number
-  diversity?: number
-  expertise?: number
+  activity: number
+  diversity: number
+  expertise: number
   magic?: number
-  population?: number
-  reputation?: number
-  roughness?: number
-  sin?: number
+  population: number
+  reputation: number
+  roughness: number
+  sin: number
 }
 
 export interface BuildingRelationship {
