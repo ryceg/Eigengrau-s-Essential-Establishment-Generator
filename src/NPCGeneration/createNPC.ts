@@ -1,27 +1,37 @@
-/** @type {Partial<NPC>} */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import type { AgeName, GenderName, NPC, RaceName, Town } from '@lib'
+
 const defaultBase = {
   isShallow: true
 }
-/** @returns {NPC} npc */
-setup.createNPC = (town, base = defaultBase) => {
+
+/**
+ * Creates a standard NPC.
+ */
+export const createNPC = (town: Town, base = defaultBase): NPC => {
   if (!town) {
     console.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
 
   lib.filterNull(base)
   console.log('Base:', { base })
-  // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
+
+  // @ts-ignore
   const data = setup.npcData
 
-  base.roll = {
-    professionLuck: lib.dice(5, 10) - 27,
-    physicalTrait: lib.random(1, 100),
-    gregariousness: lib.dice(3, 6),
-    conformity: lib.dice(2, 50),
-    gender: lib.random(1, 100),
-    religiosity: 0,
-    socialClass: 0
-  }
+  // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
+  lib.assign(base, {
+    roll: {
+      professionLuck: lib.dice(5, 10) - 27,
+      physicalTrait: lib.random(1, 100),
+      gregariousness: lib.dice(3, 6),
+      conformity: lib.dice(2, 50),
+      gender: lib.random(1, 100),
+      religiosity: 0,
+      socialClass: 0
+    }
+  })
+
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
     base.isThrowaway = base.isThrowaway || true
@@ -53,8 +63,9 @@ setup.createNPC = (town, base = defaultBase) => {
     dndClass = base.dndClass || profession
   }
 
-  // the local variables are then assigned to npc. We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
-  const npc = Object.assign({
+  // The local variables are then assigned to npc.
+  // We don't need to initialise npc to do the stuff that's race & gender dependent because we've got the local variables.
+  const npc = lib.assign({
     key: base.key || lib.getUUID(),
     objectType: 'npc',
     passageName: 'NPCProfile',
@@ -216,26 +227,14 @@ setup.createNPC = (town, base = defaultBase) => {
   return npc
 }
 
-/**
- * @param {import("../../lib/index").RaceName} race
- * @returns {string}
- */
-function getLastName (race) {
+function getLastName (race: RaceName): string {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].lastName))
 }
 
-/**
- * @param {import("../../lib/index").RaceName} race
- * @param {import("../../lib/index").GenderName} gender
- * @returns {string}
- */
-function getFirstName (race, gender) {
+function getFirstName (race: RaceName, gender: GenderName): string {
   return lib.toTitleCase(lib.random(lib.raceTraits[race].genderTraits[gender].firstName))
 }
 
-/**
- * @returns {import("../../lib/index").AgeName}
- */
-function getRandomAgeStage () {
+function getRandomAgeStage (): AgeName {
   return lib.random(['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'])
 }
