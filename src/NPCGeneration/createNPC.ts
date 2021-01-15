@@ -175,30 +175,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   lib.setRace(npc)
 
   if (!npc.physicalTrait) {
-    if (npc.roll.physicalTrait > 40) {
-      const headParts = lib.bodyParts.head
-      npc.physicalTrait = lib.random([
-        lib.random(headParts.hair),
-        lib.random(headParts.eyes),
-        lib.random(headParts.nose),
-        lib.random(headParts.mouth),
-        lib.random(headParts.chin),
-        lib.random(headParts.ears),
-        lib.random(headParts.misc)
-      ])
-    } else if (npc.roll.physicalTrait > 30) {
-      npc.physicalTrait = lib.random(lib.bodyParts.torso.descriptions)
-    } else if (npc.roll.physicalTrait > 20) {
-      npc.physicalTrait = lib.random(lib.bodyParts.arms.descriptions)
-    } else if (npc.roll.physicalTrait > 13) {
-      npc.physicalTrait = lib.random(lib.bodyParts.legs.descriptions)
-    } else if (npc.roll.physicalTrait > 8) {
-      npc.physicalTrait = lib.random(data.scar)
-    } else if (npc.roll.physicalTrait > 5) {
-      npc.physicalTrait = npc.hair
-    } else if (npc.roll.physicalTrait <= 5) {
-      npc.physicalTrait = lib.random(data.tattoo)
-    }
+    npc.physicalTrait = getPhysicalTrait(npc)
   }
 
   // @ts-ignore
@@ -258,4 +235,41 @@ function getFirstName (race: RaceName, gender: GenderName): string {
 
 function getRandomAgeStage (): AgeName {
   return lib.random(['young adult', 'young adult', 'young adult', 'young adult', 'settled adult', 'settled adult', 'settled adult', 'elderly'])
+}
+
+function getPhysicalTrait (npc: NPC): string | undefined {
+  const roll = npc.roll.physicalTrait
+  const { head, torso, arms, legs } = lib.bodyParts
+
+  if (roll > 40) {
+    return lib.random([
+      lib.random(head.hair),
+      lib.random(head.eyes),
+      lib.random(head.nose),
+      lib.random(head.mouth),
+      lib.random(head.chin),
+      lib.random(head.ears),
+      lib.random(head.misc)
+    ])
+  }
+  if (roll > 30) {
+    return lib.random(torso.descriptions)
+  }
+  if (roll > 20) {
+    return lib.random(arms.descriptions)
+  }
+  if (roll > 13) {
+    return lib.random(legs.descriptions)
+  }
+  if (roll > 8) {
+    // @ts-ignore
+    return lib.random(setup.npcData.scar)
+  }
+  if (roll > 5) {
+    return lib.random(head.hair)
+  }
+  if (roll <= 5) {
+    // @ts-ignore
+    return lib.random(setup.npcData.tattoo)
+  }
 }
