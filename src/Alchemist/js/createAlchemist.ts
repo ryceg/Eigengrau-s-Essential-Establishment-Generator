@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Alchemist, Building, NPC, Town } from '@lib'
+import { createChemist } from './createChemist'
 
 interface Options {
-  newBuilding(): Building
-  newChemist(): NPC
+  newBuilding(town: Town, type: string): Building
+  npc: Partial<NPC>
 }
 
 /**
@@ -16,9 +17,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
   const createBuilding = opts.newBuilding || lib.createBuilding
   const alchemist = createBuilding(town, 'alchemist')
 
-  // @ts-ignore
-  const createChemist = opts.newChemist || setup.createChemist
-  const associatedNPC = createChemist(town, opts) as NPC
+  const associatedNPC = createChemist(town, opts)
 
   lib.createBuildingRelationship(town, alchemist, associatedNPC, {
     relationship: 'owner',
