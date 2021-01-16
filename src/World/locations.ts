@@ -15,10 +15,10 @@ export type BiomeName =
   | 'path'
 
 /**
- * @warn Uses setup.misc
- * @warn Uses getEventDescription
- * @warn Uses setup.getEncounter
- * @warn Uses setup.gravestone.create
+ * @warn Uses `setup.misc`
+ * @warn Uses `getEventDescription`
+ * @warn Uses `setup.getEncounter`
+ * @warn Uses `setup.gravestone.create`
  */
 export const locations: LocationObject[] = [
   {
