@@ -33,6 +33,7 @@ import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
+import { locations } from './World/locations'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
@@ -78,6 +79,7 @@ declare global {
     getPriceMod: typeof getPriceMod
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
+    locations: typeof locations
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
@@ -123,6 +125,7 @@ Object.assign(setup, {
   getLifeEvents,
   graveStone,
   urlSeed,
+  locations,
   deleteFaction,
   leaderFaction,
   plothooks
@@ -140,7 +143,6 @@ setup.init = (setup => () => {
 
   setup.initMisc()
   setup.initMiscEncounters()
-  setup.initMiscLocations()
   setup.initNpcData()
   setup.initTavernData()
   setup.initGoodsAndServices()
