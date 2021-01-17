@@ -2,7 +2,7 @@
 import type { Town } from '@lib'
 import { getEncounter, getEventDescription } from './events'
 
-export interface LocationObject {
+export interface Location {
   summary: string
   available: BiomeName[]
   function?(town: Town, biome: BiomeName): string
@@ -21,7 +21,7 @@ export type BiomeName =
  * @warn Uses `setup.getEncounter`
  * @warn Uses `setup.gravestone.create`
  */
-export const locations: LocationObject[] = [
+export const locations: Location[] = [
   {
     summary: 'a cavern behind a waterfall',
     available: ['mountain', 'forest'],

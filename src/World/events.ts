@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { BiomeName, LocationObject, locations } from './locations'
+import { BiomeName, Location, locations } from './locations'
 
 interface Encounter {
   summary: string
@@ -8,7 +8,7 @@ interface Encounter {
   function?(town: Town, biome: BiomeName): string
 }
 
-export const getLocation = (biome: BiomeName): LocationObject => {
+export const getLocation = (biome: BiomeName): Location => {
   return lib.random(locations.filter(location => {
     return location.available.includes(biome)
   }))
@@ -24,7 +24,7 @@ export const getEncounter = (biome: BiomeName): Encounter => {
   }))
 }
 
-export const getEventDescription = (event: LocationObject | Encounter, town: Town, biome: BiomeName): string => {
+export const getEventDescription = (event: Location | Encounter, town: Town, biome: BiomeName): string => {
   if (event.function) {
     return event.function(town, biome)
   }
