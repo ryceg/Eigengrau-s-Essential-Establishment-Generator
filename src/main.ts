@@ -146,7 +146,6 @@ setup.init = (setup => () => {
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
-  setup.initMiscEncounters()
   setup.initNpcData()
   setup.initTavernData()
   setup.initGoodsAndServices()
