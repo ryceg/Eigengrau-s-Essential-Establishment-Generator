@@ -8,7 +8,7 @@ export interface Encounter {
 }
 
 // uses setup.createNPC, setup.profile, setup.misc, setup.createMercenaries
-export const encounters = [
+export const encounters: Encounter[] = [
   {
     summary: 'a group of bandits operating a toll road',
     available: ['trail'],
