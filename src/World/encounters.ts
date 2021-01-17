@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
 import { BiomeName } from './locations'
 
@@ -55,10 +56,13 @@ export const encounters: Encounter[] = [
     summary: 'a pair of outlaws',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'criminal',
         isThrowaway: true
       })
+      // @ts-ignore
       const secondNpc = setup.createNPC(town, {
         background: 'criminal',
         isThrowaway: true
@@ -96,6 +100,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a disciplined military company',
     function: (town) => {
+      // @ts-ignore
       const mercenaries = setup.createMercenaries(town)
       return `a military company, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
     }
@@ -103,6 +108,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a rowdy mercenary troop',
     function: (town) => {
+      // @ts-ignore
       const mercenaries = setup.createMercenaries(town)
       return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
     }
@@ -111,6 +117,7 @@ export const encounters: Encounter[] = [
     summary: 'a band of mercenaries',
     available: ['path', 'road'],
     function: (town) => {
+      // @ts-ignore
       const mercenaries = setup.createMercenaries(town)
       return `a mercenary troop, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
     }
@@ -119,6 +126,7 @@ export const encounters: Encounter[] = [
     summary: 'a marching army',
     available: ['road'],
     function: (town) => {
+      // @ts-ignore
       const mercenaries = setup.createMercenaries(town)
       return `a small army, armed to the teeth with ${mercenaries.weapon}, wearing ${mercenaries.colours} livery over their ${mercenaries.armour} with an insignia of ${mercenaries.insignia}. They are ${mercenaries.attitude} towards their <<profile \`$npcs[${JSON.stringify(mercenaries.captain.key)}]\` commander>>, who is ${mercenaries.commanderTrait}. They specialise in ${mercenaries.specializes}, and are notorious for ${mercenaries.notorious}. They are famous for their ${mercenaries.tactics}, and are currently ${mercenaries.currently}.`
     }
@@ -127,6 +135,7 @@ export const encounters: Encounter[] = [
     summary: 'a small merchant caravan',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
       const caravan = setup.misc.caravan.create(town)
       return `a small merchant caravan. ${caravan.readout}`
     }
@@ -135,6 +144,7 @@ export const encounters: Encounter[] = [
     summary: 'a merchant caravan',
     available: ['path', 'road'],
     function: (town) => {
+      // @ts-ignore
       const caravan = setup.misc.caravan.create(town)
       return `a merchant caravan. ${caravan.readout}`
     }
@@ -276,6 +286,8 @@ export const encounters: Encounter[] = [
     summary: 'an itinerant priest',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
@@ -289,6 +301,8 @@ export const encounters: Encounter[] = [
     summary: 'a hermit',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -301,6 +315,8 @@ export const encounters: Encounter[] = [
     summary: 'a solitary hunter',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'hunter',
         background: 'outlander',
@@ -313,6 +329,8 @@ export const encounters: Encounter[] = [
     summary: 'a solitary bandit',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'bandit',
         background: 'criminal',
@@ -325,6 +343,8 @@ export const encounters: Encounter[] = [
     summary: 'an injured knight',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: ['fighter', 'knight', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
@@ -337,6 +357,8 @@ export const encounters: Encounter[] = [
     summary: 'a ranger',
     available: ['trail'],
     function: (town) => {
+      // @ts-ignore
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'ranger',
         background: 'outlander',
@@ -405,6 +427,7 @@ export const encounters: Encounter[] = [
     summary: 'a traveling peddler',
     available: ['path'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'urchin',
@@ -417,6 +440,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a solitary minstrel',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'entertainer',
@@ -431,6 +455,7 @@ export const encounters: Encounter[] = [
     available: ['path'],
     function: (town) => {
       const horse = lib.createAutoTippy(lib.horse)('horse')
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: ['fighter', 'fighter', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
@@ -443,6 +468,7 @@ export const encounters: Encounter[] = [
     summary: 'a mounted messenger',
     available: ['path'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'messenger',
@@ -495,6 +521,7 @@ export const encounters: Encounter[] = [
     summary: 'a knight errant',
     available: ['road'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'knight',
         background: ['noble', 'soldier', 'soldier'].random(),
@@ -507,6 +534,7 @@ export const encounters: Encounter[] = [
     summary: 'a wounded knight',
     available: ['road'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: ['fighter', 'fighter', 'paladin'].random(),
         background: ['noble', 'soldier', 'soldier'].random(),
@@ -519,6 +547,7 @@ export const encounters: Encounter[] = [
     summary: 'a traveling lady',
     available: ['road'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'noble',
@@ -532,6 +561,7 @@ export const encounters: Encounter[] = [
     summary: 'a courier',
     available: ['road'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'courier',
@@ -584,6 +614,7 @@ export const encounters: Encounter[] = [
     summary: 'a strange hermit',
     available: ['desert'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit'
       })
@@ -594,6 +625,7 @@ export const encounters: Encounter[] = [
     summary: 'a lost traveler',
     available: ['desert'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'pilgrim',
@@ -607,6 +639,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a poor refugee',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -620,6 +653,7 @@ export const encounters: Encounter[] = [
     summary: 'a suspicious miner',
     available: ['desert'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         profession: 'miner',
@@ -634,6 +668,7 @@ export const encounters: Encounter[] = [
     summary: 'a barbarian hunter',
     available: ['desert'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'barbarian',
@@ -646,6 +681,7 @@ export const encounters: Encounter[] = [
     summary: 'a mounted barbarian scout',
     available: ['desert'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'barbarian',
         background: 'outlander',
@@ -746,6 +782,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a half mad prophet',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'acolyte',
         profession: 'prophet',
@@ -758,6 +795,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a reclusive sorcerer',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'sorcerer',
         background: 'acolyte',
@@ -770,6 +808,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a merchant of exotic goods',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'noble',
         profession: 'spice merchant',
@@ -782,6 +821,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a misanthropic shapeshifter',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit',
         profession: 'fugitive',
@@ -797,6 +837,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'an eccentric monk',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit',
         calmTrait: 'kinda weird',
@@ -810,6 +851,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a nomadic herder',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'herder',
@@ -822,6 +864,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a nomadic warrior',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'fighter',
@@ -833,6 +876,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'an outcast elf',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'hermit',
@@ -847,6 +891,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a reclusive scholar',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -860,6 +905,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'an eccentric healer',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'cleric',
         background: 'acolyte',
@@ -872,6 +918,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a poor cowherd',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'hermit',
@@ -885,6 +932,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a mining prospector',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'commoner',
@@ -897,6 +945,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a religious fanatic with his many wives',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'heretic',
@@ -918,6 +967,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a mad sorcerer',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit',
         profession: 'sorcerer',
@@ -933,6 +983,7 @@ export const encounters: Encounter[] = [
     summary: 'a paranoid shapeshifter',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit',
         hasClass: false,
@@ -948,6 +999,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a reclusive shapeshifter',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'hermit',
         profession: 'shapeshifter',
@@ -968,6 +1020,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a dangerous fugitive',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'fugitive',
         calmTrait: 'paranoid',
@@ -988,6 +1041,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a treasure hunter',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'criminal',
         profession: 'adventurer',
@@ -1006,6 +1060,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a wasteland druid',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'acolyte',
         profession: 'druid',
@@ -1070,6 +1125,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a mad witch',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         gender: 'woman',
         background: 'hermit',
@@ -1091,6 +1147,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'an outcast orc',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         race: 'half-orc',
         background: 'hermit',
@@ -1119,6 +1176,7 @@ export const encounters: Encounter[] = [
     summary: 'a lost prospector',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'prospector',
@@ -1132,6 +1190,7 @@ export const encounters: Encounter[] = [
     summary: 'a solemn warrior',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'fighter',
         calmTrait: 'solemn',
@@ -1145,6 +1204,7 @@ export const encounters: Encounter[] = [
     summary: 'a seasoned mountaineer',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'outlander',
         profession: 'mountaineer',
@@ -1158,6 +1218,7 @@ export const encounters: Encounter[] = [
     summary: 'an eccentric witch',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         gender: 'woman',
         background: 'hermit',
@@ -1172,6 +1233,7 @@ export const encounters: Encounter[] = [
     summary: 'a contemplative monk',
     available: ['mountain'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'acolyte',
         profession: 'monk',
@@ -1235,6 +1297,7 @@ export const encounters: Encounter[] = [
     summary: 'a beggarly bandit',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         background: 'criminal',
         profession: ['fighter', 'rogue', 'rogue'].random(),
@@ -1247,6 +1310,7 @@ export const encounters: Encounter[] = [
     summary: 'an old witch',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'sorcerer',
         gender: 'woman',
@@ -1261,6 +1325,7 @@ export const encounters: Encounter[] = [
     summary: 'a curious herbalist',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         background: 'acolyte',
@@ -1274,6 +1339,7 @@ export const encounters: Encounter[] = [
     summary: 'a lost child',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         ageStage: 'child',
         isThrowaway: true
@@ -1285,6 +1351,7 @@ export const encounters: Encounter[] = [
     summary: 'a woodcutter busy with the day’s work',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         gender: 'man',
@@ -1298,6 +1365,7 @@ export const encounters: Encounter[] = [
     summary: 'an intrepid hunter',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'ranger',
         background: 'outlander',
@@ -1310,6 +1378,7 @@ export const encounters: Encounter[] = [
     summary: 'an elvish ranger',
     available: ['forest'],
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'ranger',
         race: 'elf',
@@ -1349,6 +1418,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a lonely old woman',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         gender: 'woman',
         background: 'hermit',
@@ -1362,6 +1432,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a beautiful witch',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'sorcerer',
         gender: 'woman',
@@ -1375,6 +1446,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a horrible witch',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'sorcerer',
         gender: 'woman',
@@ -1389,6 +1461,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'an outcast dwarf',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         race: 'dwarf',
         background: 'hermit',
@@ -1402,6 +1475,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a dwarf prospector',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         hasClass: false,
         race: 'dwarf',
@@ -1415,6 +1489,7 @@ export const encounters: Encounter[] = [
   {
     summary: 'a wood elf druid',
     function: (town) => {
+      // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'druid',
         background: 'outlander',
