@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
+import { Encounter, encounters } from './encounters'
 import { BiomeName, Location, locations } from './locations'
-
-interface Encounter {
-  summary: string
-  available?: BiomeName[]
-  function?(town: Town, biome: BiomeName): string
-}
 
 export const getLocation = (biome: BiomeName): Location => {
   return lib.random(locations.filter(location => {
@@ -14,13 +9,9 @@ export const getLocation = (biome: BiomeName): Location => {
   }))
 }
 
-/**
- * @warn Uses `setup.misc.encounters`
- */
 export const getEncounter = (biome: BiomeName): Encounter => {
-  // @ts-ignore
-  return lib.random(setup.misc.encounters.filter(encounter => {
-    return encounter.available && encounter.available.includes(biome)
+  return lib.random(encounters.filter(encounter => {
+    return encounter.available?.includes(biome)
   }))
 }
 

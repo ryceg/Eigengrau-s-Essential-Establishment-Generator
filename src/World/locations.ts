@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
+import { encounters } from './encounters'
 import { getEncounter, getEventDescription } from './events'
 
 export interface Location {
@@ -29,7 +30,7 @@ export const locations: Location[] = [
       const cavern = lib.cavern.create({ entrance: 'somewhat hidden behind a roaring waterfall' })
       const readout = lib.cavern.readout(cavern)
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cave, encounters)(town, biome)
       return `a cavern. ${readout} <blockquote>The cavern is now home to ${contents}.</blockquote>`
     }
   },
@@ -40,7 +41,7 @@ export const locations: Location[] = [
       const cavern = lib.cavern.create({ entrance: 'in the bank of a creek' })
       const readout = lib.cavern.readout(cavern)
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cave, encounters)(town, biome)
       return `a small cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
     }
   },
@@ -51,7 +52,7 @@ export const locations: Location[] = [
       const cavern = lib.cavern.create()
       const readout = lib.cavern.readout(cavern)
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cave, encounters)(town, biome)
       return `a rocky cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
     }
   },
@@ -105,7 +106,7 @@ export const locations: Location[] = [
     available: ['forest'],
     function: (town, biome) => {
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cottageLives, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cottageLives, encounters)(town, biome)
       const cottage = lib.createAutoTippy(lib.cabin, { wordNoun: 'cottage' })('cottage')
       return `a peculiar ${cottage}. <blockquote>${contents} lives here.</blockquote>`
     }
@@ -115,7 +116,7 @@ export const locations: Location[] = [
     available: ['forest'],
     function: (town, biome) => {
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, encounters)(town, biome)
       const cabin = lib.createAutoTippy(lib.cabin)('cabin')
       // @ts-ignore
       return `a woodsman's ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
@@ -126,7 +127,7 @@ export const locations: Location[] = [
     available: ['forest'],
     function: (town, biome) => {
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, encounters)(town, biome)
       const cabin = lib.createAutoTippy(lib.cabin, { size: 'little' })('cabin')
       // @ts-ignore
       return `a cozy little ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
@@ -137,7 +138,7 @@ export const locations: Location[] = [
     available: ['forest', 'mountain'],
     function: (town, biome) => {
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cabinLives, encounters)(town, biome)
       const cabin = lib.createAutoTippy(lib.cabin)('cabin')
       // @ts-ignore
       return `an abandoned ${cabin}. <blockquote>${setup.misc[biome].cabinLived.random()} once lived here. Now, ${contents} lives here.</blockquote>`
@@ -179,7 +180,7 @@ export const locations: Location[] = [
       // @ts-ignore
       const biomeData = setup.misc[biome]
       // @ts-ignore
-      const contents = lib.contentsFetcher(biomeData.ruinsLives, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(biomeData.ruinsLives, encounters)(town, biome)
       return `ancient ruins. <blockquote>The ruins were built by ${biomeData.ruinsLived.random()}. Now, ${contents} lives here.</blockquote>`
     }
   },
@@ -210,7 +211,7 @@ export const locations: Location[] = [
       const cavern = lib.cavern.create({ entrance: 'in the crook of a rock wall' })
       const readout = lib.cavern.readout(cavern)
       // @ts-ignore
-      const contents = lib.contentsFetcher(setup.misc[biome].cave, setup.misc.encounters)(town, biome)
+      const contents = lib.contentsFetcher(setup.misc[biome].cave, encounters)(town, biome)
       return `a small cave. ${readout} <blockquote>The cave is home to ${contents}.</blockquote>`
     }
   },
@@ -263,7 +264,7 @@ export const locations: Location[] = [
       // @ts-ignore
       const lived = setup.misc[biome].houseLived.random()
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, encounters)(town, biome)
       const house = lib.createAutoTippy(lib.cabin, { material: 'stone', wordNoun: 'house' })('stone house')
       return `an abandoned ${house}. <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
     }
@@ -275,7 +276,7 @@ export const locations: Location[] = [
       // @ts-ignore
       const lived = setup.misc[biome].houseLived.random()
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc[biome].houseLives, encounters)(town, biome)
       const house = lib.createAutoTippy(lib.cabin, { material: 'stone', wordNoun: 'house' })('stone house')
       return `a ${house} sheltered by a ${['canyon', 'gorge', 'bluff'].random()} <blockquote>${lived} once lived here. Now, ${encounter} lives here.</blockquote>`
     }
@@ -303,7 +304,7 @@ export const locations: Location[] = [
     function: (town, biome) => {
       // intentionally uses the mountain biome
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, encounters)(town, biome)
       // @ts-ignore
       return `an old, weathered watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
     }
@@ -314,7 +315,7 @@ export const locations: Location[] = [
     function: (town, biome) => {
       // intentionally uses the mountain biome
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, encounters)(town, biome)
       // @ts-ignore
       return `a run down, abandoned watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is inhabited by ${encounter}.</blockquote>`
     }
@@ -325,7 +326,7 @@ export const locations: Location[] = [
     function: (town, biome) => {
       // intentionally uses the mountain biome
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc.mountain.watchtowerLives, encounters)(town, biome)
       // @ts-ignore
       return `a strategically located watchtower. <blockquote>The watchtower was built by ${setup.misc.mountain.watchtowerBuilt.random()}. Now, it is controlled by ${encounter}.</blockquote>`
     }
@@ -335,7 +336,7 @@ export const locations: Location[] = [
     available: ['desert'],
     function: (town, biome) => {
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, encounters)(town, biome)
       // intentionally uses forest
       // @ts-ignore
       return `ruins of an ancient city. <blockquote>The city was built by ${setup.misc.forest.ruinsLived.random()} Now, ${encounter} lives here.</blockquote>`
@@ -346,7 +347,7 @@ export const locations: Location[] = [
     available: ['desert'],
     function: (town, biome) => {
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, encounters)(town, biome)
       // intentionally uses forest
       // @ts-ignore
       return `a temple ruin. <blockquote>The city was built by ${setup.misc.forest.ruinsLived.random()} Now, ${encounter} lives here.</blockquote>`
@@ -384,7 +385,7 @@ export const locations: Location[] = [
     available: ['forest'],
     function: (town, biome) => {
       // @ts-ignore
-      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, setup.misc.encounters)(town, biome)
+      const encounter = lib.contentsFetcher(setup.misc[biome].ruinsLives, encounters)(town, biome)
       return `a ruined monastery. <blockquote>These ruins are currently occupied by ${encounter}.</blockquote>`
     }
   },
