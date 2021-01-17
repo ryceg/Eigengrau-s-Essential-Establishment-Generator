@@ -1,23 +1,22 @@
 :: NPCProfile
 <span class="interactive-only"><<include "NPCHeader">></span>
-<<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
-\<<print $currentNPC.heshe.toUpperFirst()>> is <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightInches, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.
-<<run console.log($currentNPC)>>
-$currentNPC.firstName $currentNPC.trait. 
+<p><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
+\<<print $currentNPC.heshe.toUpperFirst()>> is <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightInches, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.</p>
+
+<p>$currentNPC.firstName $currentNPC.trait. 
 \<<if def $currentNPC.vocalPattern>><<print $currentNPC.heshe.toUpperFirst()>> $currentNPC.vocalPattern. <</if>>
 \When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 
-\Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>>. 
+\Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>>.</p>
 
 
-\<<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
+\<p><<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
 \<<if lib.socialClass[$currentNPC.socialClass].lifestyle.includes(lib.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class
 \<<else>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>
-\<</if>>. 
+\<</if>>.</p>
 
-
-\$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
+<p>$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
 \<<if $currentNPC.weapon>>In combat, $currentNPC.heshe uses $currentNPC.weapon. <</if>><<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and <<print $currentNPC.knownLanguages[1]>>. <</if>>
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
@@ -26,9 +25,10 @@ $currentNPC.firstName $currentNPC.trait.
         \, and has a <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
     \<</if>>
   \<<elseif $currentNPC.partnerID>>$currentNPC.firstName has <<print lib.articles.output($npcs[$currentNPC.partnerID].marriageNoun)>>, <<profile $npcs[$currentNPC.partnerID]>>.
-\<</if>>
+\<</if>></p>
+
 <<include "NPCIncomeTable">>
-<<if def $currentNPC.note >>$currentNPC.note<</if>>
+<<if def $currentNPC.note>><p>$currentNPC.note</p><</if>>
 <<include "NPCEarlyLife">>
 <<include "NPCLifeEvents">>
 <<include "NPCRelationshipsTable">>

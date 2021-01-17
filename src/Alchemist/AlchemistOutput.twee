@@ -5,13 +5,13 @@
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <span class="interactive-only"><h1>$building.name</h1></span>
 <<include "TownMicroEventsOutput">><</nobr>>
-<<print lib.firstCharacter("You")>> enter $building.name, <<print lib.articles.output($building.structure.alchemistDescriptor)>>. <<print lib.closestMatch(lib.alchemistData.get.lookAround($building), 'note', 'cleanliness', 'wealth', $building.roll.cleanliness, $building.roll.wealth)>> There is a chemist behind the shop counter currently <<print $associatedNPC.idle.random()>>.
+<section><<print lib.firstCharacter("You")>> enter $building.name, <<print lib.articles.output($building.structure.alchemistDescriptor)>>. <<print lib.closestMatch(lib.alchemistData.get.lookAround($building), 'note', 'cleanliness', 'wealth', $building.roll.cleanliness, $building.roll.wealth)>> There is a chemist behind the shop counter currently <<print $associatedNPC.idle.random()>>.</section>
 
-<h3>Chemist</h3>
+<section><h3>Chemist</h3>
 The $associatedNPC.weight chemist <<print $associatedNPC.greeting.random()>> <<print ['when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around'].random()>>. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.owner of the shop, and asks what $associatedNPC.heshe can do for you.
 <<linkreplace "<h4>Talk with $associatedNPC.name</h4>" t8n>>
-<h6>$associatedNPC.name</h6><<include "ChemistTalk">><</linkreplace>>
+<h6>$associatedNPC.name</h6><<include "ChemistTalk">><</linkreplace>></section>
 <span class="interactive-only"><<link "<h4>Generate plothook</h4>">><<set $associatedNPC.plot to setup.alchemistMission($town)>><</link>></span><<liveblock>><<if def $associatedNPC.plot>><div id="plothook"><<print ["When you say that you're adventurers, $associatedNPC.hisher $associatedNPC.eyes eyes light up, and $associatedNPC.heshe says", "You chat for a while, and then $associatedNPC.firstName says ", "You discuss business, and when you talk about your adventures, $associatedNPC.firstName asks "].random()>> "$associatedNPC.plot"</div><</if>><</liveblock>>
 <<include "RandomPotion">>
 <<include "AlchemistSell">>
-<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
+<<details "CreateNewNpc" "Customers">>

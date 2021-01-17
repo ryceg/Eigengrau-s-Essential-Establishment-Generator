@@ -2,7 +2,7 @@
 <<nobr>>
 <<if $town.npcRelations[$currentNPC.key]>>
 <div class='classTable'>
-  <h3>Relationships</h3>
+  <details><summary>Relationships</summary>
   <table>
     <tr>
       <th>Name</th>
@@ -53,6 +53,6 @@
   <</capture>><</for>>
 <</if>>
   </table>
-</div>
+  </details></div>
 <</if>>
 <</nobr>>
