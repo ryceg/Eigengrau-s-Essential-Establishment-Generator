@@ -31,9 +31,9 @@ import { tippy } from './Settings/Tippy/tippy'
 import { profileTooltip, profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
-import { locations } from './World/locations'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
@@ -77,9 +77,11 @@ declare global {
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
     getPriceMod: typeof getPriceMod
+    getLocation: typeof getLocation
+    getEncounter: typeof getEncounter
+    getEventDescription: typeof getEventDescription
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
-    locations: typeof locations
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
@@ -123,9 +125,11 @@ Object.assign(setup, {
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
+  getLocation,
+  getEncounter,
+  getEventDescription,
   graveStone,
   urlSeed,
-  locations,
   deleteFaction,
   leaderFaction,
   plothooks
