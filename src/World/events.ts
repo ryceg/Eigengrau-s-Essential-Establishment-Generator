@@ -2,12 +2,6 @@
 import type { Town } from '@lib'
 import { BiomeName, Location, locations } from './locations'
 
-interface Encounter {
-  summary: string
-  available?: BiomeName[]
-  function?(town: Town, biome: BiomeName): string
-}
-
 export const getLocation = (biome: BiomeName): Location => {
   return lib.random(locations.filter(location => {
     return location.available.includes(biome)
