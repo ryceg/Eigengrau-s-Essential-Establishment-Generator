@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
+import { getEncounter, getEventDescription } from './events'
 
 export interface LocationObject {
   summary: string
@@ -17,7 +18,6 @@ export type BiomeName =
 
 /**
  * @warn Uses `setup.misc`
- * @warn Uses `getEventDescription`
  * @warn Uses `setup.getEncounter`
  * @warn Uses `setup.gravestone.create`
  */
@@ -189,8 +189,7 @@ export const locations: LocationObject[] = [
     function: (town, biome) => {
       const cavern = lib.cavern.create({ entrance: 'in a canyon wall' })
       const readout = lib.cavern.readout(cavern)
-      // @ts-ignore
-      const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
+      const encounter = getEventDescription(getEncounter(biome), town, biome)
       return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
     }
   },
@@ -200,8 +199,7 @@ export const locations: LocationObject[] = [
     function: (town, biome) => {
       const cavern = lib.cavern.create({ entrance: 'hidden by a boulder' })
       const readout = lib.cavern.readout(cavern)
-      // @ts-ignore
-      const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
+      const encounter = getEventDescription(getEncounter(biome), town, biome)
       return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
     }
   },
@@ -222,8 +220,7 @@ export const locations: LocationObject[] = [
     function: (town, biome) => {
       const cavern = lib.cavern.create()
       const readout = lib.cavern.readout(cavern)
-      // @ts-ignore
-      const encounter = setup.getEventDescription(setup.getEncounter(biome), town, biome)
+      const encounter = getEventDescription(getEncounter(biome), town, biome)
       return `a cavern. ${readout} <blockquote>The cavern is home to ${encounter}.</blockquote>`
     }
   },
