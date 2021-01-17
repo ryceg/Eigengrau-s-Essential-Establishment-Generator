@@ -4,20 +4,15 @@
     \<<if !Object.keys(_road.inhabitants.buildings).length>><<continue>><</if>>
     \<<if !_building>><<continue>><</if>>
     \<<if _building.objectType === 'room' || _building.parentKey>><<continue>><</if>>
-    \<<if def _previousBuilding && _previousBuilding.road === _roadKey>>
+    \<p role="listitem"><<if def _previousBuilding && _previousBuilding.road === _roadKey>>
 
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
     \<<elseif _road.precedingText>>
-    
     _road.precedingText <<else>>
-    
-
     \<<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_roadKey].description, $town.roads[_roadKey].name)>> is 
     \<</if>>
-    \<<if _building.needsWordNoun>>
-      \the _building.wordNoun 
-    \<</if>>
-    \<span @id='_building.name'><<include "BuildingLink">></span><<set _previousBuilding to _building>><</capture>>
+    \<<if _building.needsWordNoun>>the _building.wordNoun <</if>>
+    \<span @id='_building.name'><<include "BuildingLink">></span></p><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
 \<</for>>

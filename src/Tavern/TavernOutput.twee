@@ -3,25 +3,24 @@
 \<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 \<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 \<<set $currentPassage.availableRelationships to setup.tavern.get.customers>>
-\<span class="interactive-only"><h1>$building.name</h1></span>
-<<print lib.firstCharacter("You")>> make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.
-<h3>The Tavern</h3>
+\<section><span class="interactive-only"><h1>$building.name</h1></span>
+<<print lib.firstCharacter("You")>> make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.</section>
+<section><h3>The Tavern</h3>
 <<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
 <<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.activity, $building.roll.roughness)>>
-<div id="patron"><<if ndef $building.patron>><<set $building.patron to setup.tavern.get.patrons($town, $building)>><</if>>$building.patron
-<<include "TavernPatrons">></div>
-<<include "TavernDrinker">>
-<h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, <<print lib.articles.output($associatedNPC.descriptor)>> who is currently <<print $associatedNPC.idle.random()>>. You walk up to the bar, and strike up conversation with the $associatedNPC.manwoman, who introduces $associatedNPC.himherself as <<print setup.profile($associatedNPC)>>, the $associatedNPC.owner of $building.name.
+<div id="patron"><<include "TavernPatrons">></div>
+<<include "TavernDrinker">></section>
+<section><h3>The Bar</h3>Behind the counter is who you would assume to be the bartender, <<print lib.articles.output($associatedNPC.descriptor)>> who is currently <<print $associatedNPC.idle.random()>>. You walk up to the bar, and strike up conversation with the $associatedNPC.manwoman, who introduces $associatedNPC.himherself as <<print setup.profile($associatedNPC)>>, the $associatedNPC.owner of $building.name.
 <<include "BartenderTalk">>
 <<include "Menu">>
-<<include "TavernSell">>
-<h3>Tavern Entertainment</h3>
+<<include "TavernSell">></section>
+<section><h3>Tavern Entertainment</h3>
 $building.entertainment
 <<include "TavernGames">>
 <span class="interactive-only"><<link "<h4>Go on a bender</h4>">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
 \<<liveblock>><<if def $building.carousing>><span id="carousing">$building.carousing</span><</if>><</liveblock>></span>
-<<include "Noticeboard">>
+<<include "Noticeboard">></section>
 <<include "Rooms">>
 <<include "TavernBrothel">>
-<<linkreplace "<h4>Customers</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
+<<details "CreateNewNpc" "Customers">>
 <<run setup.tippy(".btn")>>
