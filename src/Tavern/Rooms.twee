@@ -1,9 +1,9 @@
 
 :: Rooms
-<<nobr>>
+<<nobr>><details open><summary>Accomodation</summary>
 <<set _freeRooms to lib.tavernRooms($building)>>
 <<if _freeRooms <= 0>>
-	<span id="room-cost">You talk with the <<print setup.profile($building.barmaid, "barmaid")>> about lodgings, and she says that there are no free rooms in $building.name at the moment...</span>
+	<span id="room-cost">You talk with the <<print setup.profile($building.barmaid, "barmaid")>> about lodgings, and <<print $building.barmaid.heshe>> says that there are no free rooms in $building.name at the moment...</span>
 	<<elseif _freeRooms == 1>>
 		<<linkreplace "<h4>Rent a room for the night</h4>" t8n>>
 		<<replace "#room-cost">><<print lib.tavernSleep($building)>> <<print setup.getWakeUpByWealth($building)>><</replace>>
@@ -14,5 +14,5 @@
 		<<replace "#room-cost">><<print lib.tavernSleep($building)>> <<print setup.getWakeUpByWealth($building)>><</replace>>
 		<</linkreplace>>
 		<span id="room-cost">$building.name has _freeRooms available rooms, which are $building.size and <<print setup.tavern.get.bedCleanliness($building)>>. Because this $building.wordNoun is priced for $building.wealth patrons, it will cost <<money setup.tavern.get.lodging($building)>> to stay here for the night.</span>
-<</if>>
+<</if>></details>
 <</nobr>>

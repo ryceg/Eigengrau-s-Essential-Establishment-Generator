@@ -1,8 +1,7 @@
 
 :: Menu
 <<nobr>>
-<<linkreplace "<h4>What's good?</h4>" t8n>>
-	<h3>On offer today...</h3>
+<details><summary>On offer today...</summary>
 	<<print lib.closestMatch(setup.tavern.get.menu($building), 'note', 'wealth', 'roughness', $building.roll.wealth, $building.roll.roughness)>>
 
 <<if $building.roll.wealth gte 50 && ndef $building.specialBrew>>
@@ -14,5 +13,5 @@
 <</if>>
 
 The <<set _cheese to lib.cheese.create()>><<link "house cheese ">><<set _cheese to lib.cheese.create()>><<replace #cheese>> is <<money _cheese.cost>>, and is <<print lib.articles.output(_cheese.colour)>> cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.<</replace>><</link>><span id="cheese">is <<money _cheese.cost>> and is a _cheese.colour cheese which is _cheese.texture. It smells _cheese.smell, and tastes _cheese.taste.</span>
- <</linkreplace>>
+</details>
 <</nobr>>
