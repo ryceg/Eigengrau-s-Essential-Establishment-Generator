@@ -17,7 +17,7 @@
     \<<if _building.needsWordNoun>>
       \the _building.wordNoun 
     \<</if>>
-    \<span @id='_building.name'><<include "BuildingLink">></span><<set _previousBuilding to _building>><</capture>>
+    \<<include "BuildingLink">><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
 \<</for>>
