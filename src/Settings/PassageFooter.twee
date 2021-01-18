@@ -4,7 +4,7 @@
 
 
 
-
+<<run lib.addTippyAccessibility()>>
 <footer class="footer"></footer>
 <<if !State.metadata.has('cookiePopupWasShown')>>
   <<include "CookieConsent">>

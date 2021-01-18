@@ -18,4 +18,4 @@ Created by /u/rcgy
 <span class="tip" title="Check out the repository!">
     <div id="github">[img["Visit our GitHub!"|github][https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator]]</div>
 </span>
-<</if>><</nobr>><<run lib.addTippyAccessibility()>>
+<</if>><</nobr>>

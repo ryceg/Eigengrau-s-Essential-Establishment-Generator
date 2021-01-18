@@ -28,4 +28,3 @@
 <span class="tip" title="How expensive is the tavern?">Tavern <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier">Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[output|TavernOutput]]
-<<run lib.addTippyAccessibility()>>

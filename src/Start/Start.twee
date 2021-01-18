@@ -11,4 +11,4 @@
 <<include "CreateBuilding">>
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
-<<include "Popup">><<run lib.addTippyAccessibility()>>
+<<include "Popup">>
