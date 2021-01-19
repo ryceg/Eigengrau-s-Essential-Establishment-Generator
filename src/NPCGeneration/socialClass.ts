@@ -30,9 +30,6 @@ export const relativeSocialClass = (socialClass: SocialClassName): SocialClassNa
   return socialClasses[newIndex]
 }
 
-/**
- * @warn Uses State.variables.npcs
- */
 export const familySocialClass = (marriage: Marriage): SocialClassName => {
   if (marriage.parents.length === 0) {
     if (marriage.children.length === 0) {
