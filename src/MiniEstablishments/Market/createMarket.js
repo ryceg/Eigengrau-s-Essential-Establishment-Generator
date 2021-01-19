@@ -5,6 +5,7 @@ setup.createMarket = (town, opts = {}) => {
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
     buildingType: 'market',
+    objectType: 'building',
     wordNoun: ['market', 'bazaar', 'agora', 'emporium', 'plaza', 'piazza'].random(),
     needsWordNoun: false,
     location: lib.market.location.random(),

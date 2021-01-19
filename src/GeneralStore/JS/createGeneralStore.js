@@ -22,7 +22,8 @@ setup.createGeneralStore = (town, opts = {}) => {
     notableFeature: 'wide range of goods on sale',
     passageName: 'generalStoreOutput',
     initPassage: 'InitgeneralStore',
-    buildingType: 'generalStore'
+    buildingType: 'generalStore',
+    objectType: 'building'
   })
   lib.createStructure(town, generalStore)
   generalStore.structure.descriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`

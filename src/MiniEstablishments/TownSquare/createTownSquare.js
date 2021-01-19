@@ -7,6 +7,7 @@ setup.createTownSquare = (town, opts = {}) => {
     passageName: 'TownSquareOutput',
     name: 'The Town Square',
     buildingType: 'townSquare',
+    objectType: 'building',
     wordNoun: 'town square',
     needsWordNoun: false,
     feature: setup.townSquare.feature().random()

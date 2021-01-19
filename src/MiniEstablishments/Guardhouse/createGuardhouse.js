@@ -9,6 +9,7 @@ setup.createGuardhouse = (town, opts) => {
     initPassage: 'GuardhouseOutput',
     passageName: 'GuardhouseOutput',
     buildingType: 'guardhouse',
+    objectType: 'building',
     wordNoun: lib.guardhouseData.name.wordNoun.random(),
     needsWordNoun: false,
     associatedNPC: setup.createNPC(town, { profession: 'guard', ...opts.associatedNPC })

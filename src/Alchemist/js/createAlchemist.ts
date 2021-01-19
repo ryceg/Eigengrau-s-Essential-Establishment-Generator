@@ -29,6 +29,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',
     buildingType: 'alchemist',
+    objectType: 'building',
     notableFeature: lib.random(['its love potions', 'its herbal remedies', 'its magical potions', 'its wonderful tonics', 'its fantastic ointments']),
     name: lib.createAlchemistName(associatedNPC.firstName)
   })
