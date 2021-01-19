@@ -111,7 +111,7 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
   }
 
   // TODO: finish support for non-heterosexual marriages
-  const partnerBase = Object.assign({}, getRelativeBase(npc), {
+  const partnerBase = Object.assign(getRelativeBase(npc), {
     gender: lib.getOppositeGender(npc.gender),
     ageYears: getPartnerAge(npc),
     race: lib.findPartnerRace(town, npc),
