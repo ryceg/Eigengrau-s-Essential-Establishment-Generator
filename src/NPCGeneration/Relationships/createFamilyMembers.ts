@@ -63,7 +63,7 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
     npc.parentalLineage = lineage
     const { fatherSurname, motherSurname } = getParentSurnames(marriage)
 
-    const fatherBase = Object.assign({}, getRelativeBase(npc), {
+    const fatherBase = Object.assign(getRelativeBase(npc), {
       gender: 'man',
       ageYears: getParentAge(npc),
       race: fatherRace,
@@ -71,7 +71,7 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
       socialClass: relativeSocialClass(npc.socialClass)
     })
 
-    const motherBase = Object.assign({}, getRelativeBase(npc), {
+    const motherBase = Object.assign(getRelativeBase(npc), {
       gender: 'woman',
       ageYears: getParentAge(npc),
       race: motherRace,
@@ -82,10 +82,12 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
     // TODO: finish support for non-heterosexual marriages
     const father = createRelative(town, family, fatherBase, forceFather)
     const mother = createRelative(town, family, motherBase, forceMother)
+
     if (father) {
       marriage.parents.push(father.key)
       family.members[father.key].marriages = [marriage]
     }
+
     if (mother) {
       marriage.parents.push(mother.key)
       family.members[mother.key].marriages = [marriage]
