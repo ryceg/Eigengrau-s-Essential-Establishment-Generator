@@ -24,6 +24,7 @@ import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politic
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
@@ -60,6 +61,9 @@ declare global {
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
     getPriceMod: typeof getPriceMod
+    getLocation: typeof getLocation
+    getEncounter: typeof getEncounter
+    getEventDescription: typeof getEventDescription
     graveStone: typeof graveStone
     urlSeed: typeof urlSeed
     deleteFaction: typeof deleteFaction
@@ -96,6 +100,9 @@ Object.assign(setup, {
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
+  getLocation,
+  getEncounter,
+  getEventDescription,
   graveStone,
   urlSeed,
   deleteFaction,
@@ -114,8 +121,6 @@ setup.init = (setup => () => {
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
-  setup.initMiscEncounters()
-  setup.initMiscLocations()
   setup.initNpcData()
   setup.initTavernData()
   setup.initGoodsAndServices()

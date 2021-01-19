@@ -61,3 +61,49 @@ export interface History {
   passageName: string,
   linkDescription: string
 }
+
+interface CaravanData {
+  create(town: Town, base: Partial<Caravan>): Caravan
+  caravanType: string[]
+  type: string[]
+  animals(): string[]
+  transporting(): string[]
+  mood: string[]
+  masterType: Record<string, Partial<NPC>>
+  masterLooking: string[]
+  masterAvoid: string[]
+  masterCarry: string[]
+  handlerTrait: string[]
+  handlerWant: string[]
+  handlerCarry: string[]
+  cookGreet: string[]
+  cookLook: string[]
+  cookCarry: string[]
+  guardIs: string[]
+  guardReason: string[]
+  guardTrait: string[]
+  guideType: string[]
+  guideLook: string[]
+  guideCarry: string[]
+  merchantIs: string[]
+  merchantLook: string[]
+  merchantCarry: string[]
+  travelerIs: string[]
+  travelerWant: string[]
+  travelerLook: string[]
+}
+
+interface Caravan {
+  type: string
+  animals: string
+  transporting: string
+  mood: string
+  masterType: string
+  masterLooking: string
+  masterAvoid: string
+  masterCarry: string
+  readout: string
+  tippy: string
+  tippyWord: string
+  master: NPC
+}
