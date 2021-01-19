@@ -29,7 +29,7 @@ export const profileTooltip = (id: string, obj: any) => {
       } else {
         span.title = obj.tippyDescription || obj.name
       }
-      tippy(`#${span.id}`)
+      tippy('.tip')
     }
   })
 }
