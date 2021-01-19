@@ -346,8 +346,8 @@ export const encounters: Encounter[] = [
       // @ts-ignore
       // @ts-ignore
       const npc = setup.createNPC(town, {
-        profession: ['fighter', 'knight', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        profession: lib.random(['fighter', 'knight', 'paladin']),
+        background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
       return `an injured ${setup.profile(npc, 'knight')}`
@@ -457,8 +457,8 @@ export const encounters: Encounter[] = [
       const horse = lib.createAutoTippy(lib.horse)('horse')
       // @ts-ignore
       const npc = setup.createNPC(town, {
-        profession: ['fighter', 'fighter', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        profession: lib.random(['fighter', 'fighter', 'paladin']),
+        background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
       return `an ${setup.profile(npc, 'adventurer')} on a ${horse}`
@@ -524,7 +524,7 @@ export const encounters: Encounter[] = [
       // @ts-ignore
       const npc = setup.createNPC(town, {
         profession: 'knight',
-        background: ['noble', 'soldier', 'soldier'].random(),
+        background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
       return `a ${setup.profile(npc, 'knight errant')}`
@@ -536,8 +536,8 @@ export const encounters: Encounter[] = [
     function: (town) => {
       // @ts-ignore
       const npc = setup.createNPC(town, {
-        profession: ['fighter', 'fighter', 'paladin'].random(),
-        background: ['noble', 'soldier', 'soldier'].random(),
+        profession: lib.random(['fighter', 'fighter', 'paladin']),
+        background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
       return `an injured ${setup.profile(npc, 'knight')}`
