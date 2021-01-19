@@ -30,21 +30,21 @@
     <th></th>
     <th>Relationship</th><</if>>
   </tr>
-  <<for _i to 0; _i lt _buildingRelationships.length; _i++>>
-    <<set _building to lib.findBuilding($town, _buildingRelationships[_i].buildingKey)>>
+  <<for _buildingRelationship range _buildingRelationships>>
+    <<set _building to lib.findBuilding($town, _buildingRelationship.buildingKey)>>
     <<capture _building>>
     <td><<profile _building _building.name>></td>
     <td><<print lib.toTitleCase(_building.wordNoun)>></td>
     <<if !$currentPassage.deleteEnabled>>
       <td></td>
     <</if>>
-    <td><<if _buildingRelationships[_i].description || _buildingRelationships[_i].reciprocalRelationship>>
+    <td><<if _buildingRelationship.description || _buildingRelationship.reciprocalRelationship>>
       <<print lib.createTippyFull(
-        _buildingRelationships[_i].description || 
-        lib.findInArray($town.buildings, "key", _buildingRelationships[_i].buildingKey).name + " is " + lib.articles.output(_buildingRelationships[_i].reciprocalRelationship) + " to " + $npcs[_buildingRelationships[_i].npcKey].firstName, 
-        lib.toTitleCase(_buildingRelationships[_i].reciprocalRelationship || _buildingRelationships[_i].relationship))>>
+        _buildingRelationship.description || 
+        lib.findInArray($town.buildings, "key", _buildingRelationship.buildingKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
+        lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship))>>
     <<else>>
-      <<print lib.toTitleCase(_buildingRelationships[_i].reciprocalRelationship || _buildingRelationships[_i].relationship)>>
+      <<print lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship)>>
     <</if>></td>
   <<if $currentPassage.deleteEnabled>>
     <td><td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td></td>
