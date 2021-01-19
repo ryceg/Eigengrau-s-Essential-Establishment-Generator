@@ -1,17 +1,17 @@
-import type { Building } from '@lib'
+interface Modifiable {
+  priceModifier: number
+}
 
 /**
  * Gets the price modifier.
  */
-export const getPriceMod = (priceModSource: number | Building): number => {
-  if (typeof priceModSource === 'object') {
-    if (typeof priceModSource.priceModifier === 'number') {
-      return Number(1 - (priceModSource.priceModifier / 100))
-    }
-  } else if (typeof priceModSource === 'number') {
+export const getPriceMod = (priceModSource: number | Modifiable): number => {
+  console.log(priceModSource)
+  if (typeof priceModSource === 'object' && typeof priceModSource.priceModifier === 'number') {
+    return Number(1 - (priceModSource.priceModifier / 100))
+  }
+  if (typeof priceModSource === 'number') {
     return Number(1 - (priceModSource / 100))
-  } else {
-    return 1
   }
   return 1
 }

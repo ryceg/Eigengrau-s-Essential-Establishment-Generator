@@ -16,7 +16,6 @@ import { createTavern } from './Tavern/js/createTavern'
 import { expandNPC } from './NPCGeneration/expandNPC'
 import { profile } from './NPCGeneration/profile'
 import { money } from './Tools/money'
-import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
@@ -45,7 +44,6 @@ declare global {
     getWakeUpByWealth: typeof getWakeUpByWealth
     createTavern: typeof createTavern
     money: typeof money
-    getPriceMod: typeof getPriceMod
     history: typeof history
     addGtagEvent: typeof addGtagEvent
     tippy: typeof tippy
@@ -60,7 +58,6 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
-    getPriceMod: typeof getPriceMod
     getLocation: typeof getLocation
     getEncounter: typeof getEncounter
     getEventDescription: typeof getEventDescription
@@ -85,7 +82,6 @@ Object.assign(setup, {
   getWakeUpByWealth,
   createTavern,
   money,
-  getPriceMod,
   history,
   addGtagEvent,
   tippy,
