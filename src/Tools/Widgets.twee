@@ -85,45 +85,6 @@
 
 <<widget "factionResource">><<if $args[1] === true>><<print $args[0].amount.toUpperFirst()>> $args[0].type<<else>><<print $args[0].amount>> $args[0].type<</if>><</widget>>
 
-<<widget "building">><<nobr>>
-<<set _building = $args[0],
-	_readout = $args[1] || _building.name>>
-<span @id="_building.name" + '-tooltip' class="tip">
-<<set _buildingTitle to lib.toTitleCase(_readout)>>
-<<link "_buildingTitle">>
-<<set $currentPassage to _building>>
-  <<run setup.history(_building, null, _readout)>>
-  <<run console.log(_building)>>
-  <<if settings.showSliders>>
-      <<goto _building.initPassage>>
-    <<else>>
-      <<goto _building.passageName>>
-  <</if>>
-<</link>>
-</span>
-<<run setup.profileTooltip(_building.tooltip, _building)>><<run setup.tippy(".btn")>>
-<</nobr>><</widget>>
-
-<<widget "profile">>
-    \<<set _object = $args[0],
-        _readout = $args[1] || _object.name,
-        _id = Util.slugify((_object.key || _object.name || _object.description || _object.wordNoun || "profile"))>>
-    \<<capture _object, _readout, _id>>
-        \<span @id="_id" class="tip"><<if $args[2] is true>><<print lib.articles.find(_readout)>><</if>> <<link _readout>>
-				<<run setup.history(_object, null, _readout)>>
-				<<set $currentPassage to _object>>	
-				\<<if settings.showSliders && _object.initPassage>>
-						\<<goto _object.initPassage>>
-					\<<else>>
-						\<<goto _object.passageName>>
-					<</if>>
-				<</link>></span>
-        \<<run setup.profileTooltip(_id, _object)>>
-				\<<run tippy('.tip')>>
-    \<</capture>>
-\<</widget>>
-
-
 <<widget "temp">>
 <<nobr>>
 	<<set _temp = $args[0]>>
