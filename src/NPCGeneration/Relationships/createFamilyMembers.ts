@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@lib'
+import type { Family, Marriage, NPC, RaceName, Town } from '@lib'
 import { getChildSurname, getParentSurnames } from './getSurnames'
 import { getChildAge, getParentAge, getPartnerAge, getRelativeBase, siblingRoll } from './familyUtils'
 import { setAsPartners } from './setAsPartners'
 import { createNPC } from '../createNPC'
+import { familySocialClass, relativeSocialClass } from '../socialClass'
 
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
@@ -43,9 +44,6 @@ export const createRelative = (town: Town, family: Family, base: Partial<NPC> = 
   return relative
 }
 
-/**
- * @warn Uses setup.relativeSocialClass, setup.familySocialClass
- */
 export const createParentage = (town: Town, family: Family, npc: NPC, forceFather = false, forceMother = false) => {
   const node = family.members[npc.key]
 
@@ -65,38 +63,37 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
     npc.parentalLineage = lineage
     const { fatherSurname, motherSurname } = getParentSurnames(marriage)
 
-    const fatherBase = Object.assign({}, getRelativeBase(npc), {
+    const fatherBase = Object.assign(getRelativeBase(npc), {
       gender: 'man',
       ageYears: getParentAge(npc),
       race: fatherRace,
       lastName: fatherSurname,
-      // @ts-ignore
-      socialClass: setup.relativeSocialClass(npc.socialClass)
+      socialClass: relativeSocialClass(npc.socialClass)
     })
 
-    const motherBase = Object.assign({}, getRelativeBase(npc), {
+    const motherBase = Object.assign(getRelativeBase(npc), {
       gender: 'woman',
       ageYears: getParentAge(npc),
       race: motherRace,
       lastName: motherSurname,
-      // @ts-ignore
-      socialClass: setup.relativeSocialClass(npc.socialClass)
+      socialClass: relativeSocialClass(npc.socialClass)
     })
 
     // TODO: finish support for non-heterosexual marriages
     const father = createRelative(town, family, fatherBase, forceFather)
     const mother = createRelative(town, family, motherBase, forceMother)
+
     if (father) {
       marriage.parents.push(father.key)
       family.members[father.key].marriages = [marriage]
     }
+
     if (mother) {
       marriage.parents.push(mother.key)
       family.members[mother.key].marriages = [marriage]
     }
 
-    // @ts-ignore
-    marriage.socialClass = setup.familySocialClass(marriage)
+    marriage.socialClass = familySocialClass(marriage)
     // FIXME: It's odd that the parent races can be devils, while RaceName doesn't include it.
     // @ts-ignore
     createChildren(town, family, marriage, siblingRoll(), motherRace, fatherRace)
@@ -106,9 +103,6 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
   }
 }
 
-/**
- * @warn Uses setup.relativeSocialClass, setup.familySocialClass
- */
 export const createMarriage = (town: Town, family: Family, npc: NPC, force = false) => {
   const marriageMin = lib.raceTraits[npc.race].ageTraits['young adult'].baseAge
   const newMarriage: Marriage = {
@@ -117,12 +111,11 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
   }
 
   // TODO: finish support for non-heterosexual marriages
-  const partnerBase = Object.assign({}, getRelativeBase(npc), {
+  const partnerBase = Object.assign(getRelativeBase(npc), {
     gender: lib.getOppositeGender(npc.gender),
     ageYears: getPartnerAge(npc),
     race: lib.findPartnerRace(town, npc),
-    // @ts-ignore
-    socialClass: setup.relativeSocialClass(setup.relativeSocialClass(npc.socialClass)) as SocialClassName
+    socialClass: relativeSocialClass(relativeSocialClass(npc.socialClass))
   })
   partnerBase.ageYears = Math.max(partnerBase.ageYears, marriageMin)
 
@@ -134,23 +127,18 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
     family.members[partner.key].marriages = [newMarriage]
   }
 
-  // @ts-ignore
-  newMarriage.socialClass = setup.familySocialClass(newMarriage)
+  newMarriage.socialClass = familySocialClass(newMarriage)
   createChildren(town, family, newMarriage, siblingRoll(), npc.race, partnerBase.race)
 
   return newMarriage
 }
 
-/**
- * @warn Uses setup.relativeSocialClass, setup.familySocialClass
- */
 const createChildren = (town: Town, family: Family, marriage: Marriage, amount: number, motherRace: RaceName = 'human', fatherRace: RaceName = 'human', force = false) => {
   if (!force) amount -= marriage.children.length
 
   console.log(`Creating ${amount} siblings...`)
   console.log(family)
 
-  // @ts-ignore
   const surname = getChildSurname(marriage)
   const siblingClass = marriage.socialClass
 
@@ -177,9 +165,8 @@ const createChildren = (town: Town, family: Family, marriage: Marriage, amount: 
       return
     }
 
-    if (lib.isOfAge('young adult', siblingBase.race, siblingBase.ageYears)) {
-      // @ts-ignore
-      siblingBase.socialClass = setup.relativeSocialClass(siblingClass)
+    if (siblingClass && lib.isOfAge('young adult', siblingBase.race, siblingBase.ageYears)) {
+      siblingBase.socialClass = relativeSocialClass(siblingClass)
     }
 
     const sibling = createRelative(town, family, siblingBase, force)
