@@ -21,8 +21,7 @@
     </tr>
     <</for>>
     <<set _buildingRelationships to lib.findBuildingRelationship($town, null, $npcs[$currentNPC.key])>>
-<<run console.log("RELATIONSHIPS:")>>
-<<run console.log(_buildingRelationships)>>
+<<run console.log("RELATIONSHIPS:", _buildingRelationships)>>
 <<if _buildingRelationships.length > 0>>
   <tr>
     <th>Building Name</th>
