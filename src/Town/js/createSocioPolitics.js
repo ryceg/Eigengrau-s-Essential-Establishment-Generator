@@ -64,13 +64,15 @@ setup.createSocioPolitics = town => {
       console.log(`No faction that matches ${politicalIdeology.data.governmentType}. Creating random faction instead...`)
       town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
-        isPoliticalPower: true
+        isPoliticalPower: true,
+        key: 'leader'
       })
     } else {
       town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
-        type: politicalIdeology.data.governmentType
+        type: politicalIdeology.data.governmentType,
+        key: 'leader'
       })
     }
     console.log('Town factions:', town.factions)
