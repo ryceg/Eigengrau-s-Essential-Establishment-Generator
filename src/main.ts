@@ -20,7 +20,7 @@ import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
-import { profileTooltip, profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
@@ -48,13 +48,13 @@ declare global {
     history: typeof history
     addGtagEvent: typeof addGtagEvent
     tippy: typeof tippy
-    profileTooltip: typeof profileTooltip
     profileAgeTooltip: typeof profileAgeTooltip
     metricHeight: typeof metricHeight
     metricWeight: typeof metricWeight
     buildingTooltip: typeof buildingTooltip
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
+    makeTippyTitle: typeof makeTippyTitle
     createNPC: typeof createNPC
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
@@ -85,13 +85,13 @@ Object.assign(setup, {
   history,
   addGtagEvent,
   tippy,
-  profileTooltip,
   profileAgeTooltip,
   metricHeight,
   metricWeight,
   buildingTooltip,
   politicsDescription,
   politicsTooltip,
+  makeTippyTitle,
   createNPC,
   deleteNPC,
   deleteThrowawayNPCs,
