@@ -15,7 +15,6 @@
 			<<if ndef _item.exclusions>>
 				<<set _isValid to true>>
 			<<elseif (typeof _item.exclusions === "function")>>
-				<<run console.log("Is a function!")>>
 				<<set _isValid to _item.exclusions($town, _obj)>>
 			<</if>>
 			<<if _isValid === true>>
@@ -120,7 +119,7 @@
 					<</if>>
 				<</link>></span>
         \<<run setup.profileTooltip(_id, _object)>>
-				\<<run tippy(".tip")>>
+				\<<run tippy('.tip')>>
     \<</capture>>
 \<</widget>>
 
