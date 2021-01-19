@@ -1,8 +1,6 @@
-// uses State.variables.npcs so can't be translated
-/**
- * @type {import("../../lib/npc-generation/_common").SocialClassName[]}
- */
-const socialClassArray = [
+import type { Marriage, SocialClassName } from '@lib'
+
+const socialClassArray: SocialClassName[] = [
   'indentured servitude',
   'paupery',
   'peasantry',
@@ -13,9 +11,8 @@ const socialClassArray = [
 
 /**
  * Introduce modifiers for adult family members.
- * @type {[number, number][]}
  */
-const adultSocialMobilityTable = [
+const adultSocialMobilityTable: [number, number][] = [
   [6, -2],
   [18, -1],
   [60, 0],
@@ -23,12 +20,7 @@ const adultSocialMobilityTable = [
   [2, 2]
 ]
 
-/**
- *
- * @param {import("../../lib/npc-generation/_common").SocialClassName} socialClass
- * @returns {import("../../lib/npc-generation/_common").SocialClassName}
- */
-setup.relativeSocialClass = function (socialClass) {
+export const relativeSocialClass = (socialClass: SocialClassName): SocialClassName => {
   let classIndex = socialClassArray.indexOf(socialClass)
   if (classIndex < 0) classIndex = 3
 
@@ -39,11 +31,9 @@ setup.relativeSocialClass = function (socialClass) {
 }
 
 /**
- * @param {import("./Relationships/createFamilyMembers").Marriage} marriage
- * @returns {import("../../lib/npc-generation/_common").SocialClassName}
  * @warn Uses State.variables.npcs
- * */
-setup.familySocialClass = function (marriage) {
+ */
+export const familySocialClass = (marriage: Marriage): SocialClassName => {
   if (marriage.parents.length === 0) {
     if (marriage.children.length === 0) {
       return 'commoner'
