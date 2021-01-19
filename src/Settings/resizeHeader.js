@@ -22,3 +22,7 @@ function isScrolledOver (amount) {
 window.addEventListener('scroll', scrollFunction)
 
 $(document.documentElement).attr('lang', 'en')
+
+$(document).on(':passagedisplay', function (ev) {
+  lib.addTippyAccessibility()
+})
