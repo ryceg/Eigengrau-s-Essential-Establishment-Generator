@@ -46,6 +46,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
+    objectType: 'building',
     // @ts-ignore
     stageDescriptor: setup.tavern.stageDescriptor.random(),
     wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
