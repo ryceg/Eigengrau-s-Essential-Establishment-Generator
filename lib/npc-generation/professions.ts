@@ -102,11 +102,7 @@ export const professions: Record<string, Profession> = {
           relationship: 'lord',
           reciprocalRelationship: 'labourer',
           exclusions (town, npc) {
-            if (town.npcRelations) {
-              if (town.npcRelations[npc.key]) {
-                return town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('lord')
-              }
-            }
+            return town.npcRelations?.[npc.key]?.map(r => r.relation).includes('lord')
           },
           probability: 20,
           base: {
