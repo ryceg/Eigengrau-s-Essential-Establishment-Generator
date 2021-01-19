@@ -1,37 +1,29 @@
 import type { NPC, Building, Town } from '@lib'
 
-/** global setup tippy jQuery settings */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const profileTooltip = (id: string, obj: any) => {
-  jQuery(() => {
-    const span = document.getElementById(id)
-    if (span) {
-      if (obj.objectType) {
-        switch (obj.objectType) {
-          case 'npc':
-            span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
-            break
-          case 'building':
-            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
-            break
-          case 'room':
-            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
-            break
-          case 'faction':
-            span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
-            break
-          case 'road':
-            span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
-            break
-          default:
-            console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
-        }
-      } else {
-        span.title = obj.tippyDescription || obj.name
-      }
-      tippy('.tip')
+export const makeTippyTitle = (span: HTMLElement, obj: any) => {
+  if (obj.objectType) {
+    switch (obj.objectType) {
+      case 'npc':
+        span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
+        break
+      case 'building':
+        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
+        break
+      case 'room':
+        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
+        break
+      case 'faction':
+        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
+        break
+      case 'road':
+        span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
+        break
+      default:
+        console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
     }
-  })
+  } else {
+    span.title = obj.tippyDescription || obj.name
+  }
 }
 
 export const profileAgeTooltip = (id: string, char: NPC) => {
