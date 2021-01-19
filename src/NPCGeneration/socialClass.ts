@@ -1,6 +1,6 @@
 import type { Marriage, SocialClassName } from '@lib'
 
-const socialClassArray: SocialClassName[] = [
+const socialClasses: SocialClassName[] = [
   'indentured servitude',
   'paupery',
   'peasantry',
@@ -21,13 +21,13 @@ const adultSocialMobilityTable: [number, number][] = [
 ]
 
 export const relativeSocialClass = (socialClass: SocialClassName): SocialClassName => {
-  let classIndex = socialClassArray.indexOf(socialClass)
+  let classIndex = socialClasses.indexOf(socialClass)
   if (classIndex < 0) classIndex = 3
 
   const delta = lib.rollFromTable(adultSocialMobilityTable, 100)
 
-  const newIndex = Math.clamp(classIndex + delta, 0, socialClassArray.length - 1)
-  return socialClassArray[newIndex]
+  const newIndex = Math.clamp(classIndex + delta, 0, socialClasses.length - 1)
+  return socialClasses[newIndex]
 }
 
 /**
@@ -42,8 +42,8 @@ export const familySocialClass = (marriage: Marriage): SocialClassName => {
   }
 
   const classArray = marriage.parents.map(key => {
-    return socialClassArray.indexOf(State.variables.npcs[key].socialClass)
+    return socialClasses.indexOf(State.variables.npcs[key].socialClass)
   })
   const mean = Math.round(classArray.reduce((a, b) => a + b) / classArray.length)
-  return socialClassArray[mean]
+  return socialClasses[mean]
 }
