@@ -9,7 +9,11 @@ export interface Encounter {
   function?(town: Town, biome: BiomeName): string
 }
 
-// uses createNPC, setup.profile, setup.misc, setup.createMercenaries
+/**
+ * @warn Uses setup.profile
+ * @warn Uses setup.misc
+ * @warn Uses setup.createMercenaries
+ */
 export const encounters: Encounter[] = [
   {
     summary: 'a group of bandits operating a toll road',
