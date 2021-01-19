@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Tavern, Town } from '@lib'
+import { createNPC } from '../../NPCGeneration/createNPC'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
+import { createBartender } from './createBartender'
 
 interface Options {
   newBuilding?(town: Town, type: string): Building
@@ -17,8 +19,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   console.groupCollapsed(tavern.name)
 
   lib.assign(tavern, {
-    // @ts-ignore
-    associatedNPC: (opts.newBartender || setup.createBartender)(town, tavern, opts.associatedNPC)
+    associatedNPC: (opts.newBartender || createBartender)(town, tavern, opts.associatedNPC)
   })
 
   lib.assign(tavern, {
@@ -26,8 +27,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   })
 
   lib.assign(tavern, {
-    // @ts-ignore
-    barmaid: setup.createNPC(town, {
+    barmaid: createNPC(town, {
       isShallow: true,
       gender: 'woman',
       background: 'commoner',
@@ -46,6 +46,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     passageName: 'TavernOutput',
     initPassage: 'InitTavern',
     buildingType: 'tavern',
+    objectType: 'building',
     // @ts-ignore
     stageDescriptor: setup.tavern.stageDescriptor.random(),
     wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),

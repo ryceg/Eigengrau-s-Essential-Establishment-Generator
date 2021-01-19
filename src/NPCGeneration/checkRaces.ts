@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import type { NPC, Town } from '@lib'
+import { createNPC } from './createNPC'
 
-/**
- * Uses `setup.createNPC`
- */
 export const checkRaces = (town: Town, npcs: Record<string, NPC>): Record<string, NPC> => {
   console.groupCollapsed('Checking the races...')
   for (const key of lib.keys(npcs)) {
@@ -22,8 +20,8 @@ function checkRace (town: Town, npcs: Record<string, NPC>, npcKey: string) {
   console.log(npc.race, 'to a', race)
   if (npc.race !== race || npc.gender !== gender) {
     console.log(`${npc.name}'s race or gender now does not match! Changing ${npc.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
-    // @ts-ignore
-    npcs[npcKey] = setup.createNPC(town, {
+
+    npcs[npcKey] = createNPC(town, {
       race,
       gender,
       keyIsAlreadyDefined: true,

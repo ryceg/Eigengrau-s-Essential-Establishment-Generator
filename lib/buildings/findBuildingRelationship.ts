@@ -24,6 +24,7 @@ export function findBuildingRelationship (town: Town, building: Building | null,
     if (npc) {
       return relation.npcKey === npc.key
     }
+    return false
   })
 
   console.log('array', foundRelationships)

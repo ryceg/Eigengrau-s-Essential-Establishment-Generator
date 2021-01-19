@@ -18,5 +18,6 @@ window.tippy.browser.onUserInputChange = (type: string) => {
 }
 
 $(document).on(':passageend', () => {
+  lib.addTippyAccessibility()
   tippy('.tip')
 })

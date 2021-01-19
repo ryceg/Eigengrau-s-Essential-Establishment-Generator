@@ -96,7 +96,7 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 80,
       gregariousness: 20,
-      note: `${npc.firstName} is a faithful follower of ${selectedGod}, and will sometimes chastise others for following "worse" gods.`
+      note: `${npc.firstName} is a faithful follower of ${selectedGod}, and will sometimes chastise others for following 'worse' gods.`
     },
     {
       strength: 80,
@@ -157,12 +157,12 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 40,
       gregariousness: 20,
-      note: `${npc.name} is a casual follower of ${selectedGod}, and can be quite rude towards those who worship "inferior" gods.`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and can be quite rude towards those who worship 'inferior' gods.`
     },
     {
       strength: 40,
       gregariousness: 0,
-      note: `${npc.name} is a casual follower of ${selectedGod}, and ${npc.heshe} likes to provoke heated "debates" with people who follow other religions.`
+      note: `${npc.name} is a casual follower of ${selectedGod}, and ${npc.heshe} likes to provoke heated 'debates' with people who follow other religions.`
     },
     {
       strength: 20,

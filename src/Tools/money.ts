@@ -1,4 +1,4 @@
-import { getPriceMod } from '../Tools/getPriceMod'
+import { getPriceMod } from './getPriceMod'
 
 // uses settings.silverStandard, setup.getPriceMod
 export const money = (copper: number, priceMod: number) => {

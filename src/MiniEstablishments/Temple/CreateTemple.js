@@ -14,6 +14,7 @@ setup.createTemple = (town, opts = {}) => {
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
     buildingType: 'temple',
+    objectType: 'building',
     wordNoun: data.name.wordNoun.random(),
     associatedNPC: npc,
     prayerSubject: data.prayerSubject.random(),

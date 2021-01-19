@@ -21,4 +21,3 @@
 <span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier"> Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]
-<<run lib.addTippyAccessibility()>>

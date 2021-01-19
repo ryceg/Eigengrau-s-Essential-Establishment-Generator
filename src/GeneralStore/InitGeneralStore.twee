@@ -23,4 +23,3 @@
 
 
 When you're ready, here's the [[general store|generalStoreOutput]]
-<<run lib.addTippyAccessibility()>>

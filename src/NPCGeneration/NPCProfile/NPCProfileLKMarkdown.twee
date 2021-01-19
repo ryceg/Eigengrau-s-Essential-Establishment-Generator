@@ -28,7 +28,7 @@ $currentNPC.firstName $currentNPC.trait.
 \When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 
 \<<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and <<print $currentNPC.knownLanguages[1]>>.<</if>>
 
-<<if $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif $currentNPC.isBreakingGenderNorms is true && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
+<<if lib.isBreakingGenderNorms($town, $currentNPC) && $currentNPC.roll.professionLuck > 0>>Despite sexism against $currentNPC.himher, <<elseif lib.isBreakingGenderNorms($town, $currentNPC) && $currentNPC.roll.professionLuck < 0>>Perhaps due to sexism, <</if>>$currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
 \<<if lib.socialClass[$currentNPC.socialClass].lifestyle.includes(_lifestyleStandard[1])>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + _lifestyleStandard[3], $currentNPC.socialClass)>> social class
 \<<else>>

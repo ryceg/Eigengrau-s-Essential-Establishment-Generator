@@ -29,9 +29,6 @@ export function initSexistProfession (town: Town, npc: NPC): void {
     // if the NPC *was* brave enough to break gender norms, then flag that
     if (breakGenderNorms(town)) {
       npc.gender = random(['man', 'woman'])
-      if (npc.gender !== checkProfessionGender(town, npc)) {
-        npc.isBreakingGenderNorms = true
-      }
       // ...but the NPC is not brave enough to go against the grain
     } else {
       // then, take the gender from the profession
@@ -42,6 +39,10 @@ export function initSexistProfession (town: Town, npc: NPC): void {
       }
     }
   }
+}
+
+export function isBreakingGenderNorms (town: Town, npc: NPC): boolean {
+  return npc.gender !== checkProfessionGender(town, npc)
 }
 
 /**

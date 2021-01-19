@@ -25,4 +25,4 @@
 <</replace>>
 <</button>></span>
 <span id="everything"></span>
-<span id="tutorial"></span><<run lib.addTippyAccessibility()>>
+<span id="tutorial"></span>

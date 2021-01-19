@@ -8,6 +8,7 @@ setup.createBrothel = (town, opts = {}) => {
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
     buildingType: 'brothel',
+    objectType: 'building',
     needsWordNoun: true,
     wordNoun: ['brothel', 'whorehouse', "gentleman's club", 'bordello', 'cathouse', 'house of ill-repute', 'massage parlor', 'den of vice'].random(),
     specialty: setup.brothel.specialty.random(),

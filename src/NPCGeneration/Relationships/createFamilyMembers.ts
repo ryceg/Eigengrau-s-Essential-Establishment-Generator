@@ -3,6 +3,7 @@ import type { Family, Marriage, NPC, RaceName, SocialClassName, Town } from '@li
 import { getChildSurname, getParentSurnames } from './getSurnames'
 import { getChildAge, getParentAge, getPartnerAge, getRelativeBase, siblingRoll } from './familyUtils'
 import { setAsPartners } from './setAsPartners'
+import { createNPC } from '../createNPC'
 
 const ABSENCE_PERCENT = 74
 const OLD_ABSENCE_PERCENT = 40
@@ -11,7 +12,6 @@ const ORPHAN_PERCENT = 10
 
 /**
  * General function for inserting individual relatives. Returns the corresponding relative, or undefined
- * @warn Uses setup.createNPC
  */
 export const createRelative = (town: Town, family: Family, base: Partial<NPC> = {}, force = false): NPC | undefined => {
   if (base.ageYears && base.ageYears <= 0) return
@@ -32,8 +32,7 @@ export const createRelative = (town: Town, family: Family, base: Partial<NPC> = 
     }
   }
 
-  // @ts-ignore
-  const relative = setup.createNPC(town, base)
+  const relative = createNPC(town, base)
   family.members[relative.key] = {
     key: relative.key,
     parentMarriage: undefined,

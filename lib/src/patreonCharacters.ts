@@ -1,4 +1,6 @@
-export const patreonCharacters = {
+import type { NPC } from '../npc-generation/_common'
+
+export const patreonCharacters: Record<string, Partial<NPC>> = {
   'Tylien Birchbottom': {
     firstName: 'Tylien',
     lastName: 'Birchbottom',

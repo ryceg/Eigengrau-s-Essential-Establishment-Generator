@@ -5,6 +5,7 @@ setup.createGraveyard = (town, opts = {}) => {
     initPassage: 'GraveyardOutput',
     passageName: 'GraveyardOutput',
     buildingType: 'graveyard',
+    objectType: 'building',
     wordNoun: ['graveyard', 'cemetery', 'necropolis', 'burial ground', 'boneyard', 'potter\'s field', 'churchyard'].random(),
     needsWordNoun: false,
     size: graveyardData.size.random(),
