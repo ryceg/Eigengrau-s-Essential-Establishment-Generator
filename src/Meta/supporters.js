@@ -12,7 +12,7 @@ setup.supporters = {
   'Keith Avery': 1,
   'Misha': 1,
   'Larrisunshine ': 10,
-  'AWP ': 2,
+  'AWP': 2,
   'Mitchell Stevenson': 2,
   'Scott Cook': 1,
   'Sandra Johnson': 5,
