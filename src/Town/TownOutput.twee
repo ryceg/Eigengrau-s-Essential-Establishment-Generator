@@ -18,7 +18,7 @@ $town.economicIdeologyDescription $town.politicalSourceDescription
 <<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>>
 
 <h4>Law and Order</h4>
-<<print lib.getTownMilitary($town)>> $town.law $town.arcana
+<<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> $town.arcana
 
 <</nobr>>
 <<linkappend "<h3>Racial Demographics</h3>" t8n>><<include "TownListRaces">><</linkappend>>

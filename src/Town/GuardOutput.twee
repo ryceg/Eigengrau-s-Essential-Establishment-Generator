@@ -13,5 +13,5 @@
 
 <<print lib.getGuardFunding($town)>>
 
-$town.law
+<<print lib.getTownLaw($town)>>
 <<set $currentPassage to $town.guard>>
