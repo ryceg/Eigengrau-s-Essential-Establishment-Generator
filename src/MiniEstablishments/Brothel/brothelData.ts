@@ -1,5 +1,87 @@
-/** @warn uses setup.createNPC, setup.createRelationship, setup.profile, setup.createParentage */
-setup.brothel = {
+import type { NPC, Town, Building, GenderName, AgeName, BackgroundName } from '@lib'
+import { profile } from '../../NPCGeneration/profile'
+import { createNPC } from '../../NPCGeneration/createNPC'
+import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
+import { createParentage } from '../../NPCGeneration/Relationships/createFamilyMembers'
+
+interface BrothelData {
+  rollData: {
+    wealth: RollData
+    size: RollData
+    cleanliness: RollData
+    bedCleanliness: RollData
+  }
+  name: string[]
+  /** @example "Apparently, it specializes in ____" */
+  specialty: string[]
+  /** @example "When people talk about the brothel, they say ____" */
+  talk(): string[]
+  /**
+   * These are the brothel rumors for `BrothelOutput`.
+   * @example "apparently _____"
+   */
+  rumour: string[]
+  brothelColours: string[]
+  brothelScents: string[]
+  /**
+   * These are the lines used to select the notice action in `BrothelOutput`.
+   * @example "You notice _____"
+   */
+  notice(): string[]
+  /**
+   * These are the lines used to pick the pimp's idle action in `BrothelOutput`.
+   * @example "The master/mistress is _____"
+   */
+  idle(): string[]
+  pimp: Record<string, Partial<NPC>>
+  harlot: HarlotData
+  customers: Customer[]
+}
+
+interface RollData {
+  description: string
+  preceding: string
+  rolls: [number, string][]
+}
+
+interface HarlotData {
+  create(town: Town, brothel: Building, base: Partial<NPC>): string
+  type: Record<string, HarlotTypeData>
+  feature: string[]
+  skill: string[]
+  physicalTrait: string[]
+  flawSeverity: string[]
+  looks: string[]
+}
+
+interface HarlotTypeData {
+  gender: GenderName
+  ageStage?: AgeName
+  calmTrait?: string
+  note?: string
+  weight?: string
+  background?: BackgroundName
+  vocalPattern?: string
+  callbackFunction?(town: Town, npc: NPC): void
+}
+
+interface Customer {
+  relationshipDescription: string
+  relationships: {
+    building: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+    associatedNPC: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+  }
+  base?: Partial<NPC>
+  description(brothel: Building, npc: NPC): string
+}
+
+export const brothelData: BrothelData = {
   rollData: {
     wealth: {
       description: 'How successful is the brothel?',
@@ -109,14 +191,14 @@ setup.brothel = {
     'incredibly dominant women'
   ],
   talk: () => [
-    [
+    lib.random([
       'you can pay for services with things other than coin',
       'you can pay for the services by doing contract work',
       'you can pay for the services offered with criminal favors',
       'you can pay for services with things other than coin; namely goods, artworks, and other bartering items',
       'you can pay for the services with things other than coin. The primary currency used is secrets',
       'coin is the only thing they take'
-    ].random(),
+    ]),
     'the girls are underpaid and poorly treated',
     "there's nothing really to talk about; it’s a neighborhood brothel",
     'a prominent noble or merchant is a regular',
@@ -140,8 +222,6 @@ setup.brothel = {
     'the harlots there are treated like royalty',
     'the whores there are treated like slaves'
   ],
-  // these are the brothel rumors for BrothelOutput
-  // apparently __
   rumour: [
     'a nobleman got one of the girls with child but refuses to acknowledge her or the baby',
     'someone slaughtered half of the workers and clients in the night',
@@ -187,16 +267,13 @@ setup.brothel = {
   brothelScents: [
     'vanilla', 'cinnamon', 'hazelnut', 'peppermint', 'pine', 'apple pie', 'salmon', 'the sea', 'cherry', 'oranges', 'clean linens', 'honeysuckle'
   ],
-
   notice: () => [
     'the scent of lavender in the air',
     'the scent of lilac perfume in the air',
     'the scent of ginger and cinnamon hanging in the air',
     'the scent of roses in the air',
-    'scented candles burning cheerily on a counter. The smell of <<print setup.brothel.brothelScents.random()>> wafts from where the candles burn',
-
-    `the soft ${['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'].random()} glow from a shaded lamp in the room`,
-
+    `scented candles burning cheerily on a counter. The smell of ${lib.random(brothelData.brothelScents)} wafts from where the candles burn`,
+    `the soft ${lib.random(['red', 'orange', 'golden', 'dark blue', 'blue', 'indigo', 'violet', 'jade', 'green', 'purple', 'maroon', 'pink'])} glow from a shaded lamp in the room`,
     'a lamp burning dimly in the corner of the room',
     'a statue of two figures kissing in the corner of the room',
     'a statue of two figures coupling in the corner of the room',
@@ -205,11 +282,9 @@ setup.brothel = {
     'a painting of several nudes bathing hanging on the wall',
     'a painting of a pair of lovers hanging on the wall',
     'a tasteful nude of two women hanging on the wall',
-
-    'several thick curtains of ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored beads',
-    'silky ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored curtains lining the walls',
-    'a plush and somewhat gaudy ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored carpet beneath your feet',
-
+    `several thick curtains of ${lib.random(brothelData.brothelColours)} colored beads`,
+    `silky ${lib.random(brothelData.brothelColours)} colored curtains lining the walls`,
+    `a plush and somewhat gaudy ${lib.random(brothelData.brothelColours)} colored carpet beneath your feet`,
     'a thick fur carpet beneath your feet',
     'the sound of distant, soft music playing in the background',
     'the sound of furniture creaking in one of the rooms above',
@@ -218,11 +293,9 @@ setup.brothel = {
     'several deep shouts of pleasure from a distant room',
     'an eclectic collection of shoddy furniture strewn around the room',
     'an expensive looking collection of high class furniture laid about the room',
-    `a rather distasteful tapestry hanging on the wall depicting ${['a rather lewd act', 'a woman with both breasts hanging out', 'a man with his bits hanging out', 'some sort of sexual story', 'the greatest sexual deeds of the brothel owner'].random()}`,
+    `a rather distasteful tapestry hanging on the wall depicting ${lib.random(['a rather lewd act', 'a woman with both breasts hanging out', 'a man with his bits hanging out', 'some sort of sexual story', 'the greatest sexual deeds of the brothel owner'])}`,
     'the smell of sex lingering in the air',
-
-    'the whole place smells oddly of ' + '<<print setup.brothel.brothelScents.random()>>',
-
+    `the whole place smells oddly of ${lib.random(brothelData.brothelScents)}`,
     'the people here all look to be on some sort of drugs',
     'the sound of wood banging against wood echoing out from somewhere nearby',
     'thick velvet curtains cover all the windows in the room',
@@ -239,33 +312,29 @@ setup.brothel = {
     'several long metal poles with harlots dancing around them',
     'beds laid out in the open showing off all sorts of lewd acts',
     'several of the patrons of this establishment seem to be quite drunk',
-    'a light ' + '<<print setup.brothel.brothelColours.random()>>' + ' colored smoke hangs in the air',
+    `a light ${lib.random(brothelData.brothelColours)} colored smoke hangs in the air`,
     'a small group of men eyeing up some women in the corner',
     'a small group of women eyeing up some men in the corner',
     "a board covered in pictures and names. It's all the different prostitutes currently available",
     'a nude bard stands on a small stage in one corner singing quite the raunchy song for the people in the room',
-    `a bard clad in only his undergarments standing in one corner playing ${[
+    `a bard clad in only his undergarments standing in one corner playing ${lib.random([
       'a sweet tune on a lute', 'a beat on a small wooden box', 'an off-key song on a lute', 'a bitter tune on a harp',
       'an interesting song on a sitar', 'a merry tune on a flute', 'a quick beat on a pair of drums', 'a fine song on a fiddle'
-    ].random()} for the brothel patrons`,
+    ])} for the brothel patrons`,
     'several pieces of pottery with very vulgar acts painted on them',
     'a great many nude statues placed all around the room'
   ],
-  /**
-   * @description these are the lines used to pick the pimp's idle action in brothelOutput
-   * @example The master/mistress is ____
-   * */
   idle: () => [
     'sitting, with a piece of bread in hand',
     'sitting, mug in hand',
     'casually looking over a letter',
-    `pouring over a book titled ${[
+    `pouring over a book titled ${lib.random([
       'The Lustful Practice', 'Helpful Harlot Hints', "From Rags to Wenches: A Pimp's Trip to the Top", 'Glory Holes', 'Venus and Adonis', 'The Seven Beauties',
       'Sappho and the Other Raunchy Poets', 'The Complete Works of Archilochus', 'Poetica Erotica', '50 Positions to Make Him Drop his Coin Sack', 'Sex and Sorcery', 'Toys for Boys'
-    ].random()}`,
+    ])}`,
     'applying a generous layer of powdered makeup',
-    'spraying a copious amount of ' + '<<print setup.brothel.brothelScents.random()>>' + ' scented perfume',
-    'laying in a particularly plush looking ' + '<<print setup.brothel.brothelColours.random()>>' + ' chaise lounge',
+    `spraying a copious amount of ${lib.random(brothelData.brothelScents)} scented perfume`,
+    `laying in a particularly plush looking ${lib.random(brothelData.brothelColours)} chaise lounge`,
     'taking a long drag from a nearby hookah',
     'showing a few of the local girls how to use a new toy',
     'giving tips to some of the workers on how to better please the patrons',
@@ -278,7 +347,7 @@ setup.brothel = {
     'sitting and idly talking with an employee',
     'idly chatting with a patron',
     'telling a raunchy story to a few of the patrons',
-    'putting on a long ' + '<<print setup.brothel.brothelColours.random()>>' + ' lacey shawl',
+    `putting on a long ${lib.random(brothelData.brothelColours)} lacey shawl`,
     'laying across a velvet sofa in the room being fed grapes by a beautiful woman',
     'nowhere to be seen at first, but then emerges from a back room covered by thick curtains',
     'sticking fake jewels on a feathery headdress',
@@ -343,25 +412,29 @@ setup.brothel = {
   /** Creates a new NPC with specific traits for readout in the BrothelOutput */
   harlot: {
     create (town, brothel, base = {}) {
-      const harlotType = Object.keys(setup.brothel.harlot.type).random()
-      const readout = {
-        feature: setup.brothel.harlot.feature.random(),
-        flawSeverity: setup.brothel.harlot.flawSeverity.random(),
-        skill: setup.brothel.harlot.skill.random(),
-        looks: setup.brothel.harlot.looks.random()
+      if (typeof brothel.associatedNPC === 'undefined') {
+        throw new Error('Brothel does not have an associated NPC!')
       }
-      const harlotTraits = Object.assign({
-        physicalTrait: setup.brothel.harlot.physicalTrait.random(),
-        gender: 'woman',
+
+      const harlotType = lib.random(lib.keys(brothelData.harlot.type))
+      const readout = {
+        feature: brothelData.harlot.feature.random(),
+        flawSeverity: brothelData.harlot.flawSeverity.random(),
+        skill: brothelData.harlot.skill.random(),
+        looks: brothelData.harlot.looks.random()
+      }
+      const harlotTraits: Partial<NPC> = {
+        physicalTrait: lib.random(brothelData.harlot.physicalTrait),
         isShallow: true,
         hasClass: false,
-        profession: 'harlot'
-      }, base)
-      Object.assign(harlotTraits, setup.brothel.harlot.type[harlotType])
-      const harlot = setup.createNPC(town, harlotTraits)
-      setup.createRelationship(town, harlot, State.variables.npcs[brothel.associatedNPC.key], 'employer', 'employee')
+        profession: 'harlot',
+        ...base,
+        ...brothelData.harlot.type[harlotType]
+      }
+      const harlot = createNPC(town, harlotTraits)
+      createRelationship(town, harlot, brothel.associatedNPC, 'employer', 'employee')
       lib.createBuildingRelationship(town, brothel, harlot, { relationship: 'worker', reciprocalRelationship: 'place of work' })
-      return `This harlot is ${harlotType} called ${setup.profile(harlot)}. She has ${readout.feature} and is particularly good at ${readout.skill}. However, she has ${harlot.physicalTrait}, which is ${readout.flawSeverity}. She is looking to ${readout.looks}.`
+      return `This harlot is ${harlotType} called ${profile(harlot)}. She has ${readout.feature} and is particularly good at ${readout.skill}. However, she has ${harlot.physicalTrait}, which is ${readout.flawSeverity}. She is looking to ${readout.looks}.`
     },
     type: {
       'a veteran who may have been beautiful': {
@@ -389,7 +462,8 @@ setup.brothel = {
         note: 'The bastard daughter of a noble house.',
         callbackFunction (town, npc) {
           if (!npc.family) lib.createFamily(town, npc)
-          setup.createParentage(town, npc.family, npc, true)
+          const newLocal = town.families[npc.family]
+          createParentage(town, newLocal, npc, true)
         }
       },
       'a young foreigner': {
