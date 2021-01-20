@@ -43,10 +43,6 @@ export const findPoliceSource = (town: Town) => {
   makePolice(town, guards)
 }
 
-export const findPolice = (town: Town) => {
-  return Object.values(town.factions).find(faction => faction.isPolicing)
-}
-
 const makePolice = (town: Town, faction: Faction) => {
   town.guard = faction
   faction.isPolicing = true
