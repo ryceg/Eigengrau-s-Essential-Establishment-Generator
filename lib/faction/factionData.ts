@@ -17,7 +17,7 @@ interface FactionData {
     forms: Record<FactionResourceForms, ResourceForm>
     types: Record<InternalFactionResource, ResourceType>
   }
-  types: Record<InternalFactionType, FactionTypeData>
+  types: Record<FactionType, FactionTypeData>
 }
 
 export interface ResourceType {
@@ -81,9 +81,7 @@ interface LeaderTraits {
   background?: BackgroundName | BackgroundName[]
 }
 
-export type FactionType = keyof typeof factionData.types
-
-type InternalFactionType =
+export type FactionType =
   | 'artisans'
   | 'assassins'
   | 'bandits'
