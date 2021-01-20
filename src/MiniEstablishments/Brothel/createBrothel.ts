@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Town } from '@lib'
+import { createNPC } from '../../NPCGeneration/createNPC'
 
 interface Brothel extends Building {
   initPassage: string
@@ -49,7 +50,7 @@ export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel 
     // @ts-ignore
     lib.defineRollDataGetter(brothel, setup.brothel.rollData[propName].rolls, propName)
   }
-  brothel.associatedNPC = setup.createNPC(town, {
+  brothel.associatedNPC = createNPC(town, {
     // @ts-ignore
     ...setup.brothel.pimp[brothel.owner],
     isShallow: true,
