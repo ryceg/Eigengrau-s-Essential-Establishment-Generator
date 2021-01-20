@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { FactionType, Town } from '@lib'
+import type { Faction, FactionType, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 
 /**
@@ -66,13 +66,14 @@ export const createSocioPolitics = (town: Town) => {
 
 function createTownLeader (town: Town) {
   console.log('Creating town leader')
-  const politicalIdeology = lib.townData.politicalIdeology[town.politicalIdeology]
-  town.leaderType = politicalIdeology.data.leaderType || 'commoners'
+  const { politicalIdeology } = town
+  const { data, leaderTraits } = lib.townData.politicalIdeology[politicalIdeology]
+  town.leaderType = data.leaderType || 'commoners'
 
-  if (typeof politicalIdeology.leaderTraits === 'function') {
-    town.leader = createNPC(town, politicalIdeology.leaderTraits())
+  if (typeof leaderTraits === 'function') {
+    town.leader = createNPC(town, leaderTraits())
   } else {
-    console.log(`Invalid political ideology of ${town.politicalIdeology}. Leader defaulting to random NPC...`)
+    console.log(`Invalid political ideology of ${politicalIdeology}. Leader defaulting to random NPC...`)
     town.leader = createNPC(town, {
       profession: 'politician'
     })
@@ -81,7 +82,7 @@ function createTownLeader (town: Town) {
   console.log('Town leader:', town.leader)
 }
 
-function createRulingFaction (town: Town, governmentType: FactionType) {
+function createRulingFaction (town: Town, governmentType: FactionType): Faction {
   if (typeof lib.factionData.types[governmentType] === 'undefined') {
     console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
 
