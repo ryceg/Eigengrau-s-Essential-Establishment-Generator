@@ -21,7 +21,6 @@ export interface Setup {
 
   createStartBuildings(town: Town): void
   createStartFactions(town: Town): void
-  createBrothel(town: Town): Building
   createCastle(town: Town): Building
   getTownType(town: Town): string
   createTownName(town: Town): string
