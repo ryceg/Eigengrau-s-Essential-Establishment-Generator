@@ -13,61 +13,43 @@ export function townRender (town: Town) {
     case 'guards':
       if (town.roll.military > 90) {
         town.roll.guardFunding += 60
-        town.military = 'The guard is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. The local guard, <<profile $town.guard>>, is extremely well armed, and brutality is commonplace.'
       } else if (town.roll.military > 80) {
         town.roll.guardFunding += 50
-        town.military = 'The guards are very strict, with citizens being forced to carry licenses and travel permits. The local guard, <<profile $town.guard>>, is well armed, and brutality is common.'
       } else if (town.roll.military > 70) {
         town.roll.guardFunding += 40
-        town.military = 'There is a strong policing presence, with citizens seeking to live in the city being forced to undergo background checks. The local guard, <<profile $town.guard>>, is well armed, and brutality is not unheard of.'
       } else if (town.roll.military > 60) {
         town.roll.guardFunding += 30
-        town.military = "There's a decent policing presence, and citizens know better than to step out of line, as <<profile $town.guard>> are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear."
       } else if (town.roll.military > 50) {
         town.roll.guardFunding += 30
-        town.military = `There is a policing presence in ${town.name}, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<profile $town.guard>>.`
       } else if (town.roll.military > 40) {
         town.roll.guardFunding += 25
-        town.military = `The policing presence in ${town.name} is somewhat smaller than one would expect for its size. The local guard, <<profile $town.guard>>, are seen as friends and drinking buddies, rather than horrible tyrants.`
       } else if (town.roll.military > 30) {
         town.roll.guardFunding += 25
-        town.military = `The policing presence in ${town.name} is more of a militia; some of the members of <<profile $town.guard>> are part time, and there is little need for the use of force outside of intruders.`
       } else if (town.roll.military > 20) {
         town.roll.guardFunding += 15
-        town.military = `The policing presence in ${town.name} is a militia; most of the guards of <<profile $town.guard>> are part time, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.`
       } else if (town.roll.military <= 20) {
         town.roll.guardFunding += 10
-        town.military = `The policing presence in ${town.name} is a militia; the guards of <<profile $town.guard>> are part time, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.`
       }
       break
     default:
       if (town.roll.military > 90) {
         town.roll.guardFunding += 60
-        town.military = `The policing carried out by ${police.name} is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. <<profile $town.guard>> control the $town.type, and are extremely well armed, with brutality being commonplace.'`
       } else if (town.roll.military > 80) {
         town.roll.guardFunding += 50
-        town.military = `${police.name} are very strict, with citizens being forced to carry licenses and travel permits. The law is enforced by <<profile $town.guard>>, who are well armed, and brutality is common.'`
       } else if (town.roll.military > 70) {
         town.roll.guardFunding += 40
-        town.military = `There is a strong guard presence enacted by ${police.name}, with citizens seeking to live in the city being forced to undergo background checks. <<profile $town.guard>> are well armed, and brutality is not unheard of.'`
       } else if (town.roll.military > 60) {
         town.roll.guardFunding += 30
-        town.military = "There's a decent guard presence, and citizens know better than to step out of line, as <<profile $town.guard>> are armed. Despite this, brutality is rare, and citizens with nothing to hide have nothing to fear."
       } else if (town.roll.military > 50) {
         town.roll.guardFunding += 30
-        town.military = `There is a guard presence in ${town.name}, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from <<profile $town.guard>>, who take care of policing matters.`
       } else if (town.roll.military > 40) {
         town.roll.guardFunding += 25
-        town.military = `The guard presence in ${town.name} is somewhat smaller than one would expect for its size, perhaps due in part because law enforcement is carried out by <<profile $town.guard>>, who are seen as friends and drinking buddies, rather than horrible tyrants.`
       } else if (town.roll.military > 30) {
         town.roll.guardFunding += 25
-        town.military = `The guard presence in ${town.name} is small, and policing is carried out by <<profile $town.guard>>. There is usually little need for the use of force outside of intruders.`
       } else if (town.roll.military > 20) {
         town.roll.guardFunding += 15
-        town.military = `The guard presence in ${town.name} is a militia; policing is carried out by <<profile $town.guard>>, and there is little need for the use of force. Citizens act with honesty, and have no need for 24/7 guards.`
       } else if (town.roll.military <= 20) {
         town.roll.guardFunding += 10
-        town.military = `The guard presence in ${town.name} is a militia; policing is carried out by <<profile $town.guard>>, and there is rarely any need for the use of force. Law breakers are judged by community tribunals.`
       }
   }
 

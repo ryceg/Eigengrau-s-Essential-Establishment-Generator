@@ -41,7 +41,6 @@ export interface Town {
     tithe: number
   }
   wealth: string
-  military: string
   law: string
   sin: string
   arcana: string
