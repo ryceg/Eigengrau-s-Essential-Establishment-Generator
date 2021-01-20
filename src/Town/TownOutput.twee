@@ -9,8 +9,18 @@
 \They are <<print lib.articles.find($town.equality)>> <<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>. 
 \The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output($town.wealth)>> existence. 
 \<<print $town.currentEvent.toUpperFirst()>> is currently taking place.
-<h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
-<h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>> <h4>Law and Order</h4>$town.military $town.law $town.arcana
+<<nobr>>
+
+<h3>Government in $town.name</h3>
+$town.economicIdeologyDescription $town.politicalSourceDescription
+
+<h4>Economics</h4>
+<<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>>
+
+<h4>Law and Order</h4>
+$town.military $town.law $town.arcana
+
+<</nobr>>
 <<linkappend "<h3>Racial Demographics</h3>" t8n>><<include "TownListRaces">><</linkappend>>
 <<linkappend "<h3>List of Factions</h3>" t8n>><<include "TownListFactions">><</linkappend>>
 <<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>><<if _exportType === 'GMBinder'>>
