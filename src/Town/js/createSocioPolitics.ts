@@ -54,13 +54,13 @@ export const createSocioPolitics = (town: Town) => {
 
   console.log('Town faction leadership...')
   const politicalIdeology = lib.townData.politicalIdeology[town.politicalIdeology]
+  const { governmentType, isFaction } = politicalIdeology.data
 
-  if (politicalIdeology.data.isFaction === true) {
+  if (isFaction === true) {
     console.log('Loading ruling faction...')
     delete State.variables.npcs[town.leader.key]
     // @ts-ignore
     delete town.leader
-    const { governmentType } = politicalIdeology.data
     if (typeof lib.factionData.types[governmentType] === 'undefined') {
       console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
       // @ts-ignore
@@ -83,7 +83,7 @@ export const createSocioPolitics = (town: Town) => {
     town.leader = town.factions.leader.leader
     town.leaderType = '<<profile $town.factions["leader"]>>'
     console.log('Town factions:', town.factions)
-  } else if (politicalIdeology.data.isFaction === false && town.factions.leader) {
+  } else if (isFaction === false && town.factions.leader) {
     delete State.variables.npcs[town.leader.key]
     // @ts-ignore
     delete town.leader
