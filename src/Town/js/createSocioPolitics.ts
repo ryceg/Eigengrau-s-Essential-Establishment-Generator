@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Town } from '@lib'
+import type { FactionType, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 
 /**
@@ -54,30 +54,13 @@ export const createSocioPolitics = (town: Town) => {
 
   console.log('Town faction leadership...')
   const politicalIdeology = lib.townData.politicalIdeology[town.politicalIdeology]
-  const { governmentType, isFaction } = politicalIdeology.data
+  const { isFaction, governmentType } = politicalIdeology.data
 
   if (isFaction === true) {
     console.log('Loading ruling faction...')
     delete State.variables.npcs[town.leader.key]
-    // @ts-ignore
-    delete town.leader
-    if (typeof lib.factionData.types[governmentType] === 'undefined') {
-      console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
-      // @ts-ignore
-      town.factions.leader = setup.createFaction(town, {
-        leadershipType: 'individual',
-        isPoliticalPower: true,
-        key: 'leader'
-      })
-    } else {
-      // @ts-ignore
-      town.factions.leader = setup.createFaction(town, {
-        leadershipType: 'individual',
-        isPoliticalPower: true,
-        type: governmentType,
-        key: 'leader'
-      })
-    }
+
+    createRulingFaction(town, governmentType)
     console.log('Town factions:', town.factions)
     // @ts-ignore
     town.leader = town.factions.leader.leader
@@ -91,4 +74,25 @@ export const createSocioPolitics = (town: Town) => {
   }
 
   console.groupEnd()
+}
+
+function createRulingFaction (town: Town, governmentType: FactionType) {
+  if (typeof lib.factionData.types[governmentType] === 'undefined') {
+    console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
+
+    // @ts-ignore
+    return setup.createFaction(town, {
+      leadershipType: 'individual',
+      isPoliticalPower: true,
+      key: 'leader'
+    })
+  }
+
+  // @ts-ignore
+  return setup.createFaction(town, {
+    leadershipType: 'individual',
+    isPoliticalPower: true,
+    type: governmentType,
+    key: 'leader'
+  })
 }
