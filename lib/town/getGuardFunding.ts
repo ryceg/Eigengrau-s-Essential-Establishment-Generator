@@ -1,6 +1,6 @@
-import type { Town } from '@lib'
+import { Town } from './_common'
 
-export const getGuardFunding = (town: Town) => {
+export function getGuardFunding (town: Town): string {
   const roll = town.roll.guardFunding
 
   if (roll > 90) return 'The guards are extremely well funded, and are extensively armed. They regularly have training exercises, and their officers are held to extremely high standards.'
