@@ -24,7 +24,6 @@ export interface Setup {
   createBrothel(town: Town): Building
   createCastle(town: Town): Building
   findPoliceSource(town: Town): void
-  makePolice(town: Town, faction: Faction): void
   getTownType(town: Town): string
   createTownName(town: Town): string
 }

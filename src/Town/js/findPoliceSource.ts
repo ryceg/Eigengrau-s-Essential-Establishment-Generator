@@ -47,7 +47,7 @@ export const findPolice = (town: Town) => {
   return Object.values(town.factions).find(faction => faction.isPolicing)
 }
 
-export const makePolice = (town: Town, faction: Faction) => {
+const makePolice = (town: Town, faction: Faction) => {
   town.guard = faction
   faction.isPolicing = true
   lib.townRender(town)

@@ -49,9 +49,7 @@ export interface Town {
   arcana: string
   pregen?: boolean
   reuseNpcProbability: number
-  guard: Faction & {
-    funding: string
-  }
+  guard: Faction
   possibleMaterials: MaterialTypes[]
   materialProbability: Record<MaterialTypes, MaterialType>
   professions: Record<string, Profession & {
