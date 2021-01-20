@@ -6,6 +6,7 @@
  * loaded by Tweego alongside loose scripts in `/src`
 */
 import { createAlchemist } from './Alchemist/js/createAlchemist'
+import { createBrothel } from './MiniEstablishments/Brothel/createBrothel'
 import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
@@ -35,6 +36,7 @@ import { plothooks } from './PlotHook/plothooks'
 declare global {
   interface Setup {
     createAlchemist: typeof createAlchemist
+    createBrothel: typeof createBrothel
     deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
@@ -75,6 +77,7 @@ declare global {
 
 Object.assign(setup, {
   createAlchemist,
+  createBrothel,
   deleteBuilding,
   createMarriage,
   createParentage,
