@@ -41,17 +41,10 @@ export interface Town {
     tithe: number
   }
   wealth: string
-  economics: string
-  welfare: string
-  military: string
-  law: string
   sin: string
-  arcana: string
   pregen?: boolean
   reuseNpcProbability: number
-  guard: {
-    funding: string
-  }
+  guard: Faction
   possibleMaterials: MaterialTypes[]
   materialProbability: Record<MaterialTypes, MaterialType>
   professions: Record<string, Profession & {
@@ -85,4 +78,5 @@ export interface Town {
   terrain: 'temperate' | 'tropical' | 'polar' | 'arid'
   currentSeason: 'summer' | 'autumn' | 'winter' | 'spring'
   weather: Weather
+  rulerType?: string
 }

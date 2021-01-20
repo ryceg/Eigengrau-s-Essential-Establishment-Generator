@@ -10,6 +10,7 @@ import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
 import { createSocioPolitics } from './Town/js/createSocioPolitics'
+import { findPoliceSource } from './Town/js/findPoliceSource'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
 import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
@@ -39,6 +40,7 @@ declare global {
     createParentage: typeof createParentage
     createRelationship: typeof createRelationship
     createSocioPolitics: typeof createSocioPolitics
+    findPoliceSource: typeof findPoliceSource
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
     expandNPC: typeof expandNPC
@@ -78,6 +80,7 @@ Object.assign(setup, {
   createParentage,
   createRelationship,
   createSocioPolitics,
+  findPoliceSource,
   getFatherMother,
   checkRaces,
   expandNPC,
