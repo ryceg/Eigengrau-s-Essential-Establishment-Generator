@@ -48,7 +48,6 @@ export interface Town {
   sin: string
   arcana: string
   pregen?: boolean
-  dualLeaders: boolean
   reuseNpcProbability: number
   guard: {
     funding: string

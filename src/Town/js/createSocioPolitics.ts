@@ -20,20 +20,17 @@ export const createSocioPolitics = (town: Town) => {
     case 'absolute monarchy':
       switch (town.politicalIdeology) {
         case 'autocracy':
-          town.dualLeaders = false
           town.leader = createNPC(town, { background: 'noble', profession: 'noble' })
           break
         default:
           // @ts-ignore
           setup.createTownLeader(town)
-          town.dualLeaders = true
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
       }
       break
     case 'constitutional monarchy':
       switch (town.politicalIdeology) {
         case 'autocracy':
-          town.dualLeaders = true
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           town.leader = createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
           break
@@ -46,7 +43,6 @@ export const createSocioPolitics = (town: Town) => {
     default:
       // @ts-ignore
       setup.createTownLeader(town)
-      town.dualLeaders = false
   }
 
   console.log('Town faction leadership...')
