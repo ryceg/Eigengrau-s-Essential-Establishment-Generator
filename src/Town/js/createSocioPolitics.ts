@@ -59,9 +59,7 @@ export const createSocioPolitics = (town: Town) => {
   if (isFaction === true) {
     console.log('Loading ruling faction...')
     delete State.variables.npcs[town.leader.key]
-
-    createRulingFaction(town, governmentType)
-    console.log('Town factions:', town.factions)
+    town.factions.leader = createRulingFaction(town, governmentType)
     // @ts-ignore
     town.leader = town.factions.leader.leader
     town.leaderType = '<<profile $town.factions["leader"]>>'
