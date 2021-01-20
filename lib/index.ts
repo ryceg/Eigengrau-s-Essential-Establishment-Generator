@@ -142,6 +142,7 @@ export * from './tavern/tavernRooms'
 export * from './tavern/tavernSleep'
 
 export * from './town/_common'
+export * from './town/getGuardFunding'
 export * from './town/getPredominantRace'
 export * from './town/getTownMaterial'
 export * from './town/getPolice'
