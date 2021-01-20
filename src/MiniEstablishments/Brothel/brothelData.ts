@@ -12,9 +12,13 @@ interface BrothelData {
     bedCleanliness: RollData
   }
   name: string[]
-  /** @example "Apparently, it specializes in ____" */
+  /**
+   * @example "Apparently, it specializes in ____"
+   */
   specialty: string[]
-  /** @example "When people talk about the brothel, they say ____" */
+  /**
+   * @example "When people talk about the brothel, they say ____"
+   */
   talk(): string[]
   /**
    * These are the brothel rumors for `BrothelOutput`.
