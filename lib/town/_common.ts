@@ -49,7 +49,7 @@ export interface Town {
   arcana: string
   pregen?: boolean
   reuseNpcProbability: number
-  guard: {
+  guard: Faction & {
     funding: string
   }
   possibleMaterials: MaterialTypes[]
@@ -85,4 +85,5 @@ export interface Town {
   terrain: 'temperate' | 'tropical' | 'polar' | 'arid'
   currentSeason: 'summer' | 'autumn' | 'winter' | 'spring'
   weather: Weather
+  rulerType?: string
 }
