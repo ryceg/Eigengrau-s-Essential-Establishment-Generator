@@ -61,7 +61,7 @@ export const createSocioPolitics = (town: Town) => {
     // @ts-ignore
     delete town.leader
     const { governmentType } = politicalIdeology.data
-    if (governmentType !== lib.factionData.types[governmentType]) {
+    if (typeof lib.factionData.types[governmentType] === 'undefined') {
       console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
       // @ts-ignore
       town.factions.leader = setup.createFaction(town, {
