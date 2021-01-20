@@ -36,7 +36,7 @@ export function getTownMilitary (town: Town): string {
   }
 
   if (roll > 90) {
-    return `The policing carried out by ${police.name} is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. <<profile $town.guard>> control the $town.type, and are extremely well armed, with brutality being commonplace.'`
+    return `The policing carried out by ${police.name} is extremely strict, with citizens being forced to carry licenses, identification papers, and travel permits. <<profile $town.guard>> control the $town.type, and are extremely well armed, with brutality being commonplace.`
   }
   if (roll > 80) {
     return `${police.name} are very strict, with citizens being forced to carry licenses and travel permits. The law is enforced by <<profile $town.guard>>, who are well armed, and brutality is common.'`
