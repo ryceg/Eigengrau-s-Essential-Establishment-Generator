@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Building, NPC, Town } from '@lib'
 
-export interface Brothel extends Building {
+interface Brothel extends Building {
   initPassage: string
   buildingType: string
   specialty: string
