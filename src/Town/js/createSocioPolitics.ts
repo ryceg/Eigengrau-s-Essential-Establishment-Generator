@@ -23,8 +23,7 @@ export const createSocioPolitics = (town: Town) => {
           town.leader = createNPC(town, { background: 'noble', profession: 'noble' })
           break
         default:
-          // @ts-ignore
-          setup.createTownLeader(town)
+          createTownLeader(town)
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
       }
       break
@@ -36,13 +35,11 @@ export const createSocioPolitics = (town: Town) => {
           break
         default:
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
-          // @ts-ignore
-          setup.createTownLeader(town)
+          createTownLeader(town)
       }
       break
     default:
-      // @ts-ignore
-      setup.createTownLeader(town)
+      createTownLeader(town)
   }
 
   console.log('Town faction leadership...')
@@ -65,6 +62,23 @@ export const createSocioPolitics = (town: Town) => {
   }
 
   console.groupEnd()
+}
+
+function createTownLeader (town: Town) {
+  console.log('Creating town leader')
+  const politicalIdeology = lib.townData.politicalIdeology[town.politicalIdeology]
+  town.leaderType = politicalIdeology.data.leaderType || 'commoners'
+
+  if (typeof politicalIdeology.leaderTraits === 'function') {
+    town.leader = createNPC(town, politicalIdeology.leaderTraits())
+  } else {
+    console.log(`Invalid political ideology of ${town.politicalIdeology}. Leader defaulting to random NPC...`)
+    town.leader = createNPC(town, {
+      profession: 'politician'
+    })
+  }
+
+  console.log('Town leader:', town.leader)
 }
 
 function createRulingFaction (town: Town, governmentType: FactionType) {
