@@ -42,7 +42,6 @@ export interface Town {
   }
   wealth: string
   sin: string
-  arcana: string
   pregen?: boolean
   reuseNpcProbability: number
   guard: Faction
