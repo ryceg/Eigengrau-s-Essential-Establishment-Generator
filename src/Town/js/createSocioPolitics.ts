@@ -14,16 +14,16 @@ export const createSocioPolitics = (town: Town) => {
   lib.assign(town, lib.townData.economicIdeology[town.economicIdeology].descriptors)
   lib.assign(town, lib.townData.politicalIdeology[town.politicalIdeology].data)
 
+  console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
+
   switch (town.politicalSource) {
     case 'absolute monarchy':
       switch (town.politicalIdeology) {
         case 'autocracy':
           town.dualLeaders = false
-          console.log('Loaded autocratic absolute monarchy')
           town.leader = createNPC(town, { background: 'noble', profession: 'noble' })
           break
         default:
-          console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
           // @ts-ignore
           setup.createTownLeader(town)
           town.dualLeaders = true
@@ -34,19 +34,16 @@ export const createSocioPolitics = (town: Town) => {
       switch (town.politicalIdeology) {
         case 'autocracy':
           town.dualLeaders = true
-          console.log('Loaded autocratic constitutional monarchy')
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           town.leader = createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
           break
         default:
-          console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} constitutional monarchy`)
           town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
           // @ts-ignore
           setup.createTownLeader(town)
       }
       break
     default:
-      console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
       // @ts-ignore
       setup.createTownLeader(town)
       town.dualLeaders = false
