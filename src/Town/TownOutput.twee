@@ -32,13 +32,3 @@ $town.economicIdeologyDescription $town.politicalSourceDescription
 <<linkappend "<h3>List of NPCs</h3>" t8n>><<include "TownListNpcs">><</linkappend>>
 <<linkappend "<h3>List of Throwaway NPCs</h3>" t8n>><<include "TownListThrowaway">><</linkappend>>
 <span class='interactive-only'><<linkappend "<h3>Professions in $town.name</h3>" t8n>><<include "TownListProfessions">><</linkappend>></span>
-
-
-
-
-  
-
-
-
-
-
