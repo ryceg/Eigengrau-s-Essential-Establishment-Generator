@@ -23,7 +23,6 @@ export interface Setup {
   createStartFactions(town: Town): void
   createBrothel(town: Town): Building
   createCastle(town: Town): Building
-  findPoliceSource(town: Town): void
   getTownType(town: Town): string
   createTownName(town: Town): string
 }
