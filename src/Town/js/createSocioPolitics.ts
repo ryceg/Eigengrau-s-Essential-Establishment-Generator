@@ -20,7 +20,7 @@ export const createSocioPolitics = (town: Town) => {
         case 'autocracy':
           town.dualLeaders = false
           console.log('Loaded autocratic absolute monarchy')
-          town.leader = setup.createNPC(town, { background: 'noble', profession: 'noble' })
+          town.leader = createNPC(town, { background: 'noble', profession: 'noble' })
           break
         default:
           console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
