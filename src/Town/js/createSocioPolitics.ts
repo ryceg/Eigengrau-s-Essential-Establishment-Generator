@@ -1,21 +1,18 @@
-// uses setup.createFaction, setup.createNPC, setup.createTownLeader
-setup.createSocioPolitics = town => {
-  console.groupCollapsed('Creating sociopolitics!')
-  // ecoIde and polSource are now set in the createTown.js function
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import type { Town } from '@lib'
+import { createNPC } from '../../NPCGeneration/createNPC'
 
-  // give those ideologies some descriptions
+/**
+ * @warn Uses setup.createFaction
+ * @warn Uses setup.createNPC
+ * @warn Uses setup.createTownLeader
+ */
+export const createSocioPolitics = (town: Town) => {
+  console.groupCollapsed('Creating sociopolitics!')
+
+  // Give those ideologies some descriptions
   lib.assign(town, lib.townData.economicIdeology[town.economicIdeology].descriptors)
   lib.assign(town, lib.townData.politicalIdeology[town.politicalIdeology].data)
-
-  // deletes town leaders if they are defined. Commented out because I'd prefer to leave ex-prime ministers in than delete somebody's valuable NPC.
-  // if (town.leader) {
-  //   delete State.variables.npcs[town.leader.key]
-  //   delete town.leader
-  // }
-  // if (town.ruler) {
-  //   delete State.variables.npcs[town.ruler.key]
-  //   delete town.ruler
-  // }
 
   switch (town.politicalSource) {
     case 'absolute monarchy':
@@ -27,9 +24,10 @@ setup.createSocioPolitics = town => {
           break
         default:
           console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} absolute monarchy`)
+          // @ts-ignore
           setup.createTownLeader(town)
           town.dualLeaders = true
-          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
       }
       break
     case 'constitutional monarchy':
@@ -37,17 +35,19 @@ setup.createSocioPolitics = town => {
         case 'autocracy':
           town.dualLeaders = true
           console.log('Loaded autocratic constitutional monarchy')
-          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
-          town.leader = setup.createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
+          town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.leader = createNPC(town, { title: 'Lord', background: 'noble', profession: 'politician' })
           break
         default:
           console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} constitutional monarchy`)
-          town.ruler = setup.createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          town.ruler = createNPC(town, { title: 'Royal Highness', background: 'noble', profession: 'noble' })
+          // @ts-ignore
           setup.createTownLeader(town)
       }
       break
     default:
       console.log(`Loaded ${lib.articles.output(town.politicalIdeologyIC)} ${town.politicalSource}`)
+      // @ts-ignore
       setup.createTownLeader(town)
       town.dualLeaders = false
   }
@@ -58,29 +58,34 @@ setup.createSocioPolitics = town => {
   if (politicalIdeology.data.isFaction === true) {
     console.log('Loading ruling faction...')
     delete State.variables.npcs[town.leader.key]
+    // @ts-ignore
     delete town.leader
-    const type = politicalIdeology.data.governmentType
-    if (politicalIdeology.data.governmentType !== lib.factionData.types[type]) {
-      console.log(`No faction that matches ${politicalIdeology.data.governmentType}. Creating random faction instead...`)
+    const { governmentType } = politicalIdeology.data
+    if (governmentType !== lib.factionData.types[governmentType]) {
+      console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
+      // @ts-ignore
       town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
         key: 'leader'
       })
     } else {
+      // @ts-ignore
       town.factions.leader = setup.createFaction(town, {
         leadershipType: 'individual',
         isPoliticalPower: true,
-        type: politicalIdeology.data.governmentType,
+        type: governmentType,
         key: 'leader'
       })
     }
     console.log('Town factions:', town.factions)
+    // @ts-ignore
     town.leader = town.factions.leader.leader
     town.leaderType = '<<profile $town.factions["leader"]>>'
     console.log('Town factions:', town.factions)
   } else if (politicalIdeology.data.isFaction === false && town.factions.leader) {
     delete State.variables.npcs[town.leader.key]
+    // @ts-ignore
     delete town.leader
     delete town.factions.leader
   }
