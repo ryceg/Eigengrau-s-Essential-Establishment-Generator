@@ -30,5 +30,5 @@ export const profile = (obj: NPC | Building | Faction | Road, readout?: string, 
 
   const key = JSON.stringify(result.key)
 
-  return `<<profile \`$${type}[${key}] \`${text}>>`
+  return `<<profile \`$${type}[${key}]\`${text}>>`
 }
