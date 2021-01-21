@@ -1,6 +1,6 @@
 :: PolicingFaction
-<h3>Policing</h3><<switch $currentFaction.type>>
-  <<case "guard">>$town.name is policed by $currentFaction.name. <<print lib.getGuardFunding($town)>>
-  <<default>>$town.name is policed by $currentFaction.name, rather than a separate guard. <<print lib.getGuardFunding($town)>>
-<</switch>>One can recognise a member of $currentFaction.name by the <<if def $currentFaction.livery>><<print lib.readoutLivery($currentFaction.livery)>><<else>>$currentFaction.membersTrait<</if>>.
-<h4>Law in $town.name</h4><<print lib.getTownLaw($town)>>
+<section><h3>Policing</h3><<switch $currentFaction.type>>
+  <<case "guard">>$town.name is policed by $currentFaction.name. $town.guard.funding
+  <<default>>$town.name is policed by $currentFaction.name, rather than a separate guard. $town.guard.funding
+<</switch>>One can recognise a member of $currentFaction.name by the <<if def $currentFaction.livery>><<print lib.readoutLivery($currentFaction.livery)>><<else>>$currentFaction.membersTrait<</if>>.</section>
+<section><h4>Law in $town.name</h4>$town.law</section>

@@ -1,3 +1,9 @@
 :: NPCEarlyLife
-<<linkreplace "Early Life" t8n>><div class='npcReplace'>Early Life</div><div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print lib.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div><</linkreplace>>
-<<set _becomingProfession = "Becoming " + lib.articles.output($currentNPC.profession)>><<linkreplace "_becomingProfession" t8n>><div class='npcReplace'>Becoming <<print lib.articles.output($currentNPC.profession)>></div><div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.professionOrigin $currentNPC.bond $currentNPC.ideal"</div><</linkreplace>>
+<section><details>
+  <summary>Early Life</summary>
+<div class='descriptive'>I was born $currentNPC.birthplace, and was raised by $currentNPC.familyUnit<<if $currentNPC.siblingNumber == 0>> as an only child.<<elseif $currentNPC.siblingNumber == 1>> with my brother.<<else>>, along with my $currentNPC.siblingNumber siblings.<</if>> I had <<print lib.articles.output($currentNPC.familyLifestyle)>> upbringing in $currentNPC.familyHome. <<if $currentNPC.knewParents is false>>I didn't know my parents growing up.<</if>><<if $currentNPC.parentalLineage>>$currentNPC.parentalLineage.<</if>> $currentNPC.childhoodMemories.</div>
+</details></section>
+<section><details>
+  <summary>Becoming <<print lib.articles.output($currentNPC.profession)>></summary>
+<div class='descriptive'>"$currentNPC.backgroundOrigin $currentNPC.professionOrigin $currentNPC.bond $currentNPC.ideal"</div>
+</details></section>
