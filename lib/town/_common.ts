@@ -85,7 +85,7 @@ export interface Town {
 type Ban =
   | 'alcoholDiscouraged'
   | 'alcohol'
-  | 'alcohol'
+  | 'children'
   | 'softDrugs'
   | 'hardDrugs'
   | 'schools'
