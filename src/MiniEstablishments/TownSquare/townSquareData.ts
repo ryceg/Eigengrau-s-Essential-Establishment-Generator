@@ -498,8 +498,12 @@ export const townSquare: TownSquareData = {
     'preacher': {
       type: ['event'],
       function (town) {
-        // @ts-ignore
-        const god = [setup.misc.religion.namedGod.random(), setup.misc.religion.abstractGod.random()].random()
+        const god = lib.random([
+          // @ts-ignore
+          lib.random(setup.misc.religion.namedGod),
+          // @ts-ignore
+          lib.random(setup.misc.religion.abstractGod)
+        ])
         const npc = createNPC(town, {
           hasClass: true,
           dndClass: 'cleric',
