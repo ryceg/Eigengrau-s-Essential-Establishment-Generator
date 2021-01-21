@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
+import { profile } from '../NPCGeneration/profile'
 
 /**
  * @warn Uses `setup.createDeadNPC`
@@ -21,10 +22,8 @@ export const graveStone = {
 
     lib.assign(grave, {
       sentenceStrings: lib.random([
-        // @ts-ignore
         `a very small, ${gravestoneData.material.wood.secondaryDescriptors.random()}, ${gravestoneData.material.wood.type.random()} grave in the shape of ${lib.articles.output(grave.shapeSmall)}. ${['There are no distinguishing marks on this grave', 'The owner of this grave has been lost to time', 'No name has been left to remember the owner of this grave', 'This appears to be an unmarked grave', `The name ${profile(owner)} has been crudely scrawled across the grave`].random()}.`,
         `a small pile of earth with ${lib.articles.output(lib.random(gravestoneData.material.metal.secondaryDescriptors))} ${gravestoneData.material.metal.type.random()} ${grave.weaponType} stuck into it. ${['A long forgotten solider likely lays here', 'A mighty fallen warrior was likely laid to rest here', 'Surely a strong fighter was laid to rest here', 'Here lays a hero who fell in battle, their name is now forgotten'].random()}.`,
-        // @ts-ignore
         `${['a small', 'an average sized', 'a modestly sized'].random()}, ${material.secondaryDescriptors.random()}, ${material.type.random()} grave in the shape of ${lib.articles.output(grave.shapeMedium)}. ${[`The grave has the name "${profile(owner)}" ${material.iconPlacement.random()} onto it and nothing else.`, `${['Near the top', 'Near the bottom', 'In the middle'].random()} of the grave, ${material.iconPlacement.random()} onto it are the words "${['Here lies', 'R.I.P.', 'Here is burried'].random()} ${profile(owner)}. ${grave.gravePhrases}."`].random()}${['', '', `${['  Just above the writing', '  Just below the writing', ' On the other side'].random()}, ${material.iconPlacement.random()} onto the grave is an image of ${lib.articles.output(lib.random([grave.graveImages, grave.weaponType]))}.`].random()}`
       ])
     })
