@@ -143,6 +143,13 @@ export interface NPC {
   }
 }
 
+export interface Namesake {
+  firstName: string
+  lastName: string
+  race: RaceName
+  reason?: string
+}
+
 export interface Relationship {
   relationship: string
   reciprocalRelationship?: string

@@ -1,10 +1,10 @@
-import { createTippyFull, toTitleCase, townData } from '../'
+
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
 import { createName } from '../npc-generation/createName'
 import { fetchRace } from '../npc-generation/fetchRace'
-import { RaceName, raceTraits } from '../npc-generation/raceTraits'
+import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
 import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
@@ -14,6 +14,8 @@ import { WeightRecord } from '../types'
 import { random } from '../src/random'
 import { fetchGender } from '../src/genderData'
 import { Town } from './_common'
+import { Namesake } from '../npc-generation/_common'
+import { townData, toTitleCase, createTippyFull } from '../index'
 
 export interface RoadData {
   name: RoadType
@@ -75,13 +77,6 @@ export interface Road {
     buildings: Record<string, string>
     factions: Record<string, string>
   }
-}
-
-interface Namesake {
-  firstName: string
-  lastName: string
-  race: RaceName
-  reason?: string
 }
 
 interface RoadOwnership extends ProperNoun {
@@ -148,7 +143,6 @@ export const roads = {
         }
       }
       // if it doesn't find a suitable road, make a new one.
-      // @ts-expect-error Road might be defined if it's selected above.
       if (!road) {
         road = roads.create(town, {
           type: random(roads.width.largeRoads),
