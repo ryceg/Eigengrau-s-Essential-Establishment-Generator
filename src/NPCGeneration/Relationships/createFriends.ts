@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Relationship, Town } from '@lib'
+import { createNPC } from '../createNPC'
 import { createRelationship } from './createRelationship'
 import { getPartnerGender } from './createSexuality'
 
@@ -11,9 +12,6 @@ interface Friend {
   base: Partial<NPC>
 }
 
-/**
- * Uses setup.createNPC
- */
 export const createFriends = (town: Town, npc: NPC) => {
   console.groupCollapsed(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
@@ -150,8 +148,7 @@ export const createFriends = (town: Town, npc: NPC) => {
     console.log('Creating a new friend!')
 
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
-    // @ts-ignore
-    const friend = setup.createNPC(town, friendObj.base)
+    const friend = createNPC(town, friendObj.base)
     createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
   }
 

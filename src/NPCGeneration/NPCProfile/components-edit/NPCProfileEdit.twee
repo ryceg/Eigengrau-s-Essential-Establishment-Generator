@@ -25,4 +25,4 @@
 
 <<button "Save changes" NPCProfileEdit>>
   <<include "NPCSaveEdits">>
-<</button>><<run lib.addTippyAccessibility()>><</liveblock>>
+<</button>><</liveblock>>

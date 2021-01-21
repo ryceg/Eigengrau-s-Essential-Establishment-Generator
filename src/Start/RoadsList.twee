@@ -11,8 +11,10 @@
     _road.precedingText <<else>>
     \<<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_roadKey].description, $town.roads[_roadKey].name)>> is 
     \<</if>>
-    \<<if _building.needsWordNoun>>the _building.wordNoun <</if>>
-    \<span @id='_building.name'><<include "BuildingLink">></span></p><<set _previousBuilding to _building>><</capture>>
+    \<<if _building.needsWordNoun>>
+      \the _building.wordNoun 
+    \<</if>>
+    \<<include "BuildingLink">><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
 \<</for>>

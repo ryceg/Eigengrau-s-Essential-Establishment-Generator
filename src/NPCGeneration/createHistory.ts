@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town, NPC, Marriage, ThresholdTable, LifestyleStandardName } from '@lib'
+import { createNPC } from './createNPC'
 import { profile } from './profile'
 import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
@@ -178,22 +179,17 @@ export const createHistory = (town: Town, npc: NPC) => {
   npc.childhoodMemories = createChildhoodMemories(town, npc)
 }
 
-/**
- * @warn Uses setup.createNPC
- */
 function createChildhoodMemories (town: Town, npc: NPC) {
   if (npc.childhoodMemories) {
     return npc.childhoodMemories
   }
 
   if (npc.roll.gregariousness >= 18) {
-    // @ts-ignore
-    const friend = setup.createNPC(town, {
+    const friend = createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
-    // @ts-ignore
-    const bestFriend = setup.createNPC(town, {
+    const bestFriend = createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
@@ -203,8 +199,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
   }
 
   if (npc.roll.gregariousness >= 16) {
-    // @ts-ignore
-    const friend = setup.createNPC(town, {
+    const friend = createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
@@ -213,8 +208,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
   }
 
   if (npc.roll.gregariousness >= 13) {
-    // @ts-ignore
-    const friend = setup.createNPC(town, {
+    const friend = createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(-3, 3)
     })
@@ -235,8 +229,7 @@ function createChildhoodMemories (town: Town, npc: NPC) {
   }
 
   if (npc.roll.gregariousness < 4) {
-    // @ts-ignore
-    const friend = setup.createNPC(town, {
+    const friend = createNPC(town, {
       isShallow: true,
       ageYears: npc.ageYears += random(1, 3),
       childhoodMemories: `I remember that we used to beat the shit out of that annoying ${npc.boygirl}, ${profile(npc, npc.firstName)}`

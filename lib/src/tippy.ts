@@ -37,4 +37,5 @@ export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, 
 export function addTippyAccessibility () {
   $('.tip').attr('role', 'tooltip')
   $('.tip').attr('tabindex', '0')
+  tippy('.tip')
 }

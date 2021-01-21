@@ -1,5 +1,2 @@
 :: BuildingLink
-\<<set _building.tooltip = _building.key>>
-\<span @id="_building.tooltip" class="tip">
-\<<profile _building>>
-\</span>
+\<<set _building.tooltip = _building.key>><<profile _building>>

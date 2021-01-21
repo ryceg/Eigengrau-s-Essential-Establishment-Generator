@@ -58,7 +58,7 @@
         <td><span class="races-slider"><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$tempTown._baseDemographics['" + _race + "']"` $tempTown._baseDemographics[_race] 0 100 1>></span></span></td>
     </tr>
 <</for>>
-</table><</nobr>><<run lib.addTippyAccessibility()>><</liveblock>>
+</table><</nobr>><</liveblock>>
 
 <<button "Save Changes" Start>><<set $town to setup.createTown($tempTown)>>
 <</button>>

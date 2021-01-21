@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Faction, NPC, Town } from '@lib'
+import { deleteNPC } from '../NPCGeneration/deleteNPC'
+import { createNPC } from '../NPCGeneration/createNPC'
 
-// uses setup.createNPC, setup.deleteNPC
 export const leaderFaction = (town: Town, faction: Faction) => {
   console.log('determining leaders...')
 
-  faction.leaderQualification = getLeaderQualification(faction) as string
+  faction.leaderQualification = getLeaderQualification(faction)
 
   faction.leaderBribes = lib.matchFirst.largerThan(faction.roll.leaderBribes, {
     95: 'will never, under any circumstances be accepted',
@@ -41,18 +42,15 @@ export const leaderFaction = (town: Town, faction: Faction) => {
 
   switch (faction.leadershipType) {
     case 'individual': {
-      const leaderTraits = lib.factionData.types[faction.type].leader.base
-      for (const key in leaderTraits) {
-        // @ts-ignore
-        if (Array.isArray(leaderTraits[key])) {
-          // @ts-ignore
-          leaderTraits[key] = lib.random(leaderTraits[key])
-        }
-      }
+      const leaderTraits = flattenObject(lib.factionData.types[faction.type].leader.base)
+      // @ts-ignore (Should probably ask about this issue on the TS discord.)
+      faction.leader = faction.leader || createNPC(town, leaderTraits)
       // @ts-ignore
-      faction.leader = faction.leader || setup.createNPC(town, leaderTraits)
-      // @ts-ignore
-      lib.createBuildingRelationship(town, faction, faction.leader, { relationship: 'head of faction', reciprocalRelationship: 'controlled faction', description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.` })
+      lib.createBuildingRelationship(town, faction, faction.leader, {
+        relationship: 'head of faction',
+        reciprocalRelationship: 'controlled faction',
+        description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.`
+      })
       if (faction.isPoliticalPower === true) {
         town.leader = faction.leader as NPC
       }
@@ -60,7 +58,7 @@ export const leaderFaction = (town: Town, faction: Faction) => {
     }
     case 'group': {
       if (faction.leader) {
-        setup.deleteNPC(faction.leader)
+        deleteNPC(faction.leader)
         delete faction.leader
       }
       lib.createLeaderGroup(faction)
@@ -93,4 +91,21 @@ function getStabilityCause (faction: Faction): string {
     return lib.random([`their much-loved ${faction.leaderGroupTitle}`, 'the lack of infighting for the leadership roles'])
   }
   return 'internal power struggles'
+}
+
+// This allows us to resolve array values to their singular values.
+type FlatObject<T> = {
+  [K in keyof T]: T[K] extends Array<infer A> | undefined ? A : T[K]
+}
+
+function flattenObject <T> (obj: T) {
+  const flat = { ...obj }
+  for (const key of lib.keys(obj)) {
+    const value = obj[key]
+    if (Array.isArray(value)) {
+      flat[key] = lib.random(value)
+    }
+  }
+
+  return flat as FlatObject<T>
 }

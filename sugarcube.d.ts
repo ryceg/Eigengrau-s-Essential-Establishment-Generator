@@ -11,6 +11,7 @@ declare module 'twine-sugarcube' {
     ignoreGender?: boolean
     showTutorial?: boolean
     showBiomeGeneration?: boolean
+    showSliders?: boolean
     forceOneColumn?: boolean
     hideAds?: boolean
     disableAnalytics?: boolean

@@ -6,29 +6,25 @@
  * loaded by Tweego alongside loose scripts in `/src`
 */
 import { createAlchemist } from './Alchemist/js/createAlchemist'
+import { brothelData } from './MiniEstablishments/Brothel/brothelData'
+import { createBrothel } from './MiniEstablishments/Brothel/createBrothel'
 import { deleteBuilding } from './Buildings/deleteBuilding'
-import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
+import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
-import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
-import { createFriends } from './NPCGeneration/Relationships/createFriends'
-import { getFamily } from './NPCGeneration/Relationships/getFamily'
+import { createSocioPolitics } from './Town/js/createSocioPolitics'
+import { findPoliceSource } from './Town/js/findPoliceSource'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
-import { createDebt } from './NPCGeneration/createDebt'
 import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
-import { createBartender } from './Tavern/js/createBartender'
 import { createTavern } from './Tavern/js/createTavern'
-import { createLifeEvents } from './NPCGeneration/createLifeEvents'
-import { createHistory } from './NPCGeneration/createHistory'
 import { expandNPC } from './NPCGeneration/expandNPC'
 import { profile } from './NPCGeneration/profile'
-import { findViaKey, findContainerViaKey } from './Tools/findViaKey'
 import { money } from './Tools/money'
-import { getPriceMod } from './Tools/getPriceMod'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
 import { tippy } from './Settings/Tippy/tippy'
-import { profileTooltip, profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip } from './Settings/Tippy/tooltips'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
+import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
@@ -41,42 +37,35 @@ import { plothooks } from './PlotHook/plothooks'
 declare global {
   interface Setup {
     createAlchemist: typeof createAlchemist
+    brothelData: typeof brothelData
+    createBrothel: typeof createBrothel
     deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
-    createRelative: typeof createRelative
     createRelationship: typeof createRelationship
-    createSexuality: typeof createSexuality
-    createFriends: typeof createFriends
-    getFamily: typeof getFamily
+    createSocioPolitics: typeof createSocioPolitics
+    findPoliceSource: typeof findPoliceSource
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
-    createDebt: typeof createDebt
-    createLifeEvents: typeof createLifeEvents
-    createHistory: typeof createHistory
     expandNPC: typeof expandNPC
     profile: typeof profile
     getWakeUpByWealth: typeof getWakeUpByWealth
-    createBartender: typeof createBartender
     createTavern: typeof createTavern
-    findViaKey: typeof findViaKey
-    findContainerViaKey: typeof findContainerViaKey
     money: typeof money
-    getPriceMod: typeof getPriceMod
     history: typeof history
     addGtagEvent: typeof addGtagEvent
     tippy: typeof tippy
-    profileTooltip: typeof profileTooltip
     profileAgeTooltip: typeof profileAgeTooltip
     metricHeight: typeof metricHeight
     metricWeight: typeof metricWeight
     buildingTooltip: typeof buildingTooltip
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
+    makeTippyTitle: typeof makeTippyTitle
+    createNPC: typeof createNPC
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
-    getPriceMod: typeof getPriceMod
     getLocation: typeof getLocation
     getEncounter: typeof getEncounter
     getEventDescription: typeof getEventDescription
@@ -90,38 +79,32 @@ declare global {
 
 Object.assign(setup, {
   createAlchemist,
+  brothelData,
+  createBrothel,
   deleteBuilding,
   createMarriage,
   createParentage,
-  createRelative,
   createRelationship,
-  createSexuality,
-  createFriends,
-  getFamily,
+  createSocioPolitics,
+  findPoliceSource,
   getFatherMother,
   checkRaces,
-  createDebt,
-  createLifeEvents,
-  createHistory,
   expandNPC,
   profile,
   getWakeUpByWealth,
-  createBartender,
   createTavern,
-  findViaKey,
-  findContainerViaKey,
   money,
-  getPriceMod,
   history,
   addGtagEvent,
   tippy,
-  profileTooltip,
   profileAgeTooltip,
   metricHeight,
   metricWeight,
   buildingTooltip,
   politicsDescription,
   politicsTooltip,
+  makeTippyTitle,
+  createNPC,
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,

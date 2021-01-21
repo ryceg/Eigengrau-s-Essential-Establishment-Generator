@@ -9,6 +9,7 @@ setup.createDocks = (town, opts = {}) => {
     passageName: 'DocksOutput',
     initPassage: 'DocksOutput',
     buildingType: 'docks',
+    objectType: 'building',
     needsWordNoun: false,
     associatedNPC: setup.createNPC(town, Object.assign({
       isShallow: true,

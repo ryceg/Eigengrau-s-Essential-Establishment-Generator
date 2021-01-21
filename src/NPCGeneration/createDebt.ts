@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Town } from '@lib'
+import { createNPC } from './createNPC'
 import { createRelationship } from './Relationships/createRelationship'
 
-/**
-  * Uses `setup.createNPC`
-  */
 export const createDebt = (town: Town, npc: NPC): void => {
   console.groupCollapsed(`${npc.name} is in debt!`)
   /** Expressed in copper! Assumed to be negative (often is not, though!) */
@@ -57,8 +55,7 @@ function findDebtor (town: Town, npc: NPC, type: string) {
 }
 
 function createDebtor (town: Town): NPC {
-  // @ts-ignore
-  return setup.createNPC(town, {
+  return createNPC(town, {
     professionSector: 'crime',
     isShallow: true
   })

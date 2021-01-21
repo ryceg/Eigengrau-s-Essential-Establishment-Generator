@@ -1,9 +1,13 @@
 import { articles } from '../src/articles'
 import { NPC } from './_common'
-export function createDescriptors (npc: NPC): void {
+
+export function createDescriptors (npc: NPC): string[] {
   console.log(`assigning descriptors to ${npc.name}...`)
-  // remember adjectival precedence!
-  /** @see https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Style-Guide#adjectives */
+
+  /**
+   * Remember adjectival precedence!
+   * @see https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Style-Guide#adjectives
+   */
   const descriptors = [
     `${npc.age || npc.ageStage} ${npc.raceName}`,
     `${npc.skinColour} skinned ${npc.height} ${npc.raceName}`,
@@ -16,5 +20,5 @@ export function createDescriptors (npc: NPC): void {
     descriptors.push(`${npc.raceName} with ${articles.output(npc.beard)}`)
   }
 
-  npc.descriptors = descriptors
+  return descriptors
 }

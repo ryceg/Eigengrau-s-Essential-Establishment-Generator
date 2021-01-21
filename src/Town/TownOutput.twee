@@ -17,13 +17,3 @@
 <<details "TownListNpcs" "List of NPCs">>
 <<details "TownListThrowaway" "List of Throwaway NPCs">>
 <span class='interactive-only'><<details "TownListProfessions" "Professions in $town.name">></span>
-
-
-
-
-  
-
-
-
-
-

@@ -2,7 +2,7 @@ import { Town } from '../town/_common'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { ReligionStrength } from './createReligiosity'
-import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
+import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
 
@@ -40,7 +40,7 @@ export interface NPC {
   ageStage: AgeName
   ageYears: number
   adventure?: string
-  profession: ProfessionNames
+  profession: ProfessionName
   /** In the style of Xanathar's Class Origins, for the professions. */
   professionOrigin: string
   professionSuccess: string
@@ -64,7 +64,7 @@ export interface NPC {
   }
   partnerID?: string
   lifeEvents: string[]
-  callbackFunction?(town: Town): void
+  callbackFunction?(town: Town, npc: NPC): void
   wealth: number
   finances: {
     creditors: Record<string, number>
@@ -84,7 +84,6 @@ export interface NPC {
   isThrowaway?: boolean
   isShallow?: boolean
   hasHistory?: boolean
-  isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
   /** How the NPC acts when they're calm. */
@@ -149,6 +148,14 @@ export interface NPC {
     cause: string
     timeSinceDeath: number
   }
+  eyes: string
+  idle: string[]
+  hairColour: string
+  hairType: string
+  scar?: string
+  owner?: string
+  chitchat?: string[]
+  inventory?: string
 }
 
 export interface Relationship {
@@ -173,7 +180,7 @@ export interface Namesake {
   lastName?: string
   gender: GenderName
   race: RaceName
-  profession?: ProfessionNames
+  profession?: ProfessionName
   reason?: string
   note?: string
 }
