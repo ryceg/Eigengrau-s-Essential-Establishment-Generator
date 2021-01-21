@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
+import { profile } from '../NPCGeneration/profile'
 import { createNPC } from '../NPCGeneration/createNPC'
 import { BiomeName } from './locations'
 
@@ -10,7 +11,7 @@ export interface Encounter {
 }
 
 /**
- * @warn Uses setup.profile
+ * @warn Uses profile
  * @warn Uses setup.misc
  * @warn Uses setup.createMercenaries
  */
@@ -69,7 +70,7 @@ export const encounters: Encounter[] = [
         background: 'criminal',
         isThrowaway: true
       })
-      return `a pair of two outlaws; one ${setup.profile(npc, npc.descriptor)} and a ${setup.profile(secondNpc, secondNpc.descriptor)}`
+      return `a pair of two outlaws; one ${profile(npc, npc.descriptor)} and a ${profile(secondNpc, secondNpc.descriptor)}`
     }
   },
   {
@@ -294,7 +295,7 @@ export const encounters: Encounter[] = [
         profession: 'priest',
         isThrowaway: true
       })
-      return `an itinerant ${setup.profile(npc, 'priest')}`
+      return `an itinerant ${profile(npc, 'priest')}`
     }
   },
   {
@@ -306,7 +307,7 @@ export const encounters: Encounter[] = [
         background: 'hermit',
         isThrowaway: true
       })
-      return `a ${setup.profile(npc, 'hermit')}`
+      return `a ${profile(npc, 'hermit')}`
     }
   },
   {
@@ -318,7 +319,7 @@ export const encounters: Encounter[] = [
         background: 'outlander',
         isThrowaway: true
       })
-      return `a solitary ${setup.profile(npc, 'hunter')}`
+      return `a solitary ${profile(npc, 'hunter')}`
     }
   },
   {
@@ -331,7 +332,7 @@ export const encounters: Encounter[] = [
         background: 'criminal',
         isThrowaway: true
       })
-      return `a solitary ${setup.profile(npc, 'bandit')}`
+      return `a solitary ${profile(npc, 'bandit')}`
     }
   },
   {
@@ -343,7 +344,7 @@ export const encounters: Encounter[] = [
         background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
-      return `an injured ${setup.profile(npc, 'knight')}`
+      return `an injured ${profile(npc, 'knight')}`
     }
   },
   {
@@ -355,7 +356,7 @@ export const encounters: Encounter[] = [
         background: 'outlander',
         isThrowaway: true
       })
-      return `a solitary ${setup.profile(npc, 'hunter')}`
+      return `a solitary ${profile(npc, 'hunter')}`
     }
   },
   {
@@ -424,7 +425,7 @@ export const encounters: Encounter[] = [
         profession: 'merchant',
         isThrowaway: true
       })
-      return `a traveling ${setup.profile(npc, 'peddler')}`
+      return `a traveling ${profile(npc, 'peddler')}`
     }
   },
   {
@@ -436,7 +437,7 @@ export const encounters: Encounter[] = [
         profession: 'minstrel',
         isThrowaway: true
       })
-      return `a solitary ${setup.profile(npc, 'troubador')}`
+      return `a solitary ${profile(npc, 'troubador')}`
     }
   },
   {
@@ -449,7 +450,7 @@ export const encounters: Encounter[] = [
         background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
-      return `an ${setup.profile(npc, 'adventurer')} on a ${horse}`
+      return `an ${profile(npc, 'adventurer')} on a ${horse}`
     }
   },
   {
@@ -461,7 +462,7 @@ export const encounters: Encounter[] = [
         profession: 'messenger',
         isThrowaway: true
       })
-      return `a mounted ${setup.profile(npc, 'messenger')}`
+      return `a mounted ${profile(npc, 'messenger')}`
     }
   },
   {
@@ -513,7 +514,7 @@ export const encounters: Encounter[] = [
         background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
-      return `a ${setup.profile(npc, 'knight errant')}`
+      return `a ${profile(npc, 'knight errant')}`
     }
   },
   {
@@ -525,7 +526,7 @@ export const encounters: Encounter[] = [
         background: lib.random(['noble', 'soldier', 'soldier']),
         isThrowaway: true
       })
-      return `an injured ${setup.profile(npc, 'knight')}`
+      return `an injured ${profile(npc, 'knight')}`
     }
   },
   {
@@ -538,7 +539,7 @@ export const encounters: Encounter[] = [
         isThrowaway: true,
         gender: 'woman'
       })
-      return `a traveling ${setup.profile(npc, 'lady')}`
+      return `a traveling ${profile(npc, 'lady')}`
     }
   },
   {
@@ -550,7 +551,7 @@ export const encounters: Encounter[] = [
         profession: 'courier',
         isThrowaway: true
       })
-      return `a ${setup.profile(npc, 'courier')}`
+      return `a ${profile(npc, 'courier')}`
     }
   },
   {
@@ -600,7 +601,7 @@ export const encounters: Encounter[] = [
       const npc = createNPC(town, {
         background: 'hermit'
       })
-      return `a strange ${setup.profile(npc, 'hermit')}`
+      return `a strange ${profile(npc, 'hermit')}`
     }
   },
   {
@@ -614,7 +615,7 @@ export const encounters: Encounter[] = [
         isThrowaway: true,
         canBeCustom: true
       })
-      return `a lost ${setup.profile(npc, 'traveler')}`
+      return `a lost ${profile(npc, 'traveler')}`
     }
   },
   {
@@ -626,7 +627,7 @@ export const encounters: Encounter[] = [
         profession: 'refugee',
         isThrowaway: true
       })
-      return `a poor ${setup.profile(npc, 'nomad')}`
+      return `a poor ${profile(npc, 'nomad')}`
     }
   },
   {
@@ -640,7 +641,7 @@ export const encounters: Encounter[] = [
         note: 'This person is hiding something.',
         isThrowaway: true
       })
-      return `a suspicious ${setup.profile(npc, 'miner')}`
+      return `a suspicious ${profile(npc, 'miner')}`
     }
   },
   {
@@ -652,7 +653,7 @@ export const encounters: Encounter[] = [
         profession: 'barbarian',
         isThrowaway: true
       })
-      return `a barbarian ${setup.profile(npc, 'hunter')}`
+      return `a barbarian ${profile(npc, 'hunter')}`
     }
   },
   {
@@ -664,7 +665,7 @@ export const encounters: Encounter[] = [
         background: 'outlander',
         isThrowaway: true
       })
-      return `a mounted barbarian ${setup.profile(npc, 'scout')}`
+      return `a mounted barbarian ${profile(npc, 'scout')}`
     }
   },
   {
@@ -765,7 +766,7 @@ export const encounters: Encounter[] = [
         note: 'This prophet is as crazy as can be.',
         isThrowaway: true
       })
-      return `a half-mad ${setup.profile(npc, 'prophet')}`
+      return `a half-mad ${profile(npc, 'prophet')}`
     }
   },
   {
@@ -777,7 +778,7 @@ export const encounters: Encounter[] = [
         calmTrait: 'withdrawn',
         isThrowaway: true
       })
-      return `a reclusive ${setup.profile(npc, 'sorcerer')}`
+      return `a reclusive ${profile(npc, 'sorcerer')}`
     }
   },
   {
@@ -789,7 +790,7 @@ export const encounters: Encounter[] = [
         hasClass: false,
         isThrowaway: true
       })
-      return `a strange ${setup.profile(npc, 'merchant')} of exotic goods`
+      return `a strange ${profile(npc, 'merchant')} of exotic goods`
     }
   },
   {
@@ -804,7 +805,7 @@ export const encounters: Encounter[] = [
         hasClass: false,
         isThrowaway: true
       })
-      return `a misanthropic ${setup.profile(npc, 'shapeshifter')}`
+      return `a misanthropic ${profile(npc, 'shapeshifter')}`
     }
   },
   {
@@ -817,7 +818,7 @@ export const encounters: Encounter[] = [
         profession: 'monk',
         isThrowaway: true
       })
-      return `an eccentric ${setup.profile(npc, 'monk')}`
+      return `an eccentric ${profile(npc, 'monk')}`
     }
   },
   {
@@ -829,7 +830,7 @@ export const encounters: Encounter[] = [
         hasClass: false,
         isThrowaway: true
       })
-      return `a nomadic ${setup.profile(npc, 'herder')}`
+      return `a nomadic ${profile(npc, 'herder')}`
     }
   },
   {
@@ -840,7 +841,7 @@ export const encounters: Encounter[] = [
         profession: 'fighter',
         isThrowaway: true
       })
-      return `a nomadic ${setup.profile(npc, 'warrior')}`
+      return `a nomadic ${profile(npc, 'warrior')}`
     }
   },
   {
@@ -854,7 +855,7 @@ export const encounters: Encounter[] = [
         race: 'elf',
         isThrowaway: true
       })
-      return `an outcast ${setup.profile(npc, 'elf')}`
+      return `an outcast ${profile(npc, 'elf')}`
     }
   },
   {
@@ -867,7 +868,7 @@ export const encounters: Encounter[] = [
         calmTrait: 'withdrawn',
         isThrowaway: true
       })
-      return `a reclusive ${setup.profile(npc, 'scholar')}`
+      return `a reclusive ${profile(npc, 'scholar')}`
     }
   },
   {
@@ -879,7 +880,7 @@ export const encounters: Encounter[] = [
         note: 'This healer is rather odd.',
         isThrowaway: true
       })
-      return `an eccentric ${setup.profile(npc, 'healer')}`
+      return `an eccentric ${profile(npc, 'healer')}`
     }
   },
   {
@@ -892,7 +893,7 @@ export const encounters: Encounter[] = [
         note: 'This cowherd is very poor, but knows the area well.',
         isThrowaway: true
       })
-      return `a poor ${setup.profile(npc, 'cowherd')}`
+      return `a poor ${profile(npc, 'cowherd')}`
     }
   },
   {
@@ -904,7 +905,7 @@ export const encounters: Encounter[] = [
         profession: 'prospector',
         isThrowaway: true
       })
-      return `a mining ${setup.profile(npc, 'prospector')}`
+      return `a mining ${profile(npc, 'prospector')}`
     }
   },
   {
@@ -916,7 +917,7 @@ export const encounters: Encounter[] = [
         note: 'Has multiple wives.',
         isThrowaway: true
       })
-      return `a religious ${setup.profile(
+      return `a religious ${profile(
           npc,
           'fanatic'
         )} with his many wives`
@@ -939,7 +940,7 @@ export const encounters: Encounter[] = [
         note: 'This person is totally mad.',
         isThrowaway: true
       })
-      return `a mad ${setup.profile(npc, 'sorcerer')}`
+      return `a mad ${profile(npc, 'sorcerer')}`
     }
   },
   {
@@ -955,7 +956,7 @@ export const encounters: Encounter[] = [
         note: 'This person is a paranoid shapeshifter.',
         isThrowaway: true
       })
-      return `a paranoid ${setup.profile(npc, 'shapeshifter')}`
+      return `a paranoid ${profile(npc, 'shapeshifter')}`
     }
   },
   {
@@ -967,7 +968,7 @@ export const encounters: Encounter[] = [
         note: 'This person is a shapeshifter.',
         isThrowaway: true
       })
-      return `a reclusive ${setup.profile(npc, 'shapeshifter')}`
+      return `a reclusive ${profile(npc, 'shapeshifter')}`
     }
   },
   {
@@ -988,7 +989,7 @@ export const encounters: Encounter[] = [
         note: 'This person is a wanted criminal for high treason against the crown.',
         isThrowaway: true
       })
-      return `a dangerous ${setup.profile(npc, 'fugitive')}`
+      return `a dangerous ${profile(npc, 'fugitive')}`
     }
   },
   {
@@ -1011,7 +1012,7 @@ export const encounters: Encounter[] = [
         canBeCustom: true
       })
       const map = lib.treasureMap.create()
-      return `a ${setup.profile(npc, 'treasure-hunter')} with a ${
+      return `a ${profile(npc, 'treasure-hunter')} with a ${
           map.tippyWord
         }`
     }
@@ -1025,7 +1026,7 @@ export const encounters: Encounter[] = [
         calmTrait: 'understanding',
         isThrowaway: true
       })
-      return `a wasteland ${setup.profile(npc, 'druid')}`
+      return `a wasteland ${profile(npc, 'druid')}`
     }
   },
   {
@@ -1090,7 +1091,7 @@ export const encounters: Encounter[] = [
         note: 'This witch is as mad as a cut snake.',
         isThrowaway: true
       })
-      return `a mad ${setup.profile(npc, 'witch')}`
+      return `a mad ${profile(npc, 'witch')}`
     }
   },
   {
@@ -1110,7 +1111,7 @@ export const encounters: Encounter[] = [
         note: 'This person is either an orc that was outcast, or a half orc. Hard to tell.',
         isThrowaway: true
       })
-      return `a reclusive ${setup.profile(npc, 'shapeshifter')}`
+      return `a reclusive ${profile(npc, 'shapeshifter')}`
     }
   },
   {
@@ -1138,7 +1139,7 @@ export const encounters: Encounter[] = [
         note: 'This person is very lost.',
         isThrowaway: true
       })
-      return `a lost ${setup.profile(npc, 'prospector')}`
+      return `a lost ${profile(npc, 'prospector')}`
     }
   },
   {
@@ -1151,7 +1152,7 @@ export const encounters: Encounter[] = [
         stressTrait: 'determined',
         isThrowaway: true
       })
-      return `a solemn looking ${setup.profile(npc, 'warrior')}`
+      return `a solemn looking ${profile(npc, 'warrior')}`
     }
   },
   {
@@ -1164,7 +1165,7 @@ export const encounters: Encounter[] = [
         note: 'Never gets lost.',
         isThrowaway: true
       })
-      return `a seasoned ${setup.profile(npc, 'mountaineer')}`
+      return `a seasoned ${profile(npc, 'mountaineer')}`
     }
   },
   {
@@ -1178,7 +1179,7 @@ export const encounters: Encounter[] = [
         note: 'This witch is as crazy as a cut snake.',
         isThrowaway: true
       })
-      return `an eccentric ${setup.profile(npc, 'witch')}`
+      return `an eccentric ${profile(npc, 'witch')}`
     }
   },
   {
@@ -1192,7 +1193,7 @@ export const encounters: Encounter[] = [
         stressTrait: 'determined',
         isThrowaway: true
       })
-      return `a contemplative ${setup.profile(npc, 'monk')}`
+      return `a contemplative ${profile(npc, 'monk')}`
     }
   },
   {
@@ -1253,7 +1254,7 @@ export const encounters: Encounter[] = [
         profession: ['fighter', 'rogue', 'rogue'].random(),
         isThrowaway: true
       })
-      return `a beggarly ${setup.profile(npc, 'bandit')}`
+      return `a beggarly ${profile(npc, 'bandit')}`
     }
   },
   {
@@ -1267,7 +1268,7 @@ export const encounters: Encounter[] = [
         ageStage: 'elderly',
         isThrowaway: true
       })
-      return `an old ${setup.profile(npc, 'witch')}`
+      return `an old ${profile(npc, 'witch')}`
     }
   },
   {
@@ -1280,7 +1281,7 @@ export const encounters: Encounter[] = [
         profession: 'herbalist',
         isThrowaway: true
       })
-      return `a curious ${setup.profile(npc, 'herbalist')}`
+      return `a curious ${profile(npc, 'herbalist')}`
     }
   },
   {
@@ -1291,7 +1292,7 @@ export const encounters: Encounter[] = [
         ageStage: 'child',
         isThrowaway: true
       })
-      return `a lost ${setup.profile(npc, 'child')}`
+      return `a lost ${profile(npc, 'child')}`
     }
   },
   {
@@ -1304,7 +1305,7 @@ export const encounters: Encounter[] = [
         profession: 'forester',
         isThrowaway: true
       })
-      return `a ${setup.profile(npc, 'woodcutter')}, busy with the day's work`
+      return `a ${profile(npc, 'woodcutter')}, busy with the day's work`
     }
   },
   {
@@ -1316,7 +1317,7 @@ export const encounters: Encounter[] = [
         background: 'outlander',
         isThrowaway: true
       })
-      return `an intrepid ${setup.profile(npc, 'hunter')}`
+      return `an intrepid ${profile(npc, 'hunter')}`
     }
   },
   {
@@ -1329,7 +1330,7 @@ export const encounters: Encounter[] = [
         background: 'outlander',
         isThrowaway: true
       })
-      return `an elvish ${setup.profile(npc, 'ranger')}`
+      return `an elvish ${profile(npc, 'ranger')}`
     }
   },
   {
@@ -1369,7 +1370,7 @@ export const encounters: Encounter[] = [
         calmTrait: 'quiet',
         isThrowaway: true
       })
-      return `a lonely old ${setup.profile(npc, 'woman')}`
+      return `a lonely old ${profile(npc, 'woman')}`
     }
   },
   {
@@ -1382,7 +1383,7 @@ export const encounters: Encounter[] = [
         note: 'This witch is very beautiful.',
         isThrowaway: true
       })
-      return `a beautiful ${setup.profile(npc, 'witch')}`
+      return `a beautiful ${profile(npc, 'witch')}`
     }
   },
   {
@@ -1396,7 +1397,7 @@ export const encounters: Encounter[] = [
         stressTrait: 'cruel',
         isThrowaway: true
       })
-      return `a horrible ${setup.profile(npc, 'witch')}`
+      return `a horrible ${profile(npc, 'witch')}`
     }
   },
   {
@@ -1409,7 +1410,7 @@ export const encounters: Encounter[] = [
         calmTrait: 'quiet',
         isThrowaway: true
       })
-      return `an outcast ${setup.profile(npc, 'dwarf')}`
+      return `an outcast ${profile(npc, 'dwarf')}`
     }
   },
   {
@@ -1422,7 +1423,7 @@ export const encounters: Encounter[] = [
         profession: 'prospector',
         isThrowaway: true
       })
-      return `a mining ${setup.profile(npc, 'prospector')}`
+      return `a mining ${profile(npc, 'prospector')}`
     }
   },
   {
@@ -1434,7 +1435,7 @@ export const encounters: Encounter[] = [
         race: 'elf',
         isThrowaway: true
       })
-      return `a wood elf ${setup.profile(npc, 'druid')}`
+      return `a wood elf ${profile(npc, 'druid')}`
     }
   },
   {
