@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { GeneralStore, Town } from '@lib'
+import { GeneralStore, toTitleCase, Town } from '@lib'
 import { random } from '../../../lib/src/random'
 
-// @ts-ignore
 // uses setup.createNPC
 export const createGeneralStoreName = (town: Town, generalStore: GeneralStore) => {
   const adjective = ['Dependable', 'Reliable', 'Expendable', 'Indispensible', 'Incomparable', 'Incredible', 'Excellent', 'Important', 'Cheap', 'Affordable', 'Affable', 'Discount', 'Low-Cost', 'Fancy'].random()
@@ -117,22 +116,22 @@ export const createGeneralStoreName = (town: Town, generalStore: GeneralStore) =
 
   switch (roll) {
     case 1:
-      generalStore.name = lib.toTitleCase(`The ${adjective} ${noun}`)
+      generalStore.name = toTitleCase(`The ${adjective} ${noun}`)
       break
     case 2:
-      generalStore.name = lib.toTitleCase(`${associatedNPC.firstName}'s ${adjective} ${rider}`)
+      generalStore.name = toTitleCase(`${associatedNPC.firstName}'s ${adjective} ${rider}`)
       break
     case 3:
-      generalStore.name = lib.toTitleCase(associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random())
+      generalStore.name = toTitleCase(associatedNPC.firstName + ["'s General Goods", "'s Bric-a-Brac", "'s Trading Goods", "'s Shopping Place", `'s ${rider}`].random())
       break
     case 4:
-      generalStore.name = lib.toTitleCase(`The ${adjective} ${rider}`)
+      generalStore.name = toTitleCase(`The ${adjective} ${rider}`)
       break
     case 5:
-      generalStore.name = lib.toTitleCase(`The ${adjective} ${noun}`)
+      generalStore.name = toTitleCase(`The ${adjective} ${noun}`)
       break
     case 6:
-      generalStore.name = lib.toTitleCase(`The ${noun} and ${family.toUpperFirst()}`)
+      generalStore.name = toTitleCase(`The ${noun} and ${family.toUpperFirst()}`)
       // @ts-ignore
       generalStore.assistant = setup.createNPC(town, fam[family])
       // @ts-ignore
@@ -141,7 +140,7 @@ export const createGeneralStoreName = (town: Town, generalStore: GeneralStore) =
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     case 7:
-      generalStore.name = lib.toTitleCase(`${associatedNPC.firstName} and ${family.toUpperFirst()}`)
+      generalStore.name = toTitleCase(`${associatedNPC.firstName} and ${family.toUpperFirst()}`)
       // @ts-ignore
       generalStore.assistant = setup.createNPC(town, fam[family])
       // @ts-ignore
@@ -150,6 +149,6 @@ export const createGeneralStoreName = (town: Town, generalStore: GeneralStore) =
         town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
       break
     default:
-      generalStore.name = lib.toTitleCase(`The ${adjective} Adventurer's Store`)
+      generalStore.name = toTitleCase(`The ${adjective} Adventurer's Store`)
   }
 }
