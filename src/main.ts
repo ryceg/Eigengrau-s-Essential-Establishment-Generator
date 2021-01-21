@@ -8,6 +8,7 @@
 import { createAlchemist } from './Alchemist/js/createAlchemist'
 import { brothelData } from './MiniEstablishments/Brothel/brothelData'
 import { createBrothel } from './MiniEstablishments/Brothel/createBrothel'
+import { townSquare } from './MiniEstablishments/TownSquare/townSquareData'
 import { deleteBuilding } from './Buildings/deleteBuilding'
 import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
@@ -70,6 +71,7 @@ declare global {
     getEncounter: typeof getEncounter
     getEventDescription: typeof getEventDescription
     graveStone: typeof graveStone
+    townSquare: typeof townSquare
     urlSeed: typeof urlSeed
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
@@ -112,6 +114,7 @@ Object.assign(setup, {
   getEncounter,
   getEventDescription,
   graveStone,
+  townSquare,
   urlSeed,
   deleteFaction,
   leaderFaction,
