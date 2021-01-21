@@ -5,7 +5,7 @@
  * and precipitation intensity are each independently tracked.
  */
 
-import { Biome, Town, Weather, PrecipitationLevels, PrecipitationIntensityLevels } from '@lib'
+import { Biome, Town, Weather } from '@lib'
 import { renderWeather } from './renderWeather'
 
 type Location = 'desert' | 'forest' | 'mountain' | 'road' | 'town'
@@ -76,8 +76,8 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
       precipitation: 'no precipitation',
       hasPrecipitation: false,
       cloudIntensity: 'clear',
-      precipitationLevel: seasonData.precipitationLevel as PrecipitationLevels,
-      precipitationIntensity: seasonData.precipitationIntensity as PrecipitationIntensityLevels
+      precipitationLevel: seasonData.precipitationLevel,
+      precipitationIntensity: seasonData.precipitationIntensity
     }
   }
   weather.precipitationLevel.clamp(1, 4)

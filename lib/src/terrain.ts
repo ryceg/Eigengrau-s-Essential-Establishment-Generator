@@ -1,6 +1,7 @@
 import { WeightRecord } from '../types'
 import { dice } from './dice'
 import { random } from './random'
+import { PrecipitationIntensityLevels, PrecipitationLevels } from './weather'
 
 export type Biome = 'temperate' | 'tropical' | 'arid' | 'polar'
 export type Seasons = 'spring' | 'summer' | 'autumn' | 'winter'
@@ -17,8 +18,8 @@ interface WeatherData {
 }
 
 export interface SeasonData {
-  precipitationLevel: number
-  precipitationIntensity: number
+  precipitationLevel: PrecipitationLevels
+  precipitationIntensity: PrecipitationIntensityLevels
   baseTemp: number
 }
 interface TempVariation {
@@ -511,22 +512,22 @@ export const terrain: Record<Biome, TerrainData> = {
       season: {
         summer: {
           precipitationLevel: 3,
-          precipitationIntensity: -1,
+          precipitationIntensity: 1,
           baseTemp: 95
         },
         autumn: {
           precipitationLevel: 3,
-          precipitationIntensity: -1,
+          precipitationIntensity: 1,
           baseTemp: 75
         },
         winter: {
           precipitationLevel: 2,
-          precipitationIntensity: -1,
+          precipitationIntensity: 1,
           baseTemp: 50
         },
         spring: {
           precipitationLevel: 2,
-          precipitationIntensity: -1,
+          precipitationIntensity: 1,
           baseTemp: 75
         }
       }
