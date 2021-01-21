@@ -10,14 +10,18 @@ interface BookData {
   /** The Dewey system hasn't been invented yet, but... */
   category: BookCategories[]
   /** The blurb, a short summary. */
-  summary: string
+  summary?: string
   /** If the book has an excerpt attached, it goes in contents. */
   contents?: string
+  rarity?: BookRarity
   language?: Languages
   condition?: string[]
   cover?: string[]
   author?: Namesake
 }
+
+export type Rarity = 'common' | 'uncommon' | 'rare' | 'very rare' | 'legendary'
+export type BookRarity = 'mundane' | Rarity
 
 type BookCategories =
   'non-fiction' |
@@ -25,6 +29,7 @@ type BookCategories =
   'history' |
   'arcane studies' |
   'botany' |
+  'culinary' |
   'anatomy' |
   'geography' |
   'religion' |
@@ -365,6 +370,121 @@ export const miscBooks = {
       title: 'Live Your Best Life',
       category: ['history'],
       summary: 'This recruitment pamphlet is scribbled in reddish ink on folded reeds, and details the benefits of living in a nearby druidic society. There is an address for a recruitment officer, along with instructions on how to join the druids.'
+    },
+    {
+      title: 'The Art of the Turnip and Its Many Uses',
+      category: ['botany', 'non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: '101 Practical Knots',
+      category: ['non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'On The Preparation Of Chicken',
+      category: ['culinary', 'non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'ABCs for Baby Adventurers',
+      category: ['fiction', 'tales and legends'],
+      rarity: 'common'
+    },
+    {
+      title: 'The Many Practical uses of Wool',
+      category: ['non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'Cakes, Pies, and other Treats',
+      category: ['non-fiction', 'culinary'],
+      rarity: 'common'
+    },
+    {
+      title: "Old Farmer's Almanac",
+      category: ['non-fiction', 'culinary', 'botany', 'anatomy'],
+      rarity: 'common'
+    },
+    {
+      title: "Lady Eilseeth's Desire, vol. VIII: The Vampire who Loves Me",
+      category: ['anatomy', 'fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'Konana the Lady Barbarian, vol IV: Queen of the Scarlet Tower',
+      category: ['fiction', 'tales and legends'],
+      rarity: 'common'
+    },
+    {
+      title: 'How to find your daughter the best husband',
+      category: ['non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'How to Discover and Cultivate Your Inner Incubus before You Hit 40 (or 120 if you are a dwarf)',
+      category: ['anatomy', 'arcane studies'],
+      rarity: 'common'
+    },
+    {
+      title: "Minmar's Memory: Never Forget Another Thing",
+      category: ['anatomy', 'non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'Cooking for Every Occasion',
+      category: ['culinary', 'non-fiction'],
+      rarity: 'mundane'
+    },
+    {
+      title: "Lovo's Dangerous Wonders: Guide to the Telvinwood West",
+      category: ['geography', 'non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: "Beginner's Guide to Breeding Griffons for Fame and Profit",
+      category: ['non-fiction'],
+      rarity: 'common'
+    },
+    {
+      title: 'Love, Sex and Nutrition: A Primer on How to Feed Yourself Properly So You Can Feed Your Vampire Lovers in the Nutritionally Balanced Way That They Deserve',
+      category: ['arcane studies', 'anatomy', 'forbidden knowledge'],
+      rarity: 'rare'
+    },
+    {
+      title: 'Devil Summoning and You',
+      category: ['arcane studies', 'forbidden knowledge', 'non-fiction', 'history'],
+      rarity: 'uncommon'
+    },
+    {
+      title: 'A Common - Dragon Phrasebook',
+      category: ['arcane studies', 'geography', 'history'],
+      rarity: 'uncommon'
+    },
+    {
+      title: "Rollo's Complete Guide to Temporal Displacement",
+      category: ['arcane studies', 'history', 'non-fiction'],
+      rarity: 'rare'
+    },
+    {
+      title: 'Cute Disasters - how to raise owl bears and survive',
+      category: ['non-fiction', 'history'],
+      rarity: 'uncommon'
+    },
+    {
+      title: 'Fantastical venoms and where to extract them',
+      category: ['geography', 'anatomy'],
+      rarity: 'common'
+    },
+    {
+      title: 'From Poison to Ambrosia: Transformative Alchemical Delicacies',
+      category: ['geography', 'botany', 'arcane studies'],
+      rarity: 'common'
+    },
+    {
+      title: "Practical Ranger's Guide: Hunting, Foraging, Fishing and Trapmaking",
+      category: ['geography', 'botany', 'culinary', 'history', 'non-fiction'],
+      rarity: 'common'
     }
   ] as BookData[],
   titles: [
@@ -485,5 +605,72 @@ export const miscBooks = {
 }
 
 export const library = {
-
+  atmosphere: [
+    'The faint musty odor of a place not often disturbed, a slight scratching noise - either quills on paper, or mice scurrying along walls. The entire building admonishes you to be quiet & careful.',
+    'There\'s a muffled cough from behind one of the bookshelves.',
+    'The sound of a page turning, followed by the slurping of a mouth on a mug of hot tea.',
+    'A scent of fresh herbs and cedarwood, a combination familiar to frequent visitors, used in many libraries to deter pests.',
+    'Being converted from an old cathedral, this library evokes a sense of almost divine wonder as the stained glass paints the light that bathes the shelves. It\'s a little drafty with that high, arching ceiling but the air is fresher, cleaner.',
+    'The floor underneath creaks, and you inexplicably feel like you\'re disturbing the peace, even though there\'s no indication that you\'re unwelcome.',
+    'Whispering can be heard from a small group of people at a table crowded around a single, ancient tome. They are obviously in disagreement & it\'s causing an air of awkwardness among the other patrons.',
+    'The chamber has a faint aroma of leather and pipe tobacco, the wood beams overhead are soot stained from decades of oil lamp use, and the room is silent, save for the squeaking and groaning of overstuffed uppolstered leather armchairs, as their occupants shift position in the seats.',
+    'Oddly enough, the aroma of roasting meats permeates the library. There is neither a kitchen nor any open flame anywhere to be found.',
+    'High stained glass windows shed a rainbow of light that filters through the dusty air. It smells like parchment and tulips.',
+    'You can hear the skittering of rats below the floorboards and the quiet rustling of pages being turned. The room reeks with the smell of the oil lamps , which cast a low light across the room.',
+    'The shelves, desks and chairs are made of a deep burgundy wood, with a fine dark wood grain that creates swirling patterns reminiscent of rising smoke. The room smells of a rich mahogany and leather bound books.'
+  ],
+  desk: [
+    'A modest sized pine desk with a worn leather ink blotter covering most of the surface.',
+    'Cluttered with all sorts of papers literally moving about and fluttering through the air.',
+    'Surrounded by a moat of mage fire (when the librarian doesn\'t want to be disturbed)',
+    'A battered old desk, with plenty of ink stains on it- the old pine wood has clearly been in service for quite a long time.',
+    'A wide desk covered in stacks of sorted books',
+    'An elegant and elaborate desk with fantastical designs carved into every open side. It\'s the perfect size with a handful if draws. It\'s very neat and well kept.',
+    'A small, cramped desk that is rarely used',
+    'A massive oak desk in impeccable condition. On it lies a single open tome, a pair of spectacles, and an empty porcelain tea cup on a saucer.'
+  ],
+  shelves: [
+    'The shelves are shabby, and in dire need of a dusting; a thick coat of dust covers the less used books.',
+    'The shelves are strictly organised with nothing out of place.',
+    'The shelves are large round structures, making one have to roll them in order to get a book',
+    'The stacks are on rollers and can be moved to maximise storage space (just make sure you don\'t accidentally trap/crush someone when you move a stack).',
+    'Bookcases line each wall, stretching from floor to ceiling. Overstuffed armchairs and side tables with oil lamps fill the center of the chamber.',
+    'The shelves are set at odd angles to each other within the building, seemingly randomly. The typical patron could become lost for hours in the maze of tall, densely filled structures.',
+    'An orderly array of open wooden book shelves fills the majority of the space; the back corner, however, is enclosed in a wrought iron cage with a locked metal gate.',
+    'The shelves make no immediate sense, an escher-esque looping series of wooden planks holding countless volumes of knowledge. From any location one could reach out and select a tome from the walls, ceiling, floor, or twisted stairways.'
+  ],
+  knownFor: [
+    'Having a large, disused section on town records which is commonly used as a hookup spot.',
+    'The librarian has trained parrots to help find books, one for each topic.',
+    'The library\'s books selves reach well beyond an endless ceiling, but the book you are looking for is never out of reach.',
+    'The library is almost more vertical than horizontal, and tall ladders are required to reach many books.',
+    'It appears in a new random location every two weeks.',
+    'The library has several rare books that can be found nowhere else.',
+    'The library is known for having an extraordinary number of books on a niche subject.',
+    'The library also serves as an art museum, and is filled with paintings.',
+    'The library is known, amusingly, as being a great place to catch up with friends and chat in the comfy chairs.',
+    'The library is rumored to have a teleportation circle in a secret room in the basement.',
+    'The chief librarian is a lich.',
+    'The library is also a famous mage academy, thanks to its large selection of spellbooks'
+  ],
+  notableFeatures: [
+    'All of the books are ordered by the colour of the cover, which makes finding something without the aid of magic nearly impossible.',
+    'The library is kept quiet via magic with a permanent spell of silence.',
+    'It is much larger on the inside than the outside.',
+    'The library is composed entirely of tiny interconnected rooms',
+    'The ghosts of all the past Head librarians inhabit the the stacks, and assist in finding what patrons need.',
+    'The library has several spellbooks from a famous mage that are prominently displayed.',
+    'The library has large ladders which slide across the huge shelves. Children try and steal the keys to unlock them so they can go joyriding on them.',
+    'The library had had a problem with theft in the past, so all visitors are closely watched.',
+    'The library’s only entrance is in an inconspicuous alleyway.',
+    'The library is was made for halflings; renovations have made it bearable for regular sized folk, but it is still a concerningly low ceiling.',
+    'The library was damaged in a fire in the past, there are frequent and prominent fire prevention/control features.',
+    'The library is a hut with a crudely drawn sign on the outside',
+    'Discordant jazz plays loudly the entire time with no discernible source',
+    'One can only go from aisle to aisle via a small dinghy.',
+    'All of the library’s pages are unbound and flying around a cavernous room. Only by stating the name of the book in its original pronunciation will it magically assemble.',
+    'The library entrance is carved into a mountain face, a half a mile straight up.',
+    'There’s a framed pair of men’s shorts behind the welcome desk. Nobody will explain it, but librarians and local patrons get misty eyed when they look at it.',
+    'There’s a weapon’s check (like a coat check) near the front door with an insistent steward.'
+  ]
 }
