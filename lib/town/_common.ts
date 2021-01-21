@@ -79,4 +79,27 @@ export interface Town {
   currentSeason: 'summer' | 'autumn' | 'winter' | 'spring'
   weather: Weather
   rulerType?: string
+  bans: Ban[]
 }
+
+type Ban =
+  | 'alcoholDiscouraged'
+  | 'alcohol'
+  | 'alcohol'
+  | 'softDrugs'
+  | 'hardDrugs'
+  | 'schools'
+  | 'elderly'
+  | 'young'
+  | 'sickness'
+  | 'religion'
+  | 'magic'
+  | 'music'
+  | 'artwork'
+  | 'acting'
+  | 'nobility'
+  | 'outsiders'
+  | 'slavery'
+  | 'animals'
+  | 'unemployment'
+  | 'panhandling'
