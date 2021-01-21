@@ -1,6 +1,7 @@
 // uses setup.toCelsius (which uses settings)
-import { random } from '../../lib/src/random'
+
 import { PrecipitationIntensityLevels, PrecipitationLevels, Town, Weather } from '@lib'
+import { random } from 'lib/src/random'
 
 export const renderWeather = (town: Town, weather: Weather, biome = town.terrain) => {
   console.log('Rendering weather...')
