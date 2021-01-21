@@ -6,7 +6,7 @@
   <<run console.log(_latestBuilding)>>
   <<replace "#buildings">><<include "RoadsList">>
   <</replace>>
-  <<run document.getElementById(_latestBuilding.name).className = 'highlight'>>
+  <<run document.querySelector("[class='tip " + _latestBuilding.key + "']").className = 'highlight'>>
   /* State.create() is an undocumented feature that adds a Moment (the current state) to the story's History. 
   Notably, it may not play nicely with the Back and Forward navigation. 
   This has been implemented to ensure that the creation of new buildings is saved and no data is lost. */
