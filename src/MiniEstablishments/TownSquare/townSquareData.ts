@@ -634,7 +634,7 @@ export const townSquare: TownSquareData = {
           background: 'commoner',
           profession: 'politician'
         })
-        return `a ${profile(npc, 'political candidate')} that's being shouted at by a member of <<profile $town.guard>>.`
+        return `a ${profile(npc, 'political candidate')} that's being shouted at by a member of ${profile(town.guard)}.`
       }
     },
     'bureaucrat': {
