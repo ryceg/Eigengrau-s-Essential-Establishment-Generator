@@ -32,27 +32,3 @@ export const profile = (obj: NPC | Building | Faction | Road, readout?: string, 
 
   return `<<profile \`$${type}[${key}] \`${text}>>`
 }
-
-/**
- * @param {string} type
- * @returns {Record<string,unknown> | null}
- */
-export const getTarget = (type: string): Record<string, NPC | Faction> | Building[] => {
-  switch (type) {
-    case 'npcs':
-    case 'npc':
-      return State.variables.npcs
-    case 'buildings':
-    case 'building':
-    case 'town.buildings':
-      return State.variables.town.buildings
-    case 'factions':
-    case 'faction':
-    case 'town.factions':
-      return State.variables.town.factions
-  }
-
-  // TODO: add a function to find the correct object.
-  console.error(`profile called with the type of ${type}!`)
-  return State.variables.npcs
-}
