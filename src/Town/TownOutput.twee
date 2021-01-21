@@ -6,15 +6,15 @@
 <article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
 <article><h4>Economics</h4>$town.economics $town.welfare </article>
 <article><h4>Law and Order</h4>$town.military $town.law $town.arcana</article>
-<details><summary>Racial Demographics</summary><<include "TownListRaces">></details>
-<details><summary>List of Factions</summary><<include "TownListFactions">></details>
-<details><summary>List of Buildings</summary><<include "TownListBuildings">></details>
+<<details "TownListRaces" "Racial Demographics">>
+<<details "TownListFactions" "List of Factions">>
+<<details "TownListBuildings" "List of Buildings">>
 \<<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 
 
 <</if>>
-<details><summary>List of NPCs</summary><<include "TownListNpcs">></details>
+<<details "TownListNpcs" "List of NPCs">>
 <<details "TownListThrowaway" "List of Throwaway NPCs">>
 <span class='interactive-only'><<details "TownListProfessions" "Professions in $town.name">></span>
 
