@@ -33,10 +33,6 @@ export const profile = (obj: NPC | Building | Faction | Road, readout?: string, 
   return `<<profile \`$${type}[${key}] \`${text}>>`
 }
 
-/**
- * @param {string} type
- * @returns {Record<string,unknown> | null}
- */
 export const getTarget = (type: string): Record<string, NPC | Faction> | Building[] => {
   switch (type) {
     case 'npcs':
