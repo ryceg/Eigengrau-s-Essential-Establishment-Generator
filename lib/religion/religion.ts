@@ -71,7 +71,8 @@ export interface Deity {
   /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
   name: string
   /**
-   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
+   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`. 
+   * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
    * @example ['El', 'Anu', 'An', 'Thoru-el']
     */
   aliases?: string[]
