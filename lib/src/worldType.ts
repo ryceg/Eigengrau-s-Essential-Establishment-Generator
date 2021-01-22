@@ -17,13 +17,83 @@ export type CurrencyAbbreviated = 'cp' | 'sp' | 'gp' | 'ep' | 'pp'
 export type AlignmentsAbbreviated = 'LG' | 'NG' | 'CG' | 'LN' | 'N' | 'CN' | 'CE' | 'NE' | 'LE'
 export type Alignments = 'Lawful Good' | 'Neutral Good' | 'Chaotic Good' | 'Lawful Neutral' | 'Neutral' | 'Chaotic Neutral' | 'Lawful Evil' | 'Chaotic Evil' | 'Neutral Evil'
 
-export type ClericDomains = 'arcana' | 'death' | 'forge' | 'grave' | 'knowledge' | 'life' | 'light' | 'nature' | 'order' | 'peace' | 'tempest' | 'trickery' | 'twilight' | 'war'
-export interface ClericDomainInfo {
+export type ClericDomains =
+  'arcana'
+| 'death'
+| 'forge'
+| 'grave'
+| 'knowledge'
+| 'life'
+| 'light'
+| 'nature'
+| 'order'
+| 'peace'
+| 'tempest'
+| 'trickery'
+| 'twilight'
+| 'war'
+export type WizardSchools =
+  'Bladesinging'
+| 'Chronurgy'
+| 'Graviturgy'
+| 'Order of the Scribes'
+| 'School of Abjuration'
+| 'School of Conjuration'
+| 'School of Divination'
+| 'School of Enchantment'
+| 'School of Evocation'
+| 'School of Illusion'
+| 'School of Necromancy'
+| 'School of Transmutation'
+| 'War Magic'
+export interface FifthEditionBookInfo {
   source: FifthEditionAbbr
   page?: number
 }
 
-export const ClericDomain: Record<ClericDomains, ClericDomainInfo> = {
+export const WizardSchool: Record<WizardSchools, FifthEditionBookInfo> = {
+  'Bladesinging': {
+    source: 'TCoE'
+  },
+  'Chronurgy': {
+    source: 'EGtW'
+  },
+  'Graviturgy': {
+    source: 'EGtW'
+  },
+  'Order of the Scribes': {
+    source: 'PHB'
+  },
+  'School of Abjuration': {
+    source: 'PHB'
+  },
+  'School of Conjuration': {
+    source: 'PHB'
+  },
+  'School of Divination': {
+    source: 'PHB'
+  },
+  'School of Enchantment': {
+    source: 'PHB'
+  },
+  'School of Evocation': {
+    source: 'PHB'
+  },
+  'School of Illusion': {
+    source: 'PHB'
+  },
+  'School of Necromancy': {
+    source: 'PHB'
+  },
+  'School of Transmutation': {
+    source: 'PHB'
+  },
+  'War Magic': {
+    source: 'XGtE'
+  }
+}
+
+export const ClericDomain: Record<ClericDomains, FifthEditionBookInfo> = {
   arcana: {
     source: 'SCAG'
   },
