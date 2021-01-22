@@ -75,7 +75,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     title: 'Mx',
     domTitle: 'Overseer',
     heshe: 'they',
-    himher: 'their',
+    himher: 'them',
     himherself: 'themself',
     hisher: 'their',
     hisherself: 'theirself',
