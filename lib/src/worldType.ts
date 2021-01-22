@@ -14,8 +14,8 @@ export type SystemType = '5e' | 'Pathfinder' | 'Pathfinder 2e' | 'Dungeon World'
 export type CurrencyFull = 'copper' | 'silver' | 'gold' | 'electrum' | 'platinum'
 export type CurrencyAbbreviated = 'cp' | 'sp' | 'gp' | 'ep' | 'pp'
 
-export type AlignmentsAbbreviated = 'LG' | 'NG' | 'CG' | 'LN' | 'LG' | 'LE' | 'N' | 'LN' | 'CN' | 'CE' | 'NE'
-export type Alignments = 'Lawful Good' | 'Neutral Good' | 'Chaotic Good' | 'Lawful Neutral' | 'Lawful Good' | 'Lawful Evil' | 'Neutal' | 'Lawful Neutral' | 'Chaotic Neutral' | 'Chaotic Evil' | 'Neutral Evil'
+export type AlignmentsAbbreviated = 'LG' | 'NG' | 'CG' | 'LN' | 'N' | 'CN' | 'CE' | 'NE' | 'LE'
+export type Alignments = 'Lawful Good' | 'Neutral Good' | 'Chaotic Good' | 'Lawful Neutral' | 'Neutral' | 'Chaotic Neutral' | 'Lawful Evil' | 'Chaotic Evil' | 'Neutral Evil'
 
 export type ClericDomains = 'arcana' | 'death' | 'forge' | 'grave' | 'knowledge' | 'life' | 'light' | 'nature' | 'order' | 'peace' | 'tempest' | 'trickery' | 'twilight' | 'war'
 export interface ClericDomainInfo {
