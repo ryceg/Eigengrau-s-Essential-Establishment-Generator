@@ -1,13 +1,15 @@
 // uses setup.toCelsius (which uses settings)
-
-import { PrecipitationIntensityLevels, PrecipitationLevels, Town, Weather } from '@lib'
-import { random } from 'lib/src/random'
-
-export const renderWeather = (town: Town, weather: Weather, biome = town.terrain) => {
+/**
+ * @param {import("../../../../lib/town/_common").Town} town
+ * @param {import("../../../../lib/index").Weather} weather
+ * @param {string} biome
+ * @returns {void}
+ */
+setup.renderWeather = (town, weather, biome = town.terrain) => {
   console.log('Rendering weather...')
 
-  weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4) as PrecipitationLevels
-  weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4) as PrecipitationIntensityLevels
+  weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
+  weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
 
   const tempVariationRoll = random(0, 100)
   const tempVariationKeys = Object.keys(lib.terrain[biome].weather.tempVariation).reverse()
@@ -33,20 +35,19 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
     if (weather.timer.precipitation < 1) {
       console.log('Resetting precipitation timer...')
       weather.roll.precipitation = random(1, 100)
-      weather.hasPrecipitation = lib.weather.precipitationLevel[weather.precipitationLevel](weather)
+      weather.precipitation = lib.weather.precipitationLevel[weather.precipitationLevel](weather)
     }
 
-    if (weather.hasPrecipitation && weather.temperature <= 32) {
+    if (weather.precipitation && weather.temperature <= 32) {
       console.log('Rolling on the freezing table...')
       weather.roll.precipitationIntensity = random(1, 100)
       lib.weather.precipitationIntensity[weather.precipitationIntensity].freezing(weather)
-    } else if (weather.hasPrecipitation) {
+    } else if (weather.precipitation) {
       console.log('Rolling on the raining table...')
       weather.roll.precipitationIntensity = random(1, 100)
       lib.weather.precipitationIntensity[weather.precipitationIntensity].raining(weather)
     } else {
       console.log('Clear day!')
-      weather.hasPrecipitation = false
       weather.precipitation = 'no precipitation'
       weather.timer.precipitation = random(1, 8)
     }
@@ -58,7 +59,7 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
     }
 
     weather.readout.precipitation = getPrecipitationReadout(weather)
-    weather.readout.cloud = random(lib.weather.cloudIntensityDescriptors[weather.cloudIntensity])
+    weather.readout.cloud = lib.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
 
     console.log('Rendering temperature...')
     for (const [threshold, description] of lib.weather.temperatureDescriptors) {
@@ -73,10 +74,15 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
     console.log(weather)
   }
 
-  function getPrecipitationReadout (weather: Weather): string {
-    let readout: string
+  /**
+ * @param {import("../../../../lib/index").Weather} weather
+ * @returns {string}
+ */
+  function getPrecipitationReadout (weather) {
+    /** @type {string} */
+    let readout
     if (weather.precipitation) {
-      readout = random(lib.weather.precipitationDescriptors[weather.precipitation])
+      readout = lib.random(lib.weather.precipitationDescriptors[weather.precipitation])
     } else {
       readout = ''
     }
