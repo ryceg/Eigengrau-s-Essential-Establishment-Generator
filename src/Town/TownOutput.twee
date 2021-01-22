@@ -1,14 +1,14 @@
 :: TownOutput
-<span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, null, "Editing town")>><</button>></span>
+<<nobr>><span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, null, "Editing town")>><</button>></span>
 <<include "BriefDescription">>
-\<p>The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output($town.wealth)>> existence. 
-\<<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
+<p>The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output($town.wealth)>> existence. 
+<<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
 <article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
-<article><h4>Economics</h4>$town.economics $town.welfare </article>
-<article><h4>Law and Order</h4>$town.military $town.law $town.arcana</article>
+<article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
+<article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article>
 <<details "TownListRaces" "Racial Demographics">>
 <<details "TownListFactions" "List of Factions">>
-<<details "TownListBuildings" "List of Buildings">>
+<<details "TownListBuildings" "List of Buildings">><</nobr>>
 \<<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 
