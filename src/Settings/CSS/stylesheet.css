@@ -40,6 +40,21 @@ nav {
   display: inline;
 }
 
+summary {
+  cursor: pointer;
+  /* Stealing from h3 */
+  font-size: .529cm;
+  margin-bottom: 0em;
+  border-bottom: 3px solid #c9ad6a;
+  font-family: MrJeeves;
+  font-weight: 800;
+  color: #58180D;
+}
+
+article {
+  cursor: text;
+}
+
 #illustration-buffer {
   padding-bottom: 5vw;
 }
