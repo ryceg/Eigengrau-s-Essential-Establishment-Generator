@@ -4,17 +4,18 @@
  * Basically, temperature, precipitation,
  * and precipitation intensity are each independently tracked.
  */
-
-import { Biome, Town, Weather } from '@lib'
-import { renderWeather } from './renderWeather'
-
-type Location = 'desert' | 'forest' | 'mountain' | 'road' | 'town'
-export const createWeather = (town: Town, location?: Location, weather?: Weather): Weather => {
+/**
+ * @param {import("../../../../lib/town/_common").Town} town
+ * @param {string} biome
+ * @param {import("../../../../lib/index").Weather} weather
+ * @returns {import("../../../../lib/index").Weather}
+ */
+setup.createWeather = (town, biome, weather) => {
   console.groupCollapsed('Creating weather...')
-  let biome: Biome
-  console.log({ town, biome: location, weather })
-  if (location) {
-    switch (location) {
+
+  console.log({ town, biome, weather })
+  if (biome) {
+    switch (biome) {
       case 'desert':
         biome = 'arid'
         break
@@ -24,8 +25,6 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
       default:
         biome = town.terrain
     }
-  } else {
-    biome = town.terrain
   }
   const time = 8
   if (weather) {
@@ -40,7 +39,7 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
     }
   }
   const currentSeason = town.currentSeason
-  console.log(`biome: ${location}`)
+  console.log(`biome: ${biome}`)
   if (weather) {
     // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
     console.log('Weather was already defined.')
@@ -51,8 +50,10 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
       weather.timer.cloud -= time
     }
   } else {
+    /** @type {import("../../../../lib/src/terrain").SeasonData} */
     const seasonData = lib.terrain[biome].weather.season[currentSeason]
 
+    /** @interface Weather */
     weather = {
       temperature: seasonData.baseTemp || lib.terrain.temperate.weather.season.summer.baseTemp,
       tempVariation: lib.dice(2, 50),
@@ -73,9 +74,8 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
         temperature: '',
         full: ''
       },
-      precipitation: 'no precipitation',
-      hasPrecipitation: false,
-      cloudIntensity: 'clear',
+      precipitation: '',
+      cloudIntensity: '',
       precipitationLevel: seasonData.precipitationLevel,
       precipitationIntensity: seasonData.precipitationIntensity
     }
@@ -83,7 +83,7 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
   weather.precipitationLevel.clamp(1, 4)
   weather.precipitationIntensity.clamp(1, 4)
 
-  renderWeather(town, weather, biome)
+  setup.renderWeather(town, weather, biome)
   town.weather = weather
   console.groupEnd()
   return weather

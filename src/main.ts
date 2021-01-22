@@ -31,9 +31,6 @@ import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
-import { renderWeather } from './World/renderWeather'
-import { createWeather } from './World/createWeather'
-import { toCelsius } from './World/toCelsius'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
@@ -76,9 +73,6 @@ declare global {
     graveStone: typeof graveStone
     townSquare: typeof townSquare
     urlSeed: typeof urlSeed
-    renderWeather: typeof renderWeather
-    createWeather: typeof createWeather
-    toCelsius: typeof toCelsius
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
@@ -122,9 +116,6 @@ Object.assign(setup, {
   graveStone,
   townSquare,
   urlSeed,
-  renderWeather,
-  createWeather,
-  toCelsius,
   deleteFaction,
   leaderFaction,
   plothooks

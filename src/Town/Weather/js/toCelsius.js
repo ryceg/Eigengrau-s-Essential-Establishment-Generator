@@ -1,7 +1,5 @@
 // uses settings.showCelsius
-export const toCelsius = (temp: number) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+setup.toCelsius = temp => {
   if (settings.showCelsius) {
     console.log(`${temp} in Fahrenheit`)
     temp = Math.trunc((temp - 32) * 0.5556)
