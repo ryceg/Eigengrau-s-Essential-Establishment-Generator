@@ -16,3 +16,5 @@ export type CurrencyAbbreviated = 'cp' | 'sp' | 'gp' | 'ep' | 'pp'
 
 export type AlignmentsAbbreviated = 'LG' | 'NG' | 'CG' | 'LN' | 'LG' | 'LE' | 'N' | 'LN' | 'CN' | 'CE' | 'NE'
 export type Alignments = 'Lawful Good' | 'Neutral Good' | 'Chaotic Good' | 'Lawful Neutral' | 'Lawful Good' | 'Lawful Evil' | 'Neutal' | 'Lawful Neutral' | 'Chaotic Neutral' | 'Chaotic Evil' | 'Neutral Evil'
+
+export type ClericDomains = 'arcana' | 'death' | 'forge' | 'grave' | 'knowledge' | 'life' | 'light' | 'nature' | 'order' | 'peace' | 'tempest' | 'trickery' | 'twilight' | 'war'

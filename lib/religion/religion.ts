@@ -1,5 +1,5 @@
-import { AgeName, GenderName, NPC, RaceName } from '@lib'
-import { AlignmentsAbbreviated } from 'lib/src/worldType'
+import { RaceName, GenderName, AgeName, NPC } from '..'
+import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
 
 interface Followers {
   description: string
@@ -102,7 +102,7 @@ export interface Deity {
   */
   wordNoun?: string
   /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
-  domains: string[]
+  domains: ClericDomains[]
   /** For channel divinity spells and features. */
   channelDivinity: string[]
   /** Alignments, for those that are still stuck on 2nd Edition. */
@@ -186,6 +186,68 @@ export const religion: ReligionData = {
         }
       },
       gods: [
+        {
+          name: 'Zeus',
+          titles: ['God of the Sky', 'Ruler of the Gods'],
+          rank: 'leader',
+          description: 'string',
+          appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard.',
+          portfolios: ['the skies', 'thunder and lightning', 'law and order', 'fate'],
+          gender: 'man',
+          race: 'human',
+          domains: [
+            'tempest'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'fist full of lightning bolts',
+          combat: {
+            description: 'string',
+            weapon: 'lightning',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'Zeus is followed by many, of all different race and creed.',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['June 12']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: ['eagle', 'bull'],
+            plants: [
+              'olive tree',
+              'evergreen holm oak'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['yellow'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
         {
           name: 'Zeus',
           titles: ['God of the Sky', 'Ruler of the Gods'],
