@@ -30,6 +30,20 @@ setup.createStartBuildings = town => {
     'Brothel': ['pimp'],
     'Barber': ['barber', 'surgeon'],
     'Temple': ['high priest', 'archbishop', 'cardinal', 'bishop', 'priest', 'deacon']
+    // TODO
+    // 'Carpentry Shop': ['carpenter'],
+    // 'Apiary': ['beekeeper'],
+    // 'Glassblower': ['glazier'],
+    // 'Library': ['librarian'],
+    // 'Book Shop': ['book seller'],
+    // 'Lumber Mill': ['wood seller', 'forester', 'lumberjack'],
+    // 'Masonry': ['mason', 'brick mason', 'construction worker', 'plasterer'],
+    // 'Nursery': ['gardener'],
+    // 'Stable': ['animal Handler'],
+    // 'Theatre': ['actor'],
+    // 'Printing Press': ['printer', 'copyist'],
+    // 'Farmhouse': ['farmer'],
+    // 'Haberdashery': ['hatter']
   }
 
   for (const buildingType of lib.keys(professions)) {
