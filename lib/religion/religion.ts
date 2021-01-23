@@ -71,14 +71,19 @@ export interface Deity {
   /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
   name: string
   /**
-   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
+   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`. 
+   * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
    * @example ['El', 'Anu', 'An', 'Thoru-el']
     */
   aliases?: string[]
+    /** While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them. 
+     * @example Aphrodite: ['Ishtar', 'Astarte']
+     */
+  equivalent?: string[]
     /** All of the titles that a god might have. Will typically be used as a rider after the name.
    * @example ['Lord of the Skies', 'Ruler of All That He Sees']
    * @usage 'Zeus, Lord of the Skies'
-   */
+   */    
   titles: string[]
   /** Trying to make rank more granular is just asking for trouble.
    * @default 'lesser deity'
@@ -153,6 +158,19 @@ export interface Deity {
   }
   beliefs: string
   heresies: string
+
+  /**Some suggested blessings from the god
+   * @example ```Aphrodite: [
+   * 'beauty',
+   * ]```
+   */
+  blessings?: string[]
+    /**Some suggested curses from the god
+   * @example ```Aphrodite: [
+   * 'ugliness'
+   * ]```
+   */
+  curses?: string[]
 }
 
 interface Possession {
@@ -186,17 +204,33 @@ export const religion: ReligionData = {
         }
       },
       gods: [
-        {
+        { //Zeus
           name: 'Zeus',
-          titles: ['God of the Sky', 'Ruler of the Gods'],
+          titles: [
+            'God of the Sky', 
+            'Ruler of the Gods', 
+            'The Thunderer', 
+            'God of Refuge', 
+            'Oathkeeper'
+          ],
           rank: 'leader',
           description: 'string',
-          appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard.',
-          portfolios: ['the skies', 'thunder and lightning', 'law and order', 'fate'],
+          appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
+          portfolios: [
+            'the skies', 
+            'thunder and lightning', 
+            'kings', 
+            'law and order', 
+            'fate', 
+            'justice', 
+            'moral conduct', 
+            'guest-right'
+          ],
           gender: 'man',
           race: 'human',
           domains: [
-            'tempest'
+            'tempest',
+            'order'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -208,7 +242,7 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'string',
+              name: 'Aegis',
               wordNoun: 'string',
               powers: 'string'
             }
@@ -217,7 +251,7 @@ export const religion: ReligionData = {
             description: 'Zeus is followed by many, of all different race and creed.',
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['June 12']
+              earth: ['January', 'Thursday']
             }
           },
           personality: {
@@ -235,10 +269,12 @@ export const religion: ReligionData = {
                 powers: 'string'
               }
             ],
-            animals: ['eagle', 'bull'],
+            animals: [
+              'eagle',
+              'bull'],
             plants: [
-              'olive tree',
-              'evergreen holm oak'
+              'oak tree',
+              'olive tree'
             ],
             monsters: [],
             gems: [],
@@ -248,24 +284,37 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        {
-          name: 'Zeus',
-          titles: ['God of the Sky', 'Ruler of the Gods'],
-          rank: 'leader',
+        { //Poseidon
+          name: 'Poseidon',
+          aliases: ['Neptune'],
+          titles: [
+            'God of the Sea and Earthquakes', 
+            'Watcher', 
+            'Shaker of the Earth', 
+            'Horse Tender' 
+          ],
+          rank: 'greater deity',
           description: 'string',
-          appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard.',
-          portfolios: ['the skies', 'thunder and lightning', 'law and order', 'fate'],
+          appearance: 'A mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
+          portfolios: [
+            'the sea', 
+            'earthquakes', 
+            'floods', 
+            'drought', 
+            'horses', 
+            'fresh water'
+          ],
           gender: 'man',
-          race: 'human',
+          race: 'human', 
           domains: [
             'tempest'
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'fist full of lightning bolts',
+          symbol: 'A trident and billowing cloak',
           combat: {
-            description: 'string',
-            weapon: 'lightning',
+            description: 'A trident',
+            weapon: 'Trident',
             tactics: 'string'
           },
           possessions: [
@@ -276,14 +325,14 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'Zeus is followed by many, of all different race and creed.',
-            favouredWeapon: 'spear',
+            description: 'string',
+            favouredWeapon: 'string',
             holyDays: {
-              earth: ['June 12']
+              earth: ['string']
             }
           },
           personality: {
-            just: 70,
+            just: 50,
             vengeful: 85,
             lustful: 80
           },
@@ -297,19 +346,1302 @@ export const religion: ReligionData = {
                 powers: 'string'
               }
             ],
-            animals: ['eagle', 'bull'],
-            plants: [
-              'olive tree',
-              'evergreen holm oak'
+            animals: [
+              'horse', 
+              'dolphin',
+              'fish', 
+              'bull'
             ],
-            monsters: [],
+            plants: [
+              'pine tree',
+              'seaweed',
+              'wild celery'
+            ],
+            monsters: ['hippocamp'],
             gems: [],
-            colours: ['yellow'],
+            colours: ['blue'],
             miscellaneous: []
           },
           beliefs: 'string',
           heresies: 'string'
-        }
+        },
+        { //Hades
+          name: 'Hades',
+          aliases: ['Pluto', 'Pluton', 'The Cthonic Zeus'],
+          equivalent: ['Pluto'], //Pluto was originally a different god to Hades
+          titles: [
+            'God of the Dead', 
+            'King of the Underworld', 
+            'God of Wealth', 
+            'Host of Many', 
+            'The Impartial Binder', 
+            'The invisible one'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'Dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
+          portfolios: [
+            'the underworld',
+            'the dead', 
+            'funeral rites', 
+            'right to be buried', 
+            'fertile soil', 
+            'precious metals', 
+            'dreams from the dead', 
+            'necromancy', 
+            'curses'
+          ],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'death',
+            'grave'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'Helm of Hades',
+          combat: {
+            description: 'The Sceptre of Hacdes, able to create a passage between the worlds of the living and the dead',
+            weapon: 'Sceptre',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 90,
+            vengeful: 85,
+            lustful: 20
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'Screech-Owl',
+              'Serpents', //Not Sure
+              'Black-Rams' // Not Sure
+              //Hades' Cattle? Not sure because it is specifically the cattle of Hades (Likewise Apollo has cattle that are his)
+            ],
+            plants: [
+              'White Poplar',
+              'Mint',
+              'Cypress',
+              'Asphodel',
+              'Narcissus'
+            ],
+            monsters: [
+              'Cerebus',
+              'The Erinyes'
+            ],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Aphrodite
+          name: 'Aphrodite',
+          aliases: ['Venus'],
+          equivalent: ['Ishtar', 'Astarte'],
+          titles: [
+            'The Deviser', 
+            'The Goddess for all folk', 
+            'Smile-loving', 
+            'The Goddess of Beauty', 
+            'The Goddess of Sexuality', 
+            'The Shapely', 
+            'Killer of Men', 
+            'Gravedigger', 
+            'the Mother'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'love', 
+            'lovers',
+            'lust',
+            'sexuality', 
+            'beauty', 
+            'pleasure', 
+            'procreation', 
+            'prostitutes', 
+            'love poetry', 
+            ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'life',
+            'light',
+            'trickery',
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['the fourth day of every month']
+            }
+          },
+          personality: {
+            just: 30,
+            vengeful: 85,
+            lustful: 100
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'dove',
+              'swan',
+              'goose',
+              'sparrow',
+              'swallow',
+              'wryneck' //English name for Iynx
+            ],
+            plants: [
+              'rose',
+              'myrtle',
+              'apple',
+              'poppy',
+            ],
+            monsters: ['nereids'],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: ['conch shells']
+          },
+          beliefs: 'string',
+          heresies: 'string',
+          blessings: [
+            'beauty'
+          ],
+          curses: [
+            'ugliness'
+          ]
+        },
+        { //Artemis
+          name: 'Artemis',
+          aliases: ['Diana','Brauronia', 'Orthia'],
+          equivalent: ['Selene', 'Britomartis', 'Dictynna', 'Eileithyial'],
+          titles: [
+            'Goddess of the Hunt', 
+            'Goddess of the Beasts', 
+            'Nurse of Children', 
+            'Friend of Girls',
+            'Goddess of the Glocks and the Chase',
+            'The best advisor'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'hunting', 
+            'the wilderness', 
+            'wild animals', 
+            'childbirth', 
+            'sudden death and disease of girls', 
+            'the moon', 
+            'dawn', 
+            'children', 
+            'maidenhood',
+            'healing', 
+            'ritual purification'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'nature',
+            'life',
+            'twilight'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'bow and quiver of arrows',
+          combat: {
+            description: 'As a child Artremis asked her father for a Bow and Arrow made by the Cyclopses',
+            weapon: 'bow and arrows',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'bow',
+            holyDays: {
+              earth: ['the sixth day']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 0
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'deer',
+              'bear',
+              'boar',
+              'heron',
+              'fresh-water fish',
+              'buzzard-hawk',
+              'guinea-fowl',
+              'partridge',
+            ],
+            plants: [
+              'amaranth',
+              'asphodel',
+              'cypress',
+              'laurel',
+              'palm tree'
+            ],
+            monsters: ['nymphs', 'calydonian boar'],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: ['lyre', 'torches', 'spears and nets']
+          },
+          beliefs: 'chastity',
+          heresies: 'string'
+        },
+        { //Apollo
+          name: 'Apollo',
+          aliases: ['Apollon'],
+          titles: [
+            'Of the Oracle', 
+            'Shooter from Afar', 
+            'the Healer', 
+            'Averter of Harm', 
+            'Of the Locusts'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'music', 
+            'prophecy', 
+            'healing', 
+            'archery',
+            'plague',
+            'disease'
+          ],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'light',
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'lyre',
+          combat: {
+            description: 'The Bow of Apollo, a godly weapon',
+            weapon: 'bow',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'The Lyre of Apollo',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'swan',
+              'raven',
+              'python',
+              'wolves',
+              'dolphin',
+              'roe deer',
+              'cicada',
+              'hawk',
+              'crows',
+              'mousee'
+            ],
+            plants: [
+              'laurel',
+              'larkspur',
+              'cypress'
+            ],
+            monsters: ['griffon'],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Athena
+          name: 'Athena',
+          aliases: ['Minerva', 'Athene'],
+          equivalent: ['Minerva'],
+          titles: [
+            'The Warlike',
+            'Defender',
+            'Keeper of the City',
+            'The Contriver of Plans and Devices',
+            'The Maiden',
+            'Of Hospitality',
+            'Of the Head'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'A stately woman wearing a helmet armed with a spear and Aegis',
+          portfolios: [
+            'wisdom',
+            'good counsel',
+            'olives',
+            'weaving',
+            'battle strategy',
+            'pottery',
+            'sculpture',
+            'defense of towns',
+            'heroic endeavour',
+            'crafts',
+            'invention',
+            'art',
+            'knowledge'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'knowledge',
+            'order',
+            'war',
+            'trickery'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: ['Gorgoneion', 'Aegis'],
+          combat: {
+            description: 'string',
+            weapon: 'spear',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'Aegis of Athena',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 80,
+            vengeful: 80,
+            lustful: 0
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'owl',
+              'snake',
+              'rooster'
+            ],
+            plants: [
+              'olive tree'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Dionysus
+          name: 'Dionysus',
+          aliases: ['Bacchus'],
+          equivalent: ['Zagreus', 'Iacchus', 'Liber'],
+          titles: [
+            'Of the Bacchic Frenzy',
+            'The Raging One',
+            'Of the Night',
+            'Of the Phallus',
+            'God of Wine',
+            'Of the Ivy',
+            'Twice-born',
+            'the Flesh-eater',
+            'the Giver of Wings',
+            'the Orphic One',
+            'of the Mysteries',
+            'the Blooming',
+            'the Warlike',
+            'the Singer',
+            'the Dying and Rising',
+            'the arriving one'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: 
+          [
+            'wine',
+            'vegetation',
+            'pleasure',
+            'festivity',
+            'madness',
+            'wild frenzy',
+            'orchards',
+            'ritual madness',
+            'grape-harvest',
+            'the vine',
+            'theatre',
+            'tragedy and comedy plays',
+            'religious ectasy',
+            'homosexuality',
+            'effeminacy',
+            'reincarnation',
+            'foreign gods'
+          ],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'nature',
+            'life',
+            'trickery'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'Thyrsus',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['the eighth month']
+            }
+          },
+          personality: {
+            just: 20,
+            forgiving: 25,
+            lustful: 90
+            
+            //energetic: 'lazy',
+            //generous: 'selfish',
+            //honest: 'deceitful',
+            //merciful: 'cruel',
+            //modest: 'proud',
+            //pious: 'worldly',
+            //prudent: 'reckless',
+            //temperate: 'indulgent',
+            //trusting: 'suspicious',
+            //valorous: 'cowardly'
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'bull',
+              'panther',
+              'goat',
+              'serpent',
+              'donkey'
+            ],
+            plants: [
+              'ivy',
+              'grapevine',
+              'bindweed',
+              'pine tree'
+            ],
+            monsters: ['satyrs'],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Demeter
+          name: 'Demeter',
+          aliases: [
+            'Ceres', 
+            'Deo'
+          ],
+          titles: [
+            'Of the Grain',
+            'Law-Bringer',
+            'Of the Earth',
+            'Bearer of Fruit',
+            'Great Goddess',
+            'Of the Mysteries',
+            'Lovely Haired',
+            'Knowing One',
+            'Exacter of Justice'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'A Mature woman wearing a crown holding weat in a cornocopia and a torch',
+          portfolios: [
+            'agriculture',
+            'grain and bread',
+            'the Eleusinian mysteries',
+            'the harvest',
+            'fertility',
+            'sacred law',
+            'natural law',
+            'the afterlife'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'cornucopia',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'snake',
+              'pig'
+            ],
+            plants: [
+              'wheat',
+              'mint',
+              'poppy'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hermes
+          name: 'Hermes',
+          aliases: ['Mercury'],
+          titles: [
+            'Keeper of the Flocks',
+            'Of the Market-Place',
+            'Of the Games',
+            'Translator',
+            'Slayer of Argos',
+            'Immortal Guide',
+            'Messenger of the Blessed',
+            'Messenger of the Gods',
+            'Of the Golden Wand',
+            'Full of Various Wiles',
+            'Giver of Good Things',
+            'Of Searchers',
+            'Guide of the Dead',
+            'Bringer of Peace',
+            'God of Merchants'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'herds and flocks', 
+            'boundaries',
+            'animal husbandry',
+            'travellers',
+            'hospitality', 
+            'roads',
+            'trade',
+            'thievery',
+            'cunning',
+            'deception',
+            'persuasion',
+            'heralds',
+            'messangers',
+            'diplomacy',
+            'language',
+            'writing',
+            'the home',
+            'luck',
+            'athletic contests',
+            'gymnasiums',
+            'astronomy',
+            'astrology',
+            'birds of omen',
+            'guiding the dead', //also known as Psychopomp
+            'sleep',
+            'rustic divination',
+            'rustic music',
+            'rustic fables',
+          ],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'trickery',
+            'peace',
+            'grave'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'Caduceus ',
+          combat: {
+            description: 'string',
+            weapon: 'sword',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'Adamantine Blade',
+              wordNoun: 'string',
+              powers: 'string'
+            },
+            {
+              name: 'Talaria',
+              wordNoun: 'Winged boots',
+              powers: 'string'
+            },
+            {
+              name: 'Winged helm',
+              wordNoun: 'string',
+              powers: 'string' 
+            },
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['Wednesday']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'hare',
+              'ram',
+              'hawk',
+              'goat',
+              'tortoise',
+              'rooster'
+            ],
+            plants: [
+              'crocus',
+              'strawberry-tree'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hera
+          name: 'Hera',
+          titles: [
+            'Queen of the Gods',
+            'Goddess of Kings and Empires',
+            'Goddess of Marriage',
+            'Whose Hand is Above',
+            'Of the Flowers'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
+          portfolios: [
+            'marriage',
+            'women',
+            'childbirth',
+            'family',
+            'sky',
+            'stars of heaven'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'order',
+            'trickery',
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 20
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'heifer',
+              'lion',
+              'cuckoo',
+              'peacock',
+              'panther'
+            ],
+            plants: [
+              'pomegranate',
+              'lily',
+              'willow'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Ares
+          name: 'string',
+          titles: ['string'],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hestia
+          name: 'string',
+          titles: ['string'],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'life',
+            'light',
+            'peace'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hephaestus
+          name: 'string',
+          titles: ['string'],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'none',
+          race: 'human', 
+          domains: [
+            'knowledge',
+            'forge'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Persephone
+          name: 'string',
+          titles: ['string'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'none',
+          race: 'human', 
+          domains: [
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hecate
+          name: 'string',
+          titles: ['string'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'none',
+          race: 'human', 
+          domains: [
+            'arcana',
+            'knowledge',
+            'trickery'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Nike
+          name: 'string',
+          titles: ['string'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['string'],
+          gender: 'none',
+          race: 'human', 
+          domains: [
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          manifestations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
       ]
     }
   }
