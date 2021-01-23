@@ -87,6 +87,9 @@ export * from './npc-generation/setAge'
 export * from './npc-generation/setRace'
 export * from './npc-generation/npcFinances'
 
+export * from './religion/createTownReligion'
+export * from './religion/religion'
+
 export * from './src/articles'
 export * from './src/books'
 export * from './src/calcPercentage'

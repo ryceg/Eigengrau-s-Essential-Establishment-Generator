@@ -1,5 +1,6 @@
 import { Town } from 'lib/town/_common'
 import { PantheonTypes } from './religion'
+// import { random } from '../src/random'
 
 export const createTownReligion = (town: Town, pantheon: PantheonTypes, god: string) => {
   if (!pantheon) pantheon = 'greek'
@@ -7,5 +8,5 @@ export const createTownReligion = (town: Town, pantheon: PantheonTypes, god: str
 }
 
 // const pickMajorGod = (town: Town, pantheon: PantheonTypes): string => {
-//   return lib.religion
+//   return random(lib.religion.pantheon[pantheon].gods).name
 // }
