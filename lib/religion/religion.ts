@@ -88,7 +88,7 @@ export interface Deity {
   /** Trying to make rank more granular is just asking for trouble.
    * @default 'lesser deity'
   */
-  rank: 'leader' | 'greater deity' | 'intermediate deity' | 'lesser deity' | 'demigod' | 'saint'
+  rank: 'leader' | 'greater deity' | 'intermediate deity' | 'lesser deity' | 'immortal' | 'demigod' | 'saint'
   /** Description of the deity overall. If omitted, description will be generated from the rest of the included data. */
   description?: string
   /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
@@ -145,15 +145,15 @@ export interface Deity {
   // FIXME can't
   // personality: Record<PartialVirtues, number>
   personality: Record<string, number>
-  /** Manifesting an avatar can be energy intensive; deities that wish to announce their presence may sometimes do so through a more economic way, by means of a supernatural event, such as an item glowing a specific colour, a duck appearing out of nowhere, etc. */
-  manifestations: {
+  /** Things that the god are associated with, e.g. Sacred plants and animals. */
+  associations: {
     /** A deity can have multiple different avatars, some more rare than others. */
     avatars: Avatar[]
     animals: string[]
     plants: string[]
     monsters: string[]
-    gems: string[]
-    colours: string[]
+    gems?: string[]
+    colours?: string[]
     miscellaneous: string[]
   }
   beliefs: string
@@ -259,7 +259,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -336,7 +336,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -424,7 +424,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 20
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -522,7 +522,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 100
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -622,7 +622,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 0
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -676,12 +676,14 @@ export const religion: ReligionData = {
             'healing', 
             'archery',
             'plague',
-            'disease'
+            'disease',
+            'sudden death and diseases of boys'
           ],
           gender: 'man',
           race: 'human', 
           domains: [
             'light',
+            'knowledge',
             'life'
           ],
           channelDivinity: [],
@@ -711,7 +713,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -812,7 +814,7 @@ export const religion: ReligionData = {
             vengeful: 80,
             lustful: 0
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -928,7 +930,7 @@ export const religion: ReligionData = {
             //trusting: 'suspicious',
             //valorous: 'cowardly'
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -941,6 +943,8 @@ export const religion: ReligionData = {
             animals: [
               'bull',
               'panther',
+              'lion',
+              'leopard',
               'goat',
               'serpent',
               'donkey'
@@ -949,6 +953,8 @@ export const religion: ReligionData = {
               'ivy',
               'grapevine',
               'bindweed',
+              'cinnamon',
+              'silver fir',
               'pine tree'
             ],
             monsters: ['satyrs'],
@@ -973,8 +979,6 @@ export const religion: ReligionData = {
             'Great Goddess',
             'Of the Mysteries',
             'Lovely Haired',
-            'Knowing One',
-            'Exacter of Justice'
           ],
           rank: 'greater deity',
           description: 'string',
@@ -1021,7 +1025,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1033,10 +1037,14 @@ export const religion: ReligionData = {
             ],
             animals: [
               'snake',
-              'pig'
+              'pig',
+              'gecko',
+              'turtle-dove',
+              'crane'
             ],
             plants: [
               'wheat',
+              'barley',
               'mint',
               'poppy'
             ],
@@ -1145,7 +1153,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1189,6 +1197,7 @@ export const religion: ReligionData = {
           appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
           portfolios: [
             'marriage',
+            'air',
             'women',
             'childbirth',
             'family',
@@ -1229,7 +1238,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 20
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1260,12 +1269,26 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Ares
-          name: 'string',
-          titles: ['string'],
+          name: 'Ares',
+          titles: [
+            'Who rallies men',
+            'Destroyer of Men',
+            'Terrible',
+            'Warlike',
+            'Of the Golden Helm'
+          ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
+          portfolios: [
+            'war',
+            'battlelust',
+            'courage',
+            'civil order',
+            'brutality',
+            'violence',
+            'rage',
+          ],
           gender: 'man',
           race: 'human', 
           domains: [
@@ -1290,7 +1313,7 @@ export const religion: ReligionData = {
             description: 'string',
             favouredWeapon: 'string',
             holyDays: {
-              earth: ['string']
+              earth: ['Tuesday']
             }
           },
           personality: {
@@ -1298,7 +1321,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1309,10 +1332,15 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'serpent',
+              'hound',
+              'boar',
+              'vulture',
+              'eagle-owl',
+              'woodpecker'
             ],
             plants: [
-              'string'
+              ''
             ],
             monsters: [],
             gems: [],
@@ -1323,12 +1351,31 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Hestia
-          name: 'string',
-          titles: ['string'],
+          name: 'Hestia',
+          aliases: ['Vesta'],
+          titles: [
+            'Daughter of lovely-haired Rhea',
+            'Daughter of Cronos',
+            'Rich in Blessings',
+            'Beloved',
+          ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
+          portfolios: [
+            'fire',
+            'family hearth',
+            'civic hearth',
+            'home',
+            'cooking',
+            'the sacrificial flame',
+            'sacrifices',
+            'sacred flame',
+            'domesticity',
+            'family',
+            'virginity',
+            'the state'
+          ],
           gender: 'woman',
           race: 'human', 
           domains: [
@@ -1361,9 +1408,9 @@ export const religion: ReligionData = {
           personality: {
             just: 50,
             vengeful: 85,
-            lustful: 80
+            lustful: 0
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1374,27 +1421,46 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'pig'
             ],
             plants: [
-              'string'
+              'chaste-tree'
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: ['green'],
             miscellaneous: []
           },
           beliefs: 'string',
           heresies: 'string'
         },
         { //Hephaestus
-          name: 'string',
-          titles: ['string'],
+          name: 'Hephaestus',
+          titles: [
+            'Glorius Craftsman',
+            'Famed Craftsman',
+            'Of many Crafts',
+            'Crooked-Foot',
+            'Of Bronze'
+          ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
-          gender: 'none',
+          portfolios: [
+            'fire',
+            'blacksmiths',
+            'craftsmen',
+            'metalworking',
+            'forges',
+            'stone masonry',
+            'scultpure',
+            'technology',
+            'artisans',
+            'carpenters',
+            'metallurgy',
+            'volcanoes'
+          ],
+          gender: 'man',
           race: 'human', 
           domains: [
             'knowledge',
@@ -1402,10 +1468,10 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: 'Hammer and Tongs',
           combat: {
             description: 'string',
-            weapon: 'string',
+            weapon: 'hammer',
             tactics: 'string'
           },
           possessions: [
@@ -1427,7 +1493,7 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1438,10 +1504,10 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'donkey'
             ],
             plants: [
-              'string'
+              ''
             ],
             monsters: [],
             gems: [],
@@ -1452,16 +1518,35 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Persephone
-          name: 'string',
-          titles: ['string'],
-          rank: 'lesser deity',
+          name: 'Persephone',
+          aliases: ['Kore'],
+          equivalent: ['Libera', 'Proserpina'],
+          titles: [
+            'Queen of the Underworld',
+            'Knowing One',
+            'Exacter of Justice',
+            'Of the Earth',
+            'Bringer of Fruit'
+          ],
+          rank: 'intermediate deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
+          portfolios: [
+            'spring',
+            'flowers',
+            'death',
+            'life',
+            'vegetation',
+            'fertility of plants',
+            'the Eleusinian Mysteries',
+            'the blessed afterlife'
+          ],
           gender: 'none',
           race: 'human', 
           domains: [
-            'life'
+            'life',
+            'grave',
+            'death'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -1490,7 +1575,236 @@ export const religion: ReligionData = {
             vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'deer'
+            ],
+            plants: [
+              'pomegranate',
+              'wheat',
+              'asphodel',
+              'flowers'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hecate
+          name: 'Hecate',
+          titles: [
+            'Worker from Afar',
+            'Of the Underworld',
+            'Nurse of Children',
+            'Who Attends',
+            'Leader of the Dogs',
+            'Three-bodied'
+          ],
+          rank: 'intermediate deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'magic',
+            'night',
+            'ghosts',
+            'necromancy',
+            'boundaries',
+            'crossroads',
+            'herbs',
+            'poisonous plants'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'arcana',
+            'knowledge',
+            'trickery',
+            'twilight',
+            'death',
+            'nature'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 20
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'dogs',
+              'red mullet',
+              'serpent',
+              'polecat',
+              'frog',
+              'cow',
+              'horse',
+              'lion'
+            ],
+            plants: [
+              'yew',
+              'oak',
+              'garlic',
+              'cypress',
+              'aconite',
+              'belladonna',
+              'dittany',
+              'mandrake'
+            ],
+            monsters: ['ghosts', 'Lampades'],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Nike
+          name: 'string',
+          titles: ['Goddess of Victory', 'The Winged Goddess'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['victory', 'speed', 'strength'],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'war',
+            'peace'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'Winged Woman',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 20
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'
+            ],
+            plants: [
+              'palm tree',
+              'bay tree'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Tyche
+          name: 'Tyche',
+          titles: ['Godess of Fortune and Chance'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: ['luck', 'chance', 'fate', 'providence', 'natural disasters'],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'trickery',
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 20
+          },
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1514,18 +1828,104 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hecate
-          name: 'string',
-          titles: ['string'],
+        { //Hebe
+          name: 'Hebe',
+          titles: ['Goddess of Eternal Youth', 
+          'Daughter of Zeus', 
+          'Wife of Hercules'
+        ],
           rank: 'lesser deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
-          gender: 'none',
+          portfolios: [
+            'youth', 
+            'forgiveness', 
+            'mercy', 
+            'brides'
+          ],
+          gender: 'woman',
           race: 'human', 
           domains: [
-            'arcana',
-            'knowledge',
+            'life',
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['June']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'hen',
+              'eagle'
+            ],
+            plants: [
+              'ivy',
+              'lettuce'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string',
+          blessings: ['Restored Youth']
+        },
+        { //Pan
+          name: 'Pan',
+          titles: [
+            'The God of the Wild', 
+            'Of the Pastures',
+            'Terrifying One',
+            'Of the Hunt'
+          ],
+          rank: 'intermediate deity',
+          description: 'string',
+          appearance: 'A Satyr holding a set of Pan-pipes',
+          portfolios: [
+            'the wild',
+            'nature',
+            'shephard',
+            'flocks',
+            'sexuality',
+            'hunters',
+            'panic'
+          ],
+          gender: 'man',
+          race: 'satyr', 
+          domains: [
+            'nature',
             'trickery'
           ],
           channelDivinity: [],
@@ -1553,9 +1953,9 @@ export const religion: ReligionData = {
           personality: {
             just: 50,
             vengeful: 85,
-            lustful: 80
+            lustful: 100
           },
-          manifestations: {
+          associations: {
             avatars: [
               {
                 name: 'string',
@@ -1566,10 +1966,13 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'goat',
+              'tortoise'
             ],
             plants: [
-              'string'
+              'corsican pine',
+              'water-reed',
+              'beech trees'
             ],
             monsters: [],
             gems: [],
@@ -1579,17 +1982,97 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Nike
-          name: 'string',
-          titles: ['string'],
+        { //Aslepius
+          name: 'Aslepius',
+          titles: [
+            'God of Healing',
+            'Lover of the People',
+            
+          ],
           rank: 'lesser deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
-          gender: 'none',
-          race: 'human', 
+          portfolios: [
+            'medicine',
+            'healing',
+            'rejuvination',
+            'doctors',
+          ],
+          gender: 'man',
+          race: 'man', 
           domains: [
-            'war'
+            'life',
+            'knowledge'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'Serpent-entwined staff',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'snake'
+            ],
+            plants: [
+              'milkweed'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Chiron
+          name: 'Chrion',
+          titles: [
+            'Wisest of the Centaurs',
+            'The Teacher'
+          ],
+          rank: 'immortal',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'teacher',
+            'surgeons'
+          ],
+          gender: 'man',
+          race: 'centaur', 
+          domains: [
+            'knowledge',
+            'peace'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -1616,9 +2099,149 @@ export const religion: ReligionData = {
           personality: {
             just: 50,
             vengeful: 85,
+            lustful: 20
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              ''
+            ],
+            plants: [
+              ''
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hercules
+          name: 'Heracles',
+          aliases: ['Hercules'],
+          titles: ['Divine Protector of Mankind'],
+          rank: 'lesser deity',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'mankind',
+            'gymnasium',
+            'strength',
+            'heroes'
+          ],
+          gender: 'man',
+          race: 'human', 
+          domains: [
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'olive-wood club and lion skin cape',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
             lustful: 80
           },
-          manifestations: {
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'lion'
+            ],
+            plants: [
+              'olive tree'
+            ],
+            monsters: [],
+            gems: [],
+            colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Ariadne
+          name: 'Ariadne',
+          equivalent: ['Libera', 'Proserpina'],
+          titles: ['Wife of Dionysus'],
+          rank: 'saint',
+          description: 'string',
+          appearance: 'string',
+          portfolios: [
+            'mazes',
+            'fertility',
+            'wine',
+            'seasonal agriculture'
+          ],
+          gender: 'woman',
+          race: 'human', 
+          domains: [
+            'trickery',
+            'nature',
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: 'string',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'The Thread of Ariadne',
+              wordNoun: 'thread',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'string',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 50,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
             avatars: [
               {
                 name: 'string',
