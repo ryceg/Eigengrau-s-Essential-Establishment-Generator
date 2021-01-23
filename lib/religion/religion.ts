@@ -1,4 +1,7 @@
-import { RaceName, GenderName, AgeName, NPC } from '..'
+import { ProfessionNames } from 'lib/npc-generation/professions'
+import { EconomicIdeology, PoliticalIdeology } from 'lib/town/townData'
+import { PoliticalSource, Town } from 'lib/town/_common'
+import { RaceName, GenderName, AgeName, NPC, ThresholdTable } from '..'
 import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
 
 interface Followers {
@@ -67,111 +70,139 @@ export interface Pantheon {
   gods: Deity[]
 }
 
-export interface Deity {
-  /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
-  name: string
-  /**
-   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
-   * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
-   * @example ['El', 'Anu', 'An', 'Thoru-el']
-    */
-  aliases?: string[]
-    /** While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
-     * @example Aphrodite: ['Ishtar', 'Astarte']
-     */
-  equivalent?: string[]
-    /** All of the titles that a god might have. Will typically be used as a rider after the name.
-   * @example ['Lord of the Skies', 'Ruler of All That He Sees']
-   * @usage 'Zeus, Lord of the Skies'
-   */
-  titles: string[]
-  /** Trying to make rank more granular is just asking for trouble.
-   * @default 'lesser deity'
-  */
-  rank: 'leader' | 'greater deity' | 'intermediate deity' | 'lesser deity' | 'immortal' | 'demigod' | 'saint'
-  /** Description of the deity overall. If omitted, description will be generated from the rest of the included data. */
-  description?: string
-  /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
-  appearance: string
-  /** The aspects that the deity manages.
-   * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
-   * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
-   */
-  portfolios: string[]
-  /** To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. */
-  gender: GenderName | 'none'
-  /** The race the deity appears as. */
-  race: RaceName | string
-  /** For spirits and other things that shouldn't be called gods, goddesses, or deities.
-   * @default 'god'
-  */
-  wordNoun?: string
-  /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
-  domains: ClericDomains[]
-  /** For channel divinity spells and features. */
-  channelDivinity: string[]
-  /** Alignments, for those that are still stuck on 2nd Edition. */
-  alignment: AlignmentsAbbreviated
-  /** The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
-   * @example Zeus: 'fist full of lightning bolts'
-  */
-  symbol: string | string[]
-  combat: {
-    /** For when you want to describe how your deity fights in battle. */
-    description: string
-    /** Their weapon of choice
-     * @example Zeus: 'lightning'
-     * @usage 'In combat, Zeus uses `lightning`.
-     */
-    weapon: string
-    /** For descriptions about combat.
-     * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
-     */
-    tactics: string
-  }
-  /** For things that the deity owns.
-   * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
-   */
-  possessions: Possession[]
-  followers: Followers
-  /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
-   * Expressed as a 0-100.
-   * @example ```Zeus: {
-   *   just: 70,
-   *   vengeful: 85,
-   *   lust: 80
-   * }```
-   */
-  // FIXME can't
-  // personality: Record<PartialVirtues, number>
-  personality: Record<string, number>
-  /** Things that the god are associated with, e.g. Sacred plants and animals. */
-  associations: {
-    /** A deity can have multiple different avatars, some more rare than others. */
-    avatars: Avatar[]
-    animals: string[]
-    plants: string[]
-    monsters: string[]
-    gems?: string[]
-    colours?: string[]
-    miscellaneous: string[]
-  }
-  beliefs: string
-  heresies: string
-
-  /** Some suggested blessings from the god
-   * @example ```Aphrodite: [
-   * 'beauty',
-   * ]```
-   */
-  blessings?: string[]
-    /** Some suggested curses from the god
-   * @example ```Aphrodite: [
-   * 'ugliness'
-   * ]```
-   */
-  curses?: string[]
+type ProbabilityFunction = {
+  // eslint-disable-next-line no-unused-vars
+  [key in string]: (town: Town, npc: NPC) => number
 }
+
+export interface Deity {
+   /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
+   name: string
+   /** Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level. */
+   probabilityWeightings?: {
+     economicIdeology: Record<Partial<EconomicIdeology>, number>
+     politicalIdeology: Record<Partial<PoliticalIdeology>, number>
+     politicalSource: Record<Partial<PoliticalSource>, number>
+     rolls: ProbabilityFunction
+     npc: {
+       /** Generic catch-all function for NPCs trying to pick a god to follow. */
+       function: (town: Town, npc: NPC) => void
+       /** If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity. */
+       profession: {
+         // eslint-disable-next-line no-unused-vars
+         [key in ProfessionNames]: number
+       }
+     }
+   }
+   /**
+    * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
+    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
+    * @example ['El', 'Anu', 'An', 'Thoru-el']
+    */
+   aliases?: string[]
+   /** While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
+    * @example Aphrodite: ['Ishtar', 'Astarte']
+    */
+   equivalent?: string[]
+   /** All of the titles that a god might have. Will typically be used as a rider after the name.
+    * @example ['Lord of the Skies', 'Ruler of All That He Sees']
+    * @usage 'Zeus, Lord of the Skies'
+    */
+   titles: string[]
+   /** Trying to make rank more granular is just asking for trouble.
+    * @default 'lesser deity'
+    */
+   rank:
+     | 'leader'
+     | 'greater deity'
+     | 'intermediate deity'
+     | 'lesser deity'
+     | 'immortal'
+     | 'demigod'
+     | 'saint'
+   /** Description of the deity overall. If omitted, description will be generated from the rest of the included data. */
+   description?: string
+   /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
+   appearance: string
+   /** The aspects that the deity manages.
+    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
+    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
+    */
+   portfolios: string[]
+   /** To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. */
+   gender: GenderName | 'none'
+   /** The race the deity appears as. */
+   race: RaceName | string
+   /** For spirits and other things that shouldn't be called gods, goddesses, or deities.
+    * @default 'god'
+    */
+   wordNoun?: string
+   /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
+   domains: ClericDomains[]
+   /** For channel divinity spells and features. */
+   channelDivinity: string[]
+   /** Alignments, for those that are still stuck on 2nd Edition. */
+   alignment: AlignmentsAbbreviated
+   /** The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
+    * @example Zeus: 'fist full of lightning bolts'
+    */
+   symbol: string | string[]
+   combat: {
+     /** For when you want to describe how your deity fights in battle. */
+     description: string
+     /** Their weapon of choice
+      * @example Zeus: 'lightning'
+      * @usage 'In combat, Zeus uses `lightning`.
+      */
+     weapon: string
+     /** For descriptions about combat.
+      * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
+      */
+     tactics: string
+   }
+   /** For things that the deity owns.
+    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
+    */
+   possessions: Possession[]
+   followers: Followers
+   /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
+    * Expressed as a 0-100.
+    * @example ```Zeus: {
+    *   just: 70,
+    *   vengeful: 85,
+    *   lust: 80
+    * }```
+    */
+   // FIXME can't
+   // personality: Record<PartialVirtues, number>
+   personality: Record<string, number>
+   /** Things that the god are associated with, e.g. Sacred plants and animals. */
+   associations: {
+     /** A deity can have multiple different avatars, some more rare than others. */
+     avatars: Avatar[]
+     animals: string[]
+     plants: string[]
+     monsters: string[]
+     gems?: string[]
+     colours?: string[]
+     miscellaneous: string[]
+   }
+   beliefs: string
+   heresies: string
+
+   /** Some suggested blessings from the god
+    * @example ```Aphrodite: [
+    * 'beauty',
+    * ]```
+    */
+   blessings?: string[]
+   /** Some suggested curses from the god
+    * @example ```Aphrodite: [
+    * 'ugliness'
+    * ]```
+    */
+   curses?: string[]
+ }
 
 interface Possession {
   name: string
@@ -189,11 +220,47 @@ interface Avatar {
 
 export type PantheonTypes = 'greek'
 
+export type ReligionStrength =
+'fanatical true believer' |
+'unshakingly devoted believer' |
+'conspicuously faithful believer' |
+'outspoken believer' |
+'quiet true believer' |
+'casual observer' |
+'open-minded seeker' |
+'cautious listener' |
+'critical student' |
+'outspoken cynic' |
+'broken heretic'
+
 interface ReligionData {
+  strength: ThresholdTable<ReligionStrength>
   pantheon: Record<PantheonTypes, Pantheon>
+  abstractGod: string[]
+  saint: string[]
 }
 
 export const religion: ReligionData = {
+  strength: [
+    // npc.name is a _______
+    [100, 'fanatical true believer'],
+    [90, 'unshakingly devoted believer'],
+    [80, 'conspicuously faithful believer'],
+    [70, 'outspoken believer'],
+    [60, 'quiet true believer'],
+    [50, 'casual observer'],
+    [40, 'open-minded seeker'],
+    [30, 'cautious listener'],
+    [20, 'critical student'],
+    [10, 'outspoken cynic'],
+    [0, 'broken heretic']
+  ],
+  abstractGod: [
+    'Our Lady', 'Our Mother', 'the Ancient Flame', 'the Ancient Oak', 'the Autumn Singer', 'the Bat', 'the Battle-Lord', 'the Bear', 'the Beast', 'the Beast-Tamer', 'the Beast-Wife', 'the Beauty Queen', 'the Blood-Bringer', 'the Burning Man', 'the Crone', 'the Cruel King', 'the Dark Lady', 'the Dark Lord', 'the Dark Prophet', 'the Death Harbinger', 'the Doom Harbinger', 'the Doom-Maker', 'the Eagle', 'the Earth-Mother', 'the Earth-Queen', 'the Enemy', 'the Eternal Light', 'the Eternal Sage', 'the Fair Maiden', 'the Fatespinner', 'the Felled Tree', 'the Fire Dragon', 'the Forest Keeper', 'the Frog', 'the Gloom-Spider', 'the Goddess', 'the Grain-Grower', 'the Great Huntress', 'the Great Protector', 'the Great Smith', 'the Horned One', 'the Judge', 'the King Beneath the Waves', 'the Lawgiver', 'the Life-Keeper', 'the Life-Tree', "the Light's Son", 'the Magic-Maid', 'the Messenger', 'the Mighty Hunter', 'the Mighty One', 'the Mighty Warrior', 'the Mischief-Maker', 'the Moon-Witch', 'the Mountain Forger', 'the Night Queen', 'the Oathkeeper', 'the Oracle', 'the Prophet', 'the Sacred Grove', 'the Savior', 'the Scorpion', 'the Sea Dragon', 'the Sea God', 'the Sea Queen', 'the Seductress', 'the Shadow', 'the Shadowkeeper', 'the Shadow-Serpent', 'the Shield-Maiden', 'the Ship-Taker', 'the Sky Father', 'the Soothsayer', 'the Soul-Collector', 'the Soul-Eater', 'the Spider', 'the Spring Maiden', 'the Starfinder', 'the Stone Dragon', 'the Storm Dragon', 'the Storm King', 'the Storm-Bringer', 'the Summer Mistress', 'the Sunkeeper', 'the Sword-Prince', 'the Thief', 'the Tormenter', 'the Tree Spirit', 'the Undying Light', 'the Unnamed One', 'the Unyielding Tyrant', 'the Voice', 'the Wandering Rogue', 'the War-Maker', 'the Watcher', 'the Watchful Eye', 'the Wind King', 'the Winemaker', 'the Winter Lady', 'the Wolf'
+  ],
+  saint: [
+    'Almar the Holy', 'Amaya the Seeress', 'Bahak the Preacher', 'Bahruz the Prophet', 'Lira the Flamekeeper', 'Mozar the Conqueror', 'Prince Tarunal', 'Queen Kalissa', 'Rahal the Sunsoul', 'Raham the Lightbringer', 'St. Aemilia', 'St. Albus', 'St. Anglos', 'St. Antonia', 'St. Antonus', 'St. Austyn', 'St. Bardo', 'St. Beatrix', 'St. Berta', 'St. Bettius', 'St. Bryenn', 'St. Buttercup', 'St. Carolo', 'St. Cedrick', 'St. Cordelia', 'St. Cowhan', 'St. Cumberbund', 'St. Dorys', 'St. Dreddos', 'St. Dwayn', 'St. Edwynna', 'St. Elayne', 'St. Falstyus', 'St. Farcas', 'St. Florenzo', 'St. Gabrella', 'St. Gaiorgus', 'St. Goodkynd', 'St. Hal', 'St. Halcincas', 'St. Haroldus', 'St. Hemingwar', 'St. Heraclora', 'St. Hermioninny', 'St. Hieronymus', 'St. Inigo', 'St. Jordyn', 'St. Katrynn', 'St. Lannus', 'St. Leo', 'St. Leryo', 'St. Londyn', 'St. Magio', 'St. Marius', 'St. Markuz', 'St. Martyn', 'St. Matromus', 'St. Morrsona', 'St. Morwayne', 'St. Murkel', 'St. Mychel', 'St. Nyneva', 'St. Paolo', 'St. Parrinus', 'St. Perseon', 'St. Petyr', 'St. Podryck', 'St. Polly', 'St. Pratchytt', 'St. Rawynn', 'St. Regus', 'St. Ricarddos', 'St. Roberts', 'St. Robinus', 'St. Rowhan', 'St. Rowlynna', 'St. Sansima', 'St. Sessimus', 'St. Severus', 'St. Stynebick', 'St. Symeon', 'St. Theseon', 'St. Thoryn', 'St. Tolkkyn', 'St. Twayn', 'St. Xavos', 'the Deliverer', 'the Doomcaller', 'the Doomsayer', 'the Lawgiver', 'the Oracle', 'the Prophet', 'the Savior', 'the Seeker', 'the Shadowseer', 'the Soothsayer', 'the Starwatcher', 'the Truthsayer', 'the Voice', 'Zefar the Sorcer'
+  ],
   pantheon: {
     greek: {
       name: 'greek',
