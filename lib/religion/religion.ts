@@ -158,6 +158,19 @@ export interface Deity {
   }
   beliefs: string
   heresies: string
+
+  /**Some suggested blessings from the god
+   * @example ```Aphrodite: [
+   * 'beauty',
+   * ]```
+   */
+  blessings?: string[]
+    /**Some suggested curses from the god
+   * @example ```Aphrodite: [
+   * 'ugliness'
+   * ]```
+   */
+  curses?: string[]
 }
 
 interface Possession {
@@ -341,6 +354,7 @@ export const religion: ReligionData = {
             ],
             plants: [
               'pine tree',
+              'seaweed',
               'wild celery'
             ],
             monsters: ['hippocamp'],
@@ -464,6 +478,7 @@ export const religion: ReligionData = {
           appearance: 'string',
           portfolios: [
             'love', 
+            'lovers',
             'lust',
             'sexuality', 
             'beauty', 
@@ -537,7 +552,13 @@ export const religion: ReligionData = {
             miscellaneous: ['conch shells']
           },
           beliefs: 'string',
-          heresies: 'string'
+          heresies: 'string',
+          blessings: [
+            'beauty'
+          ],
+          curses: [
+            'ugliness'
+          ]
         },
         { //Artemis
           name: 'Artemis',
@@ -940,7 +961,10 @@ export const religion: ReligionData = {
         },
         { //Demeter
           name: 'Demeter',
-          aliases: ['Ceres', 'Deo'],
+          aliases: [
+            'Ceres', 
+            'Deo'
+          ],
           titles: [
             'Of the Grain',
             'Law-Bringer',
@@ -1025,37 +1049,95 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Hermes
-          name: 'string',
-          titles: ['string'],
+          name: 'Hermes',
+          aliases: ['Mercury'],
+          titles: [
+            'Keeper of the Flocks',
+            'Of the Market-Place',
+            'Of the Games',
+            'Translator',
+            'Slayer of Argos',
+            'Immortal Guide',
+            'Messenger of the Blessed',
+            'Messenger of the Gods',
+            'Of the Golden Wand',
+            'Full of Various Wiles',
+            'Giver of Good Things',
+            'Of Searchers',
+            'Guide of the Dead',
+            'Bringer of Peace',
+            'God of Merchants'
+          ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
-          portfolios: ['string'],
+          portfolios: [
+            'herds and flocks', 
+            'boundaries',
+            'animal husbandry',
+            'travellers',
+            'hospitality', 
+            'roads',
+            'trade',
+            'thievery',
+            'cunning',
+            'deception',
+            'persuasion',
+            'heralds',
+            'messangers',
+            'diplomacy',
+            'language',
+            'writing',
+            'the home',
+            'luck',
+            'athletic contests',
+            'gymnasiums',
+            'astronomy',
+            'astrology',
+            'birds of omen',
+            'guiding the dead', //also known as Psychopomp
+            'sleep',
+            'rustic divination',
+            'rustic music',
+            'rustic fables',
+          ],
           gender: 'man',
           race: 'human', 
           domains: [
-            'trickery'
+            'trickery',
+            'peace',
+            'grave'
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: 'Caduceus ',
           combat: {
             description: 'string',
-            weapon: 'string',
+            weapon: 'sword',
             tactics: 'string'
           },
           possessions: [
             {
-              name: 'string',
+              name: 'Adamantine Blade',
               wordNoun: 'string',
               powers: 'string'
-            }
+            },
+            {
+              name: 'Talaria',
+              wordNoun: 'Winged boots',
+              powers: 'string'
+            },
+            {
+              name: 'Winged helm',
+              wordNoun: 'string',
+              powers: 'string' 
+            },
           ],
           followers: {
             description: 'string',
             favouredWeapon: 'string',
             holyDays: {
-              earth: ['string']
+              earth: ['Wednesday']
             }
           },
           personality: {
@@ -1074,10 +1156,16 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'hare',
+              'ram',
+              'hawk',
+              'goat',
+              'tortoise',
+              'rooster'
             ],
             plants: [
-              'string'
+              'crocus',
+              'strawberry-tree'
             ],
             monsters: [],
             gems: [],
@@ -1088,17 +1176,31 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Hera
-          name: 'string',
-          titles: ['string'],
+          name: 'Hera',
+          titles: [
+            'Queen of the Gods',
+            'Goddess of Kings and Empires',
+            'Goddess of Marriage',
+            'Whose Hand is Above',
+            'Of the Flowers'
+          ],
           rank: 'greater deity',
           description: 'string',
-          appearance: 'string',
-          portfolios: ['string'],
+          appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
+          portfolios: [
+            'marriage',
+            'women',
+            'childbirth',
+            'family',
+            'sky',
+            'stars of heaven'
+          ],
           gender: 'woman',
           race: 'human', 
           domains: [
             'order',
-            'trickery'
+            'trickery',
+            'life'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -1125,7 +1227,7 @@ export const religion: ReligionData = {
           personality: {
             just: 50,
             vengeful: 85,
-            lustful: 80
+            lustful: 20
           },
           manifestations: {
             avatars: [
@@ -1138,10 +1240,16 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'
+              'heifer',
+              'lion',
+              'cuckoo',
+              'peacock',
+              'panther'
             ],
             plants: [
-              'string'
+              'pomegranate',
+              'lily',
+              'willow'
             ],
             monsters: [],
             gems: [],
