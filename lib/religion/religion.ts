@@ -187,8 +187,10 @@ interface Avatar {
   powers: string
 }
 
+export type PantheonTypes = 'greek'
+
 interface ReligionData {
-  pantheon: Record<string, Pantheon>
+  pantheon: Record<PantheonTypes, Pantheon>
 }
 
 export const religion: ReligionData = {

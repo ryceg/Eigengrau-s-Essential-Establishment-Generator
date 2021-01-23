@@ -17,7 +17,7 @@ export type ReligionStrength =
 'outspoken cynic' |
 'broken heretic'
 
-export const religion = {
+export const religionData = {
   strength: [
     // npc.name is a _______
     [100, 'fanatical true believer'],
@@ -246,13 +246,13 @@ export function getDeity (town: Town, npc: NPC) {
   if (npc.roll.conformity > town.roll.religiosity) {
     return town.religion.deity
   } else {
-    const godPool = [religion.abstractGod, religion.saint]
+    const godPool = [religionData.abstractGod, religionData.saint]
     return random(godPool[random(0, 1)])
   }
 }
 
 function getReligiosity (religionStrength: ReligionStrength): number {
-  for (const [threshold, strength] of religion.strength) {
+  for (const [threshold, strength] of religionData.strength) {
     if (strength === religionStrength) {
       return threshold + random(1, 5)
     }
@@ -261,7 +261,7 @@ function getReligiosity (religionStrength: ReligionStrength): number {
 }
 
 function getReligionStrength (religiosityRoll: number): ReligionStrength {
-  for (const [threshold, strength] of religion.strength) {
+  for (const [threshold, strength] of religionData.strength) {
     if (threshold <= religiosityRoll) {
       return strength
     }

@@ -5,17 +5,15 @@
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
   <</button>>
 <<print lib.firstCharacter($currentPassage.name)>>, <<print $currentPassage.titles.random()>>, is the $currentPassage.wordNoun of $currentPassage.portfolios. <<print $currentPassage.hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>. 
-$currentPassage.description $currentPassage.appearance
+<<idp $currentPassage.description>> <<idp $currentPassage.appearance>>
 <h2>History</h2>
 <h2>Beliefs and Heresies</h2>
-<h2>Combat</h2>
-$currentPassage.combat.description
-\$currentPassage.heshe uses $currentPassage.combat.weapon in combat. $currentPassage.combat.tactics
-<h2>Followers</h2>
-$currentPassage.followers.description
-\In combat, $currentPassage.hisher followers favour the $currentPassage.followers.favouredWeapon. Their holy days are $currentPassage.followers.holyDays.earth
-<h3>Excluded</h3>
-$currentPassage.followers.excluded.description
+<<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">>
+\<<idp $currentPassage.combat.weapon "$currentPassage.heshe uses $currentPassage.combat.weapon in combat.">> <<idp $currentPassage.combat.tactics>>
+<<idp $currentPassage.followers.description "<h2>Followers</h2>$currentPassage.followers.description">>
+\<<idp $currentPassage.followers.favouredWeapon "In combat, $currentPassage.hisher followers favour the $currentPassage.followers.favouredWeapon">>. <<idp $currentPassage.followers.holyDays.earth "Their holy days are $currentPassage.followers.holyDays.earth">>
+
+<<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <h2>Manifestations</h2>
 <table>
 <tr>
