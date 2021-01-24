@@ -1,7 +1,7 @@
 import { ProfessionNames } from 'lib/npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from 'lib/town/townData'
 import { PoliticalSource, Town } from 'lib/town/_common'
-import { RaceName, GenderName, AgeName, NPC, ThresholdTable } from '..'
+import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
 import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
 
 interface Followers {
@@ -85,9 +85,9 @@ export interface Deity {
    * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
    */
   probabilityWeightings?: {
-    economicIdeology: Record<Partial<EconomicIdeology>, number>
-    politicalIdeology: Record<Partial<PoliticalIdeology>, number>
-    politicalSource: Record<Partial<PoliticalSource>, number>
+    economicIdeology: PartialRecord<EconomicIdeology, number>
+    politicalIdeology: PartialRecord<PoliticalIdeology, number>
+    politicalSource: PartialRecord<PoliticalSource, number>
     rolls: Record<string, (town: Town, npc: NPC) => number>
     npc: {
       /**
@@ -197,7 +197,8 @@ export interface Deity {
   possessions: Possession[]
   followers: Followers
   /**
-   * If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
+   * If a deity particularly embodies a virtue or vice, it can be specified.
+   * Be sure to not specify the same pair (i.e. chaste/lust)
    * Expressed as a 0-100.
    * @example
    * Zeus: {
@@ -206,9 +207,7 @@ export interface Deity {
    *   lust: 80
    * }
    */
-  // FIXME can't
-  // personality: Record<PartialVirtues, number>
-  personality: Record<string, number>
+  personality: PartialRecord<VirtuesVices, number>
   /**
    * Things that the god are associated with, e.g. Sacred plants and animals.
    */
