@@ -70,6 +70,12 @@ export interface Pantheon {
 export interface Deity {
   /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
   name: string
+  /**Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important 
+   * @example ```Baldr: 'dead'```
+   * @example ```Kronos: 'imprisoned'```
+   * @example ```Pan: 'uncertain'```
+  */
+  status: 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
   /**
    * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`. 
    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
@@ -93,18 +99,24 @@ export interface Deity {
   description?: string
   /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
   appearance: string
-  /** The aspects that the deity manages.
+  /** The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
    */
   portfolios: string[]
   /** To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. */
-  gender: GenderName | 'none'
-  /** The race the deity appears as. */
-  race: RaceName | string
-  /** For spirits and other things that shouldn't be called gods, goddesses, or deities.
+  gender: GenderName | 'none' | 'shapeshifter'
+  /** What race the god actually is, E.g. Vanir, Aesir, Jotunn 
    * @default 'god'
   */
+  race : RaceName | string
+  /** The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank
+   * @default 'human'
+  */
+  shape: RaceName | string
+  /** For the Norse Aesir/Vanir split */
+  faction?: string
+  /** For spirits and other things that shouldn't be called gods, goddesses, or deities.  */
   wordNoun?: string
   /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
   domains: ClericDomains[]
@@ -133,6 +145,10 @@ export interface Deity {
    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
   possessions: Possession[]
+  /** Some gods had planes/domain which they ruled
+   * @example ```Odin: 'Valhalla'```
+    */
+  realm?: string
   followers: Followers
   /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
    * Expressed as a 0-100.
@@ -146,15 +162,16 @@ export interface Deity {
   // personality: Record<PartialVirtues, number>
   personality: Record<string, number>
   /** Things that the god are associated with, e.g. Sacred plants and animals. */
-  associations: {
+  associations?: {
     /** A deity can have multiple different avatars, some more rare than others. */
     avatars: Avatar[]
-    animals: string[]
-    plants: string[]
-    monsters: string[]
+    animals?: string[]
+    plants?: string[]
+    places?: string[]
+    monsters?: string[]
     gems?: string[]
     colours?: string[]
-    miscellaneous: string[]
+    miscellaneous?: string[]
   }
   beliefs: string
   heresies: string
@@ -206,6 +223,7 @@ export const religion: ReligionData = {
       gods: [
         { //Zeus
           name: 'Zeus',
+          status: 'alive',
           titles: [
             'God of the Sky', 
             'Ruler of the Gods', 
@@ -227,7 +245,8 @@ export const religion: ReligionData = {
             'guest-right'
           ],
           gender: 'man',
-          race: 'human',
+          shape: 'human',
+          race: 'god',
           domains: [
             'tempest',
             'order'
@@ -286,6 +305,7 @@ export const religion: ReligionData = {
         },
         { //Poseidon
           name: 'Poseidon',
+          status: 'alive',
           aliases: ['Neptune'],
           titles: [
             'God of the Sea and Earthquakes', 
@@ -305,7 +325,8 @@ export const religion: ReligionData = {
             'fresh water'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'tempest'
           ],
@@ -367,6 +388,7 @@ export const religion: ReligionData = {
         },
         { //Hades
           name: 'Hades',
+          status: 'alive',
           aliases: ['Pluto', 'Pluton', 'The Cthonic Zeus'],
           equivalent: ['Pluto'], //Pluto was originally a different god to Hades
           titles: [
@@ -392,7 +414,8 @@ export const religion: ReligionData = {
             'curses'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'death',
             'grave'
@@ -460,6 +483,7 @@ export const religion: ReligionData = {
         },
         { //Aphrodite
           name: 'Aphrodite',
+          status: 'alive',
           aliases: ['Venus'],
           equivalent: ['Ishtar', 'Astarte'],
           titles: [
@@ -488,7 +512,8 @@ export const religion: ReligionData = {
             'love poetry', 
             ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'life',
             'light',
@@ -562,6 +587,7 @@ export const religion: ReligionData = {
         },
         { //Artemis
           name: 'Artemis',
+          status: 'alive',
           aliases: ['Diana','Brauronia', 'Orthia'],
           equivalent: ['Selene', 'Britomartis', 'Dictynna', 'Eileithyial'],
           titles: [
@@ -589,7 +615,8 @@ export const religion: ReligionData = {
             'ritual purification'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'nature',
             'life',
@@ -659,6 +686,7 @@ export const religion: ReligionData = {
         },
         { //Apollo
           name: 'Apollo',
+          status: 'alive',
           aliases: ['Apollon'],
           titles: [
             'Of the Oracle', 
@@ -680,7 +708,8 @@ export const religion: ReligionData = {
             'sudden death and diseases of boys'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'light',
             'knowledge',
@@ -750,6 +779,7 @@ export const religion: ReligionData = {
         },
         { //Athena
           name: 'Athena',
+          status: 'alive',
           aliases: ['Minerva', 'Athene'],
           equivalent: ['Minerva'],
           titles: [
@@ -780,7 +810,8 @@ export const religion: ReligionData = {
             'knowledge'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'knowledge',
             'order',
@@ -842,6 +873,7 @@ export const religion: ReligionData = {
         },
         { //Dionysus
           name: 'Dionysus',
+          status: 'alive',
           aliases: ['Bacchus'],
           equivalent: ['Zagreus', 'Iacchus', 'Liber'],
           titles: [
@@ -886,7 +918,8 @@ export const religion: ReligionData = {
             'foreign gods'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'nature',
             'life',
@@ -967,6 +1000,7 @@ export const religion: ReligionData = {
         },
         { //Demeter
           name: 'Demeter',
+          status: 'alive',
           aliases: [
             'Ceres', 
             'Deo'
@@ -994,7 +1028,8 @@ export const religion: ReligionData = {
             'the afterlife'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'life'
           ],
@@ -1058,6 +1093,7 @@ export const religion: ReligionData = {
         },
         { //Hermes
           name: 'Hermes',
+          status: 'alive',
           aliases: ['Mercury'],
           titles: [
             'Keeper of the Flocks',
@@ -1110,7 +1146,8 @@ export const religion: ReligionData = {
             'rustic fables',
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'trickery',
             'peace',
@@ -1185,6 +1222,7 @@ export const religion: ReligionData = {
         },
         { //Hera
           name: 'Hera',
+          status: 'alive',
           titles: [
             'Queen of the Gods',
             'Goddess of Kings and Empires',
@@ -1205,7 +1243,8 @@ export const religion: ReligionData = {
             'stars of heaven'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'order',
             'trickery',
@@ -1270,6 +1309,7 @@ export const religion: ReligionData = {
         },
         { //Ares
           name: 'Ares',
+          status: 'alive',
           titles: [
             'Who rallies men',
             'Destroyer of Men',
@@ -1290,7 +1330,8 @@ export const religion: ReligionData = {
             'rage',
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'war'
           ],
@@ -1352,6 +1393,7 @@ export const religion: ReligionData = {
         },
         { //Hestia
           name: 'Hestia',
+          status: 'alive',
           aliases: ['Vesta'],
           titles: [
             'Daughter of lovely-haired Rhea',
@@ -1377,7 +1419,8 @@ export const religion: ReligionData = {
             'the state'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'life',
             'light',
@@ -1436,6 +1479,7 @@ export const religion: ReligionData = {
         },
         { //Hephaestus
           name: 'Hephaestus',
+          status: 'alive',
           titles: [
             'Glorius Craftsman',
             'Famed Craftsman',
@@ -1461,7 +1505,8 @@ export const religion: ReligionData = {
             'volcanoes'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'knowledge',
             'forge'
@@ -1519,6 +1564,7 @@ export const religion: ReligionData = {
         },
         { //Persephone
           name: 'Persephone',
+          status: 'alive',
           aliases: ['Kore'],
           equivalent: ['Libera', 'Proserpina'],
           titles: [
@@ -1542,7 +1588,8 @@ export const religion: ReligionData = {
             'the blessed afterlife'
           ],
           gender: 'none',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'life',
             'grave',
@@ -1604,6 +1651,7 @@ export const religion: ReligionData = {
         },
         { //Hecate
           name: 'Hecate',
+          status: 'alive',
           titles: [
             'Worker from Afar',
             'Of the Underworld',
@@ -1626,7 +1674,8 @@ export const religion: ReligionData = {
             'poisonous plants'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'arcana',
             'knowledge',
@@ -1701,14 +1750,16 @@ export const religion: ReligionData = {
           heresies: 'string'
         },
         { //Nike
-          name: 'string',
+          name: 'Nike',
+          status: 'alive',
           titles: ['Goddess of Victory', 'The Winged Goddess'],
           rank: 'lesser deity',
           description: 'string',
           appearance: 'string',
           portfolios: ['victory', 'speed', 'strength'],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'war',
             'peace'
@@ -1767,13 +1818,15 @@ export const religion: ReligionData = {
         },
         { //Tyche
           name: 'Tyche',
+          status: 'alive',
           titles: ['Godess of Fortune and Chance'],
           rank: 'lesser deity',
           description: 'string',
           appearance: 'string',
           portfolios: ['luck', 'chance', 'fate', 'providence', 'natural disasters'],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'trickery',
           ],
@@ -1830,6 +1883,7 @@ export const religion: ReligionData = {
         },
         { //Hebe
           name: 'Hebe',
+          status: 'alive',
           titles: ['Goddess of Eternal Youth', 
           'Daughter of Zeus', 
           'Wife of Hercules'
@@ -1844,7 +1898,8 @@ export const religion: ReligionData = {
             'brides'
           ],
           gender: 'woman',
-          race: 'human', 
+          shape: 'human',
+          race: 'god', 
           domains: [
             'life',
           ],
@@ -1904,6 +1959,7 @@ export const religion: ReligionData = {
         },
         { //Pan
           name: 'Pan',
+          status: 'uncertain',
           titles: [
             'The God of the Wild', 
             'Of the Pastures',
@@ -1923,6 +1979,7 @@ export const religion: ReligionData = {
             'panic'
           ],
           gender: 'man',
+          shape: 'satyr',
           race: 'satyr', 
           domains: [
             'nature',
@@ -1984,6 +2041,7 @@ export const religion: ReligionData = {
         },
         { //Aslepius
           name: 'Aslepius',
+          status: 'alive',
           titles: [
             'God of Healing',
             'Lover of the People',
@@ -1999,7 +2057,8 @@ export const religion: ReligionData = {
             'doctors',
           ],
           gender: 'man',
-          race: 'man', 
+          shape: 'human',
+          race: 'demigod', 
           domains: [
             'life',
             'knowledge'
@@ -2057,6 +2116,7 @@ export const religion: ReligionData = {
         },
         { //Chiron
           name: 'Chrion',
+          status: 'alive',
           titles: [
             'Wisest of the Centaurs',
             'The Teacher'
@@ -2069,6 +2129,7 @@ export const religion: ReligionData = {
             'surgeons'
           ],
           gender: 'man',
+          shape: 'centaur',
           race: 'centaur', 
           domains: [
             'knowledge',
@@ -2127,6 +2188,7 @@ export const religion: ReligionData = {
         },
         { //Hercules
           name: 'Heracles',
+          status: 'alive',
           aliases: ['Hercules'],
           titles: ['Divine Protector of Mankind'],
           rank: 'lesser deity',
@@ -2139,7 +2201,8 @@ export const religion: ReligionData = {
             'heroes'
           ],
           gender: 'man',
-          race: 'human', 
+          shape: 'human',
+          race: 'demigod', 
           domains: [
             'war'
           ],
@@ -2196,9 +2259,10 @@ export const religion: ReligionData = {
         },
         { //Ariadne
           name: 'Ariadne',
+          status: 'alive',
           equivalent: ['Libera', 'Proserpina'],
           titles: ['Wife of Dionysus'],
-          rank: 'saint',
+          rank: 'immortal',
           description: 'string',
           appearance: 'string',
           portfolios: [
@@ -2208,6 +2272,7 @@ export const religion: ReligionData = {
             'seasonal agriculture'
           ],
           gender: 'woman',
+          shape: 'human',
           race: 'human', 
           domains: [
             'trickery',
@@ -2260,6 +2325,915 @@ export const religion: ReligionData = {
             monsters: [],
             gems: [],
             colours: ['string'],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+      ]
+    },
+    norse: {
+      name: 'norse',
+      description: 'The gods of Asgard are ....',
+      followers: {
+        description: '',
+        favouredWeapon: '',
+        holyDays: {
+          default: []
+        }
+      },
+      gods: [
+        { //Odin
+          name: 'Name',
+          status: 'alive',
+          titles: [
+            'The Allfather',
+            'Lord of the Aesir',
+            'Flaming Eye',
+            'Battle Enhancer',
+            'Ancient One',
+            'Enemy of the Wolf',
+            'God of Burdens',
+            'Wise One',
+            'Spear god',
+            'Swift in Deciet',
+            'Wand Bearer',
+            'Teacher of Gods',
+            'Vistor of the Hanged',
+            'Father of Hosts',
+            'Raven God',
+            'The Hanging One',
+            'God of Victory'
+          ],
+          rank: 'leader',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            'wisdom',
+            'death',
+            'royalty',
+            'the gallows',
+            'war',
+            'battle',
+            'victory',
+            'sorcery',
+            'poetry',
+            'frenzy',
+            'runic alphabet'
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          faction:'aesir',
+          domains: [
+            'knowledge',
+            'trickery',
+            'war',
+            'arcana'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'spear',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'Gungir',
+              wordNoun: 'spear',
+              powers: 'is so well balanced it can hit any target, regardless of skill'
+            },
+            {
+              name: 'Draupnir',
+              wordNoun: 'gold ring',
+              powers: 'drips forth eight identical rings after nine days'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: '',
+            holyDays: {
+              earth: ['Wednesday']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 20
+          },
+          realm: 'Valhalla',
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'raven',
+              'wolf'
+            ],
+            plants: [
+              'poppy'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Thor
+          name: 'Thor',
+          status: 'alive',
+          titles: [
+            'The one who Rides Alone',
+            'The one who Rules Alone',
+            'Protector of the Shrine',
+            'The Loud Weather God',
+            'The terrible',
+            'The Thunderer',
+            'Odinson',
+            'Strong-Spirit'
+          ],
+          rank: 'greater deity',
+          description: 'Thor is the God of Lightning, Thunder and Storms. He is a god of Strength, yet he is also a god who protects the sacred groves and mankind.',
+          appearance: '',
+          portfolios: [
+            'strength',
+            'battle prowess',
+            'lightning',
+            'thunder',
+            'storms',
+            'sacred groves',
+            'the protection of mankind',
+            'harrowing',
+            'fertility'
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          faction:'aesir',
+          domains: [
+            'tempest',
+            'war',
+            'nature'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'hammer',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'Jarngreipr ',
+              wordNoun: 'gloves',
+              powers: 'he needs to handle Mjolnir '
+            },
+            {
+              name: 'Mjolnir',
+              wordNoun: 'hammer',
+              powers: 'summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short'//Don't think it returns - this is not Marvel
+            },
+            {
+              name: 'Megingjord',
+              wordNoun: 'belt',
+              powers: 'doubles Thors mighty strength, allowing him to lift to Mjolnir'
+            },
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'hammer',
+            holyDays: {
+              earth: ['Thursday']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'goat'],
+            plants: [
+              'oak'
+            ],
+            places: [
+              'groves',
+              'oak forests'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Loki
+          name: 'Loki',
+          status: 'alive', //unless he is bound to the stone with the snake above him - dunno about this
+          titles: [
+            'Tangler',
+            'Father of Lies',
+            'Roarer',
+            'The Sly One',
+            'Laufeys son',
+            'Thief of the Idunns apples',
+            'Hawks child',
+            'Betrayer of the Gods',
+            'The Bound God',
+            'He who has borne children'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            'magic',
+            'mischief',
+            'deceit',
+            'thievery',
+            'chaos',
+            'change',
+            'temptation',
+            'shapeshifting'
+          ], //Not fire, that is Logi, the Jotunn of Fire
+          gender: 'shapeshifter',
+          shape: 'human',
+          race: 'Jotunn',
+          faction: 'aesir',
+          domains: [
+            'trickery'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'birch',
+              'mistletoe'
+            ],
+            monsters: ['Fenrir', 'Jormungandr'],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Frigga
+          name: 'Frigg',
+          status: 'alive',
+          aliases: [
+            'Frigga'
+          ],
+          titles: [
+            'Protectress',
+            'Queen of the Gods'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            'prophecy',
+            'wisdom',
+            'the household',
+            'marriage',
+            'social bonds',
+            'rain',
+            'mists',
+            'fertility',
+            'birth',
+            'wetlands',
+            'protection',
+            'weaving'
+          ],
+          gender: 'woman',
+          shape: 'human',
+          race: 'god',
+          faction: 'aesir',
+          domains: [
+            'knowledge',
+            'life'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['Friday']
+            }
+          },
+          personality: {
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'waterfowl',
+              'ducks',
+              'geese'
+            ],
+            plants: [
+              'linden'
+            ],
+            places: [
+              'wetlands',
+              'swamps'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Freyr
+          name: 'Freyr',
+          status: 'alive',
+          aliases: ['Frey', 'Yngvi'],
+          titles: [
+            'the Lord',
+            'The Generous One',
+            'God of Sunlight',
+            'Sunbeam',
+            'Lord of Plenty',
+            'the Fruitful'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            'religious kingship',
+            'virility',
+            'sunshine',
+            'peace',
+            'prosperity',
+            'fair weather',
+            'good harvest',
+            'rain',
+            'war'
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          faction: 'vanir',
+          domains: [
+            'light',
+            'life',
+            'peace',
+            'nature',
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'Gullinbursti',
+              wordNoun: 'golden boar',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+          },
+          
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'boar',
+              'stags'
+            ],
+            plants: [
+              'crops'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Freyja
+          name: 'Freyja',
+          status: 'alive',
+          aliases: ['Freya', 'Freja'],
+          titles: [
+            'The Giver',
+            'Flaxen',
+            'One who makes the Sea Swll',
+            'Lady of the Slain',
+            'Noble Lady',
+            'Bright One',
+            'Goddess of the Vanir',
+            'Fair Tear Deity'
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            'love',
+            'marriage',
+            'prosperity',
+            'beauty',
+            'fertility',
+            'sex',
+            'war',
+            'gold',
+            'magic'
+          ],
+          gender: 'woman',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'life',
+            'arcana',
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            lustful: 70
+          },
+          realm: 'Folkvangr',
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'cat',
+              'lynx',
+              'falcon',
+              'boar'
+            ],
+            plants: [
+              ''
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Bragi
+          name: 'Name',
+          status: 'alive',
+          titles: [
+            ''
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            ''
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'knowledge'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Sif
+          name: 'Name',
+          status: 'alive',
+          titles: [
+            ''
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            ''
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'war'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['']
+            }
+          },
+          personality: {
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'rowan'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Baldr
+          name: 'Baldr',
+          status: 'dead',
+          titles: [
+            ''
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            ''
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'life',
+            'light'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Aegir
+          name: 'Name',
+          status: 'alive',
+          titles: [
+            ''
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            ''
+          ],
+          gender: 'man',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'tempest'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
+            miscellaneous: []
+          },
+          beliefs: 'string',
+          heresies: 'string'
+        },
+        { //Hel
+          name: 'Hel',
+          status: 'alive',
+          titles: [
+            ''
+          ],
+          rank: 'greater deity',
+          description: 'string',
+          appearance: '',
+          portfolios: [
+            ''
+          ],
+          gender: 'woman',
+          shape: 'human',
+          race: 'god',
+          domains: [
+            'death',
+            'grave'
+          ],
+          channelDivinity: [],
+          alignment: 'N',
+          symbol: '',
+          combat: {
+            description: 'string',
+            weapon: 'string',
+            tactics: 'string'
+          },
+          possessions: [
+            {
+              name: 'string',
+              wordNoun: 'string',
+              powers: 'string'
+            }
+          ],
+          followers: {
+            description: 'string',
+            favouredWeapon: 'spear',
+            holyDays: {
+              earth: ['string']
+            }
+          },
+          personality: {
+            just: 70,
+            vengeful: 85,
+            lustful: 80
+          },
+          associations: {
+            avatars: [
+              {
+                name: 'string',
+                appearance: 'string',
+                description: 'string',
+                frequency: 'string',
+                powers: 'string'
+              }
+            ],
+            animals: [
+              'string'],
+            plants: [
+              'string'
+            ],
+            monsters: [],
+            gems: [],
+            colours: [],
             miscellaneous: []
           },
           beliefs: 'string',
