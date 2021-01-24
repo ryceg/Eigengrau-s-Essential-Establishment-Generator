@@ -76,11 +76,6 @@ export interface Pantheon {
   gods: Deity[]
 }
 
-type ProbabilityFunction = {
-  // eslint-disable-next-line no-unused-vars
-  [key in string]: (town: Town, npc: NPC) => number
-}
-
 export interface Deity {
   /**
    * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
@@ -93,7 +88,7 @@ export interface Deity {
     economicIdeology: Record<Partial<EconomicIdeology>, number>
     politicalIdeology: Record<Partial<PoliticalIdeology>, number>
     politicalSource: Record<Partial<PoliticalSource>, number>
-    rolls: ProbabilityFunction
+    rolls: Record<string, (town: Town, npc: NPC) => number>
     npc: {
       /**
        * Generic catch-all function for NPCs trying to pick a god to follow.
