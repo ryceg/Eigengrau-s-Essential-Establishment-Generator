@@ -1,7 +1,7 @@
 import { Town } from '../town/_common'
+import { ReligionStrength } from '../religion/religion'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
-import { ReligionStrength } from './createReligiosity'
 import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
