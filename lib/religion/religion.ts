@@ -223,9 +223,6 @@ export interface Deity {
   /**
    * Things that the god are associated with, e.g. Sacred plants and animals.
    */
-
-  personality: Record<string, number>
-  /** Things that the god are associated with, e.g. Sacred plants and animals. */
   associations?: {
     /** A deity can have multiple different avatars, some more rare than others. */
     avatars: Avatar[]
@@ -265,7 +262,7 @@ interface Avatar {
   powers: string
 }
 
-export type PantheonTypes = 'greek'
+export type PantheonTypes = 'greek' | 'norse'
 
 export type ReligionStrength =
   | 'fanatical true believer'
