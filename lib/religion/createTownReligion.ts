@@ -4,9 +4,9 @@ import { PantheonTypes } from './religion'
 
 export const createTownReligion = (town: Town, pantheon: PantheonTypes, god: string) => {
   if (!pantheon) pantheon = 'greek'
-  if (!god) god = pickGod(town, pantheon)
+  if (!god) god = pickDeity(town, pantheon)
 }
 
-const pickGod = (town: Town, pantheon: PantheonTypes): string => {
+const pickDeity = (town: Town, pantheon: PantheonTypes): string => {
   return random(lib.religion.pantheon[pantheon].gods).name
 }
