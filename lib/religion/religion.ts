@@ -65,9 +65,13 @@ export interface Pantheon {
    * @example 'The gods of Olympus make themselves known with the gentle lap of waves against the shores and the crash of the thunder among the cloud–enshrouded peaks. The thick boar–infested woods and the sere, olive–covered hillsides hold evidence of their passing. Every aspect of nature echoes with their presence, and they’ve made a place for themselves inside the human heart, too.'
    */
   description: string
-  /** Origin stories! */
+  /**
+   * Origin stories!
+   */
   origin?: string
-  /** Who follows the pantheon? */
+  /**
+   * Who follows the pantheon?
+   */
   followers?: Followers
   gods: Deity[]
 }
@@ -78,18 +82,26 @@ type ProbabilityFunction = {
 }
 
 export interface Deity {
-  /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
+  /**
+   * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
+   */
   name: string
-  /** Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level. */
+  /**
+   * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
+   */
   probabilityWeightings?: {
     economicIdeology: Record<Partial<EconomicIdeology>, number>
     politicalIdeology: Record<Partial<PoliticalIdeology>, number>
     politicalSource: Record<Partial<PoliticalSource>, number>
     rolls: ProbabilityFunction
     npc: {
-      /** Generic catch-all function for NPCs trying to pick a god to follow. */
+      /**
+       * Generic catch-all function for NPCs trying to pick a god to follow.
+       */
       function: (town: Town, npc: NPC) => void
-      /** If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity. */
+      /**
+       * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
+      */
       profession: {
         // eslint-disable-next-line no-unused-vars
         [key in ProfessionNames]: number
@@ -125,9 +137,13 @@ export interface Deity {
     | 'immortal'
     | 'demigod'
     | 'saint'
-  /** Description of the deity overall. If omitted, description will be generated from the rest of the included data. */
+  /**
+   * Description of the deity overall. If omitted, description will be generated from the rest of the included data.
+   */
   description?: string
-  /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
+  /**
+   * Description of how the deity is depicted typically. Distinct from their `avatars`.
+   */
   appearance: string
   /**
    * The aspects that the deity manages.
@@ -135,20 +151,30 @@ export interface Deity {
    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
    */
   portfolios: string[]
-  /** To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. */
+  /**
+   * To assign whether to call them gods, goddesses, or deities, and use the correct pronouns.
+   */
   gender: GenderName | 'none'
-  /** The race the deity appears as. */
+  /**
+   * The race the deity appears as.
+   */
   race: RaceName | string
   /**
    * For spirits and other things that shouldn't be called gods, goddesses, or deities.
    * @default 'god'
    */
   wordNoun?: string
-  /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
+  /**
+   * Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells.
+   */
   domains: ClericDomains[]
-  /** For channel divinity spells and features. */
+  /**
+   * For channel divinity spells and features.
+   */
   channelDivinity: string[]
-  /** Alignments, for those that are still stuck on 2nd Edition. */
+  /**
+   * Alignments, for those that are still stuck on 2nd Edition.
+   */
   alignment: AlignmentsAbbreviated
   /**
    * The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
@@ -156,7 +182,9 @@ export interface Deity {
    */
   symbol: string | string[]
   combat: {
-    /** For when you want to describe how your deity fights in battle. */
+    /**
+     * For when you want to describe how your deity fights in battle.
+     */
     description: string
     /**
      * Their weapon of choice
@@ -189,9 +217,13 @@ export interface Deity {
   // FIXME can't
   // personality: Record<PartialVirtues, number>
   personality: Record<string, number>
-  /** Things that the god are associated with, e.g. Sacred plants and animals. */
+  /**
+   * Things that the god are associated with, e.g. Sacred plants and animals.
+   */
   associations: {
-    /** A deity can have multiple different avatars, some more rare than others. */
+    /**
+     * A deity can have multiple different avatars, some more rare than others.
+     */
     avatars: Avatar[]
     animals: string[]
     plants: string[]
@@ -202,7 +234,6 @@ export interface Deity {
   }
   beliefs: string
   heresies: string
-
   /**
    * Some suggested blessings from the god
    * @example Aphrodite: ['beauty']
