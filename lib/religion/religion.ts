@@ -1,8 +1,8 @@
-import { ProfessionNames } from 'lib/npc-generation/professions'
-import { EconomicIdeology, PoliticalIdeology } from 'lib/town/townData'
-import { PoliticalSource, Town } from 'lib/town/_common'
-import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
+import { ProfessionNames } from '../npc-generation/professions'
+import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
+import { PoliticalSource, Town } from '../town/_common'
 import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
+import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
 
 interface Followers {
   description: string
