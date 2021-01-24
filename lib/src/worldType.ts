@@ -18,7 +18,7 @@ export type AlignmentsAbbreviated = 'LG' | 'NG' | 'CG' | 'LN' | 'N' | 'CN' | 'CE
 export type Alignments = 'Lawful Good' | 'Neutral Good' | 'Chaotic Good' | 'Lawful Neutral' | 'Neutral' | 'Chaotic Neutral' | 'Lawful Evil' | 'Chaotic Evil' | 'Neutral Evil'
 
 export type ClericDomains =
-  'arcana'
+  | 'arcana'
   | 'death'
   | 'forge'
   | 'grave'
@@ -32,8 +32,9 @@ export type ClericDomains =
   | 'trickery'
   | 'twilight'
   | 'war'
+
 export type WizardSchools =
-  'Bladesinging'
+  | 'Bladesinging'
   | 'Chronurgy'
   | 'Graviturgy'
   | 'Order of the Scribes'
@@ -46,6 +47,7 @@ export type WizardSchools =
   | 'School of Necromancy'
   | 'School of Transmutation'
   | 'War Magic'
+
 export interface FifthEditionBookInfo {
   source: FifthEditionAbbr
   page?: number

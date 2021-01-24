@@ -1,5 +1,8 @@
-import { RaceName, GenderName, AgeName, NPC } from '..'
+import { ProfessionNames } from '../npc-generation/professions'
+import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
+import { PoliticalSource, Town } from '../town/_common'
 import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
+import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
 
 interface Followers {
   description: string
@@ -51,24 +54,32 @@ export type Vices = keyof typeof traits['viceKey']
 export type VirtuesVices = Virtues | Vices
 
 export interface Pantheon {
-  /** The name of the patheon, without riders or indefinite articles.
+  /**
+   * The name of the patheon, without riders or indefinite articles.
    * @example 'Greek'
    * @usage "The `Greek` gods"
    */
   name: string
-  /** The description of the whole pantheon.
+  /**
+   * The description of the whole pantheon.
    * @example 'The gods of Olympus make themselves known with the gentle lap of waves against the shores and the crash of the thunder among the cloud–enshrouded peaks. The thick boar–infested woods and the sere, olive–covered hillsides hold evidence of their passing. Every aspect of nature echoes with their presence, and they’ve made a place for themselves inside the human heart, too.'
    */
   description: string
-  /** Origin stories! */
+  /**
+   * Origin stories!
+   */
   origin?: string
-  /** Who follows the pantheon? */
+  /**
+   * Who follows the pantheon?
+   */
   followers?: Followers
   gods: Deity[]
 }
 
 export interface Deity {
-  /** For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random. */
+  /**
+   * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
+   */
   name: string
   /**Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important 
    * @example ```Baldr: 'dead'```
@@ -77,29 +88,64 @@ export interface Deity {
   */
   status: 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
   /**
-   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`. 
+   * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
+   */
+  probabilityWeightings?: {
+    economicIdeology: PartialRecord<EconomicIdeology, number>
+    politicalIdeology: PartialRecord<PoliticalIdeology, number>
+    politicalSource: PartialRecord<PoliticalSource, number>
+    rolls: Record<string, (town: Town, npc: NPC) => number>
+    npc: {
+      /**
+       * Generic catch-all function for NPCs trying to pick a god to follow.
+       */
+      function: (town: Town, npc: NPC) => void
+      /**
+       * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
+      */
+      profession: Record<ProfessionNames, number>
+    }
+  }
+  /**
+   * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
    * @example ['El', 'Anu', 'An', 'Thoru-el']
-    */
+   */
   aliases?: string[]
-    /** While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them. 
-     * @example Aphrodite: ['Ishtar', 'Astarte']
-     */
+  /**
+   * While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
+   * @example Aphrodite: ['Ishtar', 'Astarte']
+   */
   equivalent?: string[]
-    /** All of the titles that a god might have. Will typically be used as a rider after the name.
+  /**
+   * All of the titles that a god might have. Will typically be used as a rider after the name.
    * @example ['Lord of the Skies', 'Ruler of All That He Sees']
    * @usage 'Zeus, Lord of the Skies'
-   */    
+   */
   titles: string[]
-  /** Trying to make rank more granular is just asking for trouble.
+  /**
+   * Trying to make rank more granular is just asking for trouble.
    * @default 'lesser deity'
-  */
-  rank: 'leader' | 'greater deity' | 'intermediate deity' | 'lesser deity' | 'immortal' | 'demigod' | 'saint'
-  /** Description of the deity overall. If omitted, description will be generated from the rest of the included data. */
+   */
+  rank:
+    | 'leader'
+    | 'greater deity'
+    | 'intermediate deity'
+    | 'lesser deity'
+    | 'immortal'
+    | 'demigod'
+    | 'saint'
+  /**
+   * Description of the deity overall. If omitted, description will be generated from the rest of the included data.
+   */
   description?: string
-  /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
+  /**
+   * Description of how the deity is depicted typically. Distinct from their `avatars`.
+   */
   appearance: string
+
   /** The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
+
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
    */
@@ -118,30 +164,42 @@ export interface Deity {
   faction?: string
   /** For spirits and other things that shouldn't be called gods, goddesses, or deities.  */
   wordNoun?: string
-  /** Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells. */
+  /**
+   * Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells.
+   */
   domains: ClericDomains[]
-  /** For channel divinity spells and features. */
+  /**
+   * For channel divinity spells and features.
+   */
   channelDivinity: string[]
-  /** Alignments, for those that are still stuck on 2nd Edition. */
+  /**
+   * Alignments, for those that are still stuck on 2nd Edition.
+   */
   alignment: AlignmentsAbbreviated
-  /** The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
+  /**
+   * The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
    * @example Zeus: 'fist full of lightning bolts'
-  */
+   */
   symbol: string | string[]
   combat: {
-    /** For when you want to describe how your deity fights in battle. */
+    /**
+     * For when you want to describe how your deity fights in battle.
+     */
     description: string
-    /** Their weapon of choice
+    /**
+     * Their weapon of choice
      * @example Zeus: 'lightning'
      * @usage 'In combat, Zeus uses `lightning`.
      */
     weapon: string
-    /** For descriptions about combat.
+    /**
+     * For descriptions about combat.
      * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
      */
     tactics: string
   }
-  /** For things that the deity owns.
+  /**
+   * For things that the deity owns.
    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
   possessions: Possession[]
@@ -150,16 +208,22 @@ export interface Deity {
     */
   realm?: string
   followers: Followers
-  /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
+  /**
+   * If a deity particularly embodies a virtue or vice, it can be specified.
+   * Be sure to not specify the same pair (i.e. chaste/lust)
    * Expressed as a 0-100.
-   * @example ```Zeus: {
+   * @example
+   * Zeus: {
    *   just: 70,
    *   vengeful: 85,
    *   lust: 80
-   * }```
+   * }
    */
-  // FIXME can't
-  // personality: Record<PartialVirtues, number>
+  personality: PartialRecord<VirtuesVices, number>
+  /**
+   * Things that the god are associated with, e.g. Sacred plants and animals.
+   */
+
   personality: Record<string, number>
   /** Things that the god are associated with, e.g. Sacred plants and animals. */
   associations?: {
@@ -175,17 +239,14 @@ export interface Deity {
   }
   beliefs: string
   heresies: string
-
-  /**Some suggested blessings from the god
-   * @example ```Aphrodite: [
-   * 'beauty',
-   * ]```
+  /**
+   * Some suggested blessings from the god
+   * @example Aphrodite: ['beauty']
    */
   blessings?: string[]
-    /**Some suggested curses from the god
-   * @example ```Aphrodite: [
-   * 'ugliness'
-   * ]```
+  /**
+   * Some suggested curses from the god
+   * @example Aphrodite: ['ugliness']
    */
   curses?: string[]
 }
@@ -204,11 +265,246 @@ interface Avatar {
   powers: string
 }
 
+export type PantheonTypes = 'greek'
+
+export type ReligionStrength =
+  | 'fanatical true believer'
+  | 'unshakingly devoted believer'
+  | 'conspicuously faithful believer'
+  | 'outspoken believer'
+  | 'quiet true believer'
+  | 'casual observer'
+  | 'open-minded seeker'
+  | 'cautious listener'
+  | 'critical student'
+  | 'outspoken cynic'
+  | 'broken heretic'
+
 interface ReligionData {
-  pantheon: Record<string, Pantheon>
+  strength: ThresholdTable<ReligionStrength>
+  pantheon: Record<PantheonTypes, Pantheon>
+  abstractGod: string[]
+  saint: string[]
 }
 
 export const religion: ReligionData = {
+  strength: [
+    // npc.name is a _______
+    [100, 'fanatical true believer'],
+    [90, 'unshakingly devoted believer'],
+    [80, 'conspicuously faithful believer'],
+    [70, 'outspoken believer'],
+    [60, 'quiet true believer'],
+    [50, 'casual observer'],
+    [40, 'open-minded seeker'],
+    [30, 'cautious listener'],
+    [20, 'critical student'],
+    [10, 'outspoken cynic'],
+    [0, 'broken heretic']
+  ],
+  abstractGod: [
+    'Our Lady',
+    'Our Mother',
+    'the Ancient Flame',
+    'the Ancient Oak',
+    'the Autumn Singer',
+    'the Bat', 'the Battle-Lord',
+    'the Bear',
+    'the Beast',
+    'the Beast-Tamer',
+    'the Beast-Wife',
+    'the Beauty Queen',
+    'the Blood-Bringer',
+    'the Burning Man',
+    'the Crone',
+    'the Cruel King',
+    'the Dark Lady',
+    'the Dark Lord',
+    'the Dark Prophet',
+    'the Death Harbinger',
+    'the Doom Harbinger',
+    'the Doom-Maker',
+    'the Eagle',
+    'the Earth-Mother',
+    'the Earth-Queen',
+    'the Enemy',
+    'the Eternal Light',
+    'the Eternal Sage',
+    'the Fair Maiden',
+    'the Fatespinner',
+    'the Felled Tree',
+    'the Fire Dragon',
+    'the Forest Keeper',
+    'the Frog',
+    'the Gloom-Spider',
+    'the Goddess',
+    'the Grain-Grower',
+    'the Great Huntress',
+    'the Great Protector',
+    'the Great Smith',
+    'the Horned One',
+    'the Judge',
+    'the King Beneath the Waves',
+    'the Lawgiver',
+    'the Life-Keeper',
+    'the Life-Tree',
+    "the Light's Son",
+    'the Magic-Maid',
+    'the Messenger',
+    'the Mighty Hunter',
+    'the Mighty One',
+    'the Mighty Warrior',
+    'the Mischief-Maker',
+    'the Moon-Witch',
+    'the Mountain Forger',
+    'the Night Queen',
+    'the Oathkeeper',
+    'the Oracle',
+    'the Prophet',
+    'the Sacred Grove',
+    'the Savior',
+    'the Scorpion',
+    'the Sea Dragon',
+    'the Sea God',
+    'the Sea Queen',
+    'the Seductress',
+    'the Shadow',
+    'the Shadowkeeper',
+    'the Shadow-Serpent',
+    'the Shield-Maiden',
+    'the Ship-Taker',
+    'the Sky Father',
+    'the Soothsayer',
+    'the Soul-Collector',
+    'the Soul-Eater',
+    'the Spider',
+    'the Spring Maiden',
+    'the Starfinder',
+    'the Stone Dragon',
+    'the Storm Dragon',
+    'the Storm King',
+    'the Storm-Bringer',
+    'the Summer Mistress',
+    'the Sunkeeper',
+    'the Sword-Prince',
+    'the Thief',
+    'the Tormenter',
+    'the Tree Spirit',
+    'the Undying Light',
+    'the Unnamed One',
+    'the Unyielding Tyrant',
+    'the Voice',
+    'the Wandering Rogue',
+    'the War-Maker',
+    'the Watcher',
+    'the Watchful Eye',
+    'the Wind King',
+    'the Winemaker',
+    'the Winter Lady',
+    'the Wolf'
+  ],
+  saint: [
+    'Almar the Holy',
+    'Amaya the Seeress',
+    'Bahak the Preacher',
+    'Bahruz the Prophet',
+    'Lira the Flamekeeper',
+    'Mozar the Conqueror',
+    'Prince Tarunal',
+    'Queen Kalissa',
+    'Rahal the Sunsoul',
+    'Raham the Lightbringer',
+    'St. Aemilia',
+    'St. Albus',
+    'St. Anglos',
+    'St. Antonia',
+    'St. Antonus',
+    'St. Austyn',
+    'St. Bardo',
+    'St. Beatrix',
+    'St. Berta',
+    'St. Bettius',
+    'St. Bryenn',
+    'St. Buttercup',
+    'St. Carolo',
+    'St. Cedrick',
+    'St. Cordelia',
+    'St. Cowhan',
+    'St. Cumberbund',
+    'St. Dorys',
+    'St. Dreddos',
+    'St. Dwayn',
+    'St. Edwynna',
+    'St. Elayne',
+    'St. Falstyus',
+    'St. Farcas',
+    'St. Florenzo',
+    'St. Gabrella',
+    'St. Gaiorgus',
+    'St. Goodkynd',
+    'St. Hal',
+    'St. Halcincas',
+    'St. Haroldus',
+    'St. Hemingwar',
+    'St. Heraclora',
+    'St. Hermioninny',
+    'St. Hieronymus',
+    'St. Inigo',
+    'St. Jordyn',
+    'St. Katrynn',
+    'St. Lannus',
+    'St. Leo',
+    'St. Leryo',
+    'St. Londyn',
+    'St. Magio',
+    'St. Marius',
+    'St. Markuz',
+    'St. Martyn',
+    'St. Matromus',
+    'St. Morrsona',
+    'St. Morwayne',
+    'St. Murkel',
+    'St. Mychel',
+    'St. Nyneva',
+    'St. Paolo',
+    'St. Parrinus',
+    'St. Perseon',
+    'St. Petyr',
+    'St. Podryck',
+    'St. Polly',
+    'St. Pratchytt',
+    'St. Rawynn',
+    'St. Regus',
+    'St. Ricarddos',
+    'St. Roberts',
+    'St. Robinus',
+    'St. Rowhan',
+    'St. Rowlynna',
+    'St. Sansima',
+    'St. Sessimus',
+    'St. Severus',
+    'St. Stynebick',
+    'St. Symeon',
+    'St. Theseon',
+    'St. Thoryn',
+    'St. Tolkkyn',
+    'St. Twayn',
+    'St. Xavos',
+    'the Deliverer',
+    'the Doomcaller',
+    'the Doomsayer',
+    'the Lawgiver',
+    'the Oracle',
+    'the Prophet',
+    'the Savior',
+    'the Seeker',
+    'the Shadowseer',
+    'the Soothsayer',
+    'the Starwatcher',
+    'the Truthsayer',
+    'the Voice',
+    'Zefar the Sorcer'
+  ],
   pantheon: {
     greek: {
       name: 'greek',
@@ -221,27 +517,27 @@ export const religion: ReligionData = {
         }
       },
       gods: [
-        { //Zeus
+        { // Zeus
           name: 'Zeus',
           status: 'alive',
           titles: [
-            'God of the Sky', 
-            'Ruler of the Gods', 
-            'The Thunderer', 
-            'God of Refuge', 
+            'God of the Sky',
+            'Ruler of the Gods',
+            'The Thunderer',
+            'God of Refuge',
             'Oathkeeper'
           ],
           rank: 'leader',
           description: 'string',
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
           portfolios: [
-            'the skies', 
-            'thunder and lightning', 
-            'kings', 
-            'law and order', 
-            'fate', 
-            'justice', 
-            'moral conduct', 
+            'the skies',
+            'thunder and lightning',
+            'kings',
+            'law and order',
+            'fate',
+            'justice',
+            'moral conduct',
             'guest-right'
           ],
           gender: 'man',
@@ -303,25 +599,25 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Poseidon
+        { // Poseidon
           name: 'Poseidon',
           status: 'alive',
           aliases: ['Neptune'],
           titles: [
-            'God of the Sea and Earthquakes', 
-            'Watcher', 
-            'Shaker of the Earth', 
-            'Horse Tender' 
+            'God of the Sea and Earthquakes',
+            'Watcher',
+            'Shaker of the Earth',
+            'Horse Tender'
           ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'A mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
           portfolios: [
-            'the sea', 
-            'earthquakes', 
-            'floods', 
-            'drought', 
-            'horses', 
+            'the sea',
+            'earthquakes',
+            'floods',
+            'drought',
+            'horses',
             'fresh water'
           ],
           gender: 'man',
@@ -368,9 +664,9 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'horse', 
+              'horse',
               'dolphin',
-              'fish', 
+              'fish',
               'bull'
             ],
             plants: [
@@ -386,17 +682,17 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hades
+        { // Hades
           name: 'Hades',
           status: 'alive',
           aliases: ['Pluto', 'Pluton', 'The Cthonic Zeus'],
-          equivalent: ['Pluto'], //Pluto was originally a different god to Hades
+          equivalent: ['Pluto'], // Pluto was originally a different god to Hades
           titles: [
-            'God of the Dead', 
-            'King of the Underworld', 
-            'God of Wealth', 
-            'Host of Many', 
-            'The Impartial Binder', 
+            'God of the Dead',
+            'King of the Underworld',
+            'God of Wealth',
+            'Host of Many',
+            'The Impartial Binder',
             'The invisible one'
           ],
           rank: 'greater deity',
@@ -404,13 +700,13 @@ export const religion: ReligionData = {
           appearance: 'Dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
           portfolios: [
             'the underworld',
-            'the dead', 
-            'funeral rites', 
-            'right to be buried', 
-            'fertile soil', 
-            'precious metals', 
-            'dreams from the dead', 
-            'necromancy', 
+            'the dead',
+            'funeral rites',
+            'right to be buried',
+            'fertile soil',
+            'precious metals',
+            'dreams from the dead',
+            'necromancy',
             'curses'
           ],
           gender: 'man',
@@ -459,9 +755,9 @@ export const religion: ReligionData = {
             ],
             animals: [
               'Screech-Owl',
-              'Serpents', //Not Sure
+              'Serpents', // Not Sure
               'Black-Rams' // Not Sure
-              //Hades' Cattle? Not sure because it is specifically the cattle of Hades (Likewise Apollo has cattle that are his)
+              // Hades' Cattle? Not sure because it is specifically the cattle of Hades (Likewise Apollo has cattle that are his)
             ],
             plants: [
               'White Poplar',
@@ -481,36 +777,36 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Aphrodite
+        { // Aphrodite
           name: 'Aphrodite',
           status: 'alive',
           aliases: ['Venus'],
           equivalent: ['Ishtar', 'Astarte'],
           titles: [
-            'The Deviser', 
-            'The Goddess for all folk', 
-            'Smile-loving', 
-            'The Goddess of Beauty', 
-            'The Goddess of Sexuality', 
-            'The Shapely', 
-            'Killer of Men', 
-            'Gravedigger', 
+            'The Deviser',
+            'The Goddess for all folk',
+            'Smile-loving',
+            'The Goddess of Beauty',
+            'The Goddess of Sexuality',
+            'The Shapely',
+            'Killer of Men',
+            'Gravedigger',
             'the Mother'
           ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
           portfolios: [
-            'love', 
+            'love',
             'lovers',
             'lust',
-            'sexuality', 
-            'beauty', 
-            'pleasure', 
-            'procreation', 
-            'prostitutes', 
-            'love poetry', 
-            ],
+            'sexuality',
+            'beauty',
+            'pleasure',
+            'procreation',
+            'prostitutes',
+            'love poetry'
+          ],
           gender: 'woman',
           shape: 'human',
           race: 'god', 
@@ -563,13 +859,13 @@ export const religion: ReligionData = {
               'goose',
               'sparrow',
               'swallow',
-              'wryneck' //English name for Iynx
+              'wryneck' // English name for Iynx
             ],
             plants: [
               'rose',
               'myrtle',
               'apple',
-              'poppy',
+              'poppy'
             ],
             monsters: ['nereids'],
             gems: [],
@@ -585,15 +881,15 @@ export const religion: ReligionData = {
             'ugliness'
           ]
         },
-        { //Artemis
+        { // Artemis
           name: 'Artemis',
           status: 'alive',
           aliases: ['Diana','Brauronia', 'Orthia'],
           equivalent: ['Selene', 'Britomartis', 'Dictynna', 'Eileithyial'],
           titles: [
-            'Goddess of the Hunt', 
-            'Goddess of the Beasts', 
-            'Nurse of Children', 
+            'Goddess of the Hunt',
+            'Goddess of the Beasts',
+            'Nurse of Children',
             'Friend of Girls',
             'Goddess of the Glocks and the Chase',
             'The best advisor'
@@ -602,16 +898,16 @@ export const religion: ReligionData = {
           description: 'string',
           appearance: 'string',
           portfolios: [
-            'hunting', 
-            'the wilderness', 
-            'wild animals', 
-            'childbirth', 
-            'sudden death and disease of girls', 
-            'the moon', 
-            'dawn', 
-            'children', 
+            'hunting',
+            'the wilderness',
+            'wild animals',
+            'childbirth',
+            'sudden death and disease of girls',
+            'the moon',
+            'dawn',
+            'children',
             'maidenhood',
-            'healing', 
+            'healing',
             'ritual purification'
           ],
           gender: 'woman',
@@ -667,7 +963,7 @@ export const religion: ReligionData = {
               'fresh-water fish',
               'buzzard-hawk',
               'guinea-fowl',
-              'partridge',
+              'partridge'
             ],
             plants: [
               'amaranth',
@@ -684,24 +980,24 @@ export const religion: ReligionData = {
           beliefs: 'chastity',
           heresies: 'string'
         },
-        { //Apollo
+        { // Apollo
           name: 'Apollo',
           status: 'alive',
           aliases: ['Apollon'],
           titles: [
-            'Of the Oracle', 
-            'Shooter from Afar', 
-            'the Healer', 
-            'Averter of Harm', 
+            'Of the Oracle',
+            'Shooter from Afar',
+            'the Healer',
+            'Averter of Harm',
             'Of the Locusts'
           ],
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
           portfolios: [
-            'music', 
-            'prophecy', 
-            'healing', 
+            'music',
+            'prophecy',
+            'healing',
             'archery',
             'plague',
             'disease',
@@ -777,7 +1073,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Athena
+        { // Athena
           name: 'Athena',
           status: 'alive',
           aliases: ['Minerva', 'Athene'],
@@ -871,7 +1167,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Dionysus
+        { // Dionysus
           name: 'Dionysus',
           status: 'alive',
           aliases: ['Bacchus'],
@@ -897,7 +1193,7 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'string',
           appearance: 'string',
-          portfolios: 
+          portfolios:
           [
             'wine',
             'vegetation',
@@ -951,17 +1247,17 @@ export const religion: ReligionData = {
             just: 20,
             forgiving: 25,
             lustful: 90
-            
-            //energetic: 'lazy',
-            //generous: 'selfish',
-            //honest: 'deceitful',
-            //merciful: 'cruel',
-            //modest: 'proud',
-            //pious: 'worldly',
-            //prudent: 'reckless',
-            //temperate: 'indulgent',
-            //trusting: 'suspicious',
-            //valorous: 'cowardly'
+
+            // energetic: 'lazy',
+            // generous: 'selfish',
+            // honest: 'deceitful',
+            // merciful: 'cruel',
+            // modest: 'proud',
+            // pious: 'worldly',
+            // prudent: 'reckless',
+            // temperate: 'indulgent',
+            // trusting: 'suspicious',
+            // valorous: 'cowardly'
           },
           associations: {
             avatars: [
@@ -998,11 +1294,11 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Demeter
+        { // Demeter
           name: 'Demeter',
           status: 'alive',
           aliases: [
-            'Ceres', 
+            'Ceres',
             'Deo'
           ],
           titles: [
@@ -1012,7 +1308,7 @@ export const religion: ReligionData = {
             'Bearer of Fruit',
             'Great Goddess',
             'Of the Mysteries',
-            'Lovely Haired',
+            'Lovely Haired'
           ],
           rank: 'greater deity',
           description: 'string',
@@ -1091,7 +1387,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hermes
+        { // Hermes
           name: 'Hermes',
           status: 'alive',
           aliases: ['Mercury'],
@@ -1116,11 +1412,11 @@ export const religion: ReligionData = {
           description: 'string',
           appearance: 'string',
           portfolios: [
-            'herds and flocks', 
+            'herds and flocks',
             'boundaries',
             'animal husbandry',
             'travellers',
-            'hospitality', 
+            'hospitality',
             'roads',
             'trade',
             'thievery',
@@ -1139,11 +1435,11 @@ export const religion: ReligionData = {
             'astronomy',
             'astrology',
             'birds of omen',
-            'guiding the dead', //also known as Psychopomp
+            'guiding the dead', // also known as Psychopomp
             'sleep',
             'rustic divination',
             'rustic music',
-            'rustic fables',
+            'rustic fables'
           ],
           gender: 'man',
           shape: 'human',
@@ -1175,8 +1471,8 @@ export const religion: ReligionData = {
             {
               name: 'Winged helm',
               wordNoun: 'string',
-              powers: 'string' 
-            },
+              powers: 'string'
+            }
           ],
           followers: {
             description: 'string',
@@ -1220,7 +1516,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hera
+        { // Hera
           name: 'Hera',
           status: 'alive',
           titles: [
@@ -1307,7 +1603,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Ares
+        { // Ares
           name: 'Ares',
           status: 'alive',
           titles: [
@@ -1327,7 +1623,7 @@ export const religion: ReligionData = {
             'civil order',
             'brutality',
             'violence',
-            'rage',
+            'rage'
           ],
           gender: 'man',
           shape: 'human',
@@ -1391,7 +1687,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hestia
+        { // Hestia
           name: 'Hestia',
           status: 'alive',
           aliases: ['Vesta'],
@@ -1399,7 +1695,7 @@ export const religion: ReligionData = {
             'Daughter of lovely-haired Rhea',
             'Daughter of Cronos',
             'Rich in Blessings',
-            'Beloved',
+            'Beloved'
           ],
           rank: 'greater deity',
           description: 'string',
@@ -1477,7 +1773,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hephaestus
+        { // Hephaestus
           name: 'Hephaestus',
           status: 'alive',
           titles: [
@@ -1562,7 +1858,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Persephone
+        { // Persephone
           name: 'Persephone',
           status: 'alive',
           aliases: ['Kore'],
@@ -1649,7 +1945,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hecate
+        { // Hecate
           name: 'Hecate',
           status: 'alive',
           titles: [
@@ -1816,7 +2112,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Tyche
+        { // Tyche
           name: 'Tyche',
           status: 'alive',
           titles: ['Godess of Fortune and Chance'],
@@ -1828,7 +2124,7 @@ export const religion: ReligionData = {
           shape: 'human',
           race: 'god', 
           domains: [
-            'trickery',
+            'trickery'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -1881,7 +2177,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hebe
+        { // Hebe
           name: 'Hebe',
           status: 'alive',
           titles: ['Goddess of Eternal Youth', 
@@ -1892,16 +2188,16 @@ export const religion: ReligionData = {
           description: 'string',
           appearance: 'string',
           portfolios: [
-            'youth', 
-            'forgiveness', 
-            'mercy', 
+            'youth',
+            'forgiveness',
+            'mercy',
             'brides'
           ],
           gender: 'woman',
           shape: 'human',
           race: 'god', 
           domains: [
-            'life',
+            'life'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -1957,11 +2253,11 @@ export const religion: ReligionData = {
           heresies: 'string',
           blessings: ['Restored Youth']
         },
-        { //Pan
+        { // Pan
           name: 'Pan',
           status: 'uncertain',
           titles: [
-            'The God of the Wild', 
+            'The God of the Wild',
             'Of the Pastures',
             'Terrifying One',
             'Of the Hunt'
@@ -1980,7 +2276,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'satyr',
-          race: 'satyr', 
+          race: 'god', 
           domains: [
             'nature',
             'trickery'
@@ -2039,13 +2335,13 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Aslepius
+        { // Aslepius
           name: 'Aslepius',
           status: 'alive',
           titles: [
             'God of Healing',
-            'Lover of the People',
-            
+            'Lover of the People'
+
           ],
           rank: 'lesser deity',
           description: 'string',
@@ -2054,7 +2350,7 @@ export const religion: ReligionData = {
             'medicine',
             'healing',
             'rejuvination',
-            'doctors',
+            'doctors'
           ],
           gender: 'man',
           shape: 'human',
@@ -2114,7 +2410,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Chiron
+        { // Chiron
           name: 'Chrion',
           status: 'alive',
           titles: [
@@ -2186,7 +2482,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hercules
+        { // Hercules
           name: 'Heracles',
           status: 'alive',
           aliases: ['Hercules'],
@@ -2257,7 +2553,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Ariadne
+        { // Ariadne
           name: 'Ariadne',
           status: 'alive',
           equivalent: ['Libera', 'Proserpina'],
@@ -2329,7 +2625,7 @@ export const religion: ReligionData = {
           },
           beliefs: 'string',
           heresies: 'string'
-        },
+        }
       ]
     },
     norse: {
