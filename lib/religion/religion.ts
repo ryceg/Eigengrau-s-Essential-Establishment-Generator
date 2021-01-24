@@ -54,12 +54,14 @@ export type Vices = keyof typeof traits['viceKey']
 export type VirtuesVices = Virtues | Vices
 
 export interface Pantheon {
-  /** The name of the patheon, without riders or indefinite articles.
+  /**
+   * The name of the patheon, without riders or indefinite articles.
    * @example 'Greek'
    * @usage "The `Greek` gods"
    */
   name: string
-  /** The description of the whole pantheon.
+  /**
+   * The description of the whole pantheon.
    * @example 'The gods of Olympus make themselves known with the gentle lap of waves against the shores and the crash of the thunder among the cloud–enshrouded peaks. The thick boar–infested woods and the sere, olive–covered hillsides hold evidence of their passing. Every aspect of nature echoes with their presence, and they’ve made a place for themselves inside the human heart, too.'
    */
   description: string
@@ -100,16 +102,19 @@ export interface Deity {
     * @example ['El', 'Anu', 'An', 'Thoru-el']
     */
    aliases?: string[]
-   /** While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
+   /**
+    * While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
     * @example Aphrodite: ['Ishtar', 'Astarte']
     */
    equivalent?: string[]
-   /** All of the titles that a god might have. Will typically be used as a rider after the name.
+   /**
+    * All of the titles that a god might have. Will typically be used as a rider after the name.
     * @example ['Lord of the Skies', 'Ruler of All That He Sees']
     * @usage 'Zeus, Lord of the Skies'
     */
    titles: string[]
-   /** Trying to make rank more granular is just asking for trouble.
+   /**
+    * Trying to make rank more granular is just asking for trouble.
     * @default 'lesser deity'
     */
    rank:
@@ -124,7 +129,8 @@ export interface Deity {
    description?: string
    /** Description of how the deity is depicted typically. Distinct from their `avatars`. */
    appearance: string
-   /** The aspects that the deity manages.
+   /**
+    * The aspects that the deity manages.
     * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
     * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
     */
@@ -133,7 +139,8 @@ export interface Deity {
    gender: GenderName | 'none'
    /** The race the deity appears as. */
    race: RaceName | string
-   /** For spirits and other things that shouldn't be called gods, goddesses, or deities.
+   /**
+    * For spirits and other things that shouldn't be called gods, goddesses, or deities.
     * @default 'god'
     */
    wordNoun?: string
@@ -143,35 +150,41 @@ export interface Deity {
    channelDivinity: string[]
    /** Alignments, for those that are still stuck on 2nd Edition. */
    alignment: AlignmentsAbbreviated
-   /** The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
+   /**
+    * The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
     * @example Zeus: 'fist full of lightning bolts'
     */
    symbol: string | string[]
    combat: {
      /** For when you want to describe how your deity fights in battle. */
      description: string
-     /** Their weapon of choice
+     /**
+      * Their weapon of choice
       * @example Zeus: 'lightning'
       * @usage 'In combat, Zeus uses `lightning`.
       */
      weapon: string
-     /** For descriptions about combat.
+     /**
+      * For descriptions about combat.
       * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
       */
      tactics: string
    }
-   /** For things that the deity owns.
+   /**
+    * For things that the deity owns.
     * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
     */
    possessions: Possession[]
    followers: Followers
-   /** If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
+   /**
+    * If a deity particularly embodies a virtue or vice, it can be specified. Be sure to not specify the same pair (i.e. chaste/lust)
     * Expressed as a 0-100.
-    * @example ```Zeus: {
+    * @example
+    * Zeus: {
     *   just: 70,
     *   vengeful: 85,
     *   lust: 80
-    * }```
+    * }
     */
    // FIXME can't
    // personality: Record<PartialVirtues, number>
@@ -190,16 +203,14 @@ export interface Deity {
    beliefs: string
    heresies: string
 
-   /** Some suggested blessings from the god
-    * @example ```Aphrodite: [
-    * 'beauty',
-    * ]```
+   /**
+    * Some suggested blessings from the god
+    * @example Aphrodite: ['beauty']
     */
    blessings?: string[]
-   /** Some suggested curses from the god
-    * @example ```Aphrodite: [
-    * 'ugliness'
-    * ]```
+   /**
+    * Some suggested curses from the god
+    * @example Aphrodite: ['ugliness']
     */
    curses?: string[]
  }
