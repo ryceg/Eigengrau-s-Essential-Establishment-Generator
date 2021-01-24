@@ -81,11 +81,12 @@ export interface Deity {
    * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
    */
   name: string
-  /**Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important 
+  /**
+   * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important 
    * @example ```Baldr: 'dead'```
    * @example ```Kronos: 'imprisoned'```
    * @example ```Pan: 'uncertain'```
-  */
+   */
   status: 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
   /**
    * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
@@ -102,7 +103,7 @@ export interface Deity {
       function: (town: Town, npc: NPC) => void
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
-      */
+       */
       profession: Record<ProfessionNames, number>
     }
   }
@@ -144,25 +145,32 @@ export interface Deity {
    */
   appearance: string
 
-  /** The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
-
+  /** 
+   * The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
    */
   portfolios: string[]
-  /** To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. */
+  /** 
+   *To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. 
+   */
   gender: GenderName | 'none' | 'shapeshifter'
-  /** What race the god actually is, E.g. Vanir, Aesir, Jotunn 
+  /** 
+   * What race the god actually is, E.g. Vanir, Aesir, Jotunn 
    * @default 'god'
-  */
+   */
   race : RaceName | string
   /** The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank
    * @default 'human'
-  */
+   */
   shape: RaceName | string
-  /** For the Norse Aesir/Vanir split */
+  /** 
+   *For the Norse Aesir/Vanir split 
+   */
   faction?: string
-  /** For spirits and other things that shouldn't be called gods, goddesses, or deities.  */
+  /** 
+   * For spirits and other things that shouldn't be called gods, goddesses, or deities.  
+   */
   wordNoun?: string
   /**
    * Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells.
@@ -205,7 +213,7 @@ export interface Deity {
   possessions: Possession[]
   /** Some gods had planes/domain which they ruled
    * @example ```Odin: 'Valhalla'```
-    */
+   */
   realm?: string
   followers: Followers
   /**
@@ -224,7 +232,9 @@ export interface Deity {
    * Things that the god are associated with, e.g. Sacred plants and animals.
    */
   associations?: {
-    /** A deity can have multiple different avatars, some more rare than others. */
+    /** 
+     *A deity can have multiple different avatars, some more rare than others. 
+     */
     avatars: Avatar[]
     animals?: string[]
     plants?: string[]
