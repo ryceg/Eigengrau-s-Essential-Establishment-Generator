@@ -1,6 +1,6 @@
-import { Town } from 'lib/town/_common'
-import { PantheonTypes } from './religion'
+import { Town } from '../town/_common'
 import { random } from '../src/random'
+import { PantheonTypes } from './religion'
 
 export const createTownReligion = (town: Town, pantheon: PantheonTypes, god: string) => {
   if (!pantheon) pantheon = 'greek'
