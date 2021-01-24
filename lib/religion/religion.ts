@@ -97,10 +97,7 @@ export interface Deity {
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
       */
-      profession: {
-        // eslint-disable-next-line no-unused-vars
-        [key in ProfessionNames]: number
-      }
+      profession: Record<ProfessionNames, number>
     }
   }
   /**
