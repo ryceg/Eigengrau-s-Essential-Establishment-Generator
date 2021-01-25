@@ -3262,7 +3262,8 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'],
+              'string'
+            ],
             plants: [
               'string'
             ],
@@ -3327,7 +3328,8 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'],
+              'string'
+            ],
             plants: [
               'rowan'
             ],
@@ -3396,7 +3398,8 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'],
+              'string'
+            ],
             plants: [
               'string'
             ],
@@ -3533,7 +3536,8 @@ export const religion: ReligionData = {
               }
             ],
             animals: [
-              'string'],
+              'string'
+            ],
             plants: [
               'string'
             ],
