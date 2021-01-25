@@ -1,0 +1,25 @@
+:: Manifestations
+<h2>Manifestations</h2>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Appearance</th>
+  <th>Description</th>
+  <th>Frequency</th>
+  <th>Powers</th>
+</tr>
+<<for _i to 0; _i lt $currentPassage.manifestations.avatars.length; _i++>>
+<tr>
+  <td>$currentPassage.manifestations.avatars[_i].name</td>
+  <td>$currentPassage.manifestations.avatars[_i].appearance</td>
+  <td>$currentPassage.manifestations.avatars[_i].description</td>
+  <td>$currentPassage.manifestations.avatars[_i].frequency</td>
+  <td>$currentPassage.manifestations.avatars[_i].powers</td>
+</tr>
+<</for>>
+<tr>
+  <th>Type</th>
+  <th>Appears as</th>
+</tr>
+
+</table>

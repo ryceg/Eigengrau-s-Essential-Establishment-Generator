@@ -4,9 +4,9 @@
 \<<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
   <</button>>
-<<print lib.firstCharacter($currentPassage.name)>>, <<print $currentPassage.titles.random()>>, is the $currentPassage.wordNoun of $currentPassage.portfolios. <<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>. 
+<<include "AlsoKnownAs">>, <<print $currentPassage.titles.random()>>, is the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. <<idp $currentPassage.symbol "<<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>.">> 
 <<idp $currentPassage.description>> <<idp $currentPassage.appearance>>
-<h2>History</h2>
+<<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
 <h2>Beliefs and Heresies</h2>
 <<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">>
 <<idp $currentPassage.combat.weapon "<<print lib.genderData[$currentPassage.gender].heshe>> uses $currentPassage.combat.weapon in combat.">> <<idp $currentPassage.combat.tactics>>
@@ -14,27 +14,3 @@
 \<<idp $currentPassage.followers.favouredWeapon "In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon">>. <<idp $currentPassage.followers.holyDays.earth "Their holy days are $currentPassage.followers.holyDays.earth">>
 
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
-<h2>Manifestations</h2>
-<table>
-<tr>
-  <th>Name</th>
-  <th>Appearance</th>
-  <th>Description</th>
-  <th>Frequency</th>
-  <th>Powers</th>
-</tr>
-<<for _i to 0; _i lt $currentPassage.manifestations.avatars.length; _i++>>
-<tr>
-  <td>$currentPassage.manifestations.avatars[_i].name</td>
-  <td>$currentPassage.manifestations.avatars[_i].appearance</td>
-  <td>$currentPassage.manifestations.avatars[_i].description</td>
-  <td>$currentPassage.manifestations.avatars[_i].frequency</td>
-  <td>$currentPassage.manifestations.avatars[_i].powers</td>
-</tr>
-<</for>>
-<tr>
-  <th>Type</th>
-  <th>Appears as</th>
-</tr>
-
-</table>

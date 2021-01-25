@@ -11,4 +11,6 @@
 <<include "CreateBuilding">>
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
-<<include "Popup">><<run lib.addTippyAccessibility()>>
+<<include "Popup">><<run lib.addTippyAccessibility()>> 
+<<set $deity to lib.fetchDeity($town)>>$deity
+[[DeityProfile]]
