@@ -12,7 +12,9 @@ interface Followers {
   gender?: GenderName
   age?: AgeName
   base?: Partial<NPC>
-  /** Certain groups might be excluded from following a deity. */
+  /** 
+   * Certain groups might be excluded from following a deity. 
+   */
   excluded?: Followers
 }
 
@@ -110,7 +112,7 @@ export interface Deity {
   /**
    * For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.
    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
-   * @example ['El', 'Anu', 'An', 'Thoru-el']
+   * @example aliases: ['El', 'Anu', 'An', 'Thoru-el']
    */
   aliases?: string[]
   /**
@@ -152,7 +154,7 @@ export interface Deity {
    */
   portfolios: string[]
   /** 
-   *To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. 
+   * To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. 
    */
   gender: GenderName | 'none' | 'shapeshifter'
   /** 
@@ -160,12 +162,13 @@ export interface Deity {
    * @default 'god'
    */
   race : RaceName | string
-  /** The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank
+  /** 
+   * The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank
    * @default 'human'
    */
   shape: RaceName | string
   /** 
-   *For the Norse Aesir/Vanir split 
+   * For the Norse Aesir/Vanir split 
    */
   faction?: string
   /** 
@@ -233,7 +236,7 @@ export interface Deity {
    */
   associations?: {
     /** 
-     *A deity can have multiple different avatars, some more rare than others. 
+     * A deity can have multiple different avatars, some more rare than others. 
      */
     avatars: Avatar[]
     animals?: string[]
