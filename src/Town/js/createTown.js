@@ -193,7 +193,7 @@ setup.createTown = (base = {}) => {
   town.materialProbability = lib.structureData.material.types
 
   // TODO: Make town religion deities a little more solid.
-  town.religion.deity = lib.religion.saint.random()
+  town.religion.pantheon = 'greek'
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
