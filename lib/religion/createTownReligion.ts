@@ -24,6 +24,8 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
       name: deity.name
     })
   }
+
+  // TODO: Can we create a new function to avoid using `weightedRandomFetcher`?
   const pickedDeity = weightedRandomFetcher(town, temp, undefined, undefined, 'object') as { probability: number, name: string }
   return pickedDeity.name
 }
