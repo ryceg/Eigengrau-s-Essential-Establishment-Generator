@@ -8,6 +8,7 @@ import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
+import { PantheonTypes } from 'lib/religion/religion'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 
@@ -61,6 +62,7 @@ export interface Town {
     population: number
   }>
   religion: {
+    pantheon: PantheonTypes
     deity: string
   }
   roads: Record<string, Road>
