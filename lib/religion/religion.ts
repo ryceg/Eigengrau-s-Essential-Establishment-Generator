@@ -94,6 +94,11 @@ export interface Deity {
        * Generic catch-all function for NPCs trying to pick a god to follow.
        */
       function: (town: Town, npc: NPC) => void
+      /** Some races are going to be more interested in certain gods than others.
+       * Weighted probabilities (default is 10)
+       * Can be turned off.
+       */
+      race: Record<RaceName, number>
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
       */
