@@ -3,7 +3,13 @@ import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
 
 interface PredominantRace {
+  /** Percentage of most populous race */
+  percentile: number
+  /** Percentage of second most populous race */
+  secondaryPercentile: number
+  /** @usage `${town.name} is ______` */
   amount: string;
+  /** @usage `${town.name} is comprised ______` */
   amountDescriptive: string;
   primaryRace: RaceName;
   secondaryRace: RaceName;
@@ -23,9 +29,9 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
 
   if (percentile > 99) {
     return {
-      // $town.name is _____
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'completely',
-      // $town.name is comprised _____
       amountDescriptive: `entirely, without fail, of ${majorRaceWords.racePlural}`,
       primaryRace,
       secondaryRace
@@ -34,9 +40,9 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
 
   if (percentile > 90) {
     return {
-      // $town.name is _____
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'completely',
-      // $town.name is comprised _____
       amountDescriptive: `almost uniformly of ${majorRaceWords.racePlural}`,
       primaryRace,
       secondaryRace
@@ -44,6 +50,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 80) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'overwhelmingly',
       amountDescriptive: `overwhelmingly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -52,6 +60,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 70) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'predominantly',
       amountDescriptive: `predominantly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -60,6 +70,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 65) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'largely',
       amountDescriptive: `largely of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -68,6 +80,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 60) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'mostly',
       amountDescriptive: `mostly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -76,6 +90,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 55) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'mostly',
       amountDescriptive: `mostly of ${majorRaceWords.racePlural}, with some ${secondaryRaceWords.racePlural}`,
       primaryRace,
@@ -84,6 +100,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 50) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'mostly',
       amountDescriptive: `of ${majorRaceWords.racePlural}, with a slim majority, along with some ${secondaryRaceWords.racePlural}`,
       primaryRace,
@@ -92,6 +110,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 40) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'fairly diverse',
       amountDescriptive: `of many different races, with the most common race being ${majorRaceWords.raceAdjective}`,
       primaryRace,
@@ -100,6 +120,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 35) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'rather diverse',
       amountDescriptive: `of many different races, with the most common race of ${majorRaceWords.raceAdjective} just barely making up slightly over a third of the population`,
       primaryRace,
@@ -108,6 +130,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 30) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'incredibly diverse',
       amountDescriptive: 'of almost every race, no one race being the clear majority',
       primaryRace,
@@ -116,6 +140,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   if (percentile > 20) {
     return {
+      percentile,
+      secondaryPercentile: secondary[1],
       amount: 'melting pot of races',
       amountDescriptive: 'of a melting pot of all different races',
       primaryRace,
@@ -123,6 +149,8 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
     }
   }
   return {
+    percentile,
+    secondaryPercentile: secondary[1],
     amount: 'diverse melting pot of races',
     amountDescriptive: 'of a melting pot of all different races',
     primaryRace,
