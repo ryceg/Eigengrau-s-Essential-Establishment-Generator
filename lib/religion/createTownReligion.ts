@@ -9,22 +9,27 @@ export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: s
   if (!deity) town.religion.deity = fetchDeity(town)
 }
 
-export const fetchDeity = (town: Town, godArray?: Deity[]): string => {
+export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): string => {
   // if (State.metadata.has('pantheon') === true) {
   //   godArray = State.metadata.get('pantheon')
   // }
-  if (!godArray) godArray = lib.religion.pantheon[town.religion.pantheon || 'greek'].gods
   const predominantRace = getPredominantRace(town._demographicPercentile)
   const temp: {
     probability: number,
-    god: string
+    name: string
   }[] = []
-  for (const god of godArray) {
+  for (const deity of deities) {
     temp.push({
-      probability: calcPercentage(god.probabilityWeightings?.npc.race[predominantRace.primaryRace] || 10, predominantRace.percentile),
-      god: god.name
+      probability: calcPercentage(deity.probabilityWeightings?.npc.race[predominantRace.primaryRace] || 10, predominantRace.percentile),
+      name: deity.name
     })
   }
-  const pickedDeity = weightedRandomFetcher(town, temp, undefined, undefined, 'object') as { probability: number, god: string }
-  return pickedDeity.god
+  const pickedDeity = weightedRandomFetcher(town, temp, undefined, undefined, 'object') as { probability: number, name: string }
+  return pickedDeity.name
+}
+
+const getFallbackDeities = (town: Town): Deity[] => {
+  const pantheonName = town.religion.pantheon || 'greek'
+  const pantheon = lib.religion.pantheon[pantheonName]
+  return pantheon.gods
 }
