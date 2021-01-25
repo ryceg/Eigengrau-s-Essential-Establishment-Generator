@@ -1,17 +1,17 @@
 :: DeityProfile
-\<<set $currentPassage to $town.religions[$currentPassage.key]>>
+\<<set $currentPassage to lib.findInArray(lib.religion.pantheon['greek'].gods, 'name', $deity)>>
 \<span class="interactive-only"><h1>$currentPassage.name</h1></span>
 \<<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
   <</button>>
-<<print lib.firstCharacter($currentPassage.name)>>, <<print $currentPassage.titles.random()>>, is the $currentPassage.wordNoun of $currentPassage.portfolios. <<print $currentPassage.hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>. 
+<<print lib.firstCharacter($currentPassage.name)>>, <<print $currentPassage.titles.random()>>, is the $currentPassage.wordNoun of $currentPassage.portfolios. <<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol is <<print lib.articles.output($currentPassage.symbol)>>. 
 <<idp $currentPassage.description>> <<idp $currentPassage.appearance>>
 <h2>History</h2>
 <h2>Beliefs and Heresies</h2>
 <<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">>
-\<<idp $currentPassage.combat.weapon "$currentPassage.heshe uses $currentPassage.combat.weapon in combat.">> <<idp $currentPassage.combat.tactics>>
+<<idp $currentPassage.combat.weapon "<<print lib.genderData[$currentPassage.gender].heshe>> uses $currentPassage.combat.weapon in combat.">> <<idp $currentPassage.combat.tactics>>
 <<idp $currentPassage.followers.description "<h2>Followers</h2>$currentPassage.followers.description">>
-\<<idp $currentPassage.followers.favouredWeapon "In combat, $currentPassage.hisher followers favour the $currentPassage.followers.favouredWeapon">>. <<idp $currentPassage.followers.holyDays.earth "Their holy days are $currentPassage.followers.holyDays.earth">>
+\<<idp $currentPassage.followers.favouredWeapon "In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon">>. <<idp $currentPassage.followers.holyDays.earth "Their holy days are $currentPassage.followers.holyDays.earth">>
 
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <h2>Manifestations</h2>
