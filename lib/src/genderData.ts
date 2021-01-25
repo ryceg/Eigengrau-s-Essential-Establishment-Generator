@@ -5,6 +5,7 @@ import { NPC } from '../npc-generation/_common'
 
 export const genderData = {
   man: {
+    godgoddess: 'god',
     title: 'Mr',
     domTitle: 'Master',
     heshe: 'he',
@@ -26,6 +27,7 @@ export const genderData = {
     oppositeGender: 'woman'
   },
   woman: {
+    godgoddess: 'goddess',
     title: 'Ms',
     domTitle: 'Mistress',
     heshe: 'she',
