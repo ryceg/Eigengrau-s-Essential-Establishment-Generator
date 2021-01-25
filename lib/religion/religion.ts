@@ -12,8 +12,8 @@ interface Followers {
   gender?: GenderName
   age?: AgeName
   base?: Partial<NPC>
-  /** 
-   * Certain groups might be excluded from following a deity. 
+  /**
+   * Certain groups might be excluded from following a deity.
    */
   excluded?: Followers
 }
@@ -84,7 +84,7 @@ export interface Deity {
    */
   name: string
   /**
-   * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important 
+   * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important
    * @example ```Baldr: 'dead'```
    * @example ```Kronos: 'imprisoned'```
    * @example ```Pan: 'uncertain'```
@@ -103,7 +103,8 @@ export interface Deity {
        * Generic catch-all function for NPCs trying to pick a god to follow.
        */
       function: (town: Town, npc: NPC) => void
-      /** Some races are going to be more interested in certain gods than others.
+      /**
+       * Some races are going to be more interested in certain gods than others.
        * Weighted probabilities (default is 10)
        * Can be turned off.
        */
@@ -152,32 +153,32 @@ export interface Deity {
    */
   appearance: string
 
-  /** 
+  /**
    * The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.
    */
   portfolios: string[]
-  /** 
-   * To assign whether to call them gods, goddesses, or deities, and use the correct pronouns. 
+  /**
+   * To assign whether to call them gods, goddesses, or deities, and use the correct pronouns.
    */
   gender: GenderName | 'none' | 'shapeshifter'
-  /** 
-   * What race the god actually is, E.g. Vanir, Aesir, Jotunn 
+  /**
+   * What race the god actually is, E.g. Vanir, Aesir, Jotunn
    * @default 'god'
    */
-  race : RaceName | string
-  /** 
+  race: RaceName | string
+  /**
    * The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank
    * @default 'human'
    */
   shape: RaceName | string
-  /** 
-   * For the Norse Aesir/Vanir split 
+  /**
+   * For the Norse Aesir/Vanir split
    */
   faction?: string
-  /** 
-   * For spirits and other things that shouldn't be called gods, goddesses, or deities.  
+  /**
+   * For spirits and other things that shouldn't be called gods, goddesses, or deities.
    */
   wordNoun?: string
   /**
@@ -240,8 +241,8 @@ export interface Deity {
    * Things that the god are associated with, e.g. Sacred plants and animals.
    */
   associations?: {
-    /** 
-     * A deity can have multiple different avatars, some more rare than others. 
+    /**
+     * A deity can have multiple different avatars, some more rare than others.
      */
     avatars: Avatar[]
     animals?: string[]
@@ -637,7 +638,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'tempest'
           ],
@@ -726,7 +727,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'death',
             'grave'
@@ -824,7 +825,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'life',
             'light',
@@ -899,7 +900,7 @@ export const religion: ReligionData = {
         { // Artemis
           name: 'Artemis',
           status: 'alive',
-          aliases: ['Diana','Brauronia', 'Orthia'],
+          aliases: ['Diana', 'Brauronia', 'Orthia'],
           equivalent: ['Selene', 'Britomartis', 'Dictynna', 'Eileithyial'],
           titles: [
             'Goddess of the Hunt',
@@ -927,7 +928,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'nature',
             'life',
@@ -1020,7 +1021,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'light',
             'knowledge',
@@ -1122,7 +1123,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'knowledge',
             'order',
@@ -1230,7 +1231,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'nature',
             'life',
@@ -1340,7 +1341,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'life'
           ],
@@ -1458,7 +1459,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'trickery',
             'peace',
@@ -1555,7 +1556,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'order',
             'trickery',
@@ -1642,7 +1643,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'war'
           ],
@@ -1731,7 +1732,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'life',
             'light',
@@ -1817,7 +1818,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'knowledge',
             'forge'
@@ -1900,7 +1901,7 @@ export const religion: ReligionData = {
           ],
           gender: 'none',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'life',
             'grave',
@@ -1986,7 +1987,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'arcana',
             'knowledge',
@@ -2060,7 +2061,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Nike
+        { // Nike
           name: 'Nike',
           status: 'alive',
           titles: ['Goddess of Victory', 'The Winged Goddess'],
@@ -2070,7 +2071,7 @@ export const religion: ReligionData = {
           portfolios: ['victory', 'speed', 'strength'],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'war',
             'peace'
@@ -2137,7 +2138,7 @@ export const religion: ReligionData = {
           portfolios: ['luck', 'chance', 'fate', 'providence', 'natural disasters'],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'trickery'
           ],
@@ -2195,10 +2196,10 @@ export const religion: ReligionData = {
         { // Hebe
           name: 'Hebe',
           status: 'alive',
-          titles: ['Goddess of Eternal Youth', 
-          'Daughter of Zeus', 
-          'Wife of Hercules'
-        ],
+          titles: ['Goddess of Eternal Youth',
+            'Daughter of Zeus',
+            'Wife of Hercules'
+          ],
           rank: 'lesser deity',
           description: 'string',
           appearance: 'string',
@@ -2210,7 +2211,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'god', 
+          race: 'god',
           domains: [
             'life'
           ],
@@ -2291,7 +2292,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'satyr',
-          race: 'god', 
+          race: 'god',
           domains: [
             'nature',
             'trickery'
@@ -2369,7 +2370,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'demigod', 
+          race: 'demigod',
           domains: [
             'life',
             'knowledge'
@@ -2441,7 +2442,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'centaur',
-          race: 'centaur', 
+          race: 'centaur',
           domains: [
             'knowledge',
             'peace'
@@ -2513,7 +2514,7 @@ export const religion: ReligionData = {
           ],
           gender: 'man',
           shape: 'human',
-          race: 'demigod', 
+          race: 'demigod',
           domains: [
             'war'
           ],
@@ -2584,7 +2585,7 @@ export const religion: ReligionData = {
           ],
           gender: 'woman',
           shape: 'human',
-          race: 'human', 
+          race: 'human',
           domains: [
             'trickery',
             'nature',
@@ -2654,7 +2655,7 @@ export const religion: ReligionData = {
         }
       },
       gods: [
-        { //Odin
+        { // Odin
           name: 'Name',
           status: 'alive',
           titles: [
@@ -2695,7 +2696,7 @@ export const religion: ReligionData = {
           gender: 'man',
           shape: 'human',
           race: 'god',
-          faction:'aesir',
+          faction: 'aesir',
           domains: [
             'knowledge',
             'trickery',
@@ -2760,7 +2761,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Thor
+        { // Thor
           name: 'Thor',
           status: 'alive',
           titles: [
@@ -2790,7 +2791,7 @@ export const religion: ReligionData = {
           gender: 'man',
           shape: 'human',
           race: 'god',
-          faction:'aesir',
+          faction: 'aesir',
           domains: [
             'tempest',
             'war',
@@ -2813,13 +2814,13 @@ export const religion: ReligionData = {
             {
               name: 'Mjolnir',
               wordNoun: 'hammer',
-              powers: 'summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short'//Don't think it returns - this is not Marvel
+              powers: 'summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short'// Don't think it returns - this is not Marvel
             },
             {
               name: 'Megingjord',
               wordNoun: 'belt',
               powers: 'doubles Thors mighty strength, allowing him to lift to Mjolnir'
-            },
+            }
           ],
           followers: {
             description: 'string',
@@ -2860,9 +2861,9 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Loki
+        { // Loki
           name: 'Loki',
-          status: 'alive', //unless he is bound to the stone with the snake above him - dunno about this
+          status: 'alive', // unless he is bound to the stone with the snake above him - dunno about this
           titles: [
             'Tangler',
             'Father of Lies',
@@ -2887,7 +2888,7 @@ export const religion: ReligionData = {
             'change',
             'temptation',
             'shapeshifting'
-          ], //Not fire, that is Logi, the Jotunn of Fire
+          ], // Not fire, that is Logi, the Jotunn of Fire
           gender: 'shapeshifter',
           shape: 'human',
           race: 'Jotunn',
@@ -2946,7 +2947,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Frigga
+        { // Frigga
           name: 'Frigg',
           status: 'alive',
           aliases: [
@@ -3035,7 +3036,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Freyr
+        { // Freyr
           name: 'Freyr',
           status: 'alive',
           aliases: ['Frey', 'Yngvi'],
@@ -3096,7 +3097,7 @@ export const religion: ReligionData = {
           },
           personality: {
           },
-          
+
           associations: {
             avatars: [
               {
@@ -3122,7 +3123,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Freyja
+        { // Freyja
           name: 'Freyja',
           status: 'alive',
           aliases: ['Freya', 'Freja'],
@@ -3211,7 +3212,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Bragi
+        { // Bragi
           name: 'Name',
           status: 'alive',
           titles: [
@@ -3280,7 +3281,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Sif
+        { // Sif
           name: 'Name',
           status: 'alive',
           titles: [
@@ -3346,7 +3347,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Baldr
+        { // Baldr
           name: 'Baldr',
           status: 'dead',
           titles: [
@@ -3416,7 +3417,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Aegir
+        { // Aegir
           name: 'Name',
           status: 'alive',
           titles: [
@@ -3484,7 +3485,7 @@ export const religion: ReligionData = {
           beliefs: 'string',
           heresies: 'string'
         },
-        { //Hel
+        { // Hel
           name: 'Hel',
           status: 'alive',
           titles: [
@@ -3553,7 +3554,7 @@ export const religion: ReligionData = {
           },
           beliefs: 'string',
           heresies: 'string'
-        },
+        }
       ]
     }
   }
