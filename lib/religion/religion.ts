@@ -2656,7 +2656,7 @@ export const religion: ReligionData = {
       },
       gods: [
         { // Odin
-          name: 'Name',
+          name: 'Odin',
           status: 'alive',
           titles: [
             'The Allfather',
