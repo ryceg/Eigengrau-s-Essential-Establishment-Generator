@@ -152,7 +152,7 @@ export interface Deity {
    * Description of how the deity is depicted typically. Distinct from their `avatars`.
    * @usage '${deity.name} is depicted as ______'
    */
-  appearance: string
+  appearance?: string
 
   /**
    * The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
@@ -203,8 +203,8 @@ export interface Deity {
    * The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
    * @example Zeus: 'fist full of lightning bolts'
    */
-  symbol: string | string[]
-  combat: {
+  symbol?: string | string[]
+  combat: Partial<{
     /**
      * How the deity feels about fighting, blah blah blah. Opening sentence.
      * @example 'Bloodthirsty and always relishing a fight, Ares commands batallions of soldiers in battle.',
@@ -216,29 +216,29 @@ export interface Deity {
      * @example Zeus: 'lightning'
      * @usage 'In combat, Zeus uses `lightning`.
      */
-    weapon: string
+    weapon?: string
     /**
      * Tooltip for the weapon.
      * @example Zeus: '..lightning..' > 'Zeus calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.'
      */
-    weaponDescription: string
+    weaponDescription?: string
     /**
      * For descriptions about combat.
      * @example 'Zeus is hotheaded, and does not always think things through.',
      * 'The typical tactics employed by Loki are those of deceit and treachery, opting to use subterfuge where possible.'
      */
-    tactics: string
-  }
+    tactics?: string
+  }>
   /**
    * For things that the deity owns.
    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
-  possessions: Possession[]
+  possessions: Partial<Possession[]>
   /** Some gods had planes/domain which they ruled
    * @example ```Odin: 'Valhalla'```
    */
   realm?: string
-  followers: Followers
+  followers: Partial<Followers>
   /**
    * If a deity particularly embodies a virtue or vice, it can be specified.
    * Be sure to not specify the same pair (i.e. chaste/lust)
@@ -258,7 +258,7 @@ export interface Deity {
     /**
      * A deity can have multiple different avatars, some more rare than others.
      */
-    avatars: Avatar[]
+    avatars?: Avatar[]
     animals?: string[]
     plants?: string[]
     places?: string[]
@@ -267,8 +267,8 @@ export interface Deity {
     colours?: string[]
     miscellaneous?: string[]
   }
-  beliefs: string
-  heresies: string
+  beliefs?: string
+  heresies?: string
   /**
    * Some suggested blessings from the god
    * @example Aphrodite: ['beauty']
@@ -282,32 +282,46 @@ export interface Deity {
 }
 
 interface Possession {
-  name: string
-  wordNoun: string
-  powers: string
+  /**
+   * The name of the object.
+   * @example 'Aegis'
+   */
+  name?: string
+  /**
+   * What the object is.
+   * @example 'shield'
+   * @usage 'Zeus owns the ${shield} Aegis'
+   */
+  wordNoun?: string
+  /**
+   * What the object does.
+   * @example 'bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
+   * @usage 'Zeus owns the ${shield} Aegis, which _____'
+   */
+  powers?: string
 }
 
 interface Avatar {
   /** @example 'The Silver Mother' */
-  name: string
+  name?: string
   /**
    * @example 'She is a frail old woman with grey hair', 'She appears as a fat and kindly looking woman, who often carries a cast iron pot of soup.'
   */
-  appearance: string
+  appearance?: string
   /**
    * The extra text.
    * @example 'She is a friendlier avatar, and enjoys the company of woodland creatures.'
    */
-  description: string
+  description?: string
   /**
    * @usage `${deity.name} appears as ${avatar.name} ${avatar.frequency}`
    * @example 'when the multiplane is in danger', 'when the world needs her most', 'on Sundays'
    */
-  frequency: string
+  frequency?: string
   /**
    * @example 'She can shoot ice beams out of her eyes, and other fun things.'
    */
-  powers: string
+  powers?: string
   /** For Loki and other deities that may present as other genders.
    * @default deity.gender
    */
@@ -577,7 +591,7 @@ export const religion: ReligionData = {
             'Oathkeeper'
           ],
           rank: 'leader',
-          description: 'string',
+          description: 'Zeus is the leader of the Greek gods, and lives atop Mount Olympus, where he rules over the mortal world below.',
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
           portfolios: [
             'the skies',
@@ -600,16 +614,16 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'fist full of lightning bolts',
           combat: {
-            description: 'string',
+            description: 'Zeus famously led the Greek gods in the battle against the Titans, and is a fearsome foe.',
             weapon: 'lightning',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: 'Zeus calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.',
+            tactics: 'Zeus is hotheaded, and does not always think things through.'
           },
           possessions: [
             {
               name: 'Aegis',
-              wordNoun: 'string',
-              powers: 'string'
+              wordNoun: 'shield',
+              powers: undefined
             }
           ],
           followers: {
@@ -627,11 +641,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -646,8 +660,8 @@ export const religion: ReligionData = {
             colours: ['yellow'],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Poseidon
           name: 'Poseidon',
@@ -660,7 +674,7 @@ export const religion: ReligionData = {
             'Horse Tender'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: 'a mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
           portfolios: [
             'the sea',
@@ -682,21 +696,21 @@ export const religion: ReligionData = {
           combat: {
             description: 'A trident',
             weapon: 'trident',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -707,11 +721,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -730,8 +744,8 @@ export const religion: ReligionData = {
             colours: ['blue'],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hades
           name: 'Hades',
@@ -747,7 +761,7 @@ export const religion: ReligionData = {
             'The invisible one'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: 'Dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
           portfolios: [
             'the underworld',
@@ -771,23 +785,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Helm of Hades',
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'Sceptre',
             weaponDescription: 'A powerful relic that is able to create a passage between the worlds of the living and the dead',
-            tactics: 'string'
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -798,11 +812,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -823,11 +837,11 @@ export const religion: ReligionData = {
               'The Erinyes'
             ],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Aphrodite
           name: 'Aphrodite',
@@ -846,8 +860,8 @@ export const religion: ReligionData = {
             'the Mother'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'love',
             'lovers',
@@ -870,23 +884,23 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
               earth: ['the fourth day of every month']
             }
@@ -899,11 +913,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -922,11 +936,11 @@ export const religion: ReligionData = {
             ],
             monsters: ['nereids'],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: ['conch shells']
           },
-          beliefs: 'string',
-          heresies: 'string',
+          beliefs: undefined,
+          heresies: undefined,
           blessings: [
             'beauty'
           ],
@@ -948,8 +962,8 @@ export const religion: ReligionData = {
             'The best advisor'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'hunting',
             'the wilderness',
@@ -977,18 +991,18 @@ export const religion: ReligionData = {
           combat: {
             description: 'As a child, Artemis asked her father for a Bow and Arrow made by the Cyclopses',
             weapon: 'bow and arrows',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'bow',
             holyDays: {
               earth: ['the sixth day']
@@ -1002,11 +1016,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1028,11 +1042,11 @@ export const religion: ReligionData = {
             ],
             monsters: ['nymphs', 'calydonian boar'],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: ['lyre', 'torches', 'spears and nets']
           },
           beliefs: 'chastity',
-          heresies: 'string'
+          heresies: undefined
         },
         { // Apollo
           name: 'Apollo',
@@ -1046,8 +1060,8 @@ export const religion: ReligionData = {
             'Of the Locusts'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'music',
             'prophecy',
@@ -1071,21 +1085,21 @@ export const religion: ReligionData = {
           combat: {
             description: 'The Bow of Apollo, a godly weapon',
             weapon: 'bow',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
               name: 'The Lyre of Apollo',
-              wordNoun: 'string',
-              powers: 'string'
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1096,11 +1110,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1122,11 +1136,11 @@ export const religion: ReligionData = {
             ],
             monsters: ['griffon'],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Athena
           name: 'Athena',
@@ -1143,7 +1157,7 @@ export const religion: ReligionData = {
             'Of the Head'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: 'a stately woman wearing a helmet armed with a spear and Aegis',
           portfolios: [
             'wisdom',
@@ -1173,23 +1187,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: ['Gorgoneion', 'Aegis'],
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'spear',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
               name: 'Aegis of Athena',
-              wordNoun: 'string',
-              powers: 'string'
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1200,11 +1214,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1217,11 +1231,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Dionysus
           name: 'Dionysus',
@@ -1247,8 +1261,8 @@ export const religion: ReligionData = {
             'the arriving one'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios:
           [
             'wine',
@@ -1281,21 +1295,21 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Thyrsus',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
               earth: ['the eighth month']
             }
@@ -1319,11 +1333,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1345,11 +1359,11 @@ export const religion: ReligionData = {
             ],
             monsters: ['satyrs'],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Demeter
           name: 'Demeter',
@@ -1368,7 +1382,7 @@ export const religion: ReligionData = {
             'Lovely Haired'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: 'a mature woman wearing a crown holding weat in a cornocopia and a torch',
           portfolios: [
             'agriculture',
@@ -1390,23 +1404,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'cornucopia',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1417,11 +1431,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1439,11 +1453,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hermes
           name: 'Hermes',
@@ -1467,8 +1481,8 @@ export const religion: ReligionData = {
             'God of Merchants'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'herds and flocks',
             'boundaries',
@@ -1511,31 +1525,31 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Caduceus ',
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'sword',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
               name: 'Adamantine Blade',
-              wordNoun: 'string',
-              powers: 'string'
+              wordNoun: undefined,
+              powers: undefined
             },
             {
               name: 'Talaria',
               wordNoun: 'Winged boots',
-              powers: 'string'
+              powers: undefined
             },
             {
               name: 'Winged helm',
-              wordNoun: 'string',
-              powers: 'string'
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
               earth: ['Wednesday']
             }
@@ -1548,11 +1562,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1569,11 +1583,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hera
           name: 'Hera',
@@ -1586,7 +1600,7 @@ export const religion: ReligionData = {
             'Of the Flowers'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
           portfolios: [
             'marriage',
@@ -1607,25 +1621,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1636,11 +1650,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1657,11 +1671,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Ares
           name: 'Ares',
@@ -1674,8 +1688,8 @@ export const religion: ReligionData = {
             'Of the Golden Helm'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'war',
             'battlelust',
@@ -1693,23 +1707,23 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
               earth: ['Tuesday']
             }
@@ -1722,11 +1736,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1742,11 +1756,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hestia
           name: 'Hestia',
@@ -1759,8 +1773,8 @@ export const religion: ReligionData = {
             'Beloved'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'fire',
             'family hearth',
@@ -1785,25 +1799,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1814,11 +1828,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1832,8 +1846,8 @@ export const religion: ReligionData = {
             colours: ['green'],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hephaestus
           name: 'Hephaestus',
@@ -1846,8 +1860,8 @@ export const religion: ReligionData = {
             'Of Bronze'
           ],
           rank: 'greater deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'fire',
             'blacksmiths',
@@ -1873,23 +1887,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Hammer and Tongs',
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'hammer',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1900,11 +1914,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -1915,11 +1929,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Persephone
           name: 'Persephone',
@@ -1934,8 +1948,8 @@ export const religion: ReligionData = {
             'Bringer of Fruit'
           ],
           rank: 'intermediate deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'spring',
             'flowers',
@@ -1956,25 +1970,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -1985,11 +1999,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2003,11 +2017,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hecate
           name: 'Hecate',
@@ -2021,8 +2035,8 @@ export const religion: ReligionData = {
             'Three-bodied'
           ],
           rank: 'intermediate deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'magic',
             'night',
@@ -2046,25 +2060,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2075,11 +2089,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2104,19 +2118,19 @@ export const religion: ReligionData = {
             ],
             monsters: ['ghosts', 'Lampades'],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Nike
           name: 'Nike',
           status: 'alive',
           titles: ['Goddess of Victory', 'The Winged Goddess'],
           rank: 'lesser deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: ['victory', 'speed', 'strength'],
           gender: 'woman',
           shape: 'human',
@@ -2129,23 +2143,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Winged Woman',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2156,35 +2170,33 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
+            animals: [],
             plants: [
               'palm tree',
               'bay tree'
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Tyche
           name: 'Tyche',
           status: 'alive',
           titles: ['Godess of Fortune and Chance'],
           rank: 'lesser deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: ['luck', 'chance', 'fate', 'providence', 'natural disasters'],
           gender: 'woman',
           shape: 'human',
@@ -2194,25 +2206,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2223,26 +2235,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hebe
           name: 'Hebe',
@@ -2252,8 +2260,8 @@ export const religion: ReligionData = {
             'Wife of Hercules'
           ],
           rank: 'lesser deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'youth',
             'forgiveness',
@@ -2268,23 +2276,23 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
               earth: ['June']
             }
@@ -2297,11 +2305,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2314,11 +2322,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string',
+          beliefs: undefined,
+          heresies: undefined,
           blessings: ['Restored Youth']
         },
         { // Pan
@@ -2331,7 +2339,7 @@ export const religion: ReligionData = {
             'Of the Hunt'
           ],
           rank: 'intermediate deity',
-          description: 'string',
+          description: undefined,
           appearance: 'a satyr holding a set of Pan-pipes',
           portfolios: [
             'the wild',
@@ -2351,25 +2359,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2380,11 +2388,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2398,11 +2406,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Aslepius
           name: 'Aslepius',
@@ -2413,8 +2421,8 @@ export const religion: ReligionData = {
 
           ],
           rank: 'lesser deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'medicine',
             'healing',
@@ -2432,23 +2440,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Serpent-entwined staff',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2459,11 +2467,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2474,11 +2482,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Chiron
           name: 'Chrion',
@@ -2488,8 +2496,8 @@ export const religion: ReligionData = {
             'The Teacher'
           ],
           rank: 'immortal',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'teacher',
             'surgeons'
@@ -2503,25 +2511,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2532,26 +2540,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              ''
-            ],
-            plants: [
-              ''
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hercules
           name: 'Heracles',
@@ -2559,8 +2563,8 @@ export const religion: ReligionData = {
           aliases: ['Hercules'],
           titles: ['Divine Protector of Mankind'],
           rank: 'lesser deity',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'mankind',
             'gymnasium',
@@ -2577,23 +2581,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'olive-wood club and lion skin cape',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2604,11 +2608,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2619,11 +2623,11 @@ export const religion: ReligionData = {
             ],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Ariadne
           name: 'Ariadne',
@@ -2631,8 +2635,8 @@ export const religion: ReligionData = {
           equivalent: ['Libera', 'Proserpina'],
           titles: ['Wife of Dionysus'],
           rank: 'immortal',
-          description: 'string',
-          appearance: 'string',
+          description: undefined,
+          appearance: undefined,
           portfolios: [
             'mazes',
             'fertility',
@@ -2649,25 +2653,25 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: 'string',
+          symbol: undefined,
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
               name: 'The Thread of Ariadne',
               wordNoun: 'thread',
-              powers: 'string'
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
-            favouredWeapon: 'string',
+            description: undefined,
+            favouredWeapon: undefined,
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2678,26 +2682,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
-            colours: ['string'],
+            colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         }
       ]
     },
@@ -2735,7 +2735,7 @@ export const religion: ReligionData = {
             'God of Victory'
           ],
           rank: 'leader',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             'wisdom',
@@ -2764,10 +2764,10 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'spear',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
@@ -2782,7 +2782,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: '',
             holyDays: {
               earth: ['Wednesday']
@@ -2797,11 +2797,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2816,8 +2816,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Thor
           name: 'Thor',
@@ -2859,10 +2859,10 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
+            description: undefined,
             weapon: 'hammer',
-            weaponDescription: 'string',
-            tactics: 'string'
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
@@ -2882,7 +2882,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'hammer',
             holyDays: {
               earth: ['Thursday']
@@ -2896,11 +2896,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -2917,8 +2917,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Loki
           name: 'Loki',
@@ -2936,7 +2936,7 @@ export const religion: ReligionData = {
             'He who has borne children'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             'magic',
@@ -2961,23 +2961,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -2988,15 +2988,14 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'],
+            animals: [],
             plants: [
               'birch',
               'mistletoe'
@@ -3006,8 +3005,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Frigga
           name: 'Frigg',
@@ -3020,7 +3019,7 @@ export const religion: ReligionData = {
             'Queen of the Gods'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             'prophecy',
@@ -3048,20 +3047,20 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
               earth: ['Friday']
@@ -3072,11 +3071,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -3096,8 +3095,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Freyr
           name: 'Freyr',
@@ -3112,7 +3111,7 @@ export const religion: ReligionData = {
             'the Fruitful'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             'religious kingship',
@@ -3140,23 +3139,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
               name: 'Gullinbursti',
               wordNoun: 'golden boar',
-              powers: 'string'
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3165,11 +3164,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -3184,8 +3183,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Freyja
           name: 'Freyja',
@@ -3202,7 +3201,7 @@ export const religion: ReligionData = {
             'Fair Tear Deity'
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             'love',
@@ -3227,23 +3226,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3253,11 +3252,11 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
             animals: [
@@ -3274,8 +3273,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Bragi
           name: 'Name',
@@ -3284,7 +3283,7 @@ export const religion: ReligionData = {
             ''
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             ''
@@ -3299,23 +3298,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3326,26 +3325,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Sif
           name: 'Name',
@@ -3354,7 +3349,7 @@ export const religion: ReligionData = {
             ''
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             ''
@@ -3369,20 +3364,20 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
               earth: ['']
@@ -3393,16 +3388,14 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
+            animals: [],
             plants: [
               'rowan'
             ],
@@ -3411,8 +3404,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Baldr
           name: 'Baldr',
@@ -3421,7 +3414,7 @@ export const religion: ReligionData = {
             ''
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             ''
@@ -3437,23 +3430,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3464,26 +3457,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Aegir
           name: 'Name',
@@ -3492,7 +3481,7 @@ export const religion: ReligionData = {
             ''
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             ''
@@ -3507,23 +3496,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3534,25 +3523,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         },
         { // Hel
           name: 'Hel',
@@ -3561,7 +3547,7 @@ export const religion: ReligionData = {
             ''
           ],
           rank: 'greater deity',
-          description: 'string',
+          description: undefined,
           appearance: '',
           portfolios: [
             ''
@@ -3577,23 +3563,23 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: '',
           combat: {
-            description: 'string',
-            weapon: 'string',
-            weaponDescription: 'string',
-            tactics: 'string'
+            description: undefined,
+            weapon: undefined,
+            weaponDescription: undefined,
+            tactics: undefined
           },
           possessions: [
             {
-              name: 'string',
-              wordNoun: 'string',
-              powers: 'string'
+              name: undefined,
+              wordNoun: undefined,
+              powers: undefined
             }
           ],
           followers: {
-            description: 'string',
+            description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['string']
+              earth: []
             }
           },
           personality: {
@@ -3604,26 +3590,22 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: 'string',
-                appearance: 'string',
-                description: 'string',
-                frequency: 'string',
-                powers: 'string'
+                name: undefined,
+                appearance: undefined,
+                description: undefined,
+                frequency: undefined,
+                powers: undefined
               }
             ],
-            animals: [
-              'string'
-            ],
-            plants: [
-              'string'
-            ],
+            animals: [],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
             miscellaneous: []
           },
-          beliefs: 'string',
-          heresies: 'string'
+          beliefs: undefined,
+          heresies: undefined
         }
       ]
     }
