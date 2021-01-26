@@ -1,25 +1,24 @@
 :: Manifestations
-<h2>Manifestations</h2>
-<table>
-<tr>
-  <th>Name</th>
-  <th>Appearance</th>
-  <th>Description</th>
-  <th>Frequency</th>
-  <th>Powers</th>
-</tr>
-<<for _i to 0; _i lt $currentPassage.manifestations.avatars.length; _i++>>
-<tr>
-  <td>$currentPassage.manifestations.avatars[_i].name</td>
-  <td>$currentPassage.manifestations.avatars[_i].appearance</td>
-  <td>$currentPassage.manifestations.avatars[_i].description</td>
-  <td>$currentPassage.manifestations.avatars[_i].frequency</td>
-  <td>$currentPassage.manifestations.avatars[_i].powers</td>
-</tr>
-<</for>>
-<tr>
-  <th>Type</th>
-  <th>Appears as</th>
-</tr>
-
-</table>
+<<if $currentPassage.associations>><h2>Manifestations</h2>
+  <<if $currentPassage.associations.avatars>>
+  <<for _avatar range $currentPassage.associations.avatars>>
+  <h3>_avatar.name</h3>
+  $currentPassage.name appears as _avatar.name<<idp _avatar.frequency " _avatar.frequency">>. <<idp _avatar.appearance "<<print _avatar.appearance.toUpperFirst()>>">> <<idp _avatar.description>> <<idp _avatar.powers>>
+  <</for>><</if>>
+  <<if Object.keys($currentPassage.associations).length >= 1>>
+    <table>
+    <tr>
+      <th>Type</th>
+      <th>Appears as</th>
+    </tr>
+    <<for _key, _array range $currentPassage.associations>>
+    <<if _key === 'avatars'>><<continue>><</if>>
+    <<if $currentPassage.associations[_key].length === 0>><<continue>><</if>>
+    <tr>
+      <td><<print _key.toUpperFirst()>></td>
+      <td colspan="4"><<print lib.makeList($currentPassage.associations[_key]).toUpperFirst()>></td>
+    </tr>
+    <</for>>
+    </table>
+  <</if>>
+<</if>>

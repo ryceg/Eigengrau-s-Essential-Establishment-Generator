@@ -1,0 +1,10 @@
+:: DeityStatus
+<<if $currentPassage.status === 'dead'>>
+$currentPassage.name is currently dead.
+<<elseif $currentPassage.status === 'imprisoned'>>
+$currentPassage.name is currently imprisoned.
+<<elseif $currentPassage.status === 'dormant'>>
+$currentPassage.name is currently dormant.
+<<elseif $currentPassage.status === 'uncertain'>>
+$currentPassage.name's status is currently not known.
+<</if>>

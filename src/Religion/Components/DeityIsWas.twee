@@ -1,0 +1,5 @@
+:: DeityIsWas
+<<if $currentPassage.status === 'dead'>>was<<else>>is<</if>>
+
+:: DeityUsesUsed
+<<if $currentPassage.status === 'dead'>>used<<else>>uses<</if>>
