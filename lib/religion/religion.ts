@@ -150,6 +150,7 @@ export interface Deity {
   description?: string
   /**
    * Description of how the deity is depicted typically. Distinct from their `avatars`.
+   * @usage '${deity.name} is depicted as ______'
    */
   appearance: string
 
@@ -161,8 +162,13 @@ export interface Deity {
   portfolios: string[]
   /**
    * To assign whether to call them gods, goddesses, or deities, and use the correct pronouns.
+   * @warn This is _not_ suggesting that they are always that gender.
+   * Rather, it is the gender that people commonly would use when referring to the deity.
+   * Loki, for example, famously gave birth to Sleipnir.
+   * However, he still presents as male in most mythology.
+   * Avatars can have different genders to their corresponding god.
    */
-  gender: GenderName | 'none' | 'shapeshifter'
+  gender: GenderName | 'nonbinary'
   /**
    * What race the god actually is, E.g. Vanir, Aesir, Jotunn
    * @default 'god'
@@ -200,7 +206,9 @@ export interface Deity {
   symbol: string | string[]
   combat: {
     /**
-     * For when you want to describe how your deity fights in battle.
+     * How the deity feels about fighting, blah blah blah. Opening sentence.
+     * @example 'Bloodthirsty and always relishing a fight, Ares commands batallions of soldiers in battle.',
+     * 'Aphrodite finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
      */
     description: string
     /**
@@ -210,8 +218,14 @@ export interface Deity {
      */
     weapon: string
     /**
+     * Tooltip for the weapon.
+     * @example Zeus: '..lightning..' > 'Zeus calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.'
+     */
+    weaponDescription: string
+    /**
      * For descriptions about combat.
-     * @usage 'Zeus is hotheaded, and does not shy away from a righteous fight.'
+     * @example 'Zeus is hotheaded, and does not always think things through.',
+     * 'The typical tactics employed by Loki are those of deceit and treachery, opting to use subterfuge where possible.'
      */
     tactics: string
   }
@@ -274,11 +288,30 @@ interface Possession {
 }
 
 interface Avatar {
+  /** @example 'The Silver Mother' */
   name: string
+  /**
+   * @example 'She is a frail old woman with grey hair', 'She appears as a fat and kindly looking woman, who often carries a cast iron pot of soup.'
+  */
   appearance: string
+  /**
+   * The extra text.
+   * @example 'She is a friendlier avatar, and enjoys the company of woodland creatures.'
+   */
   description: string
+  /**
+   * @usage `${deity.name} appears as ${avatar.name} ${avatar.frequency}`
+   * @example 'when the multiplane is in danger', 'when the world needs her most', 'on Sundays'
+   */
   frequency: string
+  /**
+   * @example 'She can shoot ice beams out of her eyes, and other fun things.'
+   */
   powers: string
+  /** For Loki and other deities that may present as other genders.
+   * @default deity.gender
+   */
+  gender?: GenderName
 }
 
 export type PantheonTypes = 'greek' | 'norse'
@@ -569,6 +602,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'lightning',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -627,7 +661,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: 'string',
-          appearance: 'A mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
+          appearance: 'a mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
           portfolios: [
             'the sea',
             'earthquakes',
@@ -647,7 +681,8 @@ export const religion: ReligionData = {
           symbol: 'A trident and billowing cloak',
           combat: {
             description: 'A trident',
-            weapon: 'Trident',
+            weapon: 'trident',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -736,8 +771,9 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'Helm of Hades',
           combat: {
-            description: 'The Sceptre of Hacdes, able to create a passage between the worlds of the living and the dead',
+            description: 'string',
             weapon: 'Sceptre',
+            weaponDescription: 'A powerful relic that is able to create a passage between the worlds of the living and the dead',
             tactics: 'string'
           },
           possessions: [
@@ -838,6 +874,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -938,8 +975,9 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'bow and quiver of arrows',
           combat: {
-            description: 'As a child Artremis asked her father for a Bow and Arrow made by the Cyclopses',
+            description: 'As a child, Artemis asked her father for a Bow and Arrow made by the Cyclopses',
             weapon: 'bow and arrows',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1033,6 +1071,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'The Bow of Apollo, a godly weapon',
             weapon: 'bow',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1105,7 +1144,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: 'string',
-          appearance: 'A stately woman wearing a helmet armed with a spear and Aegis',
+          appearance: 'a stately woman wearing a helmet armed with a spear and Aegis',
           portfolios: [
             'wisdom',
             'good counsel',
@@ -1136,6 +1175,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'spear',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1243,6 +1283,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1328,7 +1369,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: 'string',
-          appearance: 'A Mature woman wearing a crown holding weat in a cornocopia and a torch',
+          appearance: 'a mature woman wearing a crown holding weat in a cornocopia and a torch',
           portfolios: [
             'agriculture',
             'grain and bread',
@@ -1351,6 +1392,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1471,6 +1513,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'sword',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1568,6 +1611,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1653,6 +1697,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1744,6 +1789,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1829,6 +1875,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'hammer',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -1899,7 +1946,7 @@ export const religion: ReligionData = {
             'the Eleusinian Mysteries',
             'the blessed afterlife'
           ],
-          gender: 'none',
+          gender: 'woman',
           shape: 'human',
           race: 'god',
           domains: [
@@ -1913,6 +1960,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2002,6 +2050,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2082,6 +2131,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2148,6 +2198,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2221,6 +2272,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2280,7 +2332,7 @@ export const religion: ReligionData = {
           ],
           rank: 'intermediate deity',
           description: 'string',
-          appearance: 'A Satyr holding a set of Pan-pipes',
+          appearance: 'a satyr holding a set of Pan-pipes',
           portfolios: [
             'the wild',
             'nature',
@@ -2303,6 +2355,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2381,6 +2434,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2453,6 +2507,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2524,6 +2579,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2597,6 +2653,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2709,6 +2766,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'spear',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2803,6 +2861,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'hammer',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2889,7 +2948,9 @@ export const religion: ReligionData = {
             'temptation',
             'shapeshifting'
           ], // Not fire, that is Logi, the Jotunn of Fire
-          gender: 'shapeshifter',
+          // Loki is a shapeshifter, but it is simpler to give his avatars the corresponding gender.
+          // You probably didn't consciously notice that I just used the male pronouns for Loki.
+          gender: 'man',
           shape: 'human',
           race: 'Jotunn',
           faction: 'aesir',
@@ -2902,6 +2963,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -2988,6 +3050,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3079,6 +3142,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3165,6 +3229,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3236,6 +3301,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3305,6 +3371,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3372,6 +3439,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3441,6 +3509,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
@@ -3510,6 +3579,7 @@ export const religion: ReligionData = {
           combat: {
             description: 'string',
             weapon: 'string',
+            weaponDescription: 'string',
             tactics: 'string'
           },
           possessions: [
