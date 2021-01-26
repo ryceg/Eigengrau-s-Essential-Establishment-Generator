@@ -1,13 +1,24 @@
 import { ProfessionNames } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town } from '../town/_common'
-import { AlignmentsAbbreviated, ClericDomains } from '../src/worldType'
+import { AlignmentsAbbreviated, ClericDomains, WorldType } from '../src/worldType'
 import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
 
 interface Followers {
+  /** @example 'Zeus is followed by many, of all different race and creed.' */
   description: string
+  /**
+   * @example 'spear'
+   * @usage 'In battle, his followers favour the ${favouredWeapon}'
+   * */
   favouredWeapon: string
-  holyDays: Record<string, string[]>
+  /**
+   * Holy days
+   * @example ['the month of January', 'Saturdays', 'days ending with the letter y']
+   * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
+   * @default 'earth'
+   */
+  holyDays: PartialRecord<WorldType, string[]>
   race?: RaceName
   gender?: GenderName
   age?: AgeName
@@ -576,7 +587,7 @@ export const religion: ReligionData = {
         description: '',
         favouredWeapon: '',
         holyDays: {
-          default: []
+          earth: []
         }
       },
       gods: [
@@ -623,7 +634,7 @@ export const religion: ReligionData = {
             {
               name: 'Aegis',
               wordNoun: 'shield',
-              powers: undefined
+              powers: 'bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
             }
           ],
           followers: {
@@ -650,7 +661,8 @@ export const religion: ReligionData = {
             ],
             animals: [
               'eagle',
-              'bull'],
+              'bull'
+            ],
             plants: [
               'oak tree',
               'olive tree'
@@ -675,7 +687,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: 'a mature man with a sturdy build and a dark beard holding a Trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms ',
+          appearance: 'a mature man with a sturdy build and a dark beard holding a trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms.',
           portfolios: [
             'the sea',
             'earthquakes',
@@ -707,8 +719,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
-            favouredWeapon: undefined,
+            description: 'Poseidon is followed by many mariners, fishermen, and horse riders.',
+            favouredWeapon: 'trident',
             holyDays: {
               earth: []
             }
@@ -739,7 +751,7 @@ export const religion: ReligionData = {
               'seaweed',
               'wild celery'
             ],
-            monsters: ['hippocamp'],
+            monsters: ['hippocampus'],
             gems: [],
             colours: ['blue'],
             miscellaneous: []
@@ -762,7 +774,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: 'Dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
+          appearance: 'a dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
           portfolios: [
             'the underworld',
             'the dead',
@@ -792,16 +804,18 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
+              name: 'Cap of Invisibility',
+              wordNoun: 'helmet',
+              powers: 'can turn the wearer invisible'
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Hades, as the god of the dead, was a fearsome figure to those still living; in no hurry to meet him, they were reluctant to swear oaths in his name, and averted their faces when sacrificing to him. Since to many, simply to say the word "Hades" was frightening, euphemisms were pressed into use.',
             favouredWeapon: undefined,
             holyDays: {
-              earth: []
+              earth: ['second to last day of every month'],
+              fr: ['second to last day of every month'],
+              gn: ['second to last day of every month']
             }
           },
           personality: {
@@ -861,7 +875,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'Aphrodite is consistently portrayed as a nubile, infinitely desirable adult, having had no childhood.',
           portfolios: [
             'love',
             'lovers',
@@ -884,7 +898,7 @@ export const religion: ReligionData = {
           ],
           channelDivinity: [],
           alignment: 'N',
-          symbol: undefined,
+          symbol: 'dove',
           combat: {
             description: undefined,
             weapon: undefined,
@@ -899,7 +913,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Aphrodite is the patron goddess of all prostitutes',
             favouredWeapon: undefined,
             holyDays: {
               earth: ['the fourth day of every month']
@@ -926,9 +940,11 @@ export const religion: ReligionData = {
               'goose',
               'sparrow',
               'swallow',
+              'dolphins',
               'wryneck' // English name for Iynx
             ],
             plants: [
+              'pomegranites',
               'rose',
               'myrtle',
               'apple',
@@ -945,7 +961,8 @@ export const religion: ReligionData = {
             'beauty'
           ],
           curses: [
-            'ugliness'
+            'ugliness',
+            'unwashable stink'
           ]
         },
         { // Artemis
@@ -962,13 +979,14 @@ export const religion: ReligionData = {
             'The best advisor'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: undefined,
+          description: 'Artemis is a freedom-loving young woman who likes to roam the forests with her female companions. She doesn\'t care for city life and keeps to the natural, wild environment. Those who peek at her or her maidens when they are bathing may be torn apart by her hounds. She has a special connection with swampy and marshy areas, as well as with forests.',
+          appearance: 'an eternally young woman, beautiful and vigorous, wearing a short costume that leaves her legs free.',
           portfolios: [
             'hunting',
             'the wilderness',
             'wild animals',
             'childbirth',
+            'chastity',
             'sudden death and disease of girls',
             'the moon',
             'dawn',
@@ -1060,7 +1078,7 @@ export const religion: ReligionData = {
             'Of the Locusts'
           ],
           rank: 'greater deity',
-          description: undefined,
+          description: 'The twin brother of Artemis, Apollo is the inventor of music, ',
           appearance: undefined,
           portfolios: [
             'music',
@@ -1068,6 +1086,8 @@ export const religion: ReligionData = {
             'healing',
             'archery',
             'plague',
+            'sun',
+            'poetry',
             'disease',
             'sudden death and diseases of boys'
           ],
@@ -1091,7 +1111,7 @@ export const religion: ReligionData = {
           possessions: [
             {
               name: 'The Lyre of Apollo',
-              wordNoun: undefined,
+              wordNoun: 'lyre',
               powers: undefined
             }
           ],
@@ -2708,7 +2728,7 @@ export const religion: ReligionData = {
         description: '',
         favouredWeapon: '',
         holyDays: {
-          default: []
+          earth: []
         }
       },
       gods: [
