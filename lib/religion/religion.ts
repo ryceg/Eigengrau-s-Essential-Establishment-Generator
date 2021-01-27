@@ -89,6 +89,8 @@ export interface Pantheon {
   gods: Deity[]
 }
 
+export type DeityStatus = 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
+
 export interface Deity {
   /**
    * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
@@ -100,7 +102,7 @@ export interface Deity {
    * @example ```Kronos: 'imprisoned'```
    * @example ```Pan: 'uncertain'```
    */
-  status: 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
+  status: DeityStatus
   /**
    * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
    */
@@ -164,7 +166,28 @@ export interface Deity {
    * @usage '${deity.name} is depicted as ______'
    */
   appearance?: string
-
+  /**
+   * Just in case you have history that you want to cover.
+   */
+  history?: string
+  /**
+   * For smart one-liners, or quotes about the deity.
+   * Will be printed in a <blockquote> element.
+   * If given an array, will be picked at random.
+   * @example {
+   *    description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',
+   *    author: 'Sophocles'
+   * }
+   */
+  quotes?: Quotation | Quotation[]
+  /**
+   * Generic extra text.
+   * @example [
+   *  '<h4>Birth</h4>', 'The birth of Zeus was not your average birth.',
+   *  '<h4>Death</h4>', 'Zeus dies at the end of the film.'
+   * ]
+   */
+  paragraphs?: string[]
   /**
    * The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
@@ -337,6 +360,11 @@ interface Avatar {
    * @default deity.gender
    */
   gender?: GenderName
+}
+
+interface Quotation {
+  description: string
+  author?: string
 }
 
 export type PantheonTypes = 'greek' | 'norse'
@@ -604,6 +632,10 @@ export const religion: ReligionData = {
           rank: 'leader',
           description: 'Zeus is the leader of the Greek gods, and lives atop Mount Olympus, where he rules over the mortal world below.',
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
+          quotes: {
+            description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',
+            author: 'Sophocles'
+          },
           portfolios: [
             'the skies',
             'thunder and lightning',
