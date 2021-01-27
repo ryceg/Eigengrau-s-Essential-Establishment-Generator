@@ -89,6 +89,7 @@ export * from './npc-generation/npcFinances'
 
 export * from './religion/createTownReligion'
 export * from './religion/religion'
+export * from './religion/Components/deityComponents'
 
 export * from './src/articles'
 export * from './src/books'

@@ -4,7 +4,7 @@
 \<<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
   <</button>>
-<<include "AlsoKnownAs">>, <<print $currentPassage.titles.random()>>, <<include "DeityIsWas">> the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. <<include "DeityStatus">> <<idp $currentPassage.symbol "<<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol <<include 'DeityIsWas'>> <<print lib.articles.output($currentPassage.symbol)>>.">> 
+<<include "AlsoKnownAs">>, <<print $currentPassage.titles.random()>>, <<print lib.deityIsWas($currentPassage.status)>> the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. <<print lib.deityStatus($currentPassage)>> <<idp $currentPassage.symbol "<<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol <<print lib.deityIsWas($currentPassage.status)>> <<print lib.articles.output($currentPassage.symbol)>>.">> 
 <<idp $currentPassage.description>> <<idp $currentPassage.appearance>>
 <<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
 <<idp $currentPassage.beliefs "<h3>Beliefs</h3>$currentPassage.beliefs">>
