@@ -1,6 +1,6 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { dice } from '../src/dice'
-import { GenderName } from 'lib/src/genderData'
+import { GenderName } from '../src/genderData'
 
 export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc'
 
@@ -14,7 +14,7 @@ interface RaceTrait {
     ageDescriptors: ThresholdTable
   }
   /** @warn Ensure that you use `lib.getGenderTrait()` to access any property that does not have non-binary. */
-  genderTraits: Record<Partial<GenderName>, Partial<GenderTrait>>
+  genderTraits: Record<GenderName, Partial<GenderTraits>>
   lastName: string[]
   eyes: string[]
   raceWords: {
@@ -36,7 +36,7 @@ interface AgeTrait {
   ageModifier(): number
 }
 
-interface GenderTrait {
+export interface GenderTraits {
   firstName: string[]
   beardProbability: number
   baseHeight: number
