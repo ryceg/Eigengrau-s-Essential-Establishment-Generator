@@ -13,6 +13,7 @@ interface RaceTrait {
   ageTraits: Record<AgeName, AgeTrait> & {
     ageDescriptors: ThresholdTable
   }
+  /** @warn Ensure that you use `lib.getGenderTrait()` to access any property that does not have non-binary. */
   genderTraits: Record<Partial<GenderName>, Partial<GenderTrait>>
   lastName: string[]
   eyes: string[]
