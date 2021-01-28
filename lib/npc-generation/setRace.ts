@@ -2,11 +2,11 @@
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
 import { ThresholdTable } from '../src/rollFromTable'
+import { GenderName } from '../src/genderData'
 
 import { bmiDescriptions } from './bmiDescriptions'
 import { GenderTraits, RaceName, raceTraits } from './raceTraits'
 import { NPC } from './_common'
-import { GenderName } from 'lib/src/genderData'
 
 interface GetGenderTraitProps {
   race: RaceName
@@ -31,6 +31,7 @@ export function setRace (npc: NPC) {
   const baseWeight = getGenderTrait(npc, 'baseWeight')
   const heightModifier = getGenderTrait(npc, 'heightModifier')()
   const weightModifier = getGenderTrait(npc, 'weightModifier')()
+
   if (random(1, 100) <= beardProbability) {
     npc.beard = random(raceData.beard)
   }
