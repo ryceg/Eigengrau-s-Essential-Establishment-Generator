@@ -1,6 +1,7 @@
+import { GenderName } from 'lib/src/genderData'
 import { random } from '../src/random'
 import { capitalizeFirstLetter } from '../src/utils'
-import { GenderName, RaceName, raceTraits } from './raceTraits'
+import { RaceName, raceTraits } from './raceTraits'
 
 interface Params {
   race?: RaceName

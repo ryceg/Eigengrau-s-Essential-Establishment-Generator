@@ -2,12 +2,13 @@ import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building, BuildingRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
-import { GenderName, RaceName } from '../npc-generation/raceTraits'
+import { RaceName } from '../npc-generation/raceTraits'
 import { Family, NPC, NpcRelationship } from '../npc-generation/_common'
 import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
+import { GenderName } from 'lib/src/genderData'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 

@@ -4,7 +4,8 @@ import { ClassName } from './classTraits'
 import { ReligionStrength } from './createReligiosity'
 import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
-import { RaceName, GenderName, AgeName } from './raceTraits'
+import { RaceName, AgeName } from './raceTraits'
+import { GenderName } from 'lib/src/genderData'
 
 export type SocialClassName =
   | 'indentured servitude'
