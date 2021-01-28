@@ -805,8 +805,8 @@ export const religion: ReligionData = {
             'The invisible one'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: 'a dark-bearded, regal god, with a bird tipped sceptre seated with Cerebus by his throne.',
+          description: 'Hades is the god of the Dead and the first son of Kronos. However when He, Zeus and Poseidon were drawing lots for the division of the cosmos, Hades gained dominion of the Underworld. As far below the earth as the heavens are above, Hades realm is a dark and depressing place.',
+          appearance: 'a dark-bearded, regal god, with a bird tipped sceptre with Cerebus seated by his throne.',
           portfolios: [
             'the underworld',
             'the dead',
@@ -906,7 +906,7 @@ export const religion: ReligionData = {
             'the Mother'
           ],
           rank: 'greater deity',
-          description: undefined,
+          description: 'Aphrodite is the goddess of love and scorns those who stay away from relationships. Her love can be a thing of beauty or a thing of terror and destruction.',
           appearance: 'Aphrodite is consistently portrayed as a nubile, infinitely desirable adult, having had no childhood.',
           portfolios: [
             'love',
@@ -945,7 +945,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'Aphrodite is the patron goddess of all prostitutes',
+            description: 'As the goddess of beauty and love the favour of Aphrodite was valuble regardless of profession, thoughshe was the Patron goddess of Prostitutes. He warlike aspect, Aphrodite Areia, was worshipped by warriors',
             favouredWeapon: undefined,
             holyDays: {
               earth: ['the fourth day of every month']
@@ -1011,8 +1011,8 @@ export const religion: ReligionData = {
             'The best advisor'
           ],
           rank: 'greater deity',
-          description: 'Artemis is a freedom-loving young woman who likes to roam the forests with her female companions. She doesn\'t care for city life and keeps to the natural, wild environment. Those who peek at her or her maidens when they are bathing may be torn apart by her hounds. She has a special connection with swampy and marshy areas, as well as with forests.',
-          appearance: 'an eternally young woman, beautiful and vigorous, wearing a short costume that leaves her legs free.',
+          description: 'Artemis is the goddess of the Hunt and young girls. She can change others into animals as punishment for transgressions against her and she demands appropriate respect from mortals.',
+          appearance: 'a young woman wearing a short costume that leaves her legs free and wielding a bow with a quiver of arrows.',
           portfolios: [
             'hunting',
             'the wilderness',
@@ -1091,6 +1091,7 @@ export const religion: ReligionData = {
               'palm tree'
             ],
             monsters: ['nymphs', 'calydonian boar'],
+            places: ['forests'],
             gems: [],
             colours: [],
             miscellaneous: ['lyre', 'torches', 'spears and nets']
@@ -1110,8 +1111,8 @@ export const religion: ReligionData = {
             'Of the Locusts'
           ],
           rank: 'greater deity',
-          description: 'The twin brother of Artemis, Apollo is the inventor of music, ',
-          appearance: undefined,
+          description: 'The twin brother of Artemis, Apollo is the inventor of music. Those that he loves and loses or those that he hates can find themselves transformed and immortalised as a part of nature. ',
+          appearance: 'a handsome youth, beardless with long hair and holds either a lyre or a bow.',
           portfolios: [
             'music',
             'prophecy',
@@ -1209,7 +1210,7 @@ export const religion: ReligionData = {
             'Of the Head'
           ],
           rank: 'greater deity',
-          description: undefined,
+          description: 'Athena is a wise goddess and protects those that follow her. She does have the rage of a goddess, and affronts to her are paid back with divine retribution.',
           appearance: 'a stately woman wearing a helmet armed with a spear and Aegis',
           portfolios: [
             'wisdom',
@@ -1313,8 +1314,8 @@ export const religion: ReligionData = {
             'the arriving one'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: undefined,
+          description: 'Dionysus is the god of Wine and Theatre, his revelry is open to all. However, he has his dark side - he is the god of madness the anger of Dionysus is a terrifying thing',
+          appearance: 'long haired youth, almost effeminate in appearance. He holds a staff topped with a pinecone and brings revelry with him',
           portfolios:
           [
             'wine',
@@ -1360,7 +1361,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Some devotees of Dionysus also engage in ritualistic madness and rending of animals with their bare hands',
             favouredWeapon: undefined,
             holyDays: {
               earth: ['the eighth month']
@@ -1434,8 +1435,8 @@ export const religion: ReligionData = {
             'Lovely Haired'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: 'a mature woman wearing a crown holding weat in a cornocopia and a torch',
+          description: 'Demeter is the goddess of Agriculture - her favour promised a bountiful harvest and more grain then could be eaten. However her anger promised frosts and famine.',
+          appearance: 'a mature woman wearing a crown holding wheat in a cornocopia and a torch',
           portfolios: [
             'agriculture',
             'grain and bread',
@@ -1469,7 +1470,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'As the goddess of Agriculture, Demeter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.',
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -1509,7 +1510,9 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife'],
+
         },
         { // Hermes
           name: 'Hermes',
@@ -1533,8 +1536,8 @@ export const religion: ReligionData = {
             'God of Merchants'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: undefined,
+          description: 'Hermes is the hessenger of the gods and the personal messenger of Zeus. He brings the souls of the deceased to the edge of the underworld, where they are ferried deeper by the Cthonic gods',
+          appearance: 'an athletic man wearing winged boots, full of energy. Ontop of his head is a helmet with two wings attached.',
           portfolios: [
             'herds and flocks',
             'boundaries',
@@ -1652,7 +1655,7 @@ export const religion: ReligionData = {
             'Of the Flowers'
           ],
           rank: 'greater deity',
-          description: undefined,
+          description: 'Hera is the Queen of the gods, forever tested by her husband Zeus. Unable to attack Zeus, her anger is often directed to his consorts or his children.',
           appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
           portfolios: [
             'marriage',
@@ -1741,7 +1744,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'always clad in armour, holding weapons and ready for battle. He can appear as the fresh-faced youth or the grizzeled veteran depending on his mood.',
           portfolios: [
             'war',
             'battlelust',
@@ -1825,8 +1828,8 @@ export const religion: ReligionData = {
             'Beloved'
           ],
           rank: 'greater deity',
-          description: undefined,
-          appearance: undefined,
+          description: 'Hestia is the First-born child of Kronos and Rhea and the first to be swallowed by him. After Apollo and Poseidon vied for her hand in marriage she refused and chose to be an eternal virgin.',
+          appearance: 'a beautiful veiled woman, with long dark hair',
           portfolios: [
             'fire',
             'family hearth',
@@ -1913,7 +1916,7 @@ export const religion: ReligionData = {
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'bearded man with twisted legs',
           portfolios: [
             'fire',
             'blacksmiths',
@@ -3329,16 +3332,20 @@ export const religion: ReligionData = {
           heresies: undefined
         },
         { // Bragi
-          name: 'Name',
+          name: 'Bragi',
           status: 'alive',
           titles: [
-            ''
+            'The long-bearded god',
+            'The husband of Idunn',
+            'First maker of Poetry',
+            'Son of Odin'
           ],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
           portfolios: [
-            ''
+            'skaldic poetry',
+            'wisdom',
           ],
           gender: 'man',
           shape: 'human',
@@ -3351,7 +3358,7 @@ export const religion: ReligionData = {
           symbol: '',
           combat: {
             description: undefined,
-            weapon: undefined,
+            weapon: 'harp',
             weaponDescription: undefined,
             tactics: undefined
           },
@@ -3363,8 +3370,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
-            favouredWeapon: 'spear',
+            description: 'the Skalds are the story tellers of the Jarl, and rarely go into battle. They recite stories of the great deeds of gods and men',
+            favouredWeapon: 'harp',
             holyDays: {
               earth: []
             }
@@ -3395,22 +3402,31 @@ export const religion: ReligionData = {
           heresies: undefined
         },
         { // Sif
-          name: 'Name',
+          name: 'Sif',
           status: 'alive',
           titles: [
-            ''
+            'The Prophetess Sibyl',
+            'The Fair-haired Deity',
+            'Loveliest of Women',
+            'The Wife of Thor',
+            'Mother of Ullr',
+            'Good Mother'
           ],
           rank: 'greater deity',
           description: undefined,
-          appearance: '',
+          appearance: 'a beautiful woman with a brilliant wig made of gold',
           portfolios: [
-            ''
+            'harvest',
+            'autum',
+            'vitality',
+            'fertility',
+            'wedlock'
           ],
           gender: 'man',
           shape: 'human',
           race: 'god',
           domains: [
-            'war'
+            'nature'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -3463,20 +3479,29 @@ export const religion: ReligionData = {
           name: 'Baldr',
           status: 'dead',
           titles: [
-            ''
+            'the Bleeding God',
+            'Wisest of the Aesir',
+            'Fairest of the Aesir'
           ],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
           portfolios: [
-            ''
+            'beauty',
+            'light',
+            'peace',
+            'valour',
+            'joy',
+            'summer sun',
+            'purity'
           ],
           gender: 'man',
           shape: 'human',
           race: 'god',
           domains: [
             'life',
-            'light'
+            'light',
+            'peace'
           ],
           channelDivinity: [],
           alignment: 'N',
@@ -3517,7 +3542,7 @@ export const religion: ReligionData = {
               }
             ],
             animals: [],
-            plants: [],
+            plants: ['scentless mayweed'],
             monsters: [],
             gems: [],
             colours: [],
