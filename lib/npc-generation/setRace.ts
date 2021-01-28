@@ -10,7 +10,7 @@ export function setRace (npc: NPC) {
   const raceData = raceTraits[npc.race]
   const genderTraits = raceData.genderTraits[npc.gender]
 
-  if (random(1, 100) >= genderTraits.beardProbability) {
+  if (random(1, 100) <= genderTraits.beardProbability) {
     npc.beard = random(raceData.beard)
   }
 
