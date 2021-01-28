@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
 import { ThresholdTable } from '../src/rollFromTable'
@@ -6,16 +7,40 @@ import { bmiDescriptions } from './bmiDescriptions'
 import { raceTraits } from './raceTraits'
 import { NPC } from './_common'
 
+export function getGenderTrait (npc: NPC, key: string): unknown {
+  const genderTraits = raceTraits[npc.race].genderTraits
+  // @ts-ignore
+  if (genderTraits[npc.gender][key]) {
+    // @ts-ignore
+    if (typeof genderTraits[npc.gender][key] === 'function') {
+      // @ts-ignore
+      return genderTraits[npc.gender][key]()
+    }
+    // @ts-ignore
+    return genderTraits[npc.gender][key]
+  }
+  // @ts-ignore
+  if (typeof genderTraits.woman[key] === 'function') {
+    // @ts-ignore
+    return genderTraits.woman[key]()
+  }
+  // @ts-ignore
+  return genderTraits.woman[key]
+}
+
 export function setRace (npc: NPC) {
   const raceData = raceTraits[npc.race]
-  const genderTraits = raceData.genderTraits[npc.gender]
-
-  if (random(1, 100) <= genderTraits.beardProbability) {
+  const beardProbability = getGenderTrait(npc, 'beardProbability') as number
+  const baseHeight = getGenderTrait(npc, 'baseHeight') as number
+  const baseWeight = getGenderTrait(npc, 'baseWeight') as number
+  const heightModifier = getGenderTrait(npc, 'heightModifier') as number
+  const weightModifier = getGenderTrait(npc, 'weightModifier') as number
+  if (random(1, 100) <= beardProbability) {
     npc.beard = random(raceData.beard)
   }
 
-  npc.heightInches = genderTraits.baseHeight + genderTraits.heightModifier()
-  npc.weightPounds = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
+  npc.heightInches = baseHeight + heightModifier
+  npc.weightPounds = baseWeight + (heightModifier * weightModifier)
   npc.bmi = Math.trunc((npc.weightPounds / (npc.heightInches * npc.heightInches)) * raceData.bmiModifier)
   npc.weight = npc.weight || closestMatch(bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
