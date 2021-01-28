@@ -235,9 +235,7 @@ function getLastName (race: RaceName): string {
 }
 
 function getFirstName (race: RaceName, gender: GenderName): string {
-  const npc = { race, gender }
-  // @ts-ignore We don't need anything other than the race and gender.
-  return lib.toTitleCase(lib.random(lib.getGenderTrait(npc, 'firstName') as string[]))
+  return lib.toTitleCase(lib.random(lib.getGenderTrait({ race, gender }, 'firstName')))
 }
 
 function getRandomAgeStage (): AgeName {

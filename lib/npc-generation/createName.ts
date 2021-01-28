@@ -1,4 +1,4 @@
-import { GenderName } from 'lib/src/genderData'
+import { GenderName } from '../src/genderData'
 import { random } from '../src/random'
 import { capitalizeFirstLetter } from '../src/utils'
 import { RaceName, raceTraits } from './raceTraits'
@@ -12,16 +12,14 @@ interface Params {
 
 export function createName (parameters: Params = {}) {
   console.log('Returning a name!')
-  if (!parameters.race) parameters.race = 'human'
-  if (!parameters.gender) parameters.gender = 'woman'
-  const raceTrait = raceTraits[parameters.race || 'human']
 
-  if (parameters.firstOrLast === 'lastName') {
+  const { race = 'human', gender = 'woman', firstOrLast = 'firstName' } = parameters
+
+  if (firstOrLast === 'lastName') {
+    const raceTrait = raceTraits[race]
     return capitalizeFirstLetter(random(raceTrait.lastName))
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const firstNames = getGenderTrait(parameters, 'firstName') as string[]
+  const firstNames = getGenderTrait({ race, gender }, 'firstName')
   return capitalizeFirstLetter(random(firstNames))
 }

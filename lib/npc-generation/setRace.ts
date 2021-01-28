@@ -4,37 +4,33 @@ import { closestMatch } from '../src/closestMatch'
 import { ThresholdTable } from '../src/rollFromTable'
 
 import { bmiDescriptions } from './bmiDescriptions'
-import { raceTraits } from './raceTraits'
+import { GenderTraits, RaceName, raceTraits } from './raceTraits'
 import { NPC } from './_common'
+import { GenderName } from 'lib/src/genderData'
 
-export function getGenderTrait (npc: NPC, key: string): unknown {
-  const genderTraits = raceTraits[npc.race].genderTraits
-  // @ts-ignore
-  if (genderTraits[npc.gender][key]) {
-    // @ts-ignore
-    if (typeof genderTraits[npc.gender][key] === 'function') {
-      // @ts-ignore
-      return genderTraits[npc.gender][key]()
-    }
-    // @ts-ignore
-    return genderTraits[npc.gender][key]
+interface GetGenderTraitProps {
+  race: RaceName
+  gender: GenderName
+}
+
+export function getGenderTrait <K extends keyof GenderTraits> (props: GetGenderTraitProps, key: K) {
+  const { genderTraits } = raceTraits[props.race]
+  const trait = (genderTraits[props.gender] || genderTraits.woman)[key]
+
+  if (typeof trait === 'undefined') {
+    throw new Error('Could not find fallback trait.')
   }
-  // @ts-ignore
-  if (typeof genderTraits.woman[key] === 'function') {
-    // @ts-ignore
-    return genderTraits.woman[key]()
-  }
-  // @ts-ignore
-  return genderTraits.woman[key]
+
+  return trait as GenderTraits[K]
 }
 
 export function setRace (npc: NPC) {
   const raceData = raceTraits[npc.race]
-  const beardProbability = getGenderTrait(npc, 'beardProbability') as number
-  const baseHeight = getGenderTrait(npc, 'baseHeight') as number
-  const baseWeight = getGenderTrait(npc, 'baseWeight') as number
-  const heightModifier = getGenderTrait(npc, 'heightModifier') as number
-  const weightModifier = getGenderTrait(npc, 'weightModifier') as number
+  const beardProbability = getGenderTrait(npc, 'beardProbability')
+  const baseHeight = getGenderTrait(npc, 'baseHeight')
+  const baseWeight = getGenderTrait(npc, 'baseWeight')
+  const heightModifier = getGenderTrait(npc, 'heightModifier')()
+  const weightModifier = getGenderTrait(npc, 'weightModifier')()
   if (random(1, 100) <= beardProbability) {
     npc.beard = random(raceData.beard)
   }
