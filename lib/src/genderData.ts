@@ -1,9 +1,34 @@
-import { GenderName } from '../npc-generation/raceTraits'
 import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
 
-export const genderData = {
+export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
+
+interface GenderPronouns {
+    title: string
+    domTitle: string
+    heshe: string
+    himher: string
+    himherself: string
+    hisher: string
+    hisherself: string
+    boygirl: string
+    manwoman: string
+    menwomen: string
+    malefemale: string
+    guygirl: string
+    marriageNoun: string
+    /** @example 'aunt' */
+    niblingReciprocalNoun: string
+    parentNoun: string
+    childNoun: string
+    siblingNoun: string
+    /** @example 'neice' */
+    niblingNoun: string
+    oppositeGender: GenderName
+}
+
+export const genderData: Record<GenderName, GenderPronouns> = {
   man: {
     title: 'Mr',
     domTitle: 'Master',
@@ -44,6 +69,50 @@ export const genderData = {
     childNoun: 'daughter',
     siblingNoun: 'sister',
     niblingNoun: 'niece',
+    oppositeGender: 'man'
+  },
+  nonbinary: {
+    title: 'Mx',
+    domTitle: 'Overseer',
+    heshe: 'they',
+    himher: 'them',
+    himherself: 'themself',
+    hisher: 'their',
+    hisherself: 'theirself',
+    boygirl: 'child',
+    manwoman: 'person',
+    menwomen: 'people',
+    malefemale: 'person',
+    guygirl: 'person',
+    marriageNoun: 'partner',
+    niblingReciprocalNoun: 'pibling',
+    parentNoun: 'parent',
+    childNoun: 'child',
+    siblingNoun: 'sibling',
+    niblingNoun: 'nibling',
+    // this is temporary
+    oppositeGender: 'man'
+  },
+  entity: {
+    title: 'Mx',
+    domTitle: 'Overseer',
+    heshe: 'it',
+    himher: 'it',
+    himherself: 'itself',
+    hisher: 'its',
+    hisherself: 'itself',
+    boygirl: 'child',
+    manwoman: 'entity',
+    menwomen: 'entities',
+    malefemale: 'entity',
+    guygirl: 'entity',
+    marriageNoun: 'partner',
+    niblingReciprocalNoun: 'pibling',
+    parentNoun: 'parent',
+    childNoun: 'child',
+    siblingNoun: 'sibling',
+    niblingNoun: 'nibling',
+    // this is temporary
     oppositeGender: 'man'
   }
 } as const

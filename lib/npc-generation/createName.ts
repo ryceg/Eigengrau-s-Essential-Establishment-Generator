@@ -1,6 +1,8 @@
+import { GenderName } from '../src/genderData'
 import { random } from '../src/random'
 import { capitalizeFirstLetter } from '../src/utils'
-import { GenderName, RaceName, raceTraits } from './raceTraits'
+import { RaceName, raceTraits } from './raceTraits'
+import { getGenderTrait } from './setRace'
 
 interface Params {
   race?: RaceName
@@ -11,12 +13,13 @@ interface Params {
 export function createName (parameters: Params = {}) {
   console.log('Returning a name!')
 
-  const raceTrait = raceTraits[parameters.race || 'human']
+  const { race = 'human', gender = 'woman', firstOrLast = 'firstName' } = parameters
 
-  if (parameters.firstOrLast === 'lastName') {
+  if (firstOrLast === 'lastName') {
+    const raceTrait = raceTraits[race]
     return capitalizeFirstLetter(random(raceTrait.lastName))
   }
 
-  const genderTrait = raceTrait.genderTraits[parameters.gender || 'man']
-  return capitalizeFirstLetter(random(genderTrait.firstName))
+  const firstNames = getGenderTrait({ race, gender }, 'firstName')
+  return capitalizeFirstLetter(random(firstNames))
 }

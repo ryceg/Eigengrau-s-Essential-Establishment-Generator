@@ -1,10 +1,11 @@
 import { Town } from '../town/_common'
+import { GenderName } from '../src/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { ReligionStrength } from './createReligiosity'
 import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
-import { RaceName, GenderName, AgeName } from './raceTraits'
+import { RaceName, AgeName } from './raceTraits'
 
 export type SocialClassName =
   | 'indentured servitude'
