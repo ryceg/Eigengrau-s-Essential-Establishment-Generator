@@ -2,7 +2,7 @@ import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
 
-export type GenderName = 'man' | 'woman' | 'nonbinary'
+export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
 
 interface GenderPronouns {
     title: string
@@ -84,6 +84,28 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     menwomen: 'people',
     malefemale: 'person',
     guygirl: 'person',
+    marriageNoun: 'partner',
+    niblingReciprocalNoun: 'pibling',
+    parentNoun: 'parent',
+    childNoun: 'child',
+    siblingNoun: 'sibling',
+    niblingNoun: 'nibling',
+    // this is temporary
+    oppositeGender: 'man'
+  },
+  entity: {
+    title: 'Mx',
+    domTitle: 'Overseer',
+    heshe: 'it',
+    himher: 'it',
+    himherself: 'itself',
+    hisher: 'its',
+    hisherself: 'itself',
+    boygirl: 'child',
+    manwoman: 'entity',
+    menwomen: 'entities',
+    malefemale: 'entity',
+    guygirl: 'entity',
     marriageNoun: 'partner',
     niblingReciprocalNoun: 'pibling',
     parentNoun: 'parent',

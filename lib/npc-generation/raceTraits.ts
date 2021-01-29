@@ -99,6 +99,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -205,6 +206,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
         heightModifier: () => dice(2, 4),
         weightModifier: () => dice(2, 6)
       },
+      entity: {},
       nonbinary: {
         firstName: ['Adzin', 'Dorn', 'Dorft']
       }
@@ -281,6 +283,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -374,6 +377,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -460,6 +464,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -680,6 +685,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -771,6 +777,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -863,6 +870,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -955,6 +963,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -1046,6 +1055,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
@@ -1137,6 +1147,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       }
     },
     genderTraits: {
+      entity: {},
       nonbinary: {
 
       },
