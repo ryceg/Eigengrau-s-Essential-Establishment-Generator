@@ -840,7 +840,7 @@ export const townData: TownData = {
     'absolute monarchy': {
       politicalIdeology: ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       autocracy: {
-        politicalSourceDescription: "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crowns' will.",
+        politicalSourceDescription: "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crown's will.",
         description: 'The crown holds both supreme executive and judicial powers.'
       },
       default: {
