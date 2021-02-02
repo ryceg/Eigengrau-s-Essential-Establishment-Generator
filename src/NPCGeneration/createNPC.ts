@@ -57,7 +57,10 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
   const firstName = base.firstName || getFirstName(race, base.gender)
-  const lastName = base.lastName || getLastName(race)
+  let lastName = base.lastName || getLastName(race)
+  if (lastName === firstName) {
+    lastName = firstName
+  }
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
@@ -77,6 +80,9 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     firstName,
     lastName,
     get name (): string {
+      if (lastName === firstName) {
+        return `${this.firstName}`
+      }
       return `${this.firstName} ${this.lastName}`
     },
     set name (name) {
