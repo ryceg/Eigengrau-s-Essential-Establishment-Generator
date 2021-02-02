@@ -10,7 +10,7 @@
       $randomRing.firstOutputs
     </div>
   <</replace>>
-  <<link "<h6>Create another ring</h6>" t8n>>
+  <<link "<h6>Create another ring</h6>">>
     <<set $randomRing to lib.createRing()>>
     <<replace "#ring">>
       <div class='descriptive'>
