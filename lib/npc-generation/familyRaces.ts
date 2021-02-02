@@ -18,7 +18,8 @@ export const marriagePools: Record<RaceName, RaceName[]> = {
   'elf': ['human', 'elf', 'half-elf'],
   'half-elf': ['human', 'elf', 'half-elf', 'half-orc'],
   'half-orc': ['human', 'orc', 'half-elf', 'half-orc'],
-  'tiefling': ['human', 'tiefling']
+  'tiefling': ['human', 'tiefling'],
+  'lizardfolk': ['lizardfolk']
 }
 
 export function findParentRaces (npc: NPC) {
