@@ -58,7 +58,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   const firstName = base.firstName || getFirstName(race, base.gender)
   let lastName = base.lastName || getLastName(race)
-  if(lastName === firstName) {
+  if (lastName === firstName) {
     lastName = firstName
   }
   console.groupCollapsed(`${firstName} ${lastName}`)
@@ -80,9 +80,9 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     firstName,
     lastName,
     get name (): string {
-        if(lastName === firstName) {
-          return `${this.firstName}`
-        }
+      if (lastName === firstName) {
+        return `${this.firstName}`
+      }
       return `${this.firstName} ${this.lastName}`
     },
     set name (name) {
