@@ -1261,7 +1261,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
         weightModifier: () => dice(2, 6)
       }
     },
-    lastName: [],
+    lastName: [''],
     eyes: ['yellow'],
     raceWords: {
       raceName: 'lizardfolk',
@@ -1271,7 +1271,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
       raceLanguage: 'Draconic'
     },
     knownLanguages: ['Common', 'Draconic'],
-    beard: [],
+    beard: [''],
     abilities: {
       'Cunning Artisan': "As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size Small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan's tools, such as leatherworker's tools.",
       'Hold Breath': "You can hold your breath for up to 15 minutes at a time.",

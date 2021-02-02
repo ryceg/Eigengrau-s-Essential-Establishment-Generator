@@ -49,7 +49,8 @@ export function setRace (npc: NPC) {
 }
 
 const heightChart: ThresholdTable = [
-  [78, 'giraffe-like'],
+  [84, 'giraffe-like'],
+  [78, 'towering'],
   [77, 'extremely tall'],
   [76, 'very tall'],
   [75, 'rather tall'],
