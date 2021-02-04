@@ -13,7 +13,7 @@ export const fetchAllPantheons = () => {
   const pantheons: Record<string, Pantheon> = Object.assign({}, lib.religion.pantheon)
   if (isUsingCustomPantheon()) {
     const customPantheon = fetchCustomPantheon()
-    lib.assign(pantheons[customPantheon.name], customPantheon)
+    pantheons[customPantheon.name] = customPantheon
   }
   return pantheons
 }
@@ -22,7 +22,7 @@ export const isUsingCustomPantheon = () => {
   if (State.metadata.has('isUsingCustomPantheon')) {
     if (State.metadata.get('isUsingCustomPantheon') !== true) return false
   }
-  if (!lib.religion.pantheon[settings.pantheon]) return false
+  if (lib.religion.pantheon[settings.pantheon]) return false
   return true
 }
 

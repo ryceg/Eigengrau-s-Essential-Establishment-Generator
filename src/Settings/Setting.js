@@ -90,8 +90,10 @@ function settingForceOneColumn () {
 Setting.addList('pantheon', {
   label: 'Choose a Pantheon to use. You can add a custom pantheon here [[ImportPantheon]]',
   default: 'greek',
-  list: lib.fetchPantheonNames(),
-  onChange: lib.fetchPantheonNames()
+  // For some reason, it doesn't like the lib version of these.
+  // Hopefully it's a PEBKAC issue that can be solved by someone else.
+  list: setup.fetchPantheonNames(),
+  onChange: setup.fetchPantheonNames()
 })
 
 Setting.addToggle('showTutorial', {
