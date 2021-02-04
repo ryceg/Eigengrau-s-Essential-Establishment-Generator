@@ -1,0 +1,13 @@
+:: ImportPantheon
+<<import '$customPantheon' 'json' 'Import Custom Pantheon'>>
+
+<<button "Save to metadata">><<update>>
+<<run State.metadata.set('pantheon', $customPantheon)>><<run Setting.load();>>
+<</button>> -- <<button "Delete metadata">><<update>>
+<<run State.metadata.delete('pantheon')>>
+<</button>>
+<<lb>>
+$customPantheon.name
+
+<<print lib.fetchPantheonNames()>>
+<</lb>>

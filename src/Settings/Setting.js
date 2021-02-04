@@ -87,6 +87,13 @@ function settingForceOneColumn () {
   }
 }
 
+Setting.addList('pantheon', {
+  label: 'Choose a Pantheon to use. You can add a custom pantheon here [[ImportPantheon]]',
+  default: 'greek',
+  list: lib.fetchPantheonNames(),
+  onChange: lib.fetchPantheonNames()
+})
+
 Setting.addToggle('showTutorial', {
   label: 'Show tutorial?',
   onChange: settingShowTutorial

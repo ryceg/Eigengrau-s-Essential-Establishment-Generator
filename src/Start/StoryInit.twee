@@ -7,6 +7,7 @@
 	isPatreon: [true, false].random(),
 	versionNumber: "2.7"
 }>>
+<<set $custom to {}>>
 
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
