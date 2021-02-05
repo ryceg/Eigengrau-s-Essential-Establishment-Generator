@@ -15,7 +15,7 @@ import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
-import { fetchAllPantheons, fetchCustomPantheon, fetchPantheon, fetchPantheonNames, isUsingCustomPantheon } from './Religion/fetchPantheons'
+import { getAllPantheons, getCustomPantheon, getPantheon, getPantheonNames, isUsingCustomPantheon } from './Religion/getPantheons'
 
 declare global {
   interface Setup {
@@ -32,11 +32,11 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
-    fetchAllPantheons: typeof fetchAllPantheons
-    fetchCustomPantheon: typeof fetchCustomPantheon
-    fetchPantheon: typeof fetchPantheon
-    fetchPantheonNames: typeof fetchPantheonNames
-    fetchPantheon: typeof fetchPantheon
+    getAllPantheons: typeof getAllPantheons
+    getCustomPantheon: typeof getCustomPantheon
+    getPantheon: typeof getPantheon
+    getPantheonNames: typeof getPantheonNames
+    getPantheon: typeof getPantheon
     isUsingCustomPantheon: typeof isUsingCustomPantheon
   }
 }
@@ -55,10 +55,10 @@ Object.assign(setup, {
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
-  fetchAllPantheons,
-  fetchCustomPantheon,
-  fetchPantheon,
-  fetchPantheonNames,
+  getAllPantheons,
+  getCustomPantheon,
+  getPantheon,
+  getPantheonNames,
   isUsingCustomPantheon
 })
 

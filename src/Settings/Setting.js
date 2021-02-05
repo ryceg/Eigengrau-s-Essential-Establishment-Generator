@@ -92,8 +92,8 @@ Setting.addList('pantheon', {
   default: 'greek',
   // For some reason, it doesn't like the lib version of these.
   // Hopefully it's a PEBKAC issue that can be solved by someone else.
-  list: setup.fetchPantheonNames(),
-  onChange: setup.fetchPantheonNames()
+  list: setup.getPantheonNames(),
+  onChange: setup.getPantheonNames()
 })
 
 Setting.addToggle('showTutorial', {

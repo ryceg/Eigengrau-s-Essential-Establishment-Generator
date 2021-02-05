@@ -1,19 +1,19 @@
 
-setup.fetchPantheon = () => {
-  if (setup.doesCustomPantheonExist()) return setup.fetchCustomPantheon()
+setup.getPantheon = () => {
+  if (setup.doesCustomPantheonExist()) return setup.getCustomPantheon()
   return lib.religion.pantheon[settings.pantheon]
 }
 
-setup.fetchPantheonNames = () => {
-  console.log(Object.keys(setup.fetchAllPantheons()))
-  return Object.keys(setup.fetchAllPantheons())
+setup.getPantheonNames = () => {
+  console.log(Object.keys(setup.getAllPantheons()))
+  return Object.keys(setup.getAllPantheons())
 }
 
-setup.fetchAllPantheons = () => {
+setup.getAllPantheons = () => {
   const test = {}
   const pantheons = Object.assign(test, lib.religion.pantheon)
   if (setup.doesCustomPantheonExist()) {
-    const customPantheon = setup.fetchCustomPantheon()
+    const customPantheon = setup.getCustomPantheon()
     pantheons[customPantheon.name] = customPantheon
   }
   return pantheons
@@ -31,7 +31,7 @@ setup.isUsingCustomPantheon = () => {
   return true
 }
 
-setup.fetchCustomPantheon = () => {
+setup.getCustomPantheon = () => {
   if (State.metadata.has('pantheon')) {
     return State.metadata.get('pantheon')
   }

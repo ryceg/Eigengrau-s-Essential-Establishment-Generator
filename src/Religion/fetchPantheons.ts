@@ -1,18 +1,18 @@
 import { Pantheon } from '../../lib/religion/religion'
 
-export const fetchPantheon = (): Pantheon => {
-  if (isUsingCustomPantheon()) return fetchCustomPantheon()
+export const getPantheon = (): Pantheon => {
+  if (isUsingCustomPantheon()) return getCustomPantheon()
   return lib.religion.pantheon[settings.pantheon]
 }
 
-export const fetchPantheonNames = () => {
-  return Object.keys(fetchAllPantheons())
+export const getPantheonNames = () => {
+  return Object.keys(getAllPantheons())
 }
 
-export const fetchAllPantheons = () => {
+export const getAllPantheons = () => {
   const pantheons: Record<string, Pantheon> = Object.assign({}, lib.religion.pantheon)
   if (isUsingCustomPantheon()) {
-    const customPantheon = fetchCustomPantheon()
+    const customPantheon = getCustomPantheon()
     pantheons[customPantheon.name] = customPantheon
   }
   return pantheons
@@ -26,7 +26,7 @@ export const isUsingCustomPantheon = () => {
   return true
 }
 
-export const fetchCustomPantheon = (): Pantheon => {
+export const getCustomPantheon = (): Pantheon => {
   if (State.metadata.has('pantheon')) {
     return State.metadata.get('pantheon')
   }
