@@ -58,7 +58,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   const firstName = base.firstName || getFirstName(race, base.gender)
   let lastName = base.lastName || getLastName(race)
-  if (lastName === firstName) {
+  if (lastName === '') {
     lastName = firstName
   }
   console.groupCollapsed(`${firstName} ${lastName}`)
