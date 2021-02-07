@@ -1,19 +1,20 @@
 // uses setup.createTownName, setup.townDemographics
-/**
- * @param {Partial<Town>} base
- * @returns {Partial<Town>}
- * */
-setup.createTownBiome = (base = {}) => {
-  const type = ['hamlet', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
-  const terrain = ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
-  const season = ['summer', 'autumn', 'winter', 'spring'].random()
-  const townName = setup.createTownName()
+
+import { Biome, EconomicIdeology, PoliticalSource, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
+import { random } from '../../../lib/src/random'
+import { createTownName } from './createTownName'
+
+export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
+  const type = lib.weightRandom(lib.townData.defaults.type) as TownType
+  const terrain = lib.weightRandom(lib.townData.defaults.terrain) as Biome
+  const season = lib.weightRandom(lib.townData.defaults.season) as Seasons
+  const townName = createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
 
-  const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology')
-  const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource')
-  const politicalIdeology = lib.townData.politicalSource[politicalSource].politicalIdeology.random()
-  const town = Object.assign({
+  const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
+  const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource') as PoliticalSource
+  const politicalIdeology = random(lib.townData.politicalSource[politicalSource].politicalIdeology)
+  const town: TownBasics = lib.assign({
     name: townName,
     terrain,
     currentSeason: season,
@@ -33,6 +34,7 @@ setup.createTownBiome = (base = {}) => {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     _demographicPercentile: {},
+    _baseDemographics: {},
     // Clone the raw demographic data for the town type.
     // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
@@ -63,11 +65,11 @@ setup.createTownBiome = (base = {}) => {
       })
       return this._demographicPercentile
     },
-    location: lib.terrain[terrain].start.random(),
-    primaryCrop: lib.townData.misc.primaryCrop.random(),
-    primaryExport: lib.townData.misc.primaryExport.random(),
-    landmark: lib.townData.misc.landmark.random(),
-    currentEvent: lib.townData.misc.currentEvent.random(),
+    location: random(lib.terrain[terrain].start),
+    primaryCrop: random(lib.townData.misc.primaryCrop),
+    primaryExport: random(lib.townData.misc.primaryExport),
+    landmark: random(lib.townData.misc.landmark),
+    currentEvent: random(lib.townData.misc.currentEvent),
     guard: {
     },
     roll: {
@@ -88,13 +90,12 @@ setup.createTownBiome = (base = {}) => {
       genderMakeup: random(49, 51)
     }
   }, base)
-
   lib.townDemographics(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
+  town.origin = town.origin || random(lib.terrain[town.terrain].location[town.location].origin)
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = lib.structureData.material.types
@@ -111,22 +112,22 @@ setup.createTownBiome = (base = {}) => {
   return town
 }
 
-function assignSizeModifiers (town) {
+function assignSizeModifiers (town: TownBasics) {
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
-function assignEconomicModifiers (town) {
+function assignEconomicModifiers (town: TownBasics) {
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
-function assignPoliticalModifiers (town) {
+function assignPoliticalModifiers (town: TownBasics) {
   console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 
-function assignRollModifiers (town, modifiers) {
+function assignRollModifiers (town: TownBasics, modifiers: Record<TownRolls, number>) {
   for (const [key, modifier] of Object.entries(modifiers)) {
     town.roll[key] = lib.fm(town.roll[key], modifier)
   }
