@@ -34,6 +34,7 @@ import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { createTownBiome } from './Town/js/createTownBiome'
 
 declare global {
   interface Setup {
@@ -76,6 +77,8 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    createTownBiome: typeof createTownBiome
+    createTownName: typeof createTownName
   }
 }
 
@@ -118,7 +121,9 @@ Object.assign(setup, {
   urlSeed,
   deleteFaction,
   leaderFaction,
-  plothooks
+  plothooks,
+  createTownBiome,
+  createTownName
 })
 
 /**
