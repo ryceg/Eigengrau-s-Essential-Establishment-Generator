@@ -2,13 +2,12 @@
 
 import { Biome, EconomicIdeology, PoliticalSource, RaceName, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
 import { random } from '../../../lib/src/random'
-import { createTownName } from './createTownName'
 
 export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   const type = lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = lib.weightRandom(lib.townData.defaults.season) as Seasons
-  const townName = createTownName(base as TownBasics)
+  const townName = setup.createTownName(base as TownBasics)
   console.groupCollapsed(`${townName} is loading...`)
 
   const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
