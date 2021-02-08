@@ -8,8 +8,8 @@ import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
-import { GenderName } from 'lib/src/genderData'
-import { Biome, Seasons } from 'lib/src/terrain'
+import { GenderName } from '../../lib/src/genderData'
+import { Biome, Seasons } from '../../lib/src/terrain'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 export type TownRolls =
