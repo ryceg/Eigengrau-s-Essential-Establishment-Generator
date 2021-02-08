@@ -1,7 +1,7 @@
-import { Town, townData } from '@lib'
+import { Town, TownBasics, townData } from '@lib'
 import { random } from '../../../lib/src/random'
 
-export const createTownName = function (town: Town) {
+export const createTownName = function (town: TownBasics | Town) {
   const prefix = townData.name.prefix
   const suffix = townData.name.suffix
   let name: string
@@ -23,7 +23,8 @@ export const createTownName = function (town: Town) {
   // linguisticDrift runs some RegEx on the names.
   const driftName = lib.linguisticDrift(name)
 
-  replaceTownName(town, driftName)
+  // casting as Town because replaceTownName tests for Town properties.
+  replaceTownName(town as Town, driftName)
 
   return driftName
 }
