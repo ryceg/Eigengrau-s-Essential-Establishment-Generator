@@ -35,6 +35,7 @@ import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
+import { createTownName } from './Town/js/createTownName'
 
 declare global {
   interface Setup {
