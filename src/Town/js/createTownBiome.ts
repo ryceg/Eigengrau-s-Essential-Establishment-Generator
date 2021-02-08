@@ -1,6 +1,6 @@
 // uses setup.createTownName, setup.townDemographics
 
-import { Biome, EconomicIdeology, PoliticalSource, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
+import { Biome, EconomicIdeology, PoliticalSource, RaceName, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
 import { random } from '../../../lib/src/random'
 import { createTownName } from './createTownName'
 
@@ -8,88 +8,91 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   const type = lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = lib.weightRandom(lib.townData.defaults.season) as Seasons
-  const townName = createTownName(base)
+  const townName = createTownName(base as TownBasics)
   console.groupCollapsed(`${townName} is loading...`)
 
   const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
   const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource') as PoliticalSource
   const politicalIdeology = random(lib.townData.politicalSource[politicalSource].politicalIdeology)
-  const town: TownBasics = lib.assign({
-    name: townName,
-    terrain,
-    currentSeason: season,
-    ignoreGender: false,
-    season,
-    pregen: true,
-    factions: {
-    },
-    buildings: [],
-    npcRelations: {},
-    families: {
-    },
-    population: lib.townData.type[type].population(),
-    _type: type,
-    type,
-    _economicIdeology: economicIdeology,
-    _politicalSource: politicalSource,
-    _politicalIdeology: politicalIdeology,
-    _demographicPercentile: {},
-    _baseDemographics: {},
-    // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
-    get baseDemographics () {
-      console.log('Getting base demographics.')
-      return this._baseDemographics
-    },
-    set baseDemographics (newDemographics) {
-      console.log('Setting base demographics.')
-      Object.keys(newDemographics).forEach(byRace => {
-        this._baseDemographics[byRace] = newDemographics[byRace]
-      })
-      console.log(this.demographicPercentile)
-    },
-    get demographicPercentile () {
-      console.log('Getting demographic percent.')
+  const town: TownBasics = lib.assign(
+    {
+      name: townName,
+      terrain,
+      currentSeason: season,
+      ignoreGender: false,
+      season,
+      pregen: true,
+      factions: {},
+      buildings: [],
+      npcRelations: {},
+      families: {},
+      population: lib.townData.type[type].population(),
+      _type: type,
+      type,
+      _economicIdeology: economicIdeology,
+      _politicalSource: politicalSource,
+      _politicalIdeology: politicalIdeology,
+      _demographicPercentile: {} as Record<RaceName, number>,
+      _baseDemographics: {} as Record<RaceName, number>,
+      // Clone the raw demographic data for the town type.
+      // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
+      get baseDemographics () {
+        console.log('Getting base demographics.')
+        return this._baseDemographics
+      },
+      set baseDemographics (newDemographics) {
+        console.log('Setting base demographics.')
+        Object.keys(newDemographics).forEach((byRace) => {
+          const race = byRace as RaceName
+          this._baseDemographics[race] = newDemographics[race]
+        })
+        console.log(this.demographicPercentile)
+      },
+      get demographicPercentile () {
+        console.log('Getting demographic percent.')
 
-      // Get an array of the demographic keys (race names).
-      const races = Object.keys(this.baseDemographics)
+        // Get an array of the demographic keys (race names).
+        const races = Object.keys(this.baseDemographics) as RaceName[]
 
-      // Calculate the sum of the raw demographic values.
-      const sum = races
-        .map(byRace => this.baseDemographics[byRace])
-        .reduce((acc, cur) => acc + cur, 0)
+        // Calculate the sum of the raw demographic values.
+        const sum = races
+          .map((byRace) => this.baseDemographics[byRace])
+          .reduce((acc, cur) => acc + cur, 0)
 
-      // Calculate the demographic percentages.
-      races.forEach(byRace => {
-        this._demographicPercentile[byRace] = this.baseDemographics[byRace] / sum * 100
-      })
-      return this._demographicPercentile
+        // Calculate the demographic percentages.
+        races.forEach((byRace) => {
+          const race: RaceName = byRace
+          this._demographicPercentile[race] =
+            (this.baseDemographics[race] / sum) * 100
+        })
+        return this._demographicPercentile
+      },
+      location: random(lib.terrain[terrain].start),
+      primaryCrop: random(lib.townData.misc.primaryCrop),
+      primaryExport: random(lib.townData.misc.primaryExport),
+      landmark: random(lib.townData.misc.landmark),
+      currentEvent: random(lib.townData.misc.currentEvent),
+      guard: {},
+      roll: {
+        wealth: lib.dice(2, 50),
+        reputation: lib.dice(2, 50),
+        religiosity: lib.dice(2, 50),
+        sin: lib.dice(2, 50),
+        diversity: lib.dice(2, 50),
+        magic: lib.dice(2, 50),
+        size: random(1, 100),
+        economics: lib.dice(2, 50),
+        welfare: lib.dice(3, 33) - 10,
+        military: lib.dice(2, 50),
+        law: lib.dice(2, 50),
+        arcana: lib.dice(2, 50),
+        equality: lib.dice(2, 50) - 20,
+        /** @description Percentage of the dominant gender */
+        genderMakeup: random(49, 51)
+      }
     },
-    location: random(lib.terrain[terrain].start),
-    primaryCrop: random(lib.townData.misc.primaryCrop),
-    primaryExport: random(lib.townData.misc.primaryExport),
-    landmark: random(lib.townData.misc.landmark),
-    currentEvent: random(lib.townData.misc.currentEvent),
-    guard: {
-    },
-    roll: {
-      wealth: lib.dice(2, 50),
-      reputation: lib.dice(2, 50),
-      religiosity: lib.dice(2, 50),
-      sin: lib.dice(2, 50),
-      diversity: lib.dice(2, 50),
-      magic: lib.dice(2, 50),
-      size: random(1, 100),
-      economics: lib.dice(2, 50),
-      welfare: lib.dice(3, 33) - 10,
-      military: lib.dice(2, 50),
-      law: lib.dice(2, 50),
-      arcana: lib.dice(2, 50),
-      equality: lib.dice(2, 50) - 20,
-      /** @description Percentage of the dominant gender */
-      genderMakeup: random(49, 51)
-    }
-  }, base)
+    base
+  )
   lib.townDemographics(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
@@ -129,6 +132,8 @@ function assignPoliticalModifiers (town: TownBasics) {
 
 function assignRollModifiers (town: TownBasics, modifiers: Record<TownRolls, number>) {
   for (const [key, modifier] of Object.entries(modifiers)) {
-    town.roll[key] = lib.fm(town.roll[key], modifier)
+    // casting as TownRolls because for of implicitly types as `any`
+    const newKey = key as TownRolls
+    town.roll[newKey] = lib.fm(town.roll[newKey], modifier)
   }
 }
