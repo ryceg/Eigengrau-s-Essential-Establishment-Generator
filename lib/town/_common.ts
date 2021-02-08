@@ -52,6 +52,7 @@ export interface TownBasics {
   vegetation: string
   terrain: Biome
   currentSeason: Seasons
+  founder?: string
 }
 
 export interface Town extends TownBasics {
@@ -80,7 +81,6 @@ export interface Town extends TownBasics {
   leaderType: string
   leader: NPC
   ruler?: NPC
-  founder?: string
   factions: Record<string, Faction>
   families: Record<string, Family>
   buildings: Building[]
