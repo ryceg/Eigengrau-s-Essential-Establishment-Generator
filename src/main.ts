@@ -15,6 +15,8 @@ import { checkRaces } from './NPCGeneration/checkRaces'
 import { createDebt } from './NPCGeneration/createDebt'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { npcEdit } from '../src/Dialogue/npcEdit'
+import { pantheonSetup } from './Dialogue/pantheonSetup'
 // import { getAllPantheons, getCustomPantheon, getPantheon, getPantheonNames, isUsingCustomPantheon } from './Religion/getPantheons'
 
 declare global {
@@ -32,6 +34,8 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
+    npcEdit: typeof npcEdit
+    pantheonSetup: typeof pantheonSetup
     // getAllPantheons: typeof getAllPantheons
     // getCustomPantheon: typeof getCustomPantheon
     // getPantheon: typeof getPantheon
@@ -54,7 +58,9 @@ Object.assign(setup, {
   createDebt,
   deleteNPC,
   deleteThrowawayNPCs,
-  getLifeEvents
+  getLifeEvents,
+  npcEdit,
+  pantheonSetup
   // getAllPantheons,
   // getCustomPantheon,
   // getPantheon,
