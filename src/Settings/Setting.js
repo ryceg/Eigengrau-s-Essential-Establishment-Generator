@@ -1,7 +1,5 @@
 document.cookie = 'SameSite=Strict'
 
-Setting.addHeader('Content Settings')
-
 if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
 }
@@ -88,7 +86,7 @@ function settingForceOneColumn () {
 }
 
 Setting.addList('pantheon', {
-  label: 'Choose a Pantheon to use. You can add a custom pantheon here [[ImportPantheon]]',
+  label: 'Choose a Pantheon to use. You can add a custom pantheon here <<button "here">><<run setup.pantheonSetup()>><</button>>',
   default: 'greek',
   // For some reason, it doesn't like the lib version of these.
   // Hopefully it's a PEBKAC issue that can be solved by someone else.
