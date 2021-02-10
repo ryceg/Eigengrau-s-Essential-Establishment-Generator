@@ -5,11 +5,10 @@
  * and precipitation intensity are each independently tracked.
  */
 
-import { Biome, Town, Weather } from '@lib'
-import { renderWeather } from './renderWeather'
+import { Biome, PrecipitationIntensityLevels, PrecipitationLevels, Town, Weather } from '@lib'
 
 type Location = 'desert' | 'forest' | 'mountain' | 'road' | 'town'
-export const createWeather = (town: Town, location?: Location, weather?: Weather): Weather => {
+export const createWeather = (town: Town, location: Location, weather: Weather): Weather => {
   console.groupCollapsed('Creating weather...')
   let biome: Biome
   console.log({ town, biome: location, weather })
@@ -80,10 +79,10 @@ export const createWeather = (town: Town, location?: Location, weather?: Weather
       precipitationIntensity: seasonData.precipitationIntensity
     }
   }
-  weather.precipitationLevel.clamp(1, 4)
-  weather.precipitationIntensity.clamp(1, 4)
+  weather.precipitationLevel = weather.precipitationLevel.clamp(1, 4) as PrecipitationLevels
+  weather.precipitationIntensity = weather.precipitationIntensity.clamp(1, 4) as PrecipitationIntensityLevels
 
-  renderWeather(town, weather, biome)
+  setup.renderWeather(town, weather, biome)
   town.weather = weather
   console.groupEnd()
   return weather

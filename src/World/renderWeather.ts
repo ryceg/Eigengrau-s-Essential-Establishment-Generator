@@ -1,7 +1,6 @@
 // uses setup.toCelsius (which uses settings)
 
 import { PrecipitationIntensityLevels, PrecipitationLevels, Town, Weather } from '@lib'
-import { random } from 'lib/src/random'
 
 export const renderWeather = (town: Town, weather: Weather, biome = town.terrain) => {
   console.log('Rendering weather...')
@@ -58,7 +57,7 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
     }
 
     weather.readout.precipitation = getPrecipitationReadout(weather)
-    weather.readout.cloud = random(lib.weather.cloudIntensityDescriptors[weather.cloudIntensity])
+    weather.readout.cloud = lib.random(lib.weather.cloudIntensityDescriptors[weather.cloudIntensity])
 
     console.log('Rendering temperature...')
     for (const [threshold, description] of lib.weather.temperatureDescriptors) {
@@ -76,9 +75,13 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
   function getPrecipitationReadout (weather: Weather): string {
     let readout: string
     if (weather.precipitation) {
-      readout = random(lib.weather.precipitationDescriptors[weather.precipitation])
+      readout = lib.random(lib.weather.precipitationDescriptors[weather.precipitation])
     } else {
       readout = ''
+    }
+
+    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 22) {
+      return `${readout}. It's not clearing up any time soon`
     }
 
     if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 18) {
@@ -89,7 +92,19 @@ export const renderWeather = (town: Town, weather: Weather, biome = town.terrain
       return `${readout}. It doesn't look like it'll be clearing up soon`
     }
 
-    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 2) {
+    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 6) {
+      return `${readout}. It looks like it might be clearing up today, though`
+    }
+
+    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 4) {
+      return `${readout}. It looks like it will clear up today`
+    }
+
+    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 3) {
+      return `${readout}. The worst of it has passed, though`
+    }
+
+    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 1) {
       return `${readout}. It's clearing up pretty quickly, though`
     }
     return readout
