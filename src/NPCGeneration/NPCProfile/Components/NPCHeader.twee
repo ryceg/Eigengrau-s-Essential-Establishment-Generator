@@ -8,7 +8,7 @@
 $currentNPC.title
 <</if>>$currentNPC.name</h1></span>
 <<if def $currentNPC.key>>
-  <<button "Edit $currentNPC.name" NPCProfileEdit>>
+  <<button "Edit $currentNPC.name">>
     /* <<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>> */
     <<run setup.npcEdit($npcs[$currentPassage.key])>>
   <</button>>

@@ -23,6 +23,6 @@
 
 <<include "NPCRelationshipsTable">>
 
-<<button "Save changes" NPCProfileEdit>>
+<<button "Save changes" NPCProfile>>
   <<include "NPCSaveEdits">>
 <</button>><<run lib.addTippyAccessibility()>><</liveblock>>
