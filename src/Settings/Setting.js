@@ -85,26 +85,15 @@ function settingForceOneColumn () {
   }
 }
 
+Setting.addHeader('Content Settings', 'Settings controlling what content is made available.')
+
 Setting.addList('pantheon', {
-  label: 'Choose a Pantheon to use. You can add a custom pantheon here <<button "here">><<run setup.pantheonSetup()>><</button>>',
+  label: 'Choose a Pantheon to use. You can add a custom pantheon here <<button "here">><<run setup.openPantheonDialogue()>><</button>>',
   default: 'greek',
   // For some reason, it doesn't like the lib version of these.
   // Hopefully it's a PEBKAC issue that can be solved by someone else.
   list: setup.getPantheonNames(),
   onChange: setup.getPantheonNames()
-})
-
-Setting.addToggle('showTutorial', {
-  label: 'Show tutorial?',
-  onChange: settingShowTutorial
-})
-
-Setting.addToggle('showCelsius', {
-  label: 'Show celsius?'
-})
-
-Setting.addToggle('showMetric', {
-  label: 'Show metric?'
 })
 
 Setting.addToggle('showBiomeGeneration', {
@@ -128,6 +117,21 @@ Setting.addToggle('ignoreGender', {
   onChange: settingIgnoreGender
 })
 
+Setting.addHeader('Display Settings', 'Settings controlling what is displayed.')
+
+Setting.addToggle('showTutorial', {
+  label: 'Show tutorial?',
+  onChange: settingShowTutorial
+})
+
+Setting.addToggle('showCelsius', {
+  label: 'Show celsius?'
+})
+
+Setting.addToggle('showMetric', {
+  label: 'Show metric?'
+})
+
 Setting.addToggle('forceOneColumn', {
   label: '<span id="oneColumn" class="tip dotted" title="Force one column for larger screens.">Force one column?</span>',
   onChange: settingForceOneColumn
@@ -137,6 +141,8 @@ Setting.addToggle('hideAds', {
   label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
   onChange: settingHideAds
 })
+
+Setting.addHeader('Other Settings', 'Settings controlling everything else.')
 
 Setting.addToggle('disableAnalytics', {
   label: '<span id="analytics" class="tip dotted" title="We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!">Disable analytics?</span>',
