@@ -7,8 +7,7 @@
 \<<button 'Refresh'>><<update>><</button>>
 
 <<if State.metadata.has('pantheon')>><<button "Delete metadata">>
-<<run State.metadata.delete('pantheon')>>
-<<set $customPantheon to {}>><<update>>
+<<run State.metadata.delete('pantheon')>><<update>>
 <</button>><</if>>
 
 1. Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon online.

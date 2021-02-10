@@ -26,9 +26,9 @@ export const isUsingCustomPantheon = () => {
   return true
 }
 
-export const getCustomPantheon = (): Pantheon => {
+export const getCustomPantheon = (): Pantheon | undefined => {
   if (State.metadata.has('pantheon')) {
     return State.metadata.get('pantheon')
   }
-  return State.variables.customPantheon
+  return undefined
 }

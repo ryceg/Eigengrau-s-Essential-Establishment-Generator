@@ -52,5 +52,4 @@ setup.getCustomPantheon = () => {
   if (State.metadata.has('pantheon')) {
     return State.metadata.get('pantheon')
   }
-  return State.variables.customPantheon
 }

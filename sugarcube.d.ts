@@ -1,4 +1,3 @@
-import { Pantheon } from '@lib'
 import { NPC } from './lib/npc-generation/_common'
 import { Town } from './lib/town/_common'
 
@@ -24,7 +23,6 @@ declare module 'twine-sugarcube' {
     town: Town
     npcs: Record<string, NPC>
     [key: string]: unknown
-    customPantheon: Pantheon
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
