@@ -439,13 +439,18 @@ export const weather: WeatherData = {
     [40, 'brisk'],
     [35, 'quite brisk'],
     [30, 'chilly'],
+    [28, 'quite chilly'],
     [25, 'freezing'],
     [20, 'quite cold'],
     [15, 'rather cold'],
     [10, 'very cold'],
-    [5, 'extremely cold'],
+    [5, 'uncomfortably cold'],
     [0, 'extremely cold'],
-    [-5, 'bitterly cold'],
-    [-10, 'painfully cold']
+    [-5, 'dreadfully cold'],
+    [-10, 'bitterly cold'],
+    [-15, 'painfully cold'],
+    [-20, 'brutally cold'],
+    [-30, 'ridiculously cold'],
+    [-40, 'brutally cold']
   ]
 }
