@@ -88,6 +88,7 @@ export * from './npc-generation/setRace'
 export * from './npc-generation/npcFinances'
 
 export * from './src/articles'
+export * from './src/arpa'
 export * from './src/books'
 export * from './src/calcPercentage'
 export * from './src/clampRolls'
