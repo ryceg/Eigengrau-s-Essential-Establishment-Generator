@@ -467,16 +467,16 @@ export function ArpabetToIpa (analyze: RitaAnalyze) {
     Z: 'z',
     ZH: 'ʒ'
   }
-  const array = str.split(' ')
-  let newStr = ''
-  for (const word of array) {
+  const arrayOfWords = str.split(' ')
+  let resultantString = ''
+  for (const word of arrayOfWords) {
     const phoneme = word.split('-')
     for (const key of phoneme) {
-      newStr += ArpabetToIpaTable[key.toUpperCase()]
+      resultantString += ArpabetToIpaTable[key.toUpperCase()]
     }
-    newStr += ' '
+    resultantString += ' '
   }
 
-  console.log(str, array, newStr)
-  return `/${newStr}/.`
+  console.log(str, arrayOfWords, resultantString)
+  return `/${resultantString}/.`
 }
