@@ -1,0 +1,944 @@
+{
+  "name":"definitely not the norse",
+  "description":"The gods of Asgard are ....",
+  "followers":{
+    "description":"",
+    "favouredWeapon":"",
+    "holyDays":{
+      "earth":[]
+    }
+  },
+  "gods":[
+    {
+      "name":"Odin",
+      "status":"alive",
+      "titles":[
+        "The Allfather",
+        "Lord of the Aesir",
+        "Flaming Eye",
+        "Battle Enhancer",
+        "Ancient One",
+        "Enemy of the Wolf",
+        "God of Burdens",
+        "Wise One",
+        "Spear god",
+        "Swift in Deciet",
+        "Wand Bearer",
+        "Teacher of Gods",
+        "Vistor of the Hanged",
+        "Father of Hosts",
+        "Raven God",
+        "The Hanging One",
+        "God of Victory"
+      ],
+      "rank":"leader",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "wisdom",
+        "death",
+        "royalty",
+        "the gallows",
+        "war",
+        "battle",
+        "victory",
+        "sorcery",
+        "poetry",
+        "frenzy",
+        "runic alphabet"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "faction":"aesir",
+      "domains":[
+        "knowledge",
+        "trickery",
+        "war",
+        "arcana"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":"spear",
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":"Gungir",
+          "wordNoun":"spear",
+          "powers":"is so well balanced it can hit any target, regardless of skill"
+        },
+        {
+          "name":"Draupnir",
+          "wordNoun":"gold ring",
+          "powers":"drips forth eight identical rings after nine days"
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"",
+        "holyDays":{
+          "earth":[
+            "Wednesday"
+          ]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":20
+      },
+      "realm":"Valhalla",
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "raven",
+          "wolf"
+        ],
+        "plants":[
+          "poppy"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Thor",
+      "status":"alive",
+      "titles":[
+        "The one who Rides Alone",
+        "The one who Rules Alone",
+        "Protector of the Shrine",
+        "The Loud Weather God",
+        "The terrible",
+        "The Thunderer",
+        "Odinson",
+        "Strong-Spirit"
+      ],
+      "rank":"greater deity",
+      "description":"Thor is the God of Lightning, Thunder and Storms. He is a god of Strength, yet he is also a god who protects the sacred groves and mankind.",
+      "appearance":"",
+      "portfolios":[
+        "strength",
+        "battle prowess",
+        "lightning",
+        "thunder",
+        "storms",
+        "sacred groves",
+        "the protection of mankind",
+        "harrowing",
+        "fertility"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "faction":"aesir",
+      "domains":[
+        "tempest",
+        "war",
+        "nature"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":"hammer",
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":"Jarngreipr ",
+          "wordNoun":"gloves",
+          "powers":"he needs to handle Mjolnir "
+        },
+        {
+          "name":"Mjolnir",
+          "wordNoun":"hammer",
+          "powers":"summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short"
+        },
+        {
+          "name":"Megingjord",
+          "wordNoun":"belt",
+          "powers":"doubles Thors mighty strength, allowing him to lift to Mjolnir"
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"hammer",
+        "holyDays":{
+          "earth":[
+            "Thursday"
+          ]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "goat"
+        ],
+        "plants":[
+          "oak"
+        ],
+        "places":[
+          "groves",
+          "oak forests"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Loki",
+      "status":"alive",
+      "titles":[
+        "Tangler",
+        "Father of Lies",
+        "Roarer",
+        "The Sly One",
+        "Laufeys son",
+        "Thief of the Idunns apples",
+        "Hawks child",
+        "Betrayer of the Gods",
+        "The Bound God",
+        "He who has borne children"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "magic",
+        "mischief",
+        "deceit",
+        "thievery",
+        "chaos",
+        "change",
+        "temptation",
+        "shapeshifting"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"Jotunn",
+      "faction":"aesir",
+      "domains":[
+        "trickery"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[
+          "birch",
+          "mistletoe"
+        ],
+        "monsters":[
+          "Fenrir",
+          "Jormungandr"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Frigg",
+      "status":"alive",
+      "aliases":[
+        "Frigga"
+      ],
+      "titles":[
+        "Protectress",
+        "Queen of the Gods"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "prophecy",
+        "wisdom",
+        "the household",
+        "marriage",
+        "social bonds",
+        "rain",
+        "mists",
+        "fertility",
+        "birth",
+        "wetlands",
+        "protection",
+        "weaving"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "faction":"aesir",
+      "domains":[
+        "knowledge",
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[
+            "Friday"
+          ]
+        }
+      },
+      "personality":{},
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "waterfowl",
+          "ducks",
+          "geese"
+        ],
+        "plants":[
+          "linden"
+        ],
+        "places":[
+          "wetlands",
+          "swamps"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Freyr",
+      "status":"alive",
+      "aliases":[
+        "Frey",
+        "Yngvi"
+      ],
+      "titles":[
+        "the Lord",
+        "The Generous One",
+        "God of Sunlight",
+        "Sunbeam",
+        "Lord of Plenty",
+        "the Fruitful"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "religious kingship",
+        "virility",
+        "sunshine",
+        "peace",
+        "prosperity",
+        "fair weather",
+        "good harvest",
+        "rain",
+        "war"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "faction":"vanir",
+      "domains":[
+        "light",
+        "life",
+        "peace",
+        "nature",
+        "war"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":"Gullinbursti",
+          "wordNoun":"golden boar",
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{},
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "boar",
+          "stags"
+        ],
+        "plants":[
+          "crops"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Freyja",
+      "status":"alive",
+      "aliases":[
+        "Freya",
+        "Freja"
+      ],
+      "titles":[
+        "The Giver",
+        "Flaxen",
+        "One who makes the Sea Swll",
+        "Lady of the Slain",
+        "Noble Lady",
+        "Bright One",
+        "Goddess of the Vanir",
+        "Fair Tear Deity"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "love",
+        "marriage",
+        "prosperity",
+        "beauty",
+        "fertility",
+        "sex",
+        "war",
+        "gold",
+        "magic"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life",
+        "arcana",
+        "war"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "lustful":70
+      },
+      "realm":"Folkvangr",
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "cat",
+          "lynx",
+          "falcon",
+          "boar"
+        ],
+        "plants":[
+          ""
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Bragi",
+      "status":"alive",
+      "titles":[
+        "The long-bearded god",
+        "The husband of Idunn",
+        "First maker of Poetry",
+        "Son of Odin"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "skaldic poetry",
+        "wisdom"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "knowledge"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":"harp",
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":"the Skalds are the story tellers of the Jarl, and rarely go into battle. They recite stories of the great deeds of gods and men",
+        "favouredWeapon":"harp",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Sif",
+      "status":"alive",
+      "titles":[
+        "The Prophetess Sibyl",
+        "The Fair-haired Deity",
+        "Loveliest of Women",
+        "The Wife of Thor",
+        "Mother of Ullr",
+        "Good Mother"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"a beautiful woman with a brilliant wig made of gold",
+      "portfolios":[
+        "harvest",
+        "autum",
+        "vitality",
+        "fertility",
+        "wedlock"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "nature"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[
+            ""
+          ]
+        }
+      },
+      "personality":{},
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[
+          "rowan"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Baldr",
+      "status":"dead",
+      "titles":[
+        "the Bleeding God",
+        "Wisest of the Aesir",
+        "Fairest of the Aesir"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        "beauty",
+        "light",
+        "peace",
+        "valour",
+        "joy",
+        "summer sun",
+        "purity"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life",
+        "light",
+        "peace"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[
+          "scentless mayweed"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Name",
+      "status":"alive",
+      "titles":[
+        ""
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        ""
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "tempest"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    },
+    {
+      "name":"Hel",
+      "status":"alive",
+      "titles":[
+        ""
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"",
+      "portfolios":[
+        ""
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "death",
+        "grave"
+      ],
+      "channelDivinity":[],
+      "alignment":"N",
+      "symbol":"",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "possessions":[
+        {
+          "name":null,
+          "wordNoun":null,
+          "powers":null
+        }
+      ],
+      "followers":{
+        "description":null,
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":70,
+        "vengeful":85,
+        "lustful":80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null
+    }
+  ]
+}

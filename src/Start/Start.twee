@@ -12,5 +12,6 @@
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
 <<include "Popup">><<run lib.addTippyAccessibility()>> 
-<<set $deity to lib.fetchDeity($town)>>$deity
+<<set $deity to lib.getDeity($town)>>$deity
 [[DeityProfile]]
+[[ImportPantheon]]
