@@ -100,7 +100,7 @@ export const createParentage = (town: Town, family: Family, npc: NPC, forceFathe
     marriage.socialClass = setup.familySocialClass(marriage)
     // FIXME: It's odd that the parent races can be devils, while RaceName doesn't include it.
     // @ts-ignore
-    createChildren(town, family, marriage, familyData.siblingRoll(), motherRace, fatherRace)
+    createChildren(town, family, marriage, siblingRoll(), motherRace, fatherRace)
 
     node.parentMarriage = marriage
     node.siblings = marriage.children
