@@ -1,8 +1,9 @@
 import { Pantheon } from '../../lib/religion/religion'
 
-export const getPantheon = (): Pantheon => {
+export const getPantheon = (town: Town): Pantheon => {
+  if (!town) town = State.variables.town
   if (isUsingCustomPantheon()) return getCustomPantheon()
-  return lib.religion.pantheon[settings.pantheon]
+  return lib.religion.pantheon[town.religion.pantheon]
 }
 
 export const getPantheonNames = () => {
@@ -18,11 +19,9 @@ export const getAllPantheons = () => {
   return pantheons
 }
 
-export const isUsingCustomPantheon = () => {
-  if (State.metadata.has('isUsingCustomPantheon')) {
-    if (State.metadata.get('isUsingCustomPantheon') !== true) return false
-  }
-  if (lib.religion.pantheon[settings.pantheon]) return false
+export const isUsingCustomPantheon = (town: Town) => {
+  if (!town) town = State.variables.town
+  if (lib.religion.pantheon[town.religion.pantheon]) return false
   return true
 }
 

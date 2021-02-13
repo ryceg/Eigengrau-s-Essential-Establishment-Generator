@@ -1,9 +1,11 @@
 /**
+ * @param {import("../../lib/town/_common").Town} town
  * @returns {import("../../lib/religion/religion").Pantheon}
  */
-setup.getPantheon = () => {
+setup.getPantheon = (town) => {
+  if (!town) town = State.variables.town
   if (setup.isUsingCustomPantheon()) return setup.getCustomPantheon()
-  return lib.religion.pantheon[State.variables.town.religion.pantheon]
+  return lib.religion.pantheon[town.religion.pantheon]
 }
 
 /**
@@ -35,13 +37,15 @@ setup.doesCustomPantheonExist = () => {
 }
 
 /**
+ * @param {Town} town
  * @returns {boolean}
  */
-setup.isUsingCustomPantheon = () => {
+setup.isUsingCustomPantheon = (town) => {
+  if (!town) town = State.variables.town
   if (State.metadata.has('isUsingCustomPantheon')) {
     return State.metadata.get('isUsingCustomPantheon')
   }
-  if (lib.religion.pantheon[State.variables.town.religion.pantheon]) return false
+  if (lib.religion.pantheon[town.religion.pantheon]) return false
   return true
 }
 
