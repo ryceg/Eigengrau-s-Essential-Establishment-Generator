@@ -3,18 +3,19 @@
   $(document).trigger(":liveupdate");
 });>>
 \<<import 'State.metadata.pantheon' 'json' 'Import Custom Pantheon'>> -- <<lb>>
-\<<listbox "$town.religion.pantheon">><<optionsfrom setup.getPantheonNames()>><</listbox>> -- 
-\<<button 'Refresh'>><<update>><</button>>
-
-<<if State.metadata.has('pantheon')>><<button "Delete metadata">>
-<<run State.metadata.delete('pantheon')>><<update>>
-<</button>><</if>>
-
-1. Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon online.
+\<<listbox "$town.religion.pantheon" autoselect>><<optionsfrom setup.getPantheonNames()>><</listbox>>
+\<<if State.metadata.has('pantheon')>> -- <<button "Delete custom pantheon">><<if setup.isUsingCustomPantheon()>><<set $town.religion.pantheon to 'greek'>><</if>>
+\<<run State.metadata.delete('pantheon')>><<update>>
+\<</button>><</if>>
+1. Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon {{{.json}}} file online, or in our Discord server.
 2. Select desired pantheon from the drop-down menu.
-3. If your custom pantheon does not appear, you may need to exit out of the menu
+----
+<<if setup.isUsingCustomPantheon() === false>><details style="height:270px; overflow:auto"><summary>Current Pantheon Data for <b><<print setup.getPantheon().name>></b> loaded:</summary>
+\<<print JSON.stringify(setup.getPantheon())>>
+</details>
+----<</if>>
 
-Custom patheon name: <<if State.metadata.has('pantheon')>><<print setup.getCustomPantheon().name>>
+Custom patheon name: <<if State.metadata.has('pantheon')>><b><<print setup.getCustomPantheon().name>></b>
 <details style="height:270px; overflow:auto"><summary>Custom Pantheon Data:</summary>
 \<<print JSON.stringify(setup.getCustomPantheon())>>
 </details>
