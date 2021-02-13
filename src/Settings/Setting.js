@@ -87,15 +87,6 @@ function settingForceOneColumn () {
 
 Setting.addHeader('Content Settings', 'Settings controlling what content is made available.')
 
-Setting.addList('pantheon', {
-  label: 'Choose a Pantheon to use. You can add a custom pantheon here <<button "here">><<run setup.openPantheonDialogue()>><</button>>',
-  default: 'greek',
-  // For some reason, it doesn't like the lib version of these.
-  // Hopefully it's a PEBKAC issue that can be solved by someone else.
-  list: setup.getPantheonNames(),
-  onChange: setup.getPantheonNames()
-})
-
 Setting.addToggle('showBiomeGeneration', {
   label: 'Edit biome before generation?',
   desc: 'If you want to specify the biome and demographics before town creation, enable this.',

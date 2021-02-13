@@ -18,6 +18,7 @@ import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { npcEdit } from '../src/Dialogue/npcEdit'
 import { openPantheonDialogue } from './Dialogue/openPantheonDialogue'
 import { rerenderPage } from './Dialogue/rerenderPage'
+import { addSettingButton } from './Settings/settingButton'
 // import { getAllPantheons, getCustomPantheon, getPantheon, getPantheonNames, isUsingCustomPantheon } from './Religion/getPantheons'
 
 declare global {
@@ -38,6 +39,7 @@ declare global {
     npcEdit: typeof npcEdit
     openPantheonDialogue: typeof openPantheonDialogue
     rerenderPage: typeof rerenderPage
+    addSettingButton: typeof addSettingButton
     // getAllPantheons: typeof getAllPantheons
     // getCustomPantheon: typeof getCustomPantheon
     // getPantheon: typeof getPantheon
@@ -63,7 +65,8 @@ Object.assign(setup, {
   getLifeEvents,
   npcEdit,
   openPantheonDialogue,
-  rerenderPage
+  rerenderPage,
+  addSettingButton
   // getAllPantheons,
   // getCustomPantheon,
   // getPantheon,

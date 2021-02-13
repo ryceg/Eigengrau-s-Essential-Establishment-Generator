@@ -14,8 +14,7 @@
 \<<print JSON.stringify(setup.getPantheon())>>
 </details>
 ----<</if>>
-
-Custom patheon name: <<if State.metadata.has('pantheon')>><b><<print setup.getCustomPantheon().name>></b>
+\Custom patheon name: <<if State.metadata.has('pantheon')>><b><<print setup.getCustomPantheon().name>></b>
 <details style="height:270px; overflow:auto"><summary>Custom Pantheon Data:</summary>
 \<<print JSON.stringify(setup.getCustomPantheon())>>
 </details>

@@ -133,6 +133,11 @@ footer {
   column-span: all;
 }
 
+
+#ui-dialog-body.settings button[id|=setting-control-nobutton]::after {
+  content: none;
+}
+
 @media (min-width: 360px) {
   .passage {
     columns: 1;

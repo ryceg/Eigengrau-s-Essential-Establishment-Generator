@@ -6,9 +6,12 @@ export const openPantheonDialogue = () => {
 
 $(document).on(':dialogopened', function () {
   if ($('#ui-dialog-body').hasClass('settings')) {
-    $('#setting-body-showtutorial').prepend(
-      $(document.createElement('div'))
-        .append('Choose a pantheon to use.')
-    )
+    setup.addSettingButton({
+      target: 'showbiomegeneration',
+      name: 'pantheon',
+      description: 'Choose a pantheon to use.',
+      buttonDescription: 'Open pantheon settings'
+    },
+    openPantheonDialogue)
   }
 })
