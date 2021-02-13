@@ -1,9 +1,3 @@
-export const openPantheonDialogue = () => {
-  Dialog.setup('Pantheon Setup')
-  Dialog.wiki(Story.get('ImportPantheon').processText())
-  Dialog.open()
-}
-
 $(document).on(':dialogopened', function () {
   if ($('#ui-dialog-body').hasClass('settings')) {
     setup.addSettingButton({
@@ -12,6 +6,10 @@ $(document).on(':dialogopened', function () {
       description: 'Choose a pantheon to use.',
       buttonDescription: 'Open pantheon settings'
     },
-    openPantheonDialogue)
+    setup.openDialog({
+      header: 'Pantheon Setup',
+      passage: 'ImportPantheon',
+      rerender: true
+    }))
   }
 })
