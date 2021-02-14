@@ -44,9 +44,20 @@ const stressTraits: string[] = ['withdrawn', 'murderous', 'obsessive', 'authorit
 
 type TraitType = 'calm' | 'stress'
 interface Traits {
+  /** This should be the same as the key. */
   key: string,
+  /**
+   * Probability for the trait being drawn.
+   * @default 10
+   */
   probability?: number
+  /**
+   * Whether the trait manifests when the NPC is calm or stressed.
+   */
   type: TraitType[]
+  /**
+   * List of the traits, which are used as Fairmath modifiers.
+   */
   traits: PartialRecord<Virtues, number>
 }
 
