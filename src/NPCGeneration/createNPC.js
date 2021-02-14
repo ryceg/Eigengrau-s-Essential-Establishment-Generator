@@ -14,12 +14,13 @@ setup.createNPC = (town, base = defaultBase) => {
   const data = setup.npcData
 
   base.roll = {
+    traits: {},
     professionLuck: lib.dice(5, 10) - 27,
     physicalTrait: lib.random(1, 100),
     gregariousness: lib.dice(3, 6),
     conformity: lib.dice(2, 50),
     gender: lib.random(1, 100),
-    religiosity: 0,
+    religiosity: lib.dice(2, 50),
     socialClass: 0
   }
   if (base.isShallow === true) {

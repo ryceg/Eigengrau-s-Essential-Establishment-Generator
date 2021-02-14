@@ -5,6 +5,7 @@ import { ClassName } from './classTraits'
 import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, GenderName, AgeName } from './raceTraits'
+import { Virtues } from './traits/getTraits'
 
 export type SocialClassName =
   | 'indentured servitude'
@@ -46,6 +47,7 @@ export interface NPC {
   professionSuccess: string
   background: BackgroundName
   roll: {
+    traits: Record<Virtues, number>
     /** How lucky/good someone is at their job. */
     professionLuck: number
     /** "Rarity" of the trait- not really a super important attribute. */

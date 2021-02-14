@@ -2,7 +2,7 @@ import { ProfessionNames } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town } from '../town/_common'
 import { AlignmentsAbbreviated, ClericDomains, WorldType } from '../src/worldType'
-import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord } from '../'
+import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
   /** @example 'Zeus is followed by many, of all different race and creed.' */
@@ -28,43 +28,6 @@ interface Followers {
    */
   excluded?: Followers
 }
-
-const traits = {
-  virtueKey: {
-    chaste: 'lustful',
-    energetic: 'lazy',
-    forgiving: 'vengeful',
-    generous: 'selfish',
-    honest: 'deceitful',
-    just: 'arbitrary',
-    merciful: 'cruel',
-    modest: 'proud',
-    pious: 'worldly',
-    prudent: 'reckless',
-    temperate: 'indulgent',
-    trusting: 'suspicious',
-    valorous: 'cowardly'
-  },
-  viceKey: {
-    lustful: 'chaste',
-    lazy: 'energetic',
-    vengeful: 'forgiving',
-    selfish: 'generous',
-    deceitful: 'honest',
-    arbitrary: 'just',
-    cruel: 'merciful',
-    proud: 'modest',
-    worldly: 'pious',
-    reckless: 'prudent',
-    indulgent: 'temperate',
-    suspicious: 'trusting',
-    cowardly: 'valorous'
-  }
-}
-
-export type Virtues = keyof typeof traits['virtueKey']
-export type Vices = keyof typeof traits['viceKey']
-export type VirtuesVices = Virtues | Vices
 
 export interface Pantheon {
   /**
@@ -280,11 +243,11 @@ export interface Deity {
    * @example
    * Zeus: {
    *   just: 70,
-   *   vengeful: 85,
+   *   merciful: -85,
    *   lust: 80
    * }
    */
-  personality: PartialRecord<VirtuesVices, number>
+  personality: PartialRecord<Virtues, number>
   /**
    * Things that the god are associated with, e.g. Sacred plants and animals.
    */
@@ -678,8 +641,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -759,8 +722,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -852,8 +815,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 90,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -953,8 +916,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 30,
-            vengeful: 85,
-            lustful: 100
+            merciful: -85,
+            chaste: -100
           },
           associations: {
             avatars: [
@@ -1060,8 +1023,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 0
+            merciful: -85,
+            chaste: 100
           },
           associations: {
             avatars: [
@@ -1157,8 +1120,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -1261,8 +1224,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 80,
-            vengeful: 80,
-            lustful: 0
+            merciful: -80,
+            chaste: 100
           },
           associations: {
             avatars: [
@@ -1370,7 +1333,7 @@ export const religion: ReligionData = {
           personality: {
             just: 20,
             forgiving: 25,
-            lustful: 90
+            chaste: 10
 
             // energetic: 'lazy',
             // generous: 'selfish',
@@ -1478,8 +1441,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -1511,7 +1474,7 @@ export const religion: ReligionData = {
           },
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife'],
+          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife']
 
         },
         { // Hermes
@@ -1611,8 +1574,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -1699,8 +1662,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -1785,8 +1748,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -1877,8 +1840,7 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 0
+            merciful: -85
           },
           associations: {
             avatars: [
@@ -1963,8 +1925,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2048,8 +2010,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2138,8 +2100,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -2219,8 +2181,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -2284,8 +2246,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -2354,8 +2316,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2437,8 +2399,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 100
+            merciful: -85,
+            chaste: -100
           },
           associations: {
             avatars: [
@@ -2516,8 +2478,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2589,8 +2551,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           associations: {
             avatars: [
@@ -2657,8 +2619,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2731,8 +2693,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -2845,8 +2807,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 20
+            merciful: -85,
+            chaste: -20
           },
           realm: 'Valhalla',
           associations: {
@@ -2945,8 +2907,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -3037,8 +2999,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -3301,7 +3263,7 @@ export const religion: ReligionData = {
             }
           },
           personality: {
-            lustful: 70
+            chaste: 30
           },
           realm: 'Folkvangr',
           associations: {
@@ -3345,7 +3307,7 @@ export const religion: ReligionData = {
           appearance: '',
           portfolios: [
             'skaldic poetry',
-            'wisdom',
+            'wisdom'
           ],
           gender: 'man',
           shape: 'human',
@@ -3378,8 +3340,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -3528,8 +3490,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -3594,8 +3556,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
@@ -3661,8 +3623,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 70,
-            vengeful: 85,
-            lustful: 80
+            merciful: -85,
+            chaste: -80
           },
           associations: {
             avatars: [
