@@ -1,4 +1,5 @@
 :: EditSliders
+<details open><summary>Attributes</summary>
 <table>
   <tr>
     <th>Attribute Slider</th>
@@ -13,3 +14,4 @@
   <</capture>><</for>><</nobr>>
 <tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Dominant gender" for="listbox-towndominantgender"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
 </table><<run lib.addTippyAccessibility()>>
+</details>
