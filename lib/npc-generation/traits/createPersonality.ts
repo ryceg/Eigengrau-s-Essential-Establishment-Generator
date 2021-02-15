@@ -100,7 +100,7 @@ export const personalityTraits: Record<string, Traits> = {
     traits: {
       energetic: 30,
       modest: -40,
-      prudent: -60,
+      prudent: -30,
       temperate: -20,
       valorous: 30
     }
@@ -109,17 +109,17 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'uninterested',
     type: ['calm'],
     traits: {
-      energetic: -70,
+      energetic: -30,
       modest: 20,
       temperate: 20,
-      valorous: -30
+      valorous: -10
     }
   },
   'gruff': {
     key: 'gruff',
     type: ['calm'],
     traits: {
-      forgiving: -20,
+      forgiving: -10,
       generous: -30,
       prudent: 20,
       trusting: -30
@@ -138,18 +138,18 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'deceitful',
     type: ['calm'],
     traits: {
-      honest: -100,
-      valorous: -50,
-      generous: -50
+      honest: -80,
+      valorous: -20,
+      generous: -20
     }
   },
   'foolish': {
     key: 'foolish',
-    type: ['calm'],
+    type: ['calm', 'stress'],
     traits: {
       honest: 20,
       prudent: -80,
-      temperate: -50,
+      temperate: -30,
       trusting: 50,
       valorous: 30
     }
@@ -179,10 +179,10 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'mischeivous',
     type: ['calm'],
     traits: {
-      chaste: -50,
+      chaste: -40,
       just: -30,
-      generous: -40,
-      temperate: -70
+      generous: -20,
+      temperate: -30
     }
   },
   'fearful': {
@@ -190,7 +190,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['calm'],
     traits: {
       valorous: -90,
-      trusting: -80,
+      trusting: -60,
       prudent: 60,
       temperate: 20
     }
@@ -199,18 +199,18 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'manipulative',
     type: ['calm', 'stress'],
     traits: {
-      valorous: -70,
+      valorous: -30,
       trusting: -30,
-      generous: -90,
-      merciful: -50,
-      forgiving: -40
+      generous: -30,
+      merciful: -20,
+      forgiving: -20
     }
   },
   'devout': {
     key: 'devout',
     type: ['calm'],
     traits: {
-      pious: 100,
+      pious: 80,
       chaste: 50,
       temperate: 40,
       modest: 40
@@ -220,8 +220,8 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'greedy',
     type: ['calm'],
     traits: {
-      generous: -60,
-      temperate: -100
+      generous: -40,
+      temperate: -90
     }
   },
   'funny': {
@@ -236,10 +236,10 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'dour',
     type: ['calm'],
     traits: {
-      pious: -40,
-      generous: -30,
-      energetic: -40,
-      trusting: -40
+      pious: -20,
+      generous: -10,
+      energetic: -20,
+      trusting: -20
     }
   },
   'fun-loving': {
@@ -248,8 +248,8 @@ export const personalityTraits: Record<string, Traits> = {
     traits: {
       chaste: -50,
       energetic: 50,
-      generous: -40,
-      prudent: -30,
+      generous: -10,
+      prudent: -20,
       trusting: 10
     }
   },
@@ -257,9 +257,9 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'lazy',
     type: ['calm'],
     traits: {
-      energetic: -100,
-      generous: -20,
-      temperate: -40
+      energetic: -60,
+      generous: -10,
+      temperate: -20
     }
   },
   'driven': {
@@ -267,16 +267,16 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['calm'],
     traits: {
       energetic: 50,
-      modest: -30,
+      modest: -10,
       pious: 10,
-      generous: -20
+      generous: -10
     }
   },
   'boastful': {
     key: 'boastful',
     type: ['calm'],
     traits: {
-      generous: -20,
+      generous: -10,
       modest: -90,
       valorous: 40
     }
@@ -294,10 +294,10 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['calm'],
     traits: {
       energetic: 40,
-      generous: -40,
+      generous: -10,
       pious: 20,
-      temperate: -20,
-      trusting: -20,
+      temperate: -10,
+      trusting: -10,
       valorous: 30
     }
   },
@@ -306,7 +306,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['calm'],
     traits: {
       energetic: 40,
-      just: -80,
+      just: -20,
       prudent: -70,
       trusting: 60,
       forgiving: 50,
@@ -318,7 +318,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['calm'],
     traits: {
       trusting: -60,
-      generous: -40,
+      generous: -10,
       prudent: 90,
       temperate: 60,
       valorous: -50
@@ -328,16 +328,16 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'confident',
     type: ['calm'],
     traits: {
-      valorous: 90,
-      prudent: -30,
-      energetic: 40
+      valorous: 60,
+      prudent: -10,
+      energetic: 30
     }
   },
   'thoughtful': {
     key: 'thoughtful',
     type: ['calm'],
     traits: {
-      pious: 20,
+      pious: 10,
       merciful: 40,
       generous: 30,
       forgiving: 20
@@ -347,7 +347,7 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'loyal',
     type: ['calm'],
     traits: {
-      trusting: 80,
+      trusting: 60,
       prudent: -10,
       merciful: 20,
       forgiving: 10
@@ -357,11 +357,11 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'sophisticated',
     type: ['calm'],
     traits: {
-      modest: -60,
+      modest: -40,
       pious: 30,
       honest: -10,
       forgiving: -10,
-      temperate: -30
+      temperate: -10
     }
   },
   'weak-willed': {
@@ -370,8 +370,7 @@ export const personalityTraits: Record<string, Traits> = {
     traits: {
       temperate: -60,
       chaste: -50,
-      energetic: -20,
-      valorous: -30
+      valorous: -10
     }
   },
   'withdrawn': {
@@ -379,7 +378,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['stress'],
     traits: {
       energetic: -30,
-      just: -40,
+      just: -10,
       pious: 30
     }
   },
@@ -387,9 +386,9 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'murderous',
     type: ['stress'],
     traits: {
-      forgiving: -80,
-      merciful: -80,
-      trusting: -80
+      forgiving: -50,
+      merciful: -50,
+      trusting: -10
     }
   },
   'obsessive': {
@@ -397,7 +396,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['stress'],
     traits: {
       trusting: -80,
-      honest: -40,
+      honest: -30,
       pious: 40,
       prudent: 30
     }
@@ -406,11 +405,11 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'authoritarian',
     type: ['stress'],
     traits: {
-      honest: -40,
-      modest: -90,
+      honest: -20,
+      modest: -40,
       pious: 10,
-      forgiving: -60,
-      generous: -50
+      forgiving: -20,
+      generous: -10
     }
   },
   'determined': {
@@ -446,37 +445,37 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'belligerent',
     type: ['stress'],
     traits: {
-      forgiving: -40,
+      forgiving: -30,
       honest: -20,
-      modest: -30
+      modest: -10
     }
   },
   'caustic': {
     key: 'caustic',
     type: ['stress'],
     traits: {
-      modest: -40,
+      modest: -10,
       forgiving: -40,
-      prudent: -30,
-      temperate: -30
+      prudent: -10,
+      temperate: -10
     }
   },
   'reckless': {
     key: 'reckless',
     type: ['stress'],
     traits: {
-      prudent: -99,
-      temperate: -40,
-      just: -30
+      prudent: -70,
+      temperate: -20,
+      just: -20
     }
   },
   'argumentative': {
     key: 'argumentative',
     type: ['stress'],
     traits: {
-      generous: -20,
-      merciful: -10,
-      honest: -30
+      generous: -10,
+      merciful: -20,
+      honest: -20
     }
   },
   'gluttonous': {
@@ -484,8 +483,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['stress'],
     traits: {
       generous: -40,
-      energetic: -50,
-      prudent: -10
+      energetic: -50
     }
   },
   'overly protective': {
@@ -496,7 +494,7 @@ export const personalityTraits: Record<string, Traits> = {
       pious: 20,
       generous: 30,
       forgiving: -20,
-      trusting: -50
+      trusting: -30
     }
   },
   'angry': {
@@ -504,18 +502,18 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['stress', 'calm'],
     traits: {
       temperate: -40,
-      merciful: -30,
-      prudent: -50,
-      forgiving: -80
+      merciful: -40,
+      prudent: -10,
+      forgiving: -30
     }
   },
   'cowardly': {
     key: 'cowardly',
     type: ['stress'],
     traits: {
-      valorous: -100,
+      valorous: -70,
       trusting: -20,
-      generous: -30
+      generous: -10
     }
   },
   'meticulous': {
@@ -549,9 +547,9 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'destructive',
     type: ['stress'],
     traits: {
-      merciful: -40,
-      just: -80,
-      prudent: -60
+      merciful: -30,
+      just: -60,
+      prudent: -50
     }
   },
   'practical': {
@@ -588,7 +586,7 @@ export const personalityTraits: Record<string, Traits> = {
     type: ['stress'],
     traits: {
       trusting: -40,
-      honest: -90
+      honest: -70
     }
   },
   'scornful': {
@@ -614,7 +612,7 @@ export const personalityTraits: Record<string, Traits> = {
     traits: {
       prudent: -60,
       pious: 30,
-      just: -50
+      just: -10
     }
   },
   'calculating': {
@@ -641,8 +639,8 @@ export const personalityTraits: Record<string, Traits> = {
     key: 'compulsive',
     type: ['stress'],
     traits: {
-      just: -80,
-      generous: -30,
+      just: -40,
+      generous: -10,
       prudent: -60
     }
   },
