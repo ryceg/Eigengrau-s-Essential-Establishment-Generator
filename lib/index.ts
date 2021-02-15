@@ -88,6 +88,7 @@ export * from './npc-generation/npcFinances'
 
 export * from './npc-generation/traits/createPersonality'
 export * from './npc-generation/traits/getTraits'
+export * from './npc-generation/traits/getTraitDescriptors'
 
 export * from './religion/createTownReligion'
 export * from './religion/religion'
