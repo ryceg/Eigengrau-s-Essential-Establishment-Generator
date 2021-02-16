@@ -8,7 +8,7 @@ interface Followers {
   /**
    * @example 'Zeus is followed by many, of all different race and creed.' 
    */
-  description: string | string[]
+  description: string
   /**
    * Who Actually Worshipped the god?
    * @example Poseidon : 'Sailors'
@@ -1452,7 +1452,8 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: 'As the goddess of Agriculture, Demeter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.',
-            favouredWeapon: 'Farmers',
+            adherents: [Farmers],
+            favouredWeapon: 'Sickle',
             holyDays: {
               earth: []
             }
@@ -2465,7 +2466,7 @@ export const religion: ReligionData = {
             'Lover of the People'
           ],
           rank: 'lesser deity',
-          description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down ',
+          description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down by Zeus. He was placed among the stars and now serves as the Physician for the gods',
           appearance: undefined,
           portfolios: [
             'medicine',
@@ -2497,7 +2498,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead when he was mortal. Zeus struck him down but Asclepius was placed among the stars and became the Physician of the Gods',
+            description: 'Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery',
             adherents:['Healers', 'The Sick'],
             favouredWeapon: undefined,
             holyDays: {
@@ -2571,7 +2572,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'Chiron was the teacher of Heracles and many other Heroes. He was the wisest and most restrained of the Centaurs,',
+            description: 'Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.',
             adherents:['Teachers', 'Centaurs', 'Healers'],
             favouredWeapon: undefined,
             holyDays: {
@@ -2609,7 +2610,7 @@ export const religion: ReligionData = {
           aliases: ['Hercules'],
           titles: ['Divine Protector of Mankind'],
           rank: 'lesser deity',
-          description: undefined,
+          description: 'The Son of Zeus who famously completed 12 Labours, Heracles ascended to godhood and is known as the greatest of the Greek Heroes',
           appearance: undefined,
           portfolios: [
             'mankind',
@@ -2640,7 +2641,7 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'A mighty Demigod who ascended to become a god, Heracles is worshipped by Mortals and Heroes as an aspirational goal',
+            description: 'Arguably the greatest of Heroes, Heracles is worshipped by mortals for his strength and fame'
             adherents:['Heroes', 'Athletes', 'Mortals'],
             favouredWeapon: undefined,
             holyDays: {
