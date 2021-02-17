@@ -5,12 +5,19 @@ import { AlignmentsAbbreviated, ClericDomains, WorldType } from '../src/worldTyp
 import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
-  /** @example 'Zeus is followed by many, of all different race and creed.' */
+  /**
+   * @example 'Zeus is followed by many, of all different race and creed.' 
+   */
   description: string
+  /**
+   * Who Actually Worshipped the god?
+   * @example Poseidon : 'Sailors'
+   */
+  adherents?: string[]
   /**
    * @example 'spear'
    * @usage 'In battle, his followers favour the ${favouredWeapon}'
-   * */
+   */
   favouredWeapon: string
   /**
    * Holy days
@@ -205,7 +212,7 @@ export interface Deity {
     /**
      * How the deity feels about fighting, blah blah blah. Opening sentence.
      * @example 'Bloodthirsty and always relishing a fight, Ares commands batallions of soldiers in battle.',
-     * 'Aphrodite finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
+     * 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
      */
     description: string
     /**
@@ -681,7 +688,7 @@ export const religion: ReligionData = {
             'Horse Tender'
           ],
           rank: 'greater deity',
-          description: undefined,
+          description: 'Poseidon is the god of the Sea - all things underwater are under his purview',
           appearance: 'a mature man with a sturdy build and a dark beard holding a trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms.',
           portfolios: [
             'the sea',
@@ -715,6 +722,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: 'Poseidon is followed by many mariners, fishermen, and horse riders.',
+            adherents: ['Sailors', 'Teamsters', 'Fishermen', 'Cavalry', 'Farmers'],
             favouredWeapon: 'trident',
             holyDays: {
               earth: []
@@ -752,7 +760,9 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: ['Smooth Sailing', 'managment of horses'],
+          curses: ['mad horses', 'rough seas']
         },
         { // Hades
           name: 'Hades',
@@ -806,6 +816,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: 'Hades, as the god of the dead, was a fearsome figure to those still living; in no hurry to meet him, they were reluctant to swear oaths in his name, and averted their faces when sacrificing to him. Since to many, simply to say the word "Hades" was frightening, euphemisms were pressed into use.',
+            adherents: ['Mourners', 'Undertakers', 'Necromancers', 'Miners'],
             favouredWeapon: undefined,
             holyDays: {
               earth: ['second to last day of every month'],
@@ -821,9 +832,9 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: undefined,
+                name: 'Ploutos',
                 appearance: undefined,
-                description: undefined,
+                description: 'As Ploutos, Hades is the God of wealth and precious metals',
                 frequency: undefined,
                 powers: undefined
               }
@@ -850,7 +861,8 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: ['plenty from the earth', 'the ability to be un-noticed']
         },
         { // Aphrodite
           name: 'Aphrodite',
@@ -895,20 +907,21 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'dove',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans. ',
+            weapon: 'Spear',
+            weaponDescription: 'Aphrodite Areia wields a spear ',
+            tactics: 'Aphrodite is ready to use deciptive strategies, such as how she lured the Gigantes one by one into a cave for them to be murered'
           },
           possessions: [
             {
               name: undefined,
-              wordNoun: undefined,
-              powers: undefined
+              wordNoun: 'girdle',
+              powers: 'which inspires desire in all those who look upon the wearer'
             }
           ],
           followers: {
-            description: 'As the goddess of beauty and love the favour of Aphrodite was valuble regardless of profession, thoughshe was the Patron goddess of Prostitutes. He warlike aspect, Aphrodite Areia, was worshipped by warriors',
+            description: 'As the goddess of beauty and love the favour of Aphrodite was worshipped by all people, though especially by Prostitutes. She was also worshippeed as Aphrodite the Warlike by warriors',
+            adherents: ['everyone', 'prostitutes', 'warriors'],
             favouredWeapon: undefined,
             holyDays: {
               earth: ['the fourth day of every month']
@@ -922,10 +935,10 @@ export const religion: ReligionData = {
           associations: {
             avatars: [
               {
-                name: undefined,
-                appearance: undefined,
-                description: undefined,
-                frequency: undefined,
+                name: 'Aphrodite Areia',
+                appearance: 'Clad in armour and bearing weapons',
+                description: 'Aphrodite Areia is war-like aspect of Aphrodite',
+                frequency: 'Worshipped by the Spartans and other war-loving people',
                 powers: undefined
               }
             ],
@@ -970,7 +983,7 @@ export const religion: ReligionData = {
             'Goddess of the Beasts',
             'Nurse of Children',
             'Friend of Girls',
-            'Goddess of the Glocks and the Chase',
+            'Goddess of the Flocks and the Chase',
             'The best advisor'
           ],
           rank: 'greater deity',
@@ -1002,10 +1015,10 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'bow and quiver of arrows',
           combat: {
-            description: 'As a child, Artemis asked her father for a Bow and Arrow made by the Cyclopses',
+            description: 'Artemis is quick to strike down those who offend her with animals and wild beasts',
             weapon: 'bow and arrows',
-            weaponDescription: undefined,
-            tactics: undefined
+            weaponDescription: 'The Bow of Artemios was forged by the Cyclopses',
+            tactics: 'Artemis is a dedicated huntress and will pursue her quarry until it is caught.'
           },
           possessions: [
             {
@@ -1015,7 +1028,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Artemis is worshipped by Hunters and Women, young girls could be expected to serve Artemis until they come of age.',
+            adherents: ['Hunters', 'Young Girls', 'Expecting Mothers', 'Wild Beings'],
             favouredWeapon: 'bow',
             holyDays: {
               earth: ['the sixth day']
@@ -1060,7 +1074,8 @@ export const religion: ReligionData = {
             miscellaneous: ['lyre', 'torches', 'spears and nets']
           },
           beliefs: 'chastity',
-          heresies: undefined
+          heresies: undefined,
+          curses: ['tranformation into a wild animal']
         },
         { // Apollo
           name: 'Apollo',
@@ -1099,10 +1114,10 @@ export const religion: ReligionData = {
           alignment: 'N',
           symbol: 'lyre',
           combat: {
-            description: 'The Bow of Apollo, a godly weapon',
+            description: undefined,
             weapon: 'bow',
             weaponDescription: undefined,
-            tactics: undefined
+            tactics: 'The bow of Apollo fires arrows and plagues upon those who anger him'
           },
           possessions: [
             {
@@ -1112,7 +1127,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Oracles are often followers of Apollo, the Greatest of which is the Pythia of Delph, the high priestess of Apollo',
+            adherents: ['Musicians', 'Oracles', 'Doctors'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -1143,7 +1159,7 @@ export const religion: ReligionData = {
               'cicada',
               'hawk',
               'crows',
-              'mousee'
+              'mouse'
             ],
             plants: [
               'laurel',
@@ -1216,7 +1232,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Athena is the goddess of Craftsment, Wisdom and Heroes.',
+            adherents: ['Craftsmen', 'Heroes', 'Academics', 'Strategists'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -1324,7 +1341,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: 'Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Some devotees of Dionysus also engage in ritualistic madness and rending of animals with their bare hands',
+            description: 'Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Devotees of Dionysus may engage in the rending of animals with their bare hands',
+            adherents: ['Wine-Makers', 'Actors', 'Farmers', 'Revelers'], 
             favouredWeapon: undefined,
             holyDays: {
               earth: ['the eighth month']
@@ -1434,7 +1452,8 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: 'As the goddess of Agriculture, Demeter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.',
-            favouredWeapon: undefined,
+            adherents: [Farmers],
+            favouredWeapon: 'Sickle',
             holyDays: {
               earth: []
             }
@@ -1566,7 +1585,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Hermes was the messenger of Zeus' ,
+            adherents: ['Thieves', 'Traders', 'Messengers', 'Athletes', 'Diplomats', 'Travellers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: ['Wednesday']
@@ -1655,6 +1675,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: undefined,
+            adherents: ['Women'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -1740,7 +1761,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Ares is the god of war and courage - cities and countries going to war would worship Ares before going into battle',
+            adherents: ['Warriors'],
             favouredWeapon: undefined,
             holyDays: {
               earth: ['Tuesday']
@@ -1917,7 +1939,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Hephaestus is the god of the forge. He is worshipped by Craftsmen and his blessing gives them inspiration and skill,',
+            adherents: ['Smiths', 'Craftsmen'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -1950,7 +1973,8 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: ['inspiration', 'knowledge']
         },
         { // Persephone
           name: 'Persephone',
@@ -2002,7 +2026,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Persephone was a goddess of Spring and the Wife of Hades. Her favour might ensure a better afterlife for her worshippers.',
+            adherents: ['Farmers'] ,
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2010,8 +2035,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            merciful: -85,
-            chaste: -80
+            merciful: 0,
+            chaste: 75
           },
           associations: {
             avatars: [
@@ -2092,7 +2117,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Hecate is a mysterious Goddess who is a master of the Arcane Arts and lives in the Underworld, her followers ask for her secret knowledge.',
+            adherents:['Magic Users', 'Necromancers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2173,7 +2199,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt. ',
+            adherents:['Warriors'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2239,6 +2266,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: undefined,
+            adherents:['Gamblers', 'All'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2392,6 +2420,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: undefined,
+            adherents:['Wild Beings', 'Hunters'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2429,16 +2458,15 @@ export const religion: ReligionData = {
           beliefs: undefined,
           heresies: undefined
         },
-        { // Aslepius
-          name: 'Aslepius',
+        { // Asclepius
+          name: 'Asclepius',
           status: 'alive',
           titles: [
             'God of Healing',
             'Lover of the People'
-
           ],
           rank: 'lesser deity',
-          description: undefined,
+          description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down by Zeus. He was placed among the stars and now serves as the Physician for the gods',
           appearance: undefined,
           portfolios: [
             'medicine',
@@ -2470,7 +2498,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery',
+            adherents:['Healers', 'The Sick'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2543,7 +2572,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.',
+            adherents:['Teachers', 'Centaurs', 'Healers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2551,8 +2581,8 @@ export const religion: ReligionData = {
           },
           personality: {
             just: 50,
-            merciful: -85,
-            chaste: -20
+            merciful: 60,
+            chaste: 90
           },
           associations: {
             avatars: [
@@ -2580,7 +2610,7 @@ export const religion: ReligionData = {
           aliases: ['Hercules'],
           titles: ['Divine Protector of Mankind'],
           rank: 'lesser deity',
-          description: undefined,
+          description: 'The Son of Zeus who famously completed 12 Labours, Heracles ascended to godhood and is known as the greatest of the Greek Heroes',
           appearance: undefined,
           portfolios: [
             'mankind',
@@ -2611,7 +2641,8 @@ export const religion: ReligionData = {
             }
           ],
           followers: {
-            description: undefined,
+            description: 'Arguably the greatest of Heroes, Heracles is worshipped by mortals for his strength and fame'
+            adherents:['Heroes', 'Athletes', 'Mortals'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2686,6 +2717,7 @@ export const religion: ReligionData = {
           ],
           followers: {
             description: undefined,
+            adherents:['Farmers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
