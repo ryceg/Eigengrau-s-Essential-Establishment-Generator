@@ -167,6 +167,7 @@ setup.createTown = (base = {}) => {
       wealth: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
       religiosity: lib.dice(2, 50),
+      religionSeed: lib.dice(1, 100),
       sin: lib.dice(2, 50),
       diversity: lib.dice(2, 50),
       magic: lib.dice(2, 50),
