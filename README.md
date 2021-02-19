@@ -1,5 +1,6 @@
-# ![](https://i.imgur.com/oVQHgTP.png)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Feigengrausgenerator.com) ![GitHub](https://img.shields.io/github/license/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues) [![GitHub forks](https://img.shields.io/github/forks/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/network) [![GitHub stars](https://img.shields.io/github/stars/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/stargazers)
 
+# ![](https://i.imgur.com/oVQHgTP.png)
 
 
 ### A Tabletop Generator Unlike Any Other :game_die:
@@ -23,6 +24,12 @@ NOTE: The live build is often several weeks or months behind the current build h
 
 ## Community :family:
 
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Deigengrausgenerator%26type%3Dpatrons&style=flat-square)](https://patreon.com/eigengrausgenerator)
+
+![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/eigengrausgenerator?style=flat-square)
+
+![Discord](https://img.shields.io/discord/441105601918009349?color=%237289da&label=Join%20us%20on%20Discord%21&logo=Discord&style=flat-square)
+
 **Join our Discord to talk about the project in real time**
 
 * Learn more about the project
@@ -36,6 +43,12 @@ The Discord is where the main realtime discussion happens- GitHub Discussions is
 Also consider joining the [subreddit.](https://www.reddit.com/r/EigengrausGenerator)
 
 ## Contributing :black_nib:
+
+![GitHub issues](https://img.shields.io/github/issues/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)
+
+![GitHub pull requests](https://img.shields.io/github/issues-pr/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)
+
+![GitHub contributors](https://img.shields.io/github/contributors/ryceg/Eigengrau-s-Essential-Establishment-Generator) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=flat-square)
 
 We love getting pull requests! You can find out more about contributing to the project [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/wiki/Contributing) 
 

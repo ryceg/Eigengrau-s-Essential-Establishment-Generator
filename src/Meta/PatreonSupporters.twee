@@ -1,4 +1,5 @@
 :: PatreonSupporters
+<h2>Patreon Supporters</h2>
 Special thanks to my [[Patreon|https://www.patreon.com/join/eigengrausgenerator?]] supporters!
 <<if setup.supporters>><table>
 <tbody><<set _supportersList to setup.supporters>>
