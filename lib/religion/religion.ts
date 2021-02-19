@@ -1,8 +1,8 @@
-import { ProfessionNames } from '../npc-generation/professions'
+import { ProfessionNames, ProfessionSector } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town } from '../town/_common'
 import { AlignmentsAbbreviated, ClericDomains, WorldType } from '../src/worldType'
-import { RaceName, GenderName, AgeName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
+import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
   /**
@@ -27,8 +27,6 @@ interface Followers {
    */
   holyDays: PartialRecord<WorldType, string[]>
   race?: RaceName
-  gender?: GenderName
-  age?: AgeName
   base?: Partial<NPC>
   /**
    * Certain groups might be excluded from following a deity.
@@ -96,6 +94,10 @@ export interface Deity {
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
        */
       profession: Record<ProfessionNames, number>
+      /**
+       * Profession sector is applied as well as Professions.
+       */
+      professionSector: Record<ProfessionSector, number>
     }
   }
   /**
