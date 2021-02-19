@@ -1,11 +1,11 @@
 
-:: Credits [output]
-<h1>Credits</h1>
+:: Credits [force-one-column]
+<h2>Credits</h2>
 Many thanks to /u/FamousHippopotamus and /u/OrkishBlade for their excellent tables and DMing advice over the years. Shoutout to /r/twinegames and the good folks in the Discord server who helped a total newb learn how to code in Twine.
 
 [[Sign up to the newsletter to be notified about updates|EmailSignUp]]
 
-[[Legal]]
-
+<<include "Legal">>
 <<include "PatreonSupporters">>
 <<include "Contributors">>
+<<include "FunStats">>

@@ -11,6 +11,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Nonbinary pronouns & NPCs
 - Add labels and accessibility features to elements (people that use screenreaders, please let me know if an element is missing features!)
 - Add collapsible elements where you might not want to see everything all at once.
+- Live counters for Patreon supporters, Discord, and GitHub forks.
+- Fun stats to Credits
 
 
 ### Changes

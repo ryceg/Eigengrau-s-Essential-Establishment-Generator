@@ -1,6 +1,6 @@
-:: Legal
-<h1>Google Analytics & Tracking</h1>
+:: Legal [force-one-column]
+<h2>Google Analytics & Tracking</h2>
 We use Google Analytics for aggregated, anonymized website traffic analysis. In order to track your session usage, Google drops a cookie (_ga) with a randomly-generated ClientID in your browser. This ID is anonymized and contains no identifiable information like email, phone number, name, etc. We also send Google your IP Address. We use GA to track aggregated website behavior, such as what pages you looked at, for how long, and so on. This information is important to us for improving the user experience and determining site effectiveness. If you would like to access what browsing information we have - or ask us to delete any GA data - please delete your _ga cookies, reach out to us via email, and/or install the Google Analytics Opt-Out Browser Add-On.
 
-<h1>WotC Content</h1>
+<h2>WotC Content</h2>
 This is unofficial fan content, permitted under the WotC Fan Content Policy. It is not approved/endorsed by Wizards of the Coast. Portions of the materials used are property of Wizards of the Coast. © Wizards of the Coast.
