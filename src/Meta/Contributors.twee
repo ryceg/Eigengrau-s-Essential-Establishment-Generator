@@ -1,5 +1,6 @@
 :: Contributors
 <h2>Contributors</h2>
+<<print lib.createBadge(lib.badges.stats.githubContributors)>>
 Thanks to the following for their contributions to the codebase!
 * WishingOnAWendy
 * cktang88

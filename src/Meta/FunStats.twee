@@ -1,19 +1,5 @@
 :: FunStats
 <h2>Fun Stats</h2>
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge">
-
-<img alt="GitHub commits since latest release (by date) for a branch" src="https://img.shields.io/github/commits-since/ryceg/Eigengrau-s-Essential-Establishment-Generator/2.7?style=for-the-badge">
-
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge">
-
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge">
-
-<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge">
-
-<a href='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues'><img alt="GitHub issues" src="https://img.shields.io/github/issues/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge"></a>
-
-<a href='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aclosed'><img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge"></a>
-
-<a href='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/pulls?q=is%3Apr+is%3Aclosed'><img alt="GitHub closed pull requests" src="https://img.shields.io/github/issues-pr-closed/ryceg/Eigengrau-s-Essential-Establishment-Generator?style=for-the-badge"></a>
-
-<a href='https://reddit.com/r/eigengrausgenerator'><img alt="Subreddit subscribers" src="https://img.shields.io/reddit/subreddit-subscribers/eigengrausgenerator?style=for-the-badge"></a>
+<<for _badge range lib.badges.stats>>
+<<print lib.createBadge(_badge, {imgArgs: 'style=width:auto'})>>
+<</for>>
