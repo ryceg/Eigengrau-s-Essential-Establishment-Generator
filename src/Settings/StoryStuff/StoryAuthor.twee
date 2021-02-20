@@ -6,22 +6,20 @@
 Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>
-<<if $data.isPatreon is true>><span class="tip" title="Thank you for your continued support!">
-    <div id="patreon"><a href="https://patreon.com/join/eigengrausgenerator"><img style='width:100%' src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Deigengrausgenerator%26type%3Dpatrons&style=for-the-badge" alt="Support me on Patreon" /></a></div>
+<span class="tip" title="Thank you for your continued support!" id="patreon">
+    <<print lib.createBadge(lib.badges.stats.patreonSupporters, {imgArgs: 'style=width:100%'})>>
+    /* , imgArgs: "style='width:100%'" */
 </span>
-<<else>><span class="tip" title="Thank you for your support!">
-    <div id="kofi">[img["Tip me on Ko-Fi!"|kofi][https://ko-fi.com/Q5Q8O5AA]]</div>
-</span><</if>>
-<span class="tip" title="Come join our community!">
-    <div id="discord">
-    <a href="https://discord.gg/A543VC5">
-    <img alt="Discord" style='width:100%' src="https://img.shields.io/discord/441105601918009349?color=%237289da&label=Discord&logo=Discord&style=for-the-badge">
-    </a></div>
+<span class="tip" title="Come join our community!" id='discord'>
+    <<print lib.createBadge(lib.badges.stats.discordOnline, {imgArgs: 'style=width:100%'})>>
 </span>
-<span class="tip" title="Check out the repository!">
-    <div id="github">
-    <a href="https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator"><img alt="GitHub forks" style='width:100%' src="https://img.shields.io/github/forks/ryceg/Eigengrau-s-Essential-Establishment-Generator?label=GitHub%20Forks&logo=GitHub&style=for-the-badge"></a>
-    /* [img["Visit our GitHub!"|github][https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator]] */
-    </div>
+<span class="tip" title="Check out the repository!" id='github'>
+    <<print setup.data.badges.github>>
 </span>
+<div id="fun">
+  <<script>>
+    $(output).append(setup.data.badges.fun);
+  <</script>>
+</div>
+
 <</if>><</nobr>>

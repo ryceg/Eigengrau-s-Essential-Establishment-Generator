@@ -7,7 +7,26 @@
 	isPatreon: [true, false].random(),
 	versionNumber: "2.7"
 }>>
+<<set setup.data to {
+	badges: {
+		github: lib.createBadge([
+			lib.badges.stats.githubForks, 
+			lib.badges.stats.githubStars, 
+			lib.badges.stats.linesOfCode].random(), 
+			{imgArgs: 'style=width:100%', link: 'https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/'
+		})
+	}
+}>>
 
+<<script>>
+  const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});
+  const $badge = $(`<span id="badge" />`)
+    .wiki(gen())
+    .ariaClick(function () {
+      $(this).empty().wiki(gen());
+    });
+  setup.data.badges.fun = $badge.clone(true);
+<</script>>
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
@@ -24,3 +43,13 @@
 			<<set $town to setup.createTown($tempTown)>>
 	<</if>>
 <</if>>
+
+<<script>>
+  const $fun = $(`<span id="fun" class="tip" />`).appendTo('#fun-container');
+  const $badge = $(`<span id="badge" />`)
+    .wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}))
+    .ariaClick(function () {
+      $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}));
+    })
+    .appendTo($fun);
+<</script>>
