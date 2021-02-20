@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changes
 - Fixed some images not displaying properly in the GMBinder export.
-
+- Updated fonts (j was not rendering correctly)
 
 ### Removed
 - Taverns doubling as brothels (temporarily)
