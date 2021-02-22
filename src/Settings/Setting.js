@@ -6,6 +6,11 @@ if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
 }
 
+if (State.metadata.get('darkMode') !== settings.darkMode) {
+  settings.darkMode = State.metadata.get('darkMode')
+  settingDarkMode()
+}
+
 if (State.metadata.get('showTutorial') !== settings.showTutorial) {
   settings.showTutorial = State.metadata.get('showTutorial')
 }
@@ -86,6 +91,24 @@ function settingForceOneColumn () {
     jQuery('html').removeClass('force-one-column')
   }
 }
+
+function settingDarkMode () {
+  const darkMode = State.metadata.get('darkMode')
+  if (settings.darkMode !== darkMode) {
+    State.metadata.set('darkMode', settings.darkMode)
+  }
+
+  if (settings.darkMode) {
+    jQuery('html').addClass('dark')
+  } else {
+    jQuery('html').removeClass('dark')
+  }
+}
+
+Setting.addToggle('darkMode', {
+  label: 'Dark Mode?',
+  onChange: settingDarkMode
+})
 
 Setting.addToggle('showTutorial', {
   label: 'Show tutorial?',
