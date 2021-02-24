@@ -1,21 +1,19 @@
 // uses setup.createTownName, setup.townDemographics
 
 import { Biome, EconomicIdeology, PoliticalSource, RaceName, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
-import { random } from '../../../lib/src/random'
 
 export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   const type = lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = lib.weightRandom(lib.townData.defaults.season) as Seasons
-  const townName = setup.createTownName(base as TownBasics)
-  console.groupCollapsed(`${townName} is loading...`)
 
+  console.groupCollapsed(`The ${type} is loading...`)
   const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
   const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource') as PoliticalSource
-  const politicalIdeology = random(lib.townData.politicalSource[politicalSource].politicalIdeology)
-  const town: TownBasics = lib.assign(
+  const politicalIdeology = lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
+  const town: TownBasics = Object.assign(
     {
-      name: townName,
+      // name: townName,
       terrain,
       currentSeason: season,
       ignoreGender: false,
@@ -66,11 +64,11 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
         })
         return this._demographicPercentile
       },
-      location: random(lib.terrain[terrain].start),
-      primaryCrop: random(lib.townData.misc.primaryCrop),
-      primaryExport: random(lib.townData.misc.primaryExport),
-      landmark: random(lib.townData.misc.landmark),
-      currentEvent: random(lib.townData.misc.currentEvent),
+      location: lib.random(lib.terrain[terrain].start),
+      primaryCrop: lib.random(lib.townData.misc.primaryCrop),
+      primaryExport: lib.random(lib.townData.misc.primaryExport),
+      landmark: lib.random(lib.townData.misc.landmark),
+      currentEvent: lib.random(lib.townData.misc.currentEvent),
       guard: {},
       roll: {
         wealth: lib.dice(2, 50),
@@ -79,7 +77,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
         sin: lib.dice(2, 50),
         diversity: lib.dice(2, 50),
         magic: lib.dice(2, 50),
-        size: random(1, 100),
+        size: lib.random(1, 100),
         economics: lib.dice(2, 50),
         welfare: lib.dice(3, 33) - 10,
         military: lib.dice(2, 50),
@@ -87,17 +85,16 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
         arcana: lib.dice(2, 50),
         equality: lib.dice(2, 50) - 20,
         /** @description Percentage of the dominant gender */
-        genderMakeup: random(49, 51)
+        genderMakeup: lib.random(49, 51)
       }
     },
     base
   )
   lib.townDemographics(town)
-
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = town.origin || random(lib.terrain[town.terrain].location[town.location].origin)
+  town.origin = town.origin || lib.random(lib.terrain[town.terrain].location[town.location].origin)
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.materialProbability = lib.structureData.material.types
@@ -107,7 +104,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   assignPoliticalModifiers(town)
 
   lib.clampRolls(town.roll)
-
+  town.name = setup.createTownName(town)
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
   console.log(town)

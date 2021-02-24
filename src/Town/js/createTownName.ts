@@ -1,23 +1,22 @@
 import { Town, TownBasics, townData } from '@lib'
-import { random } from '../../../lib/src/random'
 
 export const createTownName = function (town: TownBasics | Town) {
   const prefix = townData.name.prefix
   const suffix = townData.name.suffix
   let name: string
-  if (random(100) > 90) {
+  if (lib.random(100) > 90) {
     console.log('Named a founder!')
     if (town) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
       town.founder = npc.key
-      name = npc + random(suffix)
+      name = npc + lib.random(suffix)
     } else {
-      name = lib.raceTraits.human.lastName.random() + random(suffix)
+      name = lib.random(lib.raceTraits.human.lastName) + lib.random(suffix)
     }
   } else {
-    name = random(prefix) + random(suffix)
+    name = lib.random(prefix) + lib.random(suffix)
   }
 
   // linguisticDrift runs some RegEx on the names.
