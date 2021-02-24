@@ -20,7 +20,7 @@
   --background-floating: #e6e6e6;
 }
 
-html[data-theme="dark"], html.dark {
+body[data-theme="dark"], body.dark {
   --text-normal: #dcddde;
   --text-link: #00b0f4;
   --background-primary: #1c1c1e;
@@ -64,7 +64,7 @@ body {
   bottom: 0;
 }
 
-html.dark .background-image {
+body.dark .background-image {
   filter: invert(100%);
   -webkit-filter: invert(100%);
 }
@@ -81,14 +81,14 @@ html.dark .background-image {
   
 }
 
-html.dark #paper {
+body.dark #paper {
   filter: invert(100%);
 }
 
 
 
 @media (prefers-color-scheme: dark) {
-	html, html[data-theme="dark"], html.dark {
+	body, body[data-theme="dark"], body.dark {
     --text-normal: rgb(199, 199, 204);
     --text-link: rgb( 100, 210, 255);
     --background-primary: rgb(28, 28, 30);

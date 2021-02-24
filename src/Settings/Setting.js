@@ -29,7 +29,7 @@ if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
 }
 
 if (settings.forceOneColumn) {
-  jQuery('html').addClass('force-one-column')
+  jQuery('body').addClass('force-one-column')
 }
 
 function settingShowTutorial () {
@@ -86,9 +86,9 @@ function settingForceOneColumn () {
     State.metadata.set('forceOneColumn', settings.forceOneColumn)
   }
   if (settings.forceOneColumn) {
-    jQuery('html').addClass('force-one-column')
+    jQuery('body').addClass('force-one-column')
   } else {
-    jQuery('html').removeClass('force-one-column')
+    jQuery('body').removeClass('force-one-column')
   }
 }
 
@@ -99,9 +99,9 @@ function settingDarkMode () {
   }
 
   if (settings.darkMode) {
-    jQuery('html').addClass('dark')
+    jQuery('body').addClass('dark')
   } else {
-    jQuery('html').removeClass('dark')
+    jQuery('body').removeClass('dark')
   }
 }
 
