@@ -1,5 +1,5 @@
 $('body').on('change', '.auto-update select', () => {
-  const { terrain, location } = State.variables.tempTown
+  const { terrain, location } = State.variables.town
   switch (passage()) {
     case 'BiomeGeneration':
     case 'BiomeGenerationRefresh':

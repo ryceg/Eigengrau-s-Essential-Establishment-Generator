@@ -1,11 +1,11 @@
-setup.createTown = (base = {}) => {
+export const createTown = (base) => {
   const type = base.type || ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = base.terrain || ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = base.season || ['summer', 'autumn', 'winter', 'spring'].random()
   const townName = base.name || setup.createTownName()
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
-
+  if (!base) base = setup.createTownBiome()
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.townData.politicalSource[politicalSource].politicalIdeology.random()
@@ -30,7 +30,6 @@ setup.createTown = (base = {}) => {
     // type: type,
     terrain,
     currentSeason: season,
-    season,
     factions: {
     },
     buildings: [],
@@ -161,7 +160,7 @@ setup.createTown = (base = {}) => {
       genderMakeup: random(49, 51)
     }
   }, base)
-
+  town.generated = 'full'
   lib.townDemographics(town)
   town.professions = lib.fetchProfessions(town)
 
