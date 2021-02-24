@@ -6,9 +6,9 @@ import { RaceName } from '../npc-generation/raceTraits'
 import { keys } from '../src/utils'
 
 export function townDemographics (town: TownBasics) {
-  console.log('Creating town demographics...')
+  console.log(`Creating ${town.type} demographics.`)
   const townType = townData.type[town.type]
-  town._baseDemographics = town._baseDemographics || weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages')
+  town._baseDemographics = weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
 }
 
 export function updateDemographics (town: Town, newDemographics: Record<RaceName, number>) {
