@@ -3,12 +3,11 @@
 <<run console.log("Hello world!")>>
 <<run setup.urlSeed()>>
 <<run setup.init()>>
-<<set $data to {
-	isPatreon: [true, false].random(),
-	versionNumber: "2.7"
-}>>
+
 <<set setup.data to {
 	badges: {
+		isPatreon: [true, false].random(),
+		versionNumber: "2.7",
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
 			lib.badges.stats.githubStars, 
@@ -31,6 +30,7 @@
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
+
 <<set $tempTown to setup.createTownBiome()>>
 
 <<if State.metadata.get("showTutorial") is true>>
