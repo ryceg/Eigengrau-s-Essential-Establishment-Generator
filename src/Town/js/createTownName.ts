@@ -10,6 +10,7 @@ export const createTownName = function (town: TownBasics | Town) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
+      if (town.founder) setup.deleteNPC(town.founder)
       town.founder = npc.key
       name = npc + lib.random(suffix)
     } else {
