@@ -11,6 +11,11 @@ if (State.metadata.get('darkMode') !== settings.darkMode) {
   settingDarkMode()
 }
 
+if (window.matchMedia('(prefers-color-scheme: dark)') && !State.metadata.has('darkMode')) {
+  settings.darkMode = true
+  settingDarkMode()
+}
+
 if (State.metadata.get('showTutorial') !== settings.showTutorial) {
   settings.showTutorial = State.metadata.get('showTutorial')
 }
@@ -70,6 +75,7 @@ function settingHideAds () {
   } else {
     settings.hideAds = false
   }
+  Setting.save()
 }
 
 function settingDisableAnalytics () {
@@ -85,6 +91,10 @@ function settingForceOneColumn () {
   if (settings.forceOneColumn !== forceOneColumn) {
     State.metadata.set('forceOneColumn', settings.forceOneColumn)
   }
+  addOneColumn()
+}
+
+function addOneColumn () {
   if (settings.forceOneColumn) {
     jQuery('body').addClass('force-one-column')
   } else {
@@ -97,7 +107,10 @@ function settingDarkMode () {
   if (settings.darkMode !== darkMode) {
     State.metadata.set('darkMode', settings.darkMode)
   }
+  addDarkMode()
+}
 
+function addDarkMode () {
   if (settings.darkMode) {
     jQuery('body').addClass('dark')
   } else {
