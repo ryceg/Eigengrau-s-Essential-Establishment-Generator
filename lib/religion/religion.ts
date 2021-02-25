@@ -10,7 +10,7 @@ interface Followers {
    */
   description: string
   /**
-   * Who Actually Worshipped the god?
+   * Who actually Worshipped the god?
    * @example Poseidon : 'Sailors'
    */
   adherents?: string[]
@@ -20,12 +20,14 @@ interface Followers {
    */
   favouredWeapon: string
   /**
-   * Holy days
+   * Holy days.
+   * Descriptions of the holy days are in arrays; i.e. `holyDays: [['name of holy day', 'description of holy day'], 'holy day that doesn't have a description']`
    * @example ['the month of January', 'Saturdays', 'days ending with the letter y']
+   * @example [['the first Friday of February', 'This day is said to be when time stood still for a moment.'], 'days with full moons']
    * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
    * @default 'earth'
    */
-  holyDays: PartialRecord<WorldType, string[]>
+  holyDays: PartialRecord<WorldType, string[] | string[][]>
   race?: RaceName
   base?: Partial<NPC>
   /**
@@ -821,7 +823,7 @@ export const religion: ReligionData = {
             adherents: ['mourners', 'undertakers', 'necromancers', 'miners'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['second to last day of every month'],
+              earth: [['second to last day of every month', 'Rituals are typically held on this day.']],
               fr: ['second to last day of every month'],
               gn: ['second to last day of every month']
             }
