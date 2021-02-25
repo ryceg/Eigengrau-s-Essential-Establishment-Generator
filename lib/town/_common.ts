@@ -27,6 +27,8 @@ export type TownRolls =
 
 export interface TownBasics {
   name: string
+  pregen?: boolean
+  generated: 'biome' | 'full'
   type: TownType
   _type: TownType
   location: string
@@ -66,7 +68,6 @@ export interface Town extends TownBasics {
   }
   wealth: string
   _wealth: string
-  pregen?: boolean
   reuseNpcProbability: number
   guard: Faction
   professions: Record<string, Profession & {

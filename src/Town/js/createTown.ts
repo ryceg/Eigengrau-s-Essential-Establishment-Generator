@@ -1,16 +1,16 @@
 import { Town, TownBasics } from '@lib'
 
 export const createTown = (base: TownBasics) => {
-  const type = base.type || ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
-  const terrain = base.terrain || ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
-  const season = base.season || ['summer', 'autumn', 'winter', 'spring'].random()
+  const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
+  const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
+  const season = base.season || lib.random(['summer', 'autumn', 'winter', 'spring'])
   const townName = base.name || setup.createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
   if (!base) base = setup.createTownBiome()
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
-  const politicalIdeology = base.politicalIdeology || lib.townData.politicalSource[politicalSource].politicalIdeology.random()
+  const politicalIdeology = base.politicalIdeology || lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
@@ -124,11 +124,10 @@ export const createTown = (base: TownBasics) => {
       return this._wealth
     },
     set wealth (value) {
-      // console.log('Setting town wealth.')
       this._wealth = value
     },
     roads: {},
-    dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
+    dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']),
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)
     reuseNpcProbability: 0,
     roll: {
@@ -138,7 +137,7 @@ export const createTown = (base: TownBasics) => {
       sin: lib.dice(2, 50),
       diversity: lib.dice(2, 50),
       magic: lib.dice(2, 50),
-      size: random(1, 100),
+      size: lib.dice(1, 100),
       economics: lib.dice(2, 50),
       welfare: lib.dice(3, 33) - 10,
       military: lib.dice(2, 50),
@@ -146,10 +145,9 @@ export const createTown = (base: TownBasics) => {
       arcana: lib.dice(2, 50),
       equality: lib.dice(2, 50) - 20,
       /** @description Percentage of the dominant gender */
-      genderMakeup: random(49, 51)
+      genderMakeup: lib.random(49, 51)
     }
   }, base)
-  town.generated = 'full'
   lib.townDemographics(town)
   town.professions = lib.fetchProfessions(town)
 
@@ -186,7 +184,7 @@ export const createTown = (base: TownBasics) => {
     }
   })
 
-  if (!town.pregen) {
+  if (!town.pregen || !town.generated) {
     assignSizeModifiers(town)
     assignEconomicModifiers(town)
     assignPoliticalModifiers(town)
@@ -208,6 +206,7 @@ export const createTown = (base: TownBasics) => {
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
   setup.findPoliceSource(town)
+  town.generated = 'full'
   lib.townRender(town)
 
   console.groupEnd()
