@@ -1,20 +1,20 @@
 :: DeityRelationships
-<<nobr>><<if $currentPassage.relationships.length > 0>><h2>Relationships</h2>
-<table>
+<<nobr>>
+<<if $currentPassage.relationships.length > 0>>
+  <h2>Relationships</h2>
+  <table>
     <tr>
       <th>Person</th>
       <th>Relationship</th>
     </tr>
-<<for _relationship range $currentPassage.relationships>>
+  <<for _relationship range $currentPassage.relationships>>
     <tr>
-      <td>
-      /* <<if setup.getPantheon($town).gods.includes(_key)>> */
-      <<print _relationship.name.toUpperFirst()>></td>
+      <td><<print _relationship.name.toUpperFirst()>></td>
       <td colspan="4"><<if _relationship.description>>
-        \<<print lib.createTippyFull(_relationship.description, _relationship.relationship)>>
-        \<<else>>_relationship.relationship<</if>></td>
+        <<print lib.createTippyFull(_relationship.description, _relationship.relationship)>>
+        <<else>><<print lib.toTitleCase(_relationship.relationship)>><</if>></td>
     </tr>
-<</for>>
-</table>
+  <</for>>
+  </table>
 <</if>>
 <</nobr>>

@@ -701,6 +701,10 @@ export const religion: ReligionData = {
             {
               name: 'Hades',
               relationship: 'brother'
+            },
+            {
+              name: 'Demeter',
+              relationship: 'sister'
             }
           ]
         },
@@ -1029,7 +1033,12 @@ export const religion: ReligionData = {
             'ugliness',
             'unwashable stink'
           ],
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }
+          ]
         },
         { // Artemis
           name: 'Artemis',
@@ -1138,7 +1147,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: ['tranformation into a wild animal'],
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Apollo
           name: 'Apollo',
@@ -1241,7 +1254,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Athena
           name: 'Athena',
@@ -1343,7 +1360,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Dionysus
           name: 'Dionysus',
@@ -1478,7 +1499,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Demeter
           name: 'Demeter',
@@ -1717,7 +1742,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Hera
           name: 'Hera',
@@ -1812,7 +1841,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'consort'
+            }]
         },
         { // Ares
           name: 'Ares',
@@ -1904,7 +1937,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Hestia
           name: 'Hestia',
@@ -2184,7 +2221,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Hecate
           name: 'Hecate',
@@ -2516,7 +2557,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: ['restored youth'],
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Pan
           name: 'Pan',
@@ -2843,7 +2888,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'father'
+            }]
         },
         { // Ariadne
           name: 'Ariadne',
@@ -2920,7 +2969,11 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
-          relationships: []
+          relationships: [
+            {
+              name: 'Dionysus',
+              relationship: 'consort'
+            }]
         }
       ]
     },

@@ -1,10 +1,12 @@
 :: Manifestations
-<<nobr>><<if $currentPassage.associations.animals.length > 0 || $currentPassage.associations.plants.length > 0 || $currentPassage.associations.monsters.length > 0 >><h2>Manifestations</h2>
+<<nobr>>
+\<<if $currentPassage.associations.animals.length > 0 || $currentPassage.associations.plants.length > 0 || $currentPassage.associations.monsters.length > 0 >><h2>Manifestations</h2>
   <<if $currentPassage.associations.avatars[0].name>>
     <<for _avatar range $currentPassage.associations.avatars>>
-    <<if _avatar>><h3>_avatar.name</h3>
-    $currentPassage.name appears as _avatar.name<<idp _avatar.frequency " _avatar.frequency">>. <<idp _avatar.appearance "<<print _avatar.appearance.toUpperFirst()>>">> <<idp _avatar.description>> <<idp _avatar.powers>>
-    <</if>><</for>>
+      <<if _avatar>><h3>_avatar.name</h3>
+      $currentPassage.name appears as _avatar.name<<idp _avatar.frequency " _avatar.frequency">>. <<idp _avatar.appearance "<<print _avatar.appearance.toUpperFirst()>>">> <<idp _avatar.description>> <<idp _avatar.powers>>
+      <</if>>
+    <</for>>
   <</if>>
   <<if Object.keys($currentPassage.associations).length >= 1>>
     <table>
@@ -13,12 +15,12 @@
       <th>Appears as</th>
     </tr>
     <<for _key, _array range $currentPassage.associations>>
-    <<if _key === 'avatars'>><<continue>><</if>>
-    <<if $currentPassage.associations[_key].length === 0>><<continue>><</if>>
-    <tr>
-      <td><<print _key.toUpperFirst()>></td>
-      <td colspan="4"><<print lib.makeList($currentPassage.associations[_key]).toUpperFirst()>></td>
-    </tr>
+      <<if _key === 'avatars'>><<continue>><</if>>
+      <<if $currentPassage.associations[_key].length === 0>><<continue>><</if>>
+      <tr>
+        <td><<print _key.toUpperFirst()>></td>
+        <td colspan="4"><<print lib.makeList($currentPassage.associations[_key]).toUpperFirst()>></td>
+      </tr>
     <</for>>
     </table>
   <</if>>
