@@ -22,19 +22,20 @@
 
 body[data-theme="dark"], body.dark {
   --text-normal: #dcddde;
-  --text-link: #00b0f4;
+  --text-link: #7289da;
   --background-primary: #1c1c1e;
   --background-secondary: #333333;
   --background-tertiary: #202020;
-  --blockquote-color: #5c5b50;
+  --blockquote-color: #313131;
   --interactive-normal: #3f3f3f;
   --interactive-hover: #6d6d6d;
-  --header-primary: #a55243;
-  --header-secondary: #6d5d38;
-  --interactive-active: #4b744b;
-  --interactive-hover: rgb(84, 143, 84);
-  --interactive-muted: rgb(30, 97, 30);
+  --header-primary: #d9534f;
+  --header-secondary: #8f896b;
+  --interactive-active: #744b4b;
+  --interactive-hover: rgb(143, 84, 84);
+  --interactive-muted: rgb(97, 30, 30);
   --table-green: #5f6344;
+  --background-accent: #966767;
 
   /* --background-primary: #36393f;
   --background-secondary: #2f3136; */
@@ -90,18 +91,19 @@ body.dark #paper {
 @media (prefers-color-scheme: dark) {
 	body, body[data-theme="dark"], body.dark {
     --text-normal: rgb(199, 199, 204);
-    --text-link: rgb( 100, 210, 255);
+    --text-link: #7289da;
     --background-primary: rgb(28, 28, 30);
     --text-normal: rgb(229, 229, 234);
     --background-secondary: rgb(51, 51, 51);
     --background-tertiary: rgb(32, 32, 32);
-    --blockquote-color: #5c5b50;
-    --header-primary: #a55243;
-    --header-secondary: #6d5d38;
-    --interactive-active: #4b744b;
-    --interactive-hover: rgb(84, 143, 84);
-    --interactive-hover: rgb(30, 97, 30);
-    --table-green: #5f6344;
+    --blockquote-color: #2e2e2e;
+    --header-primary: #fa817d;
+    --header-secondary: #863e3e;
+    --interactive-active: #744b4b;
+    --interactive-hover: rgb(143, 84, 84);
+    --interactive-hover: rgb(97, 30, 30);
+    --table-green: #2b2b2b;
+    --background-accent: #966767;
 	}
 }
 
