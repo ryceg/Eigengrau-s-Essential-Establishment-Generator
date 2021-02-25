@@ -1,7 +1,7 @@
 import { ProfessionNames, ProfessionSector } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town } from '../town/_common'
-import { AlignmentsAbbreviated, ClericDomains, WorldType } from '../src/worldType'
+import { Alignments, ClericDomains, WorldType } from '../src/worldType'
 import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
@@ -139,7 +139,7 @@ export interface Deity {
    * Description of how the deity is depicted typically. Distinct from their `avatars`.
    * @usage '${deity.name} is depicted as ______'
    */
-  appearance?: string
+  appearance: string
   /**
    * Just in case you have history that you want to cover.
    */
@@ -153,7 +153,8 @@ export interface Deity {
    *    author: 'Sophocles'
    * }
    */
-  quotes?: Quotation | Quotation[]
+  powers?: string
+  quotes?: Quotation[]
   /**
    * Generic extra text.
    * @example [
@@ -206,7 +207,7 @@ export interface Deity {
   /**
    * Alignments, for those that are still stuck on 2nd Edition.
    */
-  alignment: AlignmentsAbbreviated
+  alignment: Alignments
   /**
    * The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.
    * @example Zeus: 'fist full of lightning bolts'
@@ -244,18 +245,18 @@ export interface Deity {
   possessions: Partial<Possession[]>
   /** Some gods had planes/domain which they ruled
    * @example ```Odin: 'Valhalla'```
+   * @usage 'Hades resides in ______'
    */
   realm?: string
   followers: Partial<Followers>
   /**
    * If a deity particularly embodies a virtue or vice, it can be specified.
-   * Be sure to not specify the same pair (i.e. chaste/lust)
-   * Expressed as a 0-100.
+   * Expressed as a 0-100; values of lower than fifty being the opposite trait (i.e. merciful: 2 means that they are very vindictive).
    * @example
    * Zeus: {
    *   just: 70,
-   *   merciful: -85,
-   *   lust: 80
+   *   merciful: 20,
+   *   chaste: 80
    * }
    */
   personality: PartialRecord<Virtues, number>
@@ -287,6 +288,13 @@ export interface Deity {
    * @example Aphrodite: ['ugliness']
    */
   curses?: string[]
+  relationships: Relationship[]
+}
+
+interface Relationship {
+  name: string
+  relationship: string
+  description?: string
 }
 
 interface Possession {
@@ -606,10 +614,12 @@ export const religion: ReligionData = {
           rank: 'leader',
           description: 'Zeus is the leader of the Greek gods, and lives atop Mount Olympus, where he rules over the mortal world below.',
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
-          quotes: {
+          history: undefined,
+          powers: undefined,
+          quotes: [{
             description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',
             author: 'Sophocles'
-          },
+          }],
           portfolios: [
             'the skies',
             'thunder and lightning',
@@ -628,7 +638,7 @@ export const religion: ReligionData = {
             'order'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: 'fist full of lightning bolts',
           combat: {
             description: 'Zeus famously led the Greek gods in the battle against the Titans, and is a fearsome foe.',
@@ -643,6 +653,7 @@ export const religion: ReligionData = {
               powers: 'bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
             }
           ],
+          realm: 'Olympus, where he rules over all.',
           followers: {
             description: 'Zeus is followed by many, of all different race and creed.',
             favouredWeapon: 'spear',
@@ -679,7 +690,19 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: [
+            {
+              name: 'Poseidon',
+              relationship: 'brother'
+            },
+            {
+              name: 'Hades',
+              relationship: 'brother'
+            }
+          ]
         },
         { // Poseidon
           name: 'Poseidon',
@@ -694,6 +717,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Poseidon is the god of the Sea - all things underwater are under his purview',
           appearance: 'a mature man with a sturdy build and a dark beard holding a trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'the sea',
             'earthquakes',
@@ -709,12 +734,12 @@ export const religion: ReligionData = {
             'tempest'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Neutral',
           symbol: 'A trident and billowing cloak',
           combat: {
-            description: 'A trident',
-            weapon: 'trident',
-            weaponDescription: undefined,
+            description: undefined,
+            weapon: 'his trident',
+            weaponDescription: 'Poseidon\'s trident was so powerful that it could shake the lands.',
             tactics: undefined
           },
           possessions: [
@@ -724,6 +749,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: 'a palace underneath the sea, watching over the fishermen from below.',
           followers: {
             description: 'Poseidon is followed by many mariners, fishermen, and horse riders.',
             adherents: ['sailors', 'teamsters', 'fishermen', 'cavalry', 'farmers'],
@@ -766,7 +792,17 @@ export const religion: ReligionData = {
           beliefs: undefined,
           heresies: undefined,
           blessings: ['Smooth Sailing', 'managment of horses'],
-          curses: ['mad horses', 'rough seas']
+          curses: ['mad horses', 'rough seas'],
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'brother'
+            },
+            {
+              name: 'Hades',
+              relationship: 'brother'
+            }
+          ]
         },
         { // Hades
           name: 'Hades',
@@ -782,8 +818,10 @@ export const religion: ReligionData = {
             'The invisible one'
           ],
           rank: 'greater deity',
-          description: 'Hades is the god of the Dead and the first son of Kronos. However when He, Zeus and Poseidon were drawing lots for the division of the cosmos, Hades gained dominion of the Underworld. As far below the earth as the heavens are above, Hades realm is a dark and depressing place.',
+          description: 'Hades is the god of the Dead and the first son of Kronos. However when He, Zeus and Poseidon were drawing lots for the division of the cosmos, Hades gained dominion of the Underworld, where he rules over the dead.',
           appearance: 'a dark-bearded, regal god, with a bird tipped sceptre with Cerebus seated by his throne.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'the underworld',
             'the dead',
@@ -803,7 +841,7 @@ export const religion: ReligionData = {
             'grave'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Lawful Evil',
           symbol: 'Helm of Hades',
           combat: {
             description: undefined,
@@ -818,6 +856,7 @@ export const religion: ReligionData = {
               powers: 'can turn the wearer invisible'
             }
           ],
+          realm: "the Underworld. As far below the earth as the heavens are above, Hades' realm is a dark and depressing place.",
           followers: {
             description: 'Hades, as the god of the dead, was a fearsome figure to those still living; in no hurry to meet him, they were reluctant to swear oaths in his name, and averted their faces when sacrificing to him. Since to many, simply to say the word "Hades" was frightening, euphemisms were pressed into use.',
             adherents: ['mourners', 'undertakers', 'necromancers', 'miners'],
@@ -866,7 +905,18 @@ export const religion: ReligionData = {
           },
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['plenty from the earth', 'the ability to be un-noticed']
+          blessings: ['plenty from the earth', 'the ability to be un-noticed'],
+          curses: undefined,
+          relationships: [
+            {
+              name: 'Poseidon',
+              relationship: 'brother'
+            },
+            {
+              name: 'Zeus',
+              relationship: 'brother'
+            }
+          ]
         },
         { // Aphrodite
           name: 'Aphrodite',
@@ -887,6 +937,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Aphrodite is the goddess of love and scorns those who stay away from relationships. Her love can be a thing of beauty or a thing of terror and destruction.',
           appearance: 'Aphrodite is consistently portrayed as a nubile, infinitely desirable adult, having had no childhood.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'love',
             'lovers',
@@ -908,7 +960,7 @@ export const religion: ReligionData = {
             'war'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Good',
           symbol: 'dove',
           combat: {
             description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans. ',
@@ -923,6 +975,7 @@ export const religion: ReligionData = {
               powers: 'inspires desire in all those who look upon the wearer'
             }
           ],
+          realm: undefined,
           followers: {
             description: 'As the goddess of beauty and love the favour of Aphrodite was worshipped by all people, though especially by Prostitutes. She was also worshippeed as Aphrodite the Warlike by warriors',
             adherents: ['everyone', 'prostitutes', 'warriors'],
@@ -941,7 +994,7 @@ export const religion: ReligionData = {
               {
                 name: 'Aphrodite Areia',
                 appearance: 'Clad in armour and bearing weapons',
-                description: 'Aphrodite Areia is war-like aspect of Aphrodite',
+                description: 'Aphrodite Areia is a war-like aspect of Aphrodite',
                 frequency: 'Worshipped by the Spartans and other war-loving people',
                 powers: undefined
               }
@@ -975,7 +1028,8 @@ export const religion: ReligionData = {
           curses: [
             'ugliness',
             'unwashable stink'
-          ]
+          ],
+          relationships: []
         },
         { // Artemis
           name: 'Artemis',
@@ -993,6 +1047,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Artemis is the goddess of the Hunt and young girls. She can change others into animals as punishment for transgressions against her and she demands appropriate respect from mortals.',
           appearance: 'a young woman wearing a short costume that leaves her legs free and wielding a bow with a quiver of arrows.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'hunting',
             'the wilderness',
@@ -1016,7 +1072,7 @@ export const religion: ReligionData = {
             'twilight'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral Good',
           symbol: 'bow and quiver of arrows',
           combat: {
             description: 'Artemis is quick to strike down those who offend her with animals and wild beasts',
@@ -1031,6 +1087,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Artemis is worshipped by Hunters and Women, young girls could be expected to serve Artemis until they come of age.',
             adherents: ['hunters', 'young girls', 'expecting mothers', 'wild beings'],
@@ -1079,7 +1136,9 @@ export const religion: ReligionData = {
           },
           beliefs: 'chastity',
           heresies: undefined,
-          curses: ['tranformation into a wild animal']
+          blessings: undefined,
+          curses: ['tranformation into a wild animal'],
+          relationships: []
         },
         { // Apollo
           name: 'Apollo',
@@ -1095,6 +1154,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'The twin brother of Artemis, Apollo is the inventor of music. Those that he loves and loses or those that he hates can find themselves transformed and immortalised as a part of nature. ',
           appearance: 'a handsome youth, beardless with long hair and holds either a lyre or a bow.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'music',
             'prophecy',
@@ -1115,7 +1176,7 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: 'lyre',
           combat: {
             description: undefined,
@@ -1130,6 +1191,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Oracles are often followers of Apollo, the Greatest of which is the Pythia of Delph, the high priestess of Apollo',
             adherents: ['musicians', 'oracles', 'doctors'],
@@ -1176,7 +1238,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Athena
           name: 'Athena',
@@ -1195,6 +1260,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Athena is a wise goddess and protects those that follow her. She does have the rage of a goddess, and affronts to her are paid back with divine retribution.',
           appearance: 'a stately woman wearing a helmet armed with a spear and Aegis',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'wisdom',
             'good counsel',
@@ -1220,7 +1287,7 @@ export const religion: ReligionData = {
             'trickery'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Lawful Good',
           symbol: ['Gorgoneion', 'Aegis'],
           combat: {
             description: undefined,
@@ -1235,6 +1302,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Athena is the goddess of Craftsment, Wisdom and Heroes.',
             adherents: ['craftsmen', 'heroes', 'academics', 'strategists'],
@@ -1272,7 +1340,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Dionysus
           name: 'Dionysus',
@@ -1300,6 +1371,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Dionysus is the god of Wine and Theatre, his revelry is open to all. However, he has his dark side - he is the god of madness the anger of Dionysus is a terrifying thing',
           appearance: 'long haired youth, almost effeminate in appearance. He holds a staff topped with a pinecone and brings revelry with him',
+          history: undefined,
+          powers: undefined,
           portfolios:
           [
             'wine',
@@ -1329,7 +1402,7 @@ export const religion: ReligionData = {
             'trickery'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Neutral',
           symbol: 'Thyrsus',
           combat: {
             description: undefined,
@@ -1344,6 +1417,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Devotees of Dionysus may engage in the rending of animals with their bare hands',
             adherents: ['wine-makers', 'actors', 'farmers', 'revelers'],
@@ -1401,7 +1475,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Demeter
           name: 'Demeter',
@@ -1422,6 +1499,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Demeter is the goddess of Agriculture - her favour promised a bountiful harvest and more grain then could be eaten. However her anger promised frosts and famine.',
           appearance: 'a mature woman wearing a crown holding wheat in a cornocopia and a torch',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'agriculture',
             'grain and bread',
@@ -1439,7 +1518,7 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral Good',
           symbol: 'cornucopia',
           combat: {
             description: undefined,
@@ -1454,6 +1533,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'As the goddess of Agriculture, Demeter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.',
             adherents: ['farmers'],
@@ -1497,7 +1577,9 @@ export const religion: ReligionData = {
           },
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife']
+          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife'],
+          curses: undefined,
+          relationships: []
 
         },
         { // Hermes
@@ -1524,6 +1606,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Hermes is the hessenger of the gods and the personal messenger of Zeus. He brings the souls of the deceased to the edge of the underworld, where they are ferried deeper by the Cthonic gods',
           appearance: 'an athletic man wearing winged boots, full of energy. Ontop of his head is a helmet with two wings attached.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'herds and flocks',
             'boundaries',
@@ -1563,7 +1647,7 @@ export const religion: ReligionData = {
             'grave'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Good',
           symbol: 'Caduceus ',
           combat: {
             description: undefined,
@@ -1588,6 +1672,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Hermes was the messenger of Zeus',
             adherents: ['thieves', 'traders', 'messengers', 'athletes', 'diplomats', 'travellers'],
@@ -1629,7 +1714,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hera
           name: 'Hera',
@@ -1644,6 +1732,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Hera is the Queen of the gods, forever tested by her husband Zeus. Unable to attack Zeus, her anger is often directed to his consorts or his children.',
           appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'marriage',
             'air',
@@ -1662,8 +1752,8 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Chaotic Neutral',
+          symbol: ['diadem', 'scepter', 'pomegranate'],
           combat: {
             description: undefined,
             weapon: undefined,
@@ -1677,6 +1767,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             adherents: ['women'],
@@ -1718,7 +1809,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Ares
           name: 'Ares',
@@ -1733,6 +1827,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: 'always clad in armour, holding weapons and ready for battle. He can appear as the fresh-faced youth or the grizzeled veteran depending on his mood.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'war',
             'battlelust',
@@ -1749,8 +1845,8 @@ export const religion: ReligionData = {
             'war'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Chaotic Evil',
+          symbol: 'spear',
           combat: {
             description: undefined,
             weapon: undefined,
@@ -1764,6 +1860,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Ares is the god of war and courage - cities and countries going to war would worship Ares before going into battle',
             adherents: ['warriors'],
@@ -1804,7 +1901,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hestia
           name: 'Hestia',
@@ -1819,6 +1919,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Hestia is the First-born child of Kronos and Rhea and the first to be swallowed by him. After Apollo and Poseidon vied for her hand in marriage she refused and chose to be an eternal virgin.',
           appearance: 'a beautiful veiled woman, with long dark hair',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'fire',
             'family hearth',
@@ -1842,13 +1944,13 @@ export const religion: ReligionData = {
             'peace'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Neutral Good',
+          symbol: 'hearth',
           combat: {
             description: undefined,
             weapon: undefined,
             weaponDescription: undefined,
-            tactics: undefined
+            tactics: 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
           },
           possessions: [
             {
@@ -1857,6 +1959,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: undefined,
@@ -1890,7 +1993,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hephaestus
           name: 'Hephaestus',
@@ -1905,6 +2011,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: 'bearded man with twisted legs',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'fire',
             'blacksmiths',
@@ -1927,11 +2035,11 @@ export const religion: ReligionData = {
             'forge'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: 'Hammer and Tongs',
+          alignment: 'Neutral Good',
+          symbol: 'Hammer and Anvil',
           combat: {
             description: undefined,
-            weapon: 'hammer',
+            weapon: 'a hammer',
             weaponDescription: undefined,
             tactics: undefined
           },
@@ -1942,6 +2050,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Hephaestus is the god of the forge. He is worshipped by Craftsmen and his blessing gives them inspiration and skill,',
             adherents: ['smiths', 'craftsmen'],
@@ -1978,13 +2087,15 @@ export const religion: ReligionData = {
           },
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['inspiration', 'knowledge']
+          blessings: ['inspiration', 'knowledge'],
+          curses: undefined,
+          relationships: []
         },
         { // Persephone
           name: 'Persephone',
           status: 'alive',
           aliases: ['Kore'],
-          equivalent: ['Libera', 'Proserpina'],
+          equivalent: ['Libera', 'Proserpina', 'Prosperina'],
           titles: [
             'Queen of the Underworld',
             'Knowing One',
@@ -1994,7 +2105,9 @@ export const religion: ReligionData = {
           ],
           rank: 'intermediate deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a beautiful young maiden with fair skin. Her face is the epitome of young beauty. She is often shown in long, flowing clothing with a wreath of flowers around her head.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'spring',
             'flowers',
@@ -2014,8 +2127,8 @@ export const religion: ReligionData = {
             'death'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Neutral Good',
+          symbol: ['pomegranate', 'torch'],
           combat: {
             description: undefined,
             weapon: undefined,
@@ -2029,6 +2142,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Persephone was a goddess of Spring and the Wife of Hades. Her favour might ensure a better afterlife for her worshippers.',
             adherents: ['farmers'],
@@ -2067,7 +2181,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hecate
           name: 'Hecate',
@@ -2082,7 +2199,9 @@ export const religion: ReligionData = {
           ],
           rank: 'intermediate deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a woman wearing a crown. Sometimes, she has three bodies, conjoined to one another.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'magic',
             'night',
@@ -2105,7 +2224,7 @@ export const religion: ReligionData = {
             'nature'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Evil',
           symbol: undefined,
           combat: {
             description: undefined,
@@ -2120,6 +2239,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Hecate is a mysterious Goddess who is a master of the Arcane Arts and lives in the Underworld, her followers ask for her secret knowledge.',
             adherents: ['Magic Users', 'Necromancers'],
@@ -2169,7 +2289,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Nike
           name: 'Nike',
@@ -2177,7 +2300,9 @@ export const religion: ReligionData = {
           titles: ['Goddess of Victory', 'The Winged Goddess'],
           rank: 'lesser deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'an athletic woman with two large wings.',
+          history: undefined,
+          powers: undefined,
           portfolios: ['victory', 'speed', 'strength'],
           gender: 'woman',
           shape: 'human',
@@ -2187,7 +2312,7 @@ export const religion: ReligionData = {
             'peace'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Lawful Neutral',
           symbol: 'Winged Woman',
           combat: {
             description: undefined,
@@ -2202,6 +2327,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt. ',
             adherents: ['Warriors'],
@@ -2236,15 +2362,20 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Tyche
           name: 'Tyche',
           status: 'alive',
-          titles: ['Godess of Fortune and Chance'],
+          titles: ['Goddess of Fortune and Chance'],
           rank: 'lesser deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a woman with a crown, often shown holding a horn of cornucopia.',
+          history: undefined,
+          powers: undefined,
           portfolios: ['luck', 'chance', 'fate', 'providence', 'natural disasters'],
           gender: 'woman',
           shape: 'human',
@@ -2253,7 +2384,7 @@ export const religion: ReligionData = {
             'trickery'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: undefined,
           combat: {
             description: undefined,
@@ -2268,6 +2399,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             adherents: ['Gamblers', 'All'],
@@ -2299,7 +2431,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hebe
           name: 'Hebe',
@@ -2310,7 +2445,9 @@ export const religion: ReligionData = {
           ],
           rank: 'lesser deity',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a woman in a sleeveless dress, with long brown hair.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'youth',
             'forgiveness',
@@ -2324,7 +2461,7 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral Good',
           symbol: undefined,
           combat: {
             description: undefined,
@@ -2339,6 +2476,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: undefined,
@@ -2376,7 +2514,9 @@ export const religion: ReligionData = {
           },
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['Restored Youth']
+          blessings: ['restored youth'],
+          curses: undefined,
+          relationships: []
         },
         { // Pan
           name: 'Pan',
@@ -2390,6 +2530,8 @@ export const religion: ReligionData = {
           rank: 'intermediate deity',
           description: undefined,
           appearance: 'a satyr holding a set of Pan-pipes',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'the wild',
             'nature',
@@ -2407,8 +2549,8 @@ export const religion: ReligionData = {
             'trickery'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Chaotic Neutral',
+          symbol: 'pan pipes',
           combat: {
             description: undefined,
             weapon: undefined,
@@ -2422,6 +2564,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             adherents: ['Wild Beings', 'Hunters'],
@@ -2460,7 +2603,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Asclepius
           name: 'Asclepius',
@@ -2471,7 +2617,9 @@ export const religion: ReligionData = {
           ],
           rank: 'lesser deity',
           description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down by Zeus. He was placed among the stars and now serves as the Physician for the gods',
-          appearance: undefined,
+          appearance: 'a man with a full beard in a simple himation robe.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'medicine',
             'healing',
@@ -2486,7 +2634,7 @@ export const religion: ReligionData = {
             'knowledge'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Lawful Good',
           symbol: 'Serpent-entwined staff',
           combat: {
             description: undefined,
@@ -2501,6 +2649,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery',
             adherents: ['Healers', 'The Sick'],
@@ -2536,10 +2685,13 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Chiron
-          name: 'Chrion',
+          name: 'Chiron',
           status: 'alive',
           titles: [
             'Wisest of the Centaurs',
@@ -2547,9 +2699,11 @@ export const religion: ReligionData = {
           ],
           rank: 'immortal',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a centaur, though in some iterations his front legs are human legs.',
+          history: undefined,
+          powers: undefined,
           portfolios: [
-            'teacher',
+            'teachers',
             'surgeons'
           ],
           gender: 'man',
@@ -2560,8 +2714,8 @@ export const religion: ReligionData = {
             'peace'
           ],
           channelDivinity: [],
-          alignment: 'N',
-          symbol: undefined,
+          alignment: 'Neutral Good',
+          symbol: ['thread', 'serpent', 'bull'],
           combat: {
             description: undefined,
             weapon: undefined,
@@ -2575,6 +2729,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.',
             adherents: ['Teachers', 'Centaurs', 'Healers'],
@@ -2606,7 +2761,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hercules
           name: 'Heracles',
@@ -2615,7 +2773,9 @@ export const religion: ReligionData = {
           titles: ['Divine Protector of Mankind'],
           rank: 'lesser deity',
           description: 'The Son of Zeus who famously completed 12 Labours, Heracles ascended to godhood and is known as the greatest of the Greek Heroes',
-          appearance: undefined,
+          appearance: 'a muscular man with a beard',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'mankind',
             'gymnasium',
@@ -2629,7 +2789,7 @@ export const religion: ReligionData = {
             'war'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Good',
           symbol: 'olive-wood club and lion skin cape',
           combat: {
             description: undefined,
@@ -2644,6 +2804,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'Arguably the greatest of Heroes, Heracles is worshipped by mortals for his strength and fame',
             adherents: ['heroes', 'athletes', 'mortals'],
@@ -2679,7 +2840,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Ariadne
           name: 'Ariadne',
@@ -2688,7 +2852,9 @@ export const religion: ReligionData = {
           titles: ['Wife of Dionysus'],
           rank: 'immortal',
           description: undefined,
-          appearance: undefined,
+          appearance: 'a woman with a laurel crown',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'mazes',
             'fertility',
@@ -2704,7 +2870,7 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: undefined,
           combat: {
             description: undefined,
@@ -2719,6 +2885,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             adherents: ['Farmers'],
@@ -2750,13 +2917,18 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         }
       ]
     },
     norse: {
       name: 'norse',
-      description: 'The gods of Asgard are ....',
+      description: `Where the land plummets from the snowy hills into the icy fjords below, where the longboats draw up on to the beach, where the glaciers flow forward and retreat with every fall and spring—this is the land of the Vikings, the home of the Norse pantheon. It’s a brutal clime, and one that calls for brutal living. The warriors of the land have had to adapt to the harsh conditions in order to survive, but they haven’t been too twisted by the needs of their environment. Given the necessity of raiding for food and wealth, it’s surprising the mortals turned out as well as they did. Their powers reflect the need these warriors had for strong leadership and decisive action. Thus, they see their deities in every bend of a river, hear them in the crash of the thunder and the booming of the glaciers, and smell them in the smoke of a burning longhouse.
+
+      The Norse pantheon includes two main families, the Aesir (deities of war and destiny) and the Vanir (gods of fertility and prosperity). Once enemies, these two families are now closely allied against their common enemies, the giants (including the gods Surtur and Thrym).`,
       followers: {
         description: '',
         favouredWeapon: '',
@@ -2790,6 +2962,8 @@ export const religion: ReligionData = {
           rank: 'leader',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'wisdom',
             'death',
@@ -2814,7 +2988,7 @@ export const religion: ReligionData = {
             'arcana'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Lawful Good',
           symbol: '',
           combat: {
             description: undefined,
@@ -2834,6 +3008,7 @@ export const religion: ReligionData = {
               powers: 'drips forth eight identical rings after nine days'
             }
           ],
+          realm: 'Valhalla',
           followers: {
             description: undefined,
             favouredWeapon: '',
@@ -2846,7 +3021,6 @@ export const religion: ReligionData = {
             merciful: -85,
             chaste: -20
           },
-          realm: 'Valhalla',
           associations: {
             avatars: [
               {
@@ -2870,7 +3044,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Thor
           name: 'Thor',
@@ -2888,6 +3065,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: 'Thor is the God of Lightning, Thunder and Storms. He is a god of Strength, yet he is also a god who protects the sacred groves and mankind.',
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'strength',
             'battle prowess',
@@ -2909,7 +3088,7 @@ export const religion: ReligionData = {
             'nature'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral Good',
           symbol: '',
           combat: {
             description: undefined,
@@ -2934,6 +3113,7 @@ export const religion: ReligionData = {
               powers: 'doubles Thors mighty strength, allowing him to lift to Mjolnir'
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'hammer',
@@ -2971,7 +3151,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Loki
           name: 'Loki',
@@ -2991,6 +3174,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'magic',
             'mischief',
@@ -3011,7 +3196,7 @@ export const religion: ReligionData = {
             'trickery'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Chaotic Evil',
           symbol: '',
           combat: {
             description: undefined,
@@ -3026,6 +3211,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3059,7 +3245,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Frigga
           name: 'Frigg',
@@ -3074,6 +3263,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'prophecy',
             'wisdom',
@@ -3097,7 +3288,7 @@ export const religion: ReligionData = {
             'life'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3112,6 +3303,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3149,7 +3341,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Freyr
           name: 'Freyr',
@@ -3166,6 +3361,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'religious kingship',
             'virility',
@@ -3189,7 +3386,7 @@ export const religion: ReligionData = {
             'war'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3204,6 +3401,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3237,7 +3435,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Freyja
           name: 'Freyja',
@@ -3256,6 +3457,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'love',
             'marriage',
@@ -3276,7 +3479,7 @@ export const religion: ReligionData = {
             'war'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3291,6 +3494,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: 'Folkvangr',
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3301,7 +3505,6 @@ export const religion: ReligionData = {
           personality: {
             chaste: 30
           },
-          realm: 'Folkvangr',
           associations: {
             avatars: [
               {
@@ -3327,7 +3530,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Bragi
           name: 'Bragi',
@@ -3341,6 +3547,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'skaldic poetry',
             'wisdom'
@@ -3352,7 +3560,7 @@ export const religion: ReligionData = {
             'knowledge'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3367,6 +3575,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: 'the Skalds are the story tellers of the Jarl, and rarely go into battle. They recite stories of the great deeds of gods and men',
             favouredWeapon: 'harp',
@@ -3397,7 +3606,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Sif
           name: 'Sif',
@@ -3413,6 +3625,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: 'a beautiful woman with a brilliant wig made of gold',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'harvest',
             'autum',
@@ -3427,7 +3641,7 @@ export const religion: ReligionData = {
             'nature'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3442,6 +3656,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3471,7 +3686,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Baldr
           name: 'Baldr',
@@ -3484,6 +3702,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             'beauty',
             'light',
@@ -3502,7 +3722,7 @@ export const religion: ReligionData = {
             'peace'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3517,6 +3737,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3547,7 +3768,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Aegir
           name: 'Name',
@@ -3558,6 +3782,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             ''
           ],
@@ -3568,7 +3794,7 @@ export const religion: ReligionData = {
             'tempest'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3583,6 +3809,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3613,7 +3840,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         },
         { // Hel
           name: 'Hel',
@@ -3624,6 +3854,8 @@ export const religion: ReligionData = {
           rank: 'greater deity',
           description: undefined,
           appearance: '',
+          history: undefined,
+          powers: undefined,
           portfolios: [
             ''
           ],
@@ -3635,7 +3867,7 @@ export const religion: ReligionData = {
             'grave'
           ],
           channelDivinity: [],
-          alignment: 'N',
+          alignment: 'Neutral',
           symbol: '',
           combat: {
             description: undefined,
@@ -3650,6 +3882,7 @@ export const religion: ReligionData = {
               powers: undefined
             }
           ],
+          realm: undefined,
           followers: {
             description: undefined,
             favouredWeapon: 'spear',
@@ -3680,7 +3913,10 @@ export const religion: ReligionData = {
             miscellaneous: []
           },
           beliefs: undefined,
-          heresies: undefined
+          heresies: undefined,
+          blessings: undefined,
+          curses: undefined,
+          relationships: []
         }
       ]
     }
