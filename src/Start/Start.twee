@@ -12,3 +12,10 @@
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
 <<include "Popup">><<run lib.addTippyAccessibility()>> 
+
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>
+<<print lib.fetchDeity($town, setup.getPantheon($town).gods)>>

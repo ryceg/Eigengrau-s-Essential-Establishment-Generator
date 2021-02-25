@@ -10,9 +10,6 @@ export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: s
 }
 
 export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): string => {
-  // if (State.metadata.has('pantheon') === true) {
-  //   godArray = State.metadata.get('pantheon')
-  // }
   const predominantRace = getPredominantRace(town._demographicPercentile)
   const temp: {
     probability: number,
