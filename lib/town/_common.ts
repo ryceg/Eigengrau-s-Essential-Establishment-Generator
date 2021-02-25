@@ -65,7 +65,7 @@ export interface Town extends TownBasics {
     tithe: number
   }
   wealth: string
-  sin: string
+  _wealth: string
   pregen?: boolean
   reuseNpcProbability: number
   guard: Faction
