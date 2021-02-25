@@ -1,8 +1,10 @@
-export const createTown = (base) => {
+import { Town, TownBasics } from '@lib'
+
+export const createTown = (base: TownBasics) => {
   const type = base.type || ['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'].random()
   const terrain = base.terrain || ['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'].random()
   const season = base.season || ['summer', 'autumn', 'winter', 'spring'].random()
-  const townName = base.name || setup.createTownName()
+  const townName = base.name || setup.createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
   if (!base) base = setup.createTownBiome()
@@ -80,33 +82,26 @@ export const createTown = (base) => {
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
     get economicIdeology () {
-      // console.log(`Getting town economic ideology - ${this._economicIdeology}`)
       return this._economicIdeology
     },
     set economicIdeology (value) {
-      // console.log('Setting town economic ideology.')
       this._economicIdeology = value
       Object.assign(this, lib.townData.economicIdeology[this._economicIdeology].descriptors)
     },
     get politicalSource () {
-      // console.log(`Getting town political source - ${this._politicalSource}`)
       return this._politicalSource
     },
     set politicalSource (value) {
-      // console.log('Setting town political source.')
       this._politicalSource = value
     },
     get politicalIdeology () {
-      // console.log(`Getting town political ideology - ${this._politicalIdeology}`)
       return this._politicalIdeology
     },
     set politicalIdeology (value) {
-      // console.log('Setting town political ideology.')
       this._politicalIdeology = value
       Object.assign(this, lib.townData.politicalIdeology[this._politicalIdeology].data)
     },
     get politicalSourceDescription () {
-      // console.log('Getting town political source description.')
       if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
         if (this.politicalIdeology === 'autocracy') {
           return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
@@ -118,7 +113,6 @@ export const createTown = (base) => {
       }
     },
     get wealth () {
-      // console.log('Getting town wealth.')
       let wealth = lib.townData.rollData.wealth.rolls.find(descriptor => {
         return descriptor[0] <= this.roll.wealth
       })
@@ -134,11 +128,6 @@ export const createTown = (base) => {
       this._wealth = value
     },
     roads: {},
-    location: lib.terrain[terrain].start.random(),
-    primaryCrop: lib.townData.misc.primaryCrop.random(),
-    primaryExport: lib.townData.misc.primaryExport.random(),
-    landmark: lib.townData.misc.landmark.random(),
-    currentEvent: lib.townData.misc.currentEvent.random(),
     dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)
     reuseNpcProbability: 0,
@@ -167,8 +156,6 @@ export const createTown = (base) => {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.origin = town.origin || lib.terrain[town.terrain].location[town.location].origin.random()
-  town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.materialProbability = lib.structureData.material.types
 
   // TODO: Make town religion deities a little more solid.
@@ -226,7 +213,7 @@ export const createTown = (base) => {
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
   console.log(town)
-  return town
+  return town as Town
 }
 
 setup.getTownType = town => {
