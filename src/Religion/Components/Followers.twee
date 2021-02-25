@@ -1,0 +1,14 @@
+:: Followers
+\<<idp $currentPassage.followers.description "<h2>Followers</h2>$currentPassage.followers.description">>
+\<<idp $currentPassage.followers.favouredWeapon "In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.">>
+\<<if $currentPassage.followers.holyDays.earth.length > 0>>
+\Their holy days are <<for _i = 0; _i < $currentPassage.followers.holyDays.earth; _i++>>
+  \<<if typeof $currentPassage.followers.holyDays.earth[_i] === 'array'>>
+    \<<print lib.createTippyFull($currentPassage.followers.holyDays.earth[_i][0], $currentPassage.followers.holyDays.earth[_i][1])>>
+  \<<else>>
+    \<<print $currentPassage.followers.holyDays.earth[_i]>>
+  \<</if>>
+  \<</for>>
+\<</if>>
+<<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
+<<include "ClericDomains">>

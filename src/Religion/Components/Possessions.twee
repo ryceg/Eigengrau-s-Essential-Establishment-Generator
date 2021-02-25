@@ -1,0 +1,4 @@
+:: Possessions
+<<if $currentPassage.possessions[0].name>><h2>Possessions</h2>
+$currentPassage.name owns the <<idp $currentPassage.possessions[0].wordNoun>> <<print lib.createTippyFull($currentPassage.possessions[0].powers, $currentPassage.possessions[0].name)>><</if>>
+<<idp $currentPassage.combat.weapon "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> <<print lib.deityUsesUsed($currentPassage.status)>> $currentPassage.combat.weapon in combat.">> 

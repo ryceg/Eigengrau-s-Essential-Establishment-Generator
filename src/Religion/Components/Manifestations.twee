@@ -1,10 +1,11 @@
 :: Manifestations
-<<if $currentPassage.associations>><h2>Manifestations</h2>
-  <<if $currentPassage.associations.avatars>>
-  <<for _avatar range $currentPassage.associations.avatars>>
-  <h3>_avatar.name</h3>
-  $currentPassage.name appears as _avatar.name<<idp _avatar.frequency " _avatar.frequency">>. <<idp _avatar.appearance "<<print _avatar.appearance.toUpperFirst()>>">> <<idp _avatar.description>> <<idp _avatar.powers>>
-  <</for>><</if>>
+<<nobr>><<if $currentPassage.associations.animals.length > 0 || $currentPassage.associations.plants.length > 0 || $currentPassage.associations.monsters.length > 0 >><h2>Manifestations</h2>
+  <<if $currentPassage.associations.avatars[0].name>>
+    <<for _avatar range $currentPassage.associations.avatars>>
+    <<if _avatar>><h3>_avatar.name</h3>
+    $currentPassage.name appears as _avatar.name<<idp _avatar.frequency " _avatar.frequency">>. <<idp _avatar.appearance "<<print _avatar.appearance.toUpperFirst()>>">> <<idp _avatar.description>> <<idp _avatar.powers>>
+    <</if>><</for>>
+  <</if>>
   <<if Object.keys($currentPassage.associations).length >= 1>>
     <table>
     <tr>
@@ -21,4 +22,4 @@
     <</for>>
     </table>
   <</if>>
-<</if>>
+<</if>><</nobr>>

@@ -1,0 +1,5 @@
+:: Powers
+<<if $currentPassage.blessings>><h2>Powers</h2><</if>>
+\<<idp $currentPassage.powers>>
+\<<idp $currentPassage.blessings '<h4>Blessings</h4>$currentPassage.blessings'>>
+\<<idp $currentPassage.curses '<h4>Curses</h4>$currentPassage.curses'>>

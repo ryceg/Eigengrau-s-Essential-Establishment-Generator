@@ -1,4 +1,5 @@
 document.cookie = 'SameSite=Strict'
+Config.cleanupWikifierOutput = true
 
 if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')

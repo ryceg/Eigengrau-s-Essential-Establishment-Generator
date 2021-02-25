@@ -1,6 +1,5 @@
 :: Quotes
-<<if $currentPassage.quotes>>
-<<set _rand to $currentPassage.quotes.random()>>
+<<if $currentPassage.quotes>><<set _rand to $currentPassage.quotes.random()>>
 <blockquote>
 _rand.description
 <<idp _rand.author "-- _rand.author">>
