@@ -20,7 +20,7 @@
   --background-floating: #e6e6e6;
 }
 
-body[data-theme="dark"], body.dark {
+html[data-theme="dark"], html.dark {
   --text-normal: #dcddde;
   --text-link: #7289da;
   --background-primary: #1c1c1e;
@@ -65,7 +65,7 @@ body {
   bottom: 0;
 }
 
-body.dark .background-image {
+html.dark .background-image {
   filter: invert(100%);
   -webkit-filter: invert(100%);
 }
@@ -82,14 +82,14 @@ body.dark .background-image {
   
 }
 
-body.dark #paper {
+html.dark #paper {
   filter: invert(100%);
 }
 
 
 
-/* @media (prefers-color-scheme: dark) {
-	body, body[data-theme="dark"], body.dark {
+@media (prefers-color-scheme: dark) {
+	html, html[data-theme="dark"], html.dark {
     --text-normal: rgb(199, 199, 204);
     --text-link: #7289da;
     --background-primary: rgb(28, 28, 30);

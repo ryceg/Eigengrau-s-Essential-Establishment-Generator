@@ -80,7 +80,7 @@ if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
 }
 
 if (settings.forceOneColumn) {
-  jQuery('body').addClass('force-one-column')
+  jQuery('html').addClass('force-one-column')
 }
 
 function settingShowTutorial () {
@@ -141,17 +141,17 @@ function settingForceOneColumn () {
 
 function addOneColumn () {
   if (settings.forceOneColumn) {
-    jQuery('body').addClass('force-one-column')
+    jQuery('html').addClass('force-one-column')
   } else {
-    jQuery('body').removeClass('force-one-column')
+    jQuery('html').removeClass('force-one-column')
   }
 }
 
 function settingDarkMode () {
   if (settings.darkMode) {
-    jQuery('body').addClass('dark')
+    jQuery('html').addClass('dark')
   } else {
-    jQuery('body').removeClass('dark')
+    jQuery('html').removeClass('dark')
   }
 }
 
