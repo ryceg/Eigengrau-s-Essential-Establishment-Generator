@@ -11,18 +11,19 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
   const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource') as PoliticalSource
   const politicalIdeology = lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
-  const town: TownBasics = Object.assign(
+  const town = Object.assign(
     {
       // name: townName,
       terrain,
       currentSeason: season,
       ignoreGender: false,
-      season,
       pregen: true,
+      generated: 'biome',
       factions: {},
       buildings: [],
       npcRelations: {},
       families: {},
+      religion: {},
       population: lib.townData.type[type].population(),
       _type: type,
       type,
@@ -70,6 +71,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
       landmark: lib.random(lib.townData.misc.landmark),
       currentEvent: lib.random(lib.townData.misc.currentEvent),
       guard: {},
+      dominantGender: ['man', 'man', 'man', 'man', 'man', 'woman', 'woman'].random(),
       roll: {
         wealth: lib.dice(2, 50),
         reputation: lib.dice(2, 50),
@@ -89,7 +91,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
       }
     },
     base
-  )
+  ) as TownBasics
   lib.townDemographics(town)
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
@@ -106,7 +108,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   lib.clampRolls(town.roll)
   town.name = setup.createTownName(town)
   console.groupEnd()
-  console.log(`${town.name} has loaded.`)
+  console.log(`Base attributes for ${town.name} have loaded.`)
   console.log(town)
   return town
 }
