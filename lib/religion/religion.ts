@@ -276,6 +276,8 @@ export interface Deity {
     colours?: string[]
     miscellaneous?: string[]
   }
+  tenets?: string[][]
+  dogma?: string[][]
   beliefs?: string
   heresies?: string
   /**
@@ -288,6 +290,8 @@ export interface Deity {
    * @example Aphrodite: ['ugliness']
    */
   curses?: string[]
+  allies?: string[] | string[][]
+  enemies?: string[] | string[][]
   relationships: Relationship[]
 }
 
@@ -689,10 +693,14 @@ export const religion: ReligionData = {
             colours: ['yellow'],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Poseidon',
@@ -793,10 +801,14 @@ export const religion: ReligionData = {
             colours: ['blue'],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: ['Smooth Sailing', 'managment of horses'],
           curses: ['mad horses', 'rough seas'],
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -907,10 +919,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: ['plenty from the earth', 'the ability to be un-noticed'],
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Poseidon',
@@ -1024,6 +1040,8 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: ['conch shells']
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -1033,6 +1051,8 @@ export const religion: ReligionData = {
             'ugliness',
             'unwashable stink'
           ],
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1143,10 +1163,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: ['lyre', 'torches', 'spears and nets']
           },
+          tenets: [],
+          dogma: [],
           beliefs: 'chastity',
           heresies: undefined,
           blessings: undefined,
           curses: ['tranformation into a wild animal'],
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1250,10 +1274,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1356,10 +1384,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1495,10 +1527,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1600,10 +1636,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife'],
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
 
         },
@@ -1738,10 +1778,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1837,10 +1881,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -1933,10 +1981,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -2029,10 +2081,14 @@ export const religion: ReligionData = {
             colours: ['green'],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Hephaestus
@@ -2122,10 +2178,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: ['inspiration', 'knowledge'],
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Persephone
@@ -2217,10 +2277,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -2329,10 +2393,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Nike
@@ -2402,10 +2470,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Tyche
@@ -2471,10 +2543,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Hebe
@@ -2553,10 +2629,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: ['restored youth'],
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -2647,10 +2727,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Asclepius
@@ -2729,10 +2813,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Chiron
@@ -2805,10 +2893,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Hercules
@@ -2884,10 +2976,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Zeus',
@@ -2965,10 +3061,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: [
             {
               name: 'Dionysus',
@@ -3096,10 +3196,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Thor
@@ -3203,10 +3307,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Loki
@@ -3297,10 +3405,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Frigga
@@ -3393,10 +3505,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Freyr
@@ -3487,10 +3603,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Freyja
@@ -3582,10 +3702,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Bragi
@@ -3658,10 +3782,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Sif
@@ -3738,10 +3866,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Baldr
@@ -3820,10 +3952,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Aegir
@@ -3892,10 +4028,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         },
         { // Hel
@@ -3965,10 +4105,14 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
+          tenets: [],
+          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
+          allies: [],
+          enemies: [],
           relationships: []
         }
       ]
