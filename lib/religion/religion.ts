@@ -153,8 +153,9 @@ export interface Deity {
    *    author: 'Sophocles'
    * }
    */
-  powers?: string
   quotes?: Quotation[]
+  /** Any powers that you want to add. */
+  powers?: string
   /**
    * Generic extra text.
    * @example [
@@ -276,8 +277,8 @@ export interface Deity {
     colours?: string[]
     miscellaneous?: string[]
   }
-  tenets?: string[][]
-  dogma?: string[][]
+  tenets?: string[] | string[][]
+  dogma?: string[] | string[][]
   beliefs?: string
   heresies?: string
   /**
