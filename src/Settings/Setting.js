@@ -6,7 +6,7 @@ Setting.addToggle('darkMode', {
   label: 'Dark Mode?',
   onInit: settingDarkMode,
   onChange: settingDarkMode,
-  default: window.matchMedia('(prefers-color-scheme: dark)')
+  default: window.matchMedia('(prefers-color-scheme: dark)').matches
 })
 
 Setting.addToggle('showTutorial', {
@@ -148,11 +148,12 @@ function addOneColumn () {
 }
 
 function settingDarkMode () {
+  const $html = jQuery('html')
+
   if (settings.darkMode) {
-    jQuery('html').addClass('dark')
+    $html.addClass('dark')
   } else {
-    jQuery('html').removeClass('dark')
+    $html.removeClass('dark')
   }
 }
-
 Setting.save()
