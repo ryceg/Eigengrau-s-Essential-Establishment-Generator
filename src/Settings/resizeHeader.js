@@ -30,3 +30,5 @@ $('<span id="badge" />')
     $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), { imgArgs: 'style=width:100%' }))
   })
   .appendTo('#fun-container')
+
+$(document.body).append('<div class="background-image" />')
