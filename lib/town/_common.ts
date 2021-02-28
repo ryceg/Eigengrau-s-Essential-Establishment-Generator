@@ -11,7 +11,26 @@ import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolit
 import { PantheonTypes } from 'lib/religion/religion'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
+export type TownRolls =
+| 'guardFunding'
+| 'wealth'
+| 'economics'
+| 'welfare'
+| 'military'
+| 'law'
+| 'sin'
+| 'arcana'
+| 'equality'
+| 'religiosity'
+| 'genderMakeup'
 
+export type TaxTypes =
+| 'welfare'
+| 'military'
+| 'economics'
+| 'base'
+| 'land'
+| 'tithe'
 export interface Town {
   name: string
   type: TownType
@@ -20,27 +39,8 @@ export interface Town {
   population: number
   ignoreGender: boolean
   dominantGender: GenderName
-  roll: {
-    guardFunding: number
-    wealth: number
-    economics: number
-    welfare: number
-    military: number
-    law: number
-    sin: number
-    arcana: number
-    equality: number
-    religiosity: number
-    genderMakeup: number
-  }
-  taxes: {
-    welfare: number
-    military: number
-    economics: number
-    base: number
-    land: number
-    tithe: number
-  }
+  roll: Record<TownRolls, number>
+  taxes: Record<TaxTypes, number>
   wealth: string
   economics: string
   welfare: string
