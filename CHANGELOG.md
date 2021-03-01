@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add collapsible elements where you might not want to see everything all at once.
 - Live counters for Patreon supporters, Discord, and GitHub forks.
 - Fun stats to Credits
+- Dark mode
 
 
 ### Changes
