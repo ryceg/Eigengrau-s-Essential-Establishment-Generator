@@ -29,12 +29,12 @@ html[data-theme="dark"], html.dark {
   --blockquote-color: #313131;
   --interactive-normal: #3f3f3f;
   --interactive-hover: #6d6d6d;
-  --header-primary: #d9534f;
+  --header-primary: #c73f3b;
   --header-secondary: #8f896b;
   --interactive-active: #744b4b;
   --interactive-hover: rgb(143, 84, 84);
   --interactive-muted: rgb(97, 30, 30);
-  --table-green: #5f6344;
+  --table-green: #3a3b35;
   --background-accent: #966767;
 
   /* --background-primary: #36393f;
@@ -671,7 +671,9 @@ width: 180px;
     table tbody tr:nth-child(odd) {
         background-color: var(--table-green)
     }
-    tr:nth-child(even) {background-color: var(--table-green);}
+    tr:nth-child(even) {
+      background-color: var(--table-green);
+    }
 
     .body:after {
         content: "";
