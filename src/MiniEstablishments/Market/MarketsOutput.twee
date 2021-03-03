@@ -37,3 +37,12 @@
 
 <span id="magic"></span>
 </span>
+<span class="interactive-only"><<button "Create market event.">>
+<<if $building.eventCheck==1>><<set $building.eventCheck to 0>><</if>>
+<<set $building.eventCheck to 1>>
+<<set $building.event to lib.weightedRandomFetcher($town, setup.marketEvent.event, $building)>>
+<<update>><</button>>
+
+<section><<liveblock>><<if $building.eventCheck==1>>$building.event<</if>><</liveblock>></section>
+
+</span>

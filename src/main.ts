@@ -34,6 +34,7 @@ import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { marketEvent } from './MiniEstablishments/Market/marketEventData'
 
 declare global {
   interface Setup {
@@ -76,6 +77,7 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    marketEvent: typeof marketEvent
   }
 }
 
@@ -118,7 +120,8 @@ Object.assign(setup, {
   urlSeed,
   deleteFaction,
   leaderFaction,
-  plothooks
+  plothooks,
+  marketEvent
 })
 
 /**
