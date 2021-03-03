@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Live counters for Patreon supporters, Discord, and GitHub forks.
 - Fun stats to Credits
 - Dark mode
+- New version of Tippy
 
 
 ### Changes
