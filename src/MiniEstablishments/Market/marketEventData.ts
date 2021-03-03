@@ -82,13 +82,18 @@ export const marketEvent: MarketEventData = {
           profession: 'merchant'
         })
         const magic = ['firing off miniature fireworks into the air', 'making items disappear into a ring', 'pulling items from seemingly thin air', 'casting a few weak cantrips', 'juggling a few brightly glowing orbs', 'modeling a cloak that looks as if it were wreathed in fire', 'drinking from a mug that is seemingly bottomless', 'pulling impossibly large things from a rather small bag']
-        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is showing of ${npc.hisher} magical wares by ${lib.random(magic)} to the amazement of a small crowd that has gathered around the stall.`
+        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is showing off ${npc.hisher} magical wares by ${lib.random(magic)} to the amazement of a small crowd that has gathered around the stall.`
       }
     },
     accident: {
       function () {
         const produce = ['apples', 'carrots', 'melons', 'bananas', 'oranges', 'strawberries', 'plums', 'cabbages', 'dragonfruit']
         return `A large crash can be heard as the legs of a nearby produce stall collapse. An enormous amount of ${lib.random(produce)} scatter across the market as both the produce merchant and nearby visitors scramble to grab as many as they can.`
+      }
+    },
+    hiredHand: {
+      function () {
+        return 'A nearby hired hand is quickly stocking the shelves of a market stall. In their haste they trip and spill a large crate of goods onto the floor. As they clamber to pick up all the wares, a few passersby grab some for themselves and run off.'
       }
     }
   }
