@@ -21,3 +21,8 @@ $('body').on('change', '.auto-update select', () => {
 
   $(document).trigger(':liveupdate')
 })
+
+$(document).on(':passageend', () => {
+  lib.addTippyAccessibility()
+  tippy('.tip')
+})

@@ -23,7 +23,6 @@ import { profile } from './NPCGeneration/profile'
 import { money } from './Tools/money'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
-import { tippy } from './Settings/Tippy/tippy'
 import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
@@ -55,7 +54,6 @@ declare global {
     money: typeof money
     history: typeof history
     addGtagEvent: typeof addGtagEvent
-    tippy: typeof tippy
     profileAgeTooltip: typeof profileAgeTooltip
     metricHeight: typeof metricHeight
     metricWeight: typeof metricWeight
@@ -98,7 +96,6 @@ Object.assign(setup, {
   money,
   history,
   addGtagEvent,
-  tippy,
   profileAgeTooltip,
   metricHeight,
   metricWeight,
