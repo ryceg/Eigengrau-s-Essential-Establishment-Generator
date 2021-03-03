@@ -12,7 +12,7 @@ It creates towns from the ground up, with the biome impacting types of building 
 <</fadein>>
 
 <<fadein 1400ms 13s>>\
-Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted" title="Like this!">tooltips</span>, which provide quick additional information.\
+Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted" data-tippy-content="Like this!">tooltips</span>, which provide quick additional information.\
 <</fadein>>
 
 <<fadein 1500ms 17s>>\

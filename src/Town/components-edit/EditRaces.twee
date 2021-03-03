@@ -1,6 +1,6 @@
 :: EditRaces
 <<liveblock>><<run lib.updateDemographics($town, $town._baseDemographics)>>
-<span class="races-slider"><span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span></span>
+<span class="races-slider"><span class="tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span></span>
 $town.name is a <<print setup.getTownType($town)>> comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
 <table id='races' style='column-span: all'>
   <tr>
@@ -13,6 +13,6 @@ $town.name is a <<print setup.getTownType($town)>> comprised <<print lib.getPred
   <tr><td><<print _race.toUpperFirst()>></td>
     <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
     <td><<print _percentage.toFixed(2)>></td>
-    <td><span class="races-slider"><span class="tip" title="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></span></td></tr>
+    <td><span class="races-slider"><span class="tip" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></span></td></tr>
 <</for>>
 </table><</liveblock>>
