@@ -99,3 +99,25 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
     }
   })
 }
+
+export const racesPercentageTooltip = (source: HTMLElement, target: string) => {
+  // const span = document.getElementById(source) as HTMLElement
+  const tip = $('<div>Race Percentages</div>')
+  tippy(tip.get(0), {
+    content: source,
+    allowHTML: true
+  })
+  $(target).appendTo(tip)
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+tippy.setDefaultProps({
+  delay: 50,
+  interactive: true,
+  followCursor: 'horizontal',
+  animation: 'perspective',
+  theme: 'descriptive',
+  allowHTML: true,
+  inertia: true
+})

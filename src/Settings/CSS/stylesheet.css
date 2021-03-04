@@ -13,7 +13,7 @@
   --blockquote-color: #e5e4c1;
   --table-green: #e0e5c1;
   --background-primary: #dedede;
-  --background-accent: #dcddb3;
+  --background-accent: #a6a794;
   --background-secondary: #cccccc;
   --background-secondary-alt: #d4c8c8;
   --background-tertiary: #fffde2;
@@ -541,7 +541,10 @@ blockquote {
     border-width: 11px;
     border-image: url("./src/Resources/note-wrap.png") 11;
     border-image-outset: 9px 0;
-    box-shadow: 1px 4px 14px var(--background-accent);
+}
+
+html.dark blockquote {
+  box-shadow: 1px 4px 14px var(--background-accent);
 }
 blockquote em {
     font-family: Scaly Sans;
