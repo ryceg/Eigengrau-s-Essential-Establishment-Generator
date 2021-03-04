@@ -23,7 +23,7 @@ import { profile } from './NPCGeneration/profile'
 import { money } from './Tools/money'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
-import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, racesPercentageTooltip, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, racesPercentageTooltip, createRaceHTML, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
@@ -59,6 +59,7 @@ declare global {
     metricWeight: typeof metricWeight
     buildingTooltip: typeof buildingTooltip
     racesPercentageTooltip: typeof racesPercentageTooltip
+    createRaceHTML: typeof createRaceHTML
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
     makeTippyTitle: typeof makeTippyTitle
@@ -102,6 +103,7 @@ Object.assign(setup, {
   metricWeight,
   buildingTooltip,
   racesPercentageTooltip,
+  createRaceHTML,
   politicsDescription,
   politicsTooltip,
   makeTippyTitle,

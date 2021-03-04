@@ -1,4 +1,4 @@
-import type { NPC, Building, Town } from '@lib'
+import type { NPC, Building, Town, RaceName } from '@lib'
 
 export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
@@ -100,14 +100,22 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const racesPercentageTooltip = (source: HTMLElement, target: string) => {
-  // const span = document.getElementById(source) as HTMLElement
-  const tip = $('<div>Race Percentages</div>')
+export const racesPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>) => {
+  const tip = $(`<span class='tip dotted'>${lib.getPredominantRace(percentages).amountDescriptive}</span>`)
   tippy(tip.get(0), {
     content: source,
+    interactive: false,
     allowHTML: true
   })
-  $(target).appendTo(tip)
+  const htmlTarget = document.getElementById(target) as HTMLElement
+  $(tip.get(0)).appendTo(htmlTarget)
+}
+
+export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
+  const array = lib.sortArray(percentages).reverse()
+  const list = lib.formatPercentile(array as [string, number][])
+  const html = lib.formatAsList(list)
+  racesPercentageTooltip(html, target, percentages)
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -117,7 +125,7 @@ tippy.setDefaultProps({
   interactive: true,
   followCursor: 'horizontal',
   animation: 'perspective',
-  theme: 'descriptive',
+  theme: 'blockquote',
   allowHTML: true,
   inertia: true
 })
