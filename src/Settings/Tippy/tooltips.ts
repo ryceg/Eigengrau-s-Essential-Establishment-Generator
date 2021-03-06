@@ -24,7 +24,6 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   } else {
     $(span).attr('data-tippy-content', obj.tippyDescription || obj.name)
   }
-  tippy('[data-tippy-content]')
 }
 
 export const profileAgeTooltip = (id: string, char: NPC) => {
@@ -128,6 +127,7 @@ tippy.setDefaultProps({
   followCursor: 'horizontal',
   animation: 'perspective',
   theme: 'blockquote',
+  // theme: 'descriptive',
   allowHTML: true,
   inertia: true
 })
