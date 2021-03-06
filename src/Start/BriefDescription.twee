@@ -1,7 +1,7 @@
 :: BriefDescription
 <<nobr>><p role="main"><h2>The <<print $town.type.toUpperFirst()>> of $town.name</h2>
 <<print lib.firstCharacter($town.name)>> is a <<print lib.createTippyFull("With a population of " + $town.population + ".", $town.type)>> located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised 
-<span id='tippy-races-percentage' class='tip dotted'></span><<timed 0s>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</timed>>. They are 
+<<include "RacesPercentageList">>. They are 
 <<if $town.ignoreGender is false>><<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
 <<else>>
 <<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */

@@ -1,3 +1,2 @@
 :: RacesPercentageList
-<div id='races-percentage-list'><<print lib.returnStringList(lib.formatPercentile(lib.sortArray($town.demographicPercentile)))>></div>
-<<run setup.racesPercentageTooltip(lib.returnStringList(lib.formatPercentile(lib.sortArray($town.demographicPercentile))), 'tippy-races-percentage')>>
+<span class='tippy-races-percentage'></span><<timed 0s>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</timed>>
