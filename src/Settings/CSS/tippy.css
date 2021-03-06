@@ -38,19 +38,22 @@
   opacity: 0.5;
 }
 
-
+.tippy-box[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.25,0.1,0.25,1);
+}
 
 
 
 
 .tippy-box[data-theme~='descriptive'] {
   color: var(--text-normal);
-  margin-bottom:1em;
+  font-size: smaller;
+  margin-bottom:.6em;
   background-color:var(--blockquote-color);
   font-family:ScalySans;
   border-style:solid;
-  border-width:5px;
-  border-image: url("./src/Resources/sidebars.png") 12 round;
+  border-width:6px;
+  border-image: url("./src/Resources/sidebars.png") 11;
   border-image-outset: 4px;
   box-shadow:0 0 10px 6px var(--background-accent);
 }
@@ -67,44 +70,20 @@
 .tippy-box[data-theme~='descriptive'][data-placement^='right'] > .tippy-arrow::before {
   border-right-color: var(--blockquote-color);
 }
-.tippy-box[data-theme~='descriptive'] {
-  color: var(--text-normal);
-  font-size: smaller;
-  margin-bottom:1em;
-  background-color:var(--blockquote-color);
-  font-family:ScalySans;
-  border-style:solid;
-  border-width:5px;
-  border-image: url("./src/Resources/sidebars.png") 12;
-  border-image-outset: 4px;
-  box-shadow:0 0 10px 6px var(--background-accent);
-}
+
 
 .tippy-box[data-theme~='descriptive'] > .tippy-arrow::before {
   transform: scale(2);
 }
 
-.tippy-box[data-theme~='descriptive'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: var(--blockquote-color);
-}
-.tippy-box[data-theme~='descriptive'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: var(--blockquote-color);
-}
-.tippy-box[data-theme~='descriptive'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: var(--blockquote-color);
-}
-.tippy-box[data-theme~='descriptive'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: var(--blockquote-color);
-}
-
-
 
 .tippy-box[data-theme~='blockquote'] {
   font-size: smaller;
   font-family: Scaly Sans;
+  text-indent: 0%;
   color: var(--text-normal);
   box-sizing: border-box;
-  margin-bottom: 1em;
+  margin-bottom: .8em;
   padding: 5px 10px;
   background-color: var(--blockquote-color);
   border-style: solid;
@@ -115,8 +94,6 @@
 
 .tippy-box[data-theme~='blockquote'] > .tippy-arrow::before {
   display: hidden;
-  /* transform: scale(2);
-  background: black; */
 }
 
 .tippy-box[data-theme~='blockquote'][data-placement^='top'] > .tippy-arrow::before {
