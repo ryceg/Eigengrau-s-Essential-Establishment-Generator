@@ -3,8 +3,9 @@ Macro.add('profile', {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
     const obj = this.args[0]
     const readout = this.args[1] || obj.name
+    const tippyOpts = this.args[2] || { theme: 'descriptive' }
     const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
-    const tip = $('<span class="tip"/>').addClass(id)
+    const tip = $('<span />').addClass(id)
     $(`<a class="link-internal macro-link">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
@@ -19,7 +20,7 @@ Macro.add('profile', {
       .appendTo(tip)
     /* do any other title addition and stuff here */
     setup.makeTippyTitle($(tip)[0], obj)
-    tippy(tip.get(0))
+    tippy(tip.get(0), tippyOpts)
     $(this.output).append(tip)
   }
 })
