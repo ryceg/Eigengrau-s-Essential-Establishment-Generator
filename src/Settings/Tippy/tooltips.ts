@@ -107,8 +107,10 @@ export const racesPercentageTooltip = (source: HTMLElement, target: string, perc
     interactive: false,
     allowHTML: true
   })
-  const htmlTarget = document.getElementById(target) as HTMLElement
-  $(tip.get(0)).appendTo(htmlTarget)
+  const htmlTarget = Array.from(document.getElementsByClassName(target))
+  for (const element of htmlTarget) {
+    $(tip.get(0)).appendTo(element)
+  }
 }
 
 export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
