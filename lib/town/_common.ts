@@ -57,6 +57,11 @@ export interface TownBasics {
   founder?: string
 }
 
+export interface TownProfessions extends Profession {
+  name: string;
+  population: number;
+}
+
 export interface Town extends TownBasics {
   taxes: {
     welfare: number
@@ -68,10 +73,7 @@ export interface Town extends TownBasics {
   }
   reuseNpcProbability: number
   guard: Faction
-  professions: Record<string, Profession & {
-    name: string,
-    population: number
-  }>
+  professions: Record<string, TownProfessions>
   religion: {
     deity: string
   }
