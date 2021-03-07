@@ -1,4 +1,5 @@
 document.cookie = 'SameSite=Strict'
+Config.cleanupWikifierOutput = true
 
 Setting.addHeader('Content Settings')
 
