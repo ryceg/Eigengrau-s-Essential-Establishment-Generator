@@ -34,7 +34,8 @@ Setting.addToggle('showSliders', {
 })
 
 Setting.addToggle('silverStandard', {
-  label: '<span id="silver" class="tip dotted" title="This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.">Silver Standard?</span>'
+  label: 'Silver Standard?',
+  desc: 'This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.'
 })
 
 Setting.addToggle('ignoreGender', {
@@ -44,17 +45,20 @@ Setting.addToggle('ignoreGender', {
 })
 
 Setting.addToggle('forceOneColumn', {
-  label: '<span id="oneColumn" class="tip dotted" title="Force one column for larger screens.">Force one column?</span>',
+  label: 'Force one column?',
+  desc: 'Force one column for larger screens.',
   onChange: settingForceOneColumn
 })
 
 Setting.addToggle('hideAds', {
-  label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
+  label: 'Hide ads?',
+  desc: 'This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).',
   onChange: settingHideAds
 })
 
 Setting.addToggle('disableAnalytics', {
-  label: '<span id="analytics" class="tip dotted" title="We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!">Disable analytics?</span>',
+  label: 'Disable analytics?',
+  desc: 'We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!',
   onChange: settingDisableAnalytics
 })
 

@@ -14,7 +14,7 @@
   <<if _obj.isHidden>>
     <<continue>>
   <<else>>
-    <tr><td class="tip" @title=lib.townData.rollData.sliderTooltips[_key].tooltip><label for="townrollkey"><<print lib.townData.rollData.sliderTooltips[_key].preceding>></label></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
+    <tr><td class="tip" @data-tippy-content=lib.townData.rollData.sliderTooltips[_key].tooltip><label for="townrollkey"><<print lib.townData.rollData.sliderTooltips[_key].preceding>></label></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
 <</for>><</nobr>>
 
 When you're ready, here's the [[output|TavernOutput]]

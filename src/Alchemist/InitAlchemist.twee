@@ -6,18 +6,18 @@
 <<linkreplace "Rename <strong>_name</strong>">><h3><label name="Rename the town"><<textbox "$town.buildings[$currentPassage.index].name" _name>></h3><</linkreplace>>
 <<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>
 
-<span class="tip" title="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth"> Alchemist Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
+<span class="tip" data-tippy-content="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth"> Alchemist Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
 
-<span class="tip" title="How large is the shop?"><label for="numberslider-input-townbuildingscurrentpassageindexrollsize"> Alchemist Size</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
+<span class="tip" data-tippy-content="How large is the shop?"><label for="numberslider-input-townbuildingscurrentpassageindexrollsize"> Alchemist Size</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
 
-<span class="tip" title="Is it well known, or is it a hobby shop?"><label for="numberslider-input-townbuildingscurrentpassageindexrollreputation"> Alchemist Reputation</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
+<span class="tip" data-tippy-content="Is it well known, or is it a hobby shop?"><label for="numberslider-input-townbuildingscurrentpassageindexrollreputation"> Alchemist Reputation</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
 
-<span class="tip" title="How clean is the alchemist?"><label for="numberslider-input-townbuildingscurrentpassageindexrollcleanliness"> Alchemist Cleanliness</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
+<span class="tip" data-tippy-content="How clean is the alchemist?"><label for="numberslider-input-townbuildingscurrentpassageindexrollcleanliness"> Alchemist Cleanliness</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
 
-<span class="tip" title="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?"><label for="numberslider-input-townbuildingscurrentpassageindexrollexpertise"> Alchemist Expertise</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
+<span class="tip" data-tippy-content="How skilled is the alchemist? Can they make complex potions, or are they limited to a simple healing potion?"><label for="numberslider-input-townbuildingscurrentpassageindexrollexpertise"> Alchemist Expertise</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
 
-<span class="tip" title="How busy is the alchemist?"><label for="numberslider-input-townbuildingscurrentpassageindexrollactivity"> Alchemist Activity</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
+<span class="tip" data-tippy-content="How busy is the alchemist?"><label for="numberslider-input-townbuildingscurrentpassageindexrollactivity"> Alchemist Activity</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
 
-<span class="tip" title="How do the prices here compare to your average alchemist?">Alchemist <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier"> Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
+<span class="tip" data-tippy-content="How do the prices here compare to your average alchemist?">Alchemist <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier"> Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 
 When you're ready, here's the [[alchemist|AlchemistOutput]]

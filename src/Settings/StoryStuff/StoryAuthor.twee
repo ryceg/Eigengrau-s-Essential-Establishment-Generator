@@ -6,14 +6,14 @@
 Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>
-<span class="tip" title="Thank you for your continued support!" id="patreon">
+<span class="tip" data-tippy-content="Thank you for your continued support!" id="patreon">
     <<print lib.createBadge(lib.badges.stats.patreonSupporters, {imgArgs: 'style=width:100%'})>>
     /* , imgArgs: "style='width:100%'" */
 </span>
-<span class="tip" title="Come join our community!" id='discord'>
+<span class="tip" data-tippy-content="Come join our community!" id='discord'>
     <<print lib.createBadge(lib.badges.stats.discordOnline, {imgArgs: 'style=width:100%'})>>
 </span>
-<span class="tip" title="Check out the repository!" id='github'>
+<span class="tip" data-tippy-content="Check out the repository!" id='github'>
     <<print setup.data.badges.github>>
 </span>
 <div id="fun">
