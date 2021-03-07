@@ -1,4 +1,5 @@
 :: BuildingsList
+/* This is currently not being used */
 <<for _key, _building range $town.buildings>><<capture _key, _building>>
     \<p @id="_building.name"><<set _road to $town.roads[_building.road]>>
     \<<if def _previousBuilding && _previousBuilding.road === _building.road>>
