@@ -1,6 +1,8 @@
 import { Weather } from '../lib/index'
 import { Town } from '../lib/town/_common'
 
+type Building = import('../lib/buildings/_common').Building
+type Faction = import('../lib/faction/_common').Faction
 type NPC = import('../lib/npc-generation/_common').NPC
 
 export interface Setup {
