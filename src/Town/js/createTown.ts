@@ -22,7 +22,11 @@ export const createTown = (base: TownBasics) => {
       land: 5,
       tithe: 1
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     get type () {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       return getTownType(this)
     },
     // type: type,
