@@ -44,6 +44,9 @@ export const marketEvent: MarketEventData = {
       }
     },
     animalEscape: {
+      exclusions (town) {
+        return !town.bans.includes('animals')
+      },
       function () {
         const animal = ['bull', 'ox', 'lion', 'wolf', 'large boar', 'hippo', 'tiger', 'elephant', 'rhino', 'leapard', 'jaguar', 'hyena', 'grizzly bear', 'crocodile', 'alligator', 'killer bunny', 'giant scorpion', 'cougar', 'gorilla']
         const chase = ['single child', 'group of armed thugs', 'few town guards', 'angry merchant', 'distraught merchant', 'party of adventurers', 'group of mercenaries', 'few shabby looking kids']
@@ -69,11 +72,14 @@ export const marketEvent: MarketEventData = {
       }
     },
     snakeCharmer: {
+      exclusions (town) {
+        return !town.bans.includes('animals')
+      },
       function (town) {
         const npc = createNPC(town, {
           profession: 'snake charmer'
         })
-        return `${profile(npc, lib.articles.output('snake charmer').toUpperFirst())} is sitting on a small rug in the market playing a strange looking flute. In front of the snake charmer is a basket with a large cobra in it hypnotically swaying from side to side.`
+        return `${profile(npc, lib.articles.output('snake charmer').toUpperFirst())} is sitting on a small rug in the market playing a strange looking flute. In front of the snake charmer is a basket with a large cobra in it hypnotically swaying from side to side. Every so often an onlooker drops some coins into a bag in front of the snake.`
       }
     },
     magicalWares: {
@@ -94,6 +100,55 @@ export const marketEvent: MarketEventData = {
     hiredHand: {
       function () {
         return 'A nearby hired hand is quickly stocking the shelves of a market stall. In their haste they trip and spill a large crate of goods onto the floor. As they clamber to pick up all the wares, a few passersby grab some for themselves and run off.'
+      }
+    },
+    merchantFight: {
+      function (town) {
+        const npc1 = createNPC(town, {
+          profession: 'merchant'
+        })
+        const npc2 = createNPC(town, {
+          profession: 'merchant'
+        })
+        return `${profile(npc1, lib.articles.output(npc1.descriptor).toUpperFirst())} is waving ${npc1.hisher} arms at ${profile(npc2, lib.articles.output(npc2.descriptor))} and shouting angrily. The two seem to be having a dispute over the placement of each other's market stalls.`
+      }
+    },
+    illegalWares: {
+      function (town) {
+        const npc1 = createNPC(town, {
+          profession: 'merchant'
+        })
+        const wares = ['knock off magical items', 'an assortment of different poisons', 'outlawed potion ingredients', 'cursed objects', 'illegally smuggled cheese wheels', 'blackmarket exotic animals', 'dangerous magical scrolls', 'knockoff designer brand chainmail', 'counterfeit currency', 'forged travel papers']
+        return `${profile(npc1, lib.articles.output(npc1.descriptor).toUpperFirst())} is standing behind a ramshackle stall in a dark corner of the market beckoning people over. ${npc1.heshe.toUpperFirst()} appears to be selling goods of dubious origins such as ${lib.random(wares)}, and is clearly trying to keep transactions on the down low.`
+      }
+    },
+    crushed: {
+      function (town) {
+        const npc = createNPC(town)
+        return `A loud crash echoes through the market as a nearby wagon full of cargo crates topples over. Several of the crates crash down on ${profile(npc, lib.articles.output(npc.descriptor))} and pin them down. Onlookers cry out for help as the person struggles beneath the weight of the cargo containers.`
+      }
+    },
+    carriage: {
+      exclusions (town) {
+        return town.population > 500
+      },
+      function () {
+        return 'An incredibly fancy looking carriage is rolling through the market with armed guards that are warning people to move out of the way. A second smaller carriage with an open top is following behind the first, and it is stuffed to the brim with expensive looking wares.'
+      }
+    },
+    tourist: {
+      exclusions (town) {
+        return town.population > 500 && town.roll.wealth > 20
+      },
+      function (town) {
+        const npc = createNPC(town, {
+          hasClass: false,
+          profession: 'tourist',
+          background: 'noble'
+        })
+        const goods = ['maps', 'cheese wheels', 'fried mutton', 'local art', 'pottery', 'merchant bags', 'apples', 'swords', 'erotic novels']
+        const location = ['bathroom', 'library', 'tavern', 'brothel', 'stable', 'temple', 'general store', 'inn']
+        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is wandering about, looking very lost, and out of place with ${npc.hisher} wide brimmed hat and colourful shirt. ${npc.heshe.toUpperFirst()} is carrying a comically large amount of ${lib.random(goods)} in ${npc.hisher} arms. The ${npc.descriptor} seems to be asking people for directions to the nearest ${lib.random(location)}.`
       }
     }
   }
