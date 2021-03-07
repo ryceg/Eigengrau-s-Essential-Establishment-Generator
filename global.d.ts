@@ -10,7 +10,7 @@ declare const lib: typeof import('./lib/index')
  * Plugins & global functions.
  */
 
-declare function tippy(selector: string | NodeList, options?: any): any
+declare function tippy(selector: string | NodeList | HTMLElement, options?: any): any
 
 /*
  * NodeJS

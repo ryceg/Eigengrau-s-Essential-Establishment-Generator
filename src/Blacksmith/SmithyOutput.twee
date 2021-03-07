@@ -4,7 +4,7 @@
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to setup.smithy.get.customers>>
-<span class="interactive-only"<h1>$building.name</h1></span>
+<span class="interactive-only"><h1>$building.name</h1></span>
 <</nobr>><<include "TownMicroEventsOutput">><section><<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name and see that inside, the $building.structure.smithyDescriptor is $building.size. <<print lib.closestMatch(setup.smithy.get.lookAround($building), 'note', 'cleanliness', 'wealth', $building.roll.cleanliness, $building.roll.wealth)>> There is a blacksmith currently <<print $associatedNPC.idle.random()>>.
 <<print lib.closestMatch(setup.smithy.get.expertise($building), 'note', 'expertise', 'wealth', $building.roll.expertise, $building.roll.wealth)>></section>
 

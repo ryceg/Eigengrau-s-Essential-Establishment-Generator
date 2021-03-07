@@ -1,2 +1,0 @@
-:: BuildingLink
-\<<set _building.tooltip = _building.key>><<profile _building>>

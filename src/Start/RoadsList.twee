@@ -14,7 +14,7 @@
     \<<if _building.needsWordNoun>>
       \the _building.wordNoun 
     \<</if>>
-    \<<include "BuildingLink">></p><<set _previousBuilding to _building>><</capture>>
+    \<<profile _building>></p><<set _previousBuilding to _building>><</capture>>
   \<</for>>
   \<</capture>>
 \<</for>>

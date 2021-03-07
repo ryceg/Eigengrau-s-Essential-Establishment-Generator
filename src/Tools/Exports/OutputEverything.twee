@@ -3,7 +3,7 @@
   <<option "GMBinder">>
   <<option "Foundry">>
   <<option "Raw JSON">>
-<</listbox>></label> -- <span class="tip" title="This can take a while."><<button "Export">>
+<</listbox>></label> -- <span class="tip" data-tippy-content="This can take a while."><<button "Export">>
 <<run setup.addGtagEvent({
   event_category: 'export',
   event_action: 'loaded',

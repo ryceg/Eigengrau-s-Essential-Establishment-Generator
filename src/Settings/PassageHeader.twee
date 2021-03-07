@@ -3,4 +3,5 @@
 <header id="passage-header">
   <<include "Breadcrumb">>
 </header>
+<<timed 0s>><<run lib.addTippyAccessibility()>><</timed>>
 <</nobr>>

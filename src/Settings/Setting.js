@@ -1,6 +1,67 @@
 document.cookie = 'SameSite=Strict'
+Config.cleanupWikifierOutput = true
 
 Setting.addHeader('Content Settings')
+
+Setting.addToggle('darkMode', {
+  label: 'Dark Mode?',
+  onInit: settingDarkMode,
+  onChange: settingDarkMode,
+  default: window.matchMedia('(prefers-color-scheme: dark)').matches
+})
+
+Setting.addToggle('showTutorial', {
+  label: 'Show tutorial?',
+  onChange: settingShowTutorial
+})
+
+Setting.addToggle('showCelsius', {
+  label: 'Show celsius?'
+})
+
+Setting.addToggle('showMetric', {
+  label: 'Show metric?'
+})
+
+Setting.addToggle('showBiomeGeneration', {
+  label: 'Edit biome before generation?',
+  desc: 'If you want to specify the biome and demographics before town creation, enable this.',
+  onChange: settingShowBiomeGeneration
+})
+
+Setting.addToggle('showSliders', {
+  label: 'Show sliders?',
+  desc: 'If you would like to change the variables of buildings, enable this. Warning: feature is in beta.'
+})
+
+Setting.addToggle('silverStandard', {
+  label: 'Silver Standard?',
+  desc: 'This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.'
+})
+
+Setting.addToggle('ignoreGender', {
+  label: 'Ignore gender?',
+  desc: 'If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.',
+  onChange: settingIgnoreGender
+})
+
+Setting.addToggle('forceOneColumn', {
+  label: 'Force one column?',
+  desc: 'Force one column for larger screens.',
+  onChange: settingForceOneColumn
+})
+
+Setting.addToggle('hideAds', {
+  label: 'Hide ads?',
+  desc: 'This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).',
+  onChange: settingHideAds
+})
+
+Setting.addToggle('disableAnalytics', {
+  label: 'Disable analytics?',
+  desc: 'We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!',
+  onChange: settingDisableAnalytics
+})
 
 if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
@@ -80,6 +141,10 @@ function settingForceOneColumn () {
   if (settings.forceOneColumn !== forceOneColumn) {
     State.metadata.set('forceOneColumn', settings.forceOneColumn)
   }
+  addOneColumn()
+}
+
+function addOneColumn () {
   if (settings.forceOneColumn) {
     jQuery('html').addClass('force-one-column')
   } else {
@@ -87,53 +152,13 @@ function settingForceOneColumn () {
   }
 }
 
-Setting.addToggle('showTutorial', {
-  label: 'Show tutorial?',
-  onChange: settingShowTutorial
-})
+function settingDarkMode () {
+  const $html = jQuery('html')
 
-Setting.addToggle('showCelsius', {
-  label: 'Show celsius?'
-})
-
-Setting.addToggle('showMetric', {
-  label: 'Show metric?'
-})
-
-Setting.addToggle('showBiomeGeneration', {
-  label: 'Edit biome before generation?',
-  desc: 'If you want to specify the biome and demographics before town creation, enable this.',
-  onChange: settingShowBiomeGeneration
-})
-
-Setting.addToggle('showSliders', {
-  label: 'Show sliders?',
-  desc: 'If you would like to change the variables of buildings, enable this. Warning: feature is in beta.'
-})
-
-Setting.addToggle('silverStandard', {
-  label: '<span id="silver" class="tip dotted" title="This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.">Silver Standard?</span>'
-})
-
-Setting.addToggle('ignoreGender', {
-  label: 'Ignore gender?',
-  desc: 'If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.',
-  onChange: settingIgnoreGender
-})
-
-Setting.addToggle('forceOneColumn', {
-  label: '<span id="oneColumn" class="tip dotted" title="Force one column for larger screens.">Force one column?</span>',
-  onChange: settingForceOneColumn
-})
-
-Setting.addToggle('hideAds', {
-  label: '<span id="ads" class="tip dotted" title="This is free, open-source software. Please consider supporting us- this option is available to give people a cleaner interface (for streaming, etc.).">Hide ads?</span>',
-  onChange: settingHideAds
-})
-
-Setting.addToggle('disableAnalytics', {
-  label: '<span id="analytics" class="tip dotted" title="We just use analytics to know how many people use the site, and what they find useful- nothing sinister, we swear!">Disable analytics?</span>',
-  onChange: settingDisableAnalytics
-})
-
+  if (settings.darkMode) {
+    $html.addClass('dark')
+  } else {
+    $html.removeClass('dark')
+  }
+}
 Setting.save()
