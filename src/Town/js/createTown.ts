@@ -1,4 +1,4 @@
-import { Town, TownBasics, TownRolls, TownType } from '@lib'
+import { BinaryGender, RollArray, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics) => {
   const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
@@ -91,7 +91,7 @@ export const createTown = (base: TownBasics) => {
     //   this._wealth = value
     // },
     roads: {},
-    dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']),
+    dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']) as BinaryGender,
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)
     reuseNpcProbability: 0,
     roll: {
@@ -113,15 +113,15 @@ export const createTown = (base: TownBasics) => {
     }
   }, base)
   lib.townDemographics(town)
-  town.professions = lib.fetchProfessions(town)
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  town.professions = professions
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
-
-  // TODO: Make town religion deities a little more solid.
-  town.religion.deity = lib.religion.saint.random()
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
@@ -154,7 +154,7 @@ export const createTown = (base: TownBasics) => {
     assignPoliticalModifiers(town)
   }
 
-  setup.createSocioPolitics(town)
+  setup.createSocioPolitics(town as unknown as Town)
 
   lib.clampRolls(town.roll)
 
@@ -162,16 +162,23 @@ export const createTown = (base: TownBasics) => {
     town.roll.equality = 100
   }
 
-  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender].rolls, 'equality', 'equality', 1)
-  lib.defineRollDataGetter(town, lib.townData.rollData.equality[town.dominantGender].rolls, 'equalityDescription', 'equality', 2)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const genderRollData = lib.townData.rollData.equality[town.dominantGender] as TownRollData
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  lib.defineRollDataGetter(town, genderRollData.rolls as RollArray, 'equality', 'equality', 1)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  lib.defineRollDataGetter(town, genderRollData.rolls as RollArray, 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = lib.getTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
-  lib.setMaterialProbability(town, possibleMaterials)
+  lib.setMaterialProbability(town as unknown as Town, possibleMaterials)
   setup.createStartBuildings(town)
   setup.createStartFactions(town)
-  setup.findPoliceSource(town)
+  setup.findPoliceSource(town as unknown as Town)
   town.generated = 'full'
-  lib.townRender(town)
+  lib.townRender(town as unknown as Town)
 
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
