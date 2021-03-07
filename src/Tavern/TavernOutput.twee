@@ -1,5 +1,5 @@
 :: TavernOutput [tavern]
-\<div id="illustration-buffer"><img id="illustration" src=./src/Resources/img/hero/tavern-illustration.jpg></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+\<div id="illustration-buffer"><<print lib.getIllustration('tavern-illustration', 'A picture of a tavern at nighttime, with several silhouettes cavorting inside')>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
 \<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 \<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 \<<set $currentPassage.availableRelationships to setup.tavern.get.customers>>
