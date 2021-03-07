@@ -66,8 +66,6 @@ export interface Town extends TownBasics {
     land: number
     tithe: number
   }
-  wealth: string
-  _wealth: string
   reuseNpcProbability: number
   guard: Faction
   professions: Record<string, Profession & {

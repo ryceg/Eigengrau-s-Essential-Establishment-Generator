@@ -1,9 +1,9 @@
-import { Town, TownBasics } from '@lib'
+import { Town, TownBasics, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics) => {
   const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
   const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
-  const season = base.season || lib.random(['summer', 'autumn', 'winter', 'spring'])
+  const season = base.currentSeason || lib.random(['summer', 'autumn', 'winter', 'spring'])
   const townName = base.name || setup.createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
@@ -23,11 +23,7 @@ export const createTown = (base: TownBasics) => {
       tithe: 1
     },
     get type () {
-      return setup.getTownType(this)
-    },
-    set type (value) {
-      console.log('Setting town type.')
-      this._type = value
+      return getTownType(this)
     },
     // type: type,
     terrain,
@@ -43,41 +39,6 @@ export const createTown = (base: TownBasics) => {
     buildingRelations: [],
     npcRelations: {},
     population: lib.townData.type[type].population(),
-    _demographicPercentile: {},
-    get baseDemographics () {
-      return this._baseDemographics
-    },
-    set baseDemographics (newDemographics) {
-      console.log('Setting base demographics. Old:')
-      console.log(this._baseDemographics)
-      console.log('New:')
-      console.log(newDemographics)
-      if (!this._baseDemographics) this._baseDemographics = {}
-      Object.keys(newDemographics).forEach(byRace => {
-        this._baseDemographics[byRace] = newDemographics[byRace]
-      })
-      console.log('Updated:')
-      console.log(this._baseDemographics)
-      // console.log(this.demographicPercentile)
-    },
-    get demographicPercentile () {
-      console.log('Getting demographic percent.')
-
-      // Get an array of the demographic keys (race names).
-      const races = Object.keys(this.baseDemographics)
-
-      // Calculate the sum of the raw demographic values.
-      const sum = races
-        .map(byRace => this.baseDemographics[byRace])
-        .reduce((acc, cur) => acc + cur, 0)
-
-      // Calculate the demographic percentages.
-      races.forEach(byRace => {
-        this._demographicPercentile[byRace] = this.baseDemographics[byRace] / sum * 100
-      })
-      return this._demographicPercentile
-    },
-    set demographicPercentile (data) { console.warn('Setter for demographicPercentile is not a thing. Chucking out the following data:', data) },
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
@@ -112,20 +73,23 @@ export const createTown = (base: TownBasics) => {
         return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription
       }
     },
-    get wealth () {
-      let wealth = lib.townData.rollData.wealth.rolls.find(descriptor => {
-        return descriptor[0] <= this.roll.wealth
-      })
-      if (wealth === undefined) {
-        console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
-        wealth = lib.townData.rollData.wealth.rolls[lib.townData.rollData.wealth.rolls.length - 1]
-      }
-      this._wealth = wealth[1]
-      return this._wealth
-    },
-    set wealth (value) {
-      this._wealth = value
-    },
+    // get wealth () {
+    //   const rollData = lib.townData.rollData.wealth as TownRollData
+    //   if (rollData) {
+    //     let wealth = rollData.rolls.find(descriptor => {
+    //       return descriptor[0] <= this.roll.wealth
+    //     })
+    //     if (wealth === undefined) {
+    //       console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
+    //       wealth = lib.townData.rollData.wealth.rolls[lib.townData.rollData.wealth.rolls.length - 1]
+    //     }
+    //     this._wealth = wealth[1]
+    //     return this._wealth
+    //   }
+    // },
+    // set wealth (value) {
+    //   this._wealth = value
+    // },
     roads: {},
     dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']),
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)
@@ -212,10 +176,10 @@ export const createTown = (base: TownBasics) => {
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
   console.log(town)
-  return town as Town
+  return town as unknown as Town
 }
 
-setup.getTownType = town => {
+const getTownType = (town: TownBasics): TownType => {
   if (town.population > 6000) return 'city'
   if (town.population > 3000) return 'town'
   if (town.population > 1000) return 'village'
@@ -227,37 +191,31 @@ setup.getTownType = town => {
     town.population = 30
     return 'hamlet'
   }
+  return 'village'
 }
 
-/**
- * @param {number} nominalTarget
- * @param {number} economics
- */
-function calculateTax (nominalTarget, economics) {
+function calculateTax (nominalTarget: number, economics: number) {
   return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
 }
 
-/** @param {Town} town */
-function assignSizeModifiers (town) {
+function assignSizeModifiers (town: TownBasics) {
   console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
-/** @param {Town} town */
-function assignEconomicModifiers (town) {
+function assignEconomicModifiers (town: TownBasics) {
   console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
-/** @param {Town} town */
-function assignPoliticalModifiers (town) {
+function assignPoliticalModifiers (town: TownBasics) {
   console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 
-/** @param {Town} town */
-function assignRollModifiers (town, modifiers) {
+function assignRollModifiers (town: TownBasics, modifiers: Record<TownRolls, number>) {
   for (const [key, modifier] of Object.entries(modifiers)) {
-    town.roll[key] = lib.fm(town.roll[key], modifier)
+    const roll = key as TownRolls
+    town.roll[roll] = lib.fm(town.roll[roll], modifier)
   }
 }

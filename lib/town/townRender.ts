@@ -6,7 +6,6 @@ export function townRender (town: Town) {
 
   town.roll.guardFunding = 0
 
-  town.wealth = getTownWealth(town)
   const police = getPolice(town.factions)
   console.log(police)
   switch (police.type) {
@@ -96,9 +95,7 @@ export function townRender (town: Town) {
   return town
 }
 
-function getTownWealth (town: Town) {
-  const roll = town.roll.wealth
-
+export function getTownWealth (roll: number) {
   if (roll > 95) return 'kingly'
   if (roll > 90) return 'aristocratic'
   if (roll > 80) return 'wealthy'

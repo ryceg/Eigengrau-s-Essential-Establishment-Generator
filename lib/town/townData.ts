@@ -110,7 +110,7 @@ interface Monarchy {
     description: string
   }
 }
-interface TownRollData {
+export interface TownRollData {
   tooltip: string
   preceding: string
   isHidden?: boolean
