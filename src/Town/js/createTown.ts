@@ -4,9 +4,13 @@ export const createTown = (base: TownBasics) => {
   const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
   const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
   const season = base.currentSeason || lib.random(['summer', 'autumn', 'winter', 'spring'])
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const townName = base.name || setup.createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   if (!base) base = setup.createTownBiome()
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
@@ -178,7 +182,11 @@ export const createTown = (base: TownBasics) => {
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = lib.getTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
   lib.setMaterialProbability(town as unknown as Town, possibleMaterials)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   setup.createStartBuildings(town)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   setup.createStartFactions(town)
   setup.findPoliceSource(town as unknown as Town)
   town.generated = 'full'
