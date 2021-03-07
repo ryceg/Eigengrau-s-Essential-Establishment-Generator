@@ -2,6 +2,7 @@ import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
 
+export type BinaryGender = 'man' | 'woman'
 export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
 
 interface GenderPronouns {
