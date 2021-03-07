@@ -150,6 +150,34 @@ export const marketEvent: MarketEventData = {
         const location = ['bathroom', 'library', 'tavern', 'brothel', 'stable', 'temple', 'general store', 'inn']
         return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is wandering about, looking very lost, and out of place with ${npc.hisher} wide brimmed hat and colourful shirt. ${npc.heshe.toUpperFirst()} is carrying a comically large amount of ${lib.random(goods)} in ${npc.hisher} arms. The ${npc.descriptor} seems to be asking people for directions to the nearest ${lib.random(location)}.`
       }
+    },
+    doomsayer: {
+      exclusions (town) {
+        return town.roll.wealth > 20
+      },
+      function (town) {
+        const npc = createNPC(town, {
+          hasClass: false,
+          ageStage: 'elderly',
+          background: 'commoner',
+          profession: 'town crier'
+        })
+        const prediction = ['the world was going to end', 'the town was going to be swallowed by the earth', 'a famine was going to sweep across the land', 'the town was going to burn to the ground', 'magic was going to cease to exist', 'the sky was going to fall on us all', 'the oceans were going to dry up', 'all the trees were going to wilt and die', 'swarms of locust were going to descend on the land', 'the whole world was going to flood']
+        return `An exasperated ${profile(npc, `haggard old ${npc.manwoman}`)} is trying to convince passerby’s that god had told ${npc.himher} ${lib.random(prediction)}. ${npc.heshe.toUpperFirst()}’s not entirely sure what ${npc.heshe} is supposed to do about it.`
+      }
+    },
+    guardHunt: {
+      function (town) {
+        const npc1 = createNPC(town, {
+          hasClass: false,
+          background: 'commoner',
+          profession: 'guard'
+        })
+        const npc2 = createNPC(town, {
+          background: 'criminal'
+        })
+        return `A ${profile(npc1, 'guard')} is walking through the market showing off a wanted poster with an image of ${profile(npc2, lib.articles.output(npc2.descriptor))}. The guard seems to be questioning shoppers about their knowledge of the person on the poster.`
+      }
     }
   }
 }
