@@ -3,11 +3,10 @@
 <<run console.log("Hello world!")>>
 <<run setup.urlSeed()>>
 <<run setup.init()>>
-<<set $data to {
-	isPatreon: [true, false].random(),
-	versionNumber: "2.7"
-}>>
+
 <<set setup.data to {
+	isPatreon: [true, false].random(),
+	versionNumber: "2.7",
 	badges: {
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
@@ -31,7 +30,8 @@
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
-<<set $tempTown to setup.createTownBiome()>>
+
+<<set $town to setup.createTownBiome()>>
 
 <<if State.metadata.get("showTutorial") is true>>
 	<<set Config.passages.start = "Welcome">>
@@ -40,7 +40,7 @@
 			<<set Config.passages.start = "BiomeGeneration">>
 		<<else>>
 			<<set Config.passages.start = "Start">>
-			<<set $town to setup.createTown($tempTown)>>
+			<<set $town to setup.createTown($town)>>
 	<</if>>
 <</if>>
 

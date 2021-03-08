@@ -2,7 +2,7 @@
 :: StoryAuthor
 
 [img[sidebarbanner]]
-<span class="version">v[[$data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
+<span class="version">v[[ setup.data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
 Created by /u/rcgy
 
 <<nobr>><<if settings.hideAds !== true>>

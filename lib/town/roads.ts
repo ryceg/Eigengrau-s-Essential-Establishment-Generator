@@ -1,9 +1,7 @@
-import { createTippyFull, toTitleCase, townData } from '../'
+import { createNamesake, createTippyFull, toTitleCase, townData } from '../'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
-import { createName } from '../npc-generation/createName'
-import { fetchRace } from '../npc-generation/fetchRace'
 import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
@@ -12,7 +10,6 @@ import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { random } from '../src/random'
-import { fetchGender } from '../src/genderData'
 import { Town } from './_common'
 import { Namesake } from '../npc-generation/_common'
 
@@ -256,14 +253,7 @@ export const roads = {
         lastName: 2
       } as WeightRecord<RoadNameType>
       const selected = weightRandom(probabilities)
-      const race = fetchRace(town)
-      const gender = fetchGender(town)
-      const namesake = {
-        race,
-        gender,
-        firstName: createName({ race, firstOrLast: 'firstName' }),
-        lastName: createName({ race, firstOrLast: 'lastName' })
-      }
+      const namesake = createNamesake(town)
       console.log('selected ', selected)
       let road: ProperNoun
       switch (selected) {
