@@ -177,8 +177,8 @@ export interface NpcRelationship {
 }
 
 export interface Namesake {
-  firstName?: string
-  lastName?: string
+  firstName: string
+  lastName: string
   gender: GenderName
   race: RaceName
   profession?: ProfessionName
