@@ -85,6 +85,7 @@ export * from './npc-generation/professionTraits'
 export * from './npc-generation/raceTraits'
 export * from './npc-generation/setAge'
 export * from './npc-generation/setRace'
+export * from './npc-generation/swapNPCs'
 export * from './npc-generation/npcFinances'
 
 export * from './src/articles'
