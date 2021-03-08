@@ -35,7 +35,7 @@ import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
-import { createTown } from './Town/js/createTown'
+import { createTown, getTownType } from './Town/js/createTown'
 
 declare global {
   interface Setup {
@@ -82,6 +82,7 @@ declare global {
     createTownBiome: typeof createTownBiome
     createTownName: typeof createTownName
     createTown: typeof createTown
+    getTownType: typeof getTownType
   }
 }
 
@@ -128,7 +129,8 @@ Object.assign(setup, {
   plothooks,
   createTownBiome,
   createTownName,
-  createTown
+  createTown,
+  getTownType
 })
 
 /**

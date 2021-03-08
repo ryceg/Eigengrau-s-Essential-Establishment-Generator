@@ -197,7 +197,7 @@ export const createTown = (base: TownBasics) => {
   return town as unknown as Town
 }
 
-const getTownType = (town: TownBasics): TownType => {
+export const getTownType = (town: TownBasics): TownType => {
   if (town.population > 6000) return 'city'
   if (town.population > 3000) return 'town'
   if (town.population > 1000) return 'village'
