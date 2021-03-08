@@ -33,6 +33,7 @@ export interface TownBasics {
   _type: TownType
   location: string
   population: number
+  professions: Record<string, TownProfessions>
   ignoreGender: boolean
   dominantGender: GenderName
   roll: Record<TownRolls, number>
@@ -73,7 +74,6 @@ export interface Town extends TownBasics {
   }
   reuseNpcProbability: number
   guard: Faction
-  professions: Record<string, TownProfessions>
   religion: {
     deity: string
   }

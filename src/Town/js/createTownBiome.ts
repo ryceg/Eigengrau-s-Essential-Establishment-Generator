@@ -93,6 +93,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
     base
   ) as TownBasics
   lib.townDemographics(town)
+  town.professions = lib.fetchProfessions(town)
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource

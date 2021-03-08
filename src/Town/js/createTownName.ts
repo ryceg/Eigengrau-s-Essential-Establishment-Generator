@@ -12,7 +12,7 @@ export const createTownName = function (town: TownBasics | Town) {
       const npc = setup.createDeadNPC(town, { note: 'The namesake of the town.' })
       if (town.founder) setup.deleteNPC(town.founder)
       town.founder = npc.key
-      name = npc + lib.random(suffix)
+      name = lib.random([npc.firstName, npc.lastName]) + lib.random(suffix)
     } else {
       name = lib.random(lib.raceTraits.human.lastName) + lib.random(suffix)
     }
