@@ -33,6 +33,9 @@ export const createTown = (base: TownBasics) => {
       // @ts-ignore
       return getTownType(this)
     },
+    set type (type) {
+      console.log('type unnecessary')
+    },
     // type: type,
     terrain,
     currentSeason: season,
@@ -121,10 +124,6 @@ export const createTown = (base: TownBasics) => {
     }
   }, base)
   lib.townDemographics(town)
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  town.professions = professions
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
