@@ -1,6 +1,5 @@
 :: ShipProfile
 <<set $currentShip to $building.ships[$currentPassage.shipKey]>><h1>$currentShip.name</h1>This is the $currentShip.type $currentShip.name. It has a crew of $currentShip.crewMen and is commanded by $currentShip.captainType, <<print setup.profile($currentShip.captain)>>.
-
 \<<if $currentShip.masts === 1>>\
   The ship has one mast, which is $currentShip.rigging rigged
   \<<elseif $currentShip.masts > 1>>\
