@@ -3,7 +3,7 @@
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $building.associatedNPC>>
 <<set $currentPassage.availableRelationships to setup.brothelData.customers>>
-<span class="interactive-only"><h1>$building.name</h1></span>
+<h1 class="interactive-only">$building.name</h1>
 <<include "TownMicroEventsOutput">><</nobr>>
 <section><<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
 When people talk about $building.name, they say $building.talk. Apparently, it specialises in $building.specialty.

@@ -1,5 +1,5 @@
 :: TownSquareOutput
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><span class="interactive-only"><h1>The Town Square</h1></span><section><<print lib.firstCharacter("You're")>> in the town square. It's $building.size, and $building.cleanliness. It features $building.feature As you <<print setup.townSquare.passageData.enter.random()>>, you see <<print lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1 class="interactive-only">The Town Square</h1><section><<print lib.firstCharacter("You're")>> in the town square. It's $building.size, and $building.cleanliness. It features $building.feature As you <<print setup.townSquare.passageData.enter.random()>>, you see <<print lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>>
 There's <<print lib.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it.</section>
 <span class="interactive-only"><<button "Who else is there?">>
 <<if def $building.associatedNPC>>

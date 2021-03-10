@@ -1,7 +1,7 @@
 :: FactionProfile
 \<<set $currentPassage to $town.factions[$currentPassage.key]>><<set $currentFaction to $town.factions[$currentPassage.key]>><<run console.log($currentPassage)>>
 \<<set $currentPassage.availableRelationships to lib.factionData.types[$currentPassage.type].members.professions>>
-\<span class="interactive-only"><h1>$currentPassage.name</h1></span>
+\<h1 class="interactive-only">$currentPassage.name</h1>
 \<<button "Edit $currentPassage.name" FactionSliders>>
     <<run setup.history($currentPassage, "FactionSliders", "Editing " + $currentPassage.name)>>
   <</button>>
