@@ -521,7 +521,7 @@ sub {
 
 /* First Letter after H1 */
 
-h1+p::first-letter {
+h1+ p::first-letter {
     float:          left;
     font-family:    Solbera Imitation;
     font-size:      10em;

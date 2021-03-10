@@ -9,4 +9,4 @@
 <<include "CastleDungeon">>
 <<details "BuildingRelationshipsTable" "Relationships">>
 <<button "Create a historical siege">><<set $building.siege to setup.castle.siege.create($town)>><<update>><</button>>
-<span id="siege"><<liveblock>><<if $building.siege>><section class='descriptive'><h3>$building.siege.name</h3> $building.siege.readout</section><</if>><</liveblock>></span>
+<span id="siege"><<liveblock>><<if $building.siege>><section class='descriptive'><h3>$building.siege.name</h3>$building.siege.readout</section><</if>><</liveblock>></span>

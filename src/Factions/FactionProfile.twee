@@ -5,10 +5,10 @@
 \<<button "Edit $currentPassage.name" FactionSliders>>
     <<run setup.history($currentPassage, "FactionSliders", "Editing " + $currentPassage.name)>>
   <</button>>
-<section><<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.</section>
+<p><<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.</p>
 <<if $currentPassage.isPolicing>><<include "PolicingFaction">><</if>>
 <<include "FactionGovernance">>
-<section><h3>Members</h3>Members of $currentPassage.name are identifiable by $currentPassage.membersTrait. Membership requires $currentPassage.joiningRequirement, and costs $currentPassage.joiningFee. The initiation into $currentPassage.name involves $currentPassage.joiningInitiation.</section>
+<p><h3>Members</h3>Members of $currentPassage.name are identifiable by $currentPassage.membersTrait. Membership requires $currentPassage.joiningRequirement, and costs $currentPassage.joiningFee. The initiation into $currentPassage.name involves $currentPassage.joiningInitiation.</p>
 <<linkreplace "<h4>Create Members</h4>" t8n>><<include "CreateFactionNpc">><</linkreplace>>
 <<include "FactionRelationshipsTable">>
 <<include "FactionResources">>

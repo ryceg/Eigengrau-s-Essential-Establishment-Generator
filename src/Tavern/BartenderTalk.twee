@@ -1,5 +1,5 @@
 :: BartenderTalk
-<<linkreplace "<h4>Talk with $associatedNPC.name</h4>" t8n>><<nobr>>
+<<linkreplace "<h4>Talk with $associatedNPC.name</h4>" t8n>><<nobr>><p>
 <<set _shortage to random(1, 10)>>
 	<<if $building.roll.wealth gt 80>>
 		<<set _shortage += 4>>
@@ -38,8 +38,8 @@
 	<<elseif _shortage lte 4>>
 		<<set _talk to "Well, business could be better. We've got a bit of a shortage on <<print $building.shortages.random()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">>
 <</if>><</nobr>><h3>$associatedNPC.name</h3>
-$associatedNPC.name looks <<print $associatedNPC.currentMood.random()>>, but seems pleased with the welcome distraction from the patrons, who $associatedNPC.heshe tells you are for the most part <<print lib.articles.output(lib.getTavernSin($building))>> lot. $associatedNPC.firstName pours $associatedNPC.himherself a drink while you talk with the $associatedNPC.weight $associatedNPC.manwoman about the regular goings on in $town.name, and $building.name, and $associatedNPC.firstName says "_talk"
+$associatedNPC.name looks <<print $associatedNPC.currentMood.random()>>, but seems pleased with the welcome distraction from the patrons, who $associatedNPC.heshe tells you are for the most part <<print lib.articles.output(lib.getTavernSin($building))>> lot. $associatedNPC.firstName pours $associatedNPC.himherself a drink while you talk with the $associatedNPC.weight $associatedNPC.manwoman about the regular goings on in $town.name, and $building.name, and $associatedNPC.firstName says "_talk"</p>
 <span class="interactive-only"><<linkreplace "Talk more with $associatedNPC.name" t8n>>
-$associatedNPC.firstName tells you that $associatedNPC.heshe <<print ["loves working in $building.name", "hates working in $building.name", "finds working in the $building.wordNoun boring", "finds working in the $building.wordNoun fun"].random()>>. $associatedNPC.firstName says "Before I took over $building.name, I was <<print lib.articles.output($associatedNPC.background)>>. $associatedNPC.backgroundOrigin <<if $associatedNPC.profession isnot "bartender">>Then, I took up adventuring as <<print lib.articles.output($associatedNPC.profession)>>;<</if>> $associatedNPC.professionOrigin
+<p>$associatedNPC.firstName tells you that $associatedNPC.heshe <<print ["loves working in $building.name", "hates working in $building.name", "finds working in the $building.wordNoun boring", "finds working in the $building.wordNoun fun"].random()>>. $associatedNPC.firstName says "Before I took over $building.name, I was <<print lib.articles.output($associatedNPC.background)>>. $associatedNPC.backgroundOrigin <<if $associatedNPC.profession isnot "bartender">>Then, I took up adventuring as <<print lib.articles.output($associatedNPC.profession)>>;<</if>> $associatedNPC.professionOrigin</p>
 <</linkreplace>></span>
 <</linkreplace>>
