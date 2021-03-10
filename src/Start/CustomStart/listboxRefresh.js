@@ -24,5 +24,5 @@ $('body').on('change', '.auto-update select', () => {
 
 $(document).on(':passageend', () => {
   lib.addTippyAccessibility()
-  tippy('.tip')
+  // tippy('.tip')
 })
