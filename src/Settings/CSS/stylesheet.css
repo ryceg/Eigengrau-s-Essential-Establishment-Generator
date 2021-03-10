@@ -493,9 +493,7 @@ margin-top:         -0.8em;}
 
 /* Text Indentation */
 
-p+p,
-ul+p,
-ol+p {
+#passages p+p, ul+p, ol+p {
     text-indent:    1em
 }
 
