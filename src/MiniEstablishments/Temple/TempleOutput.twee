@@ -7,7 +7,6 @@
 <section><<print lib.firstCharacter("You")>> come across $building.structure.templeDescriptor. $building.guardReadout
 $building.interiorReadout</section>
 <section>$building.aboutReadout</section>
-
 <section><h3>Priest</h3>
 $building.priestLook. The priest greets you, and introduces $associatedNPC.himherself as <<profile $associatedNPC>>. $building.priestChat.</section>
 <section><<linkreplace "<h4>Get Temple Blessing</h4>" t8n>><h6>Blessing</h6>
@@ -32,6 +31,5 @@ $building.priestLook. The priest greets you, and introduces $associatedNPC.himhe
     }
 }>>
 <<shop $building, _selling>>
-
 <</linkappend>><</nobr>>
 <<details "CreateNewNpc" "Church Attendees">>

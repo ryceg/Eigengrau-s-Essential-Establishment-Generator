@@ -11,7 +11,6 @@
 <<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to lib.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to lib.market.vendors.tent.random()>>
 <<update>>
 <</link>><<liveblock>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>><</liveblock>></span>
-
 <span class="interactive-only">A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
 <label name="Type of magic" for="listbox-buildingmagicselection"><<listbox "$building.magicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
@@ -34,6 +33,5 @@
       <<replace "#magic">><div class='descriptive'><h3>$building.magic.name</h3>$building.magic.description</div><</replace>>
   <</switch>>
 <</button>>
-
 <span id="magic"></span>
 </span>

@@ -21,9 +21,6 @@
 <</liveblock>>
 <</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>
-
-
-
 <table>
   <tr>
     <th>Attribute Slider</th>
@@ -40,7 +37,6 @@
 <tr><td class="tip" data-tippy-content="How sexist is their society?">Sexist (in favour of <span class="tip" data-tippy-content="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Town dominant gender" for="listbox-temptowndominantgender"><<listbox "$tempTown.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$tempTown.roll.equality" $tempTown.roll.equality 1 100 1>></td></tr>
 </table>
 ----
-
 <<liveblock>><<run lib.updateDemographics($tempTown, $tempTown._baseDemographics)>>$tempTown.name is a <<print setup.getTownType($tempTown)>> comprised <<print lib.getPredominantRace($tempTown._demographicPercentile).amountDescriptive>>.
 <span class="races-slider"><span class="tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$tempTown.population" $tempTown.population 30 12000 10>></span></span>
 <<nobr>><table class="sortable">
@@ -59,6 +55,5 @@
     </tr>
 <</for>>
 </table><</nobr>><</liveblock>>
-
 <<button "Save Changes" Start>><<set $town to setup.createTown($tempTown)>>
 <</button>>

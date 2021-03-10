@@ -12,7 +12,6 @@
   <<default>>
   $associatedNPC.name says "Well, what is it you need? We can do just about anything for you.
 <</switch>><<print lib.closestMatch(lib.generalStore.get.priceTalk($building), 'priceTalk', 'priceModifier', 'wealth', '$building.priceModifier', '$building.roll.wealth')>>"</div>
-
 <<switch $town.type>>
   <<case "city">>
     <<set _availability to 4>>

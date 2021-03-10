@@ -1,7 +1,6 @@
 :: TavernSell [tavern]
 <<nobr>>
 <details><summary>Menu</summary><table>
-
 	<<if $building.roll.wealth > 60 && $building.roll.roughness < 30 or $building.roll.wealth > 60 && $associatedNPC.race === "elf">>
 			<<set _dietary to ["veg"]>>
 		<<elseif $building.roll.wealth > 60 && $building.roll.roughness > 80 or $building.roll.wealth > 60 && $associatedNPC.race === "half-orc">>
