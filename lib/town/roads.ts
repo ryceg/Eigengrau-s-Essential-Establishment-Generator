@@ -1,4 +1,4 @@
-import { createTippyFull, toTitleCase, townData } from '../'
+import { toTitleCase, townData } from '../'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
@@ -35,6 +35,7 @@ export interface Road {
   name: string
   /** The prefix- "King" of "King Street" */
   prefix: string
+  passageName: 'RoadProfile'
   key: string
   /** The string that is used as the Tippy. Collates a lot of the other data.
    * @example `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
@@ -184,6 +185,7 @@ export const roads = {
     const road = {
       prefix: capitalizeFirstLetter(roadPrefix.prefix),
       key: getUUID(),
+      passageName: 'RoadProfile',
       width,
       objectType: 'road' as const,
       feature,
@@ -340,13 +342,13 @@ export const roads = {
         precedingText (town: Town, road: Road) {
           const text = [
             {
-              function () { return `${createTippyFull(road.description, road.name)} houses` }
+              function () { return `<<profile '${road.key}'>> houses` }
             },
             {
-              function () { return `The former site of a building, the now clear ${createTippyFull(road.description, road.name)} is home to` }
+              function () { return `The former site of a building, the now clear <<profile '${road.key}'>> is home to` }
             },
             {
-              function () { return `There's a nice little square, ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `There's a nice little square, <<profile '${road.key}'>>, where there is` }
             }
           ]
           const result = weightedRandomFetcher(town, text, road, undefined, 'function')
@@ -370,9 +372,9 @@ export const roads = {
         ],
         precedingText (town: Town, road: Road) {
           const isTheRoad = random([
-            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. On it is`,
-            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}, on which is`,
-            `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}, where there is`
+            `is the ${road.wordNoun} <<profile '${road.key}'>>. On it is`,
+            `is the ${road.wordNoun} <<profile '${road.key}'>>, on which is`,
+            `is the ${road.wordNoun} <<profile '${road.key}'>>, where there is`
           ])
           const text = [
             {
@@ -397,13 +399,13 @@ export const roads = {
         wordNoun: 'cul-de-sac',
         precedingText (town: Town, road: Road) {
           const isTheRoad = random([
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Just near the end of the road is`,
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Perhaps twenty paces from the end of it is`,
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Near the end is`
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Just near the end of the road is`,
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Perhaps twenty paces from the end of it is`,
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Near the end is`
           ])
           const text = [
             {
-              function () { return `The street ${createTippyFull(road.description, road.name)} comes to an abrupt end, terminating in` }
+              function () { return `The street <<profile '${road.key}'>> comes to an abrupt end, terminating in` }
             },
             {
               function () { return `At the bottom of a hill ${isTheRoad}` }
@@ -424,16 +426,16 @@ export const roads = {
         wordNoun: 'road',
         precedingText (town: Town, road: Road) {
           const isTheRoad = random([
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Just near the end of the road is`,
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Perhaps twenty paces from the end of it is`,
-              `is the ${road.wordNoun} ${createTippyFull(road.description, road.name)}. Near the end is`
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Just near the end of the road is`,
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Perhaps twenty paces from the end of it is`,
+              `is the ${road.wordNoun} <<profile '${road.key}'>>. Near the end is`
           ])
           const text = [
             {
-              function () { return `The road ${createTippyFull(road.description, road.name)} twists around, with many turns. On the side is` }
+              function () { return `The road <<profile '${road.key}'>> twists around, with many turns. On the side is` }
             },
             {
-              function () { return `The road ${createTippyFull(road.description, road.name)} is quite windy indeed. Nestled in between a bend is` }
+              function () { return `The road <<profile '${road.key}'>> is quite windy indeed. Nestled in between a bend is` }
             },
             {
               function () { return `Snaking along ${isTheRoad}` }
@@ -452,10 +454,10 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `${createTippyFull(road.description, road.name)} is home to` }
+              function () { return `<<profile '${road.key}'>> is home to` }
             },
             {
-              function () { return `Slightly further afield is ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `Slightly further afield is <<profile '${road.key}'>>, where there is` }
             },
             {
               function () { return `Running parallel to other roads ${isTheRoad}` }
@@ -487,13 +489,13 @@ export const roads = {
         precedingText (town: Town, road: Road) {
           const text = [
             {
-              function () { return `${createTippyFull(road.description, road.name)} is a nice looking street, which houses` }
+              function () { return `<<profile '${road.key}'>> is a nice looking street, which houses` }
             },
             {
-              function () { return `There's a couple houses along ${createTippyFull(road.description, road.name)}, and nestled in between them is` }
+              function () { return `There's a couple houses along <<profile '${road.key}'>>, and nestled in between them is` }
             },
             {
-              function () { return `There's an island in the middle of ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `There's an island in the middle of <<profile '${road.key}'>>, where there is` }
             }
           ]
           const result = weightedRandomFetcher(town, text, road, undefined, 'function')
@@ -517,10 +519,10 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `${createTippyFull(road.description, road.name)} is a relatively shady looking alleyway, which houses` }
+              function () { return `<<profile '${road.key}'>> is a relatively shady looking alleyway, which houses` }
             },
             {
-              function () { return `Running alongside two rows of buildings is ${createTippyFull(road.description, road.name)}. One of the spaces is filled by` }
+              function () { return `Running alongside two rows of buildings is <<profile '${road.key}'>>. One of the spaces is filled by` }
             },
             {
               function () { return `There's a little alley, which ${isTheRoad}` }
@@ -544,10 +546,10 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `${createTippyFull(road.description, road.name)} looks to be residential. There is, however, ` }
+              function () { return `<<profile '${road.key}'>> looks to be residential. There is, however, ` }
             },
             {
-              function () { return `There's a couple houses along ${createTippyFull(road.description, road.name)}, and nestled in between them is` }
+              function () { return `There's a couple houses along <<profile '${road.key}'>>, and nestled in between them is` }
             },
             {
               function () { return `There's a little dead end for houses, which ${isTheRoad}` }
@@ -570,7 +572,7 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `Off a junction is ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `Off a junction is <<profile '${road.key}'>>, where there is` }
             },
             {
               function () { return `A side street in the ${town.type} leads to another, which in turn ${isTheRoad}` }
@@ -596,7 +598,7 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `In the heart of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `In the heart of the ${town.type} is <<profile '${road.key}'>>, where there is` }
             },
             {
               function () { return `In the centre of the ${town.type} ${isTheRoad}` }
@@ -626,7 +628,7 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `Further out of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `Further out of the ${town.type} is <<profile '${road.key}'>>, where there is` }
             },
             {
               function () { return `Out of the ${town.type} proper ${isTheRoad}` }
@@ -657,7 +659,7 @@ export const roads = {
           const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
           const text = [
             {
-              function () { return `Further out of the ${town.type} is ${createTippyFull(road.description, road.name)}, where there is` }
+              function () { return `Further out of the ${town.type} is <<profile '${road.key}'>>, where there is` }
             },
             {
               function () { return `Out of the ${town.type} proper ${isTheRoad}` }
@@ -745,7 +747,7 @@ export const roads = {
       const isTheRoad: string = roads.precedingText.isTheRoad(town, road)
       const text = [
         {
-          function () { return `The ${road.wordNoun} ${createTippyFull(road.description, road.name)} comes to an abrupt end, terminating in` }
+          function () { return `The ${road.wordNoun} <<profile '${road.key}'>> comes to an abrupt end, terminating in` }
         },
         {
           function () { return `At the bottom of a hill ${isTheRoad}` }
@@ -757,13 +759,13 @@ export const roads = {
           function () { return `Nearby ${isTheRoad}` }
         },
         {
-          function () { return `On ${createTippyFull(road.description, road.name)} is` }
+          function () { return `On <<profile '${road.key}'>> is` }
         },
         {
-          function () { return `Along ${createTippyFull(road.description, road.name)} is` }
+          function () { return `Along <<profile '${road.key}'>> is` }
         },
         {
-          function () { return `Over on ${createTippyFull(road.description, road.name)} is` }
+          function () { return `Over on <<profile '${road.key}'>> is` }
         },
         {
           function () { return `At the top of a small hill ${isTheRoad}` }
@@ -790,7 +792,7 @@ export const roads = {
         if (overrides.pre) pre = overrides.pre
         if (overrides.after) after = overrides.after
       }
-      return `${random(pre)} ${createTippyFull(road.description, road.name)}${random(after)} `
+      return `${random(pre)} <<profile '${road.key}'>>${random(after)} `
     }
   },
   width: {

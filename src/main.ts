@@ -33,6 +33,7 @@ import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { findViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
@@ -76,6 +77,7 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    findViaKey: typeof findViaKey
   }
 }
 
@@ -119,7 +121,8 @@ Object.assign(setup, {
   urlSeed,
   deleteFaction,
   leaderFaction,
-  plothooks
+  plothooks,
+  findViaKey
 })
 
 /**
