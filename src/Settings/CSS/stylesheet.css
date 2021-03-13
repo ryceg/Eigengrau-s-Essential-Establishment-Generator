@@ -361,13 +361,13 @@ footer {
   animation-duration: 4s;
   /* font-family: Bookinsanity;
   font-size: 18px; */
-  color: black;
+  color: var(--text-normal);
 }
 
 @keyframes highlightFade {
   
   from {background-color: #49A758;}
-  to {background-color: var(--text-normal);}
+  to {background-color: var(--background-primary);}
 }
 
 

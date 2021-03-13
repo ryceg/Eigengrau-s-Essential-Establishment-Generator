@@ -7,9 +7,8 @@ $currentPassage.description
 <</listbox>></label> -- <<button "Create New Building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding, { road: $currentPassage.key })>>
-  <<replace "#road-tables">><<include "RoadTables">><</replace>>
   <<update>>
-  <<run document.querySelector('.' + _latestBuilding.key).className = 'highlight'>>
+  <<run $('.' + _latestBuilding.key).parent().addClass('highlight')>>
   <</button>>
 </span>
-<span id='road-tables'><<include "RoadTables">></span><</liveblock>>
+<<include "RoadTables">><</liveblock>>
