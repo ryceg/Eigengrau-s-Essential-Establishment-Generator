@@ -1,0 +1,15 @@
+:: RoadProfile
+/* <<set $currentPassage to lib.findInContainer($town.roads, "key", $currentPassage.key)>> */
+<h1 class="interactive-only">$currentPassage.name</h1>
+$currentPassage.description
+
+<<liveblock>><span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
+<</listbox>></label> -- <<button "Create New Building">>
+  <<run console.log('Creating a new ' + $newBuilding)>>
+  <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding, { road: $currentPassage.key })>>
+  <<replace "#road-tables">><<include "RoadTables">><</replace>>
+  <<update>>
+  <<run document.querySelector('.' + _latestBuilding.key).className = 'highlight'>>
+  <</button>>
+</span>
+<span id='road-tables'><<include "RoadTables">></span><</liveblock>>

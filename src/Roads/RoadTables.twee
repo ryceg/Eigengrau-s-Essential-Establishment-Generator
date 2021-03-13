@@ -1,8 +1,5 @@
-:: RoadProfile
-/* <<set $currentPassage to lib.findInContainer($town.roads, "key", $currentPassage.key)>> */
-<h1 class="interactive-only">$currentPassage.name</h1>
-$currentPassage.description
-<<liveblock>><<nobr>>
+:: RoadTables
+<<nobr>>
 <<if Object.keys($currentPassage.inhabitants.buildings).length > 0>><table>
   <tr>
     <th>Name</th>
@@ -11,11 +8,11 @@ $currentPassage.description
     <th class="interactive-only">Delete</th>
   </tr>
 <<for _key, _throw range $currentPassage.inhabitants.buildings>><<set _building to lib.findInArray($town.buildings, 'key', _key)>><<capture _key, _building>>
-    <tr><td><<profile _building>></td>
+    <<if _building>><tr><td><<profile _building>></td>
     <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
     <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
     <td class="interactive-only"><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
-    </tr>
+    </tr><</if>>
   \<</capture>><<set _previousBuilding to _building>>
 <</for>>
-</table><</if>><</nobr>><</liveblock>>
+</table><</if>><</nobr>>
