@@ -36,11 +36,9 @@ setup.createTownBiome = (base = {}) => {
     // Clone the raw demographic data for the town type.
     // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
-      console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
-      console.log('Setting base demographics.')
       Object.keys(newDemographics).forEach(byRace => {
         this._baseDemographics[byRace] = newDemographics[byRace]
       })
