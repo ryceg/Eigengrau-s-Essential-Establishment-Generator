@@ -18,6 +18,8 @@
   --background-secondary-alt: #d4c8c8;
   --background-tertiary: #fffde2;
   --background-floating: #e6e6e6;
+  --monster-yellow: #FDF1DC;
+  --descriptive-yellow: #faf7ea;
 }
 
 html[data-theme="dark"], html.dark {
@@ -42,6 +44,7 @@ html[data-theme="dark"], html.dark {
   --background-secondary-alt: #292b2f;
   --background-tertiary: #202225;
   --background-floating: #18191c;
+  --descriptive-yellow: #4b483c;
 }
 
 body {
@@ -379,12 +382,14 @@ font-size: 20px;
 text-decoration: underline;
 text-decoration-color: var(--header-secondary);
 }
+
 .version{
- color: rgba(94, 72, 69, 0.651);
+ color: var(--text-muted);
  font-size: 16px;
 }
-#story-title{
-  display: none;
+
+#story-author {
+  margin-top: 0;
 }
 
 img, embed, object, video {
@@ -597,7 +602,7 @@ blockquote h5 {
 .descriptive {
     display:inline-block;
     margin-bottom:1em;
-    background-color:var(--blockquote-color);
+    background-color:var(--descriptive-yellow);
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
@@ -629,7 +634,7 @@ pre+.descriptive{
 descriptive {
     display:inline-block;
     margin-bottom:1em;
-    background-color:var(--blockquote-color);
+    background-color:var(--descriptive-yellow);
     font-family:ScalySans;
     border-style:solid;
     border-width:7px;
@@ -797,6 +802,10 @@ input#mce-EMAIL.required.email:hover {
 #ui-bar-toggle{
   color: var(--text-normal);
 	border-color: var(--background-primary);
+}
+
+#ui-bar-history {
+  display: none;
 }
 #ui-bar-history [id|="history"] {
 	color: var(--text-normal);
