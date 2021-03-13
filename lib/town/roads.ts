@@ -1,5 +1,5 @@
-import { toTitleCase, townData } from '../'
-import { getBuildingTier } from '../buildings/createBuilding'
+import { findInArray, toTitleCase, townData } from '../'
+import { getBuildingRoad, getBuildingTier } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
 import { createName } from '../npc-generation/createName'
@@ -160,9 +160,7 @@ export const roads = {
     }
 
     if (road && building) {
-      road.inhabitants.buildings[building.key] = building.type
-      road.currentOccupancy += building.roadSizeRequirement || Math.max(2, building.roll.size / 5)
-      building.road = road.key
+      roads.addBuilding(town, road, building)
     }
     console.log(road)
     console.groupEnd()
@@ -897,7 +895,24 @@ export const roads = {
         ]
       }
     } as Record<RoadMaterialType, RoadMaterial>
+  },
+  deleteInhabitant: (town: Town, road: Road, key: string) => {
+    if (Object.keys(road.inhabitants.buildings).contains(key)) roads.deleteBuilding(town, road, findInArray(town.buildings, 'key', key) as Building)
+    // if (Object.keys(road.inhabitants.factions).contains(key)) roads.deleteFaction(town, road, town.factions[key])
+  },
+  addBuilding: (town: Town, road: Road, building: Building) => {
+    road.currentOccupancy += building.roadSizeRequirement || Math.max(2, building.roll.size / 5)
+    road.inhabitants.buildings[building.key] = building.type
+    building.road = road.key
+  },
+  deleteBuilding: (town: Town, road: Road, building: Building) => {
+    road.currentOccupancy -= building.roadSizeRequirement || Math.max(2, building.roll.size / 5)
+    building.road = getBuildingRoad(building, town).key
   }
+  // deleteFaction: (town: Town, road: Road, faction: Faction) => {
+  // road.currentOccupancy -= faction.roadSizeRequirement || Math.max(2, faction.roll.size / 5)
+  // faction.road = getFactionRoad(faction, town).key
+  // }
 }
 
 const properNouns: Record<string, ProperNoun & { probability?: number }> = {

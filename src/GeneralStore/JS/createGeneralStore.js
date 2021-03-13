@@ -3,7 +3,7 @@ setup.createGeneralStore = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || lib.createBuilding
   const createShopkeep = opts.newShopkeep || setup.createNPC
 
-  const generalStore = createBuilding(town, 'generalStore')
+  const generalStore = createBuilding(town, 'generalStore', opts)
   console.groupCollapsed('General Store loading...')
   generalStore.associatedNPC = createShopkeep(town, Object.assign({
     profession: 'merchant',
