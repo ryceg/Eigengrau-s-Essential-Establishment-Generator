@@ -392,10 +392,6 @@ img, embed, object, video {
     min-width: auto;
 }
 
-.patreon {
-  padding: 1.5em;
-  width: 95%;
-}
 #passages button {
   border-radius: 4px;
 }
@@ -482,20 +478,20 @@ h6 {
 /* P */
 
 p {
-line-height:        1.75em;}
+line-height:        1.75em;
+}
 
 
 /* P+P */
 
-p+p {
-margin-top:         -0.8em;}
+#passages p+p {
+margin-top:         -0.8em;
+}
 
 
 /* Text Indentation */
 
-p+p,
-ul+p,
-ol+p {
+#passages p+p, #passages ul+p, #passages ol+p {
     text-indent:    1em
 }
 

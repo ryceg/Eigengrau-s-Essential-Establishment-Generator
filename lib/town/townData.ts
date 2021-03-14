@@ -6,6 +6,7 @@ import { WeightRecord } from '../types'
 import { PoliticalSource } from './_common'
 import { NPC } from '../npc-generation/_common'
 import { FactionType } from '../faction/factionData'
+import { Seasons, Biome } from '@lib'
 
 export type TownType = 'hamlet' | 'village' | 'town' | 'city'
 export type EconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
@@ -22,6 +23,11 @@ interface TownData {
     name: string[]
     type: string[]
   }
+  defaults: {
+    type: WeightRecord<TownType>
+    season: WeightRecord<Seasons>
+    terrain: WeightRecord<Biome>
+  }
   lifestyleStandards: ThresholdTable
   rollData: {
     // TODO: prettify this so it handles the equality.man properly.
@@ -31,6 +37,7 @@ interface TownData {
     }
   }
   type: {
+    // eslint-disable-next-line no-unused-vars
     [key in TownType]: {
       demographics(): {
         probability: number
@@ -47,6 +54,7 @@ interface TownData {
     }
   }
   economicIdeology: {
+    // eslint-disable-next-line no-unused-vars
     [key in EconomicIdeology]: {
       modifiers: Record<RollKeys, number>
       descriptors: {
@@ -64,6 +72,7 @@ interface TownData {
     anarchy: Republic
   }
   politicalIdeology: {
+    // eslint-disable-next-line no-unused-vars
     [key in PoliticalIdeology]: {
       leaderTraits: () => Partial<NPC>
       modifiers: Record<RollKeys, number>
@@ -101,7 +110,7 @@ interface Monarchy {
     description: string
   }
 }
-interface TownRollData {
+export interface TownRollData {
   tooltip: string
   preceding: string
   isHidden?: boolean
@@ -111,13 +120,46 @@ interface TownRollData {
 
 export const townData: TownData = {
   name: {
-    prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan', 'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger', 'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Fair', 'Spin'],
-    suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant', 'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer', 'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen', 'garden', 'wish', 'fellow', 'ridge', 'ward']
+    prefix: ['Green', 'Elms', 'Oak', 'Fair', 'Farren', 'Tall', 'Nar', 'Alla', 'Lans', 'San', 'Col', 'Fri', 'Plain', 'Hon', 'Far', 'Barrow', 'Shi', 'Mel', 'Mal', 'Bon', 'Bie', 'Can', 'Pol', 'Pan',
+      'Fald', 'Frior', 'Pol', 'Stone', 'Water', 'Leaf', 'Ice', 'Flame', 'Sol', 'Storm', 'Earth', 'Gleam', 'Star', 'Art', 'War', 'Heart', 'Hard', 'Fall', 'Rock', 'Doom', 'Oak', 'Tear', 'Raven', 'Badger',
+      'Snake', 'Lion', 'Hell', 'Rage', 'Brine', 'Rat', 'Buck', 'Lily', 'Core', 'Stench', 'Mage', 'God', 'Soil', 'Pure', 'Mal', 'Cam', 'Fen', 'Clear', 'Split', 'Founders', 'Heir', 'Spin', 'Aber', 'Acc', 'Ock',
+      'Avon', 'Ar', 'Ard', 'Druin', 'Ash', 'Ast', 'Auchen', 'Ach', 'Usk', 'Axe', 'Balla', 'Bal', 'Bannock', 'Bannau', 'Bre', 'Bry', 'Crag', 'Cul', 'Dinas', 'Drum', 'Holm', 'Keld', 'West', 'Wind', 'Nor', 'Nant',
+      'Porth', 'Swin', 'Sud', 'Sut', 'Wes', 'Alt', 'Alten', 'Kies', 'Klein', 'Neu', 'Nieder', 'Ober', 'Oberst', 'Unter', 'Lichten', 'Pyr', 'Kron', 'Frank', 'Ber', 'Berg', 'Kirch', 'Uk', 'Rus', 'Ban',
+      'Cha', 'Agni', 'Val', 'Vas', 'Bug', 'Tre', 'Haj', 'Par', 'Roz', 'Hlod', 'Lunin', 'Lun', 'Jast', 'Cherry', 'Rose', 'Elk', 'Clay', 'New', 'Bear', 'Moss', 'Pine', 'Cedar', 'Ever'],
+    suffix: ['dale', 'ten', 'den', 'ven', 'gen', 'len', 'lun', 'stun', 'ville', 'burn', 'view', 'nen', 'lan', 'sed', 'folk', 'ork', 'len', 'pan', 'rel', 'old', 'ten', 'tan', 'lend', 'vorn', 'vant',
+      'lid', 'lin', 'crest', 'bridge', 'run', 'catch', 'blade', 'haven', 'rise', 'more', 'light', 'main', 'blaze', 'place', 'tear', 'fold', 'rest', 'host', 'craft', 'lair', 'hollow', 'vale', 'hammer',
+      'pike', 'rail', 'spike', 'ring', 'henge', 'coil', 'spring', 'jaw', 'mark', 'hail', 'loch', 'child', 'keep', 'fort', 'brook', 'forth', 'melt', 'borourgh', 'ford', 'crawl', 'moral', 'combe', 'glen',
+      'garden', 'wish', 'fellow', 'ridge', 'ward', 'bury', 'hamm', 'hurst', 'ley', 'lee', 'leigh', 'ney', 'port', 'sted', 'stead', 'stow', 'stowe', 'tun', 'wick', 'wich', 'sex', 'ex', 'lia', 'ia', 'lass',
+      'ter', 'ton', 'beck', 'bach', 'bost', 'mouth', 'bourne', 'born', 'borough', 'by', 'bie', 'caster', 'chester', 'cott', 'don', 'den', 'eig', 'ey', 'field', 'firth', 'lynn', 'lin', 'mere',
+      'ness', 'medden', 'stoke', 'ster', 'rigg', 'toft', 'tun', 'worth', 'brough', 'ingen', 'mar', 'jung', 'berg', 'bruch', 'bruck', 'burg', 'bühl', 'büttel', 'dorf', 'ede', 'feld', 'furt', 'graben', 'hag',
+      'hau', 'hausen', 'heim', 'hof', 'horn', 'horst', 'hoven', 'ich', 'in', 'itz', 'kirch', 'leben', 'leiten', 'loh', 'ow', 'siefen', 'stadt', 'stein', 'wald', 'weg', 'werder', 'weiger', 'winkel', 'tal',
+      'ki', 'halas', 'wek', 'diu', 'arsk', 'glod', 'wharf', 'lake', 'grove', 'root', 'wood', 'hill', 'abbey', 'gate', 'harbor', 'landing', 'post', 'pass', 'polis', 'hold', 'watch', 'mill', 'bluff', 'cairn',
+      'edge', 'moor', 'point', 'shaw', 'shire', 'thorpe', 'valley', 'wallow']
   },
   // Prefixes and Suffixes for the road names of the town
   roads: {
     name: ['Castle', 'Keep', 'Kings', 'Queens', 'Prince', 'Princess', 'Lords', 'Ladies', 'Noble', 'Duke', 'Duchess', 'Rogue', 'Priest', 'Abbott', 'Pope', 'Spring', 'Winter', 'Summer', 'Autumn', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'Butcher', 'Tailor', 'Smith', 'Potter', 'Baker', 'Farrier', 'Old', 'New', 'Common', 'Main', 'High', 'Low', 'North', 'South', 'West', 'East'],
     type: ['Street', 'Street', 'Street', 'Street', 'Lane', 'Lane', 'Lane', 'Road', 'Road', 'Road', 'Road', 'Square', 'Square', 'Market', 'Way', 'Crescent', 'Close', 'Wynd', 'Row', 'Avenue', 'Alley', 'Drive', 'Boulevard', 'Plaza']
+  },
+  defaults: {
+    type: {
+      hamlet: 1,
+      village: 2,
+      town: 3,
+      city: 2
+    },
+    terrain: {
+      temperate: 3,
+      tropical: 1,
+      polar: 1,
+      arid: 1
+    },
+    season: {
+      summer: 1,
+      autumn: 1,
+      winter: 1,
+      spring: 1
+    }
   },
   lifestyleStandards: [
     [1000, 'aristocratic'],
@@ -261,7 +303,6 @@ export const townData: TownData = {
             'human': randomFloat(85, 95),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2)
-            
           }
         },
         {

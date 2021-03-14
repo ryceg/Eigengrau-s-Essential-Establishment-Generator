@@ -1,4 +1,4 @@
-import { Town } from '../town/_common'
+import { Town, TownBasics } from '../town/_common'
 import { professions, Profession } from '../npc-generation/professions'
 
 import { dice } from './dice'
@@ -11,7 +11,7 @@ import { randomFloat } from './randomFloat'
  * Individual professions are returned by the `fetchProfessionChance()`
  * function located in `NPCGeneration/fetchProfessionChance.js`
  */
-export function fetchProfessions (town: Town) {
+export function fetchProfessions (town: TownBasics) {
   const allProfessions = Object.entries(professions)
   const townProfessions: Town['professions'] = {}
 
