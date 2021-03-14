@@ -7,14 +7,11 @@
             \<<set $town.buildings[$currentPassage.index].name to lib.createname()>> <<textbox "$town.buildings[$currentPassage.index].name" _name>>
     <</replace>><</link>>
 <span id="name"><label name="Rename this building"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label></span><</nobr>>
-
 <<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>
-
 <<nobr>><<for _key, _obj range lib.townData.rollData.sliderTooltips>>
   <<if _obj.isHidden>>
     <<continue>>
   <<else>>
     <tr><td class="tip" @data-tippy-content=lib.townData.rollData.sliderTooltips[_key].tooltip><label for="townrollkey"><<print lib.townData.rollData.sliderTooltips[_key].preceding>></label></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr><</if>>
 <</for>><</nobr>>
-
 When you're ready, here's the [[output|TavernOutput]]

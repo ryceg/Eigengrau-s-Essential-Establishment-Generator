@@ -1,10 +1,6 @@
-
 :: StoryAuthor
-
-[img[sidebarbanner]]
-<span class="version">v[[ setup.data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
 Created by /u/rcgy
-
+<span class="version">v[[$data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
 <<nobr>><<if settings.hideAds !== true>>
 <span class="tip" data-tippy-content="Thank you for your continued support!" id="patreon">
     <<print lib.createBadge(lib.badges.stats.patreonSupporters, {imgArgs: 'style=width:100%'})>>

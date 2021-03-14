@@ -1,7 +1,7 @@
 
 // uses setup.createNPC, setup.createSmithyName
 setup.createSmithy = function (town, opts = {}) {
-  const smithy = (opts.newBuilding || lib.createBuilding)(town, 'smithy')
+  const smithy = (opts.newBuilding || lib.createBuilding)(town, 'smithy', opts)
   console.groupCollapsed('Smithy loading...')
   smithy.associatedNPC = setup.createBlacksmith(town, smithy, opts)
   lib.createBuildingRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })

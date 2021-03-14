@@ -9,7 +9,7 @@
       \<<print ["Also on _road.name is ", "Down from _previousBuilding.name is ", "Nearby is "].random()>>
     \<<elseif _road.precedingText>>
     _road.precedingText <<else>>
-    \<<print ["On ", "Along ", "Over on "].random()>> <<print lib.createTippyFull($town.roads[_roadKey].description, $town.roads[_roadKey].name)>> is 
+    \<<print ["On ", "Along ", "Over on "].random()>> <<profile $town.roads[_roadKey]>>
     \<</if>>
     \<<if _building.needsWordNoun>>
       \the _building.wordNoun 
