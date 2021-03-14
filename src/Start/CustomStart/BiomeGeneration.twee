@@ -21,9 +21,6 @@
 <</liveblock>>
 <</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>
-
-
-
 <table>
   <tr>
     <th>Attribute Slider</th>

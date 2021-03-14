@@ -10,6 +10,7 @@ Macro.add('details', {
     const content = Story.get(this.args[0]).processText()
     const label = this.args.length > 1 ? this.args[1] : 'Details' /* or any other default thingy you want */
     $('<details />')
+      .attr('id', this.args[0])
       .append($('<summary />').wiki(label))
       .ariaClick({ one: true }, function () {
         $(this).wiki(content)

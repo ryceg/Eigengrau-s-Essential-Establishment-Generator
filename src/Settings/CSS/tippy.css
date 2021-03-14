@@ -49,7 +49,7 @@
   color: var(--text-normal);
   font-size: smaller;
   margin-bottom:.6em;
-  background-color:var(--blockquote-color);
+  background-color:var(--descriptive-yellow);
   font-family:ScalySans;
   border-style:solid;
   border-width:6px;
@@ -59,16 +59,16 @@
 }
 
 .tippy-box[data-theme~='descriptive'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: var(--blockquote-color);
+  border-top-color: var(--descriptive-yellow);
 }
 .tippy-box[data-theme~='descriptive'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: var(--blockquote-color);
+  border-bottom-color: var(--descriptive-yellow);
 }
 .tippy-box[data-theme~='descriptive'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: var(--blockquote-color);
+  border-left-color: var(--descriptive-yellow);
 }
 .tippy-box[data-theme~='descriptive'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: var(--blockquote-color);
+  border-right-color: var(--descriptive-yellow);
 }
 
 

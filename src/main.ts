@@ -36,6 +36,7 @@ import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
+import { findViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
@@ -83,6 +84,7 @@ declare global {
     createTownName: typeof createTownName
     createTown: typeof createTown
     getTownType: typeof getTownType
+    findViaKey: typeof findViaKey
   }
 }
 
@@ -130,7 +132,8 @@ Object.assign(setup, {
   createTownBiome,
   createTownName,
   createTown,
-  getTownType
+  getTownType,
+  findViaKey
 })
 
 /**

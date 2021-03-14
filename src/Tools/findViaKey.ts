@@ -1,8 +1,9 @@
-import type { Building, Faction, NPC } from '@lib'
+import type { Building, Faction, NPC, Road } from '@lib'
 
-export const findViaKey = (key: string): Faction | Building | NPC => {
+export const findViaKey = (key: string): Faction | Building | NPC | Road => {
   if (State.variables.npcs[key]) return State.variables.npcs[key]
   if (State.variables.town.factions[key]) return State.variables.town.factions[key]
+  if (State.variables.town.roads[key]) return State.variables.town.roads[key]
   const building = State.variables.town.buildings.find(building => {
     return building.key === key
   })

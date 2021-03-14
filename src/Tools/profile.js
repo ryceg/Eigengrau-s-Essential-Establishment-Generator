@@ -1,7 +1,8 @@
 Macro.add('profile', {
   handler () {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
-    const obj = this.args[0]
+    let obj = this.args[0]
+    if (typeof obj === 'string') obj = setup.findViaKey(obj)
     const readout = this.args[1] || obj.name
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
     const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')

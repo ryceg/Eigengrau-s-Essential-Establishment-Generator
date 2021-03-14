@@ -1,6 +1,5 @@
 
 :: Widgets [widget widgets]
-
 <<widget "goods">>
 <<nobr>>
 	<<set _obj to $args[0]>>

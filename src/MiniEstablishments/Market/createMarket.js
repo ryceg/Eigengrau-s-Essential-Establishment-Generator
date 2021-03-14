@@ -1,5 +1,5 @@
 setup.createMarket = (town, opts = {}) => {
-  const market = (opts.newBuilding || lib.createBuilding)(town, 'market')
+  const market = (opts.newBuilding || lib.createBuilding)(town, 'market', opts)
 
   Object.assign(market, {
     initPassage: 'MarketOutput',
