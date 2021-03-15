@@ -64,7 +64,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
         const npc = setup.createNPC(town, {
           background: 'noble'
         })
-        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
         return `${lib.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
@@ -79,7 +79,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           profession: 'guard',
           hasClass: false
         })
-        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
         return `${lib.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
@@ -93,7 +93,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
           background: 'soldier',
           profession: 'captain'
         })
-        setup.createRelationship(town, npc, smithy.associatedNPC, 'patron', 'customer')
+        setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
         return `${lib.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },

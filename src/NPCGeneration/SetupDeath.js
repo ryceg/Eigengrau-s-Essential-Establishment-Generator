@@ -59,7 +59,7 @@ const death = {
           profession: npc.profession,
           isShallow: true
         })
-        setup.createRelationship(town, npc, murderer, 'murderer', `competing ${murderer.profession} who ${murderer.heshe} murdered.`)
+        setup.createRelationship(town, npc, murderer, { relationship: 'murderer', reciprocalRelationship: `competing ${murderer.profession} who ${murderer.heshe} murdered.` })
         return `${npc.firstName} was murdered by ${setup.profile(murderer, `another competing ${murderer.profession}`)}.`
       }
     },
@@ -72,7 +72,7 @@ const death = {
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass
         })
-        setup.createRelationship(town, npc, murderer, 'murderer', `someone who ${murderer.heshe} murdered.`)
+        setup.createRelationship(town, npc, murderer, { relationship: 'murderer', reciprocalRelationship: `someone who ${murderer.heshe} murdered.` })
         npc.death.murderer = murderer.key
         return `${npc.firstName} was murdered by ${setup.profile(murderer, 'someone with a grudge')}.`
       }

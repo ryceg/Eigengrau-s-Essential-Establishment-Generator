@@ -129,14 +129,18 @@ setup.createGeneralStoreName = (town, generalStore) => {
     case 6:
       generalStore.name = lib.toTitleCase(`The ${noun} and ${family.toUpperFirst()}`)
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
-        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
+      setup.createRelationship(town, associatedNPC, generalStore.assistant, {
+        relationship: family,
+        reciprocalRelationship: town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation
+      })
       break
     case 7:
       generalStore.name = lib.toTitleCase(`${associatedNPC.firstName} and ${family.toUpperFirst()}`)
       generalStore.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, associatedNPC, generalStore.assistant, family,
-        town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation)
+      setup.createRelationship(town, associatedNPC, generalStore.assistant, {
+        relationship: family,
+        reciprocalRelationship: town.npcRelations[generalStore.assistant.key].filter(r => r.targetNpcKey === associatedNPC.key)[0]?.relation
+      })
       break
     default:
       generalStore.name = lib.toTitleCase(`The ${adjective} Adventurer's Store`)

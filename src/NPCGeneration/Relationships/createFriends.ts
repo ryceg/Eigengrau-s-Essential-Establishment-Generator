@@ -149,7 +149,7 @@ export const createFriends = (town: Town, npc: NPC) => {
 
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
     const friend = createNPC(town, friendObj.base)
-    createRelationship(town, npc, friend, friendObj.relationship, friendObj.reciprocalRelationship || friendObj.relationship)
+    createRelationship(town, npc, friend, { relationship: friendObj.relationship, reciprocalRelationship: friendObj.reciprocalRelationship })
   }
 
   for (let step = 0; step < friendsNumber; step++) {
@@ -192,7 +192,7 @@ function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc
     // @ts-ignore
     // FIXME: weightedRandomFetcher expects a record, while relationships is an array.
     const relObj = lib.weightedRandomFetcher(town, relationships, npc, null, 'object') as Relationship
-    createRelationship(town, npc, friend, relObj.relationship, relObj.reciprocalRelationship || relObj.relationship)
+    createRelationship(town, npc, friend, { relationship: relObj.relationship, reciprocalRelationship: relObj.reciprocalRelationship })
   }
   return friend
 }
@@ -204,9 +204,9 @@ function findFriendInSameProfessionSector (town: Town, npcs: Record<string, NPC>
   })
   if (friend) {
     if (npc.profession === friend.profession) {
-      createRelationship(town, npc, friend, 'peer', 'peer')
+      createRelationship(town, npc, friend, { relationship: 'peer' })
     } else {
-      createRelationship(town, npc, friend, 'industry peer', 'industry peer')
+      createRelationship(town, npc, friend, { relationship: 'industry peer' })
     }
   }
   return friend
