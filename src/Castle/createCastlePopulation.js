@@ -31,7 +31,7 @@ setup.createCastlePopulation = (town, castle, opts) => {
     if (castleHelpers.length > 0) {
       const newNPC = setup.createNPC(town, { profession: castleHelpers.pluck() })
       lib.createBuildingRelationship(town, castle, newNPC, { relationship: `${newNPC.profession}`, reciprocalRelationship: 'place of employment' })
-      setup.createRelationship(town, newNPC, castle.associatedNPC, 'liege', 'subject')
+      setup.createRelationship(town, newNPC, castle.associatedNPC, { relationship: 'liege', reciprocalRelationship: 'subject' })
     }
   }
 }

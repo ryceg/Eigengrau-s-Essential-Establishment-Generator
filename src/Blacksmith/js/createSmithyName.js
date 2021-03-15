@@ -108,14 +108,18 @@ setup.createSmithyName = (town, smithy) => {
     case 2:
       smithy.name = `${smithy.associatedNPC.firstName} and ${family.toUpperFirst()}`
       smithy.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, family,
-        town.npcRelations[smithy.assistant.key].filter(r => r.targetNpcKey === smithy.associatedNPC.key)[0]?.relation)
+      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, {
+        relationship: family,
+        reciprocalRelationship: town.npcRelations[smithy.assistant.key].filter(r => r.targetNpcKey === smithy.associatedNPC.key)[0]?.relation
+      })
       break
     case 3:
       smithy.name = `The ${noun} and ${family.toUpperFirst()}`
       smithy.assistant = setup.createNPC(town, fam[family])
-      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, family,
-        town.npcRelations[smithy.assistant.key].filter(r => r.targetNpcKey === smithy.associatedNPC.key)[0]?.relation)
+      setup.createRelationship(town, smithy.associatedNPC, smithy.assistant, {
+        relationship: family,
+        reciprocalRelationship: town.npcRelations[smithy.assistant.key].filter(r => r.targetNpcKey === smithy.associatedNPC.key)[0]?.relation
+      })
 
       break
     case 4:
