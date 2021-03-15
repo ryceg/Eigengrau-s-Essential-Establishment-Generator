@@ -21,7 +21,7 @@
 
 <<if def $npcs[$currentPassage.key].partnerID>><<print $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
 
-<<include "NPCRelationshipsTable">>
+<<include "NPCRelationshipsTableEdit">>
 
 <<button "Save changes" NPCProfileEdit>>
   <<include "NPCSaveEdits">>
