@@ -131,7 +131,7 @@ Object.assign(setup, {
   deleteFaction,
   leaderFaction,
   plothooks,
-  marketEvent
+  marketEvent,
   createTownBiome,
   createTownName,
   createTown,
