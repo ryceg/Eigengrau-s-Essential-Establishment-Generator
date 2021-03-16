@@ -436,7 +436,7 @@ export const brothelData: BrothelData = {
         ...brothelData.harlot.type[harlotType]
       }
       const harlot = createNPC(town, harlotTraits)
-      createRelationship(town, harlot, brothel.associatedNPC, 'employer', 'employee')
+      createRelationship(town, harlot, brothel.associatedNPC, { relationship: 'employer', reciprocalRelationship: 'employee' })
       lib.createBuildingRelationship(town, brothel, harlot, { relationship: 'worker', reciprocalRelationship: 'place of work' })
       return `This harlot is ${harlotType} called ${profile(harlot)}. She has ${readout.feature} and is particularly good at ${readout.skill}. However, she has ${harlot.physicalTrait}, which is ${readout.flawSeverity}. She is looking to ${readout.looks}.`
     },

@@ -1,5 +1,5 @@
 setup.createGraveyard = (town, opts = {}) => {
-  const graveyard = (opts.newBuilding || lib.createBuilding)(town, 'graveyard')
+  const graveyard = (opts.newBuilding || lib.createBuilding)(town, 'graveyard', opts)
 
   lib.assign(graveyard, {
     initPassage: 'GraveyardOutput',

@@ -20,7 +20,7 @@ I really cannot stress enough how new traffic to the site helps us- tell Kotaku,
 <</fadein>>
 <<fadein 1s 20s>>\
 Select from the dropdown to access the tool (this will be sent to me for data analytics). I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!
-<span class="tooltip" title="I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!"><label name="Select survey option" for="listbox-patronsurvey"><<listbox "_patronSurvey">>
+<span class="tooltip" data-tippy-content="I promise there's no 'haha, gotcha' if you admit that you aren't paying- please be honest!"><label name="Select survey option" for="listbox-patronsurvey"><<listbox "_patronSurvey">>
 <<option "Sorry, not gonna happen. Paying for things isn't my style.">>
 <<option "I am already a Patron! :)">>
 <<option "I have tweeted it out or something instead of paying">>

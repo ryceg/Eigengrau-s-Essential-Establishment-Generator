@@ -23,8 +23,7 @@ import { profile } from './NPCGeneration/profile'
 import { money } from './Tools/money'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
-import { tippy } from './Settings/Tippy/tippy'
-import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, racesPercentageTooltip, createRaceHTML, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
@@ -35,6 +34,10 @@ import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { marketEvent } from './MiniEstablishments/Market/marketEventData'
+import { createTownBiome } from './Town/js/createTownBiome'
+import { createTownName } from './Town/js/createTownName'
+import { createTown, getTownType } from './Town/js/createTown'
+import { findViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
@@ -56,11 +59,12 @@ declare global {
     money: typeof money
     history: typeof history
     addGtagEvent: typeof addGtagEvent
-    tippy: typeof tippy
     profileAgeTooltip: typeof profileAgeTooltip
     metricHeight: typeof metricHeight
     metricWeight: typeof metricWeight
     buildingTooltip: typeof buildingTooltip
+    racesPercentageTooltip: typeof racesPercentageTooltip
+    createRaceHTML: typeof createRaceHTML
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
     makeTippyTitle: typeof makeTippyTitle
@@ -78,6 +82,11 @@ declare global {
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
     marketEvent: typeof marketEvent
+    createTownBiome: typeof createTownBiome
+    createTownName: typeof createTownName
+    createTown: typeof createTown
+    getTownType: typeof getTownType
+    findViaKey: typeof findViaKey
   }
 }
 
@@ -100,11 +109,12 @@ Object.assign(setup, {
   money,
   history,
   addGtagEvent,
-  tippy,
   profileAgeTooltip,
   metricHeight,
   metricWeight,
   buildingTooltip,
+  racesPercentageTooltip,
+  createRaceHTML,
   politicsDescription,
   politicsTooltip,
   makeTippyTitle,
@@ -122,6 +132,11 @@ Object.assign(setup, {
   leaderFaction,
   plothooks,
   marketEvent
+  createTownBiome,
+  createTownName,
+  createTown,
+  getTownType,
+  findViaKey
 })
 
 /**

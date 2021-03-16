@@ -3,16 +3,13 @@
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $building.associatedNPC>>
 <<set $currentPassage.availableRelationships to setup.brothelData.customers>>
-<span class="interactive-only"><h1>$building.name</h1></span>
+<h1 class="interactive-only">$building.name</h1>
 <<include "TownMicroEventsOutput">><</nobr>>
-<section><<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
+You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
 When people talk about $building.name, they say $building.talk. Apparently, it specialises in $building.specialty.
-Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour.</section>
-
+Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour.</p>
 <section><h3>Brothel $associatedNPC.title</h3>
-The $associatedNPC.title is $building.idle, $associatedNPC.heshe appears to be $building.owner. <<print ['Upon seeing you come in', 'Upon noticing your arrival', 'Once $associatedNPC.heshe notices you', 'After a few minutes', 'As soon as you enter'].random()>> the $associatedNPC.raceNote <<print $associatedNPC.greeting.random()>>, and <<print ["saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides", 'quickly walks', 'casually saunters', 'ambles', 'trudges', 'strides', 'slowly wanders', 'marches'].random()>> over to where you are. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.title of $building.name, and asks what $associatedNPC.heshe can do for you.</section>
-
+<p>The $associatedNPC.title is $building.idle, $associatedNPC.heshe appears to be $building.owner. <<print ['Upon seeing you come in', 'Upon noticing your arrival', 'Once $associatedNPC.heshe notices you', 'After a few minutes', 'As soon as you enter'].random()>> the $associatedNPC.raceNote <<print $associatedNPC.greeting.random()>>, and <<print ["saunters", "walks", "strolls", "walks", "slowly walks", "swaggers", "quickly walks", "slides", 'quickly walks', 'casually saunters', 'ambles', 'trudges', 'strides', 'slowly wanders', 'marches'].random()>> over to where you are. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.title of $building.name, and asks what $associatedNPC.heshe can do for you.</p></section>
 <span class="temporarily-removed"><span class="click-and-remove-link"><<link "Meet one of the harlots">><<set $building.harlot to setup.brothelData.harlot.create($town, $building)>><<update>><</link>></span></span>
 <<liveblock>><<if def $building.harlot>><span id="harlot">$building.harlot</span><</if>><</liveblock>>
-
 <<details "CreateNewNpc" "Customers">>

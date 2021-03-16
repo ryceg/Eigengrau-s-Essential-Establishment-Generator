@@ -859,7 +859,7 @@ setup.initNpcData = () => {
             background: 'noble',
             isShallow: true
           })
-          setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
+          setup.createRelationship(town, npc, enemy, { relationship: 'enemy', reciprocalRelationship: 'enemy' })
           return [
             `I made an ${setup.profile(enemy, 'enemy')} for life in my travels- `,
             `I was framed by a ${setup.profile(enemy, 'scoundrel')} for a crime I didn't commit- `,

@@ -1,6 +1,6 @@
 :: Dungeon
-\<<if ndef lib.findInArray($town.buildings, "key", $currentPassage.key).parentKey>>
-\<<include "StandaloneDungeon">>
-\<<else>>
-\<<include "CastleDungeon">>
-\<</if>>
+<<if ndef lib.findInArray($town.buildings, "key", $currentPassage.key).parentKey>>
+<<include "StandaloneDungeon">>
+<<else>>
+<<include "CastleDungeon">>
+<</if>>

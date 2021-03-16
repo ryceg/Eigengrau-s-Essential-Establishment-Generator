@@ -13,7 +13,7 @@ interface Options {
 export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   // FIXME
   // @ts-expect-error Reassuring TS that it's okay that the function doesn't populate it perfectly is unfortunately beyond me.
-  const tavern: Tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern')
+  const tavern: Tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern', opts)
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
@@ -36,7 +36,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     })
   })
 
-  createRelationship(town, tavern.associatedNPC, tavern.barmaid, 'employee', 'employer')
+  createRelationship(town, tavern.associatedNPC, tavern.barmaid, { relationship: 'employee', reciprocalRelationship: 'employer' })
   lib.createBuildingRelationship(town, tavern, tavern.barmaid, {
     relationship: 'employee',
     reciprocalRelationship: 'place of employment'

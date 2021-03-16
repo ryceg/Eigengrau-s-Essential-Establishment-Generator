@@ -1,28 +1,28 @@
-import type { NPC, Building, Town } from '@lib'
+import type { NPC, Building, Town, RaceName } from '@lib'
 
 export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
     switch (obj.objectType) {
       case 'npc':
-        span.title = `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`
+        $(span).attr('data-tippy-content', `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
         break
       case 'building':
-        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`)
         break
       case 'room':
-        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`)
         break
       case 'faction':
-        span.title = obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`)
         break
       case 'road':
-        span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
+        $(span).attr('data-tippy-content', obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
         break
       default:
         console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
     }
   } else {
-    span.title = obj.tippyDescription || obj.name
+    $(span).attr('data-tippy-content', obj.tippyDescription || obj.name)
   }
 }
 
@@ -30,8 +30,8 @@ export const profileAgeTooltip = (id: string, char: NPC) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      span.title = `${char.ageYears} years, to be exact.`
-      tippy(`#${span.id}`)
+      $(span).attr('data-tippy-content', `${char.ageYears} years, to be exact.`)
+      tippy('[data-tippy-content]')
     }
   })
 }
@@ -64,13 +64,15 @@ export const buildingTooltip = (id: string, building: Building) => {
     if (span) {
       // FIXME
       // @ts-expect-error To be fixed at a later date.
-      span.title = building.tippyDescription || `${lib.articles.output(building.size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness}, and is known for ${building.notableFeature}.`
-      tippy(`#${span.id}`)
+      $(span).attr('data-tippy-content', building.tippyDescription || `${lib.articles.output(building.size).toUpperFirst()} ${building.wordNoun} that's ${building.cleanliness}, and is known for ${building.notableFeature}.`)
+      tippy('[data-tippy-content]')
     }
   })
 }
 
-export const politicsDescription = (town: Town, type: string) => {
+type SocioPoliticalIdeologies = 'politicalIdeology' | 'economicIdeology' | 'politicalSource'
+
+export const politicsDescription = (town: Town, type: SocioPoliticalIdeologies) => {
   switch (type) {
     case 'politicalIdeology':
       return lib.townData.politicalIdeology[town.politicalIdeology].data.description
@@ -87,14 +89,45 @@ export const politicsDescription = (town: Town, type: string) => {
   }
 }
 
-export const politicsTooltip = (id: string, type: string, town: Town) => {
+export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town: Town) => {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
-      // @ts-expect-error Will have to fix this later.
-      // FIXME
-      span.title = politicsDescription(town, type)
-      tippy(`#${span.id}`)
+      $(span).attr('data-tippy-content', politicsDescription(town, type))
+      tippy('[data-tippy-content]')
     }
   })
 }
+
+export const racesPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>) => {
+  const tip = $(`<span class='tip dotted'>${lib.getPredominantRace(percentages).amountDescriptive}</span>`)
+  tippy(tip.get(0), {
+    content: source,
+    interactive: false,
+    allowHTML: true
+  })
+  const htmlTarget = Array.from(document.getElementsByClassName(target))
+  for (const element of htmlTarget) {
+    $(tip.get(0)).appendTo(element)
+  }
+}
+
+export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
+  const array = lib.sortArray(percentages).reverse()
+  const list = lib.formatPercentile(array as [string, number][])
+  const html = lib.formatAsList(list)
+  racesPercentageTooltip(html, target, percentages)
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+tippy.setDefaultProps({
+  delay: 50,
+  interactive: true,
+  followCursor: 'horizontal',
+  animation: 'perspective',
+  theme: 'blockquote',
+  // theme: 'descriptive',
+  allowHTML: true,
+  inertia: true
+})

@@ -2,7 +2,6 @@
 // uses State.variables.npcs, State.variables.town
 
 import type { NPC, Building, Faction, Road } from '@lib'
-import { findViaKey } from '../Tools/findViaKey'
 
 /**
  * @description This is a function that returns the profile widget for the provided object.
@@ -18,7 +17,7 @@ export const profile = (obj: NPC | Building | Faction | Road, readout?: string, 
   let result
   if (typeof obj === 'string') {
     console.warn(`Profile function for ${obj} called with a string.`)
-    result = findViaKey(obj)
+    result = setup.findViaKey(obj)
   } else {
     result = obj
   }

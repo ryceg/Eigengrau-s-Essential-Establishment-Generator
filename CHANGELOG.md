@@ -13,14 +13,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add collapsible elements where you might not want to see everything all at once.
 - Live counters for Patreon supporters, Discord, and GitHub forks.
 - Fun stats to Credits
-
+- Dark mode
+- Styling to tooltips that conforms to DM info / readout to player blocks.
+- Pseudo-elements for drop caps and first line after `<h1>` element.
+- Road profile page, for adding buildings to a specific road.
+- Ability to create new relationship
+- Ability to edit existing relationships, and add descriptions.
 
 ### Changes
 - Fixed some images not displaying properly in the GMBinder export.
-- Updated fonts (j was not rendering correctly)
+- Updated fonts (j was not rendering correctly) (thanks Ners!)
+- New version of Tippy
+- Title on sidebar is no longer an image
+- Population distribution tooltip now is presented as an ordered list
+- Relationships in the NPC edit page now delete the relationship, rather than the whole entity.
 
 ### Removed
 - Taverns doubling as brothels (temporarily)
+- Removed many unnecessary wrapped span elements to make the output cleaner.
+
 
 ## 2.7
 

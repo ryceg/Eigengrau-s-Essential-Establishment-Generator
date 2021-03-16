@@ -1,5 +1,5 @@
 :: TownLandmarkRandomizer
-<<nobr>><span class="tip" title="This changes each time you click."><<link "landmark">><<set $town.landmark to lib.townData.misc.landmark.random()>>
+<<nobr>><span class="tip" data-tippy-content="This changes each time you click."><<link "landmark">><<set $town.landmark to lib.townData.misc.landmark.random()>>
     <<replace "#random">>
             $town.landmark
     <</replace>><</link>></span>

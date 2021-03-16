@@ -9,6 +9,7 @@ import { assign } from '../src/utils'
 
 export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
   console.log('Creating base building...')
+  console.log(base)
 
   const lighting = random(['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'])
   const outside = random([
@@ -51,18 +52,19 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
 
   // Not sure why we need to typecast this.
   clampRolls(building.roll as unknown as Record<string, number>)
-
-  const road = getBuildingRoad(building, town)
-
+  if (base.road) {
+    console.log('Road defined!')
+    lib.roads.addBuilding(town, town.roads[base.road], building)
+  }
+  if (!building.road) building.road = getBuildingRoad(building, town).key
   assign(building, {
-    road: road.key,
     material: generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
   })
 
   return building
 }
 
-function getBuildingRoad (building: Building, town: Town): Road {
+export function getBuildingRoad (building: Building, town: Town): Road {
   if (building.parentKey) {
     console.log('Has a parent!')
     const parentBuilding: Building | undefined = findBuilding(town, building.parentKey)

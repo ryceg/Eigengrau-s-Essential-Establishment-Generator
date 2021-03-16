@@ -7,7 +7,8 @@ import { Construct, ConstructUtils } from '../constructs/_common'
  * **Note the lack of a closing span.**
  */
 export const createTippy = (readout: string) => {
-  return `<span class="tip" role="tooltip" tabindex="0" title=${JSON.stringify(readout)}><<run setup.tippy("span.tip")>>`
+  const id = lib.getUUID()
+  return `<span class="tip" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}><<run tippy(document.getElementById('${id}'))>>`
 }
 
 /**
@@ -24,7 +25,8 @@ export const createTippyWord = (tippy: string, word: string) => {
  * The function that should be used most of the time.
  */
 export const createTippyFull = (readout: string, word: string) => {
-  return `<span class="tip dotted" role="tooltip" tabindex="0" title=${JSON.stringify(readout)}>${word}<<run setup.tippy("span.tip")>></span>`
+  const id = lib.getUUID()
+  return `<span class="tip dotted" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}>${word}<<timed 0s>><<run tippy(document.getElementById('${id}'))>><</timed>></span>`
 }
 
 export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, ...args: Parameters<ConstructUtils<C>['create']>) {
@@ -37,5 +39,4 @@ export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, 
 export function addTippyAccessibility () {
   $('.tip').attr('role', 'tooltip')
   $('.tip').attr('tabindex', '0')
-  tippy('.tip')
 }
