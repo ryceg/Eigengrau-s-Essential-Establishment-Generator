@@ -178,6 +178,24 @@ export const marketEvent: MarketEventData = {
         })
         return `A ${profile(npc1, 'guard')} is walking through the market showing off a wanted poster with an image of ${profile(npc2, lib.articles.output(npc2.descriptor))}. The guard seems to be questioning shoppers about their knowledge of the person on the poster.`
       }
+    },
+    samples: {
+      function (town) {
+        const npc = createNPC(town, {
+          profession: 'cook'
+        })
+        const sample = ['fried lamb', 'octopus balls', 'pig intestines', 'smoked mutton', 'pickled turnips', 'blueberry muffins', 'eel tongue']
+        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is walking through the crowds offering up free samples of ${lib.random(sample)} and gesturing towards ${npc.hisher} stall in the market.`
+      }
+    },
+    juggle: {
+      function (town) {
+        const npc = createNPC(town, {
+          profession: 'merchant'
+        })
+        const produce = ['watermelon', 'apples', 'oranges', 'grapefruit', 'potatoes', 'cabbages']
+        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} comes out from behind ${npc.hisher} produce stall and begins to juggle several ${lib.random(produce)} in an attempt to bring in more customers.`
+      }
     }
   }
 }
