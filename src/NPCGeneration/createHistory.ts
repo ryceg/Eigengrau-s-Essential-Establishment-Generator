@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town, NPC, Marriage, ThresholdTable, LifestyleStandardName } from '@lib'
 import { createNPC } from './createNPC'
-import { profile } from './profile'
+import { profile } from '../Tools/profile'
 import { createRelationship } from './Relationships/createRelationship'
 import { getFatherMother } from './Relationships/getFatherMother'
 
