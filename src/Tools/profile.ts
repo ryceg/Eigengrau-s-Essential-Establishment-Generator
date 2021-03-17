@@ -2,7 +2,6 @@
 // uses State.variables.npcs, State.variables.town
 
 import type { NPC, Building, Faction, Road } from '@lib'
-
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
@@ -39,6 +38,7 @@ Macro.add('profile', {
     if (typeof obj === 'string') obj = setup.findViaKey(obj)
     const readout = this.args[1] || obj.name
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
+    // @ts-ignore
     const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
     const tip = $(`<a class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
