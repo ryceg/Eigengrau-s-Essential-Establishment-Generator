@@ -8,10 +8,12 @@
       <th>Relationship</th>
     </tr>
   <<for _relationship range $currentPassage.relationships>>
+  <<set _deity to lib.findInArray(setup.getPantheon($town).gods, 'name', _relationship.name)>>
+  <<capture _deity, _relationship>>
     <tr>
       <td>
-      <<if setup.getPantheon($town).gods.includes(_relationship)>>
-        <<profile setup.getPantheon($town).gods[_relationship]>>
+      <<if _deity>>
+        <<profile _deity>>
       <<else>>
         <<print _relationship.name.toUpperFirst()>>
       <</if>>
@@ -20,6 +22,7 @@
         <<print lib.createTippyFull(_relationship.description, _relationship.relationship)>>
         <<else>><<print lib.toTitleCase(_relationship.relationship)>><</if>></td>
     </tr>
+    <</capture>>
   <</for>>
   </table>
 <</if>>

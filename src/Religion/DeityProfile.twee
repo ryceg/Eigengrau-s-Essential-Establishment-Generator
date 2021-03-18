@@ -1,5 +1,5 @@
 :: DeityProfile
-\<<set $currentPassage to lib.findInArray(setup.getPantheon($town).gods, 'name', $currentDeity)>>
+\<<set $currentPassage to lib.findInArray(setup.getPantheon($town).gods, 'name', $currentPassage.name)>>
 \<h1 class="interactive-only">$currentPassage.name</h1>
 <button type='button' title='Coming to an update near you soon!' data-tippy-content='Coming to an update near you soon!' id="deity-edit" disabled>Edit $currentPassage.name</button>
 /* \<<button "Edit $currentPassage.name" DeitySliders>>
