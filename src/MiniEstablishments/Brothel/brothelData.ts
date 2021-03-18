@@ -1,5 +1,5 @@
 import type { NPC, Town, Building, GenderName, AgeName, BackgroundName } from '@lib'
-import { profile } from '../../NPCGeneration/profile'
+import { profile } from '../../Tools/profile'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 import { createParentage } from '../../NPCGeneration/Relationships/createFamilyMembers'

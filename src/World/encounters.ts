@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from '../NPCGeneration/profile'
+import { profile } from '../Tools/profile'
 import { createNPC } from '../NPCGeneration/createNPC'
 import { BiomeName } from './locations'
 
