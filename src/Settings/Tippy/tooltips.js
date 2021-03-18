@@ -3,6 +3,7 @@ setup.profileTooltip = function (id, obj) {
   jQuery(() => {
     const span = document.getElementById(id)
     if (span) {
+      let wordNoun
       if (obj.objectType) {
         switch (obj.objectType) {
           case 'npc':
@@ -19,6 +20,15 @@ setup.profileTooltip = function (id, obj) {
             break
           case 'road':
             span.title = obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`
+            break
+          case 'deity':
+            // CHANGEME: using outdated title
+            if (obj.rank === 'leader') {
+              wordNoun = 'leader of the pantheon'
+            } else {
+              wordNoun = obj.rank
+            }
+            span.title = obj.tippyDescription || obj.description || `The ${wordNoun} ${obj.name}, ${obj.titles.random()}, who is ${lib.genderData[obj.gender].godgoddess} of ${lib.makeList($currentPassage.titles, 5)}.`
             break
           default:
             console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
