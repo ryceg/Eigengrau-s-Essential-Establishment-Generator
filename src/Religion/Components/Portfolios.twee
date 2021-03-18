@@ -7,7 +7,7 @@
   \_portfolio,
 \<</for>>
     \and <<if $currentPassage.portfolios.length > 4>>
-    \<<set _temp to 'As well as ' + lib.makeList($currentPassage.portfolios.slice(5, -1), true) + ' and ' + $currentPassage.portfolios[$currentPassage.portfolios.length - 1] + '.'>>
+    \<<set _temp to 'As well as ' + lib.makeList($currentPassage.portfolios.slice(5, -1), {noAnd: true}) + ' and ' + $currentPassage.portfolios[$currentPassage.portfolios.length - 1] + '.'>>
     \<<print lib.createTippyFull(_temp, $currentPassage.portfolios[4])>>
     \<<else>>
     \<<print $currentPassage.portfolios[4]>>
