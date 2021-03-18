@@ -40,13 +40,44 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
   return pickedDeity.name
 }
 
-const compareRollToTarget = (roll: number, target: number, bonus = 30) => {
-  if (!roll || !target) return
+interface ComparisonOptions {
+  bonus: number
+  /** Tolerance dictates whether a higher roll will be counted.
+   * "Over" means if the 'target' is 70, with a 10
+   */
+  tolerance: 'over' | 'under' | 'both'
+  maxDistance: number
+}
+
+/**
+ * @param roll This is the variable.
+ * @param target This is the target for the roll- think of it as the DC.
+ * @param opts Optional object.
+ * @returns The probability bonus
+ */
+export const compareRollToTarget = (roll: number, target: number, opts?: ComparisonOptions) => {
+  opts = Object.assign({
+    bonus: 30,
+    maxDistance: 30,
+    tolerance: 'both'
+  }, opts) as ComparisonOptions
   const distance = Math.abs(target - roll)
-  if (distance < bonus) {
-    const percentage = (100 - distance) / 100
-    return bonus * percentage
+  switch (opts.tolerance) {
+    case 'over':
+      if (target < roll) return getSimilarity(opts.bonus, distance)
+      break
+    case 'under':
+      if (target > roll) return getSimilarity(opts.bonus, distance)
   }
+  if (distance < opts.maxDistance) {
+    return getSimilarity(opts.bonus, distance)
+  }
+  return 0
+}
+/** This can be thought of as 'similarity' to the target, with 1 being identical. */
+const getSimilarity = (base: number, distance: number) => {
+  const similarity = (100 - distance) / 100
+  return base * similarity
 }
 
 const modifyDeityProbability = (arg: number | undefined, target: number) => {
