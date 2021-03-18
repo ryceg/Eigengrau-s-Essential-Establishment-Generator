@@ -1,7 +1,7 @@
 import { ProfessionNames, ProfessionSector } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town, TownRolls } from '../town/_common'
-import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/WorldTypeAbbreviated'
+import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/worldType'
 import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
@@ -27,7 +27,7 @@ interface Followers {
    * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
    * @default 'earth'
    */
-  holyDays: PartialRecord<WorldTypeAbbreviated, string[] | string[][]>
+  holyDays: PartialRecord<WorldTypeAbbreviated, string[] | Information[]>
   race?: RaceName
   base?: Partial<NPC>
   /**
@@ -306,9 +306,10 @@ export interface Deity {
   allies?: Information[]
   enemies?: Information[]
   relationships: Relationship[]
+  maxims?: Quotation[]
 }
 
-interface Information {
+export interface Information {
   title?: string
   description?: string
   opts?: {
@@ -322,7 +323,7 @@ interface Information {
      * For the `title` tag. Only used when it's not in a list.
      * @default 'h3'
      */
-    element?: string
+    element?: HTMLElement
   }
 }
 
@@ -360,8 +361,7 @@ interface Avatar {
   gender?: GenderName
 }
 
-interface Quotation {
-  description: string
+interface Quotation extends Information {
   author?: string
 }
 
@@ -908,9 +908,12 @@ export const religion: ReligionData = {
             adherents: ['mourners', 'undertakers', 'necromancers', 'miners'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: [['second to last day of every month', 'Rituals are typically held on this day.']],
-              fr: ['second to last day of every month'],
-              gn: ['second to last day of every month']
+              earth: [
+                {
+                  title: 'second to last day of every month',
+                  description: 'Rituals are typically held on this day.'
+                }
+              ]
             }
           },
           personality: {
