@@ -1,7 +1,7 @@
 import { ProfessionNames, ProfessionSector } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town, TownRolls } from '../town/_common'
-import { Alignments, ClericDomains, WorldType } from '../src/worldType'
+import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/WorldTypeAbbreviated'
 import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
 interface Followers {
@@ -27,7 +27,7 @@ interface Followers {
    * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
    * @default 'earth'
    */
-  holyDays: PartialRecord<WorldType, string[] | string[][]>
+  holyDays: PartialRecord<WorldTypeAbbreviated, string[] | string[][]>
   race?: RaceName
   base?: Partial<NPC>
   /**

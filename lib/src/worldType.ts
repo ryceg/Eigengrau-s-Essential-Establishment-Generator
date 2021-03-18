@@ -7,7 +7,7 @@
  *
  * * 'pf': Pathfinder specific content.
  */
-export type WorldType = 'earth' | 'fr' | 'gn'
+export type WorldTypeAbbreviated = 'earth' | 'fr' | 'gn'
 
 export type SystemType = '5e' | 'Pathfinder' | 'Pathfinder 2e' | 'Dungeon World' | 'GURPS'
 
