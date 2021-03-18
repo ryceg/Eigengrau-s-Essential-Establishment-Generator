@@ -1,4 +1,4 @@
-import { fm, dice, closestMatch, ReligionStrength } from '..'
+import { fm, dice, closestMatch, ReligionStrength } from '../'
 import { Town } from '../town/_common'
 import { NPC } from './_common'
 import { random } from '../src/random'
