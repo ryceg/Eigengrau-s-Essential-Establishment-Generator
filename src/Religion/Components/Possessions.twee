@@ -1,4 +1,11 @@
 :: Possessions
-<<if $currentPassage.possessions[0].name>><h2>Possessions</h2>
-$currentPassage.name owns the <<idp $currentPassage.possessions[0].wordNoun>> <<print lib.createTippyFull($currentPassage.possessions[0].powers, $currentPassage.possessions[0].name)>><</if>>
+<<if $currentPassage.possessions.length === 1>><h2><<print $currentPassage.possessions[0].title>></h2><<print $currentPassage.possessions[0].description>>
+<<elseif $currentPassage.possessions.length > 1>>
+<<for _possession range $currentPassage.possessions>>
+  <<if _possession.description && _possession.title>>
+  <h3>_possession.title</h3>_possession.description
+  <<else>>_possession.title
+  <</if>>
+<</for>>
+<</if>>
 <<idp $currentPassage.combat.weapon "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> <<print lib.deityUsesUsed($currentPassage.status)>> $currentPassage.combat.weapon in combat.">> 

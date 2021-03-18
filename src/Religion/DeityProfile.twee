@@ -17,7 +17,7 @@
 \<<print lib.deityStatus($currentPassage)>> <<include "Symbol">> 
 \<<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<idp $currentPassage.realm "$currentPassage.name resides in $currentPassage.realm">>
 \<<idp $currentPassage.rank "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.">>
-\<<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment">>
+\<<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.">>
 \<<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
 \<<include "Powers">>
 \<<include "Possessions">>

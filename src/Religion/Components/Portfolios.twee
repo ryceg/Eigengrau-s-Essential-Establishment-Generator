@@ -4,7 +4,7 @@
     \<<print lib.makeList($currentPassage.portfolios)>>
   \<<else>>
 \<<for _portfolio range $currentPassage.portfolios.slice(1, 3)>>
-  \_portfolio,
+  \_portfolio, 
 \<</for>>
     \and <<if $currentPassage.portfolios.length > 4>>
     \<<set _temp to 'As well as ' + lib.makeList($currentPassage.portfolios.slice(5, -1), {noAnd: true}) + ' and ' + $currentPassage.portfolios[$currentPassage.portfolios.length - 1] + '.'>>
