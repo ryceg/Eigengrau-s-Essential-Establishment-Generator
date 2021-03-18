@@ -62,7 +62,7 @@ export interface Town {
     population: number
   }>
   religion: {
-    pantheon: PantheonTypes
+    pantheon: PantheonTypes | string
     deity: string
   }
   roads: Record<string, Road>

@@ -1,9 +1,10 @@
 :: DeityProfile
 \<<set $currentPassage to lib.findInArray(setup.getPantheon($town).gods, 'name', $currentDeity)>>
-\<span class="interactive-only"><h1>$currentPassage.name</h1></span>
-\<<button "Edit $currentPassage.name" DeitySliders>>
+\<h1 class="interactive-only">$currentPassage.name</h1>
+<button type='button' title='Coming to an update near you soon!' data-tippy-content='Coming to an update near you soon!' id="deity-edit" disabled>Edit $currentPassage.name</button>
+/* \<<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
-  <</button>>
+<</button>> */
 \<<include "Quotes">>
 /* \<<include "AlsoKnownAs">> */
 \<<if $currentPassage.aliases>> 
