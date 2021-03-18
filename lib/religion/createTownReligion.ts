@@ -25,10 +25,11 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
       modifyDeityProbability(deity.probabilityWeightings.politicalIdeology[town.politicalIdeology], temp[deity.name].probability)
       modifyDeityProbability(deity.probabilityWeightings.politicalSource[town.politicalSource], temp[deity.name].probability)
       for (const roll in deity.probabilityWeightings.rolls) {
+        const townRoll = roll as TownRolls
         modifyDeityProbability(
           compareRollToTarget(
-            deity.probabilityWeightings?.rolls[roll],
-            town.roll[roll as TownRolls]),
+            deity.probabilityWeightings?.rolls[townRoll],
+            town.roll[townRoll]),
           temp[deity.name].probability)
       }
     }
@@ -56,6 +57,6 @@ const modifyDeityProbability = (arg: number | undefined, target: number) => {
 
 const getFallbackDeities = (town: Town): Deity[] => {
   const pantheonName = town.religion.pantheon || 'greek'
-  const pantheon = lib.religion.pantheon[pantheonName]
+  const pantheon = lib.religion.pantheon[pantheonName as PantheonTypes]
   return pantheon.gods
 }
