@@ -9,7 +9,13 @@
     </tr>
   <<for _relationship range $currentPassage.relationships>>
     <tr>
-      <td><<print _relationship.name.toUpperFirst()>></td>
+      <td>
+      <<if setup.getPantheon($town).gods.includes(_relationship)>>
+        <<profile setup.getPantheon($town).gods[_relationship]>>
+      <<else>>
+        <<print _relationship.name.toUpperFirst()>>
+      <</if>>
+      </td>
       <td colspan="4"><<if _relationship.description>>
         <<print lib.createTippyFull(_relationship.description, _relationship.relationship)>>
         <<else>><<print lib.toTitleCase(_relationship.relationship)>><</if>></td>

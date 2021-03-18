@@ -11,7 +11,7 @@ export const makeList = (array: string[], opts?: {
   if (array.length === 2) return `${array[0]} and ${array[1]}`
   if (array.length === 3) return `${array[0]}, ${array[1]}, and ${array[2]}`
   if (array.length > 3) {
-    if (array.length > opts.limit) {
+    if (array.length > opts.limit && opts.limit !== -1) {
       let temp = commas(array, 0, opts.limit - 1)
       temp += `and ${array[opts.limit]}`
       return temp
