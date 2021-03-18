@@ -13,7 +13,7 @@ interface Followers {
    * Who actually Worshipped the god?
    * @example Poseidon : 'Sailors'
    */
-  adherents?: string[]
+  adherents?: string[] | Information[]
   /**
    * @example 'spear'
    * @usage 'In battle, his followers favour the ${favouredWeapon}'
@@ -83,7 +83,7 @@ export interface Deity {
     rolls: Record<TownRolls, number>
     /**
      * Some races are going to be more interested in certain gods than others.
-     * Uses weighted probabilities (default is 10)
+     * Uses weighted probabilities (default for races ommitted is 10)
      * Can be turned off.
      */
     race: Record<RaceName, number>
@@ -249,7 +249,7 @@ export interface Deity {
    * For things that the deity owns.
    * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
-  possessions: Partial<Possession[]>
+  possessions: Information[]
   /** Some gods had planes/domain which they ruled
    * @example ```Odin: 'Valhalla'```
    * @usage 'Hades resides in ______'
@@ -283,49 +283,50 @@ export interface Deity {
     colours?: string[]
     miscellaneous?: string[]
   }
-  tenets?: string[] | string[][]
-  dogma?: string[] | string[][]
-  beliefs?: string
-  heresies?: string
+  /** Tenet emphasizes acceptance and belief rather than teaching.
+   * It is therefore thought of as a principle held or adhered to and implies a body of adherents. */
+  tenets?: Information[]
+  dogma?: Information[]
+  beliefs?: Information[]
+  heresies?: Information[]
   /**
    * Some suggested blessings from the god
    * @example Aphrodite: ['beauty']
    */
-  blessings?: string[]
+  blessings?: Information[]
   /**
    * Some suggested curses from the god
    * @example Aphrodite: ['ugliness']
    */
-  curses?: string[]
-  allies?: string[] | string[][]
-  enemies?: string[] | string[][]
+  curses?: Information[]
+  allies?: Information[]
+  enemies?: Information[]
   relationships: Relationship[]
 }
 
+interface Information {
+  title?: string
+  description?: string
+  opts?: {
+    /**
+     * When the object has the `title` property it defaults to `true`.
+     * Otherwise, @default false
+     * This is used when you want a header.
+     *  */
+    displayAsList: boolean
+    /**
+     * For the `title` tag. Only used when it's not in a list.
+     * @default 'h3'
+     */
+    element?: string
+  }
+}
+
 interface Relationship {
+  /** Will check to see if a deity matches the name provided. */
   name: string
   relationship: string
   description?: string
-}
-
-interface Possession {
-  /**
-   * The name of the object.
-   * @example 'Aegis'
-   */
-  name?: string
-  /**
-   * What the object is.
-   * @example 'shield'
-   * @usage 'Zeus owns the ${shield} Aegis'
-   */
-  wordNoun?: string
-  /**
-   * What the object does.
-   * @example 'bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
-   * @usage 'Zeus owns the ${shield} Aegis, which _____'
-   */
-  powers?: string
 }
 
 interface Avatar {
@@ -659,9 +660,11 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Aegis',
-              wordNoun: 'shield',
-              powers: 'bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
+              title: 'Aegis',
+              description: 'The Aegis bears the head of a Gorgon, and makes a terrible roaring sound in battle.',
+              opts: {
+                displayAsList: false
+              }
             }
           ],
           realm: 'Olympus, where he rules over all.',
@@ -761,13 +764,7 @@ export const religion: ReligionData = {
             weaponDescription: 'Poseidon\'s trident was so powerful that it could shake the lands.',
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: 'a palace underneath the sea, watching over the fishermen from below.',
           followers: {
             description: 'Poseidon is followed by many mariners, fishermen, and horse riders.',
@@ -812,8 +809,22 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['Smooth Sailing', 'managment of horses'],
-          curses: ['mad horses', 'rough seas'],
+          blessings: [
+            {
+              title: 'smooth sailing'
+            },
+            {
+              title: 'management of horses'
+            }
+          ],
+          curses: [
+            {
+              title: 'mad horses'
+            },
+            {
+              title: 'stormy seas'
+            }
+          ],
           allies: [],
           enemies: [],
           relationships: [
@@ -874,9 +885,11 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Cap of Invisibility',
-              wordNoun: 'helmet',
-              powers: 'can turn the wearer invisible'
+              title: 'Cap of Invisibility',
+              description: 'can turn the wearer invisible',
+              opts: {
+                displayAsList: false
+              }
             }
           ],
           realm: "the Underworld. As far below the earth as the heavens are above, Hades' realm is a dark and depressing place.",
@@ -930,7 +943,14 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['plenty from the earth', 'the ability to be un-noticed'],
+          blessings: [
+            {
+              title: 'plenty from the earth'
+            },
+            {
+              title: 'the ability to go un-noticed'
+            }
+          ],
           curses: undefined,
           allies: [],
           enemies: [],
@@ -997,9 +1017,8 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Girdle',
-              wordNoun: undefined,
-              powers: 'inspires desire in all those who look upon the wearer'
+              title: 'Girdle',
+              description: 'The Girdle inspires desire in all those who look upon the wearer'
             }
           ],
           realm: undefined,
@@ -1052,11 +1071,17 @@ export const religion: ReligionData = {
           beliefs: undefined,
           heresies: undefined,
           blessings: [
-            'beauty'
+            {
+              title: 'beauty'
+            }
           ],
           curses: [
-            'ugliness',
-            'unwashable stink'
+            {
+              title: 'ugliness'
+            },
+            {
+              title: 'unwashable stink'
+            }
           ],
           allies: [],
           enemies: [],
@@ -1116,13 +1141,7 @@ export const religion: ReligionData = {
             weaponDescription: 'The Bow of Artemis was forged by the Cyclopses',
             tactics: 'Artemis is a dedicated huntress and will pursue her quarry until it is caught.'
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Artemis is worshipped by Hunters and Women, young girls could be expected to serve Artemis until they come of age.',
@@ -1172,10 +1191,18 @@ export const religion: ReligionData = {
           },
           tenets: [],
           dogma: [],
-          beliefs: 'chastity',
+          beliefs: [
+            {
+              title: 'chastity'
+            }
+          ],
           heresies: undefined,
           blessings: undefined,
-          curses: ['tranformation into a wild animal'],
+          curses: [
+            {
+              title: 'transformation into a wild animal'
+            }
+          ],
           allies: [],
           enemies: [],
           relationships: [
@@ -1230,9 +1257,7 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'The Lyre of Apollo',
-              wordNoun: 'lyre',
-              powers: undefined
+              title: 'The Lyre of Apollo'
             }
           ],
           realm: undefined,
@@ -1349,9 +1374,7 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Aegis of Athena',
-              wordNoun: undefined,
-              powers: undefined
+              title: 'Aegis of Athena'
             }
           ],
           realm: undefined,
@@ -1470,13 +1493,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Devotees of Dionysus may engage in the rending of animals with their bare hands',
@@ -1594,13 +1611,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'As the goddess of Agriculture, Demeter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.',
@@ -1647,7 +1658,17 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['bountiful harvest', 'satiated appetite', 'a better afterlife'],
+          blessings: [
+            {
+              title: 'bountiful harvest'
+            },
+            {
+              title: 'satiated appetite'
+            },
+            {
+              title: 'a better afterlife'
+            }
+          ],
           curses: undefined,
           allies: [],
           enemies: [],
@@ -1729,19 +1750,14 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Adamantine Blade',
-              wordNoun: undefined,
-              powers: undefined
+              title: 'Adamantine Blade'
             },
             {
-              name: 'Talaria',
-              wordNoun: 'Winged boots',
-              powers: undefined
+              title: 'Talaria',
+              description: 'Tarlaria is the name of a pair of winged boots'
             },
             {
-              name: 'Winged helm',
-              wordNoun: undefined,
-              powers: undefined
+              title: 'Winged helm'
             }
           ],
           realm: undefined,
@@ -1840,13 +1856,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -1941,13 +1951,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Ares is the god of war and courage - cities and countries going to war would worship Ares before going into battle',
@@ -2048,13 +2052,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -2143,13 +2141,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Hephaestus is the god of the forge. He is worshipped by Craftsmen and his blessing gives them inspiration and skill,',
@@ -2177,9 +2169,7 @@ export const religion: ReligionData = {
             animals: [
               'donkey'
             ],
-            plants: [
-              ''
-            ],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
@@ -2189,7 +2179,14 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['inspiration', 'knowledge'],
+          blessings: [
+            {
+              title: 'inspiration'
+            },
+            {
+              title: 'knowledge'
+            }
+          ],
           curses: undefined,
           allies: [],
           enemies: [],
@@ -2239,13 +2236,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Persephone was a goddess of Spring and the Wife of Hades. Her favour might ensure a better afterlife for her worshippers.',
@@ -2344,13 +2335,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Hecate is a mysterious Goddess who is a master of the Arcane Arts and lives in the Underworld, her followers ask for her secret knowledge.',
@@ -2436,13 +2421,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt. ',
@@ -2512,13 +2491,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -2593,13 +2566,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -2640,7 +2607,9 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: undefined,
           heresies: undefined,
-          blessings: ['restored youth'],
+          blessings: [
+            { title: 'restored youth' }
+          ],
           curses: undefined,
           allies: [],
           enemies: [],
@@ -2689,13 +2658,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -2778,13 +2741,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery',
@@ -2862,13 +2819,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.',
@@ -2941,13 +2892,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'Arguably the greatest of Heroes, Heracles is worshipped by mortals for his strength and fame',
@@ -3032,9 +2977,7 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'The Thread of Ariadne',
-              wordNoun: 'thread',
-              powers: undefined
+              title: 'The Thread of Ariadne'
             }
           ],
           realm: undefined,
@@ -3158,14 +3101,12 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Gungir',
-              wordNoun: 'spear',
-              powers: 'is so well balanced it can hit any target, regardless of skill'
+              title: 'Gungir',
+              description: 'The spear Gungir is so well balanced it can hit any target, regardless of skill'
             },
             {
-              name: 'Draupnir',
-              wordNoun: 'gold ring',
-              powers: 'drips forth eight identical rings after nine days'
+              title: 'Draupnir',
+              description: 'A gold ring which drips forth eight identical rings after nine days'
             }
           ],
           realm: 'Valhalla',
@@ -3262,19 +3203,16 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Jarngreipr ',
-              wordNoun: 'gloves',
-              powers: 'he needs to handle Mjolnir '
+              title: 'Jarngreipr ',
+              description: 'the pair of gloves he needs to handle Mjolnir'
             },
             {
-              name: 'Mjolnir',
-              wordNoun: 'hammer',
-              powers: 'summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short'// Don't think it returns - this is not Marvel
+              title: 'Mjolnir',
+              description: 'The legendary hammer which summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short'// Don't think it returns - this is not Marvel
             },
             {
-              name: 'Megingjord',
-              wordNoun: 'belt',
-              powers: 'doubles Thors mighty strength, allowing him to lift to Mjolnir'
+              title: 'Megingjord',
+              description: 'A belt doubles Thors mighty strength, allowing him to lift Mjolnir'
             }
           ],
           realm: undefined,
@@ -3372,13 +3310,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -3468,13 +3400,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -3572,9 +3498,8 @@ export const religion: ReligionData = {
           },
           possessions: [
             {
-              name: 'Gullinbursti',
-              wordNoun: 'golden boar',
-              powers: undefined
+              title: 'Gullinbursti',
+              description: 'A golden boar'
             }
           ],
           realm: undefined,
@@ -3667,13 +3592,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: 'Folkvangr',
           followers: {
             description: undefined,
@@ -3752,13 +3671,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: 'the Skalds are the story tellers of the Jarl, and rarely go into battle. They recite stories of the great deeds of gods and men',
@@ -3837,13 +3750,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -3922,13 +3829,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -3998,13 +3899,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
@@ -4075,13 +3970,7 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
-          possessions: [
-            {
-              name: undefined,
-              wordNoun: undefined,
-              powers: undefined
-            }
-          ],
+          possessions: [],
           realm: undefined,
           followers: {
             description: undefined,
