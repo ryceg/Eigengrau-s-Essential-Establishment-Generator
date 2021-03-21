@@ -27,6 +27,6 @@ $currentNPC.title
     <<run setup.history($currentNPC, "NPCProfileLK", "LK Markdown for " + $currentNPC.name)>><<goto "NPCProfileLKMarkdown">>
   <</switch>>
 <</button>>    */
-<<if $currentNPC.isThrowaway === true>> -- 
+<<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
 <</if>><</nobr>>

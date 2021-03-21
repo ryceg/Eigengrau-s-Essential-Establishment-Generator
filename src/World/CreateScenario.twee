@@ -1,5 +1,5 @@
 :: CreateScenario
-<label name="Current season" for="listbox-towncurrentseason"><<listbox "$town.currentSeason" autoselect>><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><<option "No weather" "null">><</listbox>></label><label for="scenariotype"><label for=""><<listbox "$scenarioType">><<option "Town Encounter" "town">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>></label> -- <<button "Create Scenario">>
+<label name="Current season" for="listbox-towncurrentseason"><<listbox "$town.currentSeason" autoselect>><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><<option "No weather" "null">><</listbox>></label><label for="scenariotype"><label for=""><<listbox "$scenarioType">><<option "Town Encounter" "town">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>></label><span class='hide-on-print'> -- </span><<button "Create Scenario">>
 <<if def _newNPC>>
     <<run setup.deleteNPC($npcs[_newNPC.key])>>
     <<unset _newNPC>>

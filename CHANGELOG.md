@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Road profile page, for adding buildings to a specific road.
 - Ability to create new relationship
 - Ability to edit existing relationships, and add descriptions.
+- Print @media CSS to make printing pages at least slightly prettier (though you should definitely use the exporters!)
 
 ### Changes
 - Fixed some images not displaying properly in the GMBinder export.
