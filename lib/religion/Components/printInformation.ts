@@ -1,8 +1,9 @@
 import { Information } from '@lib'
 
-export const printInformation = (informations: Information[], preface?: string) => {
-  const output = $('')
+export const printInformation = (informations: Information[], preface?: Information) => {
+  const output = $('<span />')
   const listStuff = []
+  let listResult
   for (const info of informations) {
     info.opts = Object.assign({
       element: 'h4'
@@ -19,7 +20,11 @@ export const printInformation = (informations: Information[], preface?: string) 
       listStuff.push(info.title)
     }
   }
+  if (listStuff.length > 0) {
+    listResult = lib.makeList(listStuff)
+    output.prepend(listResult)
+  }
   console.log('printInformation')
-  console.log(output.get(0))
-  return output.get(0)
+  console.log(output.get(0).innerHTML)
+  return output.get(0).innerHTML
 }
