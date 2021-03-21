@@ -93,6 +93,7 @@ export * from './npc-generation/traits/getTraitDescriptors'
 export * from './religion/createTownReligion'
 export * from './religion/religion'
 export * from './religion/Components/deityComponents'
+export * from './religion/Components/printInformation'
 
 export * from './src/articles'
 export * from './src/books'
