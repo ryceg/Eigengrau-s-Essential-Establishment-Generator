@@ -819,18 +819,22 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: [
             {
-              title: 'smooth sailing'
+              title: 'smooth sailing',
+              description: 'Poseidon will bless sailors and those that have earnt his favour with smooth passage.'
             },
             {
-              title: 'management of horses'
+              title: 'management of horses',
+              description: 'As the Lord of Horses, Poseidon can calm equines as easily as he can enrage them.'
             }
           ],
           curses: [
             {
-              title: 'mad horses'
+              title: 'mad horses',
+              description: 'As the Lord of Horses, Poseidon can enrage equines as easily as he can calm them.'
             },
             {
-              title: 'stormy seas'
+              title: 'stormy seas',
+              description: "Those that tempt Poseidon's wrath risk stormy seas on their next voyage."
             }
           ],
           allies: [],
@@ -958,10 +962,12 @@ export const religion: ReligionData = {
           heresies: undefined,
           blessings: [
             {
-              title: 'plenty from the earth'
+              title: 'plenty from the earth',
+              description: 'As the lord of the underworld, Hades has considerable wealth, and can bestow riches to those he deems worthy.'
             },
             {
-              title: 'the ability to go un-noticed'
+              title: 'the ability to go un-noticed',
+              description: 'Hades can give those that wish to be unseen the power to avoid detection in the dark.'
             }
           ],
           curses: undefined,
@@ -1210,14 +1216,16 @@ export const religion: ReligionData = {
           dogma: [],
           beliefs: [
             {
-              title: 'chastity'
+              title: 'chastity',
+              description: 'Artemis and her followers value chastity above all else.'
             }
           ],
           heresies: undefined,
           blessings: undefined,
           curses: [
             {
-              title: 'transformation into a wild animal'
+              title: 'transformation into a wild animal',
+              description: 'As goddess of the hunt, Artemis can transform those that wrong her into wild animas to be hunted.'
             }
           ],
           allies: [],
@@ -1226,7 +1234,8 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            }
+          ]
         },
         { // Apollo
           objectType: 'deity',
