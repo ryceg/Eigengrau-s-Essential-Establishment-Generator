@@ -3,11 +3,6 @@
 \<<include "Maxim">>
 \<<if $currentPassage.followers.description>>$currentPassage.followers.description<</if>>
 \<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
-\<<if $currentPassage.followers.holyDays.earth.length > 0>>
-\<<if $currentPassage.followers.holyDays.earth>>Their holy days are <<for _i = 0; _i < $currentPassage.followers.holyDays.earth; _i++>>
-    \<<print lib.createTippyFull($currentPassage.followers.holyDays.earth[_i].title, $currentPassage.followers.holyDays.earth[_i].description)>>
-  \<</for>>
-\<</if>>
-<</if>>
+<<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <<include "ClericDomains">>

@@ -22,11 +22,11 @@
 \<<include "Powers">>
 \<<include "Possessions">>
 \<<include "Followers">>
-\<<idp $currentPassage.beliefs "<h3>Beliefs</h3>$currentPassage.beliefs">>
-\<<idp $currentPassage.heresies "<h3>Heresies</h3>$currentPassage.heresies">>
-\<<if $currentPassage.paragraphs>><<for _item range $currentPassage.paragraphs>>_item
-
-<</for>><</if>>
+\<<idp $currentPassage.beliefs "<h3>Beliefs</h3><<print lib.printInformation($currentPassage.beliefs)>>">>
+\<<idp $currentPassage.heresies "<h3>Heresies</h3><<print lib.printInformation($currentPassage.heresies)>>">>
+\<<idp $currentPassage.paragraphs "<<print lib.printInformation($currentPassage.paragraphs)>>">>
 \<<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">> <<idp $currentPassage.combat.tactics>>
 \<<include "Manifestations">>
 \<<include "DeityRelationships">>
+\<<idp $currentPassage.allies "<h3>Allies</h3><<print lib.printInformation($currentPassage.allies)>>">>
+\<<idp $currentPassage.enemies "<h3>Enemies</h3><<print lib.printInformation($currentPassage.enemies)>>">>
