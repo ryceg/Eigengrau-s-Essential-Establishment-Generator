@@ -4,13 +4,22 @@ import { PoliticalSource, Town, TownRolls } from '../town/_common'
 import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/worldType'
 import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
 
+export type DeityRank =
+| 'leader'
+| 'greater deity'
+| 'intermediate deity'
+| 'lesser deity'
+| 'immortal'
+| 'demigod'
+| 'saint'
+
 interface Followers {
   /**
    * @example 'Zeus is followed by many, of all different race and creed.'
    */
   description: string
   /**
-   * Who actually Worshipped the god?
+   * Who actually worshipped the god?
    * @example Poseidon : 'Sailors'
    */
   adherents?: string[] | Information[]
@@ -27,7 +36,7 @@ interface Followers {
    * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
    * @default 'earth'
    */
-  holyDays: PartialRecord<WorldTypeAbbreviated, string[] | Information[]>
+  holyDays: PartialRecord<WorldTypeAbbreviated, Information[]>
   race?: RaceName
   base?: Partial<NPC>
   /**
@@ -133,14 +142,7 @@ export interface Deity {
    * Trying to make rank more granular is just asking for trouble.
    * @default 'lesser deity'
    */
-  rank:
-    | 'leader'
-    | 'greater deity'
-    | 'intermediate deity'
-    | 'lesser deity'
-    | 'immortal'
-    | 'demigod'
-    | 'saint'
+  rank: DeityRank
   /**
    * Description of the deity overall. If omitted, description will be generated from the rest of the included data.
    */
@@ -153,7 +155,7 @@ export interface Deity {
   /**
    * Just in case you have history that you want to cover.
    */
-  history?: string
+  history?: Information[]
   /**
    * For smart one-liners, or quotes about the deity.
    * Will be printed in a <blockquote> element.
@@ -165,7 +167,7 @@ export interface Deity {
    */
   quotes?: Quotation[]
   /** Any powers that you want to add. */
-  powers?: string
+  powers?: Information[]
   /**
    * Generic extra text.
    * @example [
@@ -173,7 +175,7 @@ export interface Deity {
    *  '<h4>Death</h4>', 'Zeus dies at the end of the film.'
    * ]
    */
-  paragraphs?: string[]
+  paragraphs?: Information[]
   /**
    * The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio
    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']
@@ -214,7 +216,7 @@ export interface Deity {
   /**
    * For channel divinity spells and features.
    */
-  channelDivinity: string[]
+  channelDivinity: Information[]
   /**
    * Alignments, for those that are still stuck on 2nd Edition.
    */
@@ -251,7 +253,6 @@ export interface Deity {
   }>
   /**
    * For things that the deity owns.
-   * @example `${'Thor'} owns the ${'hammer'} ${'Mjölnir'}, which ${"could return to its owner's hand when thrown, and call lightning down on enemies."}`
    */
   possessions: Information[]
   /** Some gods had planes/domain which they ruled
@@ -262,7 +263,7 @@ export interface Deity {
   followers: Partial<Followers>
   /**
    * If a deity particularly embodies a virtue or vice, it can be specified.
-   * Expressed as a 0-100; values of lower than fifty being the opposite trait (i.e. merciful: 2 means that they are very vindictive).
+   * Expressed as a 0-100; values of lower than fifty being the opposite trait (i.e. `merciful: 2` means that they are very vindictive).
    * @example
    * Zeus: {
    *   just: 70,
@@ -287,25 +288,34 @@ export interface Deity {
     colours?: string[]
     miscellaneous?: string[]
   }
-  /** Tenet emphasizes acceptance and belief rather than teaching.
-   * It is therefore thought of as a principle held or adhered to and implies a body of adherents. */
-  tenets?: Information[]
-  dogma?: Information[]
+  /** What is good to the worshipers of this deity? What do they believe? */
   beliefs?: Information[]
+  /** What is verboten to the worshipers of this deity? What can they never do? */
   heresies?: Information[]
   /**
-   * Some suggested blessings from the god
-   * @example Aphrodite: ['beauty']
+   * Some suggested blessings that might be bestowed by the deity.
    */
   blessings?: Information[]
   /**
-   * Some suggested curses from the god
-   * @example Aphrodite: ['ugliness']
+   * Some suggested curses that might be cast by the deity.
    */
   curses?: Information[]
+  /**
+   * Who do the temple call their friends?
+   */
   allies?: Information[]
+  /**
+   * Who are the enemies of the temple?
+   */
   enemies?: Information[]
+  /**
+   * Who's their father?
+   * @warn This is not bi-directional, as sometimes there are one-way relationships.
+   */
   relationships: Relationship[]
+  /**
+   * What words does the temple live by? Daily words that they use to remind themselves.
+   */
   maxims?: Quotation[]
 }
 
@@ -634,10 +644,12 @@ export const religion: ReligionData = {
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
           history: undefined,
           powers: undefined,
-          quotes: [{
-            description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',
-            author: 'Sophocles'
-          }],
+          quotes: [
+            {
+              description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',
+              author: 'Sophocles'
+            }
+          ],
           portfolios: [
             'the skies',
             'thunder and lightning',
@@ -659,18 +671,12 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: 'fist full of lightning bolts',
           combat: {
-            description: 'Zeus famously led the Greek gods in the battle against the Titans, and is a fearsome foe.',
-            weapon: 'lightning',
-            weaponDescription: 'Zeus calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.',
-            tactics: 'Zeus is hotheaded, and does not always think things through.'
+            description: 'Zeus famously led the Greek gods in the battle against the Titans, and is a fearsome foe. He calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.'
           },
           possessions: [
             {
               title: 'Aegis',
-              description: 'The Aegis bears the head of a Gorgon, and makes a terrible roaring sound in battle.',
-              opts: {
-                displayAsList: false
-              }
+              description: 'The Aegis bears the head of a Gorgon, and makes a terrible roaring sound in battle.'
             }
           ],
           realm: 'Olympus, where he rules over all.',
@@ -678,7 +684,9 @@ export const religion: ReligionData = {
             description: 'Zeus is followed by many, of all different race and creed.',
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['January', 'Thursday']
+              earth: [
+                { title: 'January' }, { title: 'Thursday' }
+              ]
             }
           },
           personality: {
@@ -709,8 +717,6 @@ export const religion: ReligionData = {
             colours: ['yellow'],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -729,6 +735,26 @@ export const religion: ReligionData = {
             {
               name: 'Demeter',
               relationship: 'sister'
+            },
+            {
+              name: 'Athena',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Persephone',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Artemis',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Ares',
+              relationship: 'son'
+            },
+            {
+              name: 'Apollo',
+              relationship: 'son'
             }
           ]
         },
@@ -767,12 +793,14 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Neutral',
           symbol: 'A trident and billowing cloak',
           combat: {
-            description: undefined,
-            weapon: 'his trident',
-            weaponDescription: 'Poseidon\'s trident was so powerful that it could shake the lands.',
-            tactics: undefined
+            description: undefined
           },
-          possessions: [],
+          possessions: [
+            {
+              title: 'Poseidon\'s Trident',
+              description: 'Poseidon\'s trident was so powerful that it could shake the lands.'
+            }
+          ],
           realm: 'a palace underneath the sea, watching over the fishermen from below.',
           followers: {
             description: 'Poseidon is followed by many mariners, fishermen, and horse riders.',
@@ -813,8 +841,6 @@ export const religion: ReligionData = {
             colours: ['blue'],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -847,6 +873,22 @@ export const religion: ReligionData = {
             {
               name: 'Hades',
               relationship: 'brother'
+            },
+            {
+              name: 'Demeter',
+              relationship: 'sister'
+            },
+            {
+              name: 'Hera',
+              relationship: 'sister'
+            },
+            {
+              name: 'Hestia',
+              relationship: 'sister'
+            },
+            {
+              name: 'Amphitrite',
+              relationship: 'wife'
             }
           ]
         },
@@ -892,15 +934,16 @@ export const religion: ReligionData = {
           alignment: 'Lawful Evil',
           symbol: 'Helm of Hades',
           combat: {
-            description: undefined,
-            weapon: 'Sceptre',
-            weaponDescription: 'A powerful relic that is able to create a passage between the worlds of the living and the dead',
-            tactics: undefined
+            description: undefined
           },
           possessions: [
             {
+              title: 'Sceptre',
+              description: 'A powerful relic that is able to create a passage between the worlds of the living and the dead'
+            },
+            {
               title: 'Cap of Invisibility',
-              description: 'can turn the wearer invisible',
+              description: 'A cap which can turn the wearer invisible',
               opts: {
                 displayAsList: false
               }
@@ -927,13 +970,13 @@ export const religion: ReligionData = {
           },
           associations: {
             avatars: [
-              {
-                name: 'Ploutos',
-                appearance: undefined,
-                description: 'As Ploutos, Hades is the God of wealth and precious metals',
-                frequency: undefined,
-                powers: undefined
-              }
+              // {
+              //   name: 'Ploutos',
+              //   appearance: undefined,
+              //   description: 'As Ploutos, Hades is the God of wealth and precious metals',
+              //   frequency: undefined,
+              //   powers: undefined
+              // }
             ],
             animals: [
               'Screech-Owl',
@@ -956,8 +999,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -981,6 +1022,22 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'brother'
+            },
+            {
+              name: 'Demeter',
+              relationship: 'sister'
+            },
+            {
+              name: 'Hera',
+              relationship: 'sister'
+            },
+            {
+              name: 'Hestia',
+              relationship: 'sister'
+            },
+            {
+              name: 'Persephone',
+              relationship: 'husband'
             }
           ]
         },
@@ -1031,10 +1088,7 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Good',
           symbol: 'dove',
           combat: {
-            description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans. ',
-            weapon: 'Spear',
-            weaponDescription: 'Aphrodite Areia wields a spear ',
-            tactics: 'Aphrodite is ready to use deciptive strategies, such as how she lured the Gigantes one by one into a cave for them to be murered'
+            description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans.'
           },
           possessions: [
             {
@@ -1044,11 +1098,13 @@ export const religion: ReligionData = {
           ],
           realm: undefined,
           followers: {
-            description: 'As the goddess of beauty and love the favour of Aphrodite was worshipped by all people, though especially by Prostitutes. She was also worshippeed as Aphrodite the Warlike by warriors',
+            description: 'As the goddess of beauty and love the favour of Aphrodite was worshipped by all people, though especially by prostitutes.',
             adherents: ['everyone', 'prostitutes', 'warriors'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['the fourth day of every month']
+              earth: [
+                { title: 'the fourth day of every month' }
+              ]
             }
           },
           personality: {
@@ -1060,10 +1116,10 @@ export const religion: ReligionData = {
             avatars: [
               {
                 name: 'Aphrodite Areia',
-                appearance: 'Clad in armour and bearing weapons',
+                appearance: 'She appears clad in armour and bearing weapons',
                 description: 'Aphrodite Areia is a war-like aspect of Aphrodite',
-                frequency: 'Worshipped by the Spartans and other war-loving people',
-                powers: undefined
+                frequency: 'and is worshipped by the Spartans and other war-loving people',
+                powers: 'Aphrodite is ready to use deciptive strategies, such as how she lured the Gigantes one by one into a cave for them to be murdered'
               }
             ],
             animals: [
@@ -1087,8 +1143,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: ['conch shells']
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -1110,6 +1164,38 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
+            },
+            {
+              name: 'Ares',
+              relationship: 'lover'
+            },
+            {
+              name: 'Hephaestus',
+              relationship: 'husband'
+            },
+            {
+              name: 'Hebe',
+              relationship: 'sister'
+            },
+            {
+              name: 'Heracles',
+              relationship: 'brother'
+            },
+            {
+              name: 'Persephone',
+              relationship: 'sister'
+            },
+            {
+              name: 'Hermes',
+              relationship: 'lover'
+            },
+            {
+              name: 'Dionysus',
+              relationship: 'lover'
+            },
+            {
+              name: 'Poseidon',
+              relationship: 'lover'
             }
           ]
         },
@@ -1159,19 +1245,23 @@ export const religion: ReligionData = {
           alignment: 'Neutral Good',
           symbol: 'bow and quiver of arrows',
           combat: {
-            description: 'Artemis is quick to strike down those who offend her with animals and wild beasts',
-            weapon: 'bow and arrows',
-            weaponDescription: 'The Bow of Artemis was forged by the Cyclopses',
-            tactics: 'Artemis is a dedicated huntress and will pursue her quarry until it is caught.'
+            description: 'Artemis is quick to strike down those who offend her with animals and wild beasts. She is a dedicated huntress and will pursue her quarry until it is caught.'
           },
-          possessions: [],
+          possessions: [
+            {
+              title: 'Bow of Artemis',
+              description: 'The Bow of Artemis was forged by the Cyclopses'
+            }
+          ],
           realm: undefined,
           followers: {
             description: 'Artemis is worshipped by Hunters and Women, young girls could be expected to serve Artemis until they come of age.',
             adherents: ['hunters', 'young girls', 'expecting mothers', 'wild beings'],
             favouredWeapon: 'bow',
             holyDays: {
-              earth: ['the sixth day']
+              earth: [
+                { title: 'the sixth day' }
+              ]
             }
           },
           personality: {
@@ -1212,8 +1302,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: ['lyre', 'torches', 'spears and nets']
           },
-          tenets: [],
-          dogma: [],
           beliefs: [
             {
               title: 'chastity',
@@ -1234,6 +1322,10 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
+            },
+            {
+              name: 'Apollo',
+              relationship: 'twin brother'
             }
           ]
         },
@@ -1278,14 +1370,14 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: 'lyre',
           combat: {
-            description: undefined,
-            weapon: 'bow',
-            weaponDescription: undefined,
-            tactics: 'The bow of Apollo fires arrows and plagues upon those who anger him'
           },
           possessions: [
             {
               title: 'The Lyre of Apollo'
+            },
+            {
+              title: 'Bow of Apollo',
+              description: 'The bow of Apollo fires arrows and plagues upon those who anger him'
             }
           ],
           realm: undefined,
@@ -1334,8 +1426,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -1346,7 +1436,12 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            },
+            {
+              name: 'Artemis',
+              relationship: 'twin sister'
+            }
+          ]
         },
         { // Athena
           objectType: 'deity',
@@ -1397,10 +1492,7 @@ export const religion: ReligionData = {
           alignment: 'Lawful Good',
           symbol: ['Gorgoneion', 'Aegis'],
           combat: {
-            description: undefined,
-            weapon: 'spear',
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [
             {
@@ -1444,8 +1536,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -1456,7 +1546,8 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            }
+          ]
         },
         { // Dionysus
           objectType: 'deity',
@@ -1520,10 +1611,7 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Neutral',
           symbol: 'Thyrsus',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -1532,7 +1620,9 @@ export const religion: ReligionData = {
             adherents: ['wine-makers', 'actors', 'farmers', 'revelers'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['the eighth month']
+              earth: [
+                { title: 'the eighth month' }
+              ]
             }
           },
           personality: {
@@ -1583,8 +1673,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -1595,7 +1683,17 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            },
+            {
+              name: 'Ariadne',
+              relationship: 'wife'
+            },
+            {
+              name: 'Aphrodite',
+              relationship: 'lover',
+              description: 'Aphrodite bore Priapus by Dionysus.'
+            }
+          ]
         },
         { // Demeter
           objectType: 'deity',
@@ -1640,10 +1738,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral Good',
           symbol: 'cornucopia',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -1688,8 +1783,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -1706,7 +1799,29 @@ export const religion: ReligionData = {
           curses: undefined,
           allies: [],
           enemies: [],
-          relationships: []
+          relationships: [
+            {
+              name: 'Hades',
+              relationship: 'brother'
+            },
+            {
+              name: 'Hera',
+              relationship: 'sister'
+            },
+            {
+              name: 'Poseidon',
+              relationship: 'brother'
+            },
+            {
+              name: 'Zeus',
+              relationship: 'brother'
+            },
+            {
+              name: 'Persephone',
+              relationship: 'daughter',
+              description: 'Sired by Zeus.'
+            }
+          ]
 
         },
         { // Hermes
@@ -1779,18 +1894,15 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Good',
           symbol: 'Caduceus ',
           combat: {
-            description: undefined,
-            weapon: 'sword',
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [
             {
-              title: 'Adamantine Blade'
+              title: 'Talaria',
+              description: 'Tarlaria is the name of a pair of winged boots forged by Hephaestus.'
             },
             {
-              title: 'Talaria',
-              description: 'Tarlaria is the name of a pair of winged boots'
+              title: 'Adamantine Blade'
             },
             {
               title: 'Winged helm'
@@ -1798,11 +1910,13 @@ export const religion: ReligionData = {
           ],
           realm: undefined,
           followers: {
-            description: 'Hermes was the messenger of Zeus',
+            description: 'Hermes was the messenger of Zeus, and his followers were all those that valued speed. Additionally, travelers, traders, and thieves worshiped him.',
             adherents: ['thieves', 'traders', 'messengers', 'athletes', 'diplomats', 'travellers'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['Wednesday']
+              earth: [
+                { title: 'Wednesday' }
+              ]
             }
           },
           personality: {
@@ -1837,8 +1951,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -1849,7 +1961,13 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            },
+            {
+              name: 'Aphroditus',
+              relationship: 'father',
+              description: 'Aphrodite gave birth to Hermaphroditus, or Aphroditus, the god of androgyny.'
+            }
+          ]
         },
         { // Hera
           objectType: 'deity',
@@ -1889,10 +2007,7 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Neutral',
           symbol: ['diadem', 'scepter', 'pomegranate'],
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -1936,8 +2051,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -1948,7 +2061,45 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'consort'
-            }]
+            },
+            {
+              name: 'Hades',
+              relationship: 'brother'
+            },
+            {
+              name: 'Poseidon',
+              relationship: 'brother'
+            },
+            {
+              name: 'Demeter',
+              relationship: 'brother'
+            },
+            {
+              name: 'Ares',
+              relationship: 'son'
+            },
+            {
+              name: 'Eris',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Athena',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Hebe',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Eileithyia',
+              relationship: 'daughter'
+            },
+            {
+              name: 'Hephaestus',
+              relationship: 'son',
+              description: 'Hera gave birth to Hephaestus without male intervention.'
+            }
+          ]
         },
         { // Ares
           objectType: 'deity',
@@ -1966,7 +2117,16 @@ export const religion: ReligionData = {
           description: undefined,
           appearance: 'always clad in armour, holding weapons and ready for battle. He can appear as the fresh-faced youth or the grizzeled veteran depending on his mood.',
           history: undefined,
-          powers: undefined,
+          powers: [
+            {
+              title: 'Odikinesis',
+              description: 'Possessing the ability to manipulate feelings and emotions of war such as hate and rage, Ares would induce strife before battles.'
+            },
+            {
+              title: 'Strength',
+              description: 'As a fighter, Ares excelled at all to do with physicality. '
+            }
+          ],
           portfolios: [
             'war',
             'battlelust',
@@ -1986,10 +2146,7 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Evil',
           symbol: 'spear',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: 'As the God of War, Ares has plenty of experience in battle. In contrast to Athena, who is the goddess of tacticians, Ares represents a more brutal, carnal type of conquest.'
           },
           possessions: [],
           realm: undefined,
@@ -1998,7 +2155,9 @@ export const religion: ReligionData = {
             adherents: ['warriors'],
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['Tuesday']
+              earth: [
+                { title: 'Tuesday' }
+              ]
             }
           },
           personality: {
@@ -2024,16 +2183,12 @@ export const religion: ReligionData = {
               'eagle-owl',
               'woodpecker'
             ],
-            plants: [
-              ''
-            ],
+            plants: [],
             monsters: [],
             gems: [],
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2044,7 +2199,12 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            },
+            {
+              name: 'Aphrodite',
+              relationship: 'lover'
+            }
+          ]
         },
         { // Hestia
           objectType: 'deity',
@@ -2128,15 +2288,18 @@ export const religion: ReligionData = {
             colours: ['green'],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
           curses: undefined,
           allies: [],
           enemies: [],
-          relationships: []
+          relationships: [
+            {
+              name: 'Zeus',
+              relationship: 'brother'
+            }
+          ]
         },
         { // Hephaestus
           objectType: 'deity',
@@ -2219,8 +2382,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -2321,8 +2482,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2333,7 +2492,8 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            }
+          ]
         },
         { // Hecate
           objectType: 'deity',
@@ -2387,7 +2547,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: 'Hecate is a mysterious Goddess who is a master of the Arcane Arts and lives in the Underworld, her followers ask for her secret knowledge.',
-            adherents: ['Magic Users', 'Necromancers'],
+            adherents: ['magic users', 'necromancers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2433,8 +2593,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2475,7 +2633,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt. ',
-            adherents: ['Warriors'],
+            adherents: ['warriors'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2506,8 +2664,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2547,7 +2703,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: undefined,
-            adherents: ['Gamblers', 'All'],
+            adherents: ['gamblers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2575,8 +2731,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2626,7 +2780,9 @@ export const religion: ReligionData = {
             description: undefined,
             favouredWeapon: undefined,
             holyDays: {
-              earth: ['June']
+              earth: [
+                { title: 'June' }
+              ]
             }
           },
           personality: {
@@ -2657,8 +2813,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: [
@@ -2671,7 +2825,8 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            }
+          ]
         },
         { // Pan
           objectType: 'deity',
@@ -2718,7 +2873,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: undefined,
-            adherents: ['Wild Beings', 'Hunters'],
+            adherents: ['wild beings', 'hunters'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2753,8 +2908,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2803,7 +2956,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: 'Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery',
-            adherents: ['Healers', 'The Sick'],
+            adherents: ['healers', 'the sick'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2835,8 +2988,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2883,7 +3034,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: 'Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.',
-            adherents: ['Teachers', 'Centaurs', 'Healers'],
+            adherents: ['teachers', 'centaurs', 'healers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -2911,8 +3062,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -2990,8 +3139,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3002,7 +3149,8 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
-            }]
+            }
+          ]
         },
         { // Ariadne
           objectType: 'deity',
@@ -3047,7 +3195,7 @@ export const religion: ReligionData = {
           realm: undefined,
           followers: {
             description: undefined,
-            adherents: ['Farmers'],
+            adherents: ['farmers'],
             favouredWeapon: undefined,
             holyDays: {
               earth: []
@@ -3075,8 +3223,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3087,7 +3233,8 @@ export const religion: ReligionData = {
             {
               name: 'Dionysus',
               relationship: 'consort'
-            }]
+            }
+          ]
         }
       ]
     },
@@ -3180,7 +3327,9 @@ export const religion: ReligionData = {
             description: undefined,
             favouredWeapon: '',
             holyDays: {
-              earth: ['Wednesday']
+              earth: [
+                { title: 'Wednesday' }
+              ]
             }
           },
           personality: {
@@ -3210,8 +3359,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3288,7 +3435,9 @@ export const religion: ReligionData = {
             description: undefined,
             favouredWeapon: 'hammer',
             holyDays: {
-              earth: ['Thursday']
+              earth: [
+                { title: 'Thursday' }
+              ]
             }
           },
           personality: {
@@ -3320,8 +3469,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3414,8 +3561,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3478,7 +3623,9 @@ export const religion: ReligionData = {
             description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['Friday']
+              earth: [
+                { title: 'Friday' }
+              ]
             }
           },
           personality: {
@@ -3510,8 +3657,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3609,8 +3754,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3704,8 +3847,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3780,8 +3921,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3836,7 +3975,7 @@ export const religion: ReligionData = {
             description: undefined,
             favouredWeapon: 'spear',
             holyDays: {
-              earth: ['']
+              earth: []
             }
           },
           personality: {
@@ -3860,8 +3999,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -3942,8 +4079,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -4014,8 +4149,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
@@ -4087,8 +4220,6 @@ export const religion: ReligionData = {
             colours: [],
             miscellaneous: []
           },
-          tenets: [],
-          dogma: [],
           beliefs: undefined,
           heresies: undefined,
           blessings: undefined,
