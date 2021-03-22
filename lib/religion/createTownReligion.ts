@@ -1,5 +1,5 @@
 import { Town, TownRolls } from '../town/_common'
-import { Deity, PantheonTypes } from './religion'
+import { Deity, DeityRank, PantheonTypes } from './religion'
 import { getPredominantRace } from '../town/getPredominantRace'
 import { calcPercentage } from '../src/calcPercentage'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
@@ -7,6 +7,16 @@ import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: string) => {
   if (!pantheon) town.religion.pantheon = 'greek'
   if (!deity) town.religion.deity = fetchDeity(town)
+}
+
+const rankProbabilities: Record<DeityRank, number> = {
+  'leader': 20,
+  'greater deity': 15,
+  'intermediate deity': 10,
+  'lesser deity': 8,
+  'immortal': 6,
+  'demigod': 5,
+  'saint': 5
 }
 
 export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): string => {
@@ -17,7 +27,7 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
   }> = {}
   for (const deity of deities) {
     temp[deity.name] = {
-      probability: calcPercentage(deity.probabilityWeightings?.race[predominantRace.primaryRace] || 10, predominantRace.percentile),
+      probability: calcPercentage(deity.probabilityWeightings?.race[predominantRace.primaryRace] || rankProbabilities[deity.rank] || 10, predominantRace.percentile),
       name: deity.name
     }
     if (deity.probabilityWeightings) {
