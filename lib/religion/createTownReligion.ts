@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Town, TownRolls } from '../town/_common'
 import { Deity, DeityRank, PantheonTypes } from './religion'
 import { getPredominantRace } from '../town/getPredominantRace'
@@ -9,6 +10,9 @@ export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: s
   if (!deity) town.religion.deity = fetchDeity(town)
 }
 
+/**
+ * The probabilities that replace the default 10.
+ */
 const rankProbabilities: Record<DeityRank, number> = {
   'leader': 20,
   'greater deity': 15,
@@ -27,21 +31,24 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
   }> = {}
   for (const deity of deities) {
     temp[deity.name] = {
-      probability: calcPercentage(deity.probabilityWeightings?.race[predominantRace.primaryRace] || rankProbabilities[deity.rank] || 10, predominantRace.percentile),
+      probability: calcPercentage(deity?.probabilityWeightings?.race?.[predominantRace.primaryRace] || rankProbabilities[deity.rank] || 10, predominantRace.percentile),
       name: deity.name
     }
-    if (deity.probabilityWeightings) {
-      modifyDeityProbability(deity.probabilityWeightings.economicIdeology[town.economicIdeology], temp[deity.name].probability)
-      modifyDeityProbability(deity.probabilityWeightings.politicalIdeology[town.politicalIdeology], temp[deity.name].probability)
-      modifyDeityProbability(deity.probabilityWeightings.politicalSource[town.politicalSource], temp[deity.name].probability)
-      for (const roll in deity.probabilityWeightings.rolls) {
-        const townRoll = roll as TownRolls
-        modifyDeityProbability(
-          compareRollToTarget(
-            deity.probabilityWeightings?.rolls[townRoll],
-            town.roll[townRoll]),
-          temp[deity.name].probability)
-      }
+
+    modifyDeityProbability(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], temp[deity.name].probability)
+
+    modifyDeityProbability(deity?.probabilityWeightings?.politicalIdeology?.[town.politicalIdeology], temp[deity.name].probability)
+
+    if (deity?.probabilityWeightings?.politicalSource?.[town.politicalSource]) modifyDeityProbability(deity?.probabilityWeightings?.politicalSource?.[town.politicalSource], temp[deity.name].probability)
+
+    for (const roll in deity?.probabilityWeightings?.rolls) {
+      if (!roll) break
+      const townRoll = roll as TownRolls
+      modifyDeityProbability(
+        compareRollToTarget(
+          deity.probabilityWeightings?.rolls[townRoll],
+          town.roll[townRoll]),
+        temp[deity.name].probability)
     }
   }
 
@@ -52,7 +59,7 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
 
 interface ComparisonOptions {
   bonus: number
-  /** Tolerance dictates whether a higher roll will be counted.
+  /** Tolerance dictates whether a higher/lower roll will be counted.
    * "Over" means if the 'target' is 70, with a 10
    */
   tolerance: 'over' | 'under' | 'both'
@@ -65,7 +72,8 @@ interface ComparisonOptions {
  * @param opts Optional object.
  * @returns The probability bonus
  */
-export const compareRollToTarget = (roll: number, target: number, opts?: ComparisonOptions) => {
+export const compareRollToTarget = (roll: number | undefined, target: number, opts?: ComparisonOptions) => {
+  if (!roll) return 0
   opts = Object.assign({
     bonus: 30,
     maxDistance: 30,
