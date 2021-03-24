@@ -2,7 +2,7 @@ import { ProfessionNames, ProfessionSector } from '../npc-generation/professions
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town, TownRolls } from '../town/_common'
 import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/worldType'
-import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '../'
+import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '@lib'
 
 export type DeityRank =
 | 'leader'
@@ -90,23 +90,23 @@ export interface Deity {
    * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
    */
   probabilityWeightings?: {
-    economicIdeology: PartialRecord<EconomicIdeology, number>
-    politicalIdeology: PartialRecord<PoliticalIdeology, number>
-    politicalSource: PartialRecord<PoliticalSource, number>
-    rolls: Record<TownRolls, number>
+    economicIdeology?: PartialRecord<EconomicIdeology, number>
+    politicalIdeology?: PartialRecord<PoliticalIdeology, number>
+    politicalSource?: PartialRecord<PoliticalSource, number>
+    rolls?: Record<TownRolls, number>
     /**
      * Some races are going to be more interested in certain gods than others.
      * Uses weighted probabilities (default for races ommitted is 10)
      * Can be turned off.
      */
-    race: Record<RaceName, number>
-    npc: {
+    race?: PartialRecord<RaceName, number>
+    npc?: {
       /**
        * Some races are going to be more interested in certain gods than others.
        * @warn This _multiplies_ the probability.
        * Can be turned off.
        */
-      race: Record<RaceName, number>
+      race: PartialRecord<RaceName, number>
       /**
        * Generic catch-all function for NPCs trying to pick a god to follow.
        */
@@ -936,6 +936,12 @@ export const religion: ReligionData = {
           combat: {
             description: undefined
           },
+          probabilityWeightings: {
+            race: {
+              dwarf: 20,
+              tiefling: 30
+            }
+          },
           possessions: [
             {
               title: 'Sceptre',
@@ -943,10 +949,7 @@ export const religion: ReligionData = {
             },
             {
               title: 'Cap of Invisibility',
-              description: 'A cap which can turn the wearer invisible',
-              opts: {
-                displayAsList: false
-              }
+              description: 'A cap which can turn the wearer invisible'
             }
           ],
           realm: "the Underworld. As far below the earth as the heavens are above, Hades' realm is a dark and depressing place.",
@@ -1089,6 +1092,12 @@ export const religion: ReligionData = {
           symbol: 'dove',
           combat: {
             description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans.'
+          },
+          probabilityWeightings: {
+            race: {
+              halfling: 20,
+              tiefling: 15
+            }
           },
           possessions: [
             {
@@ -1247,6 +1256,13 @@ export const religion: ReligionData = {
           combat: {
             description: 'Artemis is quick to strike down those who offend her with animals and wild beasts. She is a dedicated huntress and will pursue her quarry until it is caught.'
           },
+          probabilityWeightings: {
+            race: {
+              'elf': 40,
+              'half-elf': 20,
+              'halfling': 15
+            }
+          },
           possessions: [
             {
               title: 'Bow of Artemis',
@@ -1371,6 +1387,12 @@ export const religion: ReligionData = {
           symbol: 'lyre',
           combat: {
           },
+          probabilityWeightings: {
+            race: {
+              halfling: 20,
+              human: 15
+            }
+          },
           possessions: [
             {
               title: 'The Lyre of Apollo'
@@ -1494,6 +1516,13 @@ export const religion: ReligionData = {
           combat: {
             description: undefined
           },
+          probabilityWeightings: {
+            race: {
+              human: 25,
+              dwarf: 15,
+              dragonborn: 15
+            }
+          },
           possessions: [
             {
               title: 'Aegis of Athena'
@@ -1612,6 +1641,13 @@ export const religion: ReligionData = {
           symbol: 'Thyrsus',
           combat: {
             description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              halfling: 50,
+              tiefling: 30,
+              goblin: 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -1739,6 +1775,15 @@ export const religion: ReligionData = {
           symbol: 'cornucopia',
           combat: {
             description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'dwarf': 20,
+              'dragonborn': 15,
+              'half-elf': 15,
+              'elf': 15,
+              'tiefling': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -1896,6 +1941,12 @@ export const religion: ReligionData = {
           combat: {
             description: undefined
           },
+          probabilityWeightings: {
+            race: {
+              halfling: 20,
+              tiefling: 15
+            }
+          },
           possessions: [
             {
               title: 'Talaria',
@@ -2008,6 +2059,13 @@ export const religion: ReligionData = {
           symbol: ['diadem', 'scepter', 'pomegranate'],
           combat: {
             description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'human': 20,
+              'half-elf': 15,
+              'tiefling': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2148,6 +2206,14 @@ export const religion: ReligionData = {
           combat: {
             description: 'As the God of War, Ares has plenty of experience in battle. In contrast to Athena, who is the goddess of tacticians, Ares represents a more brutal, carnal type of conquest.'
           },
+          probabilityWeightings: {
+            race: {
+              'half-orc': 40,
+              'orc': 50,
+              'tiefling': 20,
+              'goblin': 30
+            }
+          },
           possessions: [],
           realm: undefined,
           followers: {
@@ -2254,6 +2320,12 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
           },
+          probabilityWeightings: {
+            race: {
+              'elf': 40,
+              'half-elf': 15
+            }
+          },
           possessions: [],
           realm: undefined,
           followers: {
@@ -2348,6 +2420,12 @@ export const religion: ReligionData = {
             weaponDescription: undefined,
             tactics: undefined
           },
+          probabilityWeightings: {
+            race: {
+              dwarf: 20,
+              gnome: 45
+            }
+          },
           possessions: [],
           realm: undefined,
           followers: {
@@ -2438,10 +2516,14 @@ export const religion: ReligionData = {
           alignment: 'Neutral Good',
           symbol: ['pomegranate', 'torch'],
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'halfling': 20,
+              'half-elf': 15,
+              'elf': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2538,10 +2620,13 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Evil',
           symbol: undefined,
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              human: 20,
+              tiefling: 25
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2624,10 +2709,14 @@ export const religion: ReligionData = {
           alignment: 'Lawful Neutral',
           symbol: 'Winged Woman',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'human': 20,
+              'half-orc': 25,
+              'orc': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2694,10 +2783,13 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: undefined,
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              halfling: 30,
+              human: 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2769,10 +2861,12 @@ export const religion: ReligionData = {
           alignment: 'Neutral Good',
           symbol: undefined,
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              human: 20
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2825,6 +2919,10 @@ export const religion: ReligionData = {
             {
               name: 'Zeus',
               relationship: 'father'
+            },
+            {
+              name: 'Hercules',
+              relationship: 'husband'
             }
           ]
         },
@@ -2864,10 +2962,15 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Neutral',
           symbol: 'pan pipes',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'halfling': 30,
+              'gnome': 15,
+              'elf': 25,
+              'half-elf': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -2947,10 +3050,14 @@ export const religion: ReligionData = {
           alignment: 'Lawful Good',
           symbol: 'Serpent-entwined staff',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'human': 20,
+              'elf': 15,
+              'half-elf': 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -3025,10 +3132,13 @@ export const religion: ReligionData = {
           alignment: 'Neutral Good',
           symbol: ['thread', 'serpent', 'bull'],
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              dragonborn: 15,
+              human: 15
+            }
           },
           possessions: [],
           realm: undefined,
@@ -3098,10 +3208,14 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Good',
           symbol: 'olive-wood club and lion skin cape',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              'human': 20,
+              'half-orc': 35,
+              'orc': 20
+            }
           },
           possessions: [],
           realm: undefined,
@@ -3182,10 +3296,13 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: undefined,
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
+          },
+          probabilityWeightings: {
+            race: {
+              halfling: 20,
+              tiefling: 15
+            }
           },
           possessions: [
             {
@@ -3522,10 +3639,7 @@ export const religion: ReligionData = {
           alignment: 'Chaotic Evil',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -3612,10 +3726,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -3710,10 +3821,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [
             {
@@ -3806,10 +3914,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: 'Folkvangr',
@@ -3964,10 +4069,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -4043,10 +4145,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -4113,10 +4212,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
@@ -4184,10 +4280,7 @@ export const religion: ReligionData = {
           alignment: 'Neutral',
           symbol: '',
           combat: {
-            description: undefined,
-            weapon: undefined,
-            weaponDescription: undefined,
-            tactics: undefined
+            description: undefined
           },
           possessions: [],
           realm: undefined,
