@@ -115,7 +115,7 @@ export const traitDescriptions: Record<Virtues, ThresholdTable<string>> = {
     [18, 'just'],
     [17, 'equitable'],
     [16, 'fair-minded'],
-    [15, 'even-handed'],
+    [15, 'fair'],
     [14, 'nondiscriminatory'],
     [13, ''],
     [12, ''],
@@ -166,7 +166,7 @@ export const traitDescriptions: Record<Virtues, ThresholdTable<string>> = {
     [9, ''],
     [8, 'pretentious'],
     [7, 'cavalier'],
-    [6, 'cocky'],
+    [6, 'prone to boasting'],
     [5, 'self-important'],
     [4, 'boastful'],
     [3, 'proud'],
@@ -281,7 +281,7 @@ export const traitDescriptions: Record<Virtues, ThresholdTable<string>> = {
 }
 
 const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => {
-  if (Math.abs(firstTrait - secondTrait) > 5) return 'but'
+  if (Math.abs(firstTrait - secondTrait) > 9) return 'but'
   return 'and'
 }
 
@@ -316,6 +316,55 @@ export const getAllTraits = (npc: NPC) => {
   return traitDescriptions
 }
 
+export const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetLength = 4) => {
+  let result = ''
+  if (traits.length < targetLength) targetLength = traits.length
+  if (targetLength === 0) return ''
+  if (targetLength < 4) return `${lib.makeList(traits.slice(0, targetLength).map(trait => trait.result))}.`
+  for (let i = 0; i < targetLength - 1; i++) {
+    let and
+    if (i > 0) and = getTraitPositiveOrNegative(traits[i - 1].roll, traits[i].roll)
+    if (i < targetLength - 2) {
+      if (and === 'and') {
+        result += `${traits[i]?.result}, `
+      } else if (and === 'but') {
+        result += `but is ${traits[i]?.result}`
+        if (i < targetLength - 1) {
+          result += `. ${npc.heshe.toUpperFirst()} also is `
+        } else {
+          result += ', '
+        }
+      } else {
+        result += `${traits[i]?.result}, `
+      }
+    } else if (i < targetLength - 1) {
+      if (and === 'but') {
+        result += `but is ${traits[i]?.result}`
+      } else if (and === 'and') {
+        result += `${traits[i]?.result}, and `
+      } else {
+        result += `${traits[i]?.result}, and `
+      }
+    }
+  }
+  if (traits[targetLength].result) result += traits[targetLength].result
+  result += '.'
+  return result
+}
+
+export const filterTraits = (traits: TraitDescriptions[]) => {
+  return traits.filter(trait => Math.abs(trait.roll - 10) > 5)
+}
+
+export const sortTraitListByMostExtreme = (traits: TraitDescriptions[]) => {
+  const middlePoint = 10
+  return traits.sort((a, b) => Math.abs(a.roll - middlePoint) - Math.abs(b.roll - middlePoint))
+}
+
+export const sortTraitList = (traits: TraitDescriptions[]) => {
+  return traits.sort((a, b) => a.roll - b.roll)
+}
+
 export const parseTraitIntoSentences = (npc: NPC, traits: TraitDescriptions[]) => {
   console.log(traits)
   let result = `${npc.firstName} is `
@@ -328,6 +377,8 @@ export const parseTraitIntoSentences = (npc: NPC, traits: TraitDescriptions[]) =
 }
 
 export const getTraitsReadout = (npc: NPC) => {
-  const traitDescriptions = getAllTraits(npc)
-  return parseTraitIntoSentences(npc, traitDescriptions)
+  const traitDescriptions = filterTraits(
+    sortTraitListByMostExtreme(
+      getAllTraits(npc)))
+  return parseTraitIntoTop(npc, traitDescriptions)
 }
