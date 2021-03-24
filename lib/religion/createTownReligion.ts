@@ -13,7 +13,7 @@ export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: s
 /**
  * The probabilities that replace the default 10.
  */
-const rankProbabilities: Record<DeityRank, number> = {
+export const rankProbabilities: Record<DeityRank, number> = {
   'leader': 20,
   'greater deity': 15,
   'intermediate deity': 10,
@@ -35,16 +35,16 @@ export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): stri
       name: deity.name
     }
 
-    modifyDeityProbability(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], temp[deity.name].probability)
+    addIfDefined(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], temp[deity.name].probability)
 
-    modifyDeityProbability(deity?.probabilityWeightings?.politicalIdeology?.[town.politicalIdeology], temp[deity.name].probability)
+    addIfDefined(deity?.probabilityWeightings?.politicalIdeology?.[town.politicalIdeology], temp[deity.name].probability)
 
-    if (deity?.probabilityWeightings?.politicalSource?.[town.politicalSource]) modifyDeityProbability(deity?.probabilityWeightings?.politicalSource?.[town.politicalSource], temp[deity.name].probability)
+    if (deity?.probabilityWeightings?.politicalSource?.[town.politicalSource]) addIfDefined(deity?.probabilityWeightings?.politicalSource?.[town.politicalSource], temp[deity.name].probability)
 
     for (const roll in deity?.probabilityWeightings?.rolls) {
       if (!roll) break
       const townRoll = roll as TownRolls
-      modifyDeityProbability(
+      addIfDefined(
         compareRollToTarget(
           deity.probabilityWeightings?.rolls[townRoll],
           town.roll[townRoll]),
@@ -98,13 +98,13 @@ const getSimilarity = (base: number, distance: number) => {
   return base * similarity
 }
 
-const modifyDeityProbability = (arg: number | undefined, target: number) => {
+export const addIfDefined = (arg: number | undefined, target: number) => {
   if (!arg) return
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   target = target + arg
 }
 
-const getFallbackDeities = (town: Town): Deity[] => {
+export const getFallbackDeities = (town: Town): Deity[] => {
   const pantheonName = town.religion.pantheon || 'greek'
   const pantheon = lib.religion.pantheon[pantheonName as PantheonTypes]
   return pantheon.gods
