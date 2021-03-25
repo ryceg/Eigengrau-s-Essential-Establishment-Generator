@@ -202,20 +202,26 @@ export function createReligiosity (town: Town, npc: NPC) {
   } else {
     npc.religion.strength = getReligionStrength(npc.roll.religiosity)
   }
-  npc.religion.deity = getDeity(town, npc)
+  npc.religion.deity = pickDeity(npc.roll.gender, getDeityProbabilities(town, npc))
 }
 
-export function getDeity (town: Town, npc: NPC, deities = lib.getFallbackDeities(town)) {
+export function getDeityProbabilities (town: Town, npc: NPC, deities = lib.getFallbackDeities(town)): Record<string, {
+  probability: number,
+  name: string
+}> {
   const conformityMargin = 30
   if (npc.roll.conformity - town.roll.religiosity > conformityMargin) {
-    return town.religion.deity
+    const townDeity = {
+      [town.religion.deity]: { name: town.religion.deity, probability: 100 }
+    }
+    return townDeity
   } else {
-    const temp: Record<string, {
+    const probabilities: Record<string, {
       probability: number,
       name: string
     }> = {}
     for (const deity of deities) {
-      temp[deity.name] = {
+      probabilities[deity.name] = {
         probability: deity?.probabilityWeightings?.npc?.race?.[npc.race] || rankProbabilities[deity.rank] || 10,
         name: deity.name
       }
@@ -232,21 +238,24 @@ export function getDeity (town: Town, npc: NPC, deities = lib.getFallbackDeities
               maxDistance: 20
             }
           ),
-          temp[deity.name].probability)
+          probabilities[deity.name].probability)
       }
     }
-    let deityPicker = npc.roll.gender
-    let selected = ''
-    for (const item in temp) {
-      deityPicker -= temp[item].probability
-      if (deityPicker < 0) {
-        selected = item
-        break
-      }
-    }
-    if (selected) return selected
-    return deities[0].name
+    return probabilities
   }
+}
+
+export const pickDeity = (deityPicker: number, pool: Record<string, {
+  probability: number,
+  name: string
+}>) => {
+  for (const item in pool) {
+    deityPicker -= pool[item].probability
+    if (deityPicker < 0) {
+      return item
+    }
+  }
+  return pool[Object.keys(pool)[0]].name
 }
 
 function getReligiosity (religionStrength: ReligionStrength): number {

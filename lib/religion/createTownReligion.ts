@@ -7,7 +7,7 @@ import { RaceName } from '@lib'
 
 export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: string) => {
   if (!pantheon) town.religion.pantheon = 'greek'
-  if (!deity) town.religion.deity = fetchDeity(town)
+  if (!deity) town.religion.deity = getRandomDeity(town)
 }
 
 /**
@@ -122,7 +122,7 @@ export const compileWeightToPercentile = (weights: Record<string, {
   return percentages
 }
 
-export const fetchDeity = (town: Town, deities = getFallbackDeities(town)): string => {
+export const getRandomDeity = (town: Town, deities = getFallbackDeities(town)): string => {
   const weights = getTownDeityWeightings(town, deities)
 
   // TODO: Can we create a new function to avoid using `weightedRandomFetcher`?

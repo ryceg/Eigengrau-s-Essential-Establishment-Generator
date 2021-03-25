@@ -9,6 +9,17 @@ setup.getPantheon = (town) => {
 }
 
 /**
+ *
+ * @param {Town} town
+ * @param {string} deity
+ * @returns {Deity}
+ */
+setup.getDeity = (town, deity) => {
+  return lib.findInArray(
+    setup.getPantheon(town).gods, 'name', deity)
+}
+
+/**
  * @returns {string[]}
  */
 setup.getPantheonNames = () => {
@@ -34,6 +45,24 @@ setup.getAllPantheons = () => {
  */
 setup.doesCustomPantheonExist = () => {
   return State.metadata.has('pantheon')
+}
+
+setup.getPantheonPercentages = (town) => {
+  /**
+   * @type {[string, number][]}
+   */
+  const deities = lib.getDeityPercentagesList(
+    lib.compileWeightToPercentile(
+      lib.getTownDeityWeightings(town, setup.getPantheon(town).gods)
+    )
+  )
+  let text = ''
+  for (const [deity, percentage] of deities) {
+    if (percentage > 0) {
+      text += ` ${deity}: ${percentage.toFixed(2)}%`
+    }
+  }
+  return text
 }
 
 /**

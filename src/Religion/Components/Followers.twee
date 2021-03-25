@@ -6,3 +6,31 @@
 <<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <<include "ClericDomains">>
+<<nobr>><div class='classTable'>
+  <h3>NPCs</h3>
+  <<set _percentages to setup.getPantheonPercentages($town)>>
+  $currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
+      lib.getTownDeityWeightings(
+        $town, setup.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Occupation</th>
+      <th>Strength</th>
+      <<if $currentPassage.deleteEnabled>><th>Delete</th><</if>>
+    </tr>
+    <<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
+    <<for _npc range _followers>>
+    \<<set _profession to lib.findProfession($town, $npcs[_npc.key])>>
+    <tr>
+      <td><<profile $npcs[_npc.key]>></td>
+      <td><<print $npcs[_npc.key].race.toUpperFirst()>></td>
+      <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_npc.key].profession.toUpperFirst())>></td>
+      <td><<print lib.createTippyFull(lib.getReligiosityDescription($town, $npcs[_npc.key]), lib.articles.output($npcs[_npc.key].religion.strength))>></td>
+      <<if $currentPassage.deleteEnabled>><td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<update>><</link>></td><</if>>
+    </tr>
+    <</for>>
+    </table>
+    </div>
+    <</nobr>>
