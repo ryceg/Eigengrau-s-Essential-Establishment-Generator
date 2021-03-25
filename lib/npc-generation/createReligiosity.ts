@@ -1,7 +1,8 @@
-import { fm, dice, closestMatch, ReligionStrength } from '../'
+import { fm, dice, closestMatch, ReligionStrength, rankProbabilities, compareRollToTarget, addIfDefined } from '../'
 import { Town } from '../town/_common'
 import { NPC } from './_common'
 import { random } from '../src/random'
+import { Virtues } from './traits/getTraits'
 
 export function getReligiosityDescription (town: Town, npc: NPC) {
   const selectedGod = npc.religion.deity
@@ -204,13 +205,47 @@ export function createReligiosity (town: Town, npc: NPC) {
   npc.religion.deity = getDeity(town, npc)
 }
 
-export function getDeity (town: Town, npc: NPC) {
+export function getDeity (town: Town, npc: NPC, deities = lib.getFallbackDeities(town)) {
   const conformityMargin = 30
   if (npc.roll.conformity - town.roll.religiosity > conformityMargin) {
     return town.religion.deity
   } else {
-    const godPool = [lib.religion.abstractGod, lib.religion.saint]
-    return random(godPool[random(0, 1)])
+    const temp: Record<string, {
+      probability: number,
+      name: string
+    }> = {}
+    for (const deity of deities) {
+      temp[deity.name] = {
+        probability: deity?.probabilityWeightings?.npc?.race?.[npc.race] || rankProbabilities[deity.rank] || 10,
+        name: deity.name
+      }
+      for (const prop in deity?.personality) {
+        if (!prop) break
+        const trait = prop as Virtues
+        addIfDefined(
+          compareRollToTarget(
+            deity?.personality[trait],
+            npc.roll.traits[trait],
+            {
+              bonus: 5,
+              tolerance: 'both',
+              maxDistance: 20
+            }
+          ),
+          temp[deity.name].probability)
+      }
+    }
+    let deityPicker = npc.roll.gender
+    let selected = ''
+    for (const item in temp) {
+      deityPicker -= temp[item].probability
+      if (deityPicker < 0) {
+        selected = item
+        break
+      }
+    }
+    if (selected) return selected
+    return deities[0].name
   }
 }
 
