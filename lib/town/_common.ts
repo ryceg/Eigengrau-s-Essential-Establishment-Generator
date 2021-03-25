@@ -38,6 +38,8 @@ export interface Town {
   location: string
   population: number
   ignoreGender: boolean
+  // TODO: Add ignoreRace setting
+  ignoreRace: boolean
   dominantGender: GenderName
   roll: Record<TownRolls, number>
   taxes: Record<TaxTypes, number>
