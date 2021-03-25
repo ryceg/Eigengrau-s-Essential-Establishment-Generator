@@ -673,6 +673,20 @@ export const religion: ReligionData = {
           combat: {
             description: 'Zeus famously led the Greek gods in the battle against the Titans, and is a fearsome foe. He calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.'
           },
+          probabilityWeightings: {
+            politicalIdeology: {
+              autocracy: 5,
+              oligarchy: 3
+            },
+            politicalSource: {
+              'absolute monarchy': 6,
+              'constitutional monarchy': 3
+            },
+            race: {
+              'human': 20,
+              'half-elf': 5
+            }
+          },
           possessions: [
             {
               title: 'Aegis',
@@ -794,6 +808,23 @@ export const religion: ReligionData = {
           symbol: 'A trident and billowing cloak',
           combat: {
             description: undefined
+          },
+          probabilityWeightings: {
+            economicIdeology: {
+              primitivism: 3
+            },
+            politicalIdeology: {
+              autocracy: 8,
+              oligarchy: 5
+            },
+            politicalSource: {
+              'absolute monarchy': 5,
+              'constitutional monarchy': 5
+            },
+            race: {
+              'human': 20,
+              'half-elf': 5
+            }
           },
           possessions: [
             {
@@ -937,6 +968,14 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              capitalism: 4
+            },
+            politicalIdeology: {
+              kleptocracy: 5
+            },
+            politicalSource: {
+            },
             race: {
               dwarf: 20,
               tiefling: 30
@@ -1094,6 +1133,16 @@ export const religion: ReligionData = {
             description: 'While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans.'
           },
           probabilityWeightings: {
+            economicIdeology: {
+              syndicalism: 4,
+              primitivism: 8
+            },
+            politicalIdeology: {
+              kleptocracy: 4,
+              magocracy: 3
+            },
+            politicalSource: {
+            },
             race: {
               halfling: 20,
               tiefling: 15
@@ -1257,6 +1306,16 @@ export const religion: ReligionData = {
             description: 'Artemis is quick to strike down those who offend her with animals and wild beasts. She is a dedicated huntress and will pursue her quarry until it is caught.'
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 2,
+              primitivism: 6
+            },
+            politicalIdeology: {
+              meritocracy: 4
+            },
+            politicalSource: {
+              anarchy: 2
+            },
             race: {
               'elf': 40,
               'half-elf': 20,
@@ -1388,6 +1447,16 @@ export const religion: ReligionData = {
           combat: {
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              meritocracy: 5,
+              sophocracy: 5,
+              theocracy: 3
+            },
+            politicalSource: {
+            },
             race: {
               halfling: 20,
               human: 15
@@ -1517,6 +1586,15 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            politicalIdeology: {
+              militocracy: 5,
+              meritocracy: 5,
+              autocracy: 1
+            },
+            politicalSource: {
+              'absolute monarchy': 5,
+              'constitutional monarchy': 3
+            },
             race: {
               human: 25,
               dwarf: 15,
@@ -1643,6 +1721,17 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 2,
+              syndicalism: 3
+            },
+            politicalIdeology: {
+              kleptocracy: 5,
+              oligarchy: 5,
+              autocracy: 1
+            },
+            politicalSource: {
+            },
             race: {
               halfling: 50,
               tiefling: 30,
@@ -1777,6 +1866,17 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              communism: 5,
+              syndicalism: 3
+            },
+            politicalIdeology: {
+              magocracy: 5,
+              theocracy: 4,
+              oligarchy: 4
+            },
+            politicalSource: {
+            },
             race: {
               'dwarf': 20,
               'dragonborn': 15,
@@ -1942,6 +2042,16 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              capitalism: 5
+            },
+            politicalIdeology: {
+              kleptocracy: 5,
+              meritocracy: 5,
+              technocracy: 8
+            },
+            politicalSource: {
+            },
             race: {
               halfling: 20,
               tiefling: 15
@@ -2061,6 +2171,14 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              theocracy: 4,
+              oligarchy: 4,
+              autocracy: 5
+            },
             race: {
               'human': 20,
               'half-elf': 15,
@@ -2207,6 +2325,18 @@ export const religion: ReligionData = {
             description: 'As the God of War, Ares has plenty of experience in battle. In contrast to Athena, who is the goddess of tacticians, Ares represents a more brutal, carnal type of conquest.'
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3,
+              primitivism: 8
+            },
+            politicalIdeology: {
+              militocracy: 9,
+              oligarchy: 7,
+              autocracy: 8
+            },
+            politicalSource: {
+              anarchy: 8
+            },
             race: {
               'half-orc': 40,
               'orc': 50,
@@ -2321,6 +2451,16 @@ export const religion: ReligionData = {
             tactics: 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3,
+              syndicalism: 3,
+              communism: 2
+            },
+            politicalIdeology: {
+              meritocracy: 4,
+              sophocracy: 4,
+              oligarchy: 4
+            },
             race: {
               'elf': 40,
               'half-elf': 15
@@ -2421,6 +2561,14 @@ export const religion: ReligionData = {
             tactics: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3,
+              capitalism: 6
+            },
+            politicalIdeology: {
+              technocracy: 10,
+              autocracy: 5
+            },
             race: {
               dwarf: 20,
               gnome: 45
@@ -2519,6 +2667,14 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              meritocracy: 2,
+              oligarchy: 4,
+              autocracy: 5
+            },
             race: {
               'halfling': 20,
               'half-elf': 15,
@@ -2623,6 +2779,14 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              magocracy: 8,
+              oligarchy: 4,
+              autocracy: 5
+            },
             race: {
               human: 20,
               tiefling: 25
@@ -2712,6 +2876,13 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              militocracy: 4,
+              autocracy: 5
+            },
             race: {
               'human': 20,
               'half-orc': 25,
@@ -2721,7 +2892,7 @@ export const religion: ReligionData = {
           possessions: [],
           realm: undefined,
           followers: {
-            description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt. ',
+            description: 'The Favour of Nike is a promise of victory, though it was rarely given without being earnt.',
             adherents: ['warriors'],
             favouredWeapon: undefined,
             holyDays: {
@@ -2786,6 +2957,14 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3,
+              capitalism: 5
+            },
+            politicalIdeology: {
+              meritocracy: 4,
+              kleptocracy: 4
+            },
             race: {
               halfling: 30,
               human: 15
@@ -2965,6 +3144,12 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              primitivism: 3
+            },
+            politicalIdeology: {
+              kleptocracy: 4
+            },
             race: {
               'halfling': 30,
               'gnome': 15,
@@ -3053,6 +3238,13 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              communism: 3
+            },
+            politicalIdeology: {
+              sophocracy: 5,
+              democracy: 4
+            },
             race: {
               'human': 20,
               'elf': 15,
@@ -3135,6 +3327,11 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            politicalIdeology: {
+              theocracy: 4,
+              sophocracy: 4,
+              technocracy: 3
+            },
             race: {
               dragonborn: 15,
               human: 15
@@ -3211,6 +3408,15 @@ export const religion: ReligionData = {
             description: undefined
           },
           probabilityWeightings: {
+            economicIdeology: {
+              feudalism: 3
+            },
+            politicalIdeology: {
+              autocracy: 1
+            },
+            politicalSource: {
+              'absolute monarchy': 10
+            },
             race: {
               'human': 20,
               'half-orc': 35,
