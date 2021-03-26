@@ -1,0 +1,21 @@
+:: TownListReligion
+\<<set _religionPercentages to setup.getPantheonPercentages($town)>>
+<div class='classTable' id="religion"><<liveblock>>$town.name <<print lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>><</liveblock>>.
+<table>
+    <tr>
+        <th>Deity</th>
+        <th>Population</th>
+        <th>Percentage</th>
+    </tr>
+<<for _deity, _percentage range _religionPercentages>>
+<<set _deityData to setup.getDeity($town, _deity)>><<capture _deity, _percentage, _deityData>>
+<<if _percentage === 0>><<continue>><</if>>
+    <tr>
+        <td><<profile _deityData>></td>
+        <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
+        <td><<print _percentage.toFixed(2)>></td>
+    </tr>
+    <</capture>>
+<</for>>
+</table>
+</div>

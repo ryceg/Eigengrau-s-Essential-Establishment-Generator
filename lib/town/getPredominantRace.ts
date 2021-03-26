@@ -2,15 +2,18 @@ import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
 
-interface PredominantRace {
+export interface PredominantInfo {
   /** Percentage of most populous race */
   percentile: number
   /** Percentage of second most populous race */
   secondaryPercentile: number
   /** @usage `${town.name} is ______` */
-  amount: string;
+  amount: string
   /** @usage `${town.name} is comprised ______` */
-  amountDescriptive: string;
+  amountDescriptive: string
+}
+
+interface PredominantRace extends PredominantInfo {
   primaryRace: RaceName;
   secondaryRace: RaceName;
 }

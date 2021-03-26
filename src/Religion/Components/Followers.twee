@@ -1,5 +1,5 @@
 :: Followers
-<h2>Followers</h2><<set _percentages to setup.getPantheonPercentages($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
+<h2>Followers</h2><<set _percentages to setup.getPantheonPercentagesReadout($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
 \<<include "Maxim">>
 \$currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
       lib.getTownDeityWeightings(

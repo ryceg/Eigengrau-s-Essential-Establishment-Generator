@@ -42,7 +42,7 @@ export const getTownDeityWeightings = (town: Town, deities = getFallbackDeities(
     probability: number,
     name: string
   }> = {}
-  const firstPlaceBonus = 4
+  const firstPlaceBonus = 10
   const secondPlaceBonus = 2
   const lowestQualifyingPosition = 10
   for (const deity of deities) {

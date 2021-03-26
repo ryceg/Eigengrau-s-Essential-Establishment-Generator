@@ -48,14 +48,16 @@ setup.doesCustomPantheonExist = () => {
 }
 
 setup.getPantheonPercentages = (town) => {
+  return lib.compileWeightToPercentile(
+    lib.getTownDeityWeightings(town, setup.getPantheon(town).gods)
+  )
+}
+
+setup.getPantheonPercentagesReadout = (town) => {
   /**
    * @type {[string, number][]}
    */
-  const deities = lib.getDeityPercentagesList(
-    lib.compileWeightToPercentile(
-      lib.getTownDeityWeightings(town, setup.getPantheon(town).gods)
-    )
-  )
+  const deities = lib.getDeityPercentagesList(setup.getPantheonPercentages(town))
   let text = ''
   for (const [deity, percentage] of deities) {
     if (percentage > 0) {
