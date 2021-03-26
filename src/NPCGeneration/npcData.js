@@ -859,7 +859,7 @@ setup.initNpcData = () => {
             background: 'noble',
             isShallow: true
           })
-          setup.createRelationship(town, npc, enemy, 'enemy', 'enemy')
+          setup.createRelationship(town, npc, enemy, { relationship: 'enemy', reciprocalRelationship: 'enemy' })
           return [
             `I made an ${setup.profile(enemy, 'enemy')} for life in my travels- `,
             `I was framed by a ${setup.profile(enemy, 'scoundrel')} for a crime I didn't commit- `,
@@ -1241,7 +1241,7 @@ setup.initNpcData = () => {
     value: ['experience', 'family', 'progeny', 'learning', 'wealth', 'masterwork', 'revenge', 'intelligence', 'discovery', 'pilgrimage', 'invention', 'miracle', 'secret', 'martyrdom', 'collection', 'patronage', 'fame'],
     drive: ['health', 'beauty', 'thrills', 'knowledge', 'power', 'partnership', 'networking', 'glory', 'entertainment', 'helpfulness', 'bravery', 'compassion', 'piety', 'solitude', 'relationships', 'hedonism', 'privacy'],
     belief: ['piety', 'pragmatism', 'cleverness', 'stoicism', 'reason', 'self-deserving', 'dogma', 'forgiveness', 'learning', 'tough love', 'honor', 'loyalty', 'optimism', 'respect', 'self-discipline', 'integrity'],
-    race: ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling'],
+    race: ['human', 'half-elf', 'elf', 'dwarf', 'gnome', 'halfling', 'half-orc', 'dragonborn', 'tiefling', 'lizardfolk'],
     standardLanguages: ['Common', 'Dwarvish', 'Elvish', 'Gnomish', 'Giant', 'Goblin', 'Halfling', 'Orc'],
     exoticLanguages: ['Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon']
   }

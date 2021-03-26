@@ -3,12 +3,13 @@
  * @param {import("../../../lib/town/_common").Town} town
  */
 setup.createGuardhouse = (town, opts) => {
-  const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse')
+  const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse', opts)
 
   lib.assign(guardhouse, {
     initPassage: 'GuardhouseOutput',
     passageName: 'GuardhouseOutput',
     buildingType: 'guardhouse',
+    objectType: 'building',
     wordNoun: lib.guardhouseData.name.wordNoun.random(),
     needsWordNoun: false,
     associatedNPC: setup.createNPC(town, { profession: 'guard', ...opts.associatedNPC })

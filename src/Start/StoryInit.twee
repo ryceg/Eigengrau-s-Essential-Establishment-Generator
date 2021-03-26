@@ -3,17 +3,36 @@
 <<run console.log("Hello world!")>>
 <<run setup.urlSeed()>>
 <<run setup.init()>>
-<<set $data to {
+
+<<set setup.data to {
 	isPatreon: [true, false].random(),
-	versionNumber: "2.7"
+	versionNumber: "2.7",
+	badges: {
+		github: lib.createBadge([
+			lib.badges.stats.githubForks, 
+			lib.badges.stats.githubStars, 
+			lib.badges.stats.linesOfCode].random(), 
+			{imgArgs: 'style=width:100%', link: 'https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/'
+		})
+	}
 }>>
 <<set $custom to {}>>
 
+<<script>>
+  const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});
+  const $badge = $(`<span id="badge" />`)
+    .wiki(gen())
+    .ariaClick(function () {
+      $(this).empty().wiki(gen());
+    });
+  setup.data.badges.fun = $badge.clone(true);
+<</script>>
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
-<<set $tempTown to setup.createTownBiome()>>
+
+<<set $town to setup.createTownBiome()>>
 
 <<if State.metadata.get("showTutorial") is true>>
 	<<set Config.passages.start = "Welcome">>
@@ -22,6 +41,16 @@
 			<<set Config.passages.start = "BiomeGeneration">>
 		<<else>>
 			<<set Config.passages.start = "Start">>
-			<<set $town to setup.createTown($tempTown)>>
+			<<set $town to setup.createTown($town)>>
 	<</if>>
 <</if>>
+
+<<script>>
+  const $fun = $(`<span id="fun" class="tip" />`).appendTo('#fun-container');
+  const $badge = $(`<span id="badge" />`)
+    .wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}))
+    .ariaClick(function () {
+      $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}));
+    })
+    .appendTo($fun);
+<</script>>

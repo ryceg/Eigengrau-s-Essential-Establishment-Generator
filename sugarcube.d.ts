@@ -11,6 +11,7 @@ declare module 'twine-sugarcube' {
     ignoreGender?: boolean
     showTutorial?: boolean
     showBiomeGeneration?: boolean
+    showSliders?: boolean
     forceOneColumn?: boolean
     hideAds?: boolean
     disableAnalytics?: boolean
@@ -23,6 +24,12 @@ declare module 'twine-sugarcube' {
     town: Town
     npcs: Record<string, NPC>
     [key: string]: unknown
+  }
+
+  export interface Util {
+   slugify(): string
+   fromCssTime(): number
+   escape(): string
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

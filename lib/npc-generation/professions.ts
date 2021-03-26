@@ -38,7 +38,8 @@ export type ProfessionSector =
   | 'self employed'
   | 'caregiver'
   | 'naval'
-export type ProfessionNames = keyof typeof professions
+
+export type ProfessionName = keyof typeof professions
 
 export interface Profession {
   /** the population required to support one person with this profession */
@@ -101,11 +102,7 @@ export const professions: Record<string, Profession> = {
           relationship: 'lord',
           reciprocalRelationship: 'labourer',
           exclusions (town, npc) {
-            if (town.npcRelations) {
-              if (town.npcRelations[npc.key]) {
-                return town.npcRelations[npc.key].map((r: NpcRelationship): string => { return r.relation }).includes('lord')
-              }
-            }
+            return town.npcRelations?.[npc.key]?.some(r => r.relation === 'lord')
           },
           probability: 20,
           base: {

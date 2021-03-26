@@ -1,10 +1,11 @@
 setup.createGraveyard = (town, opts = {}) => {
-  const graveyard = (opts.newBuilding || lib.createBuilding)(town, 'graveyard')
+  const graveyard = (opts.newBuilding || lib.createBuilding)(town, 'graveyard', opts)
 
   lib.assign(graveyard, {
     initPassage: 'GraveyardOutput',
     passageName: 'GraveyardOutput',
     buildingType: 'graveyard',
+    objectType: 'building',
     wordNoun: ['graveyard', 'cemetery', 'necropolis', 'burial ground', 'boneyard', 'potter\'s field', 'churchyard'].random(),
     needsWordNoun: false,
     size: graveyardData.size.random(),

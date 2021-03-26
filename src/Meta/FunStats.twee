@@ -1,0 +1,5 @@
+:: FunStats
+<h2>Fun Stats</h2>
+<<for _badge range lib.badges.stats>>
+<<print lib.createBadge(_badge, {imgArgs: 'style=width:auto'})>>
+<</for>>

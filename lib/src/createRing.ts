@@ -21,6 +21,7 @@ export function createRing (base?: Partial<Options>) {
 
   assign(ring, {
     works: random([
+      // This ring works...
       'perfectly, every time',
       'pretty much every time',
       'every time its used',
@@ -128,8 +129,8 @@ export function createRing (base?: Partial<Options>) {
     intendedowner: random([
       'no one in particular',
       `the ringmaker's ${random(['true love', 'best friend', 'favorite patron', 'ruler who he cared deeply for', 'family member', 'wife', 'husband', 'good friend'])}, but ${random(['they perished long ago', 'they are no longer on this plane', 'it was never delivered', 'the ringmaker perished before it was gifted away', 'they pawned it during times of trouble', "they pawned it after the ringmaker's death", 'it was stolen during the original delivery'])}`,
-      `${random(['a Dwarvish', 'an Elvish', 'a Gnomish', 'a Human', 'a Dragonborn', 'a Half-Orc', 'a Drow', 'a Tiefling', 'a Halfling', 'a Half-Elf', 'a Goblin'])} ${random(['king', 'queen', 'princess', 'prince', 'prince', 'noble', 'duke', 'baron', 'lord', 'lady', 'merchant', 'witch of terrible power', 'gemcutter', 'hero from ancient times', 'knight'])} who ${random(['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town in their time', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'])}`,
-      `${random(['a dark', 'a notorious', 'a legendary', 'a mysterious', 'an ancient', 'a sinister', 'a forgotten', 'a devious', 'an eccentric', 'a powerful', 'a wealthy', 'a conniving', 'an infamous', 'a renowned', 'a famous', 'a heralded', 'a strong-willed', 'a well known', 'a barely known', 'a weak-willed', 'an extremely wealthy'])} ${random(['sorceress', 'sorcerer', 'wizard', 'mage', 'witch', 'high priest', 'lich', 'rogue', 'fiend', 'warlord', 'explorer', 'bard', 'performer', 'druid', 'warlock', 'monk', 'warrior', 'knight', 'fighter', 'fortune teller', 'gladiator', 'king', 'queen', 'prince', 'princess', 'lord', 'lady', 'duke', 'monarch', 'prophet', 'spellcaster'])} who ${random(['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town in their time', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'])}`
+      `${random(['a Dwarvish', 'an Elvish', 'a Gnomish', 'a Human', 'a Dragonborn', 'a Half-Orc', 'a Drow', 'a Tiefling', 'a Halfling', 'a Half-Elf', 'a Goblin', 'a Lizardfolk'])} ${random(['king', 'queen', 'princess', 'prince', 'prince', 'noble', 'duke', 'baron', 'lord', 'lady', 'merchant', 'witch of terrible power', 'gemcutter', 'hero from ancient times', 'knight'])} who ${random(['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town while they were alive', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'])}`,
+      `${random(['a dark', 'a notorious', 'a legendary', 'a mysterious', 'an ancient', 'a sinister', 'a forgotten', 'a devious', 'an eccentric', 'a powerful', 'a wealthy', 'a conniving', 'an infamous', 'a renowned', 'a famous', 'a heralded', 'a strong-willed', 'a well known', 'a barely known', 'a weak-willed', 'an extremely wealthy'])} ${random(['sorceress', 'sorcerer', 'wizard', 'mage', 'witch', 'high priest', 'lich', 'rogue', 'fiend', 'warlord', 'explorer', 'bard', 'performer', 'druid', 'warlock', 'monk', 'warrior', 'knight', 'fighter', 'fortune teller', 'gladiator', 'king', 'queen', 'prince', 'princess', 'lord', 'lady', 'duke', 'monarch', 'prophet', 'spellcaster', 'hag'])} who ${random(['used it to gain power', 'used it to gain fame', 'used it to gain wealth', 'used it against their enemies', 'used it to better their town in their time', 'wore it until they died', 'wore it until it was lost during a long journey', 'wore it until it was stolen from them', 'never actually wore the ring', 'gifted it away after a few years'])}`
     ]),
     importance: random([
       'ancient king',
@@ -144,7 +145,8 @@ export function createRing (base?: Partial<Options>) {
       'fiendish prince',
       'elemental lord',
       'forgotten god',
-      'ancient evil being'
+      'ancient evil being',
+      'dreadful hag'
     ]),
     setting: random([
       'in the centre is a ',
@@ -196,37 +198,45 @@ export function createRing (base?: Partial<Options>) {
 
 const createRingData = () => ({
   power: {
-    'absorb': `absorb ${random(['fire damage', 'lightning damage', 'memories', 'souls', 'spells', 'water'])}`,
-    'attract': `attract ${random(['birds', 'ghosts', 'members of the opposite sex', 'rats', 'snakes', 'stirges'])}`,
+    // The ring grants the power to...
+    'absorb': `absorb ${random(['fire damage', 'lightning damage', 'memories', 'souls', 'spells', 'water', 'poison damage', 'ice damage'])}`,
+    'attract': `attract ${random(['birds', 'ghosts', 'members of the opposite sex', 'rats', 'snakes', 'stirges', 'fiends', 'undead', 'flies'])}`,
     'avoid': `avoid ${random(['former lovers', 'sobriety', 'trap triggers', 'trolls', 'vampires', 'werewolves'])}`,
     'bolster': `avoid ${random(['agility and reflexes', 'awareness and senses', 'confidence and self-esteem', 'health and toughness', 'intellect and problem-solving skills', 'strength and endurance'])}`,
     'cast a spell': `cast a spell ${random(['at random', "prepared and stored in the ring by the ring's creator'", 'prepared and stored in the ring by you', 'that creates a disguise', 'that restores lost hit points', 'that grants invisibility'])}`,
-    'conjure a swarm of': `conjure a swarm of ${random(['bats', 'parrots', 'ravens', 'rats', 'spiders', 'zombies'])}`,
+    'conjure a swarm of': `conjure a swarm of ${random(['bats', 'parrots', 'ravens', 'rats', 'spiders', 'zombies', 'gnats', 'lemurs', 'locust'])}`,
     'control': `control ${random(['demons', 'dwarves', 'elves', 'flames', 'human minds', 'weather'])}`,
     'disappear': `disappear ${random(['into a hole in the earth', 'in a flash of light', 'to a nearby tree', 'in a shimmering mist', 'in a swirl of shadows', 'in a wisp of smoke'])}`,
-    'detect the nearest': `detect the nearest ${random(['corpse', 'dragon', 'piece of gold', 'living creature', 'poisonous plant', 'undead'])}`,
-    'move': `move like a ${random(['dolphin', 'burrowing badger', 'gust of wind', 'jackrabbit', 'ooze', 'spider'])}`,
+    'detect the nearest': `detect the nearest ${random(['corpse', 'dragon', 'piece of gold', 'living creature', 'poisonous plant', 'undead', 'unbroken pot', 'unopened chest'])}`,
+    'move': `move like a ${random(['dolphin', 'burrowing badger', 'gust of wind', 'jackrabbit', 'ooze', 'spider', 'jaguar'])}`,
     'predict': `predict ${random(['deaths', 'fluctuations in the price of grain', 'future catastrophes', 'military victories', 'storms', 'winning horses'])}`,
     'regain': `regain ${random(['expended spell slots', 'lost dignity', 'lost hitpoints', 'lost gold', 'lost time', 'used torches', 'used arrows', 'a single small lost item'])}`,
-    'resist': `resist ${random(['diseases', 'mind-affecting charms', 'persuasion', 'poisons', 'psionic powers', 'seduction'])}`,
-    'see': `see ${random(['faraway places', "into others' dreams", 'invisible creatures and objects', 'people dear to you', 'through the eyes of an owl', 'through the eyes of a corpse'])}`,
-    'talk to a': `talk to a ${random(['dear friend or lover', 'long-dead person', 'recently deceased person', 'snake', 'spider', 'wolf'])}`,
-    'summon': `summon ${random(['an angel', 'a demon', 'a devil', 'a djinni', 'an efreet', 'a pack of wolves'])}`,
-    'teleport': `teleport ${random(['up to ten feet', 'to another room nearby', 'to a well-known temple', 'to a previously prepared teleportation circle', 'to the presence of a powerful fiend', 'to an ancient crypt'])}`
+    'resist': `resist ${random(['diseases', 'mind-affecting charms', 'persuasion', 'poisons', 'psionic powers', 'seduction', 'temptation'])}`,
+    'see': `see ${random(['faraway places', "into others' dreams", 'invisible creatures and objects', 'people dear to you', 'through the eyes of an owl', 'through the eyes of a corpse', "people's deepest desires"])}`,
+    'talk to a': `talk to a ${random(['dear friend or lover', 'long-dead person', 'recently deceased person', 'snake', 'spider', 'wolf', 'horse', 'dragon', 'demon', 'random deity'])}`,
+    'summon': `summon ${random(['an angel', 'a demon', 'a devil', 'a djinni', 'an efreet', 'a pack of wolves', 'an imp', 'a random takling bird', 'a well bred horse'])}`,
+    'teleport': `teleport ${random(['up to ten feet', 'to another room nearby', 'to a well-known temple', 'to a previously prepared teleportation circle', 'to the presence of a powerful fiend', 'to an ancient crypt'])}`,
+    'alchemy': `turn ${random(['water into mead', 'mead into wine', 'coal into gold', 'oak wood into copper ore', 'feathers into lead', 'water into ink', 'blood into oil', 'oil into water'])}`,
+    'utility': `${random(['light small campfires', 'untie any simple knot', 'always know which way is north', 'conjure a loaf of bread once per day', 'become invisible to any hostile creature', 'always know the correct time of day', 'see 10ft clearly in the dark', 'keep dry in the rain'])}`
   },
   cost: {
-    temporary: `upon activation, it causes temporary ${random(['chills all over', 'fatigue', 'flatulence', 'head-splitting headaches', 'nausea', 'unsightly and rapid hair growth'])}`,
-    chronic: `while attuned, it causes permanent ${random(['blurred vision', 'blindness', 'loss of the power of speech', 'painful scarring and deformity', 'poor wound healing', 'tumorous growths and deformities', 'debilitating nausea'])}`,
-    mental: `it brings on ${random(['anxiety', 'bad dreams', 'compulsive behavior (drinking, smoking, scratching, hygiene, etc.)', 'insomnia', 'a short temper', 'weight gain (stress eating)'])} while it is being worn`,
+    // The ring grants x power, but...
+    temporary: `upon activation, it causes temporary ${random(['chills all over', 'fatigue', 'flatulence', 'head-splitting headaches', 'nausea', 'unsightly and rapid hair growth', 'blindness', 'uncontrollable bowel movements', 'deafness', 'feebleness', 'coughing fits', 'madness'])}`,
+    chronic: `while attuned, it causes permanent ${random(['blurred vision', 'blindness', 'loss of the power of speech', 'painful scarring and deformity', 'poor wound healing', 'tumorous growths and deformities', 'debilitating nausea', 'deafness', 'coughing fits', 'athletes foot', 'rashes all over the skin', 'scurvy'])}`,
+    mental: `it brings on ${random(['anxiety', 'bad dreams', 'compulsive behavior (drinking, smoking, scratching, hygiene, etc.)', 'insomnia', 'a short temper', 'weight gain (stress eating)', 'feelings of existential dread'])} while it is being worn`,
     attention: `it attracts the attention of ${random(['aberrations', 'dragons', 'fiends', 'ghosts and wraiths', 'spiders', 'snakes', 'zombies and wights', 'devils', 'demons', 'liches'])}`,
-    accompanied: `activation of its powers is occasionally accompanied by ${random(['a blizzard', 'earthquakes', 'rapid plant growth', 'thick fog', 'thunderstorms', 'volcanic eruptions'])}`
+    accompanied: `activation of its powers is occasionally accompanied by ${random(['a blizzard', 'earthquakes', 'rapid plant growth', 'thick fog', 'thunderstorms', 'volcanic eruptions', 'torrential downpours', 'tornadoes', 'strong gusts of wind'])}`,
+    physical: `when in use, it causes the wearer to ${random(['lose control of all their limbs', 'lose control of their speech', 'experience searing pain throughout their body', 'scream uncontrollably', 'burst into a heavy cold sweat', 'feel as if their fingernails are being pulled off', 'have their legs go completely limp', 'be unable to breath', 'completely lose their sight', 'scratch at their skin uncontrollably', 'age rapidly'])}`
   },
   activation: {
+    // the ring works best...
     'on a particular plane': `when worn in ${random(['the celestial realm', 'the fiendish realm', 'the mortal world', 'the realm of death', 'the realm of dreams and magic', 'the realm of shadow and death', 'the ethereal plane', 'the astral plane', 'the elemental planes', 'the air elemental plane', 'the fire elemental plane', 'the earth elemental plane', 'the water elemental plane', 'the Upper planes', 'the Lower planes', 'Elysium', 'the Beastlands', 'Bytopia', 'Mount Celestia', 'Arborea', 'Arcadia', 'Ysgard', 'Mechanus', 'Limbo', 'Acheron', 'the Nine Hells', 'Gehenna', 'Hades', 'Carceri', 'the Abyss', 'Pandemonium'])}`,
     'when worn by a': `when worn by a ${random(['dwarf', 'half-dragon', 'high elf', 'serpentfolk', 'shadowfolk', 'wood elf', 'gnome', 'human', 'half-elf', 'half-orc', 'orc', 'halfling', 'tiefling'])}`,
     'sunlight': random(['in full sunlight', "while it's sunny", 'during a sunny day', 'under the light of the sun']),
     'moonlight': `when worn under a ${random(['full moon', 'half-moon', 'waxing crescent moon', 'waning crescent moon', 'moon', 'moon', 'moon', 'moon', 'blood moon', 'blue moon', 'harvest moon', 'new moon'])}`,
     'underground': random(['underground', 'beneath the earth', 'under the ground']),
-    'starlight': random(['under starlight', 'under the starlight', 'while the stars shine above', 'beneath the stars'])
+    'starlight': random(['under starlight', 'under the starlight', 'while the stars shine above', 'beneath the stars']),
+    'weather': `when worn in ${random(['slightly cloudy', 'overcast', 'extremely windy', 'very sunny', 'cloudless', 'stormy', 'rainy', 'warm', 'cold', 'moderate', 'bad', 'good'])} weather`,
+    'feelings': `when the wearer is feeling ${random(['extremely angry', 'incredibly sad', 'a deep meloncholy', 'an unquenchable rage', 'a lust for revenge', 'completely hopeless', 'utterly betrayed', 'joyous', 'incredibly euphoric', 'very hungry', 'alone in the world', 'lustful'])}`
   }
 })

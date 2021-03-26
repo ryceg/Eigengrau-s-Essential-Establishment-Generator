@@ -1,21 +1,43 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
 import { ThresholdTable } from '../src/rollFromTable'
+import { GenderName } from '../src/genderData'
 
 import { bmiDescriptions } from './bmiDescriptions'
-import { raceTraits } from './raceTraits'
+import { GenderTraits, RaceName, raceTraits } from './raceTraits'
 import { NPC } from './_common'
+
+interface GetGenderTraitProps {
+  race: RaceName
+  gender: GenderName
+}
+
+export function getGenderTrait <K extends keyof GenderTraits> (props: GetGenderTraitProps, key: K) {
+  const { genderTraits } = raceTraits[props.race]
+  const trait = (genderTraits[props.gender] || genderTraits.woman)[key]
+
+  if (typeof trait === 'undefined') {
+    throw new Error('Could not find fallback trait.')
+  }
+
+  return trait as GenderTraits[K]
+}
 
 export function setRace (npc: NPC) {
   const raceData = raceTraits[npc.race]
-  const genderTraits = raceData.genderTraits[npc.gender]
+  const beardProbability = getGenderTrait(npc, 'beardProbability')
+  const baseHeight = getGenderTrait(npc, 'baseHeight')
+  const baseWeight = getGenderTrait(npc, 'baseWeight')
+  const heightModifier = getGenderTrait(npc, 'heightModifier')()
+  const weightModifier = getGenderTrait(npc, 'weightModifier')()
 
-  if (random(1, 100) >= genderTraits.beardProbability) {
+  if (random(1, 100) <= beardProbability) {
     npc.beard = random(raceData.beard)
   }
 
-  npc.heightInches = genderTraits.baseHeight + genderTraits.heightModifier()
-  npc.weightPounds = genderTraits.baseWeight + (genderTraits.heightModifier() * genderTraits.weightModifier())
+  npc.heightInches = baseHeight + heightModifier
+  npc.weightPounds = baseWeight + (heightModifier * weightModifier)
   npc.bmi = Math.trunc((npc.weightPounds / (npc.heightInches * npc.heightInches)) * raceData.bmiModifier)
   npc.weight = npc.weight || closestMatch(bmiDescriptions, 'weight', 'bmi', 'muscleMass', npc.bmi, npc.muscleMass)
 
@@ -27,7 +49,8 @@ export function setRace (npc: NPC) {
 }
 
 const heightChart: ThresholdTable = [
-  [78, 'giraffe-like'],
+  [84, 'giraffe-like'],
+  [78, 'towering'],
   [77, 'extremely tall'],
   [76, 'very tall'],
   [75, 'rather tall'],

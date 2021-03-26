@@ -4,6 +4,7 @@ setup.exportAsHtml = function (passageName, currentPassage) {
   const raw = Story.get(passageName).processText()
   let $offshore = $('<div />')
   $offshore.wiki(raw)
+  $offshore = setup.expandSummaries($offshore)
   $offshore = setup.removeElement($offshore, '.interactive-only')
   $offshore = setup.autoclicker($offshore)
   $offshore = setup.linkreplaceReplace($offshore)
@@ -17,6 +18,12 @@ setup.exportAsHtml = function (passageName, currentPassage) {
   $offshore = setup.removeElement($offshore, '.interactive-only')
   // if you need to escape the characters, you can use ${Util.escape($offshore.html())}
   return `${$offshore.html()}`
+}
+
+setup.expandSummaries = function ($offshore) {
+  $offshore.find('details summary').trigger('click')
+  $('details').attr('open', 'true')
+  return $offshore
 }
 
 setup.removeElement = function ($offshore, element) {

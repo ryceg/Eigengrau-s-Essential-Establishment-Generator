@@ -1,9 +1,8 @@
 :: CastleDungeon
-<h3>Dungeon</h3>
-\The $building.dungeon.wordNoun located $building.dungeon.location is known as $building.dungeon.name, and was built $building.dungeon.age. 
-\It is known for $building.dungeon.knownFor, and consists of $building.dungeon.format. 
-\It is rumoured that hidden inside the dungeon is $building.dungeon.secret.
-<h4>Cells</h4>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format. 
-\Prisoners of $building.name are treated $building.dungeon.cells.prisoners.treatment. The jailer, <<profile $building.dungeon.associatedNPC>>, is $building.dungeon.jailerType.
-<br><span class="click-and-remove-link"><<link "Meet a prisoner">><<set $building.dungeon.prisoner to setup.castle.dungeon.cells.prisoners.create($town, $building)>><<update>><</link>></span>
+<section><h2>Dungeon</h2>
+\<p>The $building.dungeon.wordNoun located $building.dungeon.location is known as $building.dungeon.name, and was built $building.dungeon.age.</p>
+\<p>It is known for $building.dungeon.knownFor, and consists of $building.dungeon.format. It is rumoured that hidden inside the dungeon is $building.dungeon.secret.</p></section>
+\<section><h4>Cells</h4><p>The cells inside the dungeon are $building.dungeon.cells.condition, and prisoners are kept in $building.dungeon.cells.format.</p>
+\<p>Prisoners of $building.name are treated $building.dungeon.cells.prisoners.treatment. The jailer, <<profile $building.dungeon.associatedNPC>>, is $building.dungeon.jailerType.</p></section>
+<span class="click-and-remove-link"><<link "Meet a prisoner">><<set $building.dungeon.prisoner to setup.castle.dungeon.cells.prisoners.create($town, $building)>><<update>><</link>></span>
 <div id="prisoners"><<liveblock>><<if def $building.dungeon.prisoner>>$building.dungeon.prisoner<</if>><</liveblock>></div>

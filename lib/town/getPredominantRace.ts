@@ -168,3 +168,24 @@ export function formatPercentile (percentages: [string, number][]): string[] {
     return ` ${toTitleCase(name)}: ${percentile.toFixed(2)}%`
   })
 }
+
+export function formatAsList (text: string[]) {
+  const obj = $('<ol>')
+  for (const item of text) {
+    $(obj)
+      .append(
+        $('<li>')
+          .text(item))
+  }
+  console.log(obj.get(0))
+  return obj.get(0)
+}
+
+export function returnStringList (text: string[]) {
+  let obj = '<ol>'
+  for (const item of text) {
+    obj += `<li>${item}</li>`
+  }
+  obj += '</ol>'
+  return obj
+}

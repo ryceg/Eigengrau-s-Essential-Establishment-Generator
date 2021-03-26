@@ -1,40 +1,20 @@
 :: TownOutput
-<span class="interactive-only"><<button "Edit $town.name">><<run setup.openDialog({
-  header: 'Editing ' + $town.name,
-  passage: 'TownEdit',
-  rerender: true,
-  dialogOpts: $town
-})>><</button>></span>
-\<<set _politicalIdeologyDescription to "tip">><<run setup.politicsTooltip(_politicalIdeologyDescription, "politicalIdeology", $town)>>
-\<<set _economicIdeologyDescription to "tip2">><<run setup.politicsTooltip(_economicIdeologyDescription, "economicIdeology", $town)>>
-\<<set _politicalSourceDescription to "tip3">><<run setup.politicsTooltip(_politicalSourceDescription, "politicalSource", $town)>>
-<<print lib.firstCharacter($town.name)>> is located in the $town.terrain $town.location, where the vegetation is $town.vegetation. 
-\$town.name grew around $town.origin. 
-\They harvest $town.primaryCrop, and nearby is a region rich with $town.primaryExport.
-\They are <<print lib.articles.find($town.equality)>> <<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>. 
-\The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output($town.wealth)>> existence. 
-\<<print $town.currentEvent.toUpperFirst()>> is currently taking place.
-<h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription
-<h4>Economics</h4>$town.economics $town.welfare <h4>Law and Order</h4>$town.military $town.law $town.arcana
-<<linkappend "<h3>Racial Demographics</h3>" t8n>><<include "TownListRaces">><</linkappend>>
-<<linkappend "<h3>Religious Demographics</h3>" t8n>><<include "TownListReligion">><</linkappend>>
-<<linkappend "<h3>List of Factions</h3>" t8n>><<include "TownListFactions">><</linkappend>>
-<<linkappend "<h3>List of Buildings</h3>" t8n>><<include "TownListBuildings">><</linkappend>><<if _exportType === 'GMBinder'>>
+<<nobr>><span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, null, "Editing town")>><</button>></span>
+<<include "BriefDescription">>
+<p>The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output(lib.getTownWealth($town.roll.wealth))>> existence. 
+<<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
+<article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
+<article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
+<article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article>
+<<details "TownListRaces" "Racial Demographics">>
+<<details "TownListReligion" "Religious Demographics">>
+<<details "TownListFactions" "List of Factions">>
+<<details "TownListBuildings" "List of Buildings">><</nobr>>
+\<<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 
 
 <</if>>
-
-<<linkappend "<h3>List of NPCs</h3>" t8n>><<include "TownListNpcs">><</linkappend>>
-<<linkappend "<h3>List of Throwaway NPCs</h3>" t8n>><<include "TownListThrowaway">><</linkappend>>
-<span class='interactive-only'><<linkappend "<h3>Professions in $town.name</h3>" t8n>><<include "TownListProfessions">><</linkappend>></span>
-
-
-
-
-  
-
-
-
-
-
+<<nobr>><<details "TownListNpcs" "List of NPCs">>
+<<details "TownListThrowaway" "List of Throwaway NPCs">>
+<span class='interactive-only'><<details "TownListProfessions" "Professions in $town.name">></span><</nobr>>

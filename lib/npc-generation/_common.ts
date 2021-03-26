@@ -1,11 +1,12 @@
 import { Town } from '../town/_common'
 import { ReligionStrength } from '../religion/religion'
+import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
+import { LifestyleStandardName } from './lifestyleStandards'
+import { Virtues } from './traits/getTraits'
+import { GenderName } from '../src/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
-import { ProfessionNames, ProfessionSector, ProfessionType } from './professions'
-import { LifestyleStandardName } from './lifestyleStandards'
-import { RaceName, GenderName, AgeName } from './raceTraits'
-import { Virtues } from './traits/getTraits'
+import { RaceName, AgeName } from './raceTraits'
 
 export type SocialClassName =
   | 'indentured servitude'
@@ -17,7 +18,7 @@ export type SocialClassName =
 
 export interface NPC {
   key: string
-  objectType: string
+  objectType: 'npc'
   passageName: string
   name: string
   formalName: string
@@ -41,7 +42,7 @@ export interface NPC {
   ageStage: AgeName
   ageYears: number
   adventure?: string
-  profession: ProfessionNames
+  profession: ProfessionName
   /** In the style of Xanathar's Class Origins, for the professions. */
   professionOrigin: string
   professionSuccess: string
@@ -66,7 +67,7 @@ export interface NPC {
   }
   partnerID?: string
   lifeEvents: string[]
-  callbackFunction?(town: Town): void
+  callbackFunction?(town: Town, npc: NPC): void
   wealth: number
   finances: {
     creditors: Record<string, number>
@@ -86,7 +87,6 @@ export interface NPC {
   isThrowaway?: boolean
   isShallow?: boolean
   hasHistory?: boolean
-  isBreakingGenderNorms: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
   /** How the NPC acts when they're calm. */
@@ -122,14 +122,19 @@ export interface NPC {
   descriptor: string
   /** In the style of Xanathar's Background Origins */
   backgroundOrigin: string
+  /** @example 'In a camp' */
   birthplace: string
   siblingNumber: number
+  /**
+   * Influenced by `npc.roll.gregariousness`.
+   * @example 'I had some friends growing up, and my childhood was generally a happy one. */
   childhoodMemories: string
   parentalLineage?: string
   partnerGenderProbability(npc: NPC): GenderName
   family: string
   familyHome: string
   familyLifestyle: LifestyleStandardName
+  /** @example 'my maternal grandparents' */
   familyUnit: string
   knewParents: boolean
     /** In the style of PHB bonds. */
@@ -146,6 +151,14 @@ export interface NPC {
     cause: string
     timeSinceDeath: number
   }
+  eyes: string
+  idle: string[]
+  hairColour: string
+  hairType: string
+  scar?: string
+  owner?: string
+  chitchat?: string[]
+  inventory?: string
 }
 
 export interface Relationship {
@@ -166,11 +179,11 @@ export interface NpcRelationship {
 }
 
 export interface Namesake {
-  firstName?: string
-  lastName?: string
+  firstName: string
+  lastName: string
   gender: GenderName
   race: RaceName
-  profession?: ProfessionNames
+  profession?: ProfessionName
   reason?: string
   note?: string
 }

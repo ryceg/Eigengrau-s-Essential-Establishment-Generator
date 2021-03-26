@@ -4,22 +4,12 @@
 \<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
 \<<set _name to $town.buildings[$currentPassage.index].name>>
 <<linkreplace "Rename <strong>_name</strong>">><h3><label name="Rename the smithy"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label></h3><</linkreplace>>
-
 <<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>
-
-<span class="tip" title="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth">Smithy Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
-
-<span class="tip" title="How large is the smithy?"><label for="numberslider-input-townbuildingscurrentpassageindexrollsize">Smithy Size</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
-
-<span class="tip" title="Is it well known, or does the guy just shoe horses?"><label for="numberslider-input-townbuildingscurrentpassageindexrollreputation">Smithy Reputation</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
-
-<span class="tip" title="How clean is the smithy?"><label for="numberslider-input-townbuildingscurrentpassageindexrollcleanliness">Smithy Cleanliness</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
-
-<span class="tip" title="How skilled is the blacksmith?"><label for="numberslider-input-townbuildingscurrentpassageindexrollexpertise">Smithy Expertise</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
-
-<span class="tip" title="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?"><label for="numberslider-input-townbuildingscurrentpassageindexrollactivity">Smithy Activity</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
-
-<span class="tip" title="How do the prices here compare to your average blacksmith?">Smithy <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier">Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
-
+<span class="tip" data-tippy-content="How wealthy is the patronage?"><label for="numberslider-input-townbuildingscurrentpassageindexrollwealth">Smithy Wealth</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.wealth" $town.buildings[$currentPassage.index].roll.wealth 1 100 1>></span>
+<span class="tip" data-tippy-content="How large is the smithy?"><label for="numberslider-input-townbuildingscurrentpassageindexrollsize">Smithy Size</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.size" $town.buildings[$currentPassage.index].roll.size 1 100 1>></span>
+<span class="tip" data-tippy-content="Is it well known, or does the guy just shoe horses?"><label for="numberslider-input-townbuildingscurrentpassageindexrollreputation">Smithy Reputation</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.reputation" $town.buildings[$currentPassage.index].roll.reputation 1 100 1>></span>
+<span class="tip" data-tippy-content="How clean is the smithy?"><label for="numberslider-input-townbuildingscurrentpassageindexrollcleanliness">Smithy Cleanliness</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.cleanliness" $town.buildings[$currentPassage.index].roll.cleanliness 1 100 1>></span>
+<span class="tip" data-tippy-content="How skilled is the blacksmith?"><label for="numberslider-input-townbuildingscurrentpassageindexrollexpertise">Smithy Expertise</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.expertise" $town.buildings[$currentPassage.index].roll.expertise 1 100 1>></span>
+<span class="tip" data-tippy-content="How busy is the blacksmith? Does he have a backlog a mile long, or is he sitting idle?"><label for="numberslider-input-townbuildingscurrentpassageindexrollactivity">Smithy Activity</label>: <<numberslider "$town.buildings[$currentPassage.index].roll.activity" $town.buildings[$currentPassage.index].roll.activity 1 100 1>></span>
+<span class="tip" data-tippy-content="How do the prices here compare to your average blacksmith?">Smithy <label for="numberslider-input-townbuildingscurrentpassageindexrollmodifier">Price Modifier</label>: <<numberslider "$town.buildings[$currentPassage.index].priceModifier" $town.buildings[$currentPassage.index].priceModifier -10 10 1>></span>
 When you're ready, here's the [[smithy|SmithyOutput]]
-<<run lib.addTippyAccessibility()>>

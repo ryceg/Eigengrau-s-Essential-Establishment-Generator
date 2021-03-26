@@ -1,9 +1,8 @@
 :: NPCIncomeTable
 <<nobr>>
-
-$currentNPC.firstName currently earns <<if setup.money(lib.npcNetIncome($town, $currentNPC)) < 1>>next to nothing <<else>><<print setup.money(lib.npcNetIncome($town, $currentNPC))>><</if>> <<linkreplace "per day." t8n>>per day.
-
-<table><h3>Finances</h3>
+<section>$currentNPC.firstName currently earns <<if setup.money(lib.npcNetIncome($town, $currentNPC)) < 1>>next to nothing <<else>><<print setup.money(lib.npcNetIncome($town, $currentNPC))>><</if>> per day.
+<details><summary>Finances</summary>
+<table>
     <tr>
         <th>Type</th>
         <th>Amount</th>
@@ -19,4 +18,4 @@ $currentNPC.firstName currently earns <<if setup.money(lib.npcNetIncome($town, $
     <<for _debtorKey, _debtOwed range $currentNPC.finances.debtors>>
     <tr><td>Money owed by <<profile $npcs[_debtorKey]>></td><td><<print setup.money(_debtOwed)>></td></tr>
     <</for>>
-</table><</linkreplace>><</nobr>>
+</table></details></section><</nobr>>

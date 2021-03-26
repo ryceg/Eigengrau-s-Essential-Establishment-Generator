@@ -2,9 +2,9 @@ import { NPC } from '../npc-generation/_common'
 
 export interface Building {
   key: string
-  /** @description 'building', 'faction', 'npc', or 'room'. */
-  objectType: string
-  /** @description The type of building- 'castle', 'townSquare', 'generalStore', etc. */
+  /** 'building', 'faction', 'npc', or 'room'. */
+  objectType: 'building'
+  /** The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
   lighting: string
   outside: string
@@ -17,7 +17,7 @@ export interface Building {
   structure?: BuildingStructure
   roll: BuildingRolls
   roadSizeRequirement?: number
-  priceModifier?: number
+  priceModifier: number
   wealth?: string
   size?: string
   activity?: string
@@ -43,6 +43,7 @@ export interface BuildingStructure {
   material: BuildingMaterial
   roof: BuildingRoof
 }
+
 export interface BuildingRoof {
   canBeColoured: boolean
   colour: string
@@ -63,14 +64,14 @@ export interface BuildingRolls {
   landSize?: number
   age?: number
   condition?: number
-  activity?: number
-  diversity?: number
-  expertise?: number
+  activity: number
+  diversity: number
+  expertise: number
   magic?: number
-  population?: number
-  reputation?: number
-  roughness?: number
-  sin?: number
+  population: number
+  reputation: number
+  roughness: number
+  sin: number
 }
 
 export interface BuildingRelationship {

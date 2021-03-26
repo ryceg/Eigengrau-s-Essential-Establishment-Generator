@@ -1,5 +1,5 @@
 :: FactionResources
-<h3>Resources</h3><<nobr>>They have $currentPassage.resourcesDescription resources. <<if $currentPassage.resources.list.length == 2>>
+<section><h3>Resources</h3><<nobr>><p>They have $currentPassage.resourcesDescription resources. <<if $currentPassage.resources.list.length == 2>>
     <<factionResource $currentPassage.resources.list[0] true>> and <<factionResource $currentPassage.resources.list[1]>> are their only significant resources.
   <<elseif $currentPassage.resources.list.length == 1>>
     <<factionResource $currentPassage.resources.list[0] true>> are their only significant resources.
@@ -14,4 +14,4 @@
         <<factionResource _resources>>,
     <</for>>
     and <<set _num to $currentPassage.resources.list.length - 1>><<factionResource $currentPassage.resources.list[_num]>>.
-<</if>><</nobr>>
+<</if>></p><</nobr>></section>

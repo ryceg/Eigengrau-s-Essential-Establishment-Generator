@@ -1,4 +1,4 @@
-import { NPC } from '@lib'
+import type { NPC } from '@lib'
 
 export const getLifeEvents = (npc: NPC) => {
   if (npc.lifeEvents.length === 2) {

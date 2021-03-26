@@ -34,7 +34,7 @@ setup.createBuildingRelationshipNpc = (town, building, associatedNPC, relationsh
   if (relationship.base) Object.assign(args.base, relationship.base)
   const npc = setup.createNPC(town, args.base)
   if (relationship.relationships.associatedNPC) {
-    setup.createRelationship(town, associatedNPC, npc, relationship.relationships.associatedNPC.relationship, relationship.relationships.associatedNPC.reciprocalRelationship)
+    setup.createRelationship(town, associatedNPC, npc, { relationship: relationship.relationships.associatedNPC.relationship, reciprocalRelationship: relationship.relationships.associatedNPC.reciprocalRelationship })
   }
   lib.createBuildingRelationship(town, building, npc, {
     description: relationship.description(building, npc),

@@ -24,10 +24,27 @@ export function findBuildingRelationship (town: Town, building: Building | null,
     if (npc) {
       return relation.npcKey === npc.key
     }
+    return false
   })
 
   console.log('array', foundRelationships)
   console.groupEnd()
 
   return foundRelationships
+}
+
+export function findIndexOfBuildingRelationship (town: Town, building: Building | null, npc: NPC | null) {
+  const foundRelationshipsIndex = town.buildingRelations.findIndex(relation => {
+    if (building && npc) {
+      return relation.buildingKey === building.key && relation.npcKey === npc.key
+    }
+    if (building) {
+      return relation.buildingKey === building.key
+    }
+    if (npc) {
+      return relation.npcKey === npc.key
+    }
+    return false
+  })
+  return foundRelationshipsIndex
 }

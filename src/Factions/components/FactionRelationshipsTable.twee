@@ -1,7 +1,7 @@
 :: FactionRelationshipsTable
 <div id="BuildingRelationshipsTable"><<nobr>><<set _factionRelationships to lib.findBuildingRelationship($town, $town.factions[$currentPassage.key], null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_factionRelationships)>>
 <<if _factionRelationships.length > 0>><div class='classTable'>
-  <h3>Relationships</h3>
+  <details><summary>Relationships</summary>
 <table>
 <tr>
   <th>Name</th>
@@ -19,5 +19,5 @@
     (lib.toTitleCase(_factionRelationships[_i].relationship || "member"))
     )>></td></tr>
 <</for>>
-</table>
+</table></details>
 </div><</if>><</nobr>></div>

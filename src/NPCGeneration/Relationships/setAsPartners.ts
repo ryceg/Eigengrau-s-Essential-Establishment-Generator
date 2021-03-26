@@ -1,4 +1,4 @@
-import type { NPC } from '../../../lib/npc-generation/_common'
+import type { NPC } from '@lib'
 
 /**
  * @warn Uses State.variables.npcs

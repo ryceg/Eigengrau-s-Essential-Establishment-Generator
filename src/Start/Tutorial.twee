@@ -1,6 +1,5 @@
 :: Tutorial [force-one-column]
 
-<<set _town to $town || $tempTown>>
 Eigengrau's Generator procedurally generates towns that are ready out-of-the-box to read to players, complete with sociopolitics, descriptions, and those little touches of creativity that separate a hand-crafted tavern from the drudgery of improvising your umpteenth tavern on the spot.
 
 <<fadein 1s 5s>>\
@@ -12,11 +11,11 @@ It creates towns from the ground up, with the biome impacting types of building 
 <</fadein>>
 
 <<fadein 1400ms 13s>>\
-Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted" title="Like this!">tooltips</span>, which provide quick additional information.\
+Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted" data-tippy-content="Like this!">tooltips</span>, which provide quick additional information.\
 <</fadein>>
 
 <<fadein 1500ms 17s>>\
-If you get lost, you can always naviage via the breadcrumb menu in the top left, which currently reads "The _town.type of _town.name". That link will take you to the homepage.\
+If you get lost, you can always navigate via the breadcrumb menu in the top left, which currently reads <b>"The $town.type of $town.name"</b>. That link will take you to the homepage.\
 <</fadein>>
 
 <<fadein 500ms 20s>>\
@@ -27,10 +26,14 @@ Eigengrau's Generator is open source, and totally free to use. If you enjoy usin
 Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://www.reddit.com/r/EigengrausGenerator]]! I don't bite.\
 <</fadein>>
 
- <<button "Let's start!" Start>><<set $town to setup.createTown($tempTown)>><</button>> -- <<button "Customise the town first" BiomeGeneration>>
+ <<button "Let's start!" Start>><<set $town to setup.createTown($town)>><</button>> -- <<button "Customise the town first" BiomeGeneration>>
  <<run setup.addGtagEvent({
   event_category: 'customise',
   event_action: 'clicked',
   event_label: 'customise during tutorial'
 })>>
- <</button>>    --      <span id="remember"><<button "Ok, never show me the tutorial again.">><<run State.metadata.set("showTutorial", false)>><<replace "#remember">>Okay, got it! You can switch it on in the settings if you need it.<</replace>><</button>></span>
+ <</button>>    --      <span id="remember">
+ \<<button "Ok, never show me the tutorial again.">>
+  \<<run State.metadata.set("showTutorial", 'false')>>
+  \<<replace "#remember">>Okay, got it! You can switch it on in the settings if you need it.<</replace>>
+\<</button>></span>

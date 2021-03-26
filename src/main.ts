@@ -5,32 +5,72 @@
  * bundles all the code imported here into a single JS file (`/src/init.js`) to be
  * loaded by Tweego alongside loose scripts in `/src`
 */
-import { createMarriage, createParentage, createRelative } from './NPCGeneration/Relationships/createFamilyMembers'
+import { createAlchemist } from './Alchemist/js/createAlchemist'
+import { brothelData } from './MiniEstablishments/Brothel/brothelData'
+import { createBrothel } from './MiniEstablishments/Brothel/createBrothel'
+import { townSquare } from './MiniEstablishments/TownSquare/townSquareData'
+import { deleteBuilding } from './Buildings/deleteBuilding'
+import { createMarriage, createParentage } from './NPCGeneration/Relationships/createFamilyMembers'
 import { createRelationship } from './NPCGeneration/Relationships/createRelationship'
-import { createSexuality } from './NPCGeneration/Relationships/createSexuality'
-import { createFriends } from './NPCGeneration/Relationships/createFriends'
-import { getFamily } from './NPCGeneration/Relationships/getFamily'
+import { createSocioPolitics } from './Town/js/createSocioPolitics'
+import { findPoliceSource } from './Town/js/findPoliceSource'
 import { getFatherMother } from './NPCGeneration/Relationships/getFatherMother'
 import { checkRaces } from './NPCGeneration/checkRaces'
-import { createDebt } from './NPCGeneration/createDebt'
+import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
+import { createTavern } from './Tavern/js/createTavern'
+import { expandNPC } from './NPCGeneration/expandNPC'
+import { profile } from './Tools/profile'
+import { money } from './Tools/money'
+import { history } from './Tools/history'
+import { addGtagEvent } from './Tools/addGtagEvent'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, racesPercentageTooltip, createRaceHTML, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
+import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { openDialog, rerenderPage } from './Dialog/openDialog'
 import { addSettingButton } from './Settings/settingButton'
 // import { getAllPantheons, getCustomPantheon, getPantheon, getPantheonNames, isUsingCustomPantheon } from './Religion/getPantheons'
+import { getLocation, getEncounter, getEventDescription } from './World/events'
+import { graveStone } from './World/graveStone'
+import { urlSeed } from './World/urlSeed'
+import { deleteFaction } from './Factions/deleteFaction'
+import { leaderFaction } from './Factions/leader'
+import { plothooks } from './PlotHook/plothooks'
+import { createTownBiome } from './Town/js/createTownBiome'
+import { createTownName } from './Town/js/createTownName'
+import { createTown, getTownType } from './Town/js/createTown'
+import { findViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
+    createAlchemist: typeof createAlchemist
+    brothelData: typeof brothelData
+    createBrothel: typeof createBrothel
+    deleteBuilding: typeof deleteBuilding
     createMarriage: typeof createMarriage
     createParentage: typeof createParentage
-    createRelative: typeof createRelative
     createRelationship: typeof createRelationship
-    createSexuality: typeof createSexuality
-    createFriends: typeof createFriends
-    getFamily: typeof getFamily
+    createSocioPolitics: typeof createSocioPolitics
+    findPoliceSource: typeof findPoliceSource
     getFatherMother: typeof getFatherMother
     checkRaces: typeof checkRaces
-    createDebt: typeof createDebt
+    expandNPC: typeof expandNPC
+    profile: typeof profile
+    getWakeUpByWealth: typeof getWakeUpByWealth
+    createTavern: typeof createTavern
+    money: typeof money
+    history: typeof history
+    addGtagEvent: typeof addGtagEvent
+    profileAgeTooltip: typeof profileAgeTooltip
+    metricHeight: typeof metricHeight
+    metricWeight: typeof metricWeight
+    buildingTooltip: typeof buildingTooltip
+    racesPercentageTooltip: typeof racesPercentageTooltip
+    createRaceHTML: typeof createRaceHTML
+    politicsDescription: typeof politicsDescription
+    politicsTooltip: typeof politicsTooltip
+    makeTippyTitle: typeof makeTippyTitle
+    createNPC: typeof createNPC
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
@@ -43,31 +83,77 @@ declare global {
     // getPantheonNames: typeof getPantheonNames
     // getPantheon: typeof getPantheon
     // isUsingCustomPantheon: typeof isUsingCustomPantheon
+    getLocation: typeof getLocation
+    getEncounter: typeof getEncounter
+    getEventDescription: typeof getEventDescription
+    graveStone: typeof graveStone
+    townSquare: typeof townSquare
+    urlSeed: typeof urlSeed
+    deleteFaction: typeof deleteFaction
+    leaderFaction: typeof leaderFaction
+    plothooks: typeof plothooks
+    createTownBiome: typeof createTownBiome
+    createTownName: typeof createTownName
+    createTown: typeof createTown
+    getTownType: typeof getTownType
+    findViaKey: typeof findViaKey
   }
 }
 
 Object.assign(setup, {
+  createAlchemist,
+  brothelData,
+  createBrothel,
+  deleteBuilding,
   createMarriage,
   createParentage,
-  createRelative,
   createRelationship,
-  createSexuality,
-  createFriends,
-  getFamily,
+  createSocioPolitics,
+  findPoliceSource,
   getFatherMother,
   checkRaces,
-  createDebt,
+  expandNPC,
+  profile,
+  getWakeUpByWealth,
+  createTavern,
+  money,
+  history,
+  addGtagEvent,
+  profileAgeTooltip,
+  metricHeight,
+  metricWeight,
+  buildingTooltip,
+  racesPercentageTooltip,
+  createRaceHTML,
+  politicsDescription,
+  politicsTooltip,
+  makeTippyTitle,
+  createNPC,
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
   openDialog,
   rerenderPage,
-  addSettingButton
+  addSettingButton,
   // getAllPantheons,
   // getCustomPantheon,
   // getPantheon,
   // getPantheonNames,
   // isUsingCustomPantheon
+  getLocation,
+  getEncounter,
+  getEventDescription,
+  graveStone,
+  townSquare,
+  urlSeed,
+  deleteFaction,
+  leaderFaction,
+  plothooks,
+  createTownBiome,
+  createTownName,
+  createTown,
+  getTownType,
+  findViaKey
 })
 
 /**
@@ -81,8 +167,6 @@ setup.init = (setup => () => {
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
-  setup.initMiscEncounters()
-  setup.initMiscLocations()
   setup.initNpcData()
   setup.initTavernData()
   setup.initGoodsAndServices()

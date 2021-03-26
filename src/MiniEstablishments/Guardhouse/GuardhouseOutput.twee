@@ -2,20 +2,19 @@
 <<nobr>>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentFaction to setup.findPolice($town)>>
+<<set $currentFaction to lib.getPolice($town)>>
 <<set $currentPassage.availableRelationships to lib.guardhouseData.get.customers>>
-<span class="interactive-only"><h1>$building.name</h1></span>
-<</nobr>>
-<<print lib.firstCharacter("You")>> make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. $building.name is known for $building.notableFeature
-It is run by <<profile $town.factions[$currentFaction.key]>>, who are $building.expertise.
-At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $building), $building, undefined)>>
+<h1 class="interactive-only">$building.name</h1>
+<</nobr>><p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. $building.name is known for $building.notableFeature</p>
+<p>It is run by <<profile $town.factions[$currentFaction.key]>>, who are $building.expertise.
+At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $building), $building, undefined)>></p>
 <<include "PolicingFaction">>
-<h4>Chief's Office</h4>
-The person in charge is <<profile $building.associatedNPC>>, a <<print $npcs[$building.associatedNPC.key].calmTrait>> <<print $npcs[$building.associatedNPC.key].descriptor>>. <<print lib.closestMatch(lib.guardhouseData.get.officeDescription($building), 'description', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>>
+<section><h4>Chief's Office</h4>
+<p>The person in charge is <<profile $building.associatedNPC>>, a <<print $npcs[$building.associatedNPC.key].calmTrait>> <<print $npcs[$building.associatedNPC.key].descriptor>>. <<print lib.closestMatch(lib.guardhouseData.get.officeDescription($building), 'description', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>></p>
 <<link '<h4>Evidence Locker</h4>'>><<set $building.evidence to lib.weightedRandomFetcher($town, lib.guardhouseData.evidenceLocker.items, $building, undefined)>><<update>><</link>>
-\<<liveblock>><<if $building.evidence>>In the evidence locker is $building.evidence<</if>><</liveblock>>
-\The guardhouse is $building.cleanliness
-<<link '<h4>Holding Cell</h4>'>><<set $building.holdingCell to lib.weightedRandomFetcher($town, lib.guardhouseData.get.holdingCell, $building, undefined, 'object')>><<set $building.prisoner to setup.createNPC($town, $building.holdingCell.base)>><<update>><</link>>
+\<<liveblock>><<if $building.evidence>><p>In the evidence locker is $building.evidence</p><</if>><</liveblock>>
+\The guardhouse is $building.cleanliness</section>
+<section><<link '<h4>Holding Cell</h4>'>><<set $building.holdingCell to lib.weightedRandomFetcher($town, lib.guardhouseData.get.holdingCell, $building, undefined, 'object')>><<set $building.prisoner to setup.createNPC($town, $building.holdingCell.base)>><<update>><</link>>
 <<liveblock>><<if $building.holdingCell>>In the holding cell is <<profile $building.prisoner $building.holdingCell.reason>><</if>>
-<</liveblock>>
-<<linkreplace "<h4>People Around</h4>" t8n>><<include "CreateNewNpc">><</linkreplace>>
+<</liveblock>></section>
+<<details "CreateNewNpc" "People Around">>

@@ -1,10 +1,11 @@
 setup.createMarket = (town, opts = {}) => {
-  const market = (opts.newBuilding || lib.createBuilding)(town, 'market')
+  const market = (opts.newBuilding || lib.createBuilding)(town, 'market', opts)
 
   Object.assign(market, {
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
     buildingType: 'market',
+    objectType: 'building',
     wordNoun: ['market', 'bazaar', 'agora', 'emporium', 'plaza', 'piazza'].random(),
     needsWordNoun: false,
     location: lib.market.location.random(),

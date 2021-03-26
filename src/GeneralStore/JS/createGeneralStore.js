@@ -3,7 +3,7 @@ setup.createGeneralStore = (town, opts = {}) => {
   const createBuilding = opts.newBuilding || lib.createBuilding
   const createShopkeep = opts.newShopkeep || setup.createNPC
 
-  const generalStore = createBuilding(town, 'generalStore')
+  const generalStore = createBuilding(town, 'generalStore', opts)
   console.groupCollapsed('General Store loading...')
   generalStore.associatedNPC = createShopkeep(town, Object.assign({
     profession: 'merchant',
@@ -22,7 +22,8 @@ setup.createGeneralStore = (town, opts = {}) => {
     notableFeature: 'wide range of goods on sale',
     passageName: 'generalStoreOutput',
     initPassage: 'InitgeneralStore',
-    buildingType: 'generalStore'
+    buildingType: 'generalStore',
+    objectType: 'building'
   })
   lib.createStructure(town, generalStore)
   generalStore.structure.descriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`

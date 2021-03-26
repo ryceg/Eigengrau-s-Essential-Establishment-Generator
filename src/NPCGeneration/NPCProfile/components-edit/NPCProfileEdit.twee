@@ -36,7 +36,7 @@
 
 <<print $npcs[$currentPassage.key].firstName>> is <<print lib.articles.output(_class)>>, with a background of being <<print lib.articles.output(_background)>>. <<print $npcs[$currentPassage.key].firstName>> currently has <label name="pockets"><<textbox "$npcs[$currentPassage.key].pockets" $npcs[$currentPassage.key].pockets>></label> in <<print $npcs[$currentPassage.key].hisher>> pockets, and <<money $npcs[$currentPassage.key].wealth>> to <<print $npcs[$currentPassage.key].hisher>> name. In combat, <<print $npcs[$currentPassage.key].heshe>> uses <label name="weapon"><<textbox "$npcs[$currentPassage.key].weapon" $npcs[$currentPassage.key].weapon>></label>.
 
-<span class="tip" title="Add notes here"><<textarea "$npcs[$currentPassage.key].note" $npcs[$currentPassage.key].note>></span>
+<span class="tip" data-tippy-content="Add notes here"><<textarea "$npcs[$currentPassage.key].note" $npcs[$currentPassage.key].note>></span>
 <<linkreplace "Early Life" t8n>><div class='descriptive'>I was born <label name="birthplace"><<textbox "$npcs[$currentPassage.key].birthplace" $npcs[$currentPassage.key].birthplace>></label>, and was raised by <label name="familyUnit"><<textbox "$npcs[$currentPassage.key].familyUnit" $npcs[$currentPassage.key].familyUnit>></label><<if $npcs[$currentPassage.key].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentPassage.key].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentPassage.key].siblingNumber siblings.<</if>> I had <<print lib.articles.find($npcs[$currentPassage.key].familyLifestyle)>> <label name="familyLifestyle"><<textbox "$npcs[$currentPassage.key].familyLifestyle" $npcs[$currentPassage.key].familyLifestyle>></label> upbringing in <label name="familyHome"><<textbox "$npcs[$currentPassage.key].familyHome" $npcs[$currentPassage.key].familyHome>></label>. <<if !$npcs[$currentPassage.key].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentPassage.key].parentalLineage>>$npcs[$currentPassage.key].parentalLineage.<</if>> <label name="childhoodMemories"><<textbox "$npcs[$currentPassage.key].childhoodMemories" $npcs[$currentPassage.key].childhoodMemories>></label>.</div><</linkreplace>>
 <<set _profession to $npcs[$currentPassage.key].profession>>
 <<linkreplace "Becoming a _profession" t8n>><div class='descriptive'>"<<textarea "$npcs[$currentPassage.key].backgroundOrigin" $npcs[$currentPassage.key].backgroundOrigin>> <<textarea "$npcs[$currentPassage.key].professionOrigin" $npcs[$currentPassage.key].professionOrigin>> That's how I became <<print lib.articles.output($npcs[$currentPassage.key].profession)>>. <<textarea "$npcs[$currentPassage.key].bond" $npcs[$currentPassage.key].bond>> <<textarea "$npcs[$currentPassage.key].ideal" $npcs[$currentPassage.key].ideal>>"</div><</linkreplace>>
@@ -46,8 +46,8 @@
 
 <<if def $npcs[$currentPassage.key].partnerID>><<print $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
 
-<<include "NPCRelationshipsTable">>
+<<include "NPCRelationshipsTableEdit">>
 
 <<button "Save changes" NPCProfile>>
   <<include "NPCSaveEdits">>
-<</button>><<run lib.addTippyAccessibility()>><</liveblock>>
+<</button>><</liveblock>>

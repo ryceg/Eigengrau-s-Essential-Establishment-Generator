@@ -1,16 +1,16 @@
-import { NPC, Town } from '@lib'
+import type { NPC, Town } from '@lib'
 
-type RelationshipType = string | {
+type RelationshipType = {
   relationship: string
   reciprocalRelationship?: string
+  description?: string
 }
 
 /**
  * Uses State.variables.npcs
  */
-export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, type: RelationshipType, targetType: string): void => {
+export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, type: RelationshipType): void => {
   console.log('Forming a relationship.', sourceNPC, targetNPC)
-
   const { npcs } = State.variables
 
   if (typeof sourceNPC === 'string') {
@@ -23,10 +23,7 @@ export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, t
     targetNPC = npcs[targetNPC]
   }
 
-  if (typeof type === 'object') {
-    targetType = type.reciprocalRelationship || type.relationship
-    type = type.relationship
-  }
+  if (!type.reciprocalRelationship) type.reciprocalRelationship = type.relationship
 
   if (sourceNPC.key === targetNPC.key) {
     console.error('Tried to make a relationship with the same NPC.')
@@ -54,8 +51,8 @@ export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, t
   }
 
   /* Create new relationship between these two */
-  npcRelations[sourceNPC.key].push(buildRelationship(targetNPC, type))
-  npcRelations[targetNPC.key].push(buildRelationship(sourceNPC, targetType))
+  npcRelations[sourceNPC.key].push(buildRelationship(targetNPC, type.relationship, type.description))
+  npcRelations[targetNPC.key].push(buildRelationship(sourceNPC, type.reciprocalRelationship, type.description))
 }
 
 function checkPreviousRelationships (town: Town, sourceNPC: NPC, targetNPC: NPC) {
@@ -64,10 +61,10 @@ function checkPreviousRelationships (town: Town, sourceNPC: NPC, targetNPC: NPC)
   })
 }
 
-function buildRelationship (targetNPC: NPC, type: string) {
+function buildRelationship (targetNPC: NPC, type: string, description?: string) {
   return {
     targetNpcKey: targetNPC.key,
     relation: type,
-    description: null
+    description: description || null
   }
 }

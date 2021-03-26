@@ -1,4 +1,4 @@
-import { NPC } from '@lib'
+import type { NPC } from '@lib'
 
 /**
  * Uses State.variables.npcs
