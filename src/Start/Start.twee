@@ -12,11 +12,3 @@
 <span id="buildings"><<include "RoadsList">></span>
 <<run console.log($town)>>
 <<include "Popup">><<run lib.addTippyAccessibility()>> 
-<<for _i = 0; _i < 5; _i++>>
-<<set _god to setup.getDeity($town, lib.getRandomDeity($town, setup.getPantheon($town).gods))>><<capture _god>><<profile _god>><</capture>>
-<</for>>
-<<print lib.formatPercentile(
-  lib.getDeityPercentagesList(
-    lib.compileWeightToPercentile(
-      lib.getTownDeityWeightings(
-        $town, setup.getPantheon($town).gods))))>>
