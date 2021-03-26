@@ -131,7 +131,7 @@ export const createTown = (base: TownBasics) => {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
 
-  lib.createTownReligion(town)
+  lib.createTownReligion(town as unknown as Town)
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {

@@ -5,7 +5,7 @@ import { calcPercentage } from '../src/calcPercentage'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { RaceName } from '@lib'
 
-export const createTownReligion = (town: Town, pantheon: PantheonTypes, deity: string) => {
+export const createTownReligion = (town: Town, pantheon?: PantheonTypes, deity?: string) => {
   if (!pantheon) town.religion.pantheon = 'greek'
   if (!deity) town.religion.deity = getRandomDeity(town)
 }
