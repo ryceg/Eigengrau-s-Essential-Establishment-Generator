@@ -1,17 +1,16 @@
 :: Followers
-<h2>Followers</h2>
+<h2>Followers</h2><<set _percentages to setup.getPantheonPercentages($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
 \<<include "Maxim">>
+\$currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
+      lib.getTownDeityWeightings(
+        $town, setup.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
 \<<if $currentPassage.followers.description>>$currentPassage.followers.description<</if>>
 \<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
 <<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <<include "ClericDomains">>
-<<nobr>><div class='classTable'>
+<<nobr>><<if Object.keys(_followers).length > 0>><div class='classTable'>
   <h3>NPCs</h3>
-  <<set _percentages to setup.getPantheonPercentages($town)>>
-  $currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
-      lib.getTownDeityWeightings(
-        $town, setup.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
   <table>
     <tr>
       <th>Name</th>
@@ -20,8 +19,8 @@
       <th>Strength</th>
       <<if $currentPassage.deleteEnabled>><th>Delete</th><</if>>
     </tr>
-    <<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
-    <<for _npc range _followers>>
+    
+    <<for _key, _npc range _followers>>
     \<<set _profession to lib.findProfession($town, $npcs[_npc.key])>>
     <tr>
       <td><<profile $npcs[_npc.key]>></td>
@@ -32,5 +31,5 @@
     </tr>
     <</for>>
     </table>
-    </div>
+    </div><</if>>
     <</nobr>>
