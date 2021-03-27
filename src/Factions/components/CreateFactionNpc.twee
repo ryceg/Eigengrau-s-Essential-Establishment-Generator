@@ -1,5 +1,5 @@
 :: CreateFactionNpc
-<span class="interactive-only"><<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">>
+<span class="interactive-only hide-on-print"><<nobr>><span id="NPCListboxes"><<include "NPCListboxes">></span> -- <<button "Create NPC">>
 \<<set _selectedRelationship to $currentPassage.availableRelationships>>
 \<<if _selectedRelationship.base>><<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>><</if>>
   \<<if def _newNPC>>

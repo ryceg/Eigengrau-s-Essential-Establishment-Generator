@@ -16,4 +16,4 @@
 <</if>>
 <<nobr>><<details "TownListNpcs" "List of NPCs">>
 <<details "TownListThrowaway" "List of Throwaway NPCs">>
-<span class='interactive-only'><<details "TownListProfessions" "Professions in $town.name">></span><</nobr>>
+<span class='interactive-only show-on-print'><<details "TownListProfessions" "Professions in $town.name">></span><</nobr>>

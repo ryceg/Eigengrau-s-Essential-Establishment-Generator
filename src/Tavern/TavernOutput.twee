@@ -4,22 +4,21 @@
 \<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 \<<set $currentPassage.availableRelationships to setup.tavern.get.customers>>
 \<section><h1 class="interactive-only">$building.name</h1>
-You make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.</p></section>
+\You make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.</p></section>
 <section><h3>The Tavern</h3>
-<p><<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
+\<p><<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
 <<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.activity, $building.roll.roughness)>></p>
-<div id="patron"><<include "TavernPatrons">></div>
+<<include "TavernPatrons">>
 <<include "TavernDrinker">></section>
 <section><h3>The Bar</h3><p>Behind the counter is who you would assume to be the bartender, <<print lib.articles.output($associatedNPC.descriptor)>> who is currently <<print $associatedNPC.idle.random()>>. You walk up to the bar, and strike up conversation with the $associatedNPC.manwoman, who introduces $associatedNPC.himherself as <<print setup.profile($associatedNPC)>>, the $associatedNPC.owner of $building.name.</p>
-<<include "BartenderTalk">>
+\<<include "BartenderTalk">>
 <<include "Menu">>
 <<include "TavernSell">></section>
 <section><h3>Tavern Entertainment</h3>
-$building.entertainment
+\$building.entertainment
 <<include "TavernGames">>
-<span class="interactive-only"><<link "<h4>Go on a bender</h4>">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
+\<span class="interactive-only hide-on-print"><<link "Go on a bender">><<set $building.carousing to setup.tavern.get.carousing($town, $building)>><<update>><</link>>
 \<<liveblock>><<if def $building.carousing>><p id="carousing">$building.carousing</p><</if>><</liveblock>></span>
 <<include "Noticeboard">></section>
-<<include "Rooms">>
-<<include "TavernBrothel">>
 <<details "CreateNewNpc" "Customers">>
+<<include "Rooms">>

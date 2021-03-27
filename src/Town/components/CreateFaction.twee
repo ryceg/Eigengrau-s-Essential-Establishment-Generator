@@ -1,5 +1,5 @@
 :: CreateFaction
-<span class="interactive-only"><<silently>>
+<span class="interactive-only" class='hide-on-print'><<silently>>
     <<set _listbox to '<label name="Faction type" for="listbox-newfaction"><<listbox "$newFaction">>'>>
     <<for _key range Object.keys(lib.factionData.types)>>
         <<set _listbox += '<<option "' + _key + '" "' + _key + '">>'>>
