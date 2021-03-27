@@ -14,8 +14,6 @@ export const getPredominantReligion = (town: Town, percentages: Record<string, n
 
   // Pick out the primary & secondary Race name percentages.
   const [primary, secondary] = sortArray(percentages).reverse()
-  alert(primary[0])
-  alert(primary[1])
   const [primaryDeity, percentile] = primary
 
   const [secondaryDeity, secondaryPercentile] = secondary

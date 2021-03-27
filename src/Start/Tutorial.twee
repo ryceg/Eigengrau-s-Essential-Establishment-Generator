@@ -2,16 +2,16 @@
 
 Eigengrau's Generator procedurally generates towns that are ready out-of-the-box to read to players, complete with sociopolitics, descriptions, and those little touches of creativity that separate a hand-crafted tavern from the drudgery of improvising your umpteenth tavern on the spot.
 
-<<fadein 1s 5s>>\
+<<fadein 1s 2s>>\
 This generator is different because it generates text that you can read out to players. Instead of "Dirty tavern, with a half orc bartender", you get whole paragraphs of text to immerse your players in the world that you've created.\
 <</fadein>>
 
-<<fadein 1200ms 8s>>\
+<<fadein 1200ms 6s>>\
 It creates towns from the ground up, with the biome impacting types of building material that are available, a town's wealth and population changing what establishments are featured, and sociopolitics and economic modeling influencing the types of people that inhabit the town.\
 <</fadein>>
 
 <<fadein 1400ms 13s>>\
-Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted" data-tippy-content="Like this!">tooltips</span>, which provide quick additional information.\
+Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted block" tabindex="0" data-tippy-content="Like this!">tooltips</span>, which provide <span class="tip dotted block" tabindex="0" data-tippy-content="Additional DM notes are displayed in tooltips that look like this!">quick additional information</span> that can be <span class="tip dotted description" tabindex="0" id="tutorial-example" data-tippy-content="Stuff that can be read out to players looks like this!">read out to players</span>.<<timed 0s>><<run tippy('.block')>><<run tippy('.description', { theme: 'descriptive'})>><</timed>>
 <</fadein>>
 
 <<fadein 1500ms 17s>>\
@@ -26,6 +26,7 @@ Eigengrau's Generator is open source, and totally free to use. If you enjoy usin
 Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://www.reddit.com/r/EigengrausGenerator]]! I don't bite.\
 <</fadein>>
 
+<<fadein 15s 4s>>
  <<button "Let's start!" Start>><<set $town to setup.createTown($town)>><</button>> -- <<button "Customise the town first" BiomeGeneration>>
  <<run setup.addGtagEvent({
   event_category: 'customise',
@@ -37,3 +38,4 @@ Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://ww
   \<<run State.metadata.set("showTutorial", 'false')>>
   \<<replace "#remember">>Okay, got it! You can switch it on in the settings if you need it.<</replace>>
 \<</button>></span>
+<</fadein>>

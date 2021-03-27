@@ -4,7 +4,7 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
     switch (obj.objectType) {
       case 'npc':
-        $(span).attr('data-tippy-content', `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
         break
       case 'building':
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`)
@@ -16,7 +16,10 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`)
         break
       case 'road':
-        $(span).attr('data-tippy-content', obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        break
+      case 'deity':
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${obj.titles[0]}, who is ${lib.articles.output(obj.rank)} in the pantheon.`)
         break
       default:
         console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)

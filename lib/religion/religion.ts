@@ -1,4 +1,4 @@
-import { ProfessionNames, ProfessionSector } from '../npc-generation/professions'
+import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town, TownRolls } from '../town/_common'
 import { Alignments, ClericDomains, WorldTypeAbbreviated } from '../src/worldType'
@@ -79,6 +79,8 @@ export interface Deity {
    * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
    */
   name: string
+  /** Needed to make the profiles work */
+  key: string
   /**
    * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important
    * @example ```Baldr: 'dead'```
@@ -114,7 +116,7 @@ export interface Deity {
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
        */
-      profession: Record<ProfessionNames, number>
+      profession: Record<ProfessionName, number>
       /**
        * Profession sector is applied as well as Professions.
        */
@@ -631,6 +633,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Zeus',
+          key: 'Zeus',
           status: 'alive',
           titles: [
             'God of the Sky',
@@ -776,6 +779,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Poseidon',
+          key: 'Poseidon',
           status: 'alive',
           aliases: ['Neptune'],
           titles: [
@@ -927,6 +931,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hades',
+          key: 'Hades',
           status: 'alive',
           aliases: ['Pluto', 'Pluton', 'The Cthonic Zeus'],
           equivalent: ['Pluto'], // Pluto was originally a different god to Hades
@@ -1087,6 +1092,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Aphrodite',
+          key: 'Aphrodite',
           status: 'alive',
           aliases: ['Venus'],
           equivalent: ['Ishtar', 'Astarte'],
@@ -1261,6 +1267,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Artemis',
+          key: 'Artemis',
           status: 'alive',
           aliases: ['Diana', 'Brauronia', 'Orthia'],
           equivalent: ['Selene', 'Britomartis', 'Dictynna', 'Eileithyial'],
@@ -1408,6 +1415,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Apollo',
+          key: 'Apollo',
           status: 'alive',
           aliases: ['Apollon'],
           titles: [
@@ -1538,6 +1546,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Athena',
+          key: 'Athena',
           status: 'alive',
           aliases: ['Minerva', 'Athene'],
           equivalent: ['Minerva'],
@@ -1660,6 +1669,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Dionysus',
+          key: 'Dionysus',
           status: 'alive',
           aliases: ['Bacchus'],
           equivalent: ['Zagreus', 'Iacchus', 'Liber'],
@@ -1824,6 +1834,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Demeter',
+          key: 'Demeter',
           status: 'alive',
           aliases: [
             'Ceres',
@@ -1973,6 +1984,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hermes',
+          key: 'Hermes',
           status: 'alive',
           aliases: ['Mercury'],
           titles: [
@@ -2134,6 +2146,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hera',
+          key: 'Hera',
           status: 'alive',
           titles: [
             'Queen of the Gods',
@@ -2281,6 +2294,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Ares',
+          key: 'Ares',
           status: 'alive',
           titles: [
             'Who rallies men',
@@ -2406,6 +2420,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hestia',
+          key: 'Hestia',
           status: 'alive',
           aliases: ['Vesta'],
           titles: [
@@ -2517,6 +2532,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hephaestus',
+          key: 'Hephaestus',
           status: 'alive',
           titles: [
             'Glorius Craftsman',
@@ -2627,6 +2643,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Persephone',
+          key: 'Persephone',
           status: 'alive',
           aliases: ['Kore'],
           equivalent: ['Libera', 'Proserpina', 'Prosperina'],
@@ -2737,6 +2754,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hecate',
+          key: 'Hecate',
           status: 'alive',
           titles: [
             'Worker from Afar',
@@ -2854,6 +2872,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Nike',
+          key: 'Nike',
           status: 'alive',
           titles: ['Goddess of Victory', 'The Winged Goddess'],
           rank: 'lesser deity',
@@ -2936,6 +2955,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Tyche',
+          key: 'Tyche',
           status: 'alive',
           titles: ['Goddess of Fortune and Chance'],
           rank: 'lesser deity',
@@ -3014,6 +3034,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hebe',
+          key: 'Hebe',
           status: 'alive',
           titles: ['Goddess of Eternal Youth',
             'Daughter of Zeus',
@@ -3109,6 +3130,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Pan',
+          key: 'Pan',
           status: 'uncertain',
           titles: [
             'The God of the Wild',
@@ -3208,6 +3230,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Asclepius',
+          key: 'Asclepius',
           status: 'alive',
           titles: [
             'God of Healing',
@@ -3299,6 +3322,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Chiron',
+          key: 'Chiron',
           status: 'alive',
           titles: [
             'Wisest of the Centaurs',
@@ -3381,6 +3405,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Heracles',
+          key: 'Heracles',
           status: 'alive',
           aliases: ['Hercules'],
           titles: ['Divine Protector of Mankind'],
@@ -3476,6 +3501,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Ariadne',
+          key: 'Ariadne',
           status: 'alive',
           equivalent: ['Libera', 'Proserpina'],
           titles: ['Wife of Dionysus'],
@@ -3578,6 +3604,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Odin',
+          key: 'Odin',
           status: 'alive',
           titles: [
             'The Allfather',
@@ -3694,6 +3721,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Thor',
+          key: 'Thor',
           status: 'alive',
           titles: [
             'The one who Rides Alone',
@@ -3804,6 +3832,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Loki',
+          key: 'Loki',
           status: 'alive', // unless he is bound to the stone with the snake above him - dunno about this
           titles: [
             'Tangler',
@@ -3893,6 +3922,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Frigg',
+          key: 'Frigg',
           status: 'alive',
           aliases: [
             'Frigga'
@@ -3986,6 +4016,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Freyr',
+          key: 'Freyr',
           status: 'alive',
           aliases: ['Frey', 'Yngvi'],
           titles: [
@@ -4080,6 +4111,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Freyja',
+          key: 'Freyja',
           status: 'alive',
           aliases: ['Freya', 'Freja'],
           titles: [
@@ -4170,6 +4202,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Bragi',
+          key: 'Bragi',
           status: 'alive',
           titles: [
             'The long-bearded god',
@@ -4244,6 +4277,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Sif',
+          key: 'Sif',
           status: 'alive',
           titles: [
             'The Prophetess Sibyl',
@@ -4319,6 +4353,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Baldr',
+          key: 'Baldr',
           status: 'dead',
           titles: [
             'the Bleeding God',
@@ -4396,6 +4431,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Name',
+          key: 'Name',
           status: 'alive',
           titles: [
             ''
@@ -4463,6 +4499,7 @@ export const religion: ReligionData = {
           objectType: 'deity',
           passageName: 'DeityProfile',
           name: 'Hel',
+          key: 'Hel',
           status: 'alive',
           titles: [
             ''

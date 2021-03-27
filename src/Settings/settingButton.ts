@@ -1,7 +1,14 @@
 interface SettingButtonArguments {
+  /**
+   * The element that this will be placed *above*.
+   * Prepends '#setting-body-' to it.
+   * @example target: 'darkMode' = '#setting-body-darkMode'
+   * */
   target: string
   name: string
+  /** What the text next to the button should say. */
   description: string
+  /** What you'd like the text on the button to say. */
   buttonDescription: string
 }
 
