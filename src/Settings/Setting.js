@@ -68,6 +68,12 @@ Setting.addToggle('ignoreGender', {
   onChange: settingIgnoreGender
 })
 
+Setting.addToggle('ignoreRace', {
+  label: 'Ignore race?',
+  desc: 'If you would rather NPCs not have racial stereotyping, enable this (this is only used for deity selection).',
+  onChange: settingIgnoreRace
+})
+
 Setting.addToggle('forceOneColumn', {
   label: 'Force one column?',
   desc: 'Force one column for larger screens.',
@@ -116,6 +122,14 @@ function settingIgnoreGender () {
   if (settings.ignoreGender !== ignoreGender) {
     State.metadata.set('ignoreGender', settings.ignoreGender)
     State.variables.town.ignoreGender = settings.ignoreGender
+  }
+}
+
+function settingIgnoreRace () {
+  const ignoreRace = State.metadata.get('ignoreRace')
+  if (settings.ignoreRace !== ignoreRace) {
+    State.metadata.set('ignoreRace', settings.ignoreRace)
+    State.variables.town.ignoreRace = settings.ignoreRace
   }
 }
 
