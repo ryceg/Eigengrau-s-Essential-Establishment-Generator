@@ -99,4 +99,16 @@
   #passage-start br {
     display: none;
   }
+  .interactive-only {
+    display: none;
+  }
+  .interactive-only .show-on-print {
+    display: inherit;
+  }
+  .interactive-only h1 {
+    display: inherit;
+  }
+  .show-on-print {
+    display: inherit;
+  }
 }
