@@ -394,7 +394,7 @@ export type ReligionStrength =
 
 interface ReligionData {
   strength: ThresholdTable<ReligionStrength>
-  pantheon: Record<PantheonTypes, Pantheon>
+  pantheon: Record<string, Pantheon>
   abstractGod: string[]
   saint: string[]
 }

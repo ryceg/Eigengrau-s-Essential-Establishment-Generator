@@ -16,7 +16,6 @@
 		})
 	}
 }>>
-<<set $custom to {}>>
 
 <<script>>
   const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});

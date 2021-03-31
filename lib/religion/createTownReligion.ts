@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Town, TownRolls } from '../town/_common'
-import { Deity, DeityRank, PantheonTypes } from './religion'
+import { Deity, DeityRank, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
+import { getPantheonPercentages } from './getPantheon'
 import { RaceName } from '@lib'
 
 export const createTownReligion = (town: Town, pantheon?: PantheonTypes, deity?: string) => {
-  if (!pantheon) town.religion.pantheon = 'greek'
-  if (!deity) town.religion.deity = getRandomDeity(town)
+  if (!pantheon) pantheon = 'greek'
+  if (!deity) deity = getRandomDeity(town)
+  town.religion.pantheon = pantheon
+  town.religion.deity = deity
+  town.religion.probabilities = getPantheonPercentages(town)
 }
 
 /**
@@ -74,6 +78,9 @@ export const getTownDeityWeightings = (town: Town, deities = getFallbackDeities(
           town.roll[townRoll]),
         temp[deity.name].probability)
     }
+    if (!town.religion.probabilityModifiers) town.religion.probabilityModifiers = {}
+    if (town.religion.probabilityModifiers[deity.name]) console.log('defined!', town.religion.probabilityModifiers[deity.name])
+    temp[deity.name].probability = addIfDefined(town.religion.probabilityModifiers[deity.name], temp[deity.name].probability)
     console.log(deity.name, temp[deity.name].probability)
   }
 
@@ -102,20 +109,37 @@ export const getTownDeityWeightings = (town: Town, deities = getFallbackDeities(
   // return temp
 }
 
+export const compileWeightToRecord = (weights: Record<string, {
+  probability: number,
+  name: string
+}>) => {
+  console.log(weights)
+  // Get an array of the demographic keys (race names).
+  const deities = Object.keys(weights)
+
+  // Calculate the demographic percentages.
+  const percentages: Record<string, number> = {}
+  for (const deity of deities) {
+    percentages[deity] = weights[deity].probability
+  }
+  return percentages
+}
+
 export const compileWeightToPercentile = (weights: Record<string, {
   probability: number,
   name: string
 }>) => {
   console.log('Compiling weights to percentile...')
-  console.log(weights)
   // Get an array of the demographic keys (race names).
   const deities = Object.keys(weights)
+
   // Calculate the sum of the raw demographic values.
   const sum = deities
     .map(deity => weights[deity])
     .reduce((acc, cur) => acc + cur.probability, 0)
-  // Calculate the demographic percentages.
-  const percentages: Record<string, number> = {}
+
+  const percentages = compileWeightToRecord(weights)
+
   for (const deity of deities) {
     percentages[deity] = weights[deity].probability / sum * 100
   }
@@ -178,7 +202,7 @@ export const addIfDefined = (arg: number | undefined, target: number) => {
 
 export const getFallbackDeities = (town: Town): Deity[] => {
   const pantheonName = town.religion.pantheon || 'greek'
-  const pantheon = lib.religion.pantheon[pantheonName as PantheonTypes]
+  const pantheon = religion.pantheon[pantheonName as PantheonTypes]
   return pantheon.gods
 }
 

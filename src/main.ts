@@ -29,7 +29,6 @@ import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
 import { openDialog, rerenderPage } from './Dialog/openDialog'
 import { addSettingButton } from './Settings/settingButton'
-// import { getAllPantheons, getCustomPantheon, getPantheon, getPantheonNames, isUsingCustomPantheon } from './Religion/getPantheons'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
@@ -77,12 +76,6 @@ declare global {
     openDialog: typeof openDialog
     rerenderPage: typeof rerenderPage
     addSettingButton: typeof addSettingButton
-    // getAllPantheons: typeof getAllPantheons
-    // getCustomPantheon: typeof getCustomPantheon
-    // getPantheon: typeof getPantheon
-    // getPantheonNames: typeof getPantheonNames
-    // getPantheon: typeof getPantheon
-    // isUsingCustomPantheon: typeof isUsingCustomPantheon
     getLocation: typeof getLocation
     getEncounter: typeof getEncounter
     getEventDescription: typeof getEventDescription
@@ -135,11 +128,6 @@ Object.assign(setup, {
   openDialog,
   rerenderPage,
   addSettingButton,
-  // getAllPantheons,
-  // getCustomPantheon,
-  // getPantheon,
-  // getPantheonNames,
-  // isUsingCustomPantheon
   getLocation,
   getEncounter,
   getEventDescription,

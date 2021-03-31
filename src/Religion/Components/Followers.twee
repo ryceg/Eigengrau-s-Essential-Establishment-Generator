@@ -1,9 +1,9 @@
 :: Followers
-<h2>Followers</h2><<set _percentages to setup.getPantheonPercentagesReadout($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
+<h2>Followers</h2><<set _percentages to lib.getPantheonPercentagesReadout($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
 \<<include "Maxim">>
 \$currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
       lib.getTownDeityWeightings(
-        $town, setup.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
+        $town, lib.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
 \<<if $currentPassage.followers.description>>$currentPassage.followers.description<</if>>
 \<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
 <<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>

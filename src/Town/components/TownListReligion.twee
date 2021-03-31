@@ -1,5 +1,5 @@
 :: TownListReligion
-\<<set _religionPercentages to setup.getPantheonPercentages($town)>>
+\<<set _religionPercentages to lib.getPantheonPercentages($town)>>
 <div class='classTable' id="religion"><<liveblock>>$town.name <<print lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>><</liveblock>>.
 <table>
     <tr>

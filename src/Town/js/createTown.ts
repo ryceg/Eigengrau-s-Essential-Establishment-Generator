@@ -45,6 +45,16 @@ export const createTown = (base: TownBasics) => {
     families: {
     },
     religion: {
+      _customPantheon: State.metadata.get('pantheon'),
+      probabilityModifiers: {}
+    },
+    get customPantheon () {
+      if (this.religion._customPantheon) return this.religion._customPantheon
+      return State.metadata.get('pantheon')
+    },
+    set customPantheon (data) {
+      State.metadata.set('pantheon', data)
+      this.religion._customPantheon = data
     },
     bans: [],
     buildingRelations: [],
@@ -130,7 +140,7 @@ export const createTown = (base: TownBasics) => {
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
-
+  if (State.metadata.has('pantheon')) town.religion.customPantheon = State.metadata.get('pantheon')
   lib.createTownReligion(town as unknown as Town)
 
   console.log('Defining taxes')
