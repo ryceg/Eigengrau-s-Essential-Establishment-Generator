@@ -55,14 +55,18 @@ export const createTown = (base: TownBasics) => {
       return lib.getPantheonPercentages(this as unknown as Town)
     },
     set religionProbabilities (data: Record<string, number>) {
+      console.groupCollapsed('Setting religion probabilities!')
       this.religion._probabilities = data
-      this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
+      // this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
+      console.log('Before unaltered')
       const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
-      // const altered = lib.modifyTownWeights(this as unknown as Town, unaltered)
+
+      if (!this.religion._modifiers) this.religion._modifiers = {}
       for (const deity in this.religion._probabilities) {
-        this.religion._modifiers[deity] = this.religion._probabilities[deity] - unaltered[deity].probability
         this.religion._baseProbabilities[deity] = unaltered[deity].probability
+        this.religion._modifiers[deity] = this.religion._probabilities[deity] - this.religion._baseProbabilities[deity]
       }
+      console.groupEnd()
     },
     get customPantheon () {
       if (this.religion._customPantheon) return this.religion._customPantheon

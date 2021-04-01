@@ -8,7 +8,7 @@ import { RaceName } from '@lib'
 export const createTownReligion = (town: Town, pantheon?: PantheonTypes, deity?: string) => {
   if (!pantheon) pantheon = 'greek'
   town.religion.pantheon = pantheon
-  town.religionProbabilities = compileWeightToRecord(getTownDeityWeightings(town))
+  // town.religionProbabilities = compileWeightToRecord(getTownDeityWeightings(town))
   if (!deity) deity = getRandomDeity(town)
   town.religion.deity = deity
 }
@@ -40,11 +40,12 @@ const getDeityWeightFromRace = (town: Town, deity: Deity) => {
 
 /** Gets everything static- i.e. no user-intervention specific modifiers. */
 export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbackDeities(town)) => {
-  console.log('Getting town deity weightings...')
+  console.log('Getting unaltered town deity weightings...')
   const weightings: Record<string, {
     probability: number,
     name: string
   }> = {}
+
   for (const deity of deities) {
     if (town.ignoreRace) {
       weightings[deity.name] = {
@@ -61,9 +62,8 @@ export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbac
     weightings[deity.name].probability = addIfDefined(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], weightings[deity.name].probability)
     weightings[deity.name].probability = addIfDefined(deity?.probabilityWeightings?.politicalIdeology?.[town.politicalIdeology], weightings[deity.name].probability)
     weightings[deity.name].probability = addIfDefined(deity?.probabilityWeightings?.politicalSource?.[town.politicalSource], weightings[deity.name].probability)
-
     for (const roll in deity?.probabilityWeightings?.rolls) {
-      if (!roll) break
+      if (!roll) continue
       const townRoll = roll as TownRolls
       weightings[deity.name].probability = addIfDefined(
         compareRollToTarget(
@@ -72,32 +72,44 @@ export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbac
         weightings[deity.name].probability)
     }
   }
+  console.log(weightings)
   return weightings
 }
 
 /** Modifies the town religion weights based on the user defined weights. */
-export const modifyTownWeights = (town: Town, temp: Record<string, {
+export const modifyTownWeights = (town: Town, weights: Record<string, {
   probability: number,
   name: string
 }>, deities = getFallbackDeities(town)) => {
   console.log('Modifying town weights...')
-  console.log(temp)
+  console.log(weights)
+  if (!town.religion._modifiers) town.religion._modifiers = {}
   for (const deity of deities) {
-    if (!town.religion._modifiers) town.religion._modifiers = {}
-    temp[deity.name].probability = addIfDefined(town.religion._modifiers[deity.name], temp[deity.name].probability)
+    if (!weights[deity.name]) {
+      weights[deity.name] = {
+        name: deity.name,
+        probability: 0
+      }
+    }
+    if (!town.religion._modifiers[deity.name]) town.religion._modifiers[deity.name] = 0
+    weights[deity.name].probability = addIfDefined(town.religion._modifiers[deity.name], weights[deity.name].probability)
   }
-  console.log(temp)
-  return temp
+  console.log(weights)
+  return weights
 }
 /** The generic, user-facing one that gets _everything_; applies modifiers, runoffs, etc. */
 export const getTownDeityWeightings = (town: Town, deities = getFallbackDeities(town)) => {
   console.groupCollapsed('Getting town deity weightings...')
   let weights = getUnalteredTownDeityWeightings(town, deities)
+  console.log('Got unaltered weights.')
+  console.log(weights)
   weights = modifyTownWeights(town, weights, deities)
   weights = gradeDeityWeightings(weights)
+  console.log('Clamping...')
   for (const entry in weights) {
     weights[entry].probability = weights[entry].probability.clamp(0, 999999)
   }
+  console.log('Finished')
   console.groupEnd()
   return weights
 }

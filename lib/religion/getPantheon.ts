@@ -37,6 +37,7 @@ export const getCustomPantheon = (town: Town): Pantheon => {
 }
 
 export const getPantheonPercentages = (town: Town) => {
+  console.log('Getting pantheon percentages...')
   return compileWeightToPercentile(
     getTownDeityWeightings(town, getPantheon(town).gods)
   )
