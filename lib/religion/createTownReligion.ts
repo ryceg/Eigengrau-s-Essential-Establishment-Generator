@@ -4,6 +4,7 @@ import { Deity, DeityRank, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { RaceName } from '@lib'
+import { random } from '../src/random'
 
 export const createTownReligion = (town: Town, pantheon?: PantheonTypes, deity?: string) => {
   if (!pantheon) pantheon = 'greek'
@@ -121,6 +122,7 @@ export const gradeDeityWeightings = (temp: Record<string, {
 }>) => {
   const firstPlaceMultiplier = 10
   const secondPlaceMultiplier = 2
+  const randomPlaceMultiplier = 20
   const lowestQualifyingPosition = 10
 
   // sort high to low
@@ -133,6 +135,7 @@ export const gradeDeityWeightings = (temp: Record<string, {
   // apply bonuses
   output[Object.keys(output)[0]].probability *= firstPlaceMultiplier
   output[Object.keys(output)[1]].probability *= secondPlaceMultiplier
+  output[Object.keys(output)[random(lowestQualifyingPosition)]].probability *= randomPlaceMultiplier
 
   // remove lowest probabilities
   for (let i = lowestQualifyingPosition; i < Object.keys(output).length - 1; i++) {
