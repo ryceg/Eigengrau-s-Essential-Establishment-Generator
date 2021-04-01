@@ -2,11 +2,11 @@
 <<nobr>>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentFaction to lib.getPolice($town)>>
+<<set $currentPassage to lib.getPolice($town)>>
 <<set $currentPassage.availableRelationships to lib.guardhouseData.get.customers>>
 <h1 class="interactive-only">$building.name</h1>
 <</nobr>><p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. $building.name is known for $building.notableFeature</p>
-<p>It is run by <<profile $town.factions[$currentFaction.key]>>, who are $building.expertise.
+<p>It is run by <<profile $town.factions[$currentPassage.key]>>, who are $building.expertise.
 At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $building), $building, undefined)>></p>
 <<include "PolicingFaction">>
 <section><h4>Chief's Office</h4>
