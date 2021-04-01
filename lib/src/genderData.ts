@@ -6,6 +6,7 @@ export type BinaryGender = 'man' | 'woman'
 export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
 
 interface GenderPronouns {
+    godgoddess: string
     title: string
     domTitle: string
     heshe: string
