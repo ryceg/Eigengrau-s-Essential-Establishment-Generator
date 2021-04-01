@@ -929,7 +929,6 @@ setup.initNpcData = () => {
             partnerMsg = partnerKey
               ? `I met the love of my life, ${setup.profile(partnerKey)}.`
               : 'I met the love of my life, who is no longer with me.'
-            return
           }
           return childMsg + partnerMsg
         }
