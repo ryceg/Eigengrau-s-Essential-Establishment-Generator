@@ -102,8 +102,8 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const racesPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>) => {
-  const tip = $(`<span class='tip dotted'>${lib.getPredominantRace(percentages).amountDescriptive}</span>`)
+export const createPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>, content: string) => {
+  const tip = $(`<span class='tip dotted'>${content}</span>`)
   tippy(tip.get(0), {
     content: source,
     interactive: false,
@@ -119,7 +119,14 @@ export function createRaceHTML (percentages: Record<RaceName, number>, target: s
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
   const html = lib.formatAsList(list)
-  racesPercentageTooltip(html, target, percentages)
+  createPercentageTooltip(html, target, percentages, lib.getPredominantRace(percentages).amountDescriptive)
+}
+
+export function createReligionHTML (percentages: Record<string, number>, target: string) {
+  const array = lib.sortArray(percentages).reverse()
+  const list = lib.formatPercentile(array as [string, number][])
+  const html = lib.formatAsList(list)
+  createPercentageTooltip(html, target, percentages, lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

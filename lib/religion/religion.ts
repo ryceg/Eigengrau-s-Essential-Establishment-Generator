@@ -1467,7 +1467,7 @@ export const religion: ReligionData = {
             },
             race: {
               halfling: 20,
-              human: 15
+              human: 5
             }
           },
           possessions: [
@@ -1605,7 +1605,7 @@ export const religion: ReligionData = {
               'constitutional monarchy': 3
             },
             race: {
-              human: 25,
+              human: 10,
               dwarf: 15,
               dragonborn: 15
             }
@@ -2806,7 +2806,7 @@ export const religion: ReligionData = {
               autocracy: 5
             },
             race: {
-              human: 20,
+              human: 5,
               tiefling: 25
             }
           },
@@ -2987,7 +2987,7 @@ export const religion: ReligionData = {
             },
             race: {
               halfling: 30,
-              human: 15
+              human: 5
             }
           },
           possessions: [],
@@ -3065,7 +3065,7 @@ export const religion: ReligionData = {
           },
           probabilityWeightings: {
             race: {
-              human: 20
+              human: 5
             }
           },
           possessions: [],
@@ -3358,7 +3358,7 @@ export const religion: ReligionData = {
             },
             race: {
               dragonborn: 15,
-              human: 15
+              human: 5
             }
           },
           possessions: [],

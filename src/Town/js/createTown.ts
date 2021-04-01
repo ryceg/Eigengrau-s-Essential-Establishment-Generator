@@ -161,7 +161,6 @@ export const createTown = (base: TownBasics) => {
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
-  lib.createTownReligion(town as unknown as Town)
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
@@ -194,13 +193,15 @@ export const createTown = (base: TownBasics) => {
     assignPoliticalModifiers(town)
   }
 
-  setup.createSocioPolitics(town as unknown as Town)
-
-  lib.clampRolls(town.roll)
-
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
   }
+
+  lib.createTownReligion(town as unknown as Town)
+
+  setup.createSocioPolitics(town as unknown as Town)
+
+  lib.clampRolls(town.roll)
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

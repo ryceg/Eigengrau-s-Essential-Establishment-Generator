@@ -8,7 +8,7 @@
         <th>Percentage</th>
     </tr>
 <<for _deity, _percentage range _religionPercentages>>
-<<set _deityData to setup.getDeity($town, _deity)>><<capture _deity, _percentage, _deityData>>
+<<set _deityData to lib.getDeity($town, _deity)>><<capture _deity, _percentage, _deityData>>
 <<if _percentage === 0>><<continue>><</if>>
     <tr>
         <td><<profile _deityData>></td>

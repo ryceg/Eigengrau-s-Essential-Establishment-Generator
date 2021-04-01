@@ -43,6 +43,15 @@ export const getPantheonPercentages = (town: Town) => {
   )
 }
 
+export const getCulledPantheonPercentages = (town: Town) => {
+  console.log('Getting pantheon percentages...')
+  const temp = compileWeightToPercentile(
+    getTownDeityWeightings(town, getPantheon(town).gods)
+  )
+  return Object.fromEntries(
+    Object.entries(temp).filter(([, value]) => value > 0))
+}
+
 export const getPantheonPercentagesReadout = (town: Town) => {
   const deities: [string, number][] = getDeityPercentagesList(getPantheonPercentages(town))
   let text = ''
