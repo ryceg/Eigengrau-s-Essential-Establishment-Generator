@@ -64,7 +64,7 @@ export const getPredominantReligion = (town: Town, percentages: Record<string, n
       percentile,
       secondaryPercentile,
       amount: 'largely',
-      amountDescriptive: `largely ${primaryDeity}`,
+      amountDescriptive: `largely worships ${primaryDeity}`,
       primaryDeity,
       secondaryDeity
     }
