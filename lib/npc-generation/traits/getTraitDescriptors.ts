@@ -309,7 +309,7 @@ export const getAllTraits = (npc: NPC) => {
     // const roll = getTrait(trait, npc, true)
     const roll = Math.clamp(npc.roll.traits[trait] / 5, 1, 19)
     const result = getTraitDescription(trait, roll)
-    if (typeof result === 'string') {
+    if (result) {
       traitDescriptions.push({ trait, roll, result })
     }
   }
