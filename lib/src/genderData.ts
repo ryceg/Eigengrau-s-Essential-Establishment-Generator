@@ -76,6 +76,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     oppositeGender: 'man'
   },
   nonbinary: {
+    godgoddess: 'deity',
     title: 'Mx',
     domTitle: 'Overseer',
     heshe: 'they',
@@ -98,6 +99,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     oppositeGender: 'man'
   },
   entity: {
+    godgoddess: 'goddess',
     title: 'Mx',
     domTitle: 'Overseer',
     heshe: 'it',
