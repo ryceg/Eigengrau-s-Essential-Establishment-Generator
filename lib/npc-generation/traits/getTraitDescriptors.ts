@@ -329,7 +329,7 @@ export const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetL
         result += `${traits[i]?.result}, `
       } else if (and === 'but') {
         result += `but is ${traits[i]?.result}`
-        if (i < targetLength - 2) {
+        if (i < targetLength - 3) {
           result += `. ${npc.heshe.toUpperFirst()} also is `
         } else {
           result += ', '
@@ -337,7 +337,7 @@ export const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetL
       } else {
         result += `${traits[i]?.result}, `
       }
-    } else if (i < targetLength - 2) {
+    } else if (i < targetLength - 3) {
       if (and === 'but') {
         result += `but is ${traits[i]?.result}`
       } else if (and === 'and') {
