@@ -46,7 +46,23 @@ export const createTown = (base: TownBasics) => {
     },
     religion: {
       _customPantheon: State.metadata.get('pantheon'),
-      probabilityModifiers: {}
+      _percentages: {},
+      _baseProbabilities: {} as Record<string, number>,
+      _modifiers: {} as Record<string, number>,
+      _probabilities: {} as Record<string, number>
+    },
+    get religionPercentages () {
+      return lib.getPantheonPercentages(this as unknown as Town)
+    },
+    set religionProbabilities (data: Record<string, number>) {
+      this.religion._probabilities = data
+      this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
+      const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
+      // const altered = lib.modifyTownWeights(this as unknown as Town, unaltered)
+      for (const deity in this.religion._probabilities) {
+        this.religion._modifiers[deity] = this.religion._probabilities[deity] - unaltered[deity].probability
+        this.religion._baseProbabilities[deity] = unaltered[deity].probability
+      }
     },
     get customPantheon () {
       if (this.religion._customPantheon) return this.religion._customPantheon
@@ -140,7 +156,7 @@ export const createTown = (base: TownBasics) => {
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
-  if (State.metadata.has('pantheon')) town.religion.customPantheon = State.metadata.get('pantheon')
+  if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
   lib.createTownReligion(town as unknown as Town)
 
   console.log('Defining taxes')
