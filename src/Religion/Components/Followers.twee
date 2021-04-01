@@ -3,8 +3,8 @@
 \<<include "Maxim">>
 \$currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
       lib.getTownDeityWeightings(
-        $town, lib.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]].
-\<<if $currentPassage.followers.description>>$currentPassage.followers.description<</if>>
+        $town, lib.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]]. 
+\<<idp $currentPassage.followers.description>> <<idp $currentPassage.followers.adherents "<<print lib.makeList($currentPassage.followers.adherents)>>">>
 \<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
 <<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>

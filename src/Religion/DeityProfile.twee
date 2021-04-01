@@ -6,7 +6,7 @@
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
 <</button>> */
 \<<include "Quotes">>
-/* \<<include "AlsoKnownAs">> */
+/* \<<include "AlsoKnownAs">> */  
 \<<if $currentPassage.aliases>> 
   \<<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases) + '.', $currentPassage.name.slice(1))>>
 \<<else>>
