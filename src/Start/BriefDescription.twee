@@ -5,4 +5,4 @@
 <<if $town.ignoreGender is false>><<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
 <<else>>
 <<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */
-<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>>.<</nobr>></p>
+<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>> that <<include "ReligionPercentageList">>.<</nobr>></p>

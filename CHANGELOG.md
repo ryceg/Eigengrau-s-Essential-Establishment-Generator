@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 - Taverns doubling as brothels (temporarily)
 - Removed many unnecessary wrapped span elements to make the output cleaner.
+- Blacksmith 'missions' to rework them.
 
 
 ## 2.7

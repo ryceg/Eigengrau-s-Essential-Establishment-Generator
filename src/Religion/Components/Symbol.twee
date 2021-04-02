@@ -1,0 +1,4 @@
+:: Symbol
+<<print lib.genderData[$currentPassage.gender].hisher.toUpperFirst()>> symbol <<print lib.deityIsWas($currentPassage.status)>> 
+\<<if typeof $currentPassage.symbol === 'array'>><<print lib.articles.find($currentPassage.symbol[0])>> <<print lib.createTippyFull('As well as ' + lib.makeList($currentPassage.symbol.slice(1)), $currentPassage.symbol[0])>>
+\<<else>><<print lib.articles.output($currentPassage.symbol)>><</if>>.

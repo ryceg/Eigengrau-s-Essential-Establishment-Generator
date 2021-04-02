@@ -1,0 +1,2 @@
+:: ReligionPercentageList
+<span class='tippy-religion-percentage'></span><<timed 0s>><<run setup.createReligionHTML(lib.getCulledPantheonPercentages($town), 'tippy-religion-percentage')>><</timed>>

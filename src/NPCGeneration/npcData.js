@@ -367,7 +367,7 @@ setup.initNpcData = () => {
             profession: apprenticeProfession,
             isShallow: true
           })
-          setup.createRelationship(town, npc, teacher, 'teacher', 'student')
+          setup.createRelationship(town, npc, teacher, { relationship: 'teacher', reciprocalRelationship: 'student' })
           return `${['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].random()} ${setup.profile(teacher, teacher.name)} ${reputation} ${apprenticeProfession}. During that time ${learned}.`
         },
         profession: [
@@ -929,7 +929,6 @@ setup.initNpcData = () => {
             partnerMsg = partnerKey
               ? `I met the love of my life, ${setup.profile(partnerKey)}.`
               : 'I met the love of my life, who is no longer with me.'
-            return
           }
           return childMsg + partnerMsg
         }

@@ -45,6 +45,36 @@ export const createTown = (base: TownBasics) => {
     families: {
     },
     religion: {
+      _customPantheon: State.metadata.get('pantheon'),
+      _percentages: {},
+      _baseProbabilities: {} as Record<string, number>,
+      _modifiers: {} as Record<string, number>,
+      _probabilities: {} as Record<string, number>
+    },
+    get religionPercentages () {
+      return lib.getPantheonPercentages(this as unknown as Town)
+    },
+    set religionProbabilities (data: Record<string, number>) {
+      console.groupCollapsed('Setting religion probabilities!')
+      this.religion._probabilities = data
+      // this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
+      console.log('Before unaltered')
+      const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
+
+      if (!this.religion._modifiers) this.religion._modifiers = {}
+      for (const deity in this.religion._probabilities) {
+        this.religion._baseProbabilities[deity] = unaltered[deity].probability
+        this.religion._modifiers[deity] = this.religion._probabilities[deity] - this.religion._baseProbabilities[deity]
+      }
+      console.groupEnd()
+    },
+    get customPantheon () {
+      if (this.religion._customPantheon) return this.religion._customPantheon
+      return State.metadata.get('pantheon')
+    },
+    set customPantheon (data) {
+      State.metadata.set('pantheon', data)
+      this.religion._customPantheon = data
     },
     bans: [],
     buildingRelations: [],
@@ -109,6 +139,7 @@ export const createTown = (base: TownBasics) => {
       wealth: lib.dice(2, 50),
       reputation: lib.dice(2, 50),
       religiosity: lib.dice(2, 50),
+      religionSeed: lib.dice(1, 100),
       sin: lib.dice(2, 50),
       diversity: lib.dice(2, 50),
       magic: lib.dice(2, 50),
@@ -129,6 +160,7 @@ export const createTown = (base: TownBasics) => {
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
   town.materialProbability = lib.structureData.material.types
+  if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
   console.log('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
@@ -161,13 +193,15 @@ export const createTown = (base: TownBasics) => {
     assignPoliticalModifiers(town)
   }
 
-  setup.createSocioPolitics(town as unknown as Town)
-
-  lib.clampRolls(town.roll)
-
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
   }
+
+  lib.createTownReligion(town as unknown as Town)
+
+  setup.createSocioPolitics(town as unknown as Town)
+
+  lib.clampRolls(town.roll)
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

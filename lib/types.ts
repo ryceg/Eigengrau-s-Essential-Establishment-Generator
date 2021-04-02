@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 /**
  * Returns the keys from `T` whose property types match the type `V`.
  */
@@ -9,6 +11,8 @@ export type KeysMatching<T, V> = {
  * Each value represents the weight of its key
  */
 export type WeightRecord<T extends string> = { [P in T]?: number }
+
+export type PartialRecord<T extends string | number, V> = Partial<Record<T, V>>
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type ReadonlyPrimitive = undefined | null | boolean | string | number | Function;

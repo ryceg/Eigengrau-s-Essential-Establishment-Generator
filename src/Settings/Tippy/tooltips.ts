@@ -4,7 +4,7 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
     switch (obj.objectType) {
       case 'npc':
-        $(span).attr('data-tippy-content', `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
         break
       case 'building':
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`)
@@ -16,7 +16,10 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`)
         break
       case 'road':
-        $(span).attr('data-tippy-content', obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        break
+      case 'deity':
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${obj.titles[0]}, who is ${lib.articles.output(obj.rank)} in the pantheon.`)
         break
       default:
         console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
@@ -99,8 +102,8 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const racesPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>) => {
-  const tip = $(`<span class='tip dotted'>${lib.getPredominantRace(percentages).amountDescriptive}</span>`)
+export const createPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>, content: string) => {
+  const tip = $(`<span class='tip dotted'>${content}</span>`)
   tippy(tip.get(0), {
     content: source,
     interactive: false,
@@ -116,7 +119,14 @@ export function createRaceHTML (percentages: Record<RaceName, number>, target: s
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
   const html = lib.formatAsList(list)
-  racesPercentageTooltip(html, target, percentages)
+  createPercentageTooltip(html, target, percentages, lib.getPredominantRace(percentages).amountDescriptive)
+}
+
+export function createReligionHTML (percentages: Record<string, number>, target: string) {
+  const array = lib.sortArray(percentages).reverse()
+  const list = lib.formatPercentile(array as [string, number][])
+  const html = lib.formatAsList(list)
+  createPercentageTooltip(html, target, percentages, lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
