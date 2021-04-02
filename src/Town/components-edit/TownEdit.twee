@@ -2,9 +2,9 @@
 <<nobr>><<run $("body").on("change", ".races-slider", function() {
   $(document).trigger(":liveupdate");
 });>>
-<<set $economicIdeologyTypes to lib.economicPairs>>
-<<set $politicalIdeologyTypes to lib.politicalIdeologyPairs>>
-<<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
+<<set $listboxes.economicIdeology to lib.economicPairs>>
+<<set $listboxes.politicalIdeology to lib.politicalIdeologyPairs>>
+<<set $listboxes.politicalSource to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
 <<set
   $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
   $town.roll.economics to $town.roll.economics.clamp(1, 100),

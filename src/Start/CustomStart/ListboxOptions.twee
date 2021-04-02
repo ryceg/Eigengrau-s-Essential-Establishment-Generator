@@ -1,0 +1,13 @@
+:: ListboxOptions
+<<set $listboxes to {
+  terrain: Object.keys(lib.terrain),
+  location: Object.keys(lib.terrain[$town.terrain].location),
+  vegetation: ["thick", "lush", "sparse", "desolate"],
+  origin: lib.terrain[$town.terrain].location[$town.location].origin,
+  primaryCrop: lib.townData.misc.primaryCrop,
+  primaryExport: lib.townData.misc.primaryExport,
+  season: Object.keys(lib.terrain.temperate.weather.season),
+  economicIdeology: lib.economicPairs,
+  politicalIdeology: lib.politicalIdeologyPairs,
+  politicalSource: ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]
+}>>

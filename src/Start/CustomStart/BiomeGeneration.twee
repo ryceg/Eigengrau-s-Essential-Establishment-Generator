@@ -2,22 +2,11 @@
 <<nobr>><<run $("body").on("change", ".races-slider", function() {
   $(document).trigger(":liveupdate");
 });>>
-<<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
-<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
-<<set
-  $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
-  $town.roll.economics to $town.roll.economics.clamp(1, 100),
-  $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
-  $town.roll.military to $town.roll.military.clamp(1, 100),
-  $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
-  $town.roll.law to $town.roll.law.clamp(1, 100),
-  $town.roll.equality to $town.roll.equality.clamp(1, 100)
->>
 <<liveblock>>
     <<link "reroll">>
         <<set $town.name to setup.createTownName()>><<update>>
     <</link>>
-        <span class="auto-update"><label name="Town name"><<textbox "$town.name" $town.name>></label></span>
+      <label class="auto-update" name="Town name"><<textbox "$town.name" $town.name>></label>
 <</liveblock>>
 <</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
 <span id="refresh"><<include "BiomeGenerationRefresh">></span>
@@ -40,7 +29,7 @@
 ----
 
 <<liveblock>><<run lib.updateDemographics($town, $town._baseDemographics)>>$town.name is a <<print setup.getTownType($town)>> comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
-<span class="races-slider"><span class="tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span></span>
+<span class="races-slider tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
 <<nobr>><table class="sortable">
     <tr>
         <th>Race</th>
@@ -53,7 +42,7 @@
         <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><span class="races-slider"><span class="tip" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></span></td>
+        <td><span class="races-slider tip" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></td>
     </tr>
 <</for>>
 </table><</nobr>><</liveblock>>
