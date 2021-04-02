@@ -1,0 +1,4 @@
+:: Maxim
+<<if $currentPassage.maxim>><<set _rand to $currentPassage.maxim.random()>>
+<blockquote><<if _rand.title>><h4>_rand.title</h4><</if>>_rand.description<<idp _rand.author "-- _rand.author">></blockquote>
+<</if>>

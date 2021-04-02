@@ -1,5 +1,5 @@
 :: TownEdit
-<<nobr>><<run $("body").on("change", ".races-slider", function() {
+<<nobr>><<run $("body").on("change", [".races-slider", ".religion-slider"], function() {
   $(document).trigger(":liveupdate");
 });>>
 <<include "EditTownName">>
@@ -8,7 +8,8 @@
 <<include "EditSliders">>
 ----
 <<nobr>>
-<<include "EditRaces">><</nobr>>
+<<include "EditRaces">>
+<<include "EditReligion">><<timed 0s>><<run tippy('[data-tippy-content]')>><</timed>><</nobr>>
 <<button "Save Changes" TownOutput>>
   <<include "Rerender">>
   <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>

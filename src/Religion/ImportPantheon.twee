@@ -1,0 +1,22 @@
+:: ImportPantheon
+<<run $("body").on("change", ["button"], function() {
+  $(document).trigger(":liveupdate");
+});>>
+\<<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>> -- <<lb>>
+\<<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town)>><</listbox>>
+\<<if def $town.religion.customPantheon>> -- <<button "Delete custom pantheon">><<if lib.isUsingCustomPantheon($town)>><<set $town.religion.pantheon to 'greek'>><</if>>
+\<<set $town.religion.customPantheon to {}>><<update>>
+\<</button>><</if>>
+1. Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon {{{.json}}} file online, or in our Discord server.
+2. Select desired pantheon from the drop-down menu.
+----
+<<if lib.isUsingCustomPantheon($town) === false>><details style="height:270px; overflow:auto"><summary>Current Pantheon Data for <b><<print lib.getPantheon($town).name>></b> loaded:</summary>
+\<<print JSON.stringify(lib.getPantheon($town))>>
+</details>
+----<</if>>
+\Custom patheon name: <<if State.metadata.has('pantheon')>><b><<print lib.getCustomPantheon($town).name>></b>
+<details style="height:90%; overflow:auto"><summary>Custom Pantheon Data:</summary>
+\<<print JSON.stringify(lib.getCustomPantheon($town))>>
+</details>
+<<else>>none currently loaded<</if>>
+<</lb>>

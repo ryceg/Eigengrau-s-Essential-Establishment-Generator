@@ -1,10 +1,11 @@
 import { Town } from '../town/_common'
+import { ReligionStrength } from '../religion/religion'
+import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
+import { LifestyleStandardName } from './lifestyleStandards'
+import { Virtues } from './traits/getTraits'
 import { GenderName } from '../src/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
-import { ReligionStrength } from './createReligiosity'
-import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
-import { LifestyleStandardName } from './lifestyleStandards'
 import { RaceName, AgeName } from './raceTraits'
 
 export type SocialClassName =
@@ -47,6 +48,7 @@ export interface NPC {
   professionSuccess: string
   background: BackgroundName
   roll: {
+    traits: Record<Virtues, number>
     /** How lucky/good someone is at their job. */
     professionLuck: number
     /** "Rarity" of the trait- not really a super important attribute. */

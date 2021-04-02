@@ -8,6 +8,7 @@ import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
+import { Pantheon, PantheonTypes } from 'lib/religion/religion'
 import { GenderName } from '../../lib/src/genderData'
 import { Biome, Seasons } from '../../lib/src/terrain'
 
@@ -35,6 +36,8 @@ export interface TownBasics {
   population: number
   professions: Record<string, TownProfessions>
   ignoreGender: boolean
+  // TODO: Add ignoreRace setting
+  ignoreRace: boolean
   dominantGender: GenderName
   roll: Record<TownRolls, number>
   possibleMaterials: MaterialTypes[]
@@ -74,7 +77,16 @@ export interface Town extends TownBasics {
   }
   reuseNpcProbability: number
   guard: Faction
+  religionProbabilities: Record<string, number>
   religion: {
+    customPantheon?: Pantheon
+    /** Each item indexes the matching deity in the pantheon */
+    _modifiers: Record<string, number>
+    /** Probabilities sans the manual bonuses. */
+    _baseProbabilities: Record<string, number>
+    _probabilities: Record<string, number>
+    _percentages: Record<string, number>
+    pantheon: PantheonTypes | string
     deity: string
   }
   roads: Record<string, Road>

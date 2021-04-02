@@ -1,4 +1,5 @@
 :: EditSliders
+<details open><summary>Attributes</summary>
 <table>
   <tr>
     <th>Attribute Slider</th>
@@ -11,5 +12,6 @@
     <tr><td><<print lib.createTippyFull(_tooltip, lib.townData.rollData[_key].preceding)>></td><td style="21vw"> <<numberslider "$town.roll[_key]" $town.roll[_key] 1 100 1>></td></tr>
     <</if>>
   <</capture>><</for>><</nobr>>
-<tr><td class="tip" data-tippy-content="How sexist is their society?">Sexist (in favour of <span class="tip" data-tippy-content="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Dominant gender" for="listbox-towndominantgender"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
-</table>
+<tr><td class="tip" title="How sexist is their society?">Sexist (in favour of <span class="tip" title="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Dominant gender" for="listbox-towndominantgender"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
+</table><<run lib.addTippyAccessibility()>>
+</details>

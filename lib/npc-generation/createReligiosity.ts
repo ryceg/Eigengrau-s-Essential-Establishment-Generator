@@ -1,44 +1,8 @@
-import { fm, dice, closestMatch } from '..'
-import { ThresholdTable } from '../src/rollFromTable'
+import { fm, dice, closestMatch, ReligionStrength, rankProbabilities, compareRollToTarget, addIfDefined } from '../'
 import { Town } from '../town/_common'
 import { NPC } from './_common'
 import { random } from '../src/random'
-
-export type ReligionStrength =
-'fanatical true believer' |
-'unshakingly devoted believer' |
-'conspicuously faithful believer' |
-'outspoken believer' |
-'quiet true believer' |
-'casual observer' |
-'open-minded seeker' |
-'cautious listener' |
-'critical student' |
-'outspoken cynic' |
-'broken heretic'
-
-export const religion = {
-  strength: [
-    // npc.name is a _______
-    [100, 'fanatical true believer'],
-    [90, 'unshakingly devoted believer'],
-    [80, 'conspicuously faithful believer'],
-    [70, 'outspoken believer'],
-    [60, 'quiet true believer'],
-    [50, 'casual observer'],
-    [40, 'open-minded seeker'],
-    [30, 'cautious listener'],
-    [20, 'critical student'],
-    [10, 'outspoken cynic'],
-    [0, 'broken heretic']
-  ] as ThresholdTable<ReligionStrength>,
-  abstractGod: [
-    'Our Lady', 'Our Mother', 'the Ancient Flame', 'the Ancient Oak', 'the Autumn Singer', 'the Bat', 'the Battle-Lord', 'the Bear', 'the Beast', 'the Beast-Tamer', 'the Beast-Wife', 'the Beauty Queen', 'the Blood-Bringer', 'the Burning Man', 'the Crone', 'the Cruel King', 'the Dark Lady', 'the Dark Lord', 'the Dark Prophet', 'the Death Harbinger', 'the Doom Harbinger', 'the Doom-Maker', 'the Eagle', 'the Earth-Mother', 'the Earth-Queen', 'the Enemy', 'the Eternal Light', 'the Eternal Sage', 'the Fair Maiden', 'the Fatespinner', 'the Felled Tree', 'the Fire Dragon', 'the Forest Keeper', 'the Frog', 'the Gloom-Spider', 'the Goddess', 'the Grain-Grower', 'the Great Huntress', 'the Great Protector', 'the Great Smith', 'the Horned One', 'the Judge', 'the King Beneath the Waves', 'the Lawgiver', 'the Life-Keeper', 'the Life-Tree', "the Light's Son", 'the Magic-Maid', 'the Messenger', 'the Mighty Hunter', 'the Mighty One', 'the Mighty Warrior', 'the Mischief-Maker', 'the Moon-Witch', 'the Mountain Forger', 'the Night Queen', 'the Oathkeeper', 'the Oracle', 'the Prophet', 'the Sacred Grove', 'the Savior', 'the Scorpion', 'the Sea Dragon', 'the Sea God', 'the Sea Queen', 'the Seductress', 'the Shadow', 'the Shadowkeeper', 'the Shadow-Serpent', 'the Shield-Maiden', 'the Ship-Taker', 'the Sky Father', 'the Soothsayer', 'the Soul-Collector', 'the Soul-Eater', 'the Spider', 'the Spring Maiden', 'the Starfinder', 'the Stone Dragon', 'the Storm Dragon', 'the Storm King', 'the Storm-Bringer', 'the Summer Mistress', 'the Sunkeeper', 'the Sword-Prince', 'the Thief', 'the Tormenter', 'the Tree Spirit', 'the Undying Light', 'the Unnamed One', 'the Unyielding Tyrant', 'the Voice', 'the Wandering Rogue', 'the War-Maker', 'the Watcher', 'the Watchful Eye', 'the Wind King', 'the Winemaker', 'the Winter Lady', 'the Wolf'
-  ],
-  saint: [
-    'Almar the Holy', 'Amaya the Seeress', 'Bahak the Preacher', 'Bahruz the Prophet', 'Lira the Flamekeeper', 'Mozar the Conqueror', 'Prince Tarunal', 'Queen Kalissa', 'Rahal the Sunsoul', 'Raham the Lightbringer', 'St. Aemilia', 'St. Albus', 'St. Anglos', 'St. Antonia', 'St. Antonus', 'St. Austyn', 'St. Bardo', 'St. Beatrix', 'St. Berta', 'St. Bettius', 'St. Bryenn', 'St. Buttercup', 'St. Carolo', 'St. Cedrick', 'St. Cordelia', 'St. Cowhan', 'St. Cumberbund', 'St. Dorys', 'St. Dreddos', 'St. Dwayn', 'St. Edwynna', 'St. Elayne', 'St. Falstyus', 'St. Farcas', 'St. Florenzo', 'St. Gabrella', 'St. Gaiorgus', 'St. Goodkynd', 'St. Hal', 'St. Halcincas', 'St. Haroldus', 'St. Hemingwar', 'St. Heraclora', 'St. Hermioninny', 'St. Hieronymus', 'St. Inigo', 'St. Jordyn', 'St. Katrynn', 'St. Lannus', 'St. Leo', 'St. Leryo', 'St. Londyn', 'St. Magio', 'St. Marius', 'St. Markuz', 'St. Martyn', 'St. Matromus', 'St. Morrsona', 'St. Morwayne', 'St. Murkel', 'St. Mychel', 'St. Nyneva', 'St. Paolo', 'St. Parrinus', 'St. Perseon', 'St. Petyr', 'St. Podryck', 'St. Polly', 'St. Pratchytt', 'St. Rawynn', 'St. Regus', 'St. Ricarddos', 'St. Roberts', 'St. Robinus', 'St. Rowhan', 'St. Rowlynna', 'St. Sansima', 'St. Sessimus', 'St. Severus', 'St. Stynebick', 'St. Symeon', 'St. Theseon', 'St. Thoryn', 'St. Tolkkyn', 'St. Twayn', 'St. Xavos', 'the Deliverer', 'the Doomcaller', 'the Doomsayer', 'the Lawgiver', 'the Oracle', 'the Prophet', 'the Savior', 'the Seeker', 'the Shadowseer', 'the Soothsayer', 'the Starwatcher', 'the Truthsayer', 'the Voice', 'Zefar the Sorcer'
-  ]
-}
+import { Virtues } from './traits/getTraits'
 
 export function getReligiosityDescription (town: Town, npc: NPC) {
   const selectedGod = npc.religion.deity
@@ -108,7 +72,6 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
       gregariousness: 100,
       note: `${npc.firstName} is a quiet follower of ${selectedGod}, but does not draw much attention to ${npc.hisher} choice of deity.`
     },
-    // TODO: complete the two dimensional array.
     {
       strength: 60,
       gregariousness: 80,
@@ -187,7 +150,7 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
     {
       strength: 20,
       gregariousness: 20,
-      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Because of ${npc.hisher} doubts, ${npc.heshe} enjoys spirited debates about the flaws of various religions– both other peoples' faiths and ${npc.hisher} own.`
+      note: `${npc.name} is critical of religion, but is nominally a follower of ${selectedGod}. Because of ${npc.hisher} doubts, ${npc.heshe} enjoys spirited debates about the flaws of various religions – both other peoples' faiths and ${npc.hisher} own.`
     },
     {
       strength: 20,
@@ -239,20 +202,64 @@ export function createReligiosity (town: Town, npc: NPC) {
   } else {
     npc.religion.strength = getReligionStrength(npc.roll.religiosity)
   }
-  npc.religion.deity = getDeity(town, npc)
+  npc.religion.deity = pickDeity(npc.roll.gender, getDeityProbabilities(town, npc))
 }
 
-export function getDeity (town: Town, npc: NPC) {
-  if (npc.roll.conformity > town.roll.religiosity) {
-    return town.religion.deity
+export function getDeityProbabilities (town: Town, npc: NPC, deities = lib.getFallbackDeities(town)): Record<string, {
+  probability: number,
+  name: string
+}> {
+  const conformityMargin = 30
+  if (npc.roll.conformity - town.roll.religiosity > conformityMargin) {
+    const townDeity = {
+      [town.religion.deity]: { name: town.religion.deity, probability: 100 }
+    }
+    return townDeity
   } else {
-    const godPool = [religion.abstractGod, religion.saint]
-    return random(godPool[random(0, 1)])
+    const probabilities: Record<string, {
+      probability: number,
+      name: string
+    }> = {}
+    for (const deity of deities) {
+      probabilities[deity.name] = {
+        probability: deity?.probabilityWeightings?.npc?.race?.[npc.race] || rankProbabilities[deity.rank] || 10,
+        name: deity.name
+      }
+      for (const prop in deity?.personality) {
+        if (!prop) break
+        const trait = prop as Virtues
+        addIfDefined(
+          compareRollToTarget(
+            deity?.personality[trait],
+            npc.roll.traits[trait],
+            {
+              bonus: 5,
+              tolerance: 'both',
+              maxDistance: 20
+            }
+          ),
+          probabilities[deity.name].probability)
+      }
+    }
+    return probabilities
   }
 }
 
+export const pickDeity = (deityPicker: number, pool: Record<string, {
+  probability: number,
+  name: string
+}>) => {
+  for (const item in pool) {
+    deityPicker -= pool[item].probability
+    if (deityPicker < 0) {
+      return item
+    }
+  }
+  return pool[Object.keys(pool)[0]].name
+}
+
 function getReligiosity (religionStrength: ReligionStrength): number {
-  for (const [threshold, strength] of religion.strength) {
+  for (const [threshold, strength] of lib.religion.strength) {
     if (strength === religionStrength) {
       return threshold + random(1, 5)
     }
@@ -261,7 +268,7 @@ function getReligiosity (religionStrength: ReligionStrength): number {
 }
 
 function getReligionStrength (religiosityRoll: number): ReligionStrength {
-  for (const [threshold, strength] of religion.strength) {
+  for (const [threshold, strength] of lib.religion.strength) {
     if (threshold <= religiosityRoll) {
       return strength
     }

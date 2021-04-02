@@ -1,0 +1,2 @@
+:: Possessions
+<<if $currentPassage.possessions.length > 0>><h3>Possessions</h3><<print lib.printInformation($currentPassage.possessions)>><</if>>

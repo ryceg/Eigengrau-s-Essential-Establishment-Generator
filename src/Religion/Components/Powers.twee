@@ -1,0 +1,5 @@
+:: Powers
+<<if $currentPassage.blessings || $currentPassage.blessings || $currentPassage.curses>><h2>Powers</h2><</if>>
+\<<if $currentPassage.powers>><<print lib.printInformation($currentPassage.powers)>><</if>>
+\<<if $currentPassage.blessings>><h3>Blessings</h3><<print lib.printInformation($currentPassage.blessings)>><</if>>
+\<<if $currentPassage.curses>><h3>Curses</h3><<print lib.printInformation($currentPassage.curses)>><</if>>

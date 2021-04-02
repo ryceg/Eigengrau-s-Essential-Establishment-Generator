@@ -1,0 +1,6 @@
+:: ClericDomains
+<<if $currentPassage.domains>>
+\<<if !$currentPassage.channelDivinity>>
+\Clerics of $currentPassage.name are typically of the <<print lib.makeList($currentPassage.domains)>> domain<<if $currentPassage.domains.length > 1>>s<</if>>.
+<<else>><<print $currentPassage.channelDivinity>>
+<</if>><</if>>

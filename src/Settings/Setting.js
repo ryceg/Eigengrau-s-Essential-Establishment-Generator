@@ -1,6 +1,34 @@
 document.cookie = 'SameSite=Strict'
 Config.cleanupWikifierOutput = true
 
+$(document).on(':dialogopened', function () {
+  if ($('#ui-dialog-body').hasClass('settings')) {
+    setup.addSettingButton({
+      target: 'showbiomegeneration',
+      name: 'pantheon',
+      description: 'Choose a pantheon to use.',
+      buttonDescription: 'Open pantheon settings'
+    },
+    () => setup.openDialog({
+      header: 'Pantheon Setup',
+      passage: 'ImportPantheon',
+      rerender: true
+    })
+    )
+    setup.addSettingButton({
+      target: 'darkmode',
+      name: 'tutorial',
+      description: 'Run the tutorial again.',
+      buttonDescription: 'Open tutorial'
+    },
+    () => {
+      Engine.play('Tutorial')
+      Dialog.close()
+    }
+    )
+  }
+})
+
 Setting.addHeader('Content Settings')
 
 Setting.addToggle('darkMode', {
@@ -8,11 +36,6 @@ Setting.addToggle('darkMode', {
   onInit: settingDarkMode,
   onChange: settingDarkMode,
   default: window.matchMedia('(prefers-color-scheme: dark)').matches
-})
-
-Setting.addToggle('showTutorial', {
-  label: 'Show tutorial?',
-  onChange: settingShowTutorial
 })
 
 Setting.addToggle('showCelsius', {
@@ -43,6 +66,12 @@ Setting.addToggle('ignoreGender', {
   label: 'Ignore gender?',
   desc: 'If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.',
   onChange: settingIgnoreGender
+})
+
+Setting.addToggle('ignoreRace', {
+  label: 'Ignore race?',
+  desc: 'If you would rather NPCs not have racial stereotyping, enable this (this is only used for deity selection).',
+  onChange: settingIgnoreRace
 })
 
 Setting.addToggle('forceOneColumn', {
@@ -88,18 +117,19 @@ if (settings.forceOneColumn) {
   jQuery('html').addClass('force-one-column')
 }
 
-function settingShowTutorial () {
-  const showTutorial = State.metadata.get('showTutorial')
-  if (settings.showTutorial !== showTutorial) {
-    State.metadata.set('showTutorial', settings.showTutorial)
-  }
-}
-
 function settingIgnoreGender () {
   const ignoreGender = State.metadata.get('ignoreGender')
   if (settings.ignoreGender !== ignoreGender) {
     State.metadata.set('ignoreGender', settings.ignoreGender)
     State.variables.town.ignoreGender = settings.ignoreGender
+  }
+}
+
+function settingIgnoreRace () {
+  const ignoreRace = State.metadata.get('ignoreRace')
+  if (settings.ignoreRace !== ignoreRace) {
+    State.metadata.set('ignoreRace', settings.ignoreRace)
+    State.variables.town.ignoreRace = settings.ignoreRace
   }
 }
 
