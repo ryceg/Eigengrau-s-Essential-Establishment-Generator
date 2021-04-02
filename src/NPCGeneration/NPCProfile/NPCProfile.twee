@@ -20,7 +20,7 @@
 \<<if $currentNPC.sexuality !== 'heterosexual'>>
     \<<print $currentNPC.heshe.toUpperFirst()>> is $currentNPC.sexuality
     \<<if $currentNPC.partnerID>>
-        \, and has a <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
+        \, and has <<print lib.articles.output($npcs[$currentNPC.partnerID].marriageNoun)>>, <<profile $npcs[$currentNPC.partnerID]>>.
     \<</if>>
   \<<elseif $currentNPC.partnerID>>$currentNPC.firstName has <<print lib.articles.output($npcs[$currentNPC.partnerID].marriageNoun)>>, <<profile $npcs[$currentNPC.partnerID]>>.
 \<</if>></p>
