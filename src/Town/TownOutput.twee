@@ -7,6 +7,7 @@
 <article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
 <article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article>
 <<details "TownListRaces" "Racial Demographics">>
+<<details "TownListReligion" "Religious Demographics">>
 <<details "TownListFactions" "List of Factions">>
 <<details "TownListBuildings" "List of Buildings">><</nobr>>
 \<<if _exportType === 'GMBinder'>>

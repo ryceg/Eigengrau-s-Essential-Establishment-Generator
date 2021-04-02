@@ -1,3 +1,6 @@
+export function toUpperFirst (input: string) {
+  return input.charAt(0).toUpperCase() + input.substr(1).toLowerCase()
+}
 
 export function toTitleCase (input: string) {
   let str = input.replace(/([^\W_]+[^\s-]*) */g, (txt) => {

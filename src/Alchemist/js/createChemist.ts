@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import type { NPC, Town } from '@lib'
-import { createNPC } from '../../NPCGeneration/createNPC'
 
 interface Options {
   npc: Partial<NPC>
@@ -11,7 +10,7 @@ interface Options {
  * Can be simplified into a data thing as part of alchemistData
  */
 export const createChemist = (town: Town, opts: Partial<Options> = {}): NPC => {
-  return createNPC(town, {
+  return setup.createNPC(town, {
     profession: lib.random(['alchemist', 'alchemist', 'alchemist', 'alchemist', 'alchemist', 'wizard', 'wizard', 'druid', 'druid', 'cleric', 'warlock']),
     background: lib.random(['sage', 'sage', 'sage', 'guild artisan', 'guild artisan', 'guild artisan', 'commoner', 'commoner', 'commoner']),
     idle: [

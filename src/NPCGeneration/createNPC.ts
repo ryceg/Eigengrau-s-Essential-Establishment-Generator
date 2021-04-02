@@ -24,6 +24,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   lib.assign(base, {
     roll: {
+      traits: {},
       professionLuck: lib.dice(5, 10) - 27,
       physicalTrait: lib.random(1, 100),
       gregariousness: lib.dice(3, 6),
