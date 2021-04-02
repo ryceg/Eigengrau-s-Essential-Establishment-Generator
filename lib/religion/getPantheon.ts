@@ -19,16 +19,18 @@ export const getPantheonNames = (town: Town) => {
 
 export const getAllPantheons = (town: Town) => {
   const pantheons: Record<string, Pantheon> = Object.assign({}, religion.pantheon)
-  if (isUsingCustomPantheon(town)) {
-    const customPantheon = getCustomPantheon(town)
-    pantheons[customPantheon.name] = customPantheon
-  }
+  if (seeIfCustomPantheonExists(town)) pantheons[getCustomPantheon(town).name] = getCustomPantheon(town)
   return pantheons
 }
 
 export const isUsingCustomPantheon = (town: Town) => {
   if (religion.pantheon[town.religion.pantheon]) return false
   return true
+}
+
+export const seeIfCustomPantheonExists = (town: Town): boolean => {
+  if (town.religion.customPantheon) return true
+  return false
 }
 
 export const getCustomPantheon = (town: Town): Pantheon => {
