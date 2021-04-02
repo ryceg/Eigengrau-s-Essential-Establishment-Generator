@@ -1,6 +1,6 @@
 {
-  "name":"definitely not the norse",
-  "description":"The gods of Asgard are ....",
+  "name":"roman",
+  "description":"The gods of Olympus make themselves known with the gentle lap of waves against the shores and the crash of the thunder among the cloud–enshrouded peaks. The thick boar–infested woods and the sere, olive–covered hillsides hold evidence of their passing. Every aspect of nature echoes with their presence, and they’ve made a place for themselves inside the human heart, too.",
   "followers":{
     "description":"",
     "favouredWeapon":"",
@@ -10,814 +10,185 @@
   },
   "gods":[
     {
-      "name":"Odin",
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Zors",
+      "key":"Zors",
       "status":"alive",
       "titles":[
-        "The Allfather",
-        "Lord of the Aesir",
-        "Flaming Eye",
-        "Battle Enhancer",
-        "Ancient One",
-        "Enemy of the Wolf",
-        "God of Burdens",
-        "Wise One",
-        "Spear god",
-        "Swift in Deciet",
-        "Wand Bearer",
-        "Teacher of Gods",
-        "Vistor of the Hanged",
-        "Father of Hosts",
-        "Raven God",
-        "The Hanging One",
-        "God of Victory"
+        "God of the Sky",
+        "Ruler of the Gods",
+        "The Thunderer",
+        "God of Refuge",
+        "Oathkeeper"
       ],
       "rank":"leader",
-      "description":null,
-      "appearance":"",
+      "description":"Zors is the leader of the roman gods, and lives atop Mount Olympus, where he rules over the mortal world below.",
+      "appearance":"Zors is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.",
+      "history":null,
+      "powers":null,
+      "quotes":[
+        {
+          "description":"Bear up, my child, bear up; Zors who oversees and directs all things is still mighty in heaven.",
+          "author":"Sophocles"
+        }
+      ],
       "portfolios":[
-        "wisdom",
-        "death",
-        "royalty",
-        "the gallows",
-        "war",
-        "battle",
-        "victory",
-        "sorcery",
-        "poetry",
-        "frenzy",
-        "runic alphabet"
+        "the skies",
+        "thunder and lightning",
+        "kings",
+        "law and order",
+        "fate",
+        "justice",
+        "moral conduct",
+        "guest-right"
       ],
       "gender":"man",
       "shape":"human",
       "race":"god",
-      "faction":"aesir",
-      "domains":[
-        "knowledge",
-        "trickery",
-        "war",
-        "arcana"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":"spear",
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":"Gungir",
-          "wordNoun":"spear",
-          "powers":"is so well balanced it can hit any target, regardless of skill"
-        },
-        {
-          "name":"Draupnir",
-          "wordNoun":"gold ring",
-          "powers":"drips forth eight identical rings after nine days"
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"",
-        "holyDays":{
-          "earth":[
-            "Wednesday"
-          ]
-        }
-      },
-      "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":20
-      },
-      "realm":"Valhalla",
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[
-          "raven",
-          "wolf"
-        ],
-        "plants":[
-          "poppy"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Thor",
-      "status":"alive",
-      "titles":[
-        "The one who Rides Alone",
-        "The one who Rules Alone",
-        "Protector of the Shrine",
-        "The Loud Weather God",
-        "The terrible",
-        "The Thunderer",
-        "Odinson",
-        "Strong-Spirit"
-      ],
-      "rank":"greater deity",
-      "description":"Thor is the God of Lightning, Thunder and Storms. He is a god of Strength, yet he is also a god who protects the sacred groves and mankind.",
-      "appearance":"",
-      "portfolios":[
-        "strength",
-        "battle prowess",
-        "lightning",
-        "thunder",
-        "storms",
-        "sacred groves",
-        "the protection of mankind",
-        "harrowing",
-        "fertility"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"god",
-      "faction":"aesir",
       "domains":[
         "tempest",
-        "war",
-        "nature"
+        "order"
       ],
       "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
+      "alignment":"Neutral",
+      "symbol":"fist full of lightning bolts",
       "combat":{
-        "description":null,
-        "weapon":"hammer",
-        "weaponDescription":null,
-        "tactics":null
+        "description":"Zors famously led the roman gods in the battle against the Titans, and is a fearsome foe. He calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies."
+      },
+      "probabilityWeightings":{
+        "politicalIdeology":{
+          "autocracy":5,
+          "oligarchy":3
+        },
+        "politicalSource":{
+          "absolute monarchy":6,
+          "constitutional monarchy":3
+        },
+        "race":{
+          "human":20,
+          "half-elf":5
+        }
       },
       "possessions":[
         {
-          "name":"Jarngreipr ",
-          "wordNoun":"gloves",
-          "powers":"he needs to handle Mjolnir "
+          "title":"Aegis",
+          "description":"The Aegis bears the head of a Gorgon, and makes a terrible roaring sound in battle."
+        }
+      ],
+      "realm":"Olympus, where he rules over all.",
+      "followers":{
+        "description":"Zors is followed by many, of all different race and creed.",
+        "favouredWeapon":"spear",
+        "holyDays":{
+          "earth":[
+            {
+              "title":"January"
+            },
+            {
+              "title":"Thursday"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":70,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "eagle",
+          "bull"
+        ],
+        "plants":[
+          "oak tree",
+          "olive tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[
+          "yellow"
+        ],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Poseedon",
+          "relationship":"brother"
         },
         {
-          "name":"Mjolnir",
-          "wordNoun":"hammer",
-          "powers":"summons thunderbolts and, in select cases, can ressurect the fallen. In its forging a mistake was made and the handle is short"
+          "name":"Haddy",
+          "relationship":"brother"
         },
         {
-          "name":"Megingjord",
-          "wordNoun":"belt",
-          "powers":"doubles Thors mighty strength, allowing him to lift to Mjolnir"
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"hammer",
-        "holyDays":{
-          "earth":[
-            "Thursday"
-          ]
-        }
-      },
-      "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
-      },
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[
-          "goat"
-        ],
-        "plants":[
-          "oak"
-        ],
-        "places":[
-          "groves",
-          "oak forests"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Loki",
-      "status":"alive",
-      "titles":[
-        "Tangler",
-        "Father of Lies",
-        "Roarer",
-        "The Sly One",
-        "Laufeys son",
-        "Thief of the Idunns apples",
-        "Hawks child",
-        "Betrayer of the Gods",
-        "The Bound God",
-        "He who has borne children"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        "magic",
-        "mischief",
-        "deceit",
-        "thievery",
-        "chaos",
-        "change",
-        "temptation",
-        "shapeshifting"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"Jotunn",
-      "faction":"aesir",
-      "domains":[
-        "trickery"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
+          "name":"Dameter",
+          "relationship":"sister"
+        },
         {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
+          "name":"Othena",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Perceivone",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Artemis",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Ises",
+          "relationship":"son"
+        },
+        {
+          "name":"Apollo",
+          "relationship":"son"
         }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[]
-        }
-      },
-      "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
-      },
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[],
-        "plants":[
-          "birch",
-          "mistletoe"
-        ],
-        "monsters":[
-          "Fenrir",
-          "Jormungandr"
-        ],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
+      ]
     },
     {
-      "name":"Frigg",
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Poseedon",
+      "key":"Poseedon",
       "status":"alive",
       "aliases":[
-        "Frigga"
+        "Neptune"
       ],
       "titles":[
-        "Protectress",
-        "Queen of the Gods"
+        "God of the Sea and Earthquakes",
+        "Watcher",
+        "Shaker of the Earth",
+        "Horse Tender"
       ],
       "rank":"greater deity",
-      "description":null,
-      "appearance":"",
+      "description":"Poseedon is the god of the Sea - all things underwater are under his purview",
+      "appearance":"a mature man with a sturdy build and a dark beard holding a trident and a sea-creature encrusted boulder, simply crowned with a headband with a cloak draped around his arms.",
+      "history":null,
+      "powers":null,
       "portfolios":[
-        "prophecy",
-        "wisdom",
-        "the household",
-        "marriage",
-        "social bonds",
-        "rain",
-        "mists",
-        "fertility",
-        "birth",
-        "wetlands",
-        "protection",
-        "weaving"
-      ],
-      "gender":"woman",
-      "shape":"human",
-      "race":"god",
-      "faction":"aesir",
-      "domains":[
-        "knowledge",
-        "life"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[
-            "Friday"
-          ]
-        }
-      },
-      "personality":{},
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[
-          "waterfowl",
-          "ducks",
-          "geese"
-        ],
-        "plants":[
-          "linden"
-        ],
-        "places":[
-          "wetlands",
-          "swamps"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Freyr",
-      "status":"alive",
-      "aliases":[
-        "Frey",
-        "Yngvi"
-      ],
-      "titles":[
-        "the Lord",
-        "The Generous One",
-        "God of Sunlight",
-        "Sunbeam",
-        "Lord of Plenty",
-        "the Fruitful"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        "religious kingship",
-        "virility",
-        "sunshine",
-        "peace",
-        "prosperity",
-        "fair weather",
-        "good harvest",
-        "rain",
-        "war"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"god",
-      "faction":"vanir",
-      "domains":[
-        "light",
-        "life",
-        "peace",
-        "nature",
-        "war"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":"Gullinbursti",
-          "wordNoun":"golden boar",
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[]
-        }
-      },
-      "personality":{},
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[
-          "boar",
-          "stags"
-        ],
-        "plants":[
-          "crops"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Freyja",
-      "status":"alive",
-      "aliases":[
-        "Freya",
-        "Freja"
-      ],
-      "titles":[
-        "The Giver",
-        "Flaxen",
-        "One who makes the Sea Swll",
-        "Lady of the Slain",
-        "Noble Lady",
-        "Bright One",
-        "Goddess of the Vanir",
-        "Fair Tear Deity"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        "love",
-        "marriage",
-        "prosperity",
-        "beauty",
-        "fertility",
-        "sex",
-        "war",
-        "gold",
-        "magic"
-      ],
-      "gender":"woman",
-      "shape":"human",
-      "race":"god",
-      "domains":[
-        "life",
-        "arcana",
-        "war"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[]
-        }
-      },
-      "personality":{
-        "lustful":70
-      },
-      "realm":"Folkvangr",
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[
-          "cat",
-          "lynx",
-          "falcon",
-          "boar"
-        ],
-        "plants":[
-          ""
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Bragi",
-      "status":"alive",
-      "titles":[
-        "The long-bearded god",
-        "The husband of Idunn",
-        "First maker of Poetry",
-        "Son of Odin"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        "skaldic poetry",
-        "wisdom"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"god",
-      "domains":[
-        "knowledge"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":"harp",
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":"the Skalds are the story tellers of the Jarl, and rarely go into battle. They recite stories of the great deeds of gods and men",
-        "favouredWeapon":"harp",
-        "holyDays":{
-          "earth":[]
-        }
-      },
-      "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
-      },
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[],
-        "plants":[],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Sif",
-      "status":"alive",
-      "titles":[
-        "The Prophetess Sibyl",
-        "The Fair-haired Deity",
-        "Loveliest of Women",
-        "The Wife of Thor",
-        "Mother of Ullr",
-        "Good Mother"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"a beautiful woman with a brilliant wig made of gold",
-      "portfolios":[
-        "harvest",
-        "autum",
-        "vitality",
-        "fertility",
-        "wedlock"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"god",
-      "domains":[
-        "nature"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[
-            ""
-          ]
-        }
-      },
-      "personality":{},
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[],
-        "plants":[
-          "rowan"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Baldr",
-      "status":"dead",
-      "titles":[
-        "the Bleeding God",
-        "Wisest of the Aesir",
-        "Fairest of the Aesir"
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        "beauty",
-        "light",
-        "peace",
-        "valour",
-        "joy",
-        "summer sun",
-        "purity"
-      ],
-      "gender":"man",
-      "shape":"human",
-      "race":"god",
-      "domains":[
-        "life",
-        "light",
-        "peace"
-      ],
-      "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
-      "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
-      },
-      "possessions":[
-        {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
-        }
-      ],
-      "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
-        "holyDays":{
-          "earth":[]
-        }
-      },
-      "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
-      },
-      "associations":{
-        "avatars":[
-          {
-            "name":null,
-            "appearance":null,
-            "description":null,
-            "frequency":null,
-            "powers":null
-          }
-        ],
-        "animals":[],
-        "plants":[
-          "scentless mayweed"
-        ],
-        "monsters":[],
-        "gems":[],
-        "colours":[],
-        "miscellaneous":[]
-      },
-      "beliefs":null,
-      "heresies":null
-    },
-    {
-      "name":"Name",
-      "status":"alive",
-      "titles":[
-        ""
-      ],
-      "rank":"greater deity",
-      "description":null,
-      "appearance":"",
-      "portfolios":[
-        ""
+        "the sea",
+        "earthquakes",
+        "floods",
+        "drought",
+        "horses",
+        "fresh water"
       ],
       "gender":"man",
       "shape":"human",
@@ -826,32 +197,53 @@
         "tempest"
       ],
       "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
+      "alignment":"Chaotic Neutral",
+      "symbol":"A trident and billowing cloak",
       "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "primitivism":3
+        },
+        "politicalIdeology":{
+          "autocracy":8,
+          "oligarchy":5
+        },
+        "politicalSource":{
+          "absolute monarchy":5,
+          "constitutional monarchy":5
+        },
+        "race":{
+          "human":20,
+          "half-elf":5
+        }
       },
       "possessions":[
         {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
+          "title":"Poseedon's Trident",
+          "description":"Poseedon's trident was so powerful that it could shake the lands."
         }
       ],
+      "realm":"a palace underneath the sea, watching over the fishermen from below.",
       "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
+        "description":"Poseedon is followed by many mariners, fishermen, and horse riders.",
+        "adherents":[
+          "sailors",
+          "teamsters",
+          "fishermen",
+          "cavalry",
+          "farmers"
+        ],
+        "favouredWeapon":"trident",
         "holyDays":{
           "earth":[]
         }
       },
       "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
       },
       "associations":{
         "avatars":[
@@ -863,29 +255,116 @@
             "powers":null
           }
         ],
-        "animals":[],
-        "plants":[],
-        "monsters":[],
+        "animals":[
+          "horse",
+          "dolphin",
+          "fish",
+          "bull"
+        ],
+        "plants":[
+          "pine tree",
+          "seaweed",
+          "wild celery"
+        ],
+        "monsters":[
+          "hippocampus"
+        ],
         "gems":[],
-        "colours":[],
+        "colours":[
+          "blue"
+        ],
         "miscellaneous":[]
       },
       "beliefs":null,
-      "heresies":null
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"smooth sailing",
+          "description":"Poseedon will bless sailors and those that have earnt his favour with smooth passage."
+        },
+        {
+          "title":"management of horses",
+          "description":"As the Lord of Horses, Poseedon can calm equines as easily as he can enrage them."
+        }
+      ],
+      "curses":[
+        {
+          "title":"mad horses",
+          "description":"As the Lord of Horses, Poseedon can enrage equines as easily as he can calm them."
+        },
+        {
+          "title":"stormy seas",
+          "description":"Those that tempt Poseedon's wrath risk stormy seas on their next voyage."
+        }
+      ],
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"brother"
+        },
+        {
+          "name":"Haddy",
+          "relationship":"brother"
+        },
+        {
+          "name":"Dameter",
+          "relationship":"sister"
+        },
+        {
+          "name":"Hima",
+          "relationship":"sister"
+        },
+        {
+          "name":"Herstia",
+          "relationship":"sister"
+        },
+        {
+          "name":"Amphitrite",
+          "relationship":"wife"
+        }
+      ]
     },
     {
-      "name":"Hel",
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Haddy",
+      "key":"Haddy",
       "status":"alive",
+      "aliases":[
+        "Pluto",
+        "Pluton",
+        "The Cthonic Zors"
+      ],
+      "equivalent":[
+        "Pluto"
+      ],
       "titles":[
-        ""
+        "God of the Dead",
+        "King of the Underworld",
+        "God of Wealth",
+        "Host of Many",
+        "The Impartial Binder",
+        "The invisible one"
       ],
       "rank":"greater deity",
-      "description":null,
-      "appearance":"",
+      "description":"Haddy is the god of the Dead and the first son of Kronos. However when He, Zors and Poseedon were drawing lots for the division of the cosmos, Haddy gained dominion of the Underworld, where he rules over the dead.",
+      "appearance":"a dark-bearded, regal god, with a bird tipped sceptre with Cerebus seated by his throne.",
+      "history":null,
+      "powers":null,
       "portfolios":[
-        ""
+        "the underworld",
+        "the dead",
+        "funeral rites",
+        "right to be buried",
+        "fertile soil",
+        "precious metals",
+        "dreams from the dead",
+        "necromancy",
+        "curses"
       ],
-      "gender":"woman",
+      "gender":"man",
       "shape":"human",
       "race":"god",
       "domains":[
@@ -893,32 +372,2161 @@
         "grave"
       ],
       "channelDivinity":[],
-      "alignment":"N",
-      "symbol":"",
+      "alignment":"Lawful Evil",
+      "symbol":"Helm of Haddy",
       "combat":{
-        "description":null,
-        "weapon":null,
-        "weaponDescription":null,
-        "tactics":null
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "capitalism":4
+        },
+        "politicalIdeology":{
+          "kleptocracy":5
+        },
+        "politicalSource":{},
+        "race":{
+          "dwarf":20,
+          "tiefling":30
+        }
       },
       "possessions":[
         {
-          "name":null,
-          "wordNoun":null,
-          "powers":null
+          "title":"Sceptre",
+          "description":"A powerful relic that is able to create a passage between the worlds of the living and the dead"
+        },
+        {
+          "title":"Cap of Invisibility",
+          "description":"A cap which can turn the wearer invisible"
         }
       ],
+      "realm":"the Underworld. As far below the earth as the heavens are above, Haddy' realm is a dark and depressing place.",
       "followers":{
-        "description":null,
-        "favouredWeapon":"spear",
+        "description":"Haddy, as the god of the dead, was a fearsome figure to those still living; in no hurry to meet him, they were reluctant to swear oaths in his name, and averted their faces when sacrificing to him. Since to many, simply to say the word \"Haddy\" was frightening, euphemisms were pressed into use.",
+        "adherents":[
+          "mourners",
+          "undertakers",
+          "necromancers",
+          "miners"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"second to last day of every month",
+              "description":"Rituals are typically held on this day."
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":90,
+        "merciful":-85,
+        "chaste":-20
+      },
+      "associations":{
+        "avatars":[],
+        "animals":[
+          "Screech-Owl",
+          "Serpents",
+          "Black-Rams"
+        ],
+        "plants":[
+          "White Poplar",
+          "Mint",
+          "Cypress",
+          "Asphodel",
+          "Narcissus"
+        ],
+        "monsters":[
+          "Cerebus",
+          "The Erinyes"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"plenty from the earth",
+          "description":"As the lord of the underworld, Haddy has considerable wealth, and can bestow riches to those he deems worthy."
+        },
+        {
+          "title":"the ability to go un-noticed",
+          "description":"Haddy can give those that wish to be unseen the power to avoid detection in the dark."
+        }
+      ],
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Poseedon",
+          "relationship":"brother"
+        },
+        {
+          "name":"Zors",
+          "relationship":"brother"
+        },
+        {
+          "name":"Dameter",
+          "relationship":"sister"
+        },
+        {
+          "name":"Hima",
+          "relationship":"sister"
+        },
+        {
+          "name":"Herstia",
+          "relationship":"sister"
+        },
+        {
+          "name":"Perceivone",
+          "relationship":"husband"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Aphrodite",
+      "key":"Aphrodite",
+      "status":"alive",
+      "aliases":[
+        "Venus"
+      ],
+      "equivalent":[
+        "Ishtar",
+        "Astarte"
+      ],
+      "titles":[
+        "The Deviser",
+        "The Goddess for all folk",
+        "Smile-loving",
+        "The Goddess of Beauty",
+        "The Goddess of Sexuality",
+        "The Shapely",
+        "Killer of Men",
+        "Gravedigger",
+        "the Mother"
+      ],
+      "rank":"greater deity",
+      "description":"Aphrodite is the goddess of love and scorns those who stay away from relationships. Her love can be a thing of beauty or a thing of terror and destruction.",
+      "appearance":"Aphrodite is consistently portrayed as a nubile, infinitely desirable adult, having had no childhood.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "love",
+        "lovers",
+        "lust",
+        "sexuality",
+        "beauty",
+        "pleasure",
+        "procreation",
+        "prostitutes",
+        "love poetry"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life",
+        "light",
+        "trickery",
+        "war"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Good",
+      "symbol":"dove",
+      "combat":{
+        "description":"While Aphrodite is most well known as the goddess of Love, she is also known as a goddess of War - especially by people like the Spartans."
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "syndicalism":4,
+          "primitivism":8
+        },
+        "politicalIdeology":{
+          "kleptocracy":4,
+          "magocracy":3
+        },
+        "politicalSource":{},
+        "race":{
+          "halfling":20,
+          "tiefling":15
+        }
+      },
+      "possessions":[
+        {
+          "title":"Girdle",
+          "description":"The Girdle inspires desire in all those who look upon the wearer"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":"As the goddess of beauty and love the favour of Aphrodite was worshipped by all people, though especially by prostitutes.",
+        "adherents":[
+          "everyone",
+          "prostitutes",
+          "warriors"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"the fourth day of every month"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":30,
+        "merciful":-85,
+        "chaste":-100
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":"Aphrodite Areia",
+            "appearance":"She appears clad in armour and bearing weapons",
+            "description":"Aphrodite Areia is a war-like aspect of Aphrodite",
+            "frequency":"and is worshipped by the Spartans and other war-loving people",
+            "powers":"Aphrodite is ready to use deciptive strategies, such as how she lured the Gigantes one by one into a cave for them to be murdered"
+          }
+        ],
+        "animals":[
+          "dove",
+          "swan",
+          "goose",
+          "sparrow",
+          "swallow",
+          "dolphins",
+          "wryneck"
+        ],
+        "plants":[
+          "pomegranates",
+          "rose",
+          "myrtle",
+          "apple",
+          "poppy"
+        ],
+        "monsters":[
+          "nereids"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[
+          "conch shells"
+        ]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"beauty"
+        }
+      ],
+      "curses":[
+        {
+          "title":"ugliness"
+        },
+        {
+          "title":"unwashable stink"
+        }
+      ],
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Ises",
+          "relationship":"lover"
+        },
+        {
+          "name":"Hephaestus",
+          "relationship":"husband"
+        },
+        {
+          "name":"Hebe",
+          "relationship":"sister"
+        },
+        {
+          "name":"Himacles",
+          "relationship":"brother"
+        },
+        {
+          "name":"Perceivone",
+          "relationship":"sister"
+        },
+        {
+          "name":"Hormes",
+          "relationship":"lover"
+        },
+        {
+          "name":"Dionysus",
+          "relationship":"lover"
+        },
+        {
+          "name":"Poseedon",
+          "relationship":"lover"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Artemis",
+      "key":"Artemis",
+      "status":"alive",
+      "aliases":[
+        "Diana",
+        "Brauronia",
+        "Orthia"
+      ],
+      "equivalent":[
+        "Selene",
+        "Britomartis",
+        "Dictynna",
+        "Eileithyial"
+      ],
+      "titles":[
+        "Goddess of the Hunt",
+        "Goddess of the Beasts",
+        "Nurse of Children",
+        "Friend of Girls",
+        "Goddess of the Flocks and the Chase",
+        "The best advisor"
+      ],
+      "rank":"greater deity",
+      "description":"Artemis is the goddess of the Hunt and young girls. She can change others into animals as punishment for transgressions against her and she demands appropriate respect from mortals.",
+      "appearance":"a young woman wearing a short costume that leaves her legs free and wielding a bow with a quiver of arrows.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "hunting",
+        "the wilderness",
+        "wild animals",
+        "childbirth",
+        "chastity",
+        "sudden death and disease of girls",
+        "the moon",
+        "dawn",
+        "children",
+        "maidenhood",
+        "healing",
+        "ritual purification"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "nature",
+        "life",
+        "twilight"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":"bow and quiver of arrows",
+      "combat":{
+        "description":"Artemis is quick to strike down those who offend her with animals and wild beasts. She is a dedicated huntress and will pursue her quarry until it is caught."
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":2,
+          "primitivism":6
+        },
+        "politicalIdeology":{
+          "meritocracy":4
+        },
+        "politicalSource":{
+          "anarchy":2
+        },
+        "race":{
+          "elf":40,
+          "half-elf":20,
+          "halfling":15
+        }
+      },
+      "possessions":[
+        {
+          "title":"Bow of Artemis",
+          "description":"The Bow of Artemis was forged by the Cyclopses"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":"Artemis is worshipped by Hunters and Women, young girls could be expected to serve Artemis until they come of age.",
+        "adherents":[
+          "hunters",
+          "young girls",
+          "expecting mothers",
+          "wild beings"
+        ],
+        "favouredWeapon":"bow",
+        "holyDays":{
+          "earth":[
+            {
+              "title":"the sixth day"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":100
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "deer",
+          "bear",
+          "boar",
+          "heron",
+          "fresh-water fish",
+          "buzzard-hawk",
+          "guinea-fowl",
+          "partridge"
+        ],
+        "plants":[
+          "amaranth",
+          "asphodel",
+          "cypress",
+          "laurel",
+          "palm tree"
+        ],
+        "monsters":[
+          "nymphs",
+          "calydonian boar"
+        ],
+        "places":[
+          "forests"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[
+          "lyre",
+          "torches",
+          "spears and nets"
+        ]
+      },
+      "beliefs":[
+        {
+          "title":"chastity",
+          "description":"Artemis and her followers value chastity above all else."
+        }
+      ],
+      "heresies":null,
+      "blessings":null,
+      "curses":[
+        {
+          "title":"transformation into a wild animal",
+          "description":"As goddess of the hunt, Artemis can transform those that wrong her into wild animas to be hunted."
+        }
+      ],
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Apollo",
+          "relationship":"twin brother"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Apollo",
+      "key":"Apollo",
+      "status":"alive",
+      "aliases":[
+        "Apollon"
+      ],
+      "titles":[
+        "Of the Oracle",
+        "Shooter from Afar",
+        "the Healer",
+        "Averter of Harm",
+        "Of the Locusts"
+      ],
+      "rank":"greater deity",
+      "description":"The twin brother of Artemis, Apollo is the inventor of music. Those that he loves and loses or those that he hates can find themselves transformed and immortalised as a part of nature. ",
+      "appearance":"a handsome youth, beardless with long hair and holds either a lyre or a bow.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "music",
+        "prophecy",
+        "healing",
+        "archery",
+        "plague",
+        "sun",
+        "poetry",
+        "disease",
+        "sudden death and diseases of boys"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "light",
+        "knowledge",
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral",
+      "symbol":"lyre",
+      "combat":{},
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "meritocracy":5,
+          "sophocracy":5,
+          "theocracy":3
+        },
+        "politicalSource":{},
+        "race":{
+          "halfling":20,
+          "human":5
+        }
+      },
+      "possessions":[
+        {
+          "title":"The Lyre of Apollo"
+        },
+        {
+          "title":"Bow of Apollo",
+          "description":"The bow of Apollo fires arrows and plagues upon those who anger him"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":"Oracles are often followers of Apollo, the Greatest of which is the Pythia of Delph, the high priestess of Apollo",
+        "adherents":[
+          "musicians",
+          "oracles",
+          "doctors"
+        ],
+        "favouredWeapon":null,
         "holyDays":{
           "earth":[]
         }
       },
       "personality":{
-        "just":70,
-        "vengeful":85,
-        "lustful":80
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "swan",
+          "raven",
+          "python",
+          "wolves",
+          "dolphin",
+          "roe deer",
+          "cicada",
+          "hawk",
+          "crows",
+          "mouse"
+        ],
+        "plants":[
+          "laurel",
+          "larkspur",
+          "cypress"
+        ],
+        "monsters":[
+          "griffon"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Artemis",
+          "relationship":"twin sister"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Othena",
+      "key":"Othena",
+      "status":"alive",
+      "aliases":[
+        "Minerva",
+        "Athene"
+      ],
+      "equivalent":[
+        "Minerva"
+      ],
+      "titles":[
+        "The Warlike",
+        "Defender",
+        "Keeper of the City",
+        "The Contriver of Plans and Devices",
+        "The Maiden",
+        "Of Hospitality",
+        "Of the Head"
+      ],
+      "rank":"greater deity",
+      "description":"Othena is a wise goddess and protects those that follow her. She does have the rage of a goddess, and affronts to her are paid back with divine retribution.",
+      "appearance":"a stately woman wearing a helmet armed with a spear and Aegis",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "wisdom",
+        "good counsel",
+        "olives",
+        "weaving",
+        "battle strategy",
+        "pottery",
+        "sculpture",
+        "defense of towns",
+        "heroic endeavour",
+        "crafts",
+        "invention",
+        "art",
+        "knowledge"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "knowledge",
+        "order",
+        "war",
+        "trickery"
+      ],
+      "channelDivinity":[],
+      "alignment":"Lawful Good",
+      "symbol":[
+        "Gorgoneion",
+        "Aegis"
+      ],
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "politicalIdeology":{
+          "militocracy":5,
+          "meritocracy":5,
+          "autocracy":1
+        },
+        "politicalSource":{
+          "absolute monarchy":5,
+          "constitutional monarchy":3
+        },
+        "race":{
+          "human":10,
+          "dwarf":15,
+          "dragonborn":15
+        }
+      },
+      "possessions":[
+        {
+          "title":"Aegis of Othena"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":"Othena is the goddess of Craftsment, Wisdom and Heroes.",
+        "adherents":[
+          "craftsmen",
+          "heroes",
+          "academics",
+          "strategists"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":80,
+        "merciful":-80,
+        "chaste":100
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "owl",
+          "snake",
+          "rooster"
+        ],
+        "plants":[
+          "olive tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Dionysus",
+      "key":"Dionysus",
+      "status":"alive",
+      "aliases":[
+        "Bacchus"
+      ],
+      "equivalent":[
+        "Zagreus",
+        "Iacchus",
+        "Liber"
+      ],
+      "titles":[
+        "Of the Bacchic Frenzy",
+        "The Raging One",
+        "Of the Night",
+        "Of the Phallus",
+        "God of Wine",
+        "Of the Ivy",
+        "Twice-born",
+        "the Flesh-eater",
+        "the Giver of Wings",
+        "the Orphic One",
+        "of the Mysteries",
+        "the Blooming",
+        "the Warlike",
+        "the Singer",
+        "the Dying and Rising",
+        "the arriving one"
+      ],
+      "rank":"greater deity",
+      "description":"Dionysus is the god of Wine and Theatre, his revelry is open to all. However, he has his dark side - he is the god of madness the anger of Dionysus is a terrifying thing",
+      "appearance":"long haired youth, almost effeminate in appearance. He holds a staff topped with a pinecone and brings revelry with him",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "wine",
+        "vegetation",
+        "pleasure",
+        "festivity",
+        "madness",
+        "wild frenzy",
+        "orchards",
+        "ritual madness",
+        "grape-harvest",
+        "the vine",
+        "theatre",
+        "tragedy and comedy plays",
+        "religious ectasy",
+        "homosexuality",
+        "effeminacy",
+        "reincarnation",
+        "foreign gods"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "nature",
+        "life",
+        "trickery"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Neutral",
+      "symbol":"Thyrsus",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":2,
+          "syndicalism":3
+        },
+        "politicalIdeology":{
+          "kleptocracy":5,
+          "oligarchy":5,
+          "autocracy":1
+        },
+        "politicalSource":{},
+        "race":{
+          "halfling":50,
+          "tiefling":30,
+          "goblin":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Dionysus is a god of the people and youths. Those who value proper decorum and modesty are apallled at the revelry of the Bacchic crowds. Devotees of Dionysus may engage in the rending of animals with their bare hands",
+        "adherents":[
+          "wine-makers",
+          "actors",
+          "farmers",
+          "revelers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"the eighth month"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":20,
+        "forgiving":25,
+        "chaste":10
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "bull",
+          "panther",
+          "lion",
+          "leopard",
+          "goat",
+          "serpent",
+          "donkey"
+        ],
+        "plants":[
+          "ivy",
+          "grapevine",
+          "bindweed",
+          "cinnamon",
+          "silver fir",
+          "pine tree"
+        ],
+        "monsters":[
+          "satyrs"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Ariadne",
+          "relationship":"wife"
+        },
+        {
+          "name":"Aphrodite",
+          "relationship":"lover",
+          "description":"Aphrodite bore Priapus by Dionysus."
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Dameter",
+      "key":"Dameter",
+      "status":"alive",
+      "aliases":[
+        "Ceres",
+        "Deo"
+      ],
+      "titles":[
+        "Of the Grain",
+        "Law-Bringer",
+        "Of the Earth",
+        "Bearer of Fruit",
+        "Great Goddess",
+        "Of the Mysteries",
+        "Lovely Haired"
+      ],
+      "rank":"greater deity",
+      "description":"Dameter is the goddess of Agriculture - her favour promised a bountiful harvest and more grain then could be eaten. However her anger promised frosts and famine.",
+      "appearance":"a mature woman wearing a crown holding wheat in a cornocopia and a torch",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "agriculture",
+        "grain and bread",
+        "the Eleusinian mysteries",
+        "the harvest",
+        "fertility",
+        "sacred law",
+        "natural law",
+        "the afterlife"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":"cornucopia",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "communism":5,
+          "syndicalism":3
+        },
+        "politicalIdeology":{
+          "magocracy":5,
+          "theocracy":4,
+          "oligarchy":4
+        },
+        "politicalSource":{},
+        "race":{
+          "dwarf":20,
+          "dragonborn":15,
+          "half-elf":15,
+          "elf":15,
+          "tiefling":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"As the goddess of Agriculture, Dameter has a dedictated following among anyone who farmed. She was also a major figure of worship in the Eleusinian mysteries, which promised a better afterlife to its followers.",
+        "adherents":[
+          "farmers"
+        ],
+        "favouredWeapon":"Sickle",
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "snake",
+          "pig",
+          "gecko",
+          "turtle-dove",
+          "crane"
+        ],
+        "plants":[
+          "wheat",
+          "barley",
+          "mint",
+          "poppy"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"bountiful harvest"
+        },
+        {
+          "title":"satiated appetite"
+        },
+        {
+          "title":"a better afterlife"
+        }
+      ],
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Haddy",
+          "relationship":"brother"
+        },
+        {
+          "name":"Hima",
+          "relationship":"sister"
+        },
+        {
+          "name":"Poseedon",
+          "relationship":"brother"
+        },
+        {
+          "name":"Zors",
+          "relationship":"brother"
+        },
+        {
+          "name":"Perceivone",
+          "relationship":"daughter",
+          "description":"Sired by Zors."
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Hormes",
+      "key":"Hormes",
+      "status":"alive",
+      "aliases":[
+        "Mercury"
+      ],
+      "titles":[
+        "Keeper of the Flocks",
+        "Of the Market-Place",
+        "Of the Games",
+        "Translator",
+        "Slayer of Argos",
+        "Immortal Guide",
+        "Messenger of the Blessed",
+        "Messenger of the Gods",
+        "Of the Golden Wand",
+        "Full of Various Wiles",
+        "Giver of Good Things",
+        "Of Searchers",
+        "Guide of the Dead",
+        "Bringer of Peace",
+        "God of Merchants"
+      ],
+      "rank":"greater deity",
+      "description":"Hormes is the hessenger of the gods and the personal messenger of Zors. He brings the souls of the deceased to the edge of the underworld, where they are ferried deeper by the Cthonic gods",
+      "appearance":"an athletic man wearing winged boots, full of energy. Ontop of his head is a helmet with two wings attached.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "herds and flocks",
+        "boundaries",
+        "animal husbandry",
+        "travellers",
+        "hospitality",
+        "roads",
+        "trade",
+        "thievery",
+        "cunning",
+        "deception",
+        "persuasion",
+        "Himalds",
+        "messangers",
+        "diplomacy",
+        "language",
+        "writing",
+        "the home",
+        "luck",
+        "athletic contests",
+        "gymnasiums",
+        "astronomy",
+        "astrology",
+        "birds of omen",
+        "guiding the dead",
+        "sleep",
+        "rustic divination",
+        "rustic music",
+        "rustic fables"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "trickery",
+        "peace",
+        "grave"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Good",
+      "symbol":"Caduceus ",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "capitalism":5
+        },
+        "politicalIdeology":{
+          "kleptocracy":5,
+          "meritocracy":5,
+          "technocracy":8
+        },
+        "politicalSource":{},
+        "race":{
+          "halfling":20,
+          "tiefling":15
+        }
+      },
+      "possessions":[
+        {
+          "title":"Talaria",
+          "description":"Tarlaria is the name of a pair of winged boots forged by Hephaestus."
+        },
+        {
+          "title":"Adamantine Blade"
+        },
+        {
+          "title":"Winged helm"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":"Hormes was the messenger of Zors, and his followers were all those that valued speed. Additionally, travelers, traders, and thieves worshiped him.",
+        "adherents":[
+          "thieves",
+          "traders",
+          "messengers",
+          "athletes",
+          "diplomats",
+          "travellers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"Wednesday"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "hare",
+          "ram",
+          "hawk",
+          "goat",
+          "tortoise",
+          "rooster"
+        ],
+        "plants":[
+          "crocus",
+          "strawberry-tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Aphroditus",
+          "relationship":"father",
+          "description":"Aphrodite gave birth to Hermaphroditus, or Aphroditus, the god of androgyny."
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Hima",
+      "key":"Hima",
+      "status":"alive",
+      "titles":[
+        "Queen of the Gods",
+        "Goddess of Kings and Empires",
+        "Goddess of Marriage",
+        "Whose Hand is Above",
+        "Of the Flowers"
+      ],
+      "rank":"greater deity",
+      "description":"Hima is the Queen of the gods, forever tested by her husband Zors. Unable to attack Zors, her anger is often directed to his consorts or his children.",
+      "appearance":"a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "marriage",
+        "air",
+        "women",
+        "childbirth",
+        "family",
+        "sky",
+        "stars of heaven"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "order",
+        "trickery",
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Neutral",
+      "symbol":[
+        "diadem",
+        "scepter",
+        "pomegranate"
+      ],
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "theocracy":4,
+          "oligarchy":4,
+          "autocracy":5
+        },
+        "race":{
+          "human":20,
+          "half-elf":15,
+          "tiefling":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "adherents":[
+          "women"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-20
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "heifer",
+          "lion",
+          "cuckoo",
+          "peacock",
+          "panther"
+        ],
+        "plants":[
+          "pomegranate",
+          "lily",
+          "willow"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"consort"
+        },
+        {
+          "name":"Haddy",
+          "relationship":"brother"
+        },
+        {
+          "name":"Poseedon",
+          "relationship":"brother"
+        },
+        {
+          "name":"Dameter",
+          "relationship":"brother"
+        },
+        {
+          "name":"Ises",
+          "relationship":"son"
+        },
+        {
+          "name":"Eris",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Othena",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Hebe",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Eileithyia",
+          "relationship":"daughter"
+        },
+        {
+          "name":"Hephaestus",
+          "relationship":"son",
+          "description":"Hima gave birth to Hephaestus without male intervention."
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Ises",
+      "key":"Ises",
+      "status":"alive",
+      "titles":[
+        "Who rallies men",
+        "Destroyer of Men",
+        "Terrible",
+        "Warlike",
+        "Of the Golden Helm"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"always clad in armour, holding weapons and ready for battle. He can appear as the fresh-faced youth or the grizzeled veteran depending on his mood.",
+      "history":null,
+      "powers":[
+        {
+          "title":"Odikinesis",
+          "description":"Possessing the ability to manipulate feelings and emotions of war such as hate and rage, Ises would induce strife before battles."
+        },
+        {
+          "title":"Strength",
+          "description":"As a fighter, Ises excelled at all to do with physicality. "
+        }
+      ],
+      "portfolios":[
+        "war",
+        "battlelust",
+        "courage",
+        "civil order",
+        "brutality",
+        "violence",
+        "rage"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "war"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Evil",
+      "symbol":"spear",
+      "combat":{
+        "description":"As the God of War, Ises has plenty of experience in battle. In contrast to Othena, who is the goddess of tacticians, Ises represents a more brutal, carnal type of conquest."
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3,
+          "primitivism":8
+        },
+        "politicalIdeology":{
+          "militocracy":9,
+          "oligarchy":7,
+          "autocracy":8
+        },
+        "politicalSource":{
+          "anarchy":8
+        },
+        "race":{
+          "half-orc":40,
+          "orc":50,
+          "tiefling":20,
+          "goblin":30
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Ises is the god of war and courage - cities and countries going to war would worship Ises before going into battle",
+        "adherents":[
+          "warriors"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"Tuesday"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "serpent",
+          "hound",
+          "boar",
+          "vulture",
+          "eagle-owl",
+          "woodpecker"
+        ],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Aphrodite",
+          "relationship":"lover"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Herstia",
+      "key":"Herstia",
+      "status":"alive",
+      "aliases":[
+        "Vesta"
+      ],
+      "titles":[
+        "Daughter of lovely-haired Rhea",
+        "Daughter of Cronos",
+        "Rich in Blessings",
+        "Beloved"
+      ],
+      "rank":"greater deity",
+      "description":"Herstia is the First-born child of Kronos and Rhea and the first to be swallowed by him. After Apollo and Poseedon vied for her hand in marriage she refused and chose to be an eternal virgin.",
+      "appearance":"a beautiful veiled woman, with long dark hair",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "fire",
+        "family hearth",
+        "civic hearth",
+        "home",
+        "cooking",
+        "the sacrificial flame",
+        "sacrifices",
+        "sacred flame",
+        "domesticity",
+        "family",
+        "virginity",
+        "the state"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life",
+        "light",
+        "peace"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":"hearth",
+      "combat":{
+        "description":null,
+        "weapon":null,
+        "weaponDescription":null,
+        "tactics":"Herstia finds combat distasteful, and will try and defuse the situation before it gets out of hand."
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3,
+          "syndicalism":3,
+          "communism":2
+        },
+        "politicalIdeology":{
+          "meritocracy":4,
+          "sophocracy":4,
+          "oligarchy":4
+        },
+        "race":{
+          "elf":40,
+          "half-elf":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "pig"
+        ],
+        "plants":[
+          "chaste-tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[
+          "green"
+        ],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"brother"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Hephaestus",
+      "key":"Hephaestus",
+      "status":"alive",
+      "titles":[
+        "Glorius Craftsman",
+        "Famed Craftsman",
+        "Of many Crafts",
+        "Crooked-Foot",
+        "Of Bronze"
+      ],
+      "rank":"greater deity",
+      "description":null,
+      "appearance":"bearded man with twisted legs",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "fire",
+        "blacksmiths",
+        "craftsmen",
+        "metalworking",
+        "forges",
+        "stone masonry",
+        "scultpure",
+        "technology",
+        "artisans",
+        "carpenters",
+        "metallurgy",
+        "volcanoes"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "knowledge",
+        "forge"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":"Hammer and Anvil",
+      "combat":{
+        "description":null,
+        "weapon":"a hammer",
+        "weaponDescription":null,
+        "tactics":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3,
+          "capitalism":6
+        },
+        "politicalIdeology":{
+          "technocracy":10,
+          "autocracy":5
+        },
+        "race":{
+          "dwarf":20,
+          "gnome":45
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Hephaestus is the god of the forge. He is worshipped by Craftsmen and his blessing gives them inspiration and skill,",
+        "adherents":[
+          "smiths",
+          "craftsmen"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "donkey"
+        ],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"inspiration"
+        },
+        {
+          "title":"knowledge"
+        }
+      ],
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Perceivone",
+      "key":"Perceivone",
+      "status":"alive",
+      "aliases":[
+        "Kore"
+      ],
+      "equivalent":[
+        "Libera",
+        "Proserpina",
+        "Prosperina"
+      ],
+      "titles":[
+        "Queen of the Underworld",
+        "Knowing One",
+        "Exacter of Justice",
+        "Of the Earth",
+        "Bringer of Fruit"
+      ],
+      "rank":"intermediate deity",
+      "description":null,
+      "appearance":"a beautiful young maiden with fair skin. Her face is the epitome of young beauty. She is often shown in long, flowing clothing with a wreath of flowers around her head.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "spring",
+        "flowers",
+        "death",
+        "life",
+        "vegetation",
+        "fertility of plants",
+        "the Eleusinian Mysteries",
+        "the blessed afterlife"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life",
+        "grave",
+        "death"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":[
+        "pomegranate",
+        "torch"
+      ],
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "meritocracy":2,
+          "oligarchy":4,
+          "autocracy":5
+        },
+        "race":{
+          "halfling":20,
+          "half-elf":15,
+          "elf":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Perceivone was a goddess of Spring and the Wife of Haddy. Her favour might ensure a better afterlife for her worshippers.",
+        "adherents":[
+          "farmers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":0,
+        "chaste":75
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "deer"
+        ],
+        "plants":[
+          "pomegranate",
+          "wheat",
+          "asphodel",
+          "flowers"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Hecate",
+      "key":"Hecate",
+      "status":"alive",
+      "titles":[
+        "Worker from Afar",
+        "Of the Underworld",
+        "Nurse of Children",
+        "Who Attends",
+        "Leader of the Dogs",
+        "Three-bodied"
+      ],
+      "rank":"intermediate deity",
+      "description":null,
+      "appearance":"a woman wearing a crown. Sometimes, she has three bodies, conjoined to one another.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "magic",
+        "night",
+        "ghosts",
+        "necromancy",
+        "boundaries",
+        "crossroads",
+        "herbs",
+        "poisonous plants"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "arcana",
+        "knowledge",
+        "trickery",
+        "twilight",
+        "death",
+        "nature"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Evil",
+      "symbol":null,
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "magocracy":8,
+          "oligarchy":4,
+          "autocracy":5
+        },
+        "race":{
+          "human":5,
+          "tiefling":25
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Hecate is a mysterious Goddess who is a master of the Arcane Arts and lives in the Underworld, her followers ask for her secret knowledge.",
+        "adherents":[
+          "magic users",
+          "necromancers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-20
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "dogs",
+          "red mullet",
+          "serpent",
+          "polecat",
+          "frog",
+          "cow",
+          "horse",
+          "lion"
+        ],
+        "plants":[
+          "yew",
+          "oak",
+          "garlic",
+          "cypress",
+          "aconite",
+          "belladonna",
+          "dittany",
+          "mandrake"
+        ],
+        "monsters":[
+          "ghosts",
+          "Lampades"
+        ],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Nike",
+      "key":"Nike",
+      "status":"alive",
+      "titles":[
+        "Goddess of Victory",
+        "The Winged Goddess"
+      ],
+      "rank":"lesser deity",
+      "description":null,
+      "appearance":"an athletic woman with two large wings.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "victory",
+        "speed",
+        "strength"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "war",
+        "peace"
+      ],
+      "channelDivinity":[],
+      "alignment":"Lawful Neutral",
+      "symbol":"Winged Woman",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "militocracy":4,
+          "autocracy":5
+        },
+        "race":{
+          "human":20,
+          "half-orc":25,
+          "orc":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"The Favour of Nike is a promise of victory, though it was rarely given without being earnt.",
+        "adherents":[
+          "warriors"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-20
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[
+          "palm tree",
+          "bay tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Tyche",
+      "key":"Tyche",
+      "status":"alive",
+      "titles":[
+        "Goddess of Fortune and Chance"
+      ],
+      "rank":"lesser deity",
+      "description":null,
+      "appearance":"a woman with a crown, often shown holding a horn of cornucopia.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "luck",
+        "chance",
+        "fate",
+        "providence",
+        "natural disasters"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "trickery"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral",
+      "symbol":null,
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3,
+          "capitalism":5
+        },
+        "politicalIdeology":{
+          "meritocracy":4,
+          "kleptocracy":4
+        },
+        "race":{
+          "halfling":30,
+          "human":5
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "adherents":[
+          "gamblers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-20
       },
       "associations":{
         "avatars":[
@@ -938,7 +2546,601 @@
         "miscellaneous":[]
       },
       "beliefs":null,
-      "heresies":null
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Hebe",
+      "key":"Hebe",
+      "status":"alive",
+      "titles":[
+        "Goddess of Eternal Youth",
+        "Daughter of Zors",
+        "Wife of Hercules"
+      ],
+      "rank":"lesser deity",
+      "description":null,
+      "appearance":"a woman in a sleeveless dress, with long brown hair.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "youth",
+        "forgiveness",
+        "mercy",
+        "brides"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"god",
+      "domains":[
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":null,
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "race":{
+          "human":5
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[
+            {
+              "title":"June"
+            }
+          ]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "hen",
+          "eagle"
+        ],
+        "plants":[
+          "ivy",
+          "lettuce"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":[
+        {
+          "title":"restored youth"
+        }
+      ],
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        },
+        {
+          "name":"Hercules",
+          "relationship":"husband"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Pan",
+      "key":"Pan",
+      "status":"uncertain",
+      "titles":[
+        "The God of the Wild",
+        "Of the Pastures",
+        "Terrifying One",
+        "Of the Hunt"
+      ],
+      "rank":"intermediate deity",
+      "description":null,
+      "appearance":"a satyr holding a set of Pan-pipes",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "the wild",
+        "nature",
+        "shephard",
+        "flocks",
+        "sexuality",
+        "hunters",
+        "panic"
+      ],
+      "gender":"man",
+      "shape":"satyr",
+      "race":"god",
+      "domains":[
+        "nature",
+        "trickery"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Neutral",
+      "symbol":"pan pipes",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "primitivism":3
+        },
+        "politicalIdeology":{
+          "kleptocracy":4
+        },
+        "race":{
+          "halfling":30,
+          "gnome":15,
+          "elf":25,
+          "half-elf":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "adherents":[
+          "wild beings",
+          "hunters"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-100
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "goat",
+          "tortoise"
+        ],
+        "plants":[
+          "corsican pine",
+          "water-reed",
+          "beech trees"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Asclepius",
+      "key":"Asclepius",
+      "status":"alive",
+      "titles":[
+        "God of Healing",
+        "Lover of the People"
+      ],
+      "rank":"lesser deity",
+      "description":"Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down by Zors. He was placed among the stars and now serves as the Physician for the gods",
+      "appearance":"a man with a full beard in a simple himation robe.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "medicine",
+        "healing",
+        "rejuvination",
+        "doctors"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"demigod",
+      "domains":[
+        "life",
+        "knowledge"
+      ],
+      "channelDivinity":[],
+      "alignment":"Lawful Good",
+      "symbol":"Serpent-entwined staff",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "communism":3
+        },
+        "politicalIdeology":{
+          "sophocracy":5,
+          "democracy":4
+        },
+        "race":{
+          "human":20,
+          "elf":15,
+          "half-elf":15
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Asclepius was so skiled in medicine that he could ressurect the dead, Healers and the Sick pray for his favour for skill and recovery",
+        "adherents":[
+          "healers",
+          "the sick"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "snake"
+        ],
+        "plants":[
+          "milkweed"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Chiron",
+      "key":"Chiron",
+      "status":"alive",
+      "titles":[
+        "Wisest of the Centaurs",
+        "The Teacher"
+      ],
+      "rank":"immortal",
+      "description":null,
+      "appearance":"a centaur, though in some iterations his front legs are human legs.",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "teachers",
+        "surgeons"
+      ],
+      "gender":"man",
+      "shape":"centaur",
+      "race":"centaur",
+      "domains":[
+        "knowledge",
+        "peace"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral Good",
+      "symbol":[
+        "thread",
+        "serpent",
+        "bull"
+      ],
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "politicalIdeology":{
+          "theocracy":4,
+          "sophocracy":4,
+          "technocracy":3
+        },
+        "race":{
+          "dragonborn":15,
+          "human":5
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Chiron is worshipped by Heroes and Centaurs alike for his wisdom and control.",
+        "adherents":[
+          "teachers",
+          "centaurs",
+          "healers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":60,
+        "chaste":90
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Himacles",
+      "key":"Himacles",
+      "status":"alive",
+      "aliases":[
+        "Hercules"
+      ],
+      "titles":[
+        "Divine Protector of Mankind"
+      ],
+      "rank":"lesser deity",
+      "description":"The Son of Zors who famously completed 12 Labours, Himacles ascended to godhood and is known as the greatest of the roman Heroes",
+      "appearance":"a muscular man with a beard",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "mankind",
+        "gymnasium",
+        "strength",
+        "heroes"
+      ],
+      "gender":"man",
+      "shape":"human",
+      "race":"demigod",
+      "domains":[
+        "war"
+      ],
+      "channelDivinity":[],
+      "alignment":"Chaotic Good",
+      "symbol":"olive-wood club and lion skin cape",
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "economicIdeology":{
+          "feudalism":3
+        },
+        "politicalIdeology":{
+          "autocracy":1
+        },
+        "politicalSource":{
+          "absolute monarchy":10
+        },
+        "race":{
+          "human":20,
+          "half-orc":35,
+          "orc":20
+        }
+      },
+      "possessions":[],
+      "realm":null,
+      "followers":{
+        "description":"Arguably the greatest of Heroes, Himacles is worshipped by mortals for his strength and fame",
+        "adherents":[
+          "heroes",
+          "athletes",
+          "mortals"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[
+          "lion"
+        ],
+        "plants":[
+          "olive tree"
+        ],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Zors",
+          "relationship":"father"
+        }
+      ]
+    },
+    {
+      "objectType":"deity",
+      "passageName":"DeityProfile",
+      "name":"Ariadne",
+      "key":"Ariadne",
+      "status":"alive",
+      "equivalent":[
+        "Libera",
+        "Proserpina"
+      ],
+      "titles":[
+        "Wife of Dionysus"
+      ],
+      "rank":"immortal",
+      "description":null,
+      "appearance":"a woman with a laurel crown",
+      "history":null,
+      "powers":null,
+      "portfolios":[
+        "mazes",
+        "fertility",
+        "wine",
+        "seasonal agriculture"
+      ],
+      "gender":"woman",
+      "shape":"human",
+      "race":"human",
+      "domains":[
+        "trickery",
+        "nature",
+        "life"
+      ],
+      "channelDivinity":[],
+      "alignment":"Neutral",
+      "symbol":null,
+      "combat":{
+        "description":null
+      },
+      "probabilityWeightings":{
+        "race":{
+          "halfling":20,
+          "tiefling":15
+        }
+      },
+      "possessions":[
+        {
+          "title":"The Thread of Ariadne"
+        }
+      ],
+      "realm":null,
+      "followers":{
+        "description":null,
+        "adherents":[
+          "farmers"
+        ],
+        "favouredWeapon":null,
+        "holyDays":{
+          "earth":[]
+        }
+      },
+      "personality":{
+        "just":50,
+        "merciful":-85,
+        "chaste":-80
+      },
+      "associations":{
+        "avatars":[
+          {
+            "name":null,
+            "appearance":null,
+            "description":null,
+            "frequency":null,
+            "powers":null
+          }
+        ],
+        "animals":[],
+        "plants":[],
+        "monsters":[],
+        "gems":[],
+        "colours":[],
+        "miscellaneous":[]
+      },
+      "beliefs":null,
+      "heresies":null,
+      "blessings":null,
+      "curses":null,
+      "allies":[],
+      "enemies":[],
+      "relationships":[
+        {
+          "name":"Dionysus",
+          "relationship":"consort"
+        }
+      ]
     }
   ]
 }
