@@ -2,31 +2,22 @@
 <<nobr>><<run $("body").on("change", ".races-slider", function() {
   $(document).trigger(":liveupdate");
 });>>
-<<set $economicIdeologyTypes to {"feudalist": "feudalism", "capitalist": "capitalism", "syndicalist": "syndicalism", "communist": "communism", "primitivist": "primitivism"}>>
-<<set $politicalIdeologyTypes to {"autocratic": "autocracy", "meritocratic": "meritocracy", "democratic": "democracy", "kleptocratic": "kleptocracy", "magocratic": "magocracy", "militocratic": "militocracy", "oligarchic": "oligarchy", "sophocratic": "sophocracy", "theocratic": "theocracy", "technocratic": "theocracy"}>>
-<<set
-  $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
-  $town.roll.economics to $town.roll.economics.clamp(1, 100),
-  $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
-  $town.roll.military to $town.roll.military.clamp(1, 100),
-  $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
-  $town.roll.law to $town.roll.law.clamp(1, 100),
-  $town.roll.equality to $town.roll.equality.clamp(1, 100)
->>
 <<liveblock>>
     <<link "reroll">>
         <<set $town.name to setup.createTownName($town)>><<update>>
     <</link>>
-<label name="Town name" class="auto-update"><<textbox "$town.name" $town.name>></label>
+      <label class="auto-update" name="Town name"><<textbox "$town.name" $town.name>></label>
+
 <</liveblock>>
-<</nobr>><<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
-<span id="refresh"><<include "BiomeGenerationRefresh">></span>
+<<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
+<span id="refresh"><<include "BiomeGenerationRefresh">></span><</nobr>>
+----
+<<nobr>><details open><summary>Attributes</summary>
 <table>
   <tr>
     <th>Attribute Slider</th>
     <th>Percentage Value</th>
   </tr>
-
 <tr><td class="tip" data-tippy-content="How wealthy is the town?">Town Wealth: </td><td style="21vw"><<numberslider "$town.roll.wealth" $town.roll.wealth 1 100 1>></td></tr>
 <tr><td class="tip" data-tippy-content="How free is the market, and how many regulations are there?">Free Trade -- Regulated trade:</td><td style="21vw"> <<numberslider "$town.roll.economics" $town.roll.economics 1 100 1>></td></tr>
 <tr><td class="tip" data-tippy-content="How do they treat their less fortunate citizens?">Indifferent welfare -- Benevolent Welfare:</td><td style="21vw"> <<numberslider "$town.roll.welfare" $town.roll.welfare 1 100 1>></td></tr>
@@ -37,11 +28,12 @@
 <tr><td class="tip" data-tippy-content="What percentage of the population is of the dominant gender?">Gender makeup (percentage of the dominant gender):</td><td style="21vw"> <<numberslider "$town.roll.genderMakeup" $town.roll.genderMakeup 1 100 1>></td></tr>
 <tr><td class="tip" data-tippy-content="How sexist is their society?">Sexist (in favour of <span class="tip" data-tippy-content="Which is the dominant gender? Note that the degree of dominance is determined by its equality, not this dropdown."><label name="Town dominant gender" for="listbox-towndominantgender"><<listbox "$town.dominantGender" autoselect>><<option "man">><<option "woman">><</listbox>></label>)</span> -- Total Egalitarianism:</td><td style="21vw"> <<numberslider "$town.roll.equality" $town.roll.equality 1 100 1>></td></tr>
 </table>
+</details><</nobr>>
 ----
-
+<<nobr>><details open><summary>Racial Demographics</summary>
 <<liveblock>><<run lib.updateDemographics($town, $town._baseDemographics)>>$town.name is a <<print setup.getTownType($town)>> comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
-<span class="races-slider"><span class="tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span></span>
-<<nobr>><table class="sortable">
+<span class="races-slider tip" data-tippy-content="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
+<table class="sortable">
     <tr>
         <th>Race</th>
         <th>Population</th>
@@ -53,10 +45,10 @@
         <td><<print lib.toTitleCase(_race)>></td>
         <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
         <td><<print _percentage.toFixed(2)>></td>
-        <td><span class="races-slider"><span class="tip" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></span></td>
+        <td><span class="races-slider tip" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!"><<numberslider `"$town._baseDemographics['" + _race + "']"` $town._baseDemographics[_race] 0 100 1>></span></td>
     </tr>
 <</for>>
-</table><</nobr>><</liveblock>>
-
+</table><</liveblock>>
+</details><</nobr>>
 <<button "Save Changes" Start>><<set $town to setup.createTown($town)>>
 <</button>>

@@ -29,8 +29,8 @@ export const createTownName = function (town: TownBasics | Town) {
 }
 
 const replaceTownName = (town: Town, driftName: string) => {
-  if (town.buildings) replaceBuildingNames(town, driftName)
-  if (town.factions) replaceFactionNames(town, driftName)
+  if (town?.buildings && town.generated === 'full') replaceBuildingNames(town, driftName)
+  if (town?.factions && town.generated === 'full') replaceFactionNames(town, driftName)
 }
 
 const replaceFactionNames = (town: Town, driftName: string) => {

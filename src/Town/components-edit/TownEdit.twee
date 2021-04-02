@@ -2,18 +2,6 @@
 <<nobr>><<run $("body").on("change", [".races-slider", ".religion-slider"], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<set $economicIdeologyTypes to lib.economicPairs>>
-<<set $politicalIdeologyTypes to lib.politicalIdeologyPairs>>
-<<set $politicalSourceTypes to ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]>>
-<<set
-  $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
-  $town.roll.economics to $town.roll.economics.clamp(1, 100),
-  $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
-  $town.roll.military to $town.roll.military.clamp(1, 100),
-  $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
-  $town.roll.law to $town.roll.law.clamp(1, 100),
-  $town.roll.equality to $town.roll.equality.clamp(1, 100)
->>
 <<include "EditTownName">>
 <</nobr>>
 <<include "EditSociopolitics">>
