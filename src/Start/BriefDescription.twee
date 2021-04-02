@@ -1,6 +1,6 @@
 :: BriefDescription
 <h1 class='town-name'>The <<print $town.type.toUpperFirst()>> of $town.name</h1>
-\<p role="main">$town.name is a <<print lib.createTippyFull("With a population of " + $town.population + ".", $town.type)>> located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <<nobr>>
+\<p role="main">$town.name is <<print lib.articles.output(lib.createTippyFull("With a population of " + $town.population + ".", $town.type))>> located in the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <<nobr>>
 <<include "RacesPercentageList">>. They are 
 <<if $town.ignoreGender is false>><<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
 <<else>>

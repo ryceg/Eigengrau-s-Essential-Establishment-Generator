@@ -3,7 +3,7 @@
 \<details class="races-slider" open><summary>Racial Demographics</summary>
 \<span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
 
-$town.name is a <<print setup.getTownType($town)>> comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
+$town.name is <<print lib.articles.output(setup.getTownType($town))>> comprised <<print lib.getPredominantRace($town._demographicPercentile).amountDescriptive>>.
 
 <table id='races' style='column-span: all'>
   <tr>
