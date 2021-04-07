@@ -11,24 +11,11 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   console.log('Creating base building...')
   console.log(base)
 
-  const lighting = random(['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'])
-  const outside = random([
-    'a horse grazing on the bushes nearby',
-    'a rusted shovel near a somewhat overgrown flowerbed',
-    'a well with an old rope, but no bucket to go on the end',
-    'a dog panting by the door',
-    'a cat lazily lounging in the shade',
-    'a muddy pair of boots by the door',
-    "a sign from the local paper which reads '<<print newspaper.random()>>'"
-  ])
-
   const building: Building = {
     key: getUUID(),
     objectType: 'building',
     road: '',
     type,
-    lighting,
-    outside,
     roll: {
       magic: Math.floor(randomFloat(1) * 80) + 20,
       size: Math.floor(randomFloat(1) * 80) + 20,
