@@ -1,22 +1,33 @@
 import { NPC } from '../npc-generation/_common'
 
-export interface Building {
+export interface Location {
   key: string
   /** 'building', 'faction', 'npc', or 'room'. */
   objectType: 'building'
   /** The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
-  lighting: string
-  outside: string
   passageName?: string
   parentKey?: string
   name?: string
   wordNoun?: string
   needsWordNoun?: boolean
   associatedNPC?: NPC
+  tippyDescription?: string
+  isOffRoad?: boolean
+}
+
+export interface Structure extends Location {
   structure?: BuildingStructure
-  roll: BuildingRolls
   roadSizeRequirement?: number
+  material: {
+    noun: string
+    probability: number
+  }
+  road: string
+  owner?: string
+}
+
+export interface Building extends Structure {
   priceModifier: number
   wealth?: string
   size?: string
@@ -26,15 +37,9 @@ export interface Building {
   cleanliness?: string
   diversity?: string
   reputation?: string
-  material: {
-    noun: string
-    probability: number
-  }
-  tippyDescription?: string
-  road: string
   notableFeature?: string
   specialty?: string
-  owner?: string
+  roll: BuildingRolls
 }
 
 export interface BuildingStructure {
