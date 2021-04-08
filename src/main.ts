@@ -39,6 +39,9 @@ import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
 import { findViaKey } from './Tools/findViaKey'
+import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
+import { createSmithyName } from './Blacksmith/js/createSmithyName'
+import { createSmithy } from './Blacksmith/js/createSmithy'
 
 declare global {
   interface Setup {
@@ -91,6 +94,9 @@ declare global {
     createTown: typeof createTown
     getTownType: typeof getTownType
     findViaKey: typeof findViaKey
+    createBlacksmithProject: typeof createBlacksmithProject
+    createSmithyName: typeof createSmithyName
+    createSmithy: typeof createSmithy
   }
 }
 
@@ -143,7 +149,10 @@ Object.assign(setup, {
   createTownName,
   createTown,
   getTownType,
-  findViaKey
+  findViaKey,
+  createBlacksmithProject,
+  createSmithyName,
+  createSmithy
 })
 
 /**

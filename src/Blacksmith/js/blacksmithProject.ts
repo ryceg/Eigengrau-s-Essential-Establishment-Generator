@@ -1,128 +1,128 @@
-// uses setup.createNPC, setup.profile, setup.createRelationship
-/**
- *
- * @param {import("../../../lib/town/_common").Town} town
- * @param {import("./createSmithy").Smithy} smithy
- * @param {import("../../../lib/npc-generation/_common").NPC} blacksmith
- * @returns {string}
- */
-setup.createBlacksmithProject = function (town, smithy, blacksmith) {
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { NPC, Town } from '@lib'
+import { Smithy } from '../../../lib/smithy/_common'
+
+export const createBlacksmithProject = function (town: Town, smithy: Smithy, blacksmith: NPC) {
   if (!blacksmith) { blacksmith = smithy.associatedNPC || setup.createNPC(town, { profession: 'blacksmith' }) }
   const weapon = ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick']
   const mundane = ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
   const potentialProjects = [
     {
       title: 'market',
-      function (town) {
+      function (town: Town) {
+        // @ts-ignore
         const market = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
-        return `${lib.articles.output(weapon.random())} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        return `${lib.articles.output(lib.random(weapon))} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     {
       title: 'whyNot',
-      function (town) {
-        return `${lib.articles.output(weapon.random())}. Dunno why, just thought that it'd be fun to try and make one.`
+      function () {
+        return `${lib.articles.output(lib.random(weapon))}. Dunno why, just thought that it'd be fun to try and make one.`
       }
     },
     {
       title: 'replace',
-      function (town) {
-        return `${lib.articles.output(weapon.random())} to replace the one I sold the other day.`
+      function () {
+        return `${lib.articles.output(lib.random(weapon))} to replace the one I sold the other day.`
       }
     },
     {
       title: 'boring',
-      function (town) {
+      function () {
         return 'a couple commissions that I need to fill; nothing too special, just some blades and such.'
       }
     },
     {
       title: 'moreBoring',
-      function (town) {
-        return `${lib.articles.output(weapon.random())} for one of my drinking buddies.`
+      function () {
+        return `${lib.articles.output(lib.random(weapon))} for one of my drinking buddies.`
       }
     },
     {
       title: 'weddingGift',
-      function (town) {
-        return `${lib.articles.output(weapon.random())} for a wedding gift.`
+      function () {
+        return `${lib.articles.output(lib.random(weapon))} for a wedding gift.`
       }
     },
     {
       title: 'The Markets',
-      function (town) {
+      function (town: Town) {
+        // @ts-ignore
         const market = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
         return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     {
       title: 'A High Value Buyer',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 60
       },
-      function (town, smithy) {
+      function (town: Town, smithy: Smithy) {
         const npc = setup.createNPC(town, {
           background: 'noble'
         })
         setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
-        return `${lib.articles.output(weapon.random())} for some big hobnob noble called ${setup.profile(npc)}.`
+        return `${lib.articles.output(lib.random(weapon))} for some big hobnob noble called ${setup.profile(npc)}.`
       }
     },
     {
       title: 'guard',
-      exclusions (town, smithy) {
+      exclusions (town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 40 && town.roll.guardFunding > 50
       },
-      function (town, smithy) {
+      function (town: Town, smithy: Smithy) {
         const npc = setup.createNPC(town, {
           background: 'soldier',
           profession: 'guard',
           hasClass: false
         })
         setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
-        return `${lib.articles.output(weapon.random())} for one of the ${setup.profile(npc, 'guards')}.`
+        return `${lib.articles.output(lib.random(weapon))} for one of the ${setup.profile(npc, 'guards')}.`
       }
     },
     {
       title: 'guardCaptain',
-      exclusions (town, smithy) {
+      exclusions (town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 50 && town.roll.guardFunding > 60
       },
-      function (town, smithy) {
+      function (town: Town, smithy: Smithy) {
         const npc = setup.createNPC(town, {
           background: 'soldier',
           profession: 'captain'
         })
         setup.createRelationship(town, npc, smithy.associatedNPC, { relationship: 'patron', reciprocalRelationship: 'customer' })
-        return `${lib.articles.output(weapon.random())} for the ${setup.profile(npc, 'captain of the guard')}.`
+        return `${lib.articles.output(lib.random(weapon))} for the ${setup.profile(npc, 'captain of the guard')}.`
       }
     },
     {
       title: 'guardRefresh',
-      exclusions (town, smithy) {
+      exclusions (town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 60 && town.roll.guardFunding > 70
       },
-      function (town, smithy) {
+      function (_town: Town, _smithy: Smithy) {
         return 'a whole new set of weapons for <<profile $town.guard>>. Should keep me busy for the next couple months!'
       }
     },
     {
       title: 'badlyMadeGuard',
-      exclusions (town, smithy) {
+      exclusions (town: Town, smithy: Smithy) {
         return smithy.roll.expertise < 40 && town.roll.guardFunding > 70
       },
-      function (town, smithy) {
-        return `a whole load of ${weapon.random()}s for <<profile $town.guard>>. To be honest? I'm freaking the fuck out.`
+      function (_town: Town, _smithy: Smithy) {
+        return `a whole load of ${lib.random(weapon)}s for <<profile $town.guard>>. To be honest? I'm freaking the fuck out.`
       }
     },
     {
       title: 'priest',
-      exclusions (town, smithy) {
-        return smithy.roll.expertise > 40 || lib.getRandomValue(town.buildings.temple).roll.wealth > 60
+      exclusions (town: Town, smithy: Smithy) {
+        // @ts-ignore
+        return smithy.roll.expertise > 40 || lib.findInArray(town.buildings, 'buildingType', 'temple').roll?.wealth > 60
       },
-      function (town) {
+      function (town: Town) {
+        // @ts-ignore
         const building = lib.findInArray(town.buildings, 'buildingType', 'temple') || setup.createNewBuilding(town, 'Temple')
-        return `an ornamental ${weapon.random()} for ${setup.profile(building.associatedNPC, 'the priest')} of ${setup.profile(building, building.name, 'town.buildings')}.`
+        return `an ornamental ${lib.random(weapon)} for ${setup.profile(building.associatedNPC, 'the priest')} of ${setup.profile(building, building.name, 'town.buildings')}.`
       }
     }
   ]
@@ -130,10 +130,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
   const actions = [
     {
       title: 'veryUnsure',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise < 20
       },
-      function (town, smithy) {
+      function (_town: Town, smithy: Smithy) {
         return [
           `${smithy.associatedNPC.firstName} pulls a red piece of iron out of the forge, but seems unsure what to do with it. ${smithy.associatedNPC.heshe.toUpperFirst()} puts it back in, ${smithy.associatedNPC.hisher} furtive glances betraying a lack of experience.`,
           `${smithy.associatedNPC.firstName} tries to shape a bit of metal, but it's not even red with heat, and ${smithy.associatedNPC.heshe} unsurprisingly has little success.`,
@@ -143,10 +143,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     {
       title: 'unsure',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise < 40
       },
-      function (town, smithy) {
+      function (_town: Town, smithy: Smithy) {
         return [
           `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing at the sudden sound of the metal cooling.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill most of it onto the floor.`,
@@ -156,10 +156,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     {
       title: 'okay',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise < 50
       },
-      function (town, smithy) {
+      function (_town: Town, smithy: Smithy) {
         return [
           `${smithy.associatedNPC.firstName} quenches a glowing hot piece of iron, wincing slightly at the sudden sound of the metal cooling.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel, but manages to spill some.`,
@@ -169,10 +169,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     {
       title: 'decentlyPracticed',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 60
       },
-      function (town, smithy) {
+      function (_town: Town, smithy: Smithy) {
         return [
           `${smithy.associatedNPC.firstName} pulls a hot piece of metal out of the forge, but sees that it's not quite done, so ${smithy.associatedNPC.heshe} puts it back in.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
@@ -182,10 +182,10 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     },
     {
       title: 'wellPracticed',
-      exclusions (town, smithy) {
+      exclusions (_town: Town, smithy: Smithy) {
         return smithy.roll.expertise > 80
       },
-      function (town, smithy) {
+      function (_town: Town, smithy: Smithy) {
         return [
           `${smithy.associatedNPC.firstName} pulls a glowing hot piece of iron out of the forge with a familiarity only earnt by thousands of repetitions.`,
           `${smithy.associatedNPC.firstName} heaves a bag of coal onto the bench to stoke the fire with more fuel.`,
@@ -194,11 +194,7 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
       }
     }
   ]
-  /**
-   * @param {import("../../../lib/town/_common").Town} town
-   * @param {import("../../../lib/npc-generation/_common").NPC} blacksmith
-   */
-  const binder = function (town, blacksmith) {
+  const binder = function (_town: Town, blacksmith: NPC) {
     return [
       `${blacksmith.heshe.toUpperFirst()} wipes ${blacksmith.hisher} brow, and replies`,
       `${blacksmith.firstName} shifts a couple ingots, and says`,
@@ -208,10 +204,6 @@ setup.createBlacksmithProject = function (town, smithy, blacksmith) {
     ].random()
   }
   const action = lib.weightedRandomFetcher(town, actions, smithy)
-
-  /**
-   * @param {import("../../../lib/town/_common").Town} town
-   */
   const project = lib.weightedRandomFetcher(town, potentialProjects, smithy)
 
   const working = [

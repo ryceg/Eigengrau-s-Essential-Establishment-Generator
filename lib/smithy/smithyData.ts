@@ -1,5 +1,7 @@
-// TODO: convert
-setup.smithy = {
+import { NPC } from '../npc-generation/_common'
+import { Smithy } from './_common'
+
+export const smithyData = {
   get: {
     customers: [
       {
@@ -16,7 +18,7 @@ setup.smithy = {
         base: {
           professionType: 'labourer'
         },
-        description (building, npc) { return `${npc.firstName} regularly gets tools repaired.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} regularly gets tools repaired.` }
       },
       {
         relationshipDescription: 'buyer',
@@ -32,7 +34,7 @@ setup.smithy = {
         base: {
           profession: 'wagoner'
         },
-        description (building, npc) { return `${npc.firstName} buys horse shoes regularly.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} buys horse shoes regularly.` }
       },
       {
         relationshipDescription: 'former customer',
@@ -45,7 +47,7 @@ setup.smithy = {
             reciprocalRelationship: 'former client'
           }
         },
-        description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
       },
       {
         relationshipDescription: 'carpenter',
@@ -62,7 +64,7 @@ setup.smithy = {
         base: {
           profession: 'carpenter'
         },
-        description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} sells wine to ${building.name}.` }
       },
       {
         relationshipDescription: 'patron',
@@ -79,7 +81,7 @@ setup.smithy = {
         base: {
           socialClass: 'nobility'
         },
-        description (building, npc) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
       },
       {
         relationshipDescription: 'superstitious peasant',
@@ -96,52 +98,52 @@ setup.smithy = {
         base: {
           socialClass: 'peasantry'
         },
-        description (building, npc) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.` }
+        description (building: Smithy, npc: NPC) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.` }
       }
     ],
-    expertise: smithy => [
+    expertise: (smithy: Smithy) => [
       {
         expertise: 80,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}, and just by looking at it, you can tell that the blacksmith is extremely talented at ${smithy.associatedNPC.hisher} craft; this is a weapon clearly fit for a king.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}, and just by looking at it, you can tell that the blacksmith is extremely talented at ${smithy.associatedNPC.hisher} craft; this is a weapon clearly fit for a king.`
       },
       {
         expertise: 70,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}, and looking at it, you can tell that the blacksmith is talented at ${smithy.associatedNPC.hisher} craft; this is a well made weapon.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}, and looking at it, you can tell that the blacksmith is talented at ${smithy.associatedNPC.hisher} craft; this is a well made weapon.`
       },
       {
         expertise: 60,
         wealth: 10,
-        note: `On the bench is a ${smithy.weapons.random()}, and you can tell that ${smithy.associatedNPC.name} is well trained; the weapon is more than servicable, and carries a nice heft to it.`
+        note: `On the bench is a ${lib.smithyData.weapons.random()}, and you can tell that ${smithy.associatedNPC.name} is well trained; the weapon is more than servicable, and carries a nice heft to it.`
       },
       {
         expertise: 50,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}. Inspecting it, it's of slightly above average quality, and is made well.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}. Inspecting it, it's of slightly above average quality, and is made well.`
       },
       {
         expertise: 40,
         wealth: 10,
-        note: `On the bench is a ${smithy.weapons.random()}. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`
+        note: `On the bench is a ${lib.smithyData.weapons.random()}. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`
       },
       {
         expertise: 30,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}. Looking at it, you can see that it's not very well made.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}. Looking at it, you can see that it's not very well made.`
       },
       {
         expertise: 20,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`
       },
       {
         expertise: 10,
         wealth: 10,
-        note: `On the bench lies a ${smithy.weapons.random()}. It's obviously amateurish. ${smithy.associatedNPC.firstName} moves around the shop, unsure of ${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
+        note: `On the bench lies a ${lib.smithyData.weapons.random()}. It's obviously amateurish. ${smithy.associatedNPC.firstName} moves around the shop, unsure of ${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
       }
     ],
-    lookAround: smithy => [
+    lookAround: (smithy: Smithy) => [
       {
         cleanliness: 80,
         wealth: 10,
@@ -270,5 +272,19 @@ setup.smithy = {
       preceding: 'Smithy Price Modifier:',
       hasRolls: false
     }
-  }
+  },
+  name: {
+    adjective: ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'],
+    noun: ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'],
+    family: ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'],
+    rider: ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith']
+  },
+  blacksmith: {
+    profession: 'blacksmith',
+    idle: ['talking with a customer', 'picking $associatedNPC.hisher nose', 'playing a card game by $associatedNPC.himherself', 'sharpening a knife', 'stocking the forge with fresh coals', 'lugging a piece of metal to be worked on', 'wiping the sweat from $associatedNPC.hisher brow', 'taking a drink of water', 'sweating profusely from exertion', 're-stocking the shop with new metalcrafts', 'hanging a new looking sword up on the wall', 'leaning back in a chair behind the counter playing with a hammer', 'unpacking a large crate that looks to be full of metal ingots of some sort', 'eyeing up the craftsmanship of a large axe', 'pouring molten metal into a cast in the far back', 'stoking the flames of the forge'],
+    greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'sizes you up, before $associatedNPC.heshe nods at you', 'checks you out for just a moment before smiling at you', 'grunts in your direction when you walk in', 'eyes you up and down slowly', 'stops what $associatedNPC.heshe is doing and looks your way']
+  },
+  owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'chief owner', 'master smith', 'resident smith'],
+  weapons: ['dagger', 'long sword', 'short sword', 'morning star', 'mace', 'axe', 'greataxe', 'spear', 'falcheon', 'bastard sword', 'warhammer', 'iron crossbow', 'claymore', 'flail', 'broad sword', 'pike', 'scimitar', 'dart', 'rapier', 'trident', 'halberd', 'glaive', 'lance', 'war pick'],
+  mundane: ['plows', 'rabbit traps', 'horseshoes', 'shovels', 'lamps', 'fire pokers', 'axes', 'hammers', 'pliers', 'steel couplings', 'trays', 'wheelbarrows', 'nails', 'pickaxes', 'hatchets', 'locks and keys', 'lockpicks']
 }
