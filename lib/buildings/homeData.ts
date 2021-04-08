@@ -4,10 +4,10 @@
 //   structureFootprint: number
 // }
 
-// export type HomeStructures =
-//   'apartment'
-// | 'building'
-// | 'manor'
+export type HomeStructures =
+  'apartment'
+| 'building'
+| 'manor'
 
 // interface Home {
 //   structureType: HomeStructures
