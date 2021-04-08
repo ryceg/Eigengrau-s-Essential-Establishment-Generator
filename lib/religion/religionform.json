@@ -1,0 +1,665 @@
+{
+  "display": "form",
+  "settings": {
+      "pdf": {
+          "id": "1ec0f8ee-6685-5d98-a847-26f67b67d6f0",
+          "src": "https://files.form.io/pdf/5692b91fd1028f01000407e3/file/1ec0f8ee-6685-5d98-a847-26f67b67d6f0"
+      }
+  },
+  "components": [
+      {
+          "label": "Deity Name",
+          "description": "For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.    */",
+          "tableView": true,
+          "key": "deityName",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Status",
+          "optionsLabelPosition": "right",
+          "inline": false,
+          "tableView": false,
+          "values": [
+              {
+                  "label": "Alive",
+                  "value": "alive",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Imprisoned",
+                  "value": "imprisoned",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Dormant",
+                  "value": "dormant",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Dead",
+                  "value": "dead",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Uncertain",
+                  "value": "uncertain",
+                  "shortcut": ""
+              }
+          ],
+          "validate": {
+              "onlyAvailableItems": false
+          },
+          "key": "status",
+          "type": "radio",
+          "input": true,
+          "defaultValue": "alive"
+      },
+      {
+          "label": "Aliases",
+          "description": "For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'    * @example aliases: ['El', 'Anu', 'An', 'Thoru-el']    */",
+          "tableView": true,
+          "multiple": true,
+          "key": "aliases",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Equivalents",
+          "description": "While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.    * @example Aphrodite: ['Ishtar', 'Astarte']    */",
+          "tableView": true,
+          "multiple": true,
+          "key": "equivalents",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Titles",
+          "description": "All of the titles that a god might have. Will typically be used as a rider after the name.    * @example ['Lord of the Skies', 'Ruler of All That He Sees']    * @usage 'Zeus, Lord of the Skies'",
+          "tableView": true,
+          "multiple": true,
+          "key": "titles",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Rank",
+          "optionsLabelPosition": "right",
+          "description": "Trying to make rank more granular is just asking for trouble.    * @default 'lesser deity'",
+          "inline": false,
+          "tableView": false,
+          "values": [
+              {
+                  "label": "Leader",
+                  "value": "leader",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Greater Deity",
+                  "value": "greaterDeity",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Intermediate Deity",
+                  "value": "intermediateDeity",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Lesser Deity",
+                  "value": "lesserDeity",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Immortal",
+                  "value": "immortal",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Demigod",
+                  "value": "demigod",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Saint",
+                  "value": "saint",
+                  "shortcut": ""
+              }
+          ],
+          "validate": {
+              "onlyAvailableItems": false
+          },
+          "key": "rank",
+          "type": "radio",
+          "input": true,
+          "defaultValue": "lesserDeity"
+      },
+      {
+          "label": "Description",
+          "description": "Description of the deity overall. If omitted, description will be generated from the rest of the included data.    */",
+          "autoExpand": false,
+          "tableView": true,
+          "key": "description1",
+          "type": "textarea",
+          "input": true
+      },
+      {
+          "label": "Appearance",
+          "description": "Description of how the deity is depicted typically. Distinct from their `avatars`.    * @usage '${deity.name} is depicted as ______'",
+          "autoExpand": false,
+          "tableView": true,
+          "key": "appearance",
+          "type": "textarea",
+          "input": true
+      },
+      {
+          "label": "History",
+          "description": "Just in case you have history that you want to cover.    */",
+          "autoExpand": false,
+          "tableView": true,
+          "key": "history",
+          "type": "textarea",
+          "input": true
+      },
+      {
+          "label": "Quotes",
+          "description": "For smart one-liners, or quotes about the deity.    * Will be printed in a <blockquote> element.    * If given an array, will be picked at random.    * @example {    *    description: 'Bear up, my child, bear up; Zeus who oversees and directs all things is still mighty in heaven.',    *    author: 'Sophocles'    * }    */",
+          "disabled": true,
+          "tableView": true,
+          "key": "quotes",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Powers",
+          "description": " Any powers that you want to add. */",
+          "autoExpand": false,
+          "tableView": true,
+          "key": "powers",
+          "type": "textarea",
+          "input": true
+      },
+      {
+          "label": "Paragraphs",
+          "description": "Generic extra text.    * @example [    *  '<h4>Birth</h4>', 'The birth of Zeus was not your average birth.',    *  '<h4>Death</h4>', 'Zeus dies at the end of the film.'    * ]    */",
+          "autoExpand": false,
+          "tableView": true,
+          "multiple": true,
+          "key": "paragraphs",
+          "type": "textarea",
+          "input": true
+      },
+      {
+          "label": "Portfolios",
+          "description": "The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio    * @example Zeus: ['the skies', 'thunder and lightning', 'law and order', 'fate']    * @usage 'Zeus is God of `the skies`, `thunder and lightning`, `law and order`, and `fate`.    */",
+          "tableView": true,
+          "multiple": true,
+          "key": "portfolios",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Gender",
+          "optionsLabelPosition": "right",
+          "description": "To assign whether to call them gods, goddesses, or deities, and use the correct pronouns.    * @warn This is _not_ suggesting that they are always that gender.    * Rather, it is the gender that people commonly would use when referring to the deity.    * Loki, for example, famously gave birth to Sleipnir.    * However, he still presents as male in most mythology.    * Avatars can have different genders to their corresponding god.    */",
+          "inline": false,
+          "tableView": false,
+          "values": [
+              {
+                  "label": "man",
+                  "value": "man",
+                  "shortcut": ""
+              },
+              {
+                  "label": "woman",
+                  "value": "woman",
+                  "shortcut": ""
+              },
+              {
+                  "label": "nonbinary",
+                  "value": "nonbinary",
+                  "shortcut": ""
+              }
+          ],
+          "validate": {
+              "onlyAvailableItems": false
+          },
+          "key": "gender",
+          "type": "radio",
+          "input": true,
+          "defaultValue": "nonbinary"
+      },
+      {
+          "label": "Race",
+          "description": "What race the god actually is, E.g. Vanir, Aesir, Jotunn    * @default 'god'",
+          "tableView": true,
+          "key": "race",
+          "type": "textfield",
+          "input": true,
+          "defaultValue": "god"
+      },
+      {
+          "label": "Shape",
+          "description": "The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank    * @default 'human'",
+          "tableView": true,
+          "key": "shape",
+          "type": "textfield",
+          "input": true,
+          "defaultValue": "human"
+      },
+      {
+          "label": "Faction",
+          "description": "For the Norse Aesir/Vanir split    */",
+          "tableView": true,
+          "key": "faction",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "wordNoun",
+          "description": "For spirits and other things that shouldn't be called gods, goddesses, or deities.    */",
+          "tableView": true,
+          "key": "wordNoun",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Domains",
+          "optionsLabelPosition": "right",
+          "description": "Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells.    */",
+          "tableView": false,
+          "values": [
+              {
+                  "label": "arcana",
+                  "value": "arcana",
+                  "shortcut": ""
+              },
+              {
+                  "label": "death",
+                  "value": "death",
+                  "shortcut": ""
+              },
+              {
+                  "label": "forge",
+                  "value": "forge",
+                  "shortcut": ""
+              },
+              {
+                  "label": "grave",
+                  "value": "grave",
+                  "shortcut": ""
+              },
+              {
+                  "label": "knowledge",
+                  "value": "knowledge",
+                  "shortcut": ""
+              },
+              {
+                  "label": "life",
+                  "value": "life",
+                  "shortcut": ""
+              },
+              {
+                  "label": "light",
+                  "value": "light",
+                  "shortcut": ""
+              },
+              {
+                  "label": "nature",
+                  "value": "nature",
+                  "shortcut": ""
+              },
+              {
+                  "label": "order",
+                  "value": "order",
+                  "shortcut": ""
+              },
+              {
+                  "label": "peace",
+                  "value": "peace",
+                  "shortcut": ""
+              },
+              {
+                  "label": "tempest",
+                  "value": "tempest",
+                  "shortcut": ""
+              },
+              {
+                  "label": "trickery",
+                  "value": "trickery",
+                  "shortcut": ""
+              },
+              {
+                  "label": "twilight",
+                  "value": "twilight",
+                  "shortcut": ""
+              },
+              {
+                  "label": "war",
+                  "value": "war",
+                  "shortcut": ""
+              }
+          ],
+          "validate": {
+              "onlyAvailableItems": false
+          },
+          "key": "domains",
+          "type": "selectboxes",
+          "input": true,
+          "inputType": "checkbox"
+      },
+      {
+          "label": "ClericFeatures",
+          "description": "For any other cleric features",
+          "tableView": true,
+          "key": "clericFeatures",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Alignment",
+          "optionsLabelPosition": "right",
+          "description": "Alignments, for those that are still stuck on 2nd Edition.    */",
+          "inline": false,
+          "tableView": false,
+          "values": [
+              {
+                  "label": "Lawful Good",
+                  "value": "lawfulGood",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Neutral Good",
+                  "value": "neutralGood",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Chaotic Good",
+                  "value": "chaoticGood",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Lawful Neutral",
+                  "value": "lawfulNeutral",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Neutral",
+                  "value": "neutral",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Chaotic Neutral",
+                  "value": "chaoticNeutral",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Lawful Evil",
+                  "value": "lawfulEvil",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Chaotic Evil",
+                  "value": "chaoticEvil",
+                  "shortcut": ""
+              },
+              {
+                  "label": "Neutral Evil",
+                  "value": "neutralEvil",
+                  "shortcut": ""
+              }
+          ],
+          "validate": {
+              "onlyAvailableItems": false
+          },
+          "key": "alignment",
+          "type": "radio",
+          "input": true,
+          "defaultValue": "neutral"
+      },
+      {
+          "label": "Symbol",
+          "description": "The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles.    * @example Zeus: 'fist full of lightning bolts'",
+          "tableView": true,
+          "multiple": true,
+          "key": "symbol",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Combat",
+          "hideLabel": false,
+          "tableView": false,
+          "key": "combat",
+          "type": "container",
+          "input": true,
+          "components": [
+              {
+                  "label": "Description",
+                  "description": "How the deity feels about fighting, blah blah blah. Opening sentence.  * @example 'Bloodthirsty and always relishing a fight, Ares commands batallions of soldiers in battle.',  * 'Hestia finds combat distasteful, and will try and defuse the situation before it gets out of hand.'  */",
+                  "tableView": true,
+                  "key": "description",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Weapon",
+                  "description": "Their weapon of choice  *  */",
+                  "tableView": true,
+                  "key": "weapon",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Weapon Description",
+                  "description": "Tooltip for the weapon.  * @example Zeus: '..lightning..' > 'Zeus calls down electric energy and fashions them into mighty spears of lightning to hurl at his enemies.'  */",
+                  "autoExpand": false,
+                  "tableView": true,
+                  "key": "weaponDescription",
+                  "type": "textarea",
+                  "input": true
+              },
+              {
+                  "label": "Tactics",
+                  "description": "For descriptions about combat.  * @example 'Zeus is hotheaded, and does not always think things through.',  * 'The typical tactics employed by Loki are those of deceit and treachery, opting to use subterfuge where possible.'  */",
+                  "autoExpand": false,
+                  "tableView": true,
+                  "key": "tactics",
+                  "type": "textarea",
+                  "input": true
+              }
+          ]
+      },
+      {
+          "label": "Possessions",
+          "hideLabel": false,
+          "tableView": false,
+          "key": "possessions",
+          "type": "container",
+          "input": true,
+          "components": []
+      },
+      {
+          "label": "Realm",
+          "description": "Some gods had planes/domain which they ruled    * @example ```Odin: 'Valhalla'```    * @usage 'Hades resides in ______'",
+          "tableView": true,
+          "key": "realm",
+          "type": "textfield",
+          "input": true
+      },
+      {
+          "label": "Followers",
+          "hideLabel": false,
+          "tableView": false,
+          "key": "followers",
+          "type": "container",
+          "input": true,
+          "components": []
+      },
+      {
+          "label": "Personality",
+          "hideLabel": false,
+          "tableView": false,
+          "key": "personality",
+          "type": "container",
+          "input": true,
+          "components": []
+      },
+      {
+          "label": "Associations",
+          "hideLabel": false,
+          "tableView": false,
+          "key": "associations",
+          "type": "container",
+          "input": true,
+          "components": [
+              {
+                  "label": "Avatars",
+                  "tableView": false,
+                  "key": "avatars",
+                  "type": "container",
+                  "input": true,
+                  "components": []
+              },
+              {
+                  "label": "Animals",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "animals",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Plants",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "plants",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Places",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "places",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Monsters",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "monsters",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Gems",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "gems",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Colours",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "colours",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Miscellaneous",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "miscellaneous",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Tenets",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "tenets",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Dogma",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "dogma",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Beliefs",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "beliefs",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Heresies",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "heresies",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Blessings",
+                  "description": "Some suggested blessings from the god    * @example Aphrodite: ['beauty']    */",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "blessings",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Curses",
+                  "description": "Some suggested curses from the god    * @example Aphrodite: ['ugliness']    */",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "curses",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Allies",
+                  "description": "Gods, factions, etc.",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "allies",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Enemies",
+                  "tableView": true,
+                  "multiple": true,
+                  "key": "enemies",
+                  "type": "textfield",
+                  "input": true
+              },
+              {
+                  "label": "Relationships",
+                  "tableView": false,
+                  "key": "relationships",
+                  "type": "container",
+                  "input": true,
+                  "components": []
+              }
+          ]
+      },
+      {
+          "type": "button",
+          "label": "Submit",
+          "key": "submit",
+          "disableOnInvalid": true,
+          "input": true,
+          "tableView": false
+      }
+  ]
+}

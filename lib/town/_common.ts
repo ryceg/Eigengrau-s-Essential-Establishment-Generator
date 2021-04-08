@@ -8,31 +8,65 @@ import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
-import { GenderName } from 'lib/src/genderData'
+import { Pantheon, PantheonTypes } from 'lib/religion/religion'
+import { GenderName } from '../../lib/src/genderData'
+import { Biome, Seasons } from '../../lib/src/terrain'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
+export type TownRolls =
+  'guardFunding'
+  | 'wealth'
+  | 'economics'
+  | 'welfare'
+  | 'military'
+  | 'law'
+  | 'sin'
+  | 'arcana'
+  | 'equality'
+  | 'religiosity'
+  | 'genderMakeup'
 
-export interface Town {
+export interface TownBasics {
   name: string
+  pregen?: boolean
+  generated: 'biome' | 'full'
   type: TownType
-  _type: string
+  _type: TownType
   location: string
   population: number
+  professions: Record<string, TownProfessions>
   ignoreGender: boolean
+  // TODO: Add ignoreRace setting
+  ignoreRace: boolean
   dominantGender: GenderName
-  roll: {
-    guardFunding: number
-    wealth: number
-    economics: number
-    welfare: number
-    military: number
-    law: number
-    sin: number
-    arcana: number
-    equality: number
-    religiosity: number
-    genderMakeup: number
-  }
+  roll: Record<TownRolls, number>
+  possibleMaterials: MaterialTypes[]
+  materialProbability: Record<MaterialTypes, MaterialType>
+  politicalSource: PoliticalSource
+  economicIdeology: EconomicIdeology
+  politicalIdeology: PoliticalIdeology
+  _politicalSource: PoliticalSource
+  _economicIdeology: EconomicIdeology
+  _politicalIdeology: PoliticalIdeology
+  economicIdeologyIST: EconomicIdeologyIST
+  politicalIdeologyIC: PoliticalIdeologyIC
+  baseDemographics: Record<RaceName, number>
+  _baseDemographics: Record<RaceName, number>
+  _demographicPercentile: Record<RaceName, number>
+  demographicPercentile: Record<RaceName, number>
+  origin: string
+  vegetation: string
+  terrain: Biome
+  currentSeason: Seasons
+  founder?: string
+}
+
+export interface TownProfessions extends Profession {
+  name: string;
+  population: number;
+}
+
+export interface Town extends TownBasics {
   taxes: {
     welfare: number
     military: number
@@ -41,18 +75,18 @@ export interface Town {
     land: number
     tithe: number
   }
-  wealth: string
-  sin: string
-  pregen?: boolean
   reuseNpcProbability: number
   guard: Faction
-  possibleMaterials: MaterialTypes[]
-  materialProbability: Record<MaterialTypes, MaterialType>
-  professions: Record<string, Profession & {
-    name: string,
-    population: number
-  }>
+  religionProbabilities: Record<string, number>
   religion: {
+    customPantheon?: Pantheon
+    /** Each item indexes the matching deity in the pantheon */
+    _modifiers: Record<string, number>
+    /** Probabilities sans the manual bonuses. */
+    _baseProbabilities: Record<string, number>
+    _probabilities: Record<string, number>
+    _percentages: Record<string, number>
+    pantheon: PantheonTypes | string
     deity: string
   }
   roads: Record<string, Road>
@@ -60,24 +94,11 @@ export interface Town {
   leaderType: string
   leader: NPC
   ruler?: NPC
-  founder?: string
   factions: Record<string, Faction>
   families: Record<string, Family>
   buildings: Building[]
   buildingRelations: BuildingRelationship[]
   npcRelations: Record<string, NpcRelationship[]>
-  politicalSource: PoliticalSource
-  economicIdeology: EconomicIdeology
-  politicalIdeology: PoliticalIdeology
-  economicIdeologyIST: EconomicIdeologyIST
-  politicalIdeologyIC: PoliticalIdeologyIC
-  baseDemographics: Record<RaceName, number>
-  _baseDemographics: Record<RaceName, number>
-  _demographicPercentile: Record<RaceName, number>
-  origin: string
-  vegetation: string
-  terrain: 'temperate' | 'tropical' | 'polar' | 'arid'
-  currentSeason: 'summer' | 'autumn' | 'winter' | 'spring'
   weather: Weather
   rulerType?: string
   bans: Ban[]

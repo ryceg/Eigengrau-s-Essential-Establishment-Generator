@@ -19,20 +19,26 @@ import { checkRaces } from './NPCGeneration/checkRaces'
 import { getWakeUpByWealth } from './Tavern/js/getWakeUpByWealth'
 import { createTavern } from './Tavern/js/createTavern'
 import { expandNPC } from './NPCGeneration/expandNPC'
-import { profile } from './NPCGeneration/profile'
+import { profile } from './Tools/profile'
 import { money } from './Tools/money'
 import { history } from './Tools/history'
 import { addGtagEvent } from './Tools/addGtagEvent'
-import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, racesPercentageTooltip, createRaceHTML, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
+import { profileAgeTooltip, metricHeight, metricWeight, buildingTooltip, createPercentageTooltip, createRaceHTML, createReligionHTML, politicsDescription, politicsTooltip, makeTippyTitle } from './Settings/Tippy/tooltips'
 import { createNPC } from './NPCGeneration/createNPC'
 import { deleteNPC, deleteThrowawayNPCs } from './NPCGeneration/deleteNPC'
 import { getLifeEvents } from './NPCGeneration/getLifeEvents'
+import { openDialog, rerenderPage } from './Dialog/openDialog'
+import { addSettingButton } from './Settings/settingButton'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { createTownBiome } from './Town/js/createTownBiome'
+import { createTownName } from './Town/js/createTownName'
+import { createTown, getTownType } from './Town/js/createTown'
+import { findViaKey } from './Tools/findViaKey'
 
 declare global {
   interface Setup {
@@ -58,8 +64,9 @@ declare global {
     metricHeight: typeof metricHeight
     metricWeight: typeof metricWeight
     buildingTooltip: typeof buildingTooltip
-    racesPercentageTooltip: typeof racesPercentageTooltip
+    createPercentageTooltip: typeof createPercentageTooltip
     createRaceHTML: typeof createRaceHTML
+    createReligionHTML: typeof createReligionHTML
     politicsDescription: typeof politicsDescription
     politicsTooltip: typeof politicsTooltip
     makeTippyTitle: typeof makeTippyTitle
@@ -67,6 +74,9 @@ declare global {
     deleteNPC: typeof deleteNPC
     deleteThrowawayNPCs: typeof deleteThrowawayNPCs
     getLifeEvents: typeof getLifeEvents
+    openDialog: typeof openDialog
+    rerenderPage: typeof rerenderPage
+    addSettingButton: typeof addSettingButton
     getLocation: typeof getLocation
     getEncounter: typeof getEncounter
     getEventDescription: typeof getEventDescription
@@ -76,6 +86,11 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    createTownBiome: typeof createTownBiome
+    createTownName: typeof createTownName
+    createTown: typeof createTown
+    getTownType: typeof getTownType
+    findViaKey: typeof findViaKey
   }
 }
 
@@ -102,8 +117,9 @@ Object.assign(setup, {
   metricHeight,
   metricWeight,
   buildingTooltip,
-  racesPercentageTooltip,
+  createPercentageTooltip,
   createRaceHTML,
+  createReligionHTML,
   politicsDescription,
   politicsTooltip,
   makeTippyTitle,
@@ -111,6 +127,9 @@ Object.assign(setup, {
   deleteNPC,
   deleteThrowawayNPCs,
   getLifeEvents,
+  openDialog,
+  rerenderPage,
+  addSettingButton,
   getLocation,
   getEncounter,
   getEventDescription,
@@ -119,7 +138,12 @@ Object.assign(setup, {
   urlSeed,
   deleteFaction,
   leaderFaction,
-  plothooks
+  plothooks,
+  createTownBiome,
+  createTownName,
+  createTown,
+  getTownType,
+  findViaKey
 })
 
 /**

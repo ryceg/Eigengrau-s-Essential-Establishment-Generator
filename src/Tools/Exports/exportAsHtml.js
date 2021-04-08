@@ -39,7 +39,7 @@ setup.autoclicker = function ($offshore) {
 setup.clickAndRemoveLink = ($offshore) => {
   const link = $offshore.find('.click-and-remove-link').find('a').trigger('click')
   const bold = `<b>${link.text()}</b>`
-  link.replaceWith(bold)
+  link.replaceWith(bold) // lgtm [js/xss-through-dom]
   return $offshore
 }
 

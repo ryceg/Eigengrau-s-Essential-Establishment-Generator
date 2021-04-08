@@ -1,0 +1,36 @@
+:: RoadTables
+<<nobr>>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Associated NPC</th>
+    <th class="interactive-only">Delete</th>
+  </tr>
+<<for _key, _throw range $town.roads[$currentPassage.key].inhabitants.buildings>><<set _building to lib.findInArray($town.buildings, 'key', _key)>><<capture _key, _building>>
+    <<if _building>><tr><td><<profile _building>></td>
+    <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
+    <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
+    <td class="interactive-only"><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
+    </tr><</if>>
+  \<</capture>><<set _previousBuilding to _building>>
+<</for>>
+<<if Object.keys($town.roads[$currentPassage.key].inhabitants.npcs).length > 0>>
+  <tr>
+    <th>Name</th>
+    <th>Race</th>
+    <th>Profession</th>
+    /* <th>Relationship</th> */
+    <th class="interactive-only">Delete</th>
+  </tr>
+  <<for _npcKey, _npcRelationship range $town.roads[$currentPassage.key].inhabitants.npcs>>
+  <<set _profession to lib.toTitleCase($npcs[_npcKey].profession)>>
+      <tr>
+        <td><<profile _npcKey>></td>
+        <td><<print $npcs[_npcKey].race.toUpperFirst()>></td>
+        <td><<print lib.createTippyFull(lib.professions[$npcs[_npcKey].profession].description.toUpperFirst(), _profession)>></td>
+        /* <td><<print _npcRelationship.toUpperFirst()>></td> */
+        <td class="interactive-only"><<link "x">><<run setup.deleteNPC($town, $npcs[_npcKey])>><<update>><</link>></td>
+      </tr>
+  <</for>>
+<</if>></table><</nobr>>

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from '../NPCGeneration/profile'
+import { profile } from '../Tools/profile'
 import { factionsForType } from '../Tools/factionsForType'
 import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
 import { createNPC } from '../NPCGeneration/createNPC'
@@ -169,7 +169,7 @@ export const plothooks = [
       const npc = createNPC(town, {
         profession: 'blacksmith'
       })
-      createRelationship(town, npc, smithy.associatedNPC, 'competitor on a contract', 'competitor on a contract')
+      createRelationship(town, npc, smithy.associatedNPC, { relationship: 'competitor on a contract' })
       lib.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
       // TODO: fix this
       return `Two blacksmiths, ${profile(smithy.associatedNPC)} of ${smithy.name} and ${profile(npc)} are in competition to create better weapons for a lucrative contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
@@ -1377,7 +1377,7 @@ export const plothooks = [
         hasClass: true,
         gender: 'man'
       })
-      createRelationship(town, npc, secondNpc, 'friend', 'friend')
+      createRelationship(town, npc, secondNpc, { relationship: 'friend' })
       return `Help! My good friend ${profile(secondNpc)} has been trapped! My scrying reveals he is stuck in a 10-foot room. He has a chest of valuables with him, but needs help getting it and him out of the dungeon safely! Come to the Tower Tisential if you are willing to help! -the Wizard ${profile(npc, npc.firstName)}.`
     }
   },
@@ -1419,7 +1419,7 @@ export const plothooks = [
         background: 'noble',
         race: 'elf'
       })
-      createRelationship(town, npc, secondNpc, 'rival', 'rival')
+      createRelationship(town, npc, secondNpc, { relationship: 'rival' })
       return `Help settle a minor dispute between two noble Elven houses! House ${profile(npc, npc.lastName)} is looking for adventurers to help draw the domain lines with the House ${profile(secondNpc, secondNpc.lastName)} border. If you are strong of arm and fleet of foot, inquire at the ${profile(npc, npc.lastName)} Manor.`
     }
   },

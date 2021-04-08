@@ -21,9 +21,10 @@ export const expandNPC = (town: Town, npc: NPC) => {
     const relative = State.variables.npcs[key]
     const relationship = relatives[key]
     const inverse = lib.familyRelationships.inverse(npc, relationship)
-    createRelationship(town, npc, relative,
-      lib.familyRelationships.verbose(relationship),
-      lib.familyRelationships.verbose(inverse))
+    createRelationship(town, npc, relative, {
+      relationship: lib.familyRelationships.verbose(relationship),
+      reciprocalRelationship: lib.familyRelationships.verbose(inverse)
+    })
   })
 
   createHistory(town, npc)

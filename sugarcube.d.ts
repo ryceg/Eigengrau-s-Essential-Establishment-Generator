@@ -26,6 +26,12 @@ declare module 'twine-sugarcube' {
     [key: string]: unknown
   }
 
+  export interface Util {
+   slugify(): string
+   fromCssTime(): number
+   escape(): string
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface SugarCubeSetupObject extends Setup {
   }

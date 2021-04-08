@@ -1,6 +1,6 @@
 :: EditTownName
 <<liveblock>>
-    <<link "reroll">>
+    <span class='hide-on-print'><<link "reroll">>
         <<set $town.name to setup.createTownName($town)>><<update>>
-    <</link>> -- <span class="auto-update"><label name="Rename town"><<textbox "$town.name" $town.name>></label></span>
+    <</link>> -- </span><label name="Rename town" class="auto-update"><<textbox "$town.name" $town.name>></label>
 <</liveblock>>

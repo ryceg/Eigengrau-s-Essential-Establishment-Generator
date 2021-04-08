@@ -1,8 +1,8 @@
 :: MarketOutput [market]
 <<nobr>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set _marketData to lib.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, 4)>>
-<<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>><span class="interactive-only"><h1>$building.name</h1></span>
-<section><<print lib.firstCharacter("You")>> wander through the streets of $town.name, and come across the market, which is located in $building.location. It seems that the vendors are organised by $building.organisation. The market is known for $building.draw, and is $building.cleanliness. Today the market is $building.crowd.</section>
+<<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>><</nobr>><h1 class="interactive-only">$building.name</h1>
+\<p>You wander through the streets of $town.name, and come across the market, which is located in $building.location. It seems that the vendors are organised by $building.organisation. The market is known for $building.draw, and is $building.cleanliness. Today the market is $building.crowd.</p>
 <section><h3>Merchants</h3>
 \<<for _key, _seller range $building.sellers>>
 \<p><<print ["A ", "Nearby, a ", "Off to the side, a "].random()>> <<profile $npcs[_key] $npcs[_key].descriptor>> is _seller.selling from a _seller.tent.</p>
@@ -11,8 +11,7 @@
 <<set $building.moreSeller to setup.createNPC($town, { profession: "merchant", hasClass: false, isThrowaway: true})>><<set $building.moreSeller.merchant to {}>><<set $building.moreSeller.merchant.selling to lib.market.vendors.selling.random()>><<set $building.moreSeller.merchant.tent to lib.market.vendors.tent.random()>>
 <<update>>
 <</link>><<liveblock>><<if ndef $building.moreSeller>><span id="moreSellers"></span><<else>>There's <<profile $building.moreSeller $building.moreSeller.descriptor true>> selling $building.moreSeller.merchant.selling from <<print lib.articles.output($building.moreSeller.merchant.tent)>>.<</if>><</liveblock>></span>
-
-<span class="interactive-only">A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from a <<print _marketData.vendors.tent.random()>>. Or, at least, they're supposedly magical items.
+<span class="interactive-only">A <<profile $building.magicSeller $building.magicSeller.descriptor>> is selling magical trinkets from <<print lib.articles.output(_marketData.vendors.tent.random())>>. Or, at least, they're supposedly magical items.
 <label name="Type of magic" for="listbox-buildingmagicselection"><<listbox "$building.magicSelection">>
 <<option "Ring" "ring">><<option "Weapon" "weapon">><<option "Armour" "armour">><<option "Trinket" "trinket">>
 <</listbox>></label> -- <<button "Create a magic item!">>
@@ -34,6 +33,5 @@
       <<replace "#magic">><div class='descriptive'><h3>$building.magic.name</h3>$building.magic.description</div><</replace>>
   <</switch>>
 <</button>>
-
 <span id="magic"></span>
 </span>

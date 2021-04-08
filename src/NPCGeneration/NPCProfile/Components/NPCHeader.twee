@@ -1,15 +1,20 @@
 :: NPCHeader
-<<nobr>><span class="interactive-only"><h1><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
+<<nobr>><h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
 <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
 <<set $currentNPC to $npcs[$currentPassage.key]>>
 <<run console.groupCollapsed($currentNPC.name)>>
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
 $currentNPC.title
-<</if>>$currentNPC.name</h1></span>
+<</if>>$currentNPC.name</h1>
 <<if def $currentNPC.key>>
-  <<button "Edit $currentNPC.name" NPCProfileEdit>>
-    <<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>>
+  <<button "Edit $currentNPC.name">>
+    <<run setup.openDialog({
+      header: `Editing ${$currentNPC.name}`,
+      passage: 'NPCProfileEdit',
+      rerender: true,
+      dialogOpts: $npcs[$currentPassage.key]
+    })>>
   <</button>>
 <</if>>
 /* <label name="NPC output" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
@@ -27,6 +32,6 @@ $currentNPC.title
     <<run setup.history($currentNPC, "NPCProfileLK", "LK Markdown for " + $currentNPC.name)>><<goto "NPCProfileLKMarkdown">>
   <</switch>>
 <</button>>    */
-<<if $currentNPC.isThrowaway === true>> -- 
+<<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
 <</if>><</nobr>>

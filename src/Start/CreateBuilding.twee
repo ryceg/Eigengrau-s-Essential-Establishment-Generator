@@ -1,12 +1,12 @@
 :: CreateBuilding
-<span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
+<span class="interactive-only hide-on-print"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
 <</listbox>></label> -- <<button "Create New Building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>
   <<run console.log(_latestBuilding)>>
   <<replace "#buildings">><<include "RoadsList">>
   <</replace>>
-  <<run document.querySelector('.' + _latestBuilding.key).className = 'highlight'>>
+  <<run $('.' + _latestBuilding.key).parent().addClass('highlight')>>
   /* State.create() is an undocumented feature that adds a Moment (the current state) to the story's History. 
   Notably, it may not play nicely with the Back and Forward navigation. 
   This has been implemented to ensure that the creation of new buildings is saved and no data is lost. */

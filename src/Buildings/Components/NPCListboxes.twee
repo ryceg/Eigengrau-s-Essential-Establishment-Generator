@@ -1,5 +1,5 @@
 :: NPCListboxes
-\<<liveblock>><span id="NPCListboxes"><<set _randomNPC to {
+\<<liveblock>><span id="NPCListboxes" class='hide-on-print'><<set _randomNPC to {
   gender: ["man", "woman"].random(),
   race: Object.keys(lib.raceTraits).random(),
   ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random()

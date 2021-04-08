@@ -1,22 +1,59 @@
 :: BiomeGenerationRefresh [force-one-column]
-\<<liveblock>><<set $listboxes to {
-  terrain: Object.keys(lib.terrain),
-  location: Object.keys(lib.terrain[$tempTown.terrain].location),
-  vegetation: ["thick", "lush", "sparse", "desolate"],
-  origin: lib.terrain[$tempTown.terrain].location[$tempTown.location].origin,
-  primaryCrop: lib.townData.misc.primaryCrop,
-  primaryExport: lib.townData.misc.primaryExport,
-  season: Object.keys(lib.terrain.temperate.weather.season),
-  economicIdeology: lib.economicPairs,
-  politicalIdeology: lib.politicalIdeologyPairs,
-  politicalSource: ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]
-}>><span class="auto-update"><<print lib.firstCharacter($tempTown.name)>> is located in the <label name="Terrain" for="listbox-temptownterrain"><<listbox "$tempTown.terrain" autoselect>><<optionsfrom $listboxes.terrain>><</listbox>></label> 
-\<span class="tip" data-tippy-content="This changes based on the terrain- refresh to update"><label name="Location" for="listbox-temptownlocation"><<listbox "$tempTown.location" autoselect>><<optionsfrom $listboxes.location>><</listbox>></label></span>
-\, where the vegetation is <label name="Vegetation" for="listbox-temptownvegetation"><<listbox "$tempTown.vegetation" autoselect>><<optionsfrom $listboxes.vegetation>><</listbox>></label>. 
-\$tempTown.name grew around <span class="tip" data-tippy-content="This changes based on the terrain and location- refresh to update"><label name="Origin of town" for="listbox-temptownorigin"><<listbox "$tempTown.origin" autoselect>><<optionsfrom $listboxes.origin>><</listbox>></label></span>. 
-\They harvest <label name="Primary Crop" for="listbox-temptownprimarycrop"><<listbox "$tempTown.primaryCrop" autoselect>><<optionsfrom $listboxes.primaryCrop>><</listbox>></label>
-\, and nearby is a region rich with <label name="Primary Export" for="listbox-temptownprimaryexport"><<listbox "$tempTown.primaryExport" autoselect>><<optionsfrom $listboxes.primaryExport>><</listbox>></label>. It is currently <label name="Currentseason" for="listbox-temptowncurrentseason"><<listbox "$tempTown.currentSeason" autoselect>><<optionsfrom $listboxes.season>><</listbox>></label>.
+<details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update"><<nobr>>
+<<print lib.firstCharacter($town.name)>> is located in the
+<label name="Terrain" for="listbox-townterrain">
+  <<listbox "$town.terrain" autoselect>>
+    <<optionsfrom $listboxes.terrain>>
+  <</listbox>>
+</label> 
+<label class="tip" data-tippy-content="This changes based on the terrain- refresh to update" name="Location" for="listbox-townlocation">
+  <<listbox "$town.location" autoselect>>
+    <<optionsfrom $listboxes.location>>
+  <</listbox>>
+</label>
+, where the vegetation is
+<label name="Vegetation" for="listbox-townvegetation">
+  <<listbox "$town.vegetation" autoselect>>
+    <<optionsfrom $listboxes.vegetation>>
+  <</listbox>>
+</label>. 
+$town.name grew around
+<label class="tip" data-tippy-content="This changes based on the terrain and location- refresh to update" name="Origin of town" for="listbox-townorigin">
+  <<listbox "$town.origin" autoselect>>
+    <<optionsfrom $listboxes.origin>>
+  <</listbox>>
+</label>. 
+They harvest
+<label name="Primary Crop" for="listbox-townprimarycrop">
+  <<listbox "$town.primaryCrop" autoselect>>
+    <<optionsfrom $listboxes.primaryCrop>>
+  <</listbox>>
+</label>
+, and nearby is a region rich with
+<label name="Primary Export" for="listbox-townprimaryexport">
+  <<listbox "$town.primaryExport" autoselect>>
+    <<optionsfrom $listboxes.primaryExport>>
+  <</listbox>>
+</label>. It is currently
+<label name="Currentseason" for="listbox-towncurrentseason">
+  <<listbox "$town.currentSeason" autoselect>>
+    <<optionsfrom $listboxes.season>>
+  <</listbox>>
+</label>.
 
-Politically, they are a <<nobr>><span class="tip" data-tippy-content="How does the economy work?"><label name="Economic Ideology" for="listbox-temptowneconomicideology"><<listbox "$tempTown.economicIdeology" autoselect>><<optionsfrom $listboxes.economicIdeology>><</listbox>></label></span>
-<span class="tip" data-tippy-content="Who leads the people?"><label name="Political Ideology" for="listbox-temptownpoliticalideology"><<listbox "$tempTown.politicalIdeology" autoselect>><<optionsfrom $listboxes.politicalIdeology>><</listbox>></label></span>
-<span class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?"><label name="Political Source" for="listbox-temptownpoliticalsource"><<listbox "$tempTown.politicalSource" autoselect>><<optionsfrom $listboxes.politicalSource>><</listbox>></label></span><</nobr>><</liveblock>>
+Politically, they are a
+<label class="tip" data-tippy-content="How does the economy work?" name="Economic Ideology" for="listbox-towneconomicideology">
+  <<listbox "$town.economicIdeology" autoselect>>
+    <<optionsfrom $listboxes.economicIdeology>>
+  <</listbox>>
+</label>
+<label class="tip" data-tippy-content="Who leads the people?" name="Political Ideology" for="listbox-townpoliticalideology">
+  <<listbox "$town.politicalIdeology" autoselect>>
+    <<optionsfrom $listboxes.politicalIdeology>>
+  <</listbox>>
+</label>
+<label class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?" name="Political Source" for="listbox-townpoliticalsource">
+  <<listbox "$town.politicalSource" autoselect>>
+    <<optionsfrom $listboxes.politicalSource>>
+  <</listbox>>
+</label><</nobr>></span><</liveblock>></details><<timed 0s>><<run tippy('[data-tippy-content]')>><</timed>>

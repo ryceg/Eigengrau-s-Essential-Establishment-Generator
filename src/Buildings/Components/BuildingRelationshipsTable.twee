@@ -1,7 +1,6 @@
 :: BuildingRelationshipsTable
 <div id="BuildingRelationshipsTable"><<nobr>><<set _buildingRelationships to lib.findBuildingRelationship($town, lib.findInArray($town.buildings, "key", $currentPassage.key), null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_buildingRelationships)>>
 <<if _buildingRelationships.length > 0>><div class='classTable'>
-  <h3>Relationships</h3>
 <table>
 <tr>
   <th>Name</th>

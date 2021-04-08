@@ -1,6 +1,8 @@
 import { Weather } from '../lib/index'
-import { Town } from '../lib/town/_common'
+import { Town, TownBasics } from '../lib/town/_common'
 
+type Building = import('../lib/buildings/_common').Building
+type Faction = import('../lib/faction/_common').Faction
 type NPC = import('../lib/npc-generation/_common').NPC
 
 export interface Setup {
@@ -21,6 +23,8 @@ export interface Setup {
 
   createStartBuildings(town: Town): void
   createStartFactions(town: Town): void
+  createTownBiome(base: Partial<Town>): TownBasics
+  createTown(base: TownBasics): Town
   createCastle(town: Town): Building
   getTownType(town: Town): string
   createTownName(town: Town): string

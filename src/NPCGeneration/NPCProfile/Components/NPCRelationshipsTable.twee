@@ -11,12 +11,12 @@
       <th>Relationship</th>
       <<if $currentPassage.deleteEnabled>><th>Delete</th><</if>>
     </tr>
-    <<for _relationship range $town.npcRelations[$currentNPC.key]>><<set _profession to lib.findProfession($town, $npcs[_relationship.targetNpcKey])>><<set _reciprocal to $currentNPC.firstName + " is " + lib.articles.output($town.npcRelations[_relationship.targetNpcKey].filter(r => r.targetNpcKey === $currentNPC.key)[0].relation) + " to " + $npcs[_relationship.targetNpcKey].firstName>>
+    <<for _relationship range $town.npcRelations[$currentNPC.key]>><<set _profession to lib.findProfession($town, $npcs[_relationship.targetNpcKey])>><<set _description to $currentNPC.firstName + " is " + lib.articles.output($town.npcRelations[_relationship.targetNpcKey].filter(r => r.targetNpcKey === $currentNPC.key)[0].relation) + " to " + $npcs[_relationship.targetNpcKey].firstName>>
     <tr>
       <td><<profile $npcs[_relationship.targetNpcKey]>></td>
       <td><<print $npcs[_relationship.targetNpcKey].race.toUpperFirst()>></td>
       <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_relationship.targetNpcKey].profession.toUpperFirst())>></td>
-      <td><<print lib.createTippyFull(_reciprocal, _relationship.relation.toUpperFirst())>></td>
+      <td><<print lib.createTippyFull((_relationship.description || _description), _relationship.relation.toUpperFirst())>></td>
       <<if $currentPassage.deleteEnabled>><td><<link "x">><<set _deleted to $npcs[_relationship.targetNpcKey]>><<run setup.deleteNPC($npcs[_relationship.targetNpcKey])>><<notify 5000>>Deleted _deleted.name<</notify>><<update>><</link>></td><</if>>
     </tr>
     <</for>>

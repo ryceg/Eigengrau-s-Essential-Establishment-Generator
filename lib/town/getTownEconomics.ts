@@ -3,7 +3,8 @@ import { Town } from './_common'
 
 export function getTownEconomics (town: Town): string {
   const roll = town.roll.economics
-  const { name, wealth } = town
+  const { name } = town
+  const wealth = lib.getTownWealth(town.roll.wealth)
 
   if (roll > 90) return `Trade in ${name} is heavily regulated, with taxes, tariffs, and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(wealth)} existence because of it. The trade guild strictly enforces the rules, and costs of doing business in ${name} are high.`
   if (roll > 80) return `Trade in ${name} is regulated, with taxes and restrictions on what can be brought in and out of the ${town.type}, and people live ${articles.output(wealth)} existence because of it. The trade guild enforces rules, with stiff penalties and trade bans for rule-breakers.`

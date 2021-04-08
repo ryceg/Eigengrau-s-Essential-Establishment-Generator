@@ -14,7 +14,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
   console.groupCollapsed('Alchemist loading...')
 
   const createBuilding = opts.newBuilding || lib.createBuilding
-  const alchemist = createBuilding(town, 'alchemist')
+  const alchemist = createBuilding(town, 'alchemist', opts as Partial<Building>)
 
   const associatedNPC = createChemist(town, opts)
 

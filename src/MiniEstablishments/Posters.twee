@@ -5,4 +5,4 @@
 \<</if>>
 \<<set $poster to lib.weightedRandomFetcher($town, setup.plothooks, null, setup.misc.town.type.paper)>>
 <<update>><</button>>
-\<section><<liveblock>><div id="poster"><<if def $poster>><descriptive>$poster</descriptive><</if>></div><</liveblock>></section>
+\<section id='poster'><<liveblock>><<if def $poster>><descriptive>$poster</descriptive><</if>><</liveblock>></section>

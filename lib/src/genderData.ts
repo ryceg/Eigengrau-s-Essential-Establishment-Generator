@@ -2,9 +2,11 @@ import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
 
+export type BinaryGender = 'man' | 'woman'
 export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
 
 interface GenderPronouns {
+    godgoddess: string
     title: string
     domTitle: string
     heshe: string
@@ -30,6 +32,7 @@ interface GenderPronouns {
 
 export const genderData: Record<GenderName, GenderPronouns> = {
   man: {
+    godgoddess: 'god',
     title: 'Mr',
     domTitle: 'Master',
     heshe: 'he',
@@ -51,6 +54,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     oppositeGender: 'woman'
   },
   woman: {
+    godgoddess: 'goddess',
     title: 'Ms',
     domTitle: 'Mistress',
     heshe: 'she',
@@ -72,6 +76,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     oppositeGender: 'man'
   },
   nonbinary: {
+    godgoddess: 'deity',
     title: 'Mx',
     domTitle: 'Overseer',
     heshe: 'they',
@@ -94,6 +99,7 @@ export const genderData: Record<GenderName, GenderPronouns> = {
     oppositeGender: 'man'
   },
   entity: {
+    godgoddess: 'goddess',
     title: 'Mx',
     domTitle: 'Overseer',
     heshe: 'it',

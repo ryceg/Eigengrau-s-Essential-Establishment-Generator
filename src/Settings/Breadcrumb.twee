@@ -1,20 +1,13 @@
 :: Breadcrumb
 <<nobr>><<liveblock>>
-<<if ndef $town>>
-    <nav><<link "The $tempTown.type of $tempTown.name" Start>>
-      <<unset $currentPassage>>
-      <<unset $currentNPC>>
-      <<set $history to []>>
-      <<set $town to setup.createTown($tempTown)>>
-    <</link>></nav>
-<<else>>
   <<set $town.ignoreGender to settings.ignoreGender>>
-    <nav><<link "The $town.type of $town.name" Start>>
+    <nav><<link "The $town.type of $town.name">>
+      <<if $town.generated === 'biome'>><<set $town to setup.createTown($town)>><</if>>
       <<unset $currentPassage>>
       <<unset $currentNPC>>
       <<set $history to []>>
+      <<goto "Start">>
     <</link>></nav>
-<</if>>
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>>
   <<capture _i, _passage, _link>>
     <<if _i < $history.length - 1>>
