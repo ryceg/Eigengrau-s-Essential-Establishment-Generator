@@ -40,6 +40,7 @@ export const createRelative = (town: Town, family: Family, base: Partial<NPC> = 
     marriages: undefined,
     canRemarry: true
   }
+  lib.createFamilyHouse(town, family)
 
   return relative
 }
@@ -129,7 +130,7 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
 
   newMarriage.socialClass = familySocialClass(newMarriage)
   createChildren(town, family, newMarriage, siblingRoll(), npc.race, partnerBase.race)
-
+  lib.createFamilyHouse(town, family)
   return newMarriage
 }
 

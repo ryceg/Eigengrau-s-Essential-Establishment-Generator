@@ -14,7 +14,7 @@
 \<<else>>
   \<<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>
 \<</if>>.</p>
-<p>$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
+\<p>$currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. <<print $currentNPC.heshe.toUpperFirst()>> lives on <<profile $town.roads[$town.families[$currentNPC.family].home.road]>>. 
 \<<if $currentNPC.weapon>>In combat, $currentNPC.heshe uses $currentNPC.weapon. <</if>><<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knows $currentNPC.knownLanguages[0] and <<print $currentNPC.knownLanguages[1]>>. <</if>>
 \<<if def $currentNPC.doesnt>>$currentNPC.doesnt<</if>>
 \<<if $currentNPC.sexuality !== 'heterosexual'>>

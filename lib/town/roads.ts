@@ -128,17 +128,8 @@ export const roads = {
     console.groupCollapsed('Assigning a road...')
     let road: Road
     if (random(100) < townData.type[town.type].roadDuplication) {
-      console.log('Searching for an existing road...')
-      for (const key in town.roads) {
-        console.log(Object.values(town.roads[key].inhabitants.buildings).length)
-        if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
-          console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
-          continue
-        } else if (town.roads[key].currentOccupancy < town.roads[key].capacity) {
-          road = town.roads[key]
-          break
-        }
-      }
+      const tempRoad = roads.findExisting(town)
+      if (tempRoad) road = tempRoad
       // if it doesn't find a suitable road, make a new one.
       // @ts-expect-error Road might be defined if it's selected above.
       if (!road) {
@@ -162,6 +153,19 @@ export const roads = {
     console.log(road)
     console.groupEnd()
     return road
+  },
+  findExisting: (town: Town): Road | undefined => {
+    console.log('Searching for an existing road...')
+    for (const key in town.roads) {
+      console.log(Object.values(town.roads[key].inhabitants.buildings).length)
+      if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
+        console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
+        continue
+      } else if (town.roads[key].currentOccupancy < town.roads[key].capacity) {
+        return town.roads[key]
+      }
+    }
+    return undefined
   },
   /** Creates the road */
   create: (town: Town, opts?: Partial<Road>): Road => {
