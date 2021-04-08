@@ -200,12 +200,17 @@ export interface Marriage {
 export interface Family {
   key: string
   members: Record<string, FamilyMember>
+  home: {
+    road: string
+  }
 }
 
 export interface FamilyMember {
+  /** The key of the NPC */
   key: string
   parentMarriage?: Marriage
   marriages?: Marriage[],
   canRemarry: boolean
+  /** Keys of siblings */
   siblings?: string[]
 }

@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Ability to create new relationship
 - Ability to edit existing relationships, and add descriptions.
 - Print @media CSS to make printing pages at least slightly prettier (though you should definitely use the exporters!)
+- Add NPCs to roads.
 
 ### Changes
 - Fixed some images not displaying properly in the GMBinder export.

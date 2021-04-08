@@ -1,3 +1,4 @@
+import { HomeStructures } from 'lib/buildings/homeData'
 import { ThresholdTable } from '../src/rollFromTable'
 import { SocialClassName } from './_common'
 
@@ -10,6 +11,9 @@ export interface LifestyleStandard {
   lifestyleDescription: string
   /** Influences the home that the NPC grew up in. */
   homeBias: number
+  home: {
+    table: ThresholdTable<HomeStructures>
+  }
   socialClass: {
     table: ThresholdTable<SocialClassName>
   }
@@ -31,6 +35,13 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'aristocratic',
     lifestyleDescription: 'lives large, with little care to how much money is spent, splashing out on expensive things on a whim',
     homeBias: 40,
+    home: {
+      table: [
+        [1, 'apartment'],
+        [39, 'building'],
+        [60, 'manor']
+      ]
+    },
     socialClass: {
       table: [
         [2, 'commoner'],
@@ -45,6 +56,13 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'wealthy',
     lifestyleDescription: 'lives lavishly, with fine foods, wines, clothes, and all the comforts money can buy',
     homeBias: 20,
+    home: {
+      table: [
+        [5, 'apartment'],
+        [40, 'building'],
+        [55, 'manor']
+      ]
+    },
     socialClass: {
       table: [
         [15, 'aristocracy'],
@@ -59,6 +77,13 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'comfortable',
     lifestyleDescription: 'lives a comfortable life, filled with good food and wine',
     homeBias: 10,
+    home: {
+      table: [
+        [20, 'apartment'],
+        [78, 'building'],
+        [2, 'manor']
+      ]
+    },
     socialClass: {
       table: [
         [5, 'nobility'],
@@ -74,6 +99,13 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'modest',
     lifestyleDescription: 'lives modestly- not without creature comforts of wine and decent food thanks to frugality, though',
     homeBias: 0,
+    home: {
+      table: [
+        [35, 'apartment'],
+        [64, 'building'],
+        [1, 'manor']
+      ]
+    },
     socialClass: {
       table: [
         [5, 'nobility'],
@@ -89,6 +121,12 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'poor',
     lifestyleDescription: 'lives a poor life, having to count copper and save for purchases',
     homeBias: -10,
+    home: {
+      table: [
+        [50, 'apartment'],
+        [50, 'building']
+      ]
+    },
     socialClass: {
       table: [
         [2, 'nobility'],
@@ -104,6 +142,12 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'squalid',
     lifestyleDescription: 'lives a squalid existence, eating terrible food with no alcohol, and few creature comforts',
     homeBias: -20,
+    home: {
+      table: [
+        [80, 'apartment'],
+        [20, 'building']
+      ]
+    },
     socialClass: {
       table: [
         [5, 'commoner'],
@@ -118,6 +162,12 @@ export const lifestyleStandards: Record<LifestyleStandardName, LifestyleStandard
     lifestyleStandard: 'wretched',
     lifestyleDescription: 'lives a wretched life of constant filth and misery. There is no respite to this poverty',
     homeBias: -40,
+    home: {
+      table: [
+        [80, 'apartment'],
+        [20, 'building']
+      ]
+    },
     socialClass: {
       table: [
         [35, 'peasantry'],
