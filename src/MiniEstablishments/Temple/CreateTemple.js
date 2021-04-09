@@ -52,7 +52,7 @@ setup.createTemple = (town, opts = {}) => {
     blessing: `${temple.blessingConvey}. ${temple.blessingGift}.`
   })
 
-  lib.createBuildingRelationship(town, temple, temple.associatedNPC, {
+  lib.createReciprocalRelationship(town, temple, temple.associatedNPC, {
     relationship: 'caretaker',
     reciprocalRelationship: 'temple'
   })

@@ -170,7 +170,7 @@ export const plothooks = [
         profession: 'blacksmith'
       })
       createRelationship(town, npc, smithy.associatedNPC, { relationship: 'competitor on a contract' })
-      lib.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
+      lib.createReciprocalRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
       // TODO: fix this
       return `Two blacksmiths, ${profile(smithy.associatedNPC)} of ${smithy.name} and ${profile(npc)} are in competition to create better weapons for a lucrative contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
     }

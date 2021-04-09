@@ -78,6 +78,7 @@ export const createTown = (base: TownBasics) => {
     },
     bans: [],
     buildingRelations: [],
+    factionRelations: [],
     npcRelations: {},
     population: lib.townData.type[type].population(),
     _economicIdeology: economicIdeology,

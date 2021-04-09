@@ -18,7 +18,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   const associatedNPC = createChemist(town, opts)
 
-  lib.createBuildingRelationship(town, alchemist, associatedNPC, {
+  lib.createReciprocalRelationship(town, alchemist, associatedNPC, {
     relationship: 'owner',
     reciprocalRelationship: 'business'
   })

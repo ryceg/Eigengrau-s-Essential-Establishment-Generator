@@ -28,28 +28,28 @@
     </tr>
     <</capture>>
     <</for>>
-    <<set _buildingRelationships to lib.findBuildingRelationship($town, null, $npcs[$currentNPC.key])>>
-<<if _buildingRelationships.length > 0>>
+    <<set _entityRelationships to lib.findReciprocalRelationships($town, null, $npcs[$currentNPC.key], 'building')>>
+<<if _entityRelationships.length > 0>>
   <tr>
     <th>Building Name</th>
     <th>Building Type</th>
     <th>Relationship</th>
     <th>Delete Relationship</th>
   </tr>
-  <<for _buildingIndex, _buildingRelationship range _buildingRelationships>>
-    <<set _building to lib.findBuilding($town, _buildingRelationship.buildingKey)>>
+  <<for _buildingIndex, _buildingRelationship range _entityRelationships>>
+    <<set _building to lib.findBuilding($town, _buildingRelationship.otherKey)>>
     <<capture _building, _buildingIndex>>
     <td><<profile _building _building.name>></td>
     <td><<print lib.toTitleCase(_building.wordNoun)>></td>
     <td><<if _buildingRelationship.description || _buildingRelationship.reciprocalRelationship>>
       <<print lib.createTippyFull(
         _buildingRelationship.description || 
-        lib.findInArray($town.buildings, "key", _buildingRelationship.buildingKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
+        lib.findInArray($town.buildings, "key", _buildingRelationship.otherKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
         lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship))>>
     <<else>>
       <<print lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship)>>
     <</if>></td>
-    <td><td><<link "x">><<run $town.buildingRelations.splice(lib.findIndexOfBuildingRelationship($town, _building, $currentNPC), 1)>><<update>><</link>></td></td>
+    <td><<link "x">><<run $town.buildingRelations.splice(lib.findIndexOfReciprocalRelationship($town, _building, $currentNPC), 1)>><<update>><</link>></td>
   <</capture>><</for>>
 <</if>>
   </table>
