@@ -6,7 +6,7 @@
 
 <<set setup.data to {
 	isPatreon: [true, false].random(),
-	versionNumber: "2.7",
+	versionNumber: "2.8",
 	badges: {
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
