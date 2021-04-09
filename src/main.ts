@@ -39,6 +39,7 @@ import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
 import { findViaKey } from './Tools/findViaKey'
+import { createBuildingRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
 
 declare global {
   interface Setup {
@@ -91,6 +92,7 @@ declare global {
     createTown: typeof createTown
     getTownType: typeof getTownType
     findViaKey: typeof findViaKey
+    createBuildingRelationshipNpc: typeof createBuildingRelationshipNpc
   }
 }
 
@@ -143,7 +145,8 @@ Object.assign(setup, {
   createTownName,
   createTown,
   getTownType,
-  findViaKey
+  findViaKey,
+  createBuildingRelationshipNpc
 })
 
 /**
