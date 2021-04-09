@@ -1,3 +1,0 @@
-:: NPCProfileJSON
-<<set _json to setup.exportNPC($currentNPC)>>
-<<print _json>>
