@@ -1,5 +1,5 @@
 :: Start
-\<<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'>[img[banner]]</div><div id="illustration-buffer" class='hide-on-print'><<print lib.getIllustration('town-illustration', 'A picture of a medieval town')>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+\<<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'>[img[banner]]</div><div id="illustration-buffer" class='hide-on-print'><<print lib.getIllustration(lib.townOrCity($town), 'A picture of a medieval town')>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
 \<h3 class='hide-on-print'>Quick Scenario Generator</h3><<include "CreateScenario">><</if>>
 \<<include "BriefDescription">>
 \<span class="tip hide-on-print" tabindex="0" data-tippy-content="Find the overview of the town and its sociopolitical structure here!"><<link "Description of $town.name" TownOutput>><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><</link>></span>
