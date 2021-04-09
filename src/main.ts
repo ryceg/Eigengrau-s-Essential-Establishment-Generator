@@ -42,6 +42,7 @@ import { findViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
 import { createSmithy } from './Blacksmith/js/createSmithy'
+import { createBuildingRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
 
 declare global {
   interface Setup {
@@ -97,6 +98,7 @@ declare global {
     createBlacksmithProject: typeof createBlacksmithProject
     createSmithyName: typeof createSmithyName
     createSmithy: typeof createSmithy
+    createBuildingRelationshipNpc: typeof createBuildingRelationshipNpc
   }
 }
 
@@ -152,7 +154,8 @@ Object.assign(setup, {
   findViaKey,
   createBlacksmithProject,
   createSmithyName,
-  createSmithy
+  createSmithy,
+  createBuildingRelationshipNpc
 })
 
 /**
