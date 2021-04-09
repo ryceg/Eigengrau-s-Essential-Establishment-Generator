@@ -269,7 +269,7 @@ export const badges = {
     },
     commitsSinceLastUpdate: {
       alt: 'Commits since last update',
-      source: '/github/commits-since/ryceg/Eigengrau-s-Essential-Establishment-Generator/2.7',
+      source: '/github/commits-since/ryceg/Eigengrau-s-Essential-Establishment-Generator/2.8',
       logo: 'github',
       color: '6cc644'
     },
