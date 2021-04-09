@@ -39,6 +39,9 @@ import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
 import { findViaKey } from './Tools/findViaKey'
+import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
+import { createSmithyName } from './Blacksmith/js/createSmithyName'
+import { createSmithy } from './Blacksmith/js/createSmithy'
 import { createReciprocalRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
 
 declare global {
@@ -92,6 +95,9 @@ declare global {
     createTown: typeof createTown
     getTownType: typeof getTownType
     findViaKey: typeof findViaKey
+    createBlacksmithProject: typeof createBlacksmithProject
+    createSmithyName: typeof createSmithyName
+    createSmithy: typeof createSmithy
     createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
   }
 }
@@ -146,6 +152,9 @@ Object.assign(setup, {
   createTown,
   getTownType,
   findViaKey,
+  createBlacksmithProject,
+  createSmithyName,
+  createSmithy,
   createReciprocalRelationshipNpc
 })
 

@@ -1,11 +1,23 @@
-// uses setup.createNPC, setup.createRelationship
-setup.createSmithyName = (town, smithy) => {
-  const adjective = ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'].random()
-  const noun = ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'].random()
-  const family = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'].random()
-  const rider = ['Shop', 'Blacksmith', 'Fabricator', 'Smith', 'Smithy', 'Farrier', 'Metalsmith', 'Swordsmith'].random()
+import { AgeName, GenderName, ProfessionName, RaceName, Town } from '@lib'
+import { Smithy } from '../../../lib/smithy/_common'
+const familyTypes = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'] as const
+type Assistant = typeof familyTypes[number]
 
-  const fam = {
+// uses setup.createNPC, setup.createRelationship
+export const createSmithyName = (town: Town, smithy: Smithy) => {
+  const adjective = lib.random(lib.smithyData.name.adjective)
+  const noun = lib.random(lib.smithyData.name.noun)
+  const family = lib.random(familyTypes)
+  const rider = lib.random(lib.smithyData.name.rider)
+
+  const fam: Record<Assistant, {
+    relationships: Record<string, string>
+    gender?: GenderName
+    race?: RaceName
+    lastName?: string
+    ageStage?: AgeName
+    profession: ProfessionName
+  }> = {
     son: {
       relationships: {
         [smithy.associatedNPC.key]: smithy.associatedNPC.parentNoun
@@ -14,7 +26,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: 'young adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     daughter: {
       relationships: {
@@ -24,7 +36,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: 'young adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     brother: {
       relationships: {
@@ -34,7 +46,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: smithy.associatedNPC.ageStage,
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     sister: {
       relationships: {
@@ -44,7 +56,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: smithy.associatedNPC.ageStage,
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     uncle: {
       relationships: {
@@ -54,7 +66,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     aunt: {
       relationships: {
@@ -64,7 +76,7 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     father: {
       relationships: {
@@ -74,14 +86,14 @@ setup.createSmithyName = (town, smithy) => {
       race: smithy.associatedNPC.race,
       lastName: smithy.associatedNPC.lastName,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     friend: {
       relationships: {
         [smithy.associatedNPC.key]: 'friend'
       },
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     family: {
       relationships: {
@@ -90,14 +102,14 @@ setup.createSmithyName = (town, smithy) => {
       lastName: smithy.associatedNPC.lastName,
       race: smithy.associatedNPC.race,
       ageStage: 'settled adult',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     },
     employee: {
       relationships: {
         [smithy.associatedNPC.key]: 'employer'
       },
       gender: 'man',
-      profession: ['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"].random()
+      profession: lib.random(['blacksmith', "blacksmith's assistant", "blacksmith's assistant", "blacksmith's assistant"])
     }
   }
 

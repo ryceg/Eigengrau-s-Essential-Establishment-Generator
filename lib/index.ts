@@ -99,6 +99,9 @@ export * from './religion/getPantheon'
 export * from './religion/Components/deityComponents'
 export * from './religion/Components/printInformation'
 
+export * from './smithy/_common'
+export * from './smithy/smithyData'
+
 export * from './src/articles'
 export * from './src/arpa'
 export * from './src/badges'
