@@ -28,12 +28,12 @@ setup.outputGMBinder = () => {
 function addGMBinderPart (type) {
   const partIllustrations = {
     buildings: `
-<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/img/hero/tavern-illustration.jpg?raw=true' class='cover-illustration'>
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/tavern-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 `,
     NPCs: `
-    <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/img/hero/general-store-illustration.jpg?raw=true' class='cover-illustration'>
+    <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/general-store-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 `,
@@ -202,7 +202,7 @@ function addGMBinderPretext () {
 Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
 
 
-<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/img/hero/town-illustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/town-illustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour' style="transform:rotate(0deg);">
 
