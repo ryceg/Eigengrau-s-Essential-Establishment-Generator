@@ -6,7 +6,7 @@
     \<<run setup.deleteNPC($npcs[_newNPC])>>
   \<</if>><<run console.log("_randomNPC:")>><<run console.log(_randomNPC)>>
 \<<set $currentPassage.randomNPC to setup.createNPC($town, _randomNPC)>>
-\<<run lib.createBuildingRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], { relationship: ["member", "high-ranking member", "low-ranking member"].random(), reciprocalRelationship: "faction that " + $npcs[$currentPassage.randomNPC.key].firstName + " is a part of." })>>
+\<<run lib.createReciprocalRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], { relationship: ["member", "high-ranking member", "low-ranking member"].random(), reciprocalRelationship: "faction that " + $npcs[$currentPassage.randomNPC.key].firstName + " is a part of." })>>
     \<<replace "#NPC">>
           <div class="descriptive">
             <h3>$currentPassage.randomNPC.name</h3>

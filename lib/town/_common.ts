@@ -1,5 +1,5 @@
 import { MaterialType, MaterialTypes } from '../buildings/structureData'
-import { Building, BuildingRelationship } from '../buildings/_common'
+import { Building, ReciprocalRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { RaceName } from '../npc-generation/raceTraits'
@@ -97,8 +97,9 @@ export interface Town extends TownBasics {
   factions: Record<string, Faction>
   families: Record<string, Family>
   buildings: Building[]
-  buildingRelations: BuildingRelationship[]
+  buildingRelations: ReciprocalRelationship[]
   npcRelations: Record<string, NpcRelationship[]>
+  factionRelations: ReciprocalRelationship[]
   weather: Weather
   rulerType?: string
   bans: Ban[]

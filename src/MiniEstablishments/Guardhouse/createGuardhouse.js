@@ -14,7 +14,7 @@ setup.createGuardhouse = (town, opts) => {
     needsWordNoun: false,
     associatedNPC: setup.createNPC(town, { profession: 'guard', ...opts.associatedNPC })
   })
-  lib.createBuildingRelationship(town, guardhouse, guardhouse.associatedNPC, { relationship: 'worker', reciprocalRelationship: 'place of employment' })
+  lib.createReciprocalRelationship(town, guardhouse, guardhouse.associatedNPC, { relationship: 'worker', reciprocalRelationship: 'place of employment' })
   guardhouse.notableFeature = lib.weightedRandomFetcher(town, lib.guardhouseData.notableFeature, guardhouse, undefined, 'function')
 
   guardhouse.name = setup.createGuardhouseName(town)

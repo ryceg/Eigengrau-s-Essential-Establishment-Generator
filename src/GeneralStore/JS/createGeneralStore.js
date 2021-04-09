@@ -11,7 +11,7 @@ setup.createGeneralStore = (town, opts = {}) => {
     greeting: ['nods at you', 'welcomes you warmly', 'smiles and greets you', 'raises a hand with a wave', 'checks you out for just a moment before smiling at you'],
     owner: ['owner', 'caretaker', 'proud owner', 'proprietor', 'current owner', 'manager', 'assistant manager', 'acting manager'].random()
   }, opts.npc))
-  lib.createBuildingRelationship(town, generalStore, generalStore.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
+  lib.createReciprocalRelationship(town, generalStore, generalStore.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   Object.assign(generalStore, {
     note: lib.generalStore.get.note(generalStore),
     shopkeepNote: lib.generalStore.get.shopkeepNote(generalStore),

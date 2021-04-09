@@ -18,7 +18,7 @@ setup.createDocks = (town, opts = {}) => {
     wordNoun: ['docks', 'pier', 'wharf', 'dockyard', 'shipyard', 'quay', 'staithe', 'marina', 'jetty', 'harbor', 'berth', 'port', 'seaport', 'dockyard'].random(),
     ships: {}
   })
-  lib.createBuildingRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
+  lib.createReciprocalRelationship(town, docks, docks.associatedNPC, { relationship: 'stevedore', reciprocalRelationship: 'place of employment' })
 
   docks.name = lib.toTitleCase([
     `The ${['Old', 'New', '', ''].random()} ${[`${town.name}`, `${town.name}`, '', '', ''].random()} ${docks.wordNoun.toUpperFirst()}`,

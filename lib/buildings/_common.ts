@@ -79,9 +79,9 @@ export interface BuildingRolls {
   sin: number
 }
 
-export interface BuildingRelationship {
+export interface ReciprocalRelationship {
   key: string
-  buildingKey: string
+  otherKey: string
   npcKey: string
   relationship: string
   reciprocalRelationship: string
