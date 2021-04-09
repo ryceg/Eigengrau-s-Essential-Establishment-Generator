@@ -11,7 +11,7 @@ export const createSmithy = (town: Town, opts: Options = {}) => {
   console.groupCollapsed('Smithy loading...')
   smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts.npc))
   smithy.associatedNPC.owner = lib.random(lib.smithyData.owner)
-  lib.createBuildingRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
+  lib.createReciprocalRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   setup.createSmithyName(town, smithy)
   lib.createStructure(town, smithy)
   lib.assign(smithy, {
