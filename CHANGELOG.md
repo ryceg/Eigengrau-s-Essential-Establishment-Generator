@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.8
 
 ### Added
 - Lizardfolk (thanks, Sytone!)
@@ -21,19 +21,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Ability to edit existing relationships, and add descriptions.
 - Print @media CSS to make printing pages at least slightly prettier (though you should definitely use the exporters!)
 - Add NPCs to roads.
+- Religion system (still very buggy)
+- Pendragon style personalities that feed into stress and calm traits
+- New alternate splash image for cities and towns by Juho Huttunen
 
 ### Changes
+- Fixed customers and faction NPCs not respecting the parameters passed to them.
+- Fixed faction leader error in profiles.
 - Fixed some images not displaying properly in the GMBinder export.
 - Updated fonts (j was not rendering correctly) (thanks Ners!)
 - New version of Tippy
 - Title on sidebar is no longer an image
 - Population distribution tooltip now is presented as an ordered list
+- Fixed some issues in NPC editing
 - Relationships in the NPC edit page now delete the relationship, rather than the whole entity.
 
 ### Removed
-- Taverns doubling as brothels (temporarily)
+- Removed taverns doubling as brothels (temporarily)
 - Removed many unnecessary wrapped span elements to make the output cleaner.
-- Blacksmith 'missions' to rework them.
+- Removed Blacksmith 'missions' to rework them.
 
 
 ## 2.7
