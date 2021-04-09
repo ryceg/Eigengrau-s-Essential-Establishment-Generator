@@ -50,7 +50,7 @@ export const createBuildingRelationshipNpc = (town: Town, building: Building, as
   lib.createBuildingRelationship(town, building, npc, {
     description: relationship?.description(building, npc),
     relationship: relationship?.relationships.building.relationship,
-    reciprocalRelationship: relationship?.relationships.building.reciprocalRelationship || relationship.relationships.building.relationship
+    reciprocalRelationship: relationship?.relationships.building.reciprocalRelationship || relationship?.relationships.building.relationship
   })
   console.log('4')
   return npc
