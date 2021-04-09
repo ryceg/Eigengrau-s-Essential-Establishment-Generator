@@ -1,6 +1,6 @@
 :: CreateNewNpc
 <span class="interactive-only"><<nobr>><<include "NPCListboxes">> -- <<button "Create NPC">>
-<<set $currentPassage.randomNPC to setup.createBuildingRelationshipNpc(
+<<set $currentPassage.randomNPC to setup.createReciprocalRelationshipNpc(
     $town, 
     $currentPassage, 
     $npcs[$currentPassage.associatedNPC.key], 

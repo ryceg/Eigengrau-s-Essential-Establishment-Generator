@@ -14,7 +14,7 @@ interface Args {
   relationshipKey: string
 }
 
-export const createBuildingRelationshipNpc = (town: Town, building: Building, associatedNPC: NPC, relationshipTable: Record<string, any>[], args: Args) => {
+export const createReciprocalRelationshipNpc = (town: Town, building: Building, associatedNPC: NPC, relationshipTable: Record<string, any>[], args: Args) => {
   // args: {
   //   objectKey?: 'building' - this is for if you're accessing a relationships object that has different names for the relationships
   //   relationshipKey?: 'relationship' - this is the discriminator for reciprocalRelationship / relationship
@@ -47,7 +47,7 @@ export const createBuildingRelationshipNpc = (town: Town, building: Building, as
     setup.createRelationship(town, associatedNPC, npc, { relationship: relationship.relationships.associatedNPC.relationship, reciprocalRelationship: relationship.relationships.associatedNPC.reciprocalRelationship })
   }
   console.log('3')
-  lib.createBuildingRelationship(town, building, npc, {
+  lib.createReciprocalRelationship(town, building, npc, {
     description: relationship?.description(building, npc),
     relationship: relationship?.relationships.building.relationship,
     reciprocalRelationship: relationship?.relationships.building.reciprocalRelationship || relationship?.relationships.building.relationship

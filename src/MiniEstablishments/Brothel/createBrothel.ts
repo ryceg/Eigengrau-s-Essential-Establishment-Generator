@@ -54,7 +54,7 @@ export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel 
     'nods at you', 'welcomes you warmly', 'smiles, greets you', 'raises a hand with a wave', 'sizes you up, before $associatedNPC.heshe nods at you', 'checks you out for just a moment before smiling at you', 'waves slightly in your direction', 'gives you you a slight nod', 'turns your way', 'frowns, but greets you just the same'
   ]
 
-  lib.createBuildingRelationship(town, brothel, brothel.associatedNPC, {
+  lib.createReciprocalRelationship(town, brothel, brothel.associatedNPC, {
     relationship: 'pimp',
     reciprocalRelationship: 'business',
     description: `Owns ${brothel.name}.`

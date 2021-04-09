@@ -4,7 +4,7 @@
 <div class='classTable'>
   <details><summary>Relationships</summary>
   <table>
-    <tr>
+      <tr>
       <th>Name</th>
       <th>Race</th>
       <th>Occupation</th>
@@ -20,8 +20,7 @@
       <<if $currentPassage.deleteEnabled>><td><<link "x">><<set _deleted to $npcs[_relationship.targetNpcKey]>><<run setup.deleteNPC($npcs[_relationship.targetNpcKey])>><<notify 5000>>Deleted _deleted.name<</notify>><<update>><</link>></td><</if>>
     </tr>
     <</for>>
-    <<set _buildingRelationships to lib.findBuildingRelationship($town, null, $npcs[$currentNPC.key])>>
-<<run console.log("RELATIONSHIPS:", _buildingRelationships)>>
+  <<set _buildingRelationships to lib.findReciprocalRelationships($town, null, $npcs[$currentNPC.key], 'building')>>
 <<if _buildingRelationships.length > 0>>
   <tr>
     <th>Building Name</th>
@@ -31,8 +30,9 @@
     <th>Relationship</th><</if>>
   </tr>
   <<for _buildingRelationship range _buildingRelationships>>
-    <<set _building to lib.findBuilding($town, _buildingRelationship.buildingKey)>>
+    <<set _building to lib.findBuilding($town, _buildingRelationship.otherKey)>>
     <<capture _building>>
+    <tr>
     <td><<profile _building _building.name>></td>
     <td><<print lib.toTitleCase(_building.wordNoun)>></td>
     <<if !$currentPassage.deleteEnabled>>
@@ -41,14 +41,47 @@
     <td><<if _buildingRelationship.description || _buildingRelationship.reciprocalRelationship>>
       <<print lib.createTippyFull(
         _buildingRelationship.description || 
-        lib.findInArray($town.buildings, "key", _buildingRelationship.buildingKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
+        lib.findInArray($town.buildings, "key", _buildingRelationship.otherKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
         lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship))>>
     <<else>>
       <<print lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship)>>
     <</if>></td>
   <<if $currentPassage.deleteEnabled>>
-    <td><td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td></td>
+    <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
   <</if>>
+  </tr>
+  <</capture>><</for>>
+<</if>>
+  <<set _factionRelationships to lib.findReciprocalRelationships($town, null, $npcs[$currentNPC.key], 'faction')>>
+<<if _factionRelationships.length > 0>>
+  <tr>
+    <th>Faction Name</th>
+    <th>Faction Type</th>
+    <<if $currentPassage.deleteEnabled>><th>Relationship</th><th>Delete</th><<else>>
+    <th></th>
+    <th>Relationship</th><</if>>
+  </tr>
+  <<for _factionRelationship range _factionRelationships>>
+    <<set _faction to $town.factions[_factionRelationship.otherKey]>>
+    <<capture _faction>>
+    <tr>
+    <td><<profile _faction _faction.name>></td>
+    <td><<print lib.toTitleCase(_faction.wordNoun)>></td>
+    <<if !$currentPassage.deleteEnabled>>
+      <td></td>
+    <</if>>
+    <td><<if _factionRelationship.description || _factionRelationship.reciprocalRelationship>>
+      <<print lib.createTippyFull(
+        _factionRelationship.description || 
+        lib.findInContainer($town.factions, "key", _factionRelationship.otherKey).name + " is " + lib.articles.output(_factionRelationship.reciprocalRelationship) + " to " + $npcs[_factionRelationship.npcKey].firstName, 
+        lib.toTitleCase(_factionRelationship.reciprocalRelationship || _factionRelationship.relationship))>>
+    <<else>>
+      <<print lib.toTitleCase(_factionRelationship.reciprocalRelationship || _factionRelationship.relationship)>>
+    <</if>></td>
+  <<if $currentPassage.deleteEnabled>>
+    <td><<link "x">><<run setup.deleteFaction($town, _faction)>><<update>><</link>></td>
+  <</if>>
+  </tr>
   <</capture>><</for>>
 <</if>>
   </table>

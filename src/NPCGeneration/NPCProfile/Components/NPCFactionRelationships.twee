@@ -1,0 +1,33 @@
+:: NPCFactionRelationships
+<<set _factionRelationships to lib.findReciprocalRelationships($town, null, $npcs[$currentNPC.key], 'faction')>>
+<<if _factionRelationships.length > 0>>
+  <tr>
+    <th>Faction Name</th>
+    <th>Faction Type</th>
+    <<if $currentPassage.deleteEnabled>><th>Relationship</th><th>Delete</th><<else>>
+    <th></th>
+    <th>Relationship</th><</if>>
+  </tr>
+  <<for _factionRelationship range _factionRelationships>>
+    <<set _faction to $town.factions[_factionRelationship.otherKey]>>
+    <<capture _faction>>
+    <tr>
+    <td><<profile _faction _faction.name>></td>
+    <td><<print lib.toTitleCase(_faction.wordNoun)>></td>
+    <<if !$currentPassage.deleteEnabled>>
+      <td></td>
+    <</if>>
+    <td><<if _factionRelationship.description || _factionRelationship.reciprocalRelationship>>
+      <<print lib.createTippyFull(
+        _factionRelationship.description || 
+        lib.findInContainer($town.factions, "key", _factionRelationship.otherKey).name + " is " + lib.articles.output(_factionRelationship.reciprocalRelationship) + " to " + $npcs[_factionRelationship.npcKey].firstName, 
+        lib.toTitleCase(_factionRelationship.reciprocalRelationship || _factionRelationship.relationship))>>
+    <<else>>
+      <<print lib.toTitleCase(_factionRelationship.reciprocalRelationship || _factionRelationship.relationship)>>
+    <</if>></td>
+  <<if $currentPassage.deleteEnabled>>
+    <td><<link "x">><<run setup.deleteFaction($town, _faction)>><<update>><</link>></td>
+  <</if>>
+  </tr>
+  <</capture>><</for>>
+<</if>>

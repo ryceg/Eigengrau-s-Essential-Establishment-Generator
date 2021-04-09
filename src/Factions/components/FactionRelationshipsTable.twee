@@ -1,6 +1,10 @@
 :: FactionRelationshipsTable
-<div id="BuildingRelationshipsTable"><<nobr>><<set _factionRelationships to lib.findBuildingRelationship($town, $town.factions[$currentPassage.key], null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_factionRelationships)>>
-<<if _factionRelationships.length > 0>><div class='classTable'>
+<div id="BuildingRelationshipsTable"><<nobr>>
+<<set _factionRelationships to lib.findReciprocalRelationships($town, $town.factions[$currentPassage.key], null, 'faction')>>
+<<run console.log("RELATIONSHIPS:")>>
+<<run console.log(_factionRelationships)>>
+/* <<if _factionRelationships.length > 0>> */
+<div class='classTable'>
   <details><summary>Relationships</summary>
 <table>
 <tr>
@@ -20,4 +24,6 @@
     )>></td></tr>
 <</for>>
 </table></details>
-</div><</if>><</nobr>></div>
+</div>
+/* <</if>> */
+<</nobr>></div>

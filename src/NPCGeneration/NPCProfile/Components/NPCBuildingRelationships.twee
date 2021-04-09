@@ -1,0 +1,33 @@
+:: NPCBuildingRelationships
+<<set _buildingRelationships to lib.findReciprocalRelationships($town, null, $npcs[$currentNPC.key], 'building')>>
+<<if _buildingRelationships.length > 0>>
+  <tr>
+    <th>Building Name</th>
+    <th>Building Type</th>
+    <<if $currentPassage.deleteEnabled>><th>Relationship</th><th>Delete</th><<else>>
+    <th></th>
+    <th>Relationship</th><</if>>
+  </tr>
+  <<for _buildingRelationship range _buildingRelationships>>
+    <<set _building to lib.findBuilding($town, _buildingRelationship.otherKey)>>
+    <<capture _building>>
+    <tr>
+    <td><<profile _building _building.name>></td>
+    <td><<print lib.toTitleCase(_building.wordNoun)>></td>
+    <<if !$currentPassage.deleteEnabled>>
+      <td></td>
+    <</if>>
+    <td><<if _buildingRelationship.description || _buildingRelationship.reciprocalRelationship>>
+      <<print lib.createTippyFull(
+        _buildingRelationship.description || 
+        lib.findInArray($town.buildings, "key", _buildingRelationship.otherKey).name + " is " + lib.articles.output(_buildingRelationship.reciprocalRelationship) + " to " + $npcs[_buildingRelationship.npcKey].firstName, 
+        lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship))>>
+    <<else>>
+      <<print lib.toTitleCase(_buildingRelationship.reciprocalRelationship || _buildingRelationship.relationship)>>
+    <</if>></td>
+  <<if $currentPassage.deleteEnabled>>
+    <td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
+  <</if>>
+  </tr>
+  <</capture>><</for>>
+<</if>>

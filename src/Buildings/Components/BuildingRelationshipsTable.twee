@@ -1,5 +1,5 @@
 :: BuildingRelationshipsTable
-<div id="BuildingRelationshipsTable"><<nobr>><<set _buildingRelationships to lib.findBuildingRelationship($town, lib.findInArray($town.buildings, "key", $currentPassage.key), null)>><<run console.log("RELATIONSHIPS:")>><<run console.log(_buildingRelationships)>>
+<div id="BuildingRelationshipsTable"><<nobr>><<set _buildingRelationships to lib.findReciprocalRelationships($town, lib.findInArray($town.buildings, "key", $currentPassage.key), null, 'building')>><<run console.log("RELATIONSHIPS:")>><<run console.log(_buildingRelationships)>>
 <<if _buildingRelationships.length > 0>><div class='classTable'>
 <table>
 <tr>
@@ -14,7 +14,7 @@
   <td><<print lib.createTippyFull(_profession.description.toUpperFirst(), $npcs[_buildingRelationships[_i].npcKey].profession.toUpperFirst())>></td>
   <td><<if _buildingRelationships[_i].description || _buildingRelationships[_i].reciprocalRelationship>><<print lib.createTippyFull(
     _buildingRelationships[_i].description || 
-    lib.findInArray($town.buildings, "key", _buildingRelationships[_i].buildingKey).name + " is " + lib.articles.output(_buildingRelationships[_i].reciprocalRelationship) + " to " + $npcs[_buildingRelationships[_i].npcKey].firstName, 
+    lib.findInArray($town.buildings, "key", _buildingRelationships[_i].otherKey).name + " is " + lib.articles.output(_buildingRelationships[_i].reciprocalRelationship) + " to " + $npcs[_buildingRelationships[_i].npcKey].firstName, 
     lib.toTitleCase(_buildingRelationships[_i].relationship))>><<else>><<print lib.toTitleCase(_buildingRelationships[_i].relationship)>><</if>></td></tr>
 <</for>>
 </table>
