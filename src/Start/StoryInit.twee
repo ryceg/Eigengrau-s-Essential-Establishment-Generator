@@ -11,6 +11,8 @@
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
 			lib.badges.stats.githubStars, 
+			lib.badges.stats.monthlyActivity,
+			lib.badges.stats.timeSinceLastCommit,
 			lib.badges.stats.linesOfCode].random(), 
 			{imgArgs: 'style=width:100%', link: 'https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/'
 		})
