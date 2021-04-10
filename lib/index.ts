@@ -34,6 +34,9 @@ export * from './constructs/spider'
 export * from './constructs/tree'
 export * from './constructs/wolf'
 
+export * from './docks/_common'
+export * from './docks/docksData'
+
 export * from './faction/_common'
 export * from './faction/createAllies'
 export * from './faction/createLeaderGroup'

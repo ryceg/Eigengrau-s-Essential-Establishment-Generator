@@ -1,8 +1,8 @@
-import { Ship } from './createDocks'
+import { Town, NPC } from '@lib'
+import { Building } from 'lib/buildings/_common'
 
-export interface Setup {
-  initDocks(): void
-  docks: {
+// TODO DocksData is currently not being used.
+export interface DocksData {
     rollData: {
       cleanliness: {
         description: string
@@ -38,21 +38,62 @@ export interface Setup {
       hullDesc: string[]
       shipDetail: string[]
       eventDetail: string[]
-      type: Record<string, ShipType>
+      type: Record<string, ShipTypeData>
       captain: Record<string, Partial<NPC>>
       rollData: {
         cleanliness: [number, string][]
         size: [number, string][]
       }
     }
-  }
 }
-
-interface ShipType {
+export interface ShipTypeData {
   masts: number,
   rigging: string,
   length: number,
   purpose: string[],
   hasOars: boolean,
   crewMen: number
+}
+
+export interface Docks extends Building {
+  notableFeature: string
+  notice: string
+  passageName: string
+  initPassage: string
+  buildingType: string
+  associatedNPC: NPC
+  wordNoun: string
+  ships: Record<string, Ship>
+}
+
+export interface Ship {
+  name: string
+  type: string
+  captainType: string
+  hull: string
+  detail: string
+  event: string
+  roll: {
+    size: number
+    cleanliness: number
+  }
+  captain: NPC
+  size: string
+  cleanliness: string
+}
+
+interface Customer {
+  relationshipDescription: string
+  relationships: {
+    building?: {
+      relationship: string
+      reciprocalRelationship?: string
+    }
+    associatedNPC?: {
+      relationship: string
+      reciprocalRelationship: string
+    }
+  }
+  base?: Partial<NPC>
+  description(docks: Docks, npc: NPC): string
 }

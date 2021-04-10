@@ -12,5 +12,5 @@
   \<<set _feet = Math.trunc($currentShip.length / 12)>>\
   \<<print _feet + " feet.">>\ <</if>> It is <<print lib.articles.output($currentShip.size)>> <<print $currentShip.purpose.random()>> ship $currentShip.cleanliness.
     <br>The hull of the ship $currentShip.hull. On board you notice $currentShip.detail. The crew are currently $currentShip.event. 
-     <br><<link "Meet one of the Crew">><<set $currentShip.crew to setup.docks.ships.crew.create($town, $building)>><<update>><</link>>
+     <br><<link "Meet one of the Crew">><<set $currentShip.crew to lib.docksData.ships.crew.create($town, $building)>><<update>><</link>>
 <<liveblock>><div id="crew"><<if def $currentShip.crew>>$currentShip.crew<</if>></div><</liveblock>>
