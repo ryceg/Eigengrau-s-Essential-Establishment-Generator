@@ -1,5 +1,5 @@
 :: Breadcrumb
-<<nobr>><<liveblock>>
+<<liveblock>><<nobr>>
   <<set $town.ignoreGender to settings.ignoreGender>>
     <nav><<link "The $town.type of $town.name">>
       <<if $town.generated === 'biome'>><<set $town to setup.createTown($town)>><</if>>
@@ -11,7 +11,7 @@
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>>
   <<capture _i, _passage, _link>>
     <<if _i < $history.length - 1>>
-        \<nav class="breadcrumb-link">
+        <nav class="breadcrumb-link">
           <<link _link _passage.passageName>>
             <<set $currentPassage to _passage.data>>
             <<run $history.length = _i>>
@@ -22,8 +22,8 @@
   <</capture>>
 <</for>>
 <<if def $history.last()>>
-  \<nav class="breadcrumb-link last">
+  <nav class="breadcrumb-link last">
     <<print lib.toTitleCase($history.last().linkDescription)>>
   </nav>
 <</if>>
-<</liveblock>><</nobr>>
+<</nobr>><</liveblock>>
