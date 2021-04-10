@@ -1028,6 +1028,7 @@ export const terrain: Record<Biome, TerrainData> = {
 
 // export const terrain = makeTerrain()
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionKeys<T> = T extends any ? keyof T : never
 type Terrain = typeof terrain
 export type Locations = UnionKeys<Terrain[keyof Terrain]['location']>
