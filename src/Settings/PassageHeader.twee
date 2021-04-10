@@ -1,6 +1,2 @@
 :: PassageHeader
-<<nobr>>
-<header id="passage-header">
-  <<include "Breadcrumb">>
-</header>
-<</nobr>>
+<header id="passage-header"><<include "Breadcrumb">></header>
