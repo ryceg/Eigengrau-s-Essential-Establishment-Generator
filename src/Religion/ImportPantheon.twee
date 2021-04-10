@@ -2,7 +2,7 @@
 <<run $("body").on("change", ["button", 'input'], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>> -- <<lb>>
+<<lb>><<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>> --
 <<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
 <<if def $town.religion.customPantheon>>
 <<run State.metadata.set('pantheon', $town.religion.customPantheon)>>
