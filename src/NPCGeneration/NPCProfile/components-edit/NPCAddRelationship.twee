@@ -9,7 +9,7 @@ NPC to add a relationship with: <label name="add relationship" for="listbox-swap
   Reciprocal relationship: <<textbox "_newReciprocal" _sentiment>>
   Description: <<textbox "_newDescription" "">>
 <<button "Create Relationship">>
-  <<run setup.createRelationship($town, $npcs[$currentNPC.key], lib.findInContainer($npcs, 'name', _newRelationshipNpcName),
+  <<run setup.createRelationship($town, $npcs[$currentNPC.key], lib.findInContainer($npcs)('name', _newRelationshipNpcName),
   {
     relationship: _newRelationship,
     reciprocalRelationship: _newReciprocal,
