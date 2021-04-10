@@ -6,7 +6,7 @@
 <</nobr>>
 <<include "EditSociopolitics">>
 <<include "EditSliders">>
-----
+<hr>
 <<nobr>>
 <<include "EditRaces">>
 <<include "EditReligion">><<timed 0s>><<run tippy('[data-tippy-content]')>><</timed>><</nobr>>
