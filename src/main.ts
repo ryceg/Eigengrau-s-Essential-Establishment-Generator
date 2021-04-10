@@ -43,6 +43,7 @@ import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
 import { createSmithy } from './Blacksmith/js/createSmithy'
 import { createReciprocalRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
+import { createDocks } from './Docks/createDocks'
 
 declare global {
   interface Setup {
@@ -99,6 +100,7 @@ declare global {
     createSmithyName: typeof createSmithyName
     createSmithy: typeof createSmithy
     createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
+    createDocks: typeof createDocks
   }
 }
 
@@ -155,7 +157,8 @@ Object.assign(setup, {
   createBlacksmithProject,
   createSmithyName,
   createSmithy,
-  createReciprocalRelationshipNpc
+  createReciprocalRelationshipNpc,
+  createDocks
 })
 
 /**
@@ -172,7 +175,7 @@ setup.init = (setup => () => {
   setup.initNpcData()
   setup.initTavernData()
   setup.initGoodsAndServices()
-  setup.initDocks()
+  // setup.initDocks()
   setup.initCastle()
   setup.initBuildingTypes()
 })(setup)
