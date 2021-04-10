@@ -1,15 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { BinaryGender, RollArray, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics) => {
   const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
   const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
   const season = base.currentSeason || lib.random(['summer', 'autumn', 'winter', 'spring'])
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const townName = base.name || setup.createTownName(base)
   console.groupCollapsed(`${townName} is loading...`)
   console.log(base)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (!base) base = setup.createTownBiome()
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
@@ -26,10 +25,9 @@ export const createTown = (base: TownBasics) => {
       land: 5,
       tithe: 1
     },
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
     // @ts-ignore
     get type () {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return getTownType(this)
     },
@@ -204,22 +202,17 @@ export const createTown = (base: TownBasics) => {
 
   lib.clampRolls(town.roll)
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const genderRollData = lib.townData.rollData.equality[town.dominantGender] as TownRollData
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   lib.defineRollDataGetter(town, genderRollData.rolls as RollArray, 'equality', 'equality', 1)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   lib.defineRollDataGetter(town, genderRollData.rolls as RollArray, 'equalityDescription', 'equality', 2)
   const possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
   town.townMaterial = lib.getTownMaterial(possibleMaterials, town.roll.wealth, town.roll.size)
   lib.setMaterialProbability(town as unknown as Town, possibleMaterials)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   setup.createStartBuildings(town)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   setup.createStartFactions(town)
   setup.findPoliceSource(town as unknown as Town)
