@@ -65,7 +65,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
         })
         return this._demographicPercentile
       },
-      location: lib.random(lib.terrain[terrain].start),
+      location: lib.weightRandom(lib.terrain[terrain].start),
       primaryCrop: lib.random(lib.townData.misc.primaryCrop),
       primaryExport: lib.random(lib.townData.misc.primaryExport),
       landmark: lib.random(lib.townData.misc.landmark),

@@ -6,9 +6,9 @@ export type Biome = 'temperate' | 'tropical' | 'arid' | 'polar'
 export type Seasons = 'spring' | 'summer' | 'autumn' | 'winter'
 
 export interface TerrainData {
+  start: WeightRecord<Locations>
   weather: WeatherData
-   start: string[]
-   location: Record<string, LocationData>
+  location: Record<string, LocationData>
 }
 
 interface WeatherData {
@@ -26,6 +26,7 @@ interface TempVariation {
   temperatureTimer(): number
 }
 interface LocationData {
+  preposition: string
   precipitationIntensity: number
   origin: string[]
   vegetation: Record<string, number>
@@ -33,8 +34,17 @@ interface LocationData {
   possibleMaterials: string[]
 }
 
+// function makeTerrain<T extends X> () {
 export const terrain: Record<Biome, TerrainData> = {
   temperate: {
+    start: {
+      'seashore': 4,
+      'forest': 2,
+      'river coast': 2,
+      'hills': 1,
+      'plains': 1,
+      'mountains': 1
+    },
     weather: {
       tempVariation: {
         95: {
@@ -88,11 +98,11 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 60
         }
       }
-    },
-    start: ['seashore', 'seashore', 'seashore', 'seashore', 'forest', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'river coast'],
+    } as WeatherData,
     location: {
       // town.Name is located in the _
       'seashore': {
+        preposition: 'on',
         precipitationIntensity: 3,
         // town.Name grew around _
         origin: [
@@ -117,10 +127,11 @@ export const terrain: Record<Biome, TerrainData> = {
           'shrubs': 1,
           'bush': 1,
           'windswept trees': 1
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'forest': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -152,10 +163,11 @@ export const terrain: Record<Biome, TerrainData> = {
           'alder trees': 1,
           'cypress trees': 1,
           'yew trees': 1
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'hills': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -176,10 +188,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'plains': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a wide, navigable river',
@@ -197,10 +210,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'mountains': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -220,10 +234,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'river coast': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a coastal harbor',
@@ -239,12 +254,22 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       }
     }
   },
   tropical: {
+    start: {
+      'seacoast': 1,
+      'forest': 1,
+      'river coast': 2,
+      'jungle': 1,
+      'volcanic field': 1,
+      'hills': 1,
+      'plains': 1,
+      'mountains': 1
+    },
     weather: {
       tempVariation: {
         85: {
@@ -290,10 +315,10 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 75
         }
       }
-    },
-    start: ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'jungle', 'volcanic field'],
+    } as WeatherData,
     location: {
       'seacoast': {
+        preposition: 'on',
         precipitationIntensity: 3,
         origin: [
           'a coastal harbor',
@@ -315,10 +340,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'forest': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -340,10 +366,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -362,10 +389,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a wide, navigable river',
@@ -383,11 +411,12 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
 
       },
       'mountains': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -407,10 +436,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a coastal harbor',
@@ -426,10 +456,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'jungle': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a river navigable by small craft',
@@ -447,10 +478,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'volcanic field': {
+        preposition: 'on',
         precipitationIntensity: 3,
         origin: [
           'a large freshwater lake',
@@ -471,12 +503,21 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
   },
   arid: {
+    start: {
+      'oasis': 2,
+      'river coast': 2,
+      'desert': 1,
+      'wastelant': 1,
+      'hills': 1,
+      'plains': 1,
+      'mountains': 1
+    },
     weather: {
       tempVariation: {
         95: {
@@ -530,10 +571,10 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 75
         }
       }
-    },
-    start: ['desert', 'hills', 'plains', 'mountains', 'river coast', 'wasteland', 'oasis'],
+    } as WeatherData,
     location: {
       'desert': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a coastal harbor',
@@ -547,19 +588,18 @@ export const terrain: Record<Biome, TerrainData> = {
           'a well-traveled crossroads',
           'a water source and a well-traveled road'],
         vegetation: {
-          desolate: 3,
-          sparse: 1,
-          lush: 4,
-          thick: 3
+          desolate: 5,
+          sparse: 4
         },
         plants: {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw']
       },
       'forest': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -575,17 +615,18 @@ export const terrain: Record<Biome, TerrainData> = {
         vegetation: {
           desolate: 2,
           sparse: 1,
-          lush: 3,
+          lush: 2,
           thick: 6
         },
         plants: {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -606,10 +647,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a wide, navigable river',
@@ -619,19 +661,18 @@ export const terrain: Record<Biome, TerrainData> = {
           'a well-traveled crossroads',
           'a water source and a well-traveled road'],
         vegetation: {
-          desolate: 5,
-          sparse: 5,
-          lush: 1,
-          thick: 1
+          desolate: 3,
+          sparse: 5
         },
         plants: {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'mountains': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -645,17 +686,17 @@ export const terrain: Record<Biome, TerrainData> = {
         vegetation: {
           desolate: 5,
           sparse: 5,
-          lush: 1,
-          thick: 1
+          lush: 1
         },
         plants: {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a coastal harbor',
@@ -672,10 +713,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'wasteland': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a road traveled by merchants on the way to another, larger city',
@@ -692,10 +734,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'oasis': {
+        preposition: 'in',
         precipitationIntensity: 1,
         origin: [
           'a series of natural springs',
@@ -714,12 +757,22 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
   },
   polar: {
+    start: {
+      'seacoast': 2,
+      'forest': 2,
+      'river coast': 1,
+      'hills': 1,
+      'plains': 1,
+      'mountains': 1,
+      'tundra': 1,
+      'ice sheet': 1
+    },
     weather: {
       tempVariation: {
         100: {
@@ -773,10 +826,10 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 30
         }
       }
-    },
-    start: ['seacoast', 'forest', 'hills', 'plains', 'mountains', 'river coast', 'tundra', 'ice sheet', 'seacoast'],
+    } as WeatherData,
     location: {
       'seacoast': {
+        preposition: 'on',
         precipitationIntensity: 3,
         origin: [
           'a coastal harbor',
@@ -799,10 +852,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'forest': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -825,10 +879,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'hills': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -849,10 +904,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'plains': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a wide, navigable river',
@@ -871,10 +927,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'mountains': {
+        preposition: 'in',
         precipitationIntensity: 2,
         origin: [
           'a large freshwater lake',
@@ -895,10 +952,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'river coast': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a coastal harbor',
@@ -915,10 +973,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'tundra': {
+        preposition: 'on',
         precipitationIntensity: 2,
         origin: [
           'a wide, navigable river',
@@ -936,10 +995,11 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'ice sheet': {
+        preposition: 'on',
         precipitationIntensity: 3,
         origin: [
           'a wide, navigable river',
@@ -957,9 +1017,18 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        },
+        } as WeightRecord<string>,
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       }
     }
   }
 }
+// return terrain
+// }
+
+// export const terrain = makeTerrain()
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UnionKeys<T> = T extends any ? keyof T : never
+type Terrain = typeof terrain
+export type Locations = UnionKeys<Terrain[keyof Terrain]['location']>

@@ -2,8 +2,9 @@ import { NPC } from '../npc-generation/_common'
 import { Town } from '../town/_common'
 import { Building } from './_common'
 import { findReciprocalRelationships } from './findReciprocalRelationships'
+import { Faction } from '@lib'
 
-export function deleteReciprocalRelationship (town: Town, building: Building | null, npc: NPC | null) {
+export function deleteReciprocalRelationship (town: Town, building: Building | Faction | null, npc: NPC | null) {
   const relationships = findReciprocalRelationships(town, building, npc, 'building')
 
   for (const relationship of relationships) {

@@ -11,7 +11,7 @@ $(document).on(':dialogopened', function () {
     },
     () => setup.openDialog({
       header: 'Pantheon Setup',
-      passage: 'ImportPantheon',
+      passage: 'EditPantheon',
       rerender: true
     })
     )
@@ -26,8 +26,41 @@ $(document).on(':dialogopened', function () {
       Dialog.close()
     }
     )
+    setup.addSettingButton({
+      target: 'tutorial',
+      name: 'patreon',
+      description: patreonContent(),
+      buttonDescription: buttonName()
+    },
+    () => {
+      if (isPatron()) {
+        return window.open('https://www.patreon.com/join/eigengrausgenerator?', 'Patreon')
+      } else {
+        setup.openDialog({
+          header: 'Patreon Content',
+          passage: 'ImportPatreon',
+          rerender: true
+        })
+      }
+    }
+    )
   }
 })
+
+function buttonName () {
+  if (isPatron()) return 'Visit Patreon page'
+  return 'Enter Code'
+}
+
+function isPatron () {
+  if (State.metadata.get('patreonPass') === State.variables._) return true
+  return false
+}
+
+function patreonContent () {
+  if (isPatron()) return 'Patreon content is unlocked.'
+  return 'Patreon content is not currently unlocked.'
+}
 
 Setting.addHeader('Content Settings')
 

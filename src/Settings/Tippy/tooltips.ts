@@ -106,7 +106,7 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, per
   const tip = $(`<span class='tip dotted'>${content}</span>`)
   tippy(tip.get(0), {
     content: source,
-    interactive: false,
+    interactive: true,
     allowHTML: true
   })
   const htmlTarget = Array.from(document.getElementsByClassName(target))
@@ -127,6 +127,17 @@ export function createReligionHTML (percentages: Record<string, number>, target:
   const list = lib.formatPercentile(array as [string, number][])
   const html = lib.formatAsList(list)
   createPercentageTooltip(html, target, percentages, lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
+  const button = $('<button/>', {
+    text: 'Edit',
+    click () {
+      setup.openDialog({
+        header: 'Edit Pantheon',
+        passage: 'EditPantheon',
+        rerender: true
+      })
+    }
+  })
+  $(button).appendTo(html)
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

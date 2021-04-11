@@ -1,0 +1,44 @@
+:: EditPantheon [nobr]
+<<run $("body").on("change", ["button", 'input'], function() {
+  $(document).trigger(":liveupdate");
+});>>
+<<lb>><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><</button>><</if>> --
+<<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
+<<if def $town.religion.customPantheon or State.metadata.has('pantheon')>>
+<<run State.metadata.set('pantheon', $town.religion.customPantheon)>>
+ -- 
+  <<button "Delete custom pantheon">>
+    <<if lib.isUsingCustomPantheon($town, State.metadata.get('pantheon'))>>
+      <<set $town.religion.pantheon to 'greek'>>
+    <</if>>
+    <<set $town.religion.customPantheon to {}>><<update>>
+  <<run State.metadata.delete('pantheon')>>
+  <</button>>
+<</if>> -- <<button "Refresh">><<update>><</button>>
+<ol>
+<<if _isPatron === false>><li>Join the Patreon at the Hero or higher tier [[here|https://www.patreon.com/join/eigengrausgenerator?]]</li>
+<li>Find the code in the [[welcome note|https://www.patreon.com/eigengrausgenerator/membership]]</li>
+<li>Enter it <<link "here">><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><</link>></li>
+<</if>>
+<li>Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon {{{.json}}} file online, or in our Discord server.</li>
+<li>Select desired pantheon from the drop-down menu.</li>
+</ol>
+<hr>
+<<if lib.isUsingCustomPantheon($town, State.metadata.get('pantheon')) === false>><details style="height:270px; overflow:auto"><summary>Current Pantheon Data for <b><<print lib.getPantheon($town, State.metadata.get('pantheon')).name>></b> loaded:</summary>
+<<print JSON.stringify(lib.getPantheon($town, State.metadata.get('pantheon')))>>
+</details>
+<hr><</if>>
+Custom patheon name: <<if lib.seeIfCustomPantheonExists($town, State.metadata.get('pantheon'))>><b><<print lib.getCustomPantheon($town, State.metadata.get('pantheon')).name>></b>
+<details style="height:90%; overflow:auto"><summary>Custom Pantheon Data:</summary>
+<<print JSON.stringify(lib.getCustomPantheon($town, State.metadata.get('pantheon')))>>
+</details>
+<<else>>none currently loaded<</if>>
+<</lb>>
