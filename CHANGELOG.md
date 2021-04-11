@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.1
+
+### Added
+- Button to edit pantheon in dropdown religion percentage list
+- Clearer delineation of what is and isn't Patron content.
+
+### Changed
+- Made Patreon paywall deactivate if being run locally.
+- Fixed error with town editing
+- Fixed sidebar popups not showing up
+- Fixed error with faction editing
+- Fixed error with editing town biome 
+
 ## 2.8
 
 ### Added

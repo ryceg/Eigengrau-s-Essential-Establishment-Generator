@@ -1,0 +1,10 @@
+:: ImportDiscriminator
+<<include "Auth">><<if State.metadata.get('patreonPass') === $_>><<run setup.openDialog({
+      header: 'Pantheon Setup',
+      passage: 'EditPantheon',
+      rerender: true
+    })>><<else>><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><</if>>

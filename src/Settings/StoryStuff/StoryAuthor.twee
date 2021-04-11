@@ -2,14 +2,14 @@
 Created by /u/rcgy
 <span class="version">v[[setup.data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
 <<nobr>><<if settings.hideAds !== true>>
-<span class="tip" data-tippy-content="Thank you for your continued support!" id="patreon">
+<span class="tip sidebarAds" data-tippy-content="Thank you for your continued support!" id="patreon">
     <<print lib.createBadge(lib.badges.stats.patreonSupporters, {imgArgs: 'style=width:100%'})>>
     /* , imgArgs: "style='width:100%'" */
 </span>
-<span class="tip" data-tippy-content="Come join our community!" id='discord'>
+<span class="tip sidebarAds" data-tippy-content="Come join our community!" id='discord'>
     <<print lib.createBadge(lib.badges.stats.discordOnline, {imgArgs: 'style=width:100%'})>>
 </span>
-<span class="tip" data-tippy-content="Check out the repository!" id='github'>
+<span class="tip sidebarAds" data-tippy-content="Check out the repository!" id='github'>
     <<print setup.data.badges.github>>
 </span>
 <div id="fun">
@@ -17,5 +17,5 @@ Created by /u/rcgy
     $(output).append(setup.data.badges.fun);
   <</script>>
 </div>
-
+<<run tippy('.sidebarAds')>>
 <</if>><</nobr>>

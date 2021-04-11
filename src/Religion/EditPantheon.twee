@@ -1,10 +1,14 @@
-:: ImportPantheon [nobr]
+:: EditPantheon [nobr]
 <<run $("body").on("change", ["button", 'input'], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<lb>><<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>> --
+<<lb>><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><</button>><</if>> --
 <<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
-<<if def $town.religion.customPantheon>>
+<<if def $town.religion.customPantheon or State.metadata.has('pantheon')>>
 <<run State.metadata.set('pantheon', $town.religion.customPantheon)>>
  -- 
   <<button "Delete custom pantheon">>
@@ -16,6 +20,14 @@
   <</button>>
 <</if>> -- <<button "Refresh">><<update>><</button>>
 <ol>
+<<if _isPatron === false>><li>Join the Patreon at the Hero or higher tier [[here|https://www.patreon.com/join/eigengrausgenerator?]]</li>
+<li>Find the code in the [[welcome note|https://www.patreon.com/eigengrausgenerator/membership]]</li>
+<li>Enter it <<link "here">><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><</link>></li>
+<</if>>
 <li>Import custom pantheon as a valid {{{.json}}} file. You can access a template of the pantheon {{{.json}}} file online, or in our Discord server.</li>
 <li>Select desired pantheon from the drop-down menu.</li>
 </ol>

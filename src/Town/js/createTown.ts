@@ -52,6 +52,11 @@ export const createTown = (base: TownBasics) => {
     get religionPercentages () {
       return lib.getPantheonPercentages(this as unknown as Town)
     },
+    set religionPercentages (data: Record<string, number>) {
+      console.warn('Trying to set religion percentages, which is a read-only!')
+      console.log(this.religionPercentages)
+      console.log(data)
+    },
     set religionProbabilities (data: Record<string, number>) {
       console.groupCollapsed('Setting religion probabilities!')
       this.religion._probabilities = data

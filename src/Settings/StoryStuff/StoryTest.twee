@@ -1,0 +1,2 @@
+:: Auth
+<<if State.variables._ === $tovvn>><<set setup.data.isPatron to true>><<run State.metadata.set('patreonPass', $tovvn)>><<notify 5000>>Patreon features unlocked! Thank you :)<</notify>><</if>>
