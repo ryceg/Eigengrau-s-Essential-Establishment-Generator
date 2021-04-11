@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Button to edit pantheon in dropdown religion percentage list
 - Clearer delineation of what is and isn't Patron content.
+- Automatic removal of analytics for local-run copies
+- Automatic unlocking of Patreon content on local copies
 
 ### Changed
 - Made Patreon paywall deactivate if being run locally.
