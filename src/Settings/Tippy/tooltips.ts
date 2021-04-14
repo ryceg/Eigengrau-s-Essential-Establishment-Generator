@@ -137,6 +137,7 @@ export function createReligionHTML (percentages: Record<string, number>, target:
       })
     }
   })
+  // .addClass('ignore-remove')
   $(button).appendTo(html)
 }
 
@@ -150,5 +151,7 @@ tippy.setDefaultProps({
   theme: 'blockquote',
   // theme: 'descriptive',
   allowHTML: true,
+  hideOnClick: 'toggle',
+  trigger: 'click',
   inertia: true
 })

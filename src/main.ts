@@ -43,6 +43,10 @@ import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
 import { createSmithy } from './Blacksmith/js/createSmithy'
 import { createReciprocalRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
+import { outputEverything } from './Tools/Exports/outputEverything'
+import { exportAsHtml } from './Tools/Exports/exportAsHtml'
+import { outputGMBinder } from './Tools/Exports/outputGMBinder'
+import { copyText } from './Tools/Exports/clipboard'
 
 declare global {
   interface Setup {
@@ -99,6 +103,10 @@ declare global {
     createSmithyName: typeof createSmithyName
     createSmithy: typeof createSmithy
     createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
+    outputEverything: typeof outputEverything
+    exportAsHtml: typeof exportAsHtml
+    outputGMBinder: typeof outputGMBinder
+    copyText: typeof copyText
   }
 }
 
@@ -155,7 +163,11 @@ Object.assign(setup, {
   createBlacksmithProject,
   createSmithyName,
   createSmithy,
-  createReciprocalRelationshipNpc
+  createReciprocalRelationshipNpc,
+  outputEverything,
+  exportAsHtml,
+  copyText,
+  outputGMBinder
 })
 
 /**

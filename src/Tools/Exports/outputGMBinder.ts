@@ -1,4 +1,4 @@
-setup.outputGMBinder = () => {
+export const outputGMBinder = () => {
   const output = setup.outputEverything()
   let string = addGMBinderPretext()
   string += output.town
@@ -10,7 +10,7 @@ setup.outputGMBinder = () => {
     buildings: 'buildings',
     factions: 'factions',
     NPCs: 'NPCs'
-  }
+  } as const
 
   for (const type in target) {
     string += addGMBinderPart(type)
@@ -25,7 +25,7 @@ setup.outputGMBinder = () => {
   return string
 }
 
-function addGMBinderPart (type) {
+function addGMBinderPart (type: string) {
   const partIllustrations = {
     buildings: `
 <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/img/hero/tavern-illustration.jpg?raw=true' class='cover-illustration'>
