@@ -47,7 +47,7 @@
 <<set _t to lib.books.normal>><<set $_ to ''>>
 <<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][4]>><</for>>
 <<if location.origin === 'file://'>><<set settings.disableAnalytics to true>><<run memorize('patreonPass', $_)>><<notify 10000>>Patreon features are unlocked since you're running locally.<</notify>>
-<<elseif >><<run memorize('patreonPass', $_)>><<set settings.hideAds to true>>
+<<elseif location.hash.includes('npt')>><<run memorize('patreonPass', $_)>><<set settings.hideAds to true>>
 <</if>>
 <<script>>
   const $fun = $(`<span id="fun" class="tip" />`).appendTo('#fun-container');
