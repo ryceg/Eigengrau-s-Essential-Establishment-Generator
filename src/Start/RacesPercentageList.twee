@@ -1,2 +1,2 @@
 :: RacesPercentageList
-<span class='tippy-races-percentage'></span><<timed 0s>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</timed>>
+<span class='tippy-races-percentage'></span><<done>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</done>>

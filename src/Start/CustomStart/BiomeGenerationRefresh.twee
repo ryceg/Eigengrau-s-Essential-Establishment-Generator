@@ -56,4 +56,4 @@ Politically, they are a
   <<listbox "$town.politicalSource" autoselect>>
     <<optionsfrom $listboxes.politicalSource>>
   <</listbox>>
-</label><</nobr>></span><</liveblock>></details><<timed 0s>><<run tippy('[data-tippy-content]')>><</timed>>
+</label><</nobr>></span><</liveblock>></details><<done>><<run tippy('[data-tippy-content]')>><</done>>
