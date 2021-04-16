@@ -18,7 +18,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   const associatedNPC = createChemist(town, opts)
 
-  lib.createReciprocalRelationship(town, alchemist, associatedNPC, {
+  lib.createReciprocalRelationship(town, alchemist as Building, associatedNPC, {
     relationship: 'owner',
     reciprocalRelationship: 'business'
   })
@@ -34,7 +34,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
     name: lib.createAlchemistName(associatedNPC.firstName)
   })
 
-  lib.createStructure(town, alchemist)
+  lib.createStructure(town, alchemist as Building)
 
   const { structure } = alchemist
   if (structure) {
@@ -49,8 +49,8 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
     lib.defineRollDataGetter(alchemist, rolls, propName)
   }
 
-  lib.alchemistModifiers(alchemist)
+  lib.alchemistModifiers(alchemist as Alchemist)
 
   console.groupEnd()
-  return alchemist
+  return alchemist as Alchemist
 }

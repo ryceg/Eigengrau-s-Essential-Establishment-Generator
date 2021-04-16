@@ -28,6 +28,8 @@ export interface Structure extends Location {
 }
 
 export interface Building extends Structure {
+  passageName: string
+  name: string
   priceModifier: number
   wealth?: string
   size?: string

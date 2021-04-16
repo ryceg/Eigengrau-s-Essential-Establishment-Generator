@@ -1,32 +1,32 @@
-:: DeityProfile
-\<<set $currentPassage to lib.findInArray(lib.getPantheon($town).gods, 'name', $currentPassage.name)>>
-\<h1 class="interactive-only">$currentPassage.name</h1>
+:: DeityProfile [nobr]
+<<set $currentPassage to lib.findInArray(lib.getPantheon($town).gods, 'name', $currentPassage.name)>>
+<h1 class="interactive-only">$currentPassage.name</h1>
 <button type='button' title='Coming to an update near you soon!' data-tippy-content='Coming to an update near you soon!' id="deity-edit" disabled>Edit $currentPassage.name</button>
-/* \<<button "Edit $currentPassage.name" DeitySliders>>
+/* <<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
 <</button>> */
-\<<include "Quotes">>
-/* \<<include "AlsoKnownAs">> */  
-\<<if $currentPassage.aliases>> 
-  \<<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases) + '.', $currentPassage.name.slice(1))>>
-\<<else>>
-  \<<print lib.firstCharacter($currentPassage.name)>>
-\<</if>>
-\, <<print lib.createTippyFull(lib.makeList($currentPassage.titles.slice(1)), $currentPassage.titles[0])>>, 
-\<<print lib.deityIsWas($currentPassage.status)>> the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. 
-\<<print lib.deityStatus($currentPassage)>> <<include "Symbol">> 
-\<<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<idp $currentPassage.realm "$currentPassage.name resides in $currentPassage.realm">>
-\<<idp $currentPassage.rank "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.">>
-\<<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.">>
-\<<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
-\<<include "Powers">>
-\<<include "Possessions">>
-\<<include "Followers">>
-\<<idp $currentPassage.beliefs "<h3>Beliefs</h3><<print lib.printInformation($currentPassage.beliefs)>>">>
-\<<idp $currentPassage.heresies "<h3>Heresies</h3><<print lib.printInformation($currentPassage.heresies)>>">>
-\<<idp $currentPassage.paragraphs "<<print lib.printInformation($currentPassage.paragraphs)>>">>
-\<<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">> <<idp $currentPassage.combat.tactics>>
-\<<include "Manifestations">>
-\<<include "DeityRelationships">>
-\<<idp $currentPassage.allies "<h3>Allies</h3><<print lib.printInformation($currentPassage.allies)>>">>
-\<<idp $currentPassage.enemies "<h3>Enemies</h3><<print lib.printInformation($currentPassage.enemies)>>">>
+<<include "Quotes">>
+/* <<include "AlsoKnownAs">> */  
+<<if $currentPassage.aliases>> 
+  <<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases) + '.', $currentPassage.name.slice(1))>>
+<<else>>
+  <<print lib.firstCharacter($currentPassage.name)>>
+<</if>>
+, <<print lib.createTippyFull(lib.makeList($currentPassage.titles.slice(1)), $currentPassage.titles[0])>>, 
+<<print lib.deityIsWas($currentPassage.status)>> the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. 
+<<print lib.deityStatus($currentPassage)>> <<include "Symbol">> 
+<<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<idp $currentPassage.realm "$currentPassage.name resides in $currentPassage.realm">>
+<<idp $currentPassage.rank "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.">>
+<<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.">>
+<<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
+<<include "Powers">>
+<<include "Possessions">>
+<<include "Followers">>
+<<idp $currentPassage.beliefs "<h3>Beliefs</h3><<print lib.printInformation($currentPassage.beliefs)>>">>
+<<idp $currentPassage.heresies "<h3>Heresies</h3><<print lib.printInformation($currentPassage.heresies)>>">>
+<<idp $currentPassage.paragraphs "<<print lib.printInformation($currentPassage.paragraphs)>>">>
+<<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">> <<idp $currentPassage.combat.tactics>>
+<<include "Manifestations">>
+<<include "DeityRelationships">>
+<<idp $currentPassage.allies "<h3>Allies</h3><<print lib.printInformation($currentPassage.allies)>>">>
+<<idp $currentPassage.enemies "<h3>Enemies</h3><<print lib.printInformation($currentPassage.enemies)>>">>

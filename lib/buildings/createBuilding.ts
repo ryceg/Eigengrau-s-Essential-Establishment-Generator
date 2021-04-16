@@ -11,7 +11,7 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   console.log('Creating base building...')
   console.log(base)
 
-  const building: Building = {
+  const building = {
     key: getUUID(),
     objectType: 'building',
     road: '',
@@ -41,9 +41,9 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   clampRolls(building.roll as unknown as Record<string, number>)
   if (base.road) {
     console.log('Road defined!')
-    lib.roads.addBuilding(town, town.roads[base.road], building)
+    lib.roads.addBuilding(town, town.roads[base.road], building as Building)
   }
-  if (!building.road) building.road = getBuildingRoad(building, town).key
+  if (!building.road) building.road = getBuildingRoad(building as Building, town).key
   assign(building, {
     material: generateBuildingMaterial(town, town.townMaterial, building.roll.wealth)
   })
