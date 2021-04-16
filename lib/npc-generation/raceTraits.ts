@@ -5,10 +5,8 @@ import { GenderName } from '../src/genderData'
 export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc' | 'lizardfolk'
 
 interface RaceTrait {
-  probability: number
   muscleMass: number
   bmiModifier: number
-  // TODO: code in orc as a viable "race"
   viableBreedingPartners?: string[]
   ageTraits: Record<AgeName, AgeTrait> & {
     ageDescriptors: ThresholdTable
@@ -47,7 +45,6 @@ export interface GenderTraits {
 
 export const raceTraits: Record<RaceName, RaceTrait> = {
   'dragonborn': {
-    probability: 1,
     muscleMass: 11,
     bmiModifier: 650,
     ageTraits: {
@@ -138,7 +135,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'dwarf': {
-    probability: 2,
     muscleMass: 11,
     bmiModifier: 500,
     ageTraits: {
@@ -232,7 +228,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'elf': {
-    probability: 2,
     muscleMass: 9,
     bmiModifier: 703,
     ageTraits: {
@@ -325,7 +320,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'gnome': {
-    probability: 1,
     muscleMass: 10,
     bmiModifier: 703,
     ageTraits: {
@@ -417,7 +411,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'goblin': {
-    probability: 1,
     muscleMass: 9,
     bmiModifier: 703,
     ageTraits: {
@@ -630,7 +623,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'half-elf': {
-    probability: 2,
     muscleMass: 10,
     bmiModifier: 703,
     viableBreedingPartners: ['human', 'elf', 'half-elf', 'half-orc'],
@@ -725,7 +717,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'halfling': {
-    probability: 1,
     muscleMass: 9,
     bmiModifier: 703,
     ageTraits: {
@@ -817,7 +808,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'half-orc': {
-    probability: 1,
     muscleMass: 12,
     bmiModifier: 600,
     viableBreedingPartners: ['human', 'orc', 'half-elf', 'half-orc'],
@@ -910,7 +900,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'human': {
-    probability: 6,
     muscleMass: 10,
     bmiModifier: 703,
     viableBreedingPartners: ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
@@ -1002,7 +991,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'tiefling': {
-    probability: 1,
     muscleMass: 10,
     bmiModifier: 703,
     viableBreedingPartners: ['human', 'tiefling'],
@@ -1094,7 +1082,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'orc': {
-    probability: 1,
     muscleMass: 12,
     bmiModifier: 600,
     viableBreedingPartners: ['human', 'orc', 'half-orc'],
@@ -1187,7 +1174,6 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     }
   },
   'lizardfolk': {
-    probability: 1,
     muscleMass: 12,
     bmiModifier: 600,
     viableBreedingPartners: ['lizardfolk'],
