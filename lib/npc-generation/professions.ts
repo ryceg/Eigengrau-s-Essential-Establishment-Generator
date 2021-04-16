@@ -1,9 +1,10 @@
 import { dice } from '../src/dice'
 import { random } from '../src/random'
-import { NPC, NpcRelationship, Relationship, SocialClassName } from './_common'
+import { NPC, NpcRelationship, Relationship } from './_common'
 import { Town } from '../town/_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
+import { SocialClassName } from '@lib'
 
 export type ProfessionType =
   | ''

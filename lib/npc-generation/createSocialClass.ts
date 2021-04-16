@@ -1,6 +1,6 @@
 import { Town } from '../town/_common'
-import { NPC, SocialClassName } from './_common'
-import { socialClass } from './socialClass'
+import { NPC } from './_common'
+import { socialClass, SocialClassName } from './socialClass'
 import { keys } from '../src/utils'
 import { findProfession } from '../src/findProfession'
 import { dice } from '../src/dice'
@@ -30,7 +30,7 @@ export function createSocialClass (town: Town, npc: NPC): void {
   const classArray = keys(socialClass)
   const newArray = []
 
-  for (const item in classArray) {
+  for (const item of classArray) {
     newArray.push([socialClass[item].socialClassRollThreshold, item])
   }
 
