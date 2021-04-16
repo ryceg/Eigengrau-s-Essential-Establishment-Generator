@@ -11,7 +11,7 @@ It creates towns from the ground up, with the biome impacting types of building 
 <</fadein>>
 
 <<fadein 1400ms 13s>>\
-Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted block" tabindex="0" data-tippy-content="Like this!">tooltips</span>, which provide <span class="tip dotted block" tabindex="0" data-tippy-content="Additional DM notes are displayed in tooltips that look like this!">quick additional information</span> that can be <span class="tip dotted description" tabindex="0" id="tutorial-example" data-tippy-content="Stuff that can be read out to players looks like this!">read out to players</span>.<<timed 0s>><<run tippy('.block')>><<run tippy('.description', { theme: 'descriptive'})>><</timed>>
+Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted block" tabindex="0" data-tippy-content="Like this!">tooltips</span>, which provide <span class="tip dotted block" tabindex="0" data-tippy-content="Additional DM notes are displayed in tooltips that look like this!">quick additional information</span> that can be <span class="tip dotted description" tabindex="0" id="tutorial-example" data-tippy-content="Stuff that can be read out to players looks like this!">read out to players</span>.<<done>><<run tippy('.block')>><<run tippy('.description', { theme: 'descriptive'})>><</done>>
 <</fadein>>
 
 <<fadein 1500ms 17s>>\
