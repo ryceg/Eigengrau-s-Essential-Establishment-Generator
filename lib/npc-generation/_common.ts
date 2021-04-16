@@ -7,14 +7,7 @@ import { GenderName } from '../src/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, AgeName } from './raceTraits'
-
-export type SocialClassName =
-  | 'indentured servitude'
-  | 'paupery'
-  | 'peasantry'
-  | 'commoner'
-  | 'nobility'
-  | 'aristocracy'
+import { SocialClassName } from '@lib'
 
 export interface NPC {
   key: string

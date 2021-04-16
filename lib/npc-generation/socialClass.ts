@@ -4,6 +4,7 @@ import { BackgroundName } from './backgroundTraits'
 import { ThresholdTable } from '../src/rollFromTable'
 import { LifestyleStandardName } from './lifestyleStandards'
 interface SocialClass {
+  /** landRate is a multiple, used in taxation. */
   landRate: number
   socialClassRollThreshold: number
   probability: number
@@ -18,9 +19,10 @@ interface Customer {
   description: string
 }
 
-export const socialClass: Record<string, SocialClass> = {
+function buildSocialClass<T extends Record<string, SocialClass>> (t: T) { return t }
+export const socialClass = buildSocialClass({
   'aristocracy': {
-    landRate: 3, // landRate is a multiple
+    landRate: 3,
     socialClassRollThreshold: 95,
     probability: 10,
     lifestyle: ['aristocratic'],
@@ -234,4 +236,6 @@ export const socialClass: Record<string, SocialClass> = {
       peasant: 8
     }
   }
-}
+})
+
+export type SocialClassName = keyof typeof socialClass

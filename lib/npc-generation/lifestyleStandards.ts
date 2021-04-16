@@ -1,6 +1,6 @@
+import { SocialClassName } from '@lib'
 import { HomeStructures } from 'lib/buildings/homeData'
 import { ThresholdTable } from '../src/rollFromTable'
-import { SocialClassName } from './_common'
 
 export interface LifestyleStandard {
   /** Percentage of their daily wage which goes towards their lifestyle. */
