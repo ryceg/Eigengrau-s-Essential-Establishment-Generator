@@ -151,7 +151,7 @@ tippy.setDefaultProps({
   theme: 'blockquote',
   // theme: 'descriptive',
   allowHTML: true,
-  hideOnClick: 'toggle',
-  trigger: 'click',
+  // hideOnClick: 'toggle',
+  // trigger: 'click',
   inertia: true
 })
