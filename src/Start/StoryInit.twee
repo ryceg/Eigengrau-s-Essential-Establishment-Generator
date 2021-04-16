@@ -5,7 +5,7 @@
 <<run setup.init()>>
 
 <<set setup.data to {
-	versionNumber: "2.8.1",
+	versionNumber: "2.8.3",
 	badges: {
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
