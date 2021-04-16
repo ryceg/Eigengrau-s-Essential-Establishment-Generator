@@ -1,5 +1,6 @@
 export const outputGMBinder = () => {
-  const output = setup.outputEverything()
+  const output = setup.outputEverything() as Record<string, any>
+
   let string = addGMBinderPretext()
   string += output.town
   string += addPageBreak()
@@ -10,13 +11,13 @@ export const outputGMBinder = () => {
     buildings: 'buildings',
     factions: 'factions',
     NPCs: 'NPCs'
-  } as const
+  }
 
   for (const type in target) {
     string += addGMBinderPart(type)
     string += addPageBreak()
-    for (const page in output[type]) {
-      string += `<h2>${output[type][page].name}</h2>${output[type][page].output}`
+    for (const page of output[type]) {
+      string += `<h2>${output[type as string][page as string].name}</h2>${output[type][page].output}`
       string += addPageBreak()
     }
     string += addPageBreak()
@@ -26,7 +27,7 @@ export const outputGMBinder = () => {
 }
 
 function addGMBinderPart (type: string) {
-  const partIllustrations = {
+  const partIllustrations: Record<string, string> = {
     buildings: `
 <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/src/Resources/img/hero/tavern-illustration.jpg?raw=true' class='cover-illustration'>
 
