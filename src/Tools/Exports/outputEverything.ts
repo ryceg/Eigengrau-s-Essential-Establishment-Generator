@@ -32,40 +32,28 @@ export const outputEverything = () => {
   return output
 }
 
-// const discriminateObjOrContainer = (obj) => {
-//   if (obj.)
-// }
-
-// const constructObject = (
-//   object: NPC | Faction | Building | Deity,
-//   output: string | Data = setup.exportAsHtml(object.passageName, object),
-//   name: string = object.name,
-//   key: string = object.key || lib.getUUID()) => {
-//   return {
-//     name,
-//     key,
-//     output
-//   }
-// }
+const constructObject = (
+  object: NPC | Faction | Building | Deity,
+  output: string | Data = setup.exportAsHtml(object.passageName, object),
+  name: string = object.name || object.passageName,
+  key: string = object.key || lib.getUUID()) => {
+  return {
+    name,
+    key,
+    output
+  }
+}
 
 const outputFromObject = (group: Record<string, NPC | Faction>, obj: Record<string, Data>) => {
-  for (const npc of Object.values(group)) {
-    obj[npc.key] = {
-      name: npc.name,
-      key: npc.key,
-      output: setup.exportAsHtml(npc.passageName, npc)
-    } as Data
+  for (const instance of Object.values(group)) {
+    obj[instance.key] = constructObject(instance)
   }
   return obj
 }
 
 const outputFromArray = (group: Building[] | Deity[], obj: Record<string, Data>) => {
   for (const instance of group) {
-    obj[instance.key] = {
-      name: instance.name,
-      key: instance.key,
-      output: setup.exportAsHtml(instance.passageName, instance)
-    }
+    obj[instance.key] = constructObject(instance)
   }
   return obj
 }
