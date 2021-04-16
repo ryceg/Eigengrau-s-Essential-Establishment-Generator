@@ -245,14 +245,17 @@
       "Love yourself and buy something nice!",
       "Only a moron would ignore these low prices!",
       "Don't miss this chance!",
-      "This bargain can't be beat!"
+      "This bargain can't be beat!",
+      "Don't be the only one of your friends without one!",
+      "These are all the rage these days!"
     ],
     "tent": [
       "little push cart",
       "small, mule-drawn cart",
       "sizable ox-drawn wagon",
       "sizable horse-drawn wagon",
-      "handful of crates or chests the vendor has set up",
+      "handful of crates the vendor has set up",
+      "small cluster of chests with goods inside",
       "large rug on which the vendor has laid out the merchandise",
       "flimsy wooden booth",
       "sturdy wooden booth with a cotton awning",
@@ -271,13 +274,21 @@
       "makeshift looking booth",
       "nice looking storefront",
       "ramshackle storefront",
-      "very colorful caravan wagon"
+      "very colorful caravan wagon",
+      "fine looking fabric gazebo",
+      "wooden platform fastened to the back of a large pack animal",
+      "dingy looking market stall",
+      "ramshackle wooden lean-to",
+      "stained, ornate carpet laid on the ground",
+      "large wooly carpet on the ground",
+      "threadbare carpet spread out on the ground"
     ]
   },
   "location": [
     "a wide, rectangular plaza",
     "a large, circular plaza",
     "a large plaza in a pentagon shape",
+    "a small series of squares connected by paths",
     "the intersection of two wide roads",
     "a sprawling maze of small alleyways",
     "a sprawling maze of tunnels beneath the city streets",
@@ -344,13 +355,17 @@
     "the interesting things you can find",
     "the wonderful scents and colors of the merchandise",
     "the lovely and attractive merchants",
-    "the entertainers and musicians set up around the bazaar",
+    "the entertainers and musicians set up around the whole place",
     "having every type of food imaginable",
     "having trinkets from every corner of the world",
     "having cheap prices and friendly merchants",
     "having a lot of knockoff goods",
     "the loud phrases you hear buskers shout at passersby",
-    "being a pretty rough and tumble place"
+    "being a pretty rough and tumble place",
+    "having some truly bizarre merchandise for sale",
+    "having exotic merchants from far off places",
+    "the near deafening cries of the merchants",
+    "being a hotspot for fenced goods"
   ],
   "organisation": [
     "type of merchandise",
@@ -364,7 +379,8 @@
     "the social class to which the vendor caters",
     "order of arrival at the marketplace on any given day",
     "whoever got to what spot first",
-    "who bribed the market runners the most for the month"
+    "who bribed the market runners the most for the month",
+    "age, the merchants who have been selling here longer are always given the better spots"
   ],
   "crowd": [
     "basically empty, and no one is around to hear the cries of the merchants",

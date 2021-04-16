@@ -35,6 +35,7 @@ import { urlSeed } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { marketEvent } from './MiniEstablishments/Market/marketEventData'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
@@ -94,6 +95,7 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    marketEvent: typeof marketEvent
     createTownBiome: typeof createTownBiome
     createTownName: typeof createTownName
     createTown: typeof createTown
@@ -155,6 +157,7 @@ Object.assign(setup, {
   deleteFaction,
   leaderFaction,
   plothooks,
+  marketEvent,
   createTownBiome,
   createTownName,
   createTown,
