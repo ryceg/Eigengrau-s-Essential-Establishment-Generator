@@ -15,15 +15,17 @@ export const exportAsHtml = function (passageName: string, currentPassage?: any)
   $offshore = removeElement($offshore, '#illustration')
   $offshore = removeElement($offshore, '#illustration-buffer')
   removeProperty($offshore, 'tabindex')
+  removeProperty($offshore, 'aria-expanded')
   $offshore.find('.macro-link').removeClass('macro-link')
   $offshore = removeElement($offshore, '#paper')
   $offshore = removeElement($offshore, '.error-view')
   $offshore = removeElement($offshore, '.macro-timed')
   $offshore = removeElement($offshore, '.temporarily-removed')
+  // interactive-only gets scrubbed twice because of hidden links.
   $offshore = removeElement($offshore, '.interactive-only')
   swapElement($offshore, 'data-tippy-content', 'title')
-  // if you need to escape the characters, you can use ${Util.escape($offshore.html())}
 
+  // if you need to escape the characters, you can use ${Util.escape($offshore.html())}
   return $offshore.html().trim()
 }
 
