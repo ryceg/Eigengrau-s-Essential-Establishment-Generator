@@ -220,6 +220,20 @@ export const badges = {
       message: 'AI Dungeon',
       logo: 'AI Dungeon'
       // link: 'https://play.aidungeon.io/'
+    },
+    {
+      label: 'No Brain',
+      message: 'Required'
+    },
+    {
+      label: 'I Cast',
+      message: 'Fireball',
+      color: 'red'
+    },
+    {
+      label: 'Do we',
+      message: 'level up yet',
+      color: 'green'
     }
   ] as Badge[],
   stats: {
