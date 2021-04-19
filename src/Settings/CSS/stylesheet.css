@@ -1,50 +1,50 @@
 
 :root {
-  --text-normal: #111;
-  --text-muted: #72767d;
-  --text-link: #35c;
-  --text-link-hover: #57e;
-  --header-primary: #58180D;
-  --header-secondary: #c9ad6a;
-  --interactive-normal: #d5e4d5;
-  --interactive-hover: #a4c7a4;
-  --interactive-active: #a5c0a5;
-  --interactive-muted: #b0c5b0;
-  --blockquote-color: #e5e4c1;
-  --table-green: #e0e5c1;
-  --background-primary: #dedede;
-  --background-accent: #a6a794;
-  --background-secondary: #cccccc;
-  --background-secondary-alt: #d4c8c8;
-  --background-tertiary: #fffde2;
-  --background-floating: #e6e6e6;
-  --monster-yellow: #FDF1DC;
-  --descriptive-yellow: #faf7ea;
+  --text-normal: hsl(0, 0%, 10%);
+  --text-muted: hsl(220, 5%, 50%);
+  --text-link: hsl(230, 60%, 50%);
+  --text-link-hover: hsl(230, 80%, 60%);
+  --header-primary: hsl(10, 75%, 20%);
+  --header-secondary: hsl(40, 50%, 60%);
+  --interactive-normal: hsl(120, 25%, 85%);
+  --interactive-hover: hsl(120, 25%, 70%);
+  --interactive-active: hsl(120, 15%, 70%);
+  --interactive-muted: hsl(120, 15%, 60%);
+  --blockquote-color: hsl(60, 40%, 80%);
+  --table-green: hsl(70, 40%, 80%);
+  --background-primary: hsl(0, 0%, 90%);
+  --background-accent: hsl(60, 10%, 60);
+  --background-secondary: hsl(0, 0%, 80%);
+  --background-secondary-alt: hsl(0, 15%, 80%);
+  --background-tertiary: hsl(55, 100%, 95%);
+  --background-floating: hsl(0, 0%, 90%);
+  --monster-yellow: hsl(40, 89%, 95%);
+  --descriptive-yellow: hsl(50, 60%, 95%);
 }
 
 html[data-theme="dark"], html.dark {
-  --text-normal: #dcddde;
-  --text-link: #7289da;
-  --background-primary: #1c1c1e;
-  --background-secondary: #333333;
-  --background-tertiary: #202020;
-  --blockquote-color: #313131;
-  --interactive-normal: #3f3f3f;
-  --interactive-hover: #6d6d6d;
-  --header-primary: #c73f3b;
-  --header-secondary: #8f896b;
-  --interactive-active: #744b4b;
-  --interactive-hover: rgb(143, 84, 84);
-  --interactive-muted: rgb(97, 30, 30);
-  --table-green: #3a3b35;
-  --background-accent: #966767;
+  --text-normal: hsl(210, 5%, 90%);
+  --text-link: hsl(230, 60%, 65%);
+  --background-primary: hsl(240, 5%, 10%);
+  --background-secondary: hsl(0, 0%, 20%);
+  --background-tertiary: hsl(0, 0%, 15%);
+  --blockquote-color: hsl(0, 0%, 20%);
+  --interactive-normal: hsl(0, 0%, 25%);
+  --interactive-hover: hsl(0, 0%, 40%);
+  --header-primary: hsl(2, 55%, 50%);
+  --header-secondary: hsl(50, 14%, 50%);
+  --interactive-active: hsl(0, 20%, 40%);
+  --interactive-hover: hsl(0, 25%, 45%);
+  --interactive-muted: hsl(0, 50%, 25%);
+  --table-green: hsl(70, 5%, 25%);
+  --background-accent: hsl(0, 20%, 50%);
 
-  /* --background-primary: #36393f;
+  /* --background-primary: #36093f;
   --background-secondary: #2f3136; */
-  --background-secondary-alt: #292b2f;
-  --background-tertiary: #202225;
-  --background-floating: #18191c;
-  --descriptive-yellow: #4b483c;
+  --background-secondary-alt: hsl(220, 7%, 17%);
+  --background-tertiary: hsl(216, 7%, 14%);
+  --background-floating: hsl(225, 8%, 10%);
+  --descriptive-yellow: hsl(48, 11%, 25%);
 }
 
 body {
@@ -189,9 +189,9 @@ body[data-tags~="force-one-column"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom: 3px solid var(--header-secondary);
-  box-shadow: 4px 4px 36px rgb(48 32 0 / 12%);
+  box-shadow: 4px 4px 36px rgb(48 32 0 / 15%);
   z-index: 90;
-  /* Subtract the border size */
+   /* Subtract the border size */
   padding-bottom: calc(0.4em - 3px);
 }
 
@@ -767,7 +767,7 @@ input, select, textarea {
 input:not(:disabled):focus, select:not(:disabled):focus, textarea:not(:disabled):focus,
 input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled):hover {
 	/* background-color: rgb(240, 217, 140);
-	border-color: rgb(194, 163, 61); */
+	border-color: rgb(194, 160, 61); */
   background-color: var(--interactive-normal);
   border-color: var(--interactive-hover)
 }
