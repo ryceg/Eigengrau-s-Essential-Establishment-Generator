@@ -189,7 +189,7 @@ body[data-tags~="force-one-column"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom: 3px solid var(--header-secondary);
-  box-shadow: 4px 4px 36px rgb(48 32 0 / 15%);
+  box-shadow: 4px 4px 36px rgb(48 32 0 / 12%);
   z-index: 90;
    /* Subtract the border size */
   padding-bottom: calc(0.4em - 3px);
