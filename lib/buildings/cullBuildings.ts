@@ -1,6 +1,6 @@
 import { random } from '../src/random'
 
-interface BuildingToCreate {
+export interface BuildingToCreate {
   buildingType: string
   opts?: {
     npc: {

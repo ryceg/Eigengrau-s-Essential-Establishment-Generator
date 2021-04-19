@@ -16,7 +16,7 @@ export const outputGMBinder = () => {
   for (const type in target) {
     string += addGMBinderPart(type)
     string += addPageBreak()
-    for (const page of output[type]) {
+    for (const page in output[type]) {
       string += `<h2>${output[type as string][page as string].name}</h2>${output[type][page].output}`
       string += addPageBreak()
     }

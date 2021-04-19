@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.5
+
+### Added
+- Disable NSFW setting which removes slavery and brothels from being generated.
+- Unlocked GMBinder exporting for everyone because we hit 100 Patrons! Thanks!
+
+### Changed
+- Fixed GMBinder output issue.
+- Fixed guardhouse "People Around" not generating properly.
+
 ## 2.8.4
 
 ### Changed

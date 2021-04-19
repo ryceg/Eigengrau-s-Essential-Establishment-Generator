@@ -1,0 +1,984 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "definitions": {
+        "Alignments": {
+            "enum": [
+                "Chaotic Evil",
+                "Chaotic Good",
+                "Chaotic Neutral",
+                "Lawful Evil",
+                "Lawful Good",
+                "Lawful Neutral",
+                "Neutral",
+                "Neutral Evil",
+                "Neutral Good"
+            ],
+            "type": "string"
+        },
+        "DeityRank": {
+            "enum": [
+                "demigod",
+                "greater deity",
+                "immortal",
+                "intermediate deity",
+                "leader",
+                "lesser deity",
+                "saint"
+            ],
+            "type": "string"
+        },
+        "DeityStatus": {
+            "enum": [
+                "alive",
+                "dead",
+                "dormant",
+                "imprisoned",
+                "uncertain"
+            ],
+            "type": "string"
+        },
+        "Followers": {
+            "additionalProperties": false,
+            "properties": {
+                "adherents": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/Information"
+                            },
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Who actually worshipped the god?"
+                },
+                "base": {
+                    "$ref": "#/definitions/Partial<NPC>"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "excluded": {
+                    "$ref": "#/definitions/Followers",
+                    "description": "Certain groups might be excluded from following a deity."
+                },
+                "favouredWeapon": {
+                    "type": "string"
+                },
+                "holyDays": {
+                    "$ref": "#/definitions/Partial<Record<WorldTypeAbbreviated,Information[]>>",
+                    "default": "'earth'",
+                    "description": "Holy days.\nDescriptions of the holy days are in arrays; i.e. `holyDays: [['name of holy day', 'description of holy day'], 'holy day that doesn't have a description']`"
+                },
+                "race": {
+                    "enum": [
+                        "dragonborn",
+                        "dwarf",
+                        "elf",
+                        "gnome",
+                        "goblin",
+                        "half-elf",
+                        "half-orc",
+                        "halfling",
+                        "human",
+                        "lizardfolk",
+                        "orc",
+                        "tiefling"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Information": {
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "opts": {
+                    "typeof": "function"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<Followers>": {
+            "additionalProperties": false,
+            "properties": {
+                "adherents": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/Information"
+                            },
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Who actually worshipped the god?"
+                },
+                "base": {
+                    "$ref": "#/definitions/Partial<NPC>"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "excluded": {
+                    "$ref": "#/definitions/Followers",
+                    "description": "Certain groups might be excluded from following a deity."
+                },
+                "favouredWeapon": {
+                    "type": "string"
+                },
+                "holyDays": {
+                    "$ref": "#/definitions/Partial<Record<WorldTypeAbbreviated,Information[]>>",
+                    "default": "'earth'",
+                    "description": "Holy days.\nDescriptions of the holy days are in arrays; i.e. `holyDays: [['name of holy day', 'description of holy day'], 'holy day that doesn't have a description']`"
+                },
+                "race": {
+                    "enum": [
+                        "dragonborn",
+                        "dwarf",
+                        "elf",
+                        "gnome",
+                        "goblin",
+                        "half-elf",
+                        "half-orc",
+                        "halfling",
+                        "human",
+                        "lizardfolk",
+                        "orc",
+                        "tiefling"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<NPC>": {
+            "additionalProperties": false,
+            "properties": {
+                "adventure": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "ageStage": {
+                    "enum": [
+                        "child",
+                        "elderly",
+                        "settled adult",
+                        "young adult"
+                    ],
+                    "type": "string"
+                },
+                "ageYears": {
+                    "type": "number"
+                },
+                "background": {
+                    "enum": [
+                        "acolyte",
+                        "charlatan",
+                        "child",
+                        "commoner",
+                        "criminal",
+                        "entertainer",
+                        "folk hero",
+                        "gladiator",
+                        "guild artisan",
+                        "hermit",
+                        "knight",
+                        "merchant",
+                        "noble",
+                        "outlander",
+                        "peasant",
+                        "pirate",
+                        "sage",
+                        "sailor",
+                        "soldier",
+                        "urchin"
+                    ],
+                    "type": "string"
+                },
+                "backgroundOrigin": {
+                    "description": "In the style of Xanathar's Background Origins",
+                    "type": "string"
+                },
+                "beard": {
+                    "type": "string"
+                },
+                "birthplace": {
+                    "type": "string"
+                },
+                "bmi": {
+                    "type": "number"
+                },
+                "bond": {
+                    "description": "In the style of PHB bonds.",
+                    "type": "string"
+                },
+                "boygirl": {
+                    "type": "string"
+                },
+                "callbackFunction": {
+                    "typeof": "function"
+                },
+                "calmTrait": {
+                    "description": "How the NPC acts when they're calm.",
+                    "type": "string"
+                },
+                "canBeCustom": {
+                    "type": "boolean"
+                },
+                "childNoun": {
+                    "type": "string"
+                },
+                "childhoodMemories": {
+                    "description": "Influenced by `npc.roll.gregariousness`.",
+                    "type": "string"
+                },
+                "chitchat": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "death": {
+                    "typeof": "function"
+                },
+                "descriptor": {
+                    "type": "string"
+                },
+                "descriptors": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "dndClass": {
+                    "enum": [
+                        "barbarian",
+                        "bard",
+                        "cleric",
+                        "druid",
+                        "fighter",
+                        "monk",
+                        "paladin",
+                        "ranger",
+                        "rogue",
+                        "sorcerer",
+                        "warlock",
+                        "wizard"
+                    ],
+                    "type": "string"
+                },
+                "eyes": {
+                    "type": "string"
+                },
+                "family": {
+                    "type": "string"
+                },
+                "familyHome": {
+                    "type": "string"
+                },
+                "familyLifestyle": {
+                    "enum": [
+                        "aristocratic",
+                        "comfortable",
+                        "modest",
+                        "poor",
+                        "squalid",
+                        "wealthy",
+                        "wretched"
+                    ],
+                    "type": "string"
+                },
+                "familyUnit": {
+                    "type": "string"
+                },
+                "finances": {
+                    "typeof": "function"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "flaw": {
+                    "description": "In the style of PHB flaws.",
+                    "type": "string"
+                },
+                "formalName": {
+                    "type": "string"
+                },
+                "gender": {
+                    "enum": [
+                        "entity",
+                        "man",
+                        "nonbinary",
+                        "woman"
+                    ],
+                    "type": "string"
+                },
+                "greeting": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "hairColour": {
+                    "type": "string"
+                },
+                "hairType": {
+                    "type": "string"
+                },
+                "hasClass": {
+                    "type": "boolean"
+                },
+                "hasHistory": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "string"
+                },
+                "heightInches": {
+                    "type": "number"
+                },
+                "heshe": {
+                    "type": "string"
+                },
+                "himher": {
+                    "type": "string"
+                },
+                "himherself": {
+                    "type": "string"
+                },
+                "hisher": {
+                    "type": "string"
+                },
+                "ideal": {
+                    "description": "In the style of PHB ideals.",
+                    "type": "string"
+                },
+                "idle": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "inventory": {
+                    "type": "string"
+                },
+                "isShallow": {
+                    "type": "boolean"
+                },
+                "isThrowaway": {
+                    "type": "boolean"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "keyIsAlreadyDefined": {
+                    "type": "boolean"
+                },
+                "knewParents": {
+                    "type": "boolean"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "lifeEvents": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "malefemale": {
+                    "type": "string"
+                },
+                "manwoman": {
+                    "type": "string"
+                },
+                "muscleMass": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "niblingNoun": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "objectType": {
+                    "enum": [
+                        "npc"
+                    ],
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "parentNoun": {
+                    "type": "string"
+                },
+                "parentalLineage": {
+                    "type": "string"
+                },
+                "partnerGenderProbability": {
+                    "typeof": "function"
+                },
+                "partnerID": {
+                    "type": "string"
+                },
+                "passageName": {
+                    "type": "string"
+                },
+                "physicalTrait": {
+                    "type": "string"
+                },
+                "profession": {
+                    "type": "string"
+                },
+                "professionOrigin": {
+                    "description": "In the style of Xanathar's Class Origins, for the professions.",
+                    "type": "string"
+                },
+                "professionSector": {
+                    "enum": [
+                        "adventuring",
+                        "agriculture",
+                        "arts",
+                        "business",
+                        "caregiver",
+                        "communication",
+                        "communications",
+                        "construction",
+                        "craftsmanship",
+                        "crime",
+                        "family",
+                        "government and law",
+                        "hospitality",
+                        "magic",
+                        "military",
+                        "mining",
+                        "naval",
+                        "outcast",
+                        "religion",
+                        "science",
+                        "self employed",
+                        "transportation",
+                        "unemployed"
+                    ],
+                    "type": "string"
+                },
+                "professionSuccess": {
+                    "type": "string"
+                },
+                "professionType": {
+                    "enum": [
+                        "",
+                        "business",
+                        "dndClass",
+                        "family",
+                        "labourer",
+                        "profession",
+                        "recreation"
+                    ],
+                    "type": "string"
+                },
+                "pronouns": {
+                    "typeof": "function"
+                },
+                "race": {
+                    "enum": [
+                        "dragonborn",
+                        "dwarf",
+                        "elf",
+                        "gnome",
+                        "goblin",
+                        "half-elf",
+                        "half-orc",
+                        "halfling",
+                        "human",
+                        "lizardfolk",
+                        "orc",
+                        "tiefling"
+                    ],
+                    "type": "string"
+                },
+                "raceName": {
+                    "enum": [
+                        "dragonborn",
+                        "dwarf",
+                        "elf",
+                        "gnome",
+                        "goblin",
+                        "half-elf",
+                        "half-orc",
+                        "halfling",
+                        "human",
+                        "lizardfolk",
+                        "orc",
+                        "tiefling"
+                    ],
+                    "type": "string"
+                },
+                "raceRoll": {
+                    "type": "number"
+                },
+                "religion": {
+                    "typeof": "function"
+                },
+                "roll": {
+                    "typeof": "function"
+                },
+                "scar": {
+                    "type": "string"
+                },
+                "siblingNoun": {
+                    "type": "string"
+                },
+                "siblingNumber": {
+                    "type": "number"
+                },
+                "skinColour": {
+                    "type": "string"
+                },
+                "socialClass": {
+                    "enum": [
+                        "aristocracy",
+                        "commoner",
+                        "indentured servitude",
+                        "nobility",
+                        "paupery",
+                        "peasantry"
+                    ],
+                    "type": "string"
+                },
+                "stressTrait": {
+                    "description": "How the NPC acts when they're stressed.",
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "trait": {
+                    "type": "string"
+                },
+                "vocalPattern": {
+                    "type": "string"
+                },
+                "wealth": {
+                    "type": "number"
+                },
+                "weapon": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "string"
+                },
+                "weightPounds": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<Record<\"temperate\"|\"modest\"|\"chaste\"|\"energetic\"|\"forgiving\"|\"generous\"|\"honest\"|\"just\"|\"merciful\"|\"prudent\"|\"trusting\"|\"valorous\",number>>": {
+            "additionalProperties": false,
+            "properties": {
+                "chaste": {
+                    "type": "number"
+                },
+                "energetic": {
+                    "type": "number"
+                },
+                "forgiving": {
+                    "type": "number"
+                },
+                "generous": {
+                    "type": "number"
+                },
+                "honest": {
+                    "type": "number"
+                },
+                "just": {
+                    "type": "number"
+                },
+                "merciful": {
+                    "type": "number"
+                },
+                "modest": {
+                    "type": "number"
+                },
+                "prudent": {
+                    "type": "number"
+                },
+                "temperate": {
+                    "type": "number"
+                },
+                "trusting": {
+                    "type": "number"
+                },
+                "valorous": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<Record<WorldTypeAbbreviated,Information[]>>": {
+            "additionalProperties": false,
+            "properties": {
+                "earth": {
+                    "items": {
+                        "$ref": "#/definitions/Information"
+                    },
+                    "type": "array"
+                },
+                "fr": {
+                    "items": {
+                        "$ref": "#/definitions/Information"
+                    },
+                    "type": "array"
+                },
+                "gn": {
+                    "items": {
+                        "$ref": "#/definitions/Information"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Partial<{description:string;weapon?:string|undefined;weaponDescription?:string|undefined;tactics?:string|undefined;}>": {
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "description": "How the deity feels about fighting, blah blah blah. Opening sentence.",
+                    "type": "string"
+                },
+                "tactics": {
+                    "description": "For descriptions about combat.",
+                    "type": "string"
+                },
+                "weapon": {
+                    "description": "Their weapon of choice",
+                    "type": "string"
+                },
+                "weaponDescription": {
+                    "description": "Tooltip for the weapon.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Quotation": {
+            "additionalProperties": false,
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "opts": {
+                    "typeof": "function"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Relationship": {
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Will check to see if a deity matches the name provided.",
+                    "type": "string"
+                },
+                "relationship": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "aliases": {
+            "description": "For the deity with many names, use `aliases`. When an alias is used instead of the 'main' name, it will be specified that the deity is also known as `name`.\nNOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "alignment": {
+            "$ref": "#/definitions/Alignments",
+            "description": "Alignments, for those that are still stuck on 2nd Edition."
+        },
+        "allies": {
+            "description": "Who do the temple call their friends?",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "appearance": {
+            "description": "Description of how the deity is depicted typically. Distinct from their `avatars`.",
+            "type": "string"
+        },
+        "associations": {
+            "description": "Things that the god are associated with, e.g. Sacred plants and animals.",
+            "typeof": "function"
+        },
+        "beliefs": {
+            "description": "What is good to the worshipers of this deity? What do they believe?",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "blessings": {
+            "description": "Some suggested blessings that might be bestowed by the deity.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "channelDivinity": {
+            "description": "For channel divinity spells and features.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "combat": {
+            "$ref": "#/definitions/Partial<{description:string;weapon?:string|undefined;weaponDescription?:string|undefined;tactics?:string|undefined;}>"
+        },
+        "curses": {
+            "description": "Some suggested curses that might be cast by the deity.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "description": {
+            "description": "Description of the deity overall. If omitted, description will be generated from the rest of the included data.",
+            "type": "string"
+        },
+        "domains": {
+            "description": "Distinct from `portfolios`, Domains are used in 5th Edition Dungeons and Dragons to assign spells.",
+            "items": {
+                "enum": [
+                    "arcana",
+                    "death",
+                    "forge",
+                    "grave",
+                    "knowledge",
+                    "life",
+                    "light",
+                    "nature",
+                    "order",
+                    "peace",
+                    "tempest",
+                    "trickery",
+                    "twilight",
+                    "war"
+                ],
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "enemies": {
+            "description": "Who are the enemies of the temple?",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "equivalent": {
+            "description": "While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "faction": {
+            "description": "For the Norse Aesir/Vanir split",
+            "type": "string"
+        },
+        "followers": {
+            "$ref": "#/definitions/Partial<Followers>"
+        },
+        "gender": {
+            "description": "To assign whether to call them gods, goddesses, or deities, and use the correct pronouns.",
+            "enum": [
+                "entity",
+                "man",
+                "nonbinary",
+                "woman"
+            ],
+            "type": "string"
+        },
+        "heresies": {
+            "description": "What is verboten to the worshipers of this deity? What can they never do?",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "history": {
+            "description": "Just in case you have history that you want to cover.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "key": {
+            "description": "Needed to make the profiles work",
+            "type": "string"
+        },
+        "maxims": {
+            "description": "What words does the temple live by? Daily words that they use to remind themselves.",
+            "items": {
+                "$ref": "#/definitions/Quotation"
+            },
+            "type": "array"
+        },
+        "name": {
+            "description": "For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.",
+            "type": "string"
+        },
+        "objectType": {
+            "description": "This makes tippy work",
+            "enum": [
+                "deity"
+            ],
+            "type": "string"
+        },
+        "paragraphs": {
+            "description": "Generic extra text.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "passageName": {
+            "description": "Required for profiles",
+            "enum": [
+                "DeityProfile"
+            ],
+            "type": "string"
+        },
+        "personality": {
+            "$ref": "#/definitions/Partial<Record<\"temperate\"|\"modest\"|\"chaste\"|\"energetic\"|\"forgiving\"|\"generous\"|\"honest\"|\"just\"|\"merciful\"|\"prudent\"|\"trusting\"|\"valorous\",number>>",
+            "description": "If a deity particularly embodies a virtue or vice, it can be specified.\nExpressed as a 0-100; values of lower than fifty being the opposite trait (i.e. `merciful: 2` means that they are very vindictive)."
+        },
+        "portfolios": {
+            "description": "The aspects that the deity manages. This does not mean that no other god has power over this area, just that the god shares in responsibility for the portfolio",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "possessions": {
+            "description": "For things that the deity owns.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "powers": {
+            "description": "Any powers that you want to add.",
+            "items": {
+                "$ref": "#/definitions/Information"
+            },
+            "type": "array"
+        },
+        "probabilityWeightings": {
+            "description": "Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.",
+            "typeof": "function"
+        },
+        "quotes": {
+            "description": "For smart one-liners, or quotes about the deity.\nWill be printed in a <blockquote> element.\nIf given an array, will be picked at random.",
+            "items": {
+                "$ref": "#/definitions/Quotation"
+            },
+            "type": "array"
+        },
+        "race": {
+            "default": "'god'",
+            "description": "What race the god actually is, E.g. Vanir, Aesir, Jotunn",
+            "type": "string"
+        },
+        "rank": {
+            "$ref": "#/definitions/DeityRank",
+            "default": "'lesser deity'",
+            "description": "Trying to make rank more granular is just asking for trouble."
+        },
+        "realm": {
+            "description": "Some gods had planes/domain which they ruled",
+            "type": "string"
+        },
+        "relationships": {
+            "description": "Who's their father?",
+            "items": {
+                "$ref": "#/definitions/Relationship"
+            },
+            "type": "array"
+        },
+        "shape": {
+            "default": "'human'",
+            "description": "The race the deity is or appears as. Demigods and mortals who ascended to be gods are 'Demigod' or 'RaceName' but are marked as a god or immortal in Rank",
+            "type": "string"
+        },
+        "status": {
+            "$ref": "#/definitions/DeityStatus",
+            "description": "Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important"
+        },
+        "symbol": {
+            "anyOf": [
+                {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                {
+                    "type": "string"
+                }
+            ],
+            "description": "The equivalent of a deity's heraldry, an icon or symbol that represents them. Without any indefinite articles."
+        },
+        "titles": {
+            "description": "All of the titles that a god might have. Will typically be used as a rider after the name.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "wordNoun": {
+            "description": "For spirits and other things that shouldn't be called gods, goddesses, or deities.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

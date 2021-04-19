@@ -47,6 +47,8 @@ import { outputEverything } from './Tools/Exports/outputEverything'
 import { exportAsHtml } from './Tools/Exports/exportAsHtml'
 import { outputGMBinder } from './Tools/Exports/outputGMBinder'
 import { copyText } from './Tools/Exports/clipboard'
+import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
+import { createStartBuildings } from './Town/js/createStartBuildings'
 
 declare global {
   interface Setup {
@@ -107,6 +109,9 @@ declare global {
     exportAsHtml: typeof exportAsHtml
     outputGMBinder: typeof outputGMBinder
     copyText: typeof copyText
+    createGuardhouse: typeof createGuardhouse
+    createGuardhouseName: typeof createGuardhouseName
+    createStartBuildings: typeof createStartBuildings
   }
 }
 
@@ -167,7 +172,10 @@ Object.assign(setup, {
   outputEverything,
   exportAsHtml,
   copyText,
-  outputGMBinder
+  outputGMBinder,
+  createGuardhouse,
+  createGuardhouseName,
+  createStartBuildings
 })
 
 /**

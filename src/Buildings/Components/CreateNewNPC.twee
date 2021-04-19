@@ -1,21 +1,30 @@
-:: CreateNewNpc
-<span class="interactive-only"><<nobr>><<include "NPCListboxes">> -- <<button "Create NPC">>
-<<set $currentPassage.randomNPC to setup.createReciprocalRelationshipNpc(
-    $town, 
-    $currentPassage, 
-    $npcs[$currentPassage.associatedNPC.key], 
-    $currentPassage.availableRelationships, 
-    { 
-        base: _randomNPC,
-        targetKey: _stringRelationship 
-    })>>
-<<update>>
-    <<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
-    <<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
-<</button>><</nobr>>
-\<<liveblock>><<if $currentPassage.randomNPC>><div id="NPC" class="descriptive"><h3>$currentPassage.randomNPC.name</h3>
-<<print lib.firstCharacter(lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst())>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
-You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 
-<<profile $currentPassage.randomNPC>>, <<print lib.articles.find($currentPassage.randomNPC.profession)>> <<tooltip $currentPassage.randomNPC.profession lib.professions[$currentPassage.randomNPC.profession].description.toUpperFirst()>>.</div>
-<</if>><</liveblock>></span>
+:: CreateNewNpc [nobr]
+<span class="interactive-only">
+    <<include "NPCListboxes">> -- 
+    <<button "Create NPC">>
+        <<run console.log('Creating new NPC!')>>
+        <<set $currentPassage.randomNPC to setup.createReciprocalRelationshipNpc(
+            $town, 
+            $currentPassage, 
+            $npcs[$currentPassage?.associatedNPC?.key] || $npcs[$associatedNPC.key] || $npcs[$building.associatedNPC.key], 
+            $currentPassage.availableRelationships, 
+            { 
+                base: _randomNPC,
+                targetKey: _stringRelationship 
+            })>>
+        <<update>>
+            <<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
+            <<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
+    <</button>>
+    <<liveblock>>
+        <<if $currentPassage.randomNPC>>
+        <div id="NPC" class="descriptive">
+            <h3>$currentPassage.randomNPC.name</h3>
+            <<print lib.firstCharacter(lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst())>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
+            You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 
+            <<profile $currentPassage.randomNPC>>, <<print lib.articles.find($currentPassage.randomNPC.profession)>> <<tooltip $currentPassage.randomNPC.profession lib.professions[$currentPassage.randomNPC.profession].description.toUpperFirst()>>.
+        </div>
+        <</if>>
+    <</liveblock>>
+</span>
 <<include "BuildingRelationshipsTable">>
