@@ -2472,7 +2472,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.bans.includes('slavery') }
   },
   'slaver': {
     sv: 650,
@@ -2496,7 +2497,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.bans.includes('slavery') }
   },
   'soldier': {
     sv: 1000,
@@ -4134,7 +4136,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.bans.includes('slavery') }
   },
   'speculator': {
     sv: 9000,
@@ -6364,7 +6367,8 @@ export const professions: Record<string, Profession> = {
     socialClass: 'peasantry',
     socialClassRoll () {
       return 20 + dice(8, 6)
-    }
+    },
+    exclusions (town) { return !town.bans.includes('slavery') }
   },
   'special force soldier': {
     sv: 6000,
@@ -7596,7 +7600,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.bans.includes('slavery') }
   },
   'squatter': {
     sv: 800,

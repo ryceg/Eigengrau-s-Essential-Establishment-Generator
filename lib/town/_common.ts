@@ -124,6 +124,7 @@ type Ban =
   | 'nobility'
   | 'outsiders'
   | 'slavery'
+  | 'prostitution'
   | 'animals'
   | 'unemployment'
   | 'panhandling'

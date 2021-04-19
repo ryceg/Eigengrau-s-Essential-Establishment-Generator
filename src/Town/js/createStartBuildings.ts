@@ -48,7 +48,7 @@ export const createStartBuildings = (town: Town) => {
     // 'Haberdashery': ['hatter']
   }
 
-  if (settings.disableNSFW !== false) {
+  if (settings.disableNSFW !== true) {
     professions.Brothel.push('pimp')
   }
 

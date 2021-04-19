@@ -15,6 +15,7 @@ declare module 'twine-sugarcube' {
     forceOneColumn?: boolean
     hideAds?: boolean
     disableAnalytics?: boolean
+    disableNSFW?: boolean
   }
 
   /**

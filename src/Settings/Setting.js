@@ -79,12 +79,6 @@ Setting.addToggle('showMetric', {
   label: 'Show metric?'
 })
 
-Setting.addToggle('disableNSFW', {
-  label: 'Disable NSFW content?',
-  desc: 'Disables NSFW content such as brothels from being generated (please report any errant NSFW that gets through the filter). Restart to apply.',
-  onChange: settingDisableNSFW
-})
-
 Setting.addToggle('showBiomeGeneration', {
   label: 'Edit biome before generation?',
   desc: 'If you want to specify the biome and demographics before town creation, enable this.',
@@ -99,6 +93,12 @@ Setting.addToggle('showSliders', {
 Setting.addToggle('silverStandard', {
   label: 'Silver Standard?',
   desc: 'This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.'
+})
+
+Setting.addToggle('disableNSFW', {
+  label: 'Disable NSFW content?',
+  desc: 'Disables NSFW content such as brothels and slaves from being generated (please report any errant NSFW that gets through the filter). Restart to apply.',
+  onChange: settingDisableNSFW
 })
 
 Setting.addToggle('ignoreGender', {
