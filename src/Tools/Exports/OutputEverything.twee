@@ -30,4 +30,4 @@
 <</replace>>
 <</button>></span>
 <span id="everything"></span>
-<span id="tutorial"></span>
+<span id="tutorial"><<include "GoalBasedUnlockingText">></span>
