@@ -913,7 +913,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) {
+    exclusions (town, npc) {
       return !town.disableNSFW
     }
   },
@@ -2473,7 +2473,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.bans.includes('slavery') }
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'slaver': {
     sv: 650,
@@ -2498,7 +2498,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.bans.includes('slavery') }
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'soldier': {
     sv: 1000,
@@ -2854,7 +2854,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.disableNSFW }
+    exclusions (town, npc) { return !town.disableNSFW }
   },
   'town crier': {
     sv: 750,
@@ -4137,7 +4137,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.bans.includes('slavery') }
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'speculator': {
     sv: 9000,
@@ -5625,7 +5625,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.disableNSFW }
+    exclusions (town, npc) { return !town.disableNSFW }
   },
   'quarryman': {
     sv: 1200,
@@ -6368,7 +6368,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 20 + dice(8, 6)
     },
-    exclusions (town) { return !town.bans.includes('slavery') }
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'special force soldier': {
     sv: 6000,
@@ -7601,7 +7601,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (town) { return !town.bans.includes('slavery') }
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'squatter': {
     sv: 800,
