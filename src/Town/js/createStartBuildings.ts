@@ -1,8 +1,10 @@
+import { BuildingToCreate, Town } from '@lib'
+
 // uses setup.createNewBuilding
-setup.createStartBuildings = town => {
+export const createStartBuildings = (town: Town) => {
   console.log('Creating starting buildings...', town)
 
-  const buildingsToCreate = [
+  const buildingsToCreate: BuildingToCreate[] = [
     { buildingType: 'Town Square' },
     { buildingType: 'Market' },
     { buildingType: 'Tavern' }
@@ -27,7 +29,7 @@ setup.createStartBuildings = town => {
     'Tailor': ['tailor', 'seamstress', 'fashion designer'],
     'Butcher': ['butcher'],
     'Cobbler': ['cobbler', 'shoemaker'],
-    'Brothel': ['pimp'],
+    'Brothel': [''],
     'Barber': ['barber', 'surgeon'],
     'Temple': ['high priest', 'archbishop', 'cardinal', 'bishop', 'priest', 'deacon']
     // TODO
@@ -46,6 +48,10 @@ setup.createStartBuildings = town => {
     // 'Haberdashery': ['hatter']
   }
 
+  if (settings.disableNSFW !== true) {
+    professions.Brothel.push('pimp')
+  }
+
   for (const buildingType of lib.keys(professions)) {
     console.log(buildingType)
     for (const profession of professions[buildingType]) {
@@ -62,6 +68,8 @@ setup.createStartBuildings = town => {
 
   for (const building of lib.cullBuildings(buildingsToCreate)) {
     console.log(`Creating ${lib.articles.output(building.buildingType)}...`)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     setup.createNewBuilding(town, building.buildingType, building.opts)
   }
 }

@@ -1,5 +1,9 @@
 :: CreateBuilding
-<span class="interactive-only hide-on-print"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes)>>
+<span class="interactive-only hide-on-print"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes).filter(building => {
+  const nsfwItems = ['Brothel'];
+  if (!settings.disableNSFW) return building;
+  return !building.includes(nsfwItems);
+})>>
 <</listbox>></label> -- <<button "Create New Building">>
   <<run console.log('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>

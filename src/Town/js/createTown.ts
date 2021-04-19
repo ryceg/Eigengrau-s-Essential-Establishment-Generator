@@ -79,7 +79,7 @@ export const createTown = (base: TownBasics) => {
       State.metadata.set('pantheon', data)
       this.religion._customPantheon = data
     },
-    bans: [],
+    bans: [''],
     buildingRelations: [],
     factionRelations: [],
     npcRelations: {},
@@ -199,6 +199,10 @@ export const createTown = (base: TownBasics) => {
 
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
+  }
+
+  if (settings.disableNSFW === true || town.disableNSFW === true) {
+    town.bans.push('slavery', 'prostitution')
   }
 
   lib.createTownReligion(town as unknown as Town)

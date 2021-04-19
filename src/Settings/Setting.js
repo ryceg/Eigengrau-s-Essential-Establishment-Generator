@@ -95,6 +95,12 @@ Setting.addToggle('silverStandard', {
   desc: 'This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.'
 })
 
+Setting.addToggle('disableNSFW', {
+  label: 'Disable NSFW content?',
+  desc: 'Disables NSFW content such as brothels and slaves from being generated (please report any errant NSFW that gets through the filter). Restart to apply.',
+  onChange: settingDisableNSFW
+})
+
 Setting.addToggle('ignoreGender', {
   label: 'Ignore gender?',
   desc: 'If you would rather NPCs not be limited in the professions that they take due to sexism, enable this.',
@@ -142,6 +148,10 @@ if (State.metadata.get('showBiomeGeneration') !== settings.showBiomeGeneration) 
   settings.showBiomeGeneration = State.metadata.get('showBiomeGeneration')
 }
 
+if (State.metadata.get('disableNSFW') !== settings.disableNSFW) {
+  settings.disableNSFW = State.metadata.get('disableNSFW')
+}
+
 if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
   settings.forceOneColumn = State.metadata.get('forceOneColumn')
 }
@@ -170,6 +180,19 @@ function settingShowBiomeGeneration () {
   const showBiomeGeneration = State.metadata.get('showBiomeGeneration')
   if (settings.showBiomeGeneration !== showBiomeGeneration) {
     State.metadata.set('showBiomeGeneration', settings.showBiomeGeneration)
+  }
+  setup.addGtagEvent({
+    event_category: 'customise biome',
+    event_action: 'clicked',
+    event_label: 'customised in settings'
+  })
+}
+
+function settingDisableNSFW () {
+  const disableNSFW = State.metadata.get('disableNSFW')
+  if (settings.disableNSFW !== disableNSFW) {
+    State.metadata.set('disableNSFW', settings.disableNSFW)
+    State.variables.town.disableNSFW = settings.disableNSFW
   }
   setup.addGtagEvent({
     event_category: 'customise biome',
