@@ -38,6 +38,7 @@ export interface TownBasics {
   ignoreGender: boolean
   // TODO: Add ignoreRace setting
   ignoreRace: boolean
+  disableNSFW: boolean
   dominantGender: GenderName
   roll: Record<TownRolls, number>
   possibleMaterials: MaterialTypes[]

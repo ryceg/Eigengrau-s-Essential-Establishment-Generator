@@ -81,7 +81,7 @@ export interface Profession {
   function?(town: unknown, npc: NPC): void
   socialClassRoll(): number
   relationships?(town: Partial<Town>, npc: NPC): Record<string, Relationship>
-  exclusions?(npc: NPC): boolean | undefined
+  exclusions?(town: Town, npc: NPC): boolean | undefined
   background?: WeightRecord<BackgroundName>
 }
 
@@ -912,6 +912,9 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
+    },
+    exclusions (town) {
+      return !town.disableNSFW
     }
   },
   'buccaneer': {
@@ -1264,7 +1267,7 @@ export const professions: Record<string, Profession> = {
     domSub: 'sub',
     dailyWage: 4,
     socialClass: 'peasantry',
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (!npc.partnerID) return false
     },
     socialClassRoll () {
@@ -1673,7 +1676,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -1943,7 +1946,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'man') return false
     }
   },
@@ -2004,7 +2007,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -2848,7 +2851,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.disableNSFW }
   },
   'town crier': {
     sv: 750,
@@ -2930,7 +2934,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 20 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       return Boolean(npc.gender === 'woman')
     },
     professionOrigin: [
@@ -4990,7 +4994,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -5617,7 +5621,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town) { return !town.disableNSFW }
   },
   'quarryman': {
     sv: 1200,
@@ -7414,7 +7419,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 50 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.ageYears < 80) return false
     }
   },
@@ -7508,7 +7513,7 @@ export const professions: Record<string, Profession> = {
     type: 'profession',
     sector: 'hospitality',
     description: 'cares for her family by managing household affairs and completing housework.',
-    exclusions (npc) {
+    exclusions (town, npc) {
       return !!(npc.gender === 'woman' && npc.partnerID)
     },
     domSub: 'sub',
@@ -7626,7 +7631,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       return npc.ageStage === 'child'
     }
   }

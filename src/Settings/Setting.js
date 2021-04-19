@@ -79,6 +79,12 @@ Setting.addToggle('showMetric', {
   label: 'Show metric?'
 })
 
+Setting.addToggle('disableNSFW', {
+  label: 'Disable NSFW content?',
+  desc: 'Disables NSFW content such as brothels from being generated (please report any errant NSFW that gets through the filter). Restart to apply.',
+  onChange: settingDisableNSFW
+})
+
 Setting.addToggle('showBiomeGeneration', {
   label: 'Edit biome before generation?',
   desc: 'If you want to specify the biome and demographics before town creation, enable this.',
@@ -142,6 +148,10 @@ if (State.metadata.get('showBiomeGeneration') !== settings.showBiomeGeneration) 
   settings.showBiomeGeneration = State.metadata.get('showBiomeGeneration')
 }
 
+if (State.metadata.get('disableNSFW') !== settings.disableNSFW) {
+  settings.disableNSFW = State.metadata.get('disableNSFW')
+}
+
 if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
   settings.forceOneColumn = State.metadata.get('forceOneColumn')
 }
@@ -170,6 +180,19 @@ function settingShowBiomeGeneration () {
   const showBiomeGeneration = State.metadata.get('showBiomeGeneration')
   if (settings.showBiomeGeneration !== showBiomeGeneration) {
     State.metadata.set('showBiomeGeneration', settings.showBiomeGeneration)
+  }
+  setup.addGtagEvent({
+    event_category: 'customise biome',
+    event_action: 'clicked',
+    event_label: 'customised in settings'
+  })
+}
+
+function settingDisableNSFW () {
+  const disableNSFW = State.metadata.get('disableNSFW')
+  if (settings.disableNSFW !== disableNSFW) {
+    State.metadata.set('disableNSFW', settings.disableNSFW)
+    State.variables.town.disableNSFW = settings.disableNSFW
   }
   setup.addGtagEvent({
     event_category: 'customise biome',
