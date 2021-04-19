@@ -4,13 +4,19 @@ import { Building, NPC, Town } from '@lib'
 
 interface Args {
   /** this is the string that's fed to the function
-   * @defaul _stringRelationship
+   * @default _stringRelationship
    */
   targetKey: string
-  base: any
-  /** this is for if you're accessing a relationships object that has different names for the relationships */
+  base: Partial<NPC>
+  /**
+   * this is for if you're accessing a relationships object that has different names for the relationships
+   * @default 'building'
+   */
   objectKey: string
-  /** this is the discriminator for reciprocalRelationship / relationship */
+  /**
+   * this is the discriminator for reciprocalRelationship / relationship
+   * @default 'relationship'
+  */
   relationshipKey: string
 }
 
@@ -22,13 +28,12 @@ export const createReciprocalRelationshipNpc = (town: Town, building: Building, 
   // }
   //
   console.log('Creating a new NPC for this building.')
-  console.log(relationshipTable, args)
+  console.log(relationshipTable, args, associatedNPC)
   lib.assign({
     base: {},
     objectKey: 'building',
     relationshipKey: 'relationship'
   }, args)
-  console.log('1')
   // const relationship = lib.findInArray(relationshipTable, 'relationship', args.selectedRelationship)
   // const relationship = relationshipTable.find(obj => {
   //   return obj.relationships.relationshipDescription === args.targetKey
@@ -38,20 +43,18 @@ export const createReciprocalRelationshipNpc = (town: Town, building: Building, 
   const relationship = lib.findInArray(relationshipTable, 'relationshipDescription', args.targetKey)
 
   const base: Partial<NPC> = {}
-  console.log('2')
-  console.log(relationship)
   if (relationship?.base) Object.assign(base, relationship.base, args.base)
-  console.log('base', base)
   const npc = setup.createNPC(town, base)
-  if (relationship?.relationships.associatedNPC) {
-    setup.createRelationship(town, associatedNPC, npc, { relationship: relationship.relationships.associatedNPC.relationship, reciprocalRelationship: relationship.relationships.associatedNPC.reciprocalRelationship })
+  if (relationship?.relationships?.associatedNPC) {
+    setup.createRelationship(town, associatedNPC, npc, {
+      relationship: relationship.relationships.associatedNPC.relationship,
+      reciprocalRelationship: relationship.relationships.associatedNPC.reciprocalRelationship
+    })
   }
-  console.log('3')
   lib.createReciprocalRelationship(town, building, npc, {
-    description: relationship?.description(building, npc),
+    description: relationship?.description(building, npc) || relationship?.relationships.building.relationship,
     relationship: relationship?.relationships.building.relationship,
     reciprocalRelationship: relationship?.relationships.building.reciprocalRelationship || relationship?.relationships.building.relationship
   })
-  console.log('4')
   return npc
 }
