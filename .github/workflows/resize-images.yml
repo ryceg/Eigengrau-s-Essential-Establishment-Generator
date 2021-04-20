@@ -14,12 +14,12 @@ jobs:
         with:
           # ImageMagick command to be executed
           command: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x360 src/Resources/img/hero/*-x360.jpg
-          command2: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x411 src/Resources/img/hero/*-x411.jpg
-          command3: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x500 src/Resources/img/hero/*-x500.jpg
-          command4: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x576 src/Resources/img/hero/*-x576.jpg
-          command5: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x768 src/Resources/img/hero/*-x768.jpg
-          command6: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x992 src/Resources/img/hero/*-x992.jpg
-          command7: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x1200 src/Resources/img/hero/*-x1200.jpg
+#           command2: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x411 src/Resources/img/hero/*-x411.jpg
+#           command3: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x500 src/Resources/img/hero/*-x500.jpg
+#           command4: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x576 src/Resources/img/hero/*-x576.jpg
+#           command5: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x768 src/Resources/img/hero/*-x768.jpg
+#           command6: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x992 src/Resources/img/hero/*-x992.jpg
+#           command7: magick -path src/Resources/img/hero/*.jpg -auto-orient -resize x1200 src/Resources/img/hero/*-x1200.jpg
       - uses: cmgriffing/scully-gh-pages-action@v9
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
