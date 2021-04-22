@@ -15,7 +15,7 @@ $currentNPC.title
       rerender: true,
       dialogOpts: $npcs[$currentPassage.key]
     })>>
-  <</button>>
+  <</button>><br>
 <</if>>
 /* <label name="NPC output" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
   <<option "JSON">>
