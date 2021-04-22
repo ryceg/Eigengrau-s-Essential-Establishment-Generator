@@ -499,6 +499,9 @@ p {
 line-height:        1.75em;
 }
 
+p:empty {
+  display: hidden;
+}
 
 /* P+P */
 
@@ -557,9 +560,33 @@ h1+ p::first-line {
   font-family: Scaly Sans Caps;
 }
 
+h1+ button + p::first-line {
+  font-family: Scaly Sans Caps;
+}
+
+h1+ button + br + p::first-line {
+  font-family: Scaly Sans Caps;
+}
+
+
+
+h1 + blockquote + p::first-line {
+  font-family: Scaly Sans Caps;
+}
+
+h1+ button + blockquote + p::first-line {
+  font-family: Scaly Sans Caps;
+}
+
+h1+ p button + blockquote + p::first-line {
+  font-family: Scaly Sans Caps;
+}
+
 #passages .first-character + p + p {
   text-indent: 0;
 }
+
+
 
 blockquote {
     font-family: Scaly Sans;

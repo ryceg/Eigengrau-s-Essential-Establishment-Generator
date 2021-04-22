@@ -1,15 +1,14 @@
-:: TownMicroEventsOutput
+:: TownMicroEventsOutput [nobr]
 <<if settings.showSliders is false && random(1, 99) gt 50>>
-\  <<notify 5000>>Looking for the sliders? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
-\<<elseif settings.showSliders is true && random(1, 99) gt 80>>
-\  <<notify 5000>>Want to get straight to the action, sans slider screen? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
-\<</if>>
-\<<if random(1, 3) > 2>>
-\  <blockquote class="interactive-only">
-\    As you make your way along
-\    <<if $currentPassage.road>>
-\      <<print lib.createTippyFull($town.roads[$currentPassage.road].description, $town.roads[$currentPassage.road].name)>>
-\    <<else>>
-\      the road,
-\    <</if>>
-\    <<print lib.townData.misc.microEvent.random()>></blockquote><</if>>
+  <<notify 5000>>Looking for the sliders? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
+<<elseif settings.showSliders is true && random(1, 99) gt 80>>
+  <<notify 5000>>Want to get straight to the action, sans slider screen? They're currently set to <<print settings.showSliders>>. You can change them in the settings.<</notify>>
+<</if>>
+<<if random(1, 3) > 2>><blockquote class="interactive-only">
+    As you make your way along
+    <<if $currentPassage.road>>
+      <<print lib.createTippyFull($town.roads[$currentPassage.road].description, $town.roads[$currentPassage.road].name)>>
+    <<else>>
+      the road,
+    <</if>>
+    <<print lib.townData.misc.microEvent.random()>></blockquote><</if>>
