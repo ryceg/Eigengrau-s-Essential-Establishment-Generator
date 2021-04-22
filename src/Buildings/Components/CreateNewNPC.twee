@@ -15,6 +15,7 @@
         <<update>>
             <<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
             <<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
+            <<run tippy('.tip')>>
     <</button>>
     <<liveblock>>
         <<if $currentPassage.randomNPC>>
