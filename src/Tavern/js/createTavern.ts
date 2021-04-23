@@ -47,6 +47,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     initPassage: 'InitTavern',
     buildingType: 'tavern',
     objectType: 'building',
+    localImage: 'tavern-illustration',
     lighting: ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random(),
     // @ts-ignore
     stageDescriptor: setup.tavern.stageDescriptor.random(),

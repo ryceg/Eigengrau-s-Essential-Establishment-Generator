@@ -1,5 +1,9 @@
 :: DeityProfile [nobr]
 <<set $currentPassage to lib.findInArray(lib.getPantheon($town).gods, 'name', $currentPassage.name)>>
+<<if recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage>>
+<div id="illustration-buffer">
+<<print lib.getCustomImage(recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage)>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+<</if>>
 <h1 class="interactive-only">$currentPassage.name</h1>
 <button type='button' title='Coming to an update near you soon!' data-tippy-content='Coming to an update near you soon!' id="deity-edit" disabled>Edit $currentPassage.name</button>
 /* <<button "Edit $currentPassage.name" DeitySliders>>

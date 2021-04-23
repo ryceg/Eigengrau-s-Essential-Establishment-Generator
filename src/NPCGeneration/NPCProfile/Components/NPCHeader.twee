@@ -1,5 +1,6 @@
-:: NPCHeader
-<<nobr>><h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
+:: NPCHeader [nobr]
+<<include "PrintImage">>
+<h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
 <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
 <<set $currentNPC to $npcs[$currentPassage.key]>>
@@ -34,4 +35,4 @@ $currentNPC.title
 <</button>>    */
 <<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
-<</if>><</nobr>>
+<</if>>

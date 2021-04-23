@@ -23,7 +23,8 @@ setup.createGeneralStore = (town, opts = {}) => {
     passageName: 'generalStoreOutput',
     initPassage: 'InitgeneralStore',
     buildingType: 'generalStore',
-    objectType: 'building'
+    objectType: 'building',
+    localImage: 'general-store-illustration'
   })
   lib.createStructure(town, generalStore)
   generalStore.structure.descriptor = `${lib.articles.output(generalStore.structure.material.wealth)} ${generalStore.structure.material.noun} ${generalStore.wordNoun} with ${lib.articles.output(generalStore.structure.roof.verb)} roof`

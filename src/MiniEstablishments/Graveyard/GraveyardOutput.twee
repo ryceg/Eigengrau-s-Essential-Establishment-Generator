@@ -1,4 +1,5 @@
 :: GraveyardOutput [nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $buildingTree to $building.graveyardTree>>

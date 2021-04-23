@@ -1,4 +1,5 @@
 :: MarketOutput [market nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set _marketData to lib.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, 4)>>
 <<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>>

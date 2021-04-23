@@ -1,4 +1,5 @@
 :: BrothelOutput [brothel nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $building.associatedNPC>>
 <<set $currentPassage.availableRelationships to setup.brothelData.customers>>

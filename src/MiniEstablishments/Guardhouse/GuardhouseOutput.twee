@@ -1,4 +1,5 @@
 :: GuardhouseOutput [nobr]
+<<include "PrintImage">>
 <<set $currentPassage to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $currentFaction to lib.getPolice($town.factions)>>
 <<set $associatedNPC to $npcs[$currentPassage.associatedNPC.key]>>

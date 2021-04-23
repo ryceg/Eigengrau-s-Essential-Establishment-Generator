@@ -1,4 +1,5 @@
 :: TownSquareOutput [nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <h1 class="interactive-only">The Town Square</h1><p>You're in the town square. 
 It's $building.size, and $building.cleanliness. It features $building.feature 

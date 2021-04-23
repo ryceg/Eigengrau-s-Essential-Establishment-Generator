@@ -1,5 +1,6 @@
 
 :: AlchemistOutput [alchemist nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $building.brew to lib.createAlchemy({ type: "brewing potion" })>><<set $currentPassage.availableRelationships to lib.alchemistData.get.customers>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>

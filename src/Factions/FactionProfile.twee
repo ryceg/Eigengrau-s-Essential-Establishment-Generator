@@ -1,4 +1,5 @@
 :: FactionProfile
+\<<include "PrintImage">>
 \<<set $currentPassage to $town.factions[$currentPassage.key]>><<run console.log($currentPassage)>>
 \<<set $currentPassage.availableRelationships to lib.factionData.types[$currentPassage.type].members.professions>>
 \<h1 class="interactive-only">$currentPassage.name</h1>

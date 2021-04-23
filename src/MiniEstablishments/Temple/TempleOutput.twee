@@ -1,4 +1,5 @@
 :: TempleOutput [nobr]
+<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to setup.temple.get.customers>>
