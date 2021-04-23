@@ -23,13 +23,7 @@
 <<switch $targetType>> 
   <<case 'buildingType'>>
     <label name="Select building type" for="listbox-target">
-      <<listbox "$target" autoselect>>
-        <<optionsfrom Object.keys(setup.buildingTypes).filter(building => {
-          const nsfwItems = ['Brothel'];
-          if (!settings.disableNSFW) return building;
-          return !building.includes(nsfwItems);
-        })>>
-      <</listbox>>
+      <<listbox "$target" autoselect>><<optionsfrom setup.buildingTypes>><</listbox>>
     </label>
   <<case 'building'>>
     <label name="Select specific building" for="listbox-target">
@@ -103,8 +97,6 @@
 
 -- 
 <<button "Save">>
-
-  <<set $customImagesData[$targetType][$target] to $url>>
   <<set _outputImage to $url>>
   <<switch $targetType>>
     <<case "npc">>
@@ -117,20 +109,22 @@
       <<set $town.roads[$target].customImage to $url>>
     <<case "town">>
       <<set $town.customImage to $url>>
+    <<default>>
+      <<set $customImagesData[$targetType][$target] to $url>>
   <</switch>>
   <<run State.metadata.set('customImages', $customImagesData)>>
+  <<update>>
 <</button>>
 <br>
-Great sources include:
-<ul>
+Great sources include:<ul>
   <li>[[ArtBreeder|https://www.artbreeder.com/create]]</li>
   <li>[[This gallery of watercolour concept art|https://imgur.com/gallery/5WcP9pn]]</li>
 </ul>
 <br>
-Loaded URL: <<idp _outputImage>>
+Loaded URL: <<if _outputImage>>_outputImage<</if>>
+<br><</liveblock>>
 <br>
-
-<</liveblock>>
+<<include "ShowAllSaved">>
 
 :: PrintImage [nobr]
 <<set $customImages to recall('customImages')>>
@@ -152,8 +146,19 @@ Loaded URL: <<idp _outputImage>>
 <</if>>
 
 :: ShowAllSaved [nobr force-one-column]
-<<run console.log(State.metadata.get('customImages'))>>
+<details><summary>Saved Images</summary>
+<<liveblock>><<run console.log(State.metadata.get('customImages'))>>
 <<set _temp to State.metadata.get('customImages')>>
+<<button "Delete all">>
+  <<run State.metadata.delete('customImages')>>
+  <<set $customImagesData to {
+    'deity': {}, 
+    'buildingType': {}, 
+    'factionType': {}
+  }>>
+  <<run State.metadata.set('customImages', $customImagesData)>>
+  <<update>>
+<</button>> (NPCs and other specifics are flushed on restart)
 <table>
   <tr>
     <th>Object</th>
@@ -161,18 +166,21 @@ Loaded URL: <<idp _outputImage>>
     <th>File</th>
     <th>Delete</th>
   </tr>
-<<for _typeKey, _type range _temp>>
+<<for _typeKey, _type range _temp>><<capture _typeKey, _type>>
 <<if Object.keys(_type).length > 0>><<set _length to Object.keys(_type).length + 1>>
   <tr>
   <th @rowspan=_length>_typeKey</th>
   </tr>
-  <<for _itemKey, _item range _type>>
+  <<for _itemKey, _item range _type>><<capture _itemKey, _item>>
   <tr>
   <td>_itemKey</td>
   <td>_item</td>
-  <td>x</td>
-  </tr>
+  <td><<link 'x'>><<run delete _temp[_typeKey][_itemKey]>><<run State.metadata.set('customImages', _temp)>><<update>>
+  <</link>>
+  </td>
+  </tr><</capture>>
   <</for>>
-  <</if>>
+  <</if>><</capture>>
 <</for>>
 </table>
+<</liveblock>></details>

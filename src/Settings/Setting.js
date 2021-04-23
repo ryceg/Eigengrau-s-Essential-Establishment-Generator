@@ -44,6 +44,28 @@ $(document).on(':dialogopened', function () {
       }
     }
     )
+    setup.addSettingButton({
+      target: 'pantheon',
+      name: 'customImages',
+      description: 'Add custom images.',
+      buttonDescription: 'Open Image Importer'
+    },
+    () => {
+      if (isPatron()) {
+        setup.openDialog({
+          header: 'Import Images',
+          passage: 'CustomImages',
+          rerender: true
+        })
+      } else {
+        setup.openDialog({
+          header: 'Patreon Content',
+          passage: 'ImportPatreon',
+          rerender: true
+        })
+      }
+    }
+    )
   }
 })
 
@@ -72,23 +94,18 @@ Setting.addToggle('darkMode', {
   default: window.matchMedia('(prefers-color-scheme: dark)').matches
 })
 
-Setting.addToggle('showCelsius', {
-  label: 'Show celsius?'
-})
-
-Setting.addToggle('showMetric', {
-  label: 'Show metric?'
-})
-
 Setting.addToggle('showBiomeGeneration', {
   label: 'Edit biome before generation?',
   desc: 'If you want to specify the biome and demographics before town creation, enable this.',
   onChange: settingShowBiomeGeneration
 })
 
-Setting.addToggle('showSliders', {
-  label: 'Show sliders?',
-  desc: 'If you would like to change the variables of buildings, enable this. Warning: feature is in beta.'
+Setting.addToggle('showCelsius', {
+  label: 'Show celsius?'
+})
+
+Setting.addToggle('showMetric', {
+  label: 'Show metric?'
 })
 
 Setting.addToggle('silverStandard', {

@@ -4,15 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.8.5
 
 ### Added
-- Edit button to buildings that have an editor.
+- Edit button to buildings that have an editor (it's still rather terrible, but at least now it's more visible)
+- Custom image uploading for Hero patrons accessible in the settings.
 
 ### Changed
+- Fixed issue with Patreon thanks list sometimes breaking.
 - Modified formatting
 - Shifted notification down slightly so it does not collide with the header
 - Fixed an issue with Tippy not initialising for elements created in a table.
+
+### Removed
+- Obsolete 'Show Sliders' setting.
 
 ## 2.8.5
 
