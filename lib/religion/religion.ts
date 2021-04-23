@@ -262,6 +262,7 @@ export interface Deity {
    * @usage 'Hades resides in ______'
    */
   realm?: string
+  customImage?: URL
   followers: Partial<Followers>
   /**
    * If a deity particularly embodies a virtue or vice, it can be specified.

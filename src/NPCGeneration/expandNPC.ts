@@ -1,4 +1,4 @@
-import type { NPC, Town } from '@lib'
+import { createFamilyHouse, NPC, Town } from '@lib'
 import { createHistory } from './createHistory'
 import { createLifeEvents } from './createLifeEvents'
 import { createFriends } from './Relationships/createFriends'
@@ -26,6 +26,8 @@ export const expandNPC = (town: Town, npc: NPC) => {
       reciprocalRelationship: lib.familyRelationships.verbose(inverse)
     })
   })
+
+  createFamilyHouse(town, town.families[npc.family])
 
   createHistory(town, npc)
   createFriends(town, npc)

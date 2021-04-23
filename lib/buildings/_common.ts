@@ -6,6 +6,7 @@ export interface Location {
   objectType: 'building'
   /** The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
+  buildingType: string
   passageName?: string
   parentKey?: string
   name?: string

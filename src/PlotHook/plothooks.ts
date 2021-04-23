@@ -107,6 +107,7 @@ export const plothooks = [
     function (town: Town) {
       const npc = createNPC(town, {
         background: 'noble',
+        socialClass: 'nobility',
         gender: 'man'
       })
       return `The party is mistaken by a ${profile(npc, 'wealthy man')} as carriage caretakers in a shantytown neighborhood. He hands them money to protect his vehicle. The legitimate caretakers challenge the PCs and try to steal the wealthy wagon. Does the party protect the rich man's vehicle or do they leave the locals to do as they please, risking later persecution by the noble client?`

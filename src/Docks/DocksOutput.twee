@@ -1,4 +1,5 @@
 :: DocksOutput
+\<<include "PrintImage">>
 \<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 \<<set $currentPassage.availableRelationships to setup.docks.get.customers>>
 \<h1 class="interactive-only"><<print $building.name.toUpperFirst()>></h1>

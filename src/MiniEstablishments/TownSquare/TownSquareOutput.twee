@@ -1,11 +1,24 @@
-:: TownSquareOutput
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1 class="interactive-only">The Town Square</h1><p>You're in the town square. It's $building.size, and $building.cleanliness. It features $building.feature As you <<print setup.townSquare.passageData.enter.random()>>, you see <<print lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>>
-There's <<print lib.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it.</p>
-<span class="interactive-only"><<button "Who else is there?">>
-<<if def $building.associatedNPC>>
-  <<run setup.deleteNPC($npcs[$building.associatedNPC])>>
-<</if>>
-<<set $building.associatedNPC to lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>>
-<<update>><</button>>
-<section><<liveblock>><<if def $building.associatedNPC>><<print setup.townSquare.passageData.subsequentViews.random()>> $building.associatedNPC<</if>><</liveblock>></section></span>
+:: TownSquareOutput [nobr]
+<<include "PrintImage">>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<h1 class="interactive-only">The Town Square</h1><p>You're in the town square. 
+It's $building.size, and $building.cleanliness. It features $building.feature 
+As you <<print setup.townSquare.passageData.enter.random()>>, you see <<print lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>></p>
+<p>There's <<print lib.weightedRandomFetcher($town, setup.townSquare.vignettes)>> There's also a noticeboard, which has various posters, requests, and announcements tacked to it.</p>
+<span class="interactive-only">
+  <<button "Who else is there?">>
+    <<if def $building.associatedNPC>>
+      <<run setup.deleteNPC($npcs[$building.associatedNPC])>>
+    <</if>>
+    <<set $building.associatedNPC to lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>>
+    <<update>>
+  <</button>>
+  <section>
+    <<liveblock>>
+      <<if def $building.associatedNPC>>
+          <<print setup.townSquare.passageData.subsequentViews.random()>> $building.associatedNPC
+      <</if>>
+    <</liveblock>>
+  </section>
+</span>
 <<include "Posters">>

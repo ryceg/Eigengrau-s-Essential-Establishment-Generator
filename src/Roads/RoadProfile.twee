@@ -1,9 +1,9 @@
-:: RoadProfile
+:: RoadProfile [nobr]
 /* <<set $currentPassage to lib.findInContainer($town.roads, "key", $currentPassage.key)>> */
+<<include "PrintImage">>
 <h1 class="interactive-only">$currentPassage.name</h1>
-$currentPassage.description
-
-<<liveblock>><span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.buildingTypes).filter(building => {
+<p>$currentPassage.description</p>
+<<liveblock>><span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.createBuildingKeys).filter(building => {
   const nsfwItems = ['Brothel'];
   if (!settings.disableNSFW) return building;
   return !building.includes(nsfwItems);

@@ -68,6 +68,7 @@ export interface TownProfessions extends Profession {
 }
 
 export interface Town extends TownBasics {
+  localImage: string
   taxes: {
     welfare: number
     military: number

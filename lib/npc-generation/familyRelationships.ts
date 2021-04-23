@@ -1,6 +1,7 @@
 import { roads } from '../town/roads'
 import { Town } from '../town/_common'
 import { Family, NPC } from './_common'
+import { random } from '../src/random'
 
 export const familyRelationships = {
   /**
@@ -107,7 +108,6 @@ export function createFamily (town: Town, npc: NPC) {
       road: ''
     }
   }
-  createFamilyHouse(town, family)
   town.families[key] = family
   npc.family = key
 }
@@ -115,7 +115,7 @@ export function createFamily (town: Town, npc: NPC) {
 export function createFamilyHouse (town: Town, family: Family) {
   const road = town.roads[family.home.road] ||
   roads.findExisting(town) ||
-  lib.random(Object.keys(town.roads))
+  random(Object.keys(town.roads))
   // roads.assign(town)
 
   for (const member in family.members) {

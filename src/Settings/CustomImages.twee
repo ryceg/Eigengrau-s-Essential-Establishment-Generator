@@ -1,0 +1,186 @@
+:: CustomImages [nobr force-one-column]
+<<set _objectTypes to {
+  'npc': 'npc', 
+  'deity': 'deity', 
+  'specific building': 'building', 
+  'building type': 'buildingType', 
+  'specific faction': 'faction', 
+  'faction type': 'factionType',
+  'road': 'road',
+  'town': 'town'
+  }>>
+<<set $customImagesData to Object.assign({
+'deity': {}, 
+'buildingType': {}, 
+'factionType': {}
+}, State.metadata.get('customImages'))>>
+<<button "Edit Existing Images" ShowAllSaved>><</button>><<button "Refresh">><<update>><</button>> -- <label name="Select building type" for="listbox-target"><<listbox "$targetType">><<optionsfrom _objectTypes>>
+<</listbox>></label>
+/* <<run $("body").on("change", ['#listbox-target', '#listbox-targettype'], function() {
+  $(document).trigger(":liveupdate");
+});>> */
+<<liveblock>>
+<<switch $targetType>> 
+  <<case 'buildingType'>>
+    <label name="Select building type" for="listbox-target">
+      <<listbox "$target" autoselect>><<optionsfrom setup.buildingTypes>><</listbox>>
+    </label>
+  <<case 'building'>>
+    <label name="Select specific building" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom Object.values($town.buildings).reduce(
+          (obj, building) => Object.assign(obj, { 
+            [building.name]: building.key 
+            }), {})>>
+      <</listbox>>
+    </label>
+  <<case 'road'>>
+    <label name="Select road" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom Object.values($town.roads).reduce(
+          (obj, road) => Object.assign(obj, { 
+            [road.name]: road.key 
+            }), {})>>
+      <</listbox>>
+    </label>
+  <<case 'deity'>>
+    <label name="Select deity" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom lib.getPantheon($town, State.metadata.get('pantheon')).gods.reduce(
+          (obj, deity) => Object.assign(obj, { 
+            [deity.name]: deity.key 
+            }), {})>>
+      <</listbox>>
+    </label>
+  <<case 'npc'>> 
+    <label name="Select npc" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom Object.values($npcs).reduce(
+            (obj, npc) => Object.assign(obj, { 
+              [npc.name]: npc.key 
+              }), {})>>
+      <</listbox>>
+    </label>
+  <<case 'faction'>> 
+    <label name="Select faction" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom Object.values($town.factions).reduce(
+            (obj, faction) => Object.assign(obj, { 
+              [faction.name]: faction.key 
+              }), {})>>
+      <</listbox>>
+    </label>
+  <<case 'factionType'>> 
+    <label name="Select faction type" for="listbox-target">
+      <<listbox "$target" autoselect>>
+        <<optionsfrom Object.keys(lib.factionData.types)>>
+      <</listbox>>
+    </label>
+  <<case 'town'>>the $town.type of $town.name
+  <<default>>Select a type
+<</switch>>
+<<switch $targetType>>
+  <<case "npc">>
+    <<set _temp to $npcs[$target].customImage || 'url goes here'>>
+  <<case "building">>
+    <<set _temp to $town.buildings.find(building => building.key === $target).customImage || 'url goes here'>>
+  <<case "faction">>
+    <<set _temp to $town.factions[$target].customImage || 'url goes here'>>
+  <<case "road">>
+    <<set _temp to $town.roads[$target].customImage || 'url goes here'>>
+  <<case "town">>
+    <<set _temp to $town.customImage || 'url goes here'>>
+  <<default>>
+    <<set _temp to $customImagesData[$targetType][$target] || 'url goes here'>>
+<</switch>>
+-- <<textbox "$url" _temp>>
+
+-- 
+<<button "Save">>
+  <<set _outputImage to $url>>
+  <<switch $targetType>>
+    <<case "npc">>
+      <<set $npcs[$target].customImage to $url>>
+    <<case "building">>
+      <<set $town.buildings.find(building => building.key === $target).customImage to $url>>
+    <<case "faction">>
+      <<set $town.factions[$target].customImage to $url>>
+    <<case "road">>
+      <<set $town.roads[$target].customImage to $url>>
+    <<case "town">>
+      <<set $town.customImage to $url>>
+    <<default>>
+      <<set $customImagesData[$targetType][$target] to $url>>
+  <</switch>>
+  <<run State.metadata.set('customImages', $customImagesData)>>
+  <<update>>
+<</button>>
+<br>
+Great sources include:<ul>
+  <li>[[ArtBreeder|https://www.artbreeder.com/create]]</li>
+  <li>[[This gallery of watercolour concept art|https://imgur.com/gallery/5WcP9pn]]</li>
+</ul>
+<br>
+Loaded URL: <<if _outputImage>>_outputImage<</if>>
+<br><</liveblock>>
+<br>
+<<include "ShowAllSaved">>
+
+:: PrintImage [nobr]
+<<set $customImages to recall('customImages')>>
+<<set $currentImage to $currentPassage.customImage || 
+  /* $customImages[$currentPassage.objectType][$currentPassage.key] ||  */
+  $customImages.buildingType[$currentPassage.buildingType] || 
+  /* $customImages.factionType[$currentPassage.factionType] ||  */
+  null>>
+<<if $currentImage>>
+<div id="illustration-buffer">
+  <<print lib.getCustomImage($currentImage)>>
+</div>
+<img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+<<elseif $currentPassage.localImage>>
+<div id="illustration-buffer">
+  <<print lib.getLocalImage($currentPassage.localImage)>>
+</div>
+<img id="paper" src=./src/Resources/0001.png top=15vw display=block>
+<</if>>
+
+:: ShowAllSaved [nobr force-one-column]
+<details><summary>Saved Images</summary>
+<<liveblock>><<run console.log(State.metadata.get('customImages'))>>
+<<set _temp to State.metadata.get('customImages')>>
+<<button "Delete all">>
+  <<run State.metadata.delete('customImages')>>
+  <<set $customImagesData to {
+    'deity': {}, 
+    'buildingType': {}, 
+    'factionType': {}
+  }>>
+  <<run State.metadata.set('customImages', $customImagesData)>>
+  <<update>>
+<</button>> (NPCs and other specifics are flushed on restart)
+<table>
+  <tr>
+    <th>Object</th>
+    <th>Name</th>
+    <th>File</th>
+    <th>Delete</th>
+  </tr>
+<<for _typeKey, _type range _temp>><<capture _typeKey, _type>>
+<<if Object.keys(_type).length > 0>><<set _length to Object.keys(_type).length + 1>>
+  <tr>
+  <th @rowspan=_length>_typeKey</th>
+  </tr>
+  <<for _itemKey, _item range _type>><<capture _itemKey, _item>>
+  <tr>
+  <td>_itemKey</td>
+  <td>_item</td>
+  <td><<link 'x'>><<run delete _temp[_typeKey][_itemKey]>><<run State.metadata.set('customImages', _temp)>><<update>>
+  <</link>>
+  </td>
+  </tr><</capture>>
+  <</for>>
+  <</if>><</capture>>
+<</for>>
+</table>
+<</liveblock>></details>

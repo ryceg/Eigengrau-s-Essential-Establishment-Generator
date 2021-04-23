@@ -1,8 +1,8 @@
-:: Posters
+:: Posters [nobr]
 <<button "Generate a poster">>
-\<<if def _newNPC>>
-\    <<run setup.deleteNPC($npcs[_newNPC])>>
-\<</if>>
-\<<set $poster to lib.weightedRandomFetcher($town, setup.plothooks, null, setup.misc.town.type.paper)>>
+<<if def _newNPC>>
+    <<run setup.deleteNPC($npcs[_newNPC])>>
+<</if>>
+<<set $poster to lib.weightedRandomFetcher($town, setup.plothooks, null, setup.misc.town.type.paper)>>
 <<update>><</button>>
-\<section id='poster'><<liveblock>><<if def $poster>><descriptive>$poster</descriptive><</if>><</liveblock>></section>
+<section id='poster'><<liveblock>><<if def $poster>><descriptive>$poster</descriptive><</if>><</liveblock>></section>

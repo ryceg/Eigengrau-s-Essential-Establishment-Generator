@@ -3,7 +3,7 @@ import { magicData, MagicType } from './magicData'
 import { random } from './random'
 import { assign } from './utils'
 
-export function createMagic <T extends MagicType> (type: T | 'ring') {
+export function createMagic <T extends MagicType> (type: T | 'ring'): MagicItem {
   console.log(`Type: ${type}`)
 
   if (type === 'ring') {
@@ -32,4 +32,14 @@ export function createMagic <T extends MagicType> (type: T | 'ring') {
 
   console.log(magic)
   return magic
+}
+
+export interface MagicItem {
+  type: string
+  description: string
+  name: string
+  prefix?: string
+  suffix?: string
+  prefixProperty?: string
+  suffixProperty?: string
 }

@@ -49,6 +49,7 @@ import { outputGMBinder } from './Tools/Exports/outputGMBinder'
 import { copyText } from './Tools/Exports/clipboard'
 import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
 import { createStartBuildings } from './Town/js/createStartBuildings'
+import { npcDeath, createDeadNPC } from './NPCGeneration/SetupDeath'
 
 declare global {
   interface Setup {
@@ -112,6 +113,8 @@ declare global {
     createGuardhouse: typeof createGuardhouse
     createGuardhouseName: typeof createGuardhouseName
     createStartBuildings: typeof createStartBuildings
+    npcDeath: typeof npcDeath
+    createDeadNPC: typeof createDeadNPC
   }
 }
 
@@ -175,7 +178,9 @@ Object.assign(setup, {
   outputGMBinder,
   createGuardhouse,
   createGuardhouseName,
-  createStartBuildings
+  createStartBuildings,
+  npcDeath,
+  createDeadNPC
 })
 
 /**
