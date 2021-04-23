@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Unreleased
+
+### Added
+- Edit button to buildings that have an editor.
+
+### Changed
+- Modified formatting
+- Shifted notification down slightly so it does not collide with the header
+- Fixed an issue with Tippy not initialising for elements created in a table.
+
 ## 2.8.5
 
 ### Added
