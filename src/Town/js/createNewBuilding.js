@@ -1,5 +1,28 @@
 setup.initBuildingTypes = () => {
   setup.buildingTypes = {
+    'Alchemist': 'alchemist',
+    'Bakery': 'bakery',
+    'Barber': 'barber',
+    'Brothel': 'brothel',
+    'Butcher': 'butcher',
+    'Castle': 'castle',
+    'Cobbler': 'cobbler',
+    'Docks': 'docks',
+    'Dungeon': 'dungeon',
+    'Fletcher': 'fletcher',
+    'Florist': 'florist',
+    'General Store': 'generalStore',
+    'Graveyard': 'graveyard',
+    'Guardhouse': 'guardhouse',
+    'Jeweller': 'jeweller',
+    'Market': 'market',
+    'Smithy': 'smithy',
+    'Tailor': 'tailor',
+    'Tavern': 'tavern',
+    'Temple': 'temple',
+    'Town Square': 'townSquare'
+  }
+  setup.createBuildingKeys = {
     // please keep this in alphabetic order
     // TODO automatically sort into alphabetic order
     // TODO automatically find available buildings
@@ -31,7 +54,7 @@ setup.createNewBuilding = (town, type, opts) => {
   // this is necessary to point the function towards where the building creation function is kept.
   // unfortunately, it currently needs to be updated manually with each new building.
 
-  const newBuilding = setup.buildingTypes[lib.toTitleCase(type)](town, { ...opts, isHighlighted: true })
+  const newBuilding = setup.createBuildingKeys[lib.toTitleCase(type)](town, { ...opts, isHighlighted: true })
   console.log(town)
   if (Array.isArray(town.buildings)) town.buildings.push(newBuilding)
   return newBuilding
