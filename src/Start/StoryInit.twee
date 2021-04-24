@@ -18,6 +18,15 @@
 	}
 }>>
 
+<<if !State.metadata.has('customImages')>>
+<<set $customImagesData to {
+'deity': {}, 
+'buildingType': {}, 
+'factionType': {}
+}>>
+<<run State.metadata.set('customImages', $customImagesData)>>
+<</if>>
+
 <<script>>
   const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});
   const $badge = $(`<span id="badge" />`)
