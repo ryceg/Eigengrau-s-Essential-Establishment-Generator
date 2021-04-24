@@ -38,7 +38,7 @@ interface Followers {
    */
   holyDays: PartialRecord<WorldTypeAbbreviated, Information[]>
   race?: RaceName
-  base?: Partial<NPC>
+  // base?: Partial<NPC>
   /**
    * Certain groups might be excluded from following a deity.
    */
@@ -87,7 +87,7 @@ export interface Deity {
    * @example ```Kronos: 'imprisoned'```
    * @example ```Pan: 'uncertain'```
    */
-  status: DeityStatus
+  status: DeityStatus | string
   /**
    * Used to determine how likely a god is to be worshipped, either at the town level, or the NPC level.
    */
@@ -128,7 +128,7 @@ export interface Deity {
    * NOTE: This is when there are multiple names for the same god - if two cultures have similar gods it should be 'equivalent'
    * @example aliases: ['El', 'Anu', 'An', 'Thoru-el']
    */
-  aliases?: string[]
+  aliases: string[]
   /**
    * While Zeus and Jupiter are arguably the same god, Aphrodite and Ishtar are not, but there is a connection between them.
    * @example Aphrodite: ['Ishtar', 'Astarte']
@@ -643,6 +643,7 @@ export const religion: ReligionData = {
             'God of Refuge',
             'Oathkeeper'
           ],
+          aliases: [],
           rank: 'leader',
           description: 'Zeus is the leader of the Greek gods, and lives atop Mount Olympus, where he rules over the mortal world below.',
           appearance: 'Zeus is depicted as a regal, mature man with a sturdy figure and dark beard grasping a lightning bolt and wreathed in a crown of olive leaves.',
@@ -2156,6 +2157,7 @@ export const religion: ReligionData = {
             'Whose Hand is Above',
             'Of the Flowers'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: 'Hera is the Queen of the gods, forever tested by her husband Zeus. Unable to attack Zeus, her anger is often directed to his consorts or his children.',
           appearance: 'a beautiful woman wearing a crown and holding a royal, lotus-tipped sceptre',
@@ -2304,6 +2306,7 @@ export const religion: ReligionData = {
             'Warlike',
             'Of the Golden Helm'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: 'always clad in armour, holding weapons and ready for battle. He can appear as the fresh-faced youth or the grizzeled veteran depending on his mood.',
@@ -2542,6 +2545,7 @@ export const religion: ReligionData = {
             'Crooked-Foot',
             'Of Bronze'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: 'bearded man with twisted legs',
@@ -2765,6 +2769,7 @@ export const religion: ReligionData = {
             'Leader of the Dogs',
             'Three-bodied'
           ],
+          aliases: [],
           rank: 'intermediate deity',
           description: undefined,
           appearance: 'a woman wearing a crown. Sometimes, she has three bodies, conjoined to one another.',
@@ -2876,6 +2881,7 @@ export const religion: ReligionData = {
           key: 'Nike',
           status: 'alive',
           titles: ['Goddess of Victory', 'The Winged Goddess'],
+          aliases: [],
           rank: 'lesser deity',
           description: undefined,
           appearance: 'an athletic woman with two large wings.',
@@ -2959,6 +2965,7 @@ export const religion: ReligionData = {
           key: 'Tyche',
           status: 'alive',
           titles: ['Goddess of Fortune and Chance'],
+          aliases: [],
           rank: 'lesser deity',
           description: undefined,
           appearance: 'a woman with a crown, often shown holding a horn of cornucopia.',
@@ -3041,6 +3048,7 @@ export const religion: ReligionData = {
             'Daughter of Zeus',
             'Wife of Hercules'
           ],
+          aliases: [],
           rank: 'lesser deity',
           description: undefined,
           appearance: 'a woman in a sleeveless dress, with long brown hair.',
@@ -3139,6 +3147,7 @@ export const religion: ReligionData = {
             'Terrifying One',
             'Of the Hunt'
           ],
+          aliases: [],
           rank: 'intermediate deity',
           description: undefined,
           appearance: 'a satyr holding a set of Pan-pipes',
@@ -3237,6 +3246,7 @@ export const religion: ReligionData = {
             'God of Healing',
             'Lover of the People'
           ],
+          aliases: [],
           rank: 'lesser deity',
           description: 'Asclepius is the son of Apollo whose skill in medicine was so great he could ressurect the dead, he was struck down by Zeus. He was placed among the stars and now serves as the Physician for the gods',
           appearance: 'a man with a full beard in a simple himation robe.',
@@ -3329,6 +3339,7 @@ export const religion: ReligionData = {
             'Wisest of the Centaurs',
             'The Teacher'
           ],
+          aliases: [],
           rank: 'immortal',
           description: undefined,
           appearance: 'a centaur, though in some iterations his front legs are human legs.',
@@ -3506,6 +3517,7 @@ export const religion: ReligionData = {
           status: 'alive',
           equivalent: ['Libera', 'Proserpina'],
           titles: ['Wife of Dionysus'],
+          aliases: [],
           rank: 'immortal',
           description: undefined,
           appearance: 'a woman with a laurel crown',
@@ -3626,6 +3638,7 @@ export const religion: ReligionData = {
             'The Hanging One',
             'God of Victory'
           ],
+          aliases: [],
           rank: 'leader',
           description: undefined,
           appearance: '',
@@ -3734,6 +3747,7 @@ export const religion: ReligionData = {
             'Odinson',
             'Strong-Spirit'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: 'Thor is the God of Lightning, Thunder and Storms. He is a god of Strength, yet he is also a god who protects the sacred groves and mankind.',
           appearance: '',
@@ -3847,6 +3861,7 @@ export const religion: ReligionData = {
             'The Bound God',
             'He who has borne children'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
@@ -4211,6 +4226,7 @@ export const religion: ReligionData = {
             'First maker of Poetry',
             'Son of Odin'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
@@ -4288,6 +4304,7 @@ export const religion: ReligionData = {
             'Mother of Ullr',
             'Good Mother'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: 'a beautiful woman with a brilliant wig made of gold',
@@ -4361,6 +4378,7 @@ export const religion: ReligionData = {
             'Wisest of the Aesir',
             'Fairest of the Aesir'
           ],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
@@ -4434,9 +4452,8 @@ export const religion: ReligionData = {
           name: 'Name',
           key: 'Name',
           status: 'alive',
-          titles: [
-            ''
-          ],
+          titles: [],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
@@ -4502,9 +4519,8 @@ export const religion: ReligionData = {
           name: 'Hel',
           key: 'Hel',
           status: 'alive',
-          titles: [
-            ''
-          ],
+          titles: [],
+          aliases: [],
           rank: 'greater deity',
           description: undefined,
           appearance: '',
