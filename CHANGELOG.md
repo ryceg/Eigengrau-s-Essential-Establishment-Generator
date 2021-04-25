@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.7
+
+### Changed
+- New format for religion data
+- Button now appears above <h1>
+- Fixed issue where religion percentage would change
+- Fixed issue where race makeup description would not print
+
+### Removed
+- Holy Days in religion (still present in the data structure, just not active until we have it up and running)
+- Quick edit races (formatting and UX was terrible)
+
 ## 2.8.6
 
 ### Added
