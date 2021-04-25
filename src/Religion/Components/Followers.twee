@@ -1,5 +1,5 @@
 :: Followers [nobr]
-<<set _religionPercentageContent to lib.getPantheonPercentages($town, State.metadata.get('pantheon'))[$currentPassage.key].toFixed(2)>>
+<<set _religionPercentageContent to lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[$currentPassage.key].toFixed(2)>>
 <h2>Followers</h2>
 <<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
 <<include "Maxim">>
