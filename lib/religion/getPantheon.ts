@@ -1,6 +1,6 @@
 import { findInArray } from '../../lib/src/findInArray'
 import { Town } from '../../lib/town/_common'
-import { compileWeightToPercentile, getDeityPercentagesList, getTownDeityWeightings } from './createTownReligion'
+import { compileWeightToPercentile, getTownDeityWeightings } from './createTownReligion'
 import { Pantheon, religion } from './religion'
 
 export const getDeity = (town: Town, deity: string, customPantheon?: Pantheon) => {
@@ -41,29 +41,32 @@ export const getCustomPantheon = (town: Town, customPantheon?: Pantheon): Panthe
   throw new Error('Custom panthon not defined!')
 }
 
-export const getPantheonPercentages = (town: Town, customPantheon?: Pantheon) => {
-  console.log('Getting pantheon percentages...')
-  return compileWeightToPercentile(
-    getTownDeityWeightings(town, getPantheon(town, customPantheon).gods)
+/** For getting ALL deities, including 0% ones. */
+export const getAllPantheonPercentages = (town: Town, customPantheon?: Pantheon) => {
+  console.log('Getting all pantheon percentages...')
+  return Object.fromEntries(
+    Object.entries(
+      compileWeightToPercentile(
+        getTownDeityWeightings(town, getPantheon(town, customPantheon).gods)
+      ))
+      .sort(
+        ([, a], [, b]) => a - b)
+      .reverse()
   )
 }
 
-export const getCulledPantheonPercentages = (town: Town, customPantheon?: Pantheon) => {
+export const getPantheonPercentages = (town: Town, customPantheon?: Pantheon) => {
   console.log('Getting pantheon percentages...')
   const temp = compileWeightToPercentile(
     getTownDeityWeightings(town, getPantheon(town, customPantheon).gods)
   )
-  return Object.fromEntries(
-    Object.entries(temp).filter(([, value]) => value > 0))
-}
 
-export const getPantheonPercentagesReadout = (town: Town, customPantheon?: Pantheon) => {
-  const deities: [string, number][] = getDeityPercentagesList(getPantheonPercentages(town, customPantheon))
-  let text = ''
-  for (const [deity, percentage] of deities) {
-    if (percentage > 0) {
-      text += ` ${deity}: ${percentage.toFixed(2)}%`
-    }
-  }
-  return text
+  return Object.fromEntries(
+    Object.entries(temp)
+      .filter(
+        ([, value]) => value > 1)
+      .sort(
+        ([, a], [, b]) => a - b)
+      .reverse()
+  )
 }
