@@ -14,7 +14,7 @@ export const printInformation = (information: Information, output = $('<div />')
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const elementLevel = information.opts.element[2]
+  const elementLevel = parseInt(information.opts.element[2]) + 1
 
   if (information.title && !information.opts.suppressTitle) {
     if (information?.children?.length === 0 && !information.description) {
