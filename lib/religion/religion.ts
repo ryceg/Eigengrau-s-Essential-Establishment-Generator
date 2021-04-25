@@ -1302,20 +1302,14 @@ export const religion: ReligionData = {
           blessings: {
             title: 'blessings',
             children: [
-              {
-                title: 'beauty'
-              }
+              'beauty'
             ]
           },
           curses: {
             title: 'Curses',
             children: [
-              {
-                title: 'ugliness'
-              },
-              {
-                title: 'unwashable stink'
-              }
+              'ugliness',
+              'unwashable stink'
             ]
           },
           allies: {
@@ -1628,7 +1622,8 @@ export const religion: ReligionData = {
             title: 'Possessions',
             children: [
               {
-                title: 'The Lyre of Apollo'
+                title: 'The Lyre of Apollo',
+                description: 'When Hermes was a baby, he stole a number of Apollo\'s Cattle and took them to a cave in the woods near Pylos. In the cave, he found a tortoise and killed it, then removed the insides. He used one of the cow\'s intestines and the tortoise shell and made the first lyre. \n Apollo eventually found Hermes, but fell in love with the sound the lyre made. Apollo gifted the cattle to Hermes in exchange for the lyre and forgave Hermes for stealing his cattle. '
               },
               {
                 title: 'Bow of Apollo',
@@ -1796,9 +1791,7 @@ export const religion: ReligionData = {
           possessions: {
             title: 'Possessions',
             children: [
-              {
-                title: 'Aegis of Athena'
-              }
+              'Aegis of Athena'
             ]
           },
           realm: undefined,
@@ -2190,15 +2183,9 @@ export const religion: ReligionData = {
           blessings: {
             title: 'blessings',
             children: [
-              {
-                title: 'bountiful harvest'
-              },
-              {
-                title: 'satiated appetite'
-              },
-              {
-                title: 'a better afterlife'
-              }
+              'bountiful harvest',
+              'satiated appetite',
+              'a better afterlife'
             ]
           },
           curses: {
@@ -2349,10 +2336,12 @@ export const religion: ReligionData = {
                 description: 'Tarlaria is the name of a pair of winged boots forged by Hephaestus.'
               },
               {
-                title: 'Adamantine Blade'
+                title: 'Golden Blade',
+                description: 'His weapon was a sword of gold, which killed Argos; lent to Perseus to kill Medusa.'
               },
               {
-                title: 'Winged helm'
+                title: 'Winged Helm',
+                description: "A Petasos with wings, Hermes' helmet was forged by Hephaestus."
               }
             ]
           },
@@ -3031,12 +3020,8 @@ export const religion: ReligionData = {
           blessings: {
             title: 'blessings',
             children: [
-              {
-                title: 'inspiration'
-              },
-              {
-                title: 'knowledge'
-              }
+              'inspiration',
+              'knowledge'
             ]
           },
           curses: {
@@ -3582,13 +3567,14 @@ export const religion: ReligionData = {
           name: 'Hebe',
           key: 'Hebe',
           status: 'alive',
-          titles: ['Goddess of Eternal Youth',
+          titles: [
+            'Goddess of Eternal Youth',
             'Daughter of Zeus',
             'Wife of Hercules'
           ],
           aliases: [],
           rank: 'lesser deity',
-          description: '',
+          description: 'Hebe is the daughter of Zeus and Hera, as well as the Goddess of Youth. She served as the Cupbearer of the Gods, and was later married to Herakles, the protector of Olympus.',
           appearance: 'a woman in a sleeveless dress, with long brown hair.',
           history: {
             title: 'history',
@@ -3615,7 +3601,7 @@ export const religion: ReligionData = {
             children: []
           },
           alignment: 'Neutral Good',
-          symbol: undefined,
+          symbol: ['Wine cup', 'eagle', 'ivy', 'fountain of youth', 'wings'],
           combat: {
             title: 'combat',
             children: []
@@ -3627,12 +3613,18 @@ export const religion: ReligionData = {
           },
           possessions: {
             title: 'possessions',
-            children: []
+            children: [
+              {
+                title: 'Fountain of Youth',
+                description: 'Hebe was the protector of the Fountain of Youth.'
+              }
+            ]
           },
           realm: undefined,
           followers: {
-            description: undefined,
+            description: 'As the bride of Heracles, Hebe was strongly associated with both brides and her husband in art and literature. Hebe was the patron of brides, due to being the daughter of Hera and the importance of her own wedding.',
             favouredWeapon: undefined,
+            adherents: ['brides'],
             holyDays: {
               title: 'Holy Days',
               children: [
@@ -3675,7 +3667,8 @@ export const religion: ReligionData = {
             title: 'blessings',
             children: [
               {
-                title: 'restored youth'
+                title: 'Restored Youth',
+                description: 'A power unique to Hebe, she was able to restore youth to mortals.'
               }
             ]
           },
@@ -3697,8 +3690,18 @@ export const religion: ReligionData = {
               relationship: 'father'
             },
             {
+              name: 'Hera',
+              relationship: 'mother',
+              description: 'Hebe helped Hera enter her chariot.'
+            },
+            {
               name: 'Hercules',
               relationship: 'husband'
+            },
+            {
+              name: 'Ares',
+              relationship: 'brother',
+              description: 'Hebe drew baths for Ares.'
             }
           ],
           maxims: [
@@ -4256,9 +4259,7 @@ export const religion: ReligionData = {
           possessions: {
             title: 'Possessions',
             children: [
-              {
-                title: 'The Thread of Ariadne'
-              }
+              'The Thread of Ariadne'
             ]
           },
           realm: undefined,
