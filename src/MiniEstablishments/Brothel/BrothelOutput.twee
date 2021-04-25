@@ -3,7 +3,7 @@
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $building.associatedNPC>>
 <<set $currentPassage.availableRelationships to setup.brothelData.customers>>
-<h1 class="interactive-only">$building.name</h1><<include "TownMicroEventsOutput">><p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
+<h1 class="interactive-only">$building.name</h1><p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. Inside, the $building.size $building.structure.material.noun building is $building.cleanliness. You notice $building.notice.
 When people talk about $building.name, they say $building.talk. Apparently, it specialises in $building.specialty.
 Rumours abound in whorehouses, and $building.name is no different; apparently, $building.rumour.</p>
 <section><h3>Brothel $associatedNPC.title</h3>
