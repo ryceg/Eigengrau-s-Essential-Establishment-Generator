@@ -108,19 +108,19 @@ export interface Deity {
        * @warn This _multiplies_ the probability.
        * Can be turned off.
        */
-      race: PartialRecord<RaceName, number>
+      race?: PartialRecord<RaceName, number>
       /**
        * Generic catch-all function for NPCs trying to pick a god to follow.
        */
-      function: (town: Town, npc: NPC) => void
+      function?: (town: Town, npc: NPC) => void
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
        */
-      profession: Record<ProfessionName, number>
+      profession?: Record<ProfessionName, number>
       /**
        * Profession sector is applied as well as Professions.
        */
-      professionSector: Record<ProfessionSector, number>
+      professionSector?: PartialRecord<ProfessionSector, number>
     }
   }
   /**
@@ -301,6 +301,9 @@ export interface Deity {
 export interface Information {
   title?: string
   description?: string
+  /**
+   * If the children property is initialised as an empty array, that means that its parent won't be printed unless the description is filled in.
+   * */
   children?: Information[] | string[]
   opts?: {
     /**
