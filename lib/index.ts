@@ -97,6 +97,7 @@ export * from './religion/getPredominantReligion'
 export * from './religion/getPantheon'
 export * from './religion/Components/deityComponents'
 export * from './religion/Components/printInformation'
+export * from './religion/isInformationEmpty'
 
 export * from './smithy/_common'
 export * from './smithy/smithyData'

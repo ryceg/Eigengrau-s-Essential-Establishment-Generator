@@ -2,6 +2,7 @@
 :: InitAlchemist [force-one-column]
 \<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
 \<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
+\<<set $town.buildings[$currentPassage.index].priceModifier to Math.clamp($town.buildings[$currentPassage.index].priceModifier, -10, 10)>>
 \<<set _name to $town.buildings[$currentPassage.index].name>>
 <<linkreplace "Rename <strong>_name</strong>">><h3><label name="Rename the town"><<textbox "$town.buildings[$currentPassage.index].name" _name>></h3><</linkreplace>>
 <<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>

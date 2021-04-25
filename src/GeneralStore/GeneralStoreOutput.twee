@@ -3,8 +3,8 @@
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to lib.generalStore.get.customers>>
-<h1 class="interactive-only">$building.name</h1><<include "TownMicroEventsOutput">>
-<<button "Edit $building.name" $building.initPassage>><</button>><br>
+<<button "Edit $building.name" $building.initPassage>><</button>>
+<h1 class="interactive-only">$building.name</h1>
 <p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.structure.descriptor and see that inside, the $building.size building is $building.cleanliness.<<if $building.clutter>> $building.clutter<</if>> You notice $building.note. The store's shopkeep is currently $building.idle.</p>
 <h3>Shopkeeper</h3>
 <p>The shopkeep <<print $associatedNPC.greeting.random()>> <<print ['when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around'].random()>>. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.owner of the General Store, and $building.say. $building.shopkeepNote.</p>

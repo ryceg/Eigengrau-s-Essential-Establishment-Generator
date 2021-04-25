@@ -1,33 +1,55 @@
 import { Information } from '@lib'
+/**
+ * Types:
+ * * Title & Description: easy as pie.
+ * * Just the description: for new paragraphs.
+ * * Just the title: NO
+ * * Just the children array, which is full: list
+ * * Title, description, and children array of just titles:
+ */
+export const printInformation = (information: Information, output = $('<div />')) => {
+  information.opts = Object.assign({
+    element: '<h3 />'
+  }, information.opts)
 
-export const printInformation = (informations: Information[], preface?: Information) => {
-  const output = $('<div />')
-  const listStuff = []
-  let listResult
-  for (const info of informations) {
-    info.opts = Object.assign({
-      element: '<h4 />'
-    }, info.opts)
-    // if there's a title, description, but no displayAsList flag, it gets its own heading
-    if (info.title && info.description && info.opts.displayAsList !== true) {
-      $(info.opts.element as HTMLElement)
-        .text(lib.toTitleCase(info.title))
-        .appendTo(output)
-      $(`<p>${info.description}</p>`)
-        .appendTo(output)
-    }
-    // if there's a title and no description, push it to the list maker
-    if (info.title && !info.description && info.opts.displayAsList !== false) {
-      listStuff.push(info.title)
-    }
-    if (!info.title && info.description && info.opts.displayAsList !== true) {
-      $(`<p>${info.description}</p>`)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const elementLevel = parseInt(information.opts.element[2]) + 1
+
+  if (information.title && !information.opts.suppressTitle) {
+    if (information?.children?.length === 0 && !information.description) {
+      return
+    } else {
+      $(information.opts.element)
+        .text(lib.toTitleCase(information.title))
         .appendTo(output)
     }
   }
-  if (listStuff.length > 0) {
-    listResult = lib.makeList(listStuff)
-    output.prepend(`<p>${lib.toUpperFirst(listResult)}.</p>`)
+
+  if (information.description) {
+    $(`<p>${information.description}</p>`)
+      .appendTo(output)
+  }
+
+  // if children is defined (i.e. it's a container)
+  if (information.children) {
+    // if the children array is empty, the entire thing is likely not being used
+    if (information.children.length === 0) {
+
+      // if the children array is not empty, use it
+    } else {
+      const list: string[] = []
+      for (const info of information.children) {
+        if (typeof info === 'string') {
+          list.push(info)
+        } else {
+          printInformation(Object.assign({ opts: { element: `<h${elementLevel} />` } }, info), output)
+        }
+      }
+      if (list.length > 0) {
+        output.prepend(`<p>${lib.toUpperFirst(lib.makeList(list))}.</p>`)
+      }
+    }
   }
   return output.wrap('<div />').parent().html()
 }
