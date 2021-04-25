@@ -4,24 +4,24 @@
 <div id="illustration-buffer">
 <<print lib.getCustomImage(recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage)>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
 <</if>>
-<h1 class="interactive-only">$currentPassage.name</h1>
 <button type='button' title='Coming to an update near you soon!' data-tippy-content='Coming to an update near you soon!' id="deity-edit" disabled>Edit $currentPassage.name</button>
+<h1 class="interactive-only">$currentPassage.name</h1>
 /* <<button "Edit $currentPassage.name" DeitySliders>>
     <<run setup.history($currentPassage, "DeitySliders", "Editing " + $currentPassage.name)>>
 <</button>> */
 <<include "Quotes">>
 /* <<include "AlsoKnownAs">> */  
-<<if $currentPassage.aliases>> 
-  <<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases) + '.', $currentPassage.name.slice(1))>>
+<<if $currentPassage.aliases && $currentPassage.aliases.length > 0>> 
+  <<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases) + '.', $currentPassage.name)>>
 <<else>>
-  <<print lib.firstCharacter($currentPassage.name)>>
+  $currentPassage.name
 <</if>>
 , <<print lib.createTippyFull(lib.makeList($currentPassage.titles.slice(1)), $currentPassage.titles[0])>>, 
 <<print lib.deityIsWas($currentPassage.status)>> the <<print ($currentPassage.wordNoun || lib.genderData[$currentPassage.gender].godgoddess)>> of <<include "Portfolios">>. 
 <<print lib.deityStatus($currentPassage)>> <<include "Symbol">> 
-<<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<idp $currentPassage.realm "$currentPassage.name resides in $currentPassage.realm">>
-<<idp $currentPassage.rank "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.">>
-<<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.">>
+<<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<if $currentPassage.realm>>$currentPassage.name resides in $currentPassage.realm<</if>>
+<<if $currentPassage.rank>><<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.<</if>>
+<<if $currentPassage.alignment>><<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.<</if>>
 <<idp $currentPassage.history>>
 <<include "Powers">>
 <<idp $currentPassage.possessions>>
