@@ -102,7 +102,7 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const createPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>, content: string) => {
+export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
   const tip = $(`<span class='tip dotted'>${content}</span>`)
   tippy(tip.get(0), {
     content: source,
@@ -115,18 +115,16 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, per
   }
 }
 
-export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
+export function createRaceHTML (percentages: Record<RaceName, number>, target: string, content?: string) {
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
-  const html = lib.formatAsList(list)
-  createPercentageTooltip(html, target, percentages, lib.getPredominantRace(percentages).amountDescriptive)
+  const html = lib.formatArrayAsList(list)
+  createPercentageTooltip(html, target, content || lib.getPredominantRace(percentages).amountDescriptive)
 }
 
-export function createReligionHTML (percentages: Record<string, number>, target: string) {
-  const array = lib.sortArray(percentages).reverse()
-  const list = lib.formatPercentile(array as [string, number][])
-  const html = lib.formatAsList(list)
-  createPercentageTooltip(html, target, percentages, lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
+export function createReligionHTML (percentages: Record<string, number>, target: string, content?: string) {
+  const html = lib.formatAsList(percentages)
+  createPercentageTooltip(html, target, content || lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
   const button = $('<button/>', {
     text: 'Edit',
     click () {
