@@ -8,7 +8,7 @@
       <th>Relationship</th>
     </tr>
   <<for _relationship range $currentPassage.relationships>>
-  <<set _deity to lib.findInArray(lib.getPantheon($town).gods, 'name', _relationship.name.toUpperFirst())>>
+  <<set _deity to lib.findInArray(lib.getPantheon($town, State.metadata.get('pantheon')).gods, 'name', _relationship.name.toUpperFirst())>>
   <<capture _deity, _relationship>>
     <tr>
       <td>

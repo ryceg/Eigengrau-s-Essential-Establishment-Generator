@@ -1,5 +1,5 @@
 :: DeityProfile [nobr]
-<<set $currentPassage to lib.findInArray(lib.getPantheon($town).gods, 'name', $currentPassage.name)>>
+<<set $currentPassage to lib.findInArray(lib.getPantheon($town, State.metadata.get('pantheon')).gods, 'name', $currentPassage.name)>>
 <<if recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage>>
 <div id="illustration-buffer">
 <<print lib.getCustomImage(recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage)>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>
@@ -22,15 +22,15 @@
 <<idp $currentPassage.description>> <<idp $currentPassage.appearance>> <<idp $currentPassage.realm "$currentPassage.name resides in $currentPassage.realm">>
 <<idp $currentPassage.rank "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is <<print lib.articles.output($currentPassage.rank)>> in the pantheon.">>
 <<idp $currentPassage.alignment "<<print lib.genderData[$currentPassage.gender].heshe.toUpperFirst()>> is $currentPassage.alignment.">>
-<<idp $currentPassage.history "<h2>History</h2>$currentPassage.history">>
+<<idp $currentPassage.history>>
 <<include "Powers">>
-<<include "Possessions">>
+<<idp $currentPassage.possessions>>
 <<include "Followers">>
-<<idp $currentPassage.beliefs "<h3>Beliefs</h3><<print lib.printInformation($currentPassage.beliefs)>>">>
-<<idp $currentPassage.heresies "<h3>Heresies</h3><<print lib.printInformation($currentPassage.heresies)>>">>
-<<idp $currentPassage.paragraphs "<<print lib.printInformation($currentPassage.paragraphs)>>">>
-<<idp $currentPassage.combat.description "<h2>Combat</h2>$currentPassage.combat.description">> <<idp $currentPassage.combat.tactics>>
+<<idp $currentPassage.beliefs>>
+<<idp $currentPassage.heresies>>
+<<idp $currentPassage.paragraphs>>
+<<idp $currentPassage.combat>>
 <<include "Manifestations">>
 <<include "DeityRelationships">>
-<<idp $currentPassage.allies "<h3>Allies</h3><<print lib.printInformation($currentPassage.allies)>>">>
-<<idp $currentPassage.enemies "<h3>Enemies</h3><<print lib.printInformation($currentPassage.enemies)>>">>
+<<idp $currentPassage.allies>>
+<<idp $currentPassage.enemies>>
