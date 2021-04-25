@@ -50,7 +50,7 @@ export const createTown = (base: TownBasics) => {
       _probabilities: {} as Record<string, number>
     },
     get religionPercentages () {
-      return lib.getPantheonPercentages(this as unknown as Town)
+      return lib.getAllPantheonPercentages(this as unknown as Town)
     },
     set religionPercentages (data: Record<string, number>) {
       console.warn('Trying to set religion percentages, which is a read-only!')
@@ -60,15 +60,17 @@ export const createTown = (base: TownBasics) => {
     set religionProbabilities (data: Record<string, number>) {
       console.groupCollapsed('Setting religion probabilities!')
       this.religion._probabilities = data
-      // this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
       console.log('Before unaltered')
       const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
 
       if (!this.religion._modifiers) this.religion._modifiers = {}
+      if (!this.religion._probabilities) this.religion._probabilities = {}
+      if (!this.religion._baseProbabilities) this.religion._baseProbabilities = {}
       for (const deity in this.religion._probabilities) {
-        this.religion._baseProbabilities[deity] = unaltered[deity].probability
+        this.religion._baseProbabilities[deity] = unaltered[deity]
         this.religion._modifiers[deity] = this.religion._probabilities[deity] - this.religion._baseProbabilities[deity]
       }
+      this.religion._percentages = lib.getAllPantheonPercentages(this as unknown as Town)
       console.groupEnd()
     },
     get customPantheon () {
