@@ -109,7 +109,10 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, con
     interactive: true,
     allowHTML: true
   })
-  const htmlTarget = Array.from(document.getElementsByClassName(target))
+  // this isn't working properly with multiple elements on the same page with the same target
+  // const htmlTarget = Array.from(document.getElementsByClassName(target))
+  const htmlTarget = $(`.${target}`)
+
   for (const element of htmlTarget) {
     $(tip.get(0)).appendTo(element)
   }
