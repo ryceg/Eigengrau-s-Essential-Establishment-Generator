@@ -68,7 +68,6 @@ export function generateBuildingMaterial (town: Town, mainMaterial: string, buil
   // Set probability for other buildings depending on the building 'tier'
   const buildingTier = getBuildingTier(town.roll.wealth, buildingWealth)
   for (const material of Object.keys(town.materialProbability)) {
-    console.log(material)
     if (town.materialProbability[material].tier.indexOf(buildingTier) !== -1) {
       town.materialProbability[material].probability = 5
     }
