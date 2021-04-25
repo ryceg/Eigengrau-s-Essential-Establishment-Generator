@@ -95,7 +95,7 @@ export interface Deity {
     economicIdeology?: PartialRecord<EconomicIdeology, number>
     politicalIdeology?: PartialRecord<PoliticalIdeology, number>
     politicalSource?: PartialRecord<PoliticalSource, number>
-    rolls?: Record<TownRolls, number>
+    rolls?: PartialRecord<TownRolls, number>
     /**
      * Some races are going to be more interested in certain gods than others.
      * Uses weighted probabilities (default for races ommitted is 10)
@@ -112,11 +112,11 @@ export interface Deity {
       /**
        * Generic catch-all function for NPCs trying to pick a god to follow.
        */
-      function?: (town: Town, npc: NPC) => void
+      func?: (town: Town, npc: NPC) => void
       /**
        * If there's a Patron Deity of Cheesemakers in the Pantheon, it's pretty likely that the cheesemaker will worship that deity.
        */
-      profession?: Record<ProfessionName, number>
+      profession?: PartialRecord<ProfessionName, number>
       /**
        * Profession sector is applied as well as Professions.
        */
