@@ -20,9 +20,9 @@ const addLocalSourceSet = (illustration: Illustration, sizes: string[] = ['360',
   return img
 }
 
-export const getCustomImage = (url: URL) => {
+export const getCustomImage = (url: URL, id = 'illustration') => {
   const img = document.createElement('img')
-  img.id = 'illustration'
+  img.id = id
   img.src = url as unknown as string
   img.alt = 'A custom-defined image.'
   return img.outerHTML
