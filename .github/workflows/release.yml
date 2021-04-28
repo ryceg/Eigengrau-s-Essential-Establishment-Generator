@@ -30,6 +30,10 @@ jobs:
 
       - name: Copy resources
         run: cp -r ./src/Resources ./gh-pages/src/
+        
+      - name: Create TypeDocs
+        run: yarn typedoc
+
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
