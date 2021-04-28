@@ -25,12 +25,11 @@ export const factionsForType = <K extends keyof Faction>(town: Town, variable: K
   if (found.length === 0) {
     // @ts-ignore
     const tempFaction = setup.createFaction(town, {
-      [variable]: value,
-      isThrowaway: true
+      [variable]: value
     })
     town.factions[tempFaction.key] = tempFaction
     found.push(tempFaction)
   }
   console.log(found)
-  return found.random()
+  return lib.random(found)
 }

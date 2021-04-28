@@ -1,3 +1,6 @@
+import { Town } from '../../../lib/town/_common'
+import { Customer } from '../../setup'
+
 type Tavern = import('../../../lib/tavern/_common').Tavern
 
 interface Setup {

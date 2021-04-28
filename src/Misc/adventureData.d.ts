@@ -1,3 +1,6 @@
+import { NPC } from '../../lib/npc-generation/_common'
+import { Town } from '../../lib/town/_common'
+
 interface Setup {
   adventure: {
     create(town: Town): Adventure

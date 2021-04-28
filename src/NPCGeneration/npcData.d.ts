@@ -1,4 +1,5 @@
-import { BackgroundName, ClassName, RaceName } from '../../lib/index'
+import { BackgroundName, ClassName, RaceName, Town } from '../../lib/index'
+import { NPC } from '../../lib/npc-generation/_common'
 
 interface Setup {
   initNpcData(): void

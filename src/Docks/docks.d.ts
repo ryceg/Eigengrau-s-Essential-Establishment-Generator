@@ -1,4 +1,7 @@
-import { Ship } from './createDocks'
+import { NPC } from '../../lib/npc-generation/_common'
+import { Town } from '../../lib/town/_common'
+import { Customer } from '../setup'
+import { Docks, Ship } from './createDocks'
 
 export interface Setup {
   initDocks(): void
