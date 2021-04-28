@@ -1,4 +1,5 @@
 import { ThresholdTable } from '../../../lib/index'
+import { Customer } from '../../setup'
 
 interface Setup {
   temple: {

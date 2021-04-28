@@ -8,7 +8,7 @@ type NPC = import('../lib/npc-generation/_common').NPC
 export interface Setup {
   renderWeather(town: Town, biome: string, weather: Weather): void
   createWeather(town: Town, biome: string, weather: Weather): Weather
-  toCelsius(temperature: number);
+  toCelsius(temperature: number): string;
   init(): void
   initMisc(): void
   npcTaxRate(town: Town, npc: NPC): number
@@ -49,7 +49,7 @@ export interface Customer {
     }
   }
   base?: Partial<NPC>
-  description(brothel: Building, npc: NPC)
+  description(brothel: Building, npc: NPC): string
 }
 
 export interface History {

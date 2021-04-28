@@ -1,4 +1,6 @@
-import { ThresholdTable } from '../../lib/index'
+import { ThresholdTable, Town } from '../../lib/index'
+import { NPC } from '../../lib/npc-generation/_common'
+import { Castle } from './createCastle'
 
 interface Setup {
   castle: CastleData
