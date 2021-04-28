@@ -1,5 +1,4 @@
 :: NPCHeader [nobr]
-<<include "PrintImage">>
 <h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
 <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
@@ -35,4 +34,14 @@ $currentNPC.title
 <</button>>    */
 <<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
+<</if>>
+<<set $customImages to recall('customImages')>>
+<<set $currentImage to $currentPassage.customImage || null>>
+<<if $currentImage>>
+    <span style="
+    position: relative;
+    float: right;
+    width: 50%;
+    z-index: -2;"
+><<print lib.getCustomImage($currentImage, 'npc-image')>></span>
 <</if>>

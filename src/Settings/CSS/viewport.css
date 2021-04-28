@@ -7,7 +7,7 @@
     padding-bottom: 20vw;
   }
   #paper {
-    top: 15vw
+    top: 20vw
   }
   body {
     font-size: 16px
@@ -27,7 +27,7 @@
     padding-bottom: 20vw;
   }
   #paper {
-    top: 14vw;
+    top: 21vw;
   }
   blockquote {
     margin-inline-start: 10px;
@@ -50,7 +50,7 @@
     padding-bottom: 25vw;
   }
   #paper {
-    top: 13vw
+    top: 20vw
   }
 }
 
@@ -69,7 +69,7 @@
     padding-bottom: 28vw;
   }
   #paper {
-    top: 13vw
+    top: 20vw
   }
 }
 
@@ -88,7 +88,7 @@
     padding-bottom: 35vw;
   }
   #paper {
-    top: 13.5vw
+    top: 20vw
   }
 }
 
@@ -107,7 +107,7 @@
     padding: 19vw;
   }
   #paper {
-    top: 13vw
+    top: 19vw
   }
 }
 
@@ -128,7 +128,6 @@
   }
 
   #paper {
-    top: 14vw
+    top: 20vw
   }
 }
- 
