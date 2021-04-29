@@ -1,5 +1,4 @@
-:: RoadTables
-<<nobr>>
+:: RoadTables [nobr]
 <table>
   <tr>
     <th>Name</th>
@@ -13,7 +12,7 @@
     <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
     <td class="interactive-only"><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td>
     </tr><</if>>
-  \<</capture>><<set _previousBuilding to _building>>
+  <</capture>><<set _previousBuilding to _building>>
 <</for>>
 <<if Object.keys($town.roads[$currentPassage.key].inhabitants.npcs).length > 0>>
   <tr>
@@ -33,4 +32,4 @@
         <td class="interactive-only"><<link "x">><<run setup.deleteNPC($town, $npcs[_npcKey])>><<update>><</link>></td>
       </tr>
   <</for>>
-<</if>></table><</nobr>>
+<</if>></table>

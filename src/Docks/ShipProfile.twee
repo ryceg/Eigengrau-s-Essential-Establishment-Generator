@@ -1,16 +1,16 @@
-:: ShipProfile
+:: ShipProfile [nobr]
 <<set $currentShip to $building.ships[$currentPassage.shipKey]>><h1>$currentShip.name</h1>This is the $currentShip.type $currentShip.name. It has a crew of $currentShip.crewMen and is commanded by $currentShip.captainType, <<print setup.profile($currentShip.captain)>>.
-\<<if $currentShip.masts === 1>>\
+<<if $currentShip.masts === 1>>
   The ship has one mast, which is $currentShip.rigging rigged
-  \<<elseif $currentShip.masts > 1>>\
+  <<elseif $currentShip.masts > 1>>
   The ship has $currentShip.masts $currentShip.rigging rigged masts
-  \<<else>>\
-  The ship has no masts<</if>>\
-  \<<if $currentShip.hasOars is true>>, and is <<if $currentShip.masts > 0>>, also <</if>>propelled via oars<</if>>. It is <<if settings.showMetric === true>>
-  \<<print ($currentShip.length * 0.0254).toFixed(1) + " metres.">>\
-  \<<else>>\
-  \<<set _feet = Math.trunc($currentShip.length / 12)>>\
-  \<<print _feet + " feet.">>\ <</if>> It is <<print lib.articles.output($currentShip.size)>> <<print $currentShip.purpose.random()>> ship $currentShip.cleanliness.
+  <<else>>
+  The ship has no masts<</if>>
+  <<if $currentShip.hasOars is true>>, and is <<if $currentShip.masts > 0>>, also <</if>>propelled via oars<</if>>. It is <<if settings.showMetric === true>>
+  <<print ($currentShip.length * 0.0254).toFixed(1) + " metres.">>
+  <<else>>
+  <<set _feet = Math.trunc($currentShip.length / 12)>>
+  <<print _feet + " feet.">> <</if>> It is <<print lib.articles.output($currentShip.size)>> <<print $currentShip.purpose.random()>> ship $currentShip.cleanliness.
     <br>The hull of the ship $currentShip.hull. On board you notice $currentShip.detail. The crew are currently $currentShip.event. 
      <br><<link "Meet one of the Crew">><<set $currentShip.crew to setup.docks.ships.crew.create($town, $building)>><<update>><</link>>
 <<liveblock>><div id="crew"><<if def $currentShip.crew>>$currentShip.crew<</if>></div><</liveblock>>

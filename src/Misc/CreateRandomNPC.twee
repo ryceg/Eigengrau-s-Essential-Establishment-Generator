@@ -1,23 +1,23 @@
-:: CreateRandomNPC
+:: CreateRandomNPC [nobr]
 <<set _randomNPC to {
   gender: ["man", "woman"].random(),
   race: Object.keys(lib.raceTraits).random(),
   ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random(),
   profession: Object.keys(lib.professions).random()
 }>>
-<span class="interactive-only" class='hide-on-print'>\<label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
-\ -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "settled adult", "settled adult", "elderly"]>><</listbox>></label>
-\ -- <label name="NPC race" for="listbox-randomnpcrace"><<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>
-\ -- <label name="NPC profession" for="listbox-randomnpcprofession"><<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>
-\ -- <<button "Create NPC">>
-  \<<if def _newNPC>>
-    \<<run setup.deleteNPC($npcs[_newNPC])>>
-  \<</if>>
-\<<set $toolbox.randomNPC to setup.createNPC($town, _randomNPC)>>
-    \<<replace "#NPC">>
-          \<div class="descriptive">
-            \<h3>$toolbox.randomNPC.name</h3>
+<span class="interactive-only" class='hide-on-print'><label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
+ -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "settled adult", "settled adult", "elderly"]>><</listbox>></label>
+ -- <label name="NPC race" for="listbox-randomnpcrace"><<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>
+ -- <label name="NPC profession" for="listbox-randomnpcprofession"><<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>
+ -- <<button "Create NPC">>
+  <<if def _newNPC>>
+    <<run setup.deleteNPC($npcs[_newNPC])>>
+  <</if>>
+<<set $toolbox.randomNPC to setup.createNPC($town, _randomNPC)>>
+    <<replace "#NPC">>
+          <div class="descriptive">
+            <h3>$toolbox.randomNPC.name</h3>
 <<print lib.articles.output($toolbox.randomNPC.descriptor).toUpperFirst()>> is currently <<print $toolbox.randomNPC.idle.random()>> in the corner. 
 You strike up conversation with $toolbox.randomNPC.himher, and the $toolbox.randomNPC.descriptor introduces $toolbox.randomNPC.himherself as <<profile $toolbox.randomNPC>>, <<print lib.articles.find($toolbox.randomNPC.profession)>> <<print lib.createTippyFull(lib.professions[$toolbox.randomNPC.profession].description.toUpperFirst(), $toolbox.randomNPC.profession)>>.
-    \</div><</replace>><</button>></span>
+    </div><</replace>><</button>></span>
 <div id="NPC"></div>

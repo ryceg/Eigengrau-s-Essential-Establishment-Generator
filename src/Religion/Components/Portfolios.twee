@@ -1,16 +1,16 @@
-:: Portfolios
-\<<if $currentPassage.portfolios>>
-  \<<if $currentPassage.portfolios.length <= 2>>
-    \<<print lib.makeList($currentPassage.portfolios)>>
-  \<<else>>
-\<<for _portfolio range $currentPassage.portfolios.slice(1, 3)>>
-  \_portfolio, 
-\<</for>>
-    \and <<if $currentPassage.portfolios.length > 4>>
-    \<<set _temp to 'As well as ' + lib.makeList($currentPassage.portfolios.slice(5, -1), {noAnd: true}) + ' and ' + $currentPassage.portfolios[$currentPassage.portfolios.length - 1] + '.'>>
-    \<<print lib.createTippyFull(_temp, $currentPassage.portfolios[4])>>
-    \<<else>>
-    \<<print $currentPassage.portfolios[4]>>
-    \<</if>>
-\<</if>>
-\<</if>>
+:: Portfolios [nobr]
+<<if $currentPassage.portfolios>>
+  <<if $currentPassage.portfolios.length <= 2>>
+    <<print lib.makeList($currentPassage.portfolios)>>
+  <<else>>
+<<for _portfolio range $currentPassage.portfolios.slice(1, 3)>>
+  _portfolio, 
+<</for>>
+    and <<if $currentPassage.portfolios.length > 4>>
+    <<set _temp to 'As well as ' + lib.makeList($currentPassage.portfolios.slice(5, -1), {noAnd: true}) + ' and ' + $currentPassage.portfolios[$currentPassage.portfolios.length - 1] + '.'>>
+    <<print lib.createTippyFull(_temp, $currentPassage.portfolios[4])>>
+    <<else>>
+    <<print $currentPassage.portfolios[4]>>
+    <</if>>
+<</if>>
+<</if>>

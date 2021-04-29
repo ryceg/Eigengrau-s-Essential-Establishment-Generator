@@ -1,12 +1,12 @@
-:: CastleOutput
-\<<include "PrintImage">>
-\<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-\<h1 class="interactive-only"><<print lib.toTitleCase($building.name)>></h1>
+:: CastleOutput [nobr]
+<<include "PrintImage">>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<h1 class="interactive-only"><<print lib.toTitleCase($building.name)>></h1>
 <p>This $building.size $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. As you approach, <<print setup.castle.location[$town.location].vignette.random()>>.</p>
 <<if $building.namesake>><p>It is named after <<profile $building.namesake>>, <<print lib.articles.output($building.namesake.profession)>>.</p><</if>><p>It is known for $building.knownFor, and is worth defending because $building.defense.reason. The castle needs assistance $building.lookingFor.</p>
 <h3>Ruler</h3><p>$building.name is ruled by $building.ruler.type. It was $building.ruler.acquisitionMethod. <<profile $building.associatedNPC>> is currently looking for $building.ruler.lookingFor.</p>
 <h3>Defenses</h3><p>Its outer walls are defended by $building.defense.outerWalls, and the lands it encompasses are $building.landSizeDescriptive.</p>
-\<p>The $building.wordNoun's inner walls feature $building.defense.innerWalls, protecting the castle itself, which is $building.sizeDescriptive.</p>
+<p>The $building.wordNoun's inner walls feature $building.defense.innerWalls, protecting the castle itself, which is $building.sizeDescriptive.</p>
 <<include "CastleDungeon">>
 <<details "BuildingRelationshipsTable" "Relationships">>
 <<button "Create a historical siege">><<set $building.siege to setup.castle.siege.create($town)>><<update>><</button>>

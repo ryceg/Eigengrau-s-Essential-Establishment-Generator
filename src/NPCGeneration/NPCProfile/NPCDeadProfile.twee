@@ -1,15 +1,15 @@
-:: NPCDeadProfile
+:: NPCDeadProfile [nobr]
 <<include "NPCHeader">>
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>$currentNPC.title <</if>>$currentNPC.name was <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. <<print $currentNPC.heshe.toUpperFirst()>> was <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightInches, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and had $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. The most notable physical trait of $currentNPC.firstName was that $currentNPC.heshe had $currentNPC.physicalTrait.
 When $currentNPC.heshe was relaxed, $currentNPC.heshe was $currentNPC.calmTrait. In moments of stress, $currentNPC.heshe became $currentNPC.stressTrait. <<if $currentNPC.knownLanguages.length == 2>>$currentNPC.firstName knew $currentNPC.knownLanguages[0] and $currentNPC.knownLanguages[1].<</if>>
 $currentNPC.firstName was <<print lib.articles.output($currentNPC.profession)>>, with a background of being <<print lib.articles.output($currentNPC.background)>>. $currentNPC.firstName had $currentNPC.pockets in $currentNPC.hisher pockets at $currentNPC.hisher time of death, and <<money $currentNPC.wealth>> to $currentNPC.hisher name. 
-\<<if $currentNPC.sexuality !== 'heterosexual'>>
-    \<<print $currentNPC.heshe.toUpperFirst()>> was $currentNPC.sexuality
-    \<<if $currentNPC.partnerID>>
-        \, and is survived by $currentNPC.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
-    \<</if>>
-  \<<elseif $currentNPC.partnerID>>$currentNPC.firstName is survived by $currentNPC.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
-  \<</if>>
+<<if $currentNPC.sexuality !== 'heterosexual'>>
+    <<print $currentNPC.heshe.toUpperFirst()>> was $currentNPC.sexuality
+    <<if $currentNPC.partnerID>>
+        , and is survived by $currentNPC.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
+    <</if>>
+  <<elseif $currentNPC.partnerID>>$currentNPC.firstName is survived by $currentNPC.hisher <<print $npcs[$currentNPC.partnerID].marriageNoun>>, <<profile $npcs[$currentNPC.partnerID]>>.
+  <</if>>
 <<if def $currentNPC.note >>$currentNPC.note<</if>>
 <h6>Death</h6>
 $currentNPC.death.cause $currentNPC.death.burialConditions

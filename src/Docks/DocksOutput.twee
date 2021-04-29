@@ -1,10 +1,10 @@
-:: DocksOutput
-\<<include "PrintImage">>
-\<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-\<<set $currentPassage.availableRelationships to setup.docks.get.customers>>
-\<h1 class="interactive-only"><<print $building.name.toUpperFirst()>></h1>
-\<p>You walk down to the docks, which are known best for $building.notableFeature. You notice $building.notice.</p>
-\<p>The docks are $building.sizeDescriptive, and is $building.cleanlinessDescriptive. It's currently $building.activity.</p>
+:: DocksOutput [nobr]
+<<include "PrintImage">>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<set $currentPassage.availableRelationships to setup.docks.get.customers>>
+<h1 class="interactive-only"><<print $building.name.toUpperFirst()>></h1>
+<p>You walk down to the docks, which are known best for $building.notableFeature. You notice $building.notice.</p>
+<p>The docks are $building.sizeDescriptive, and is $building.cleanlinessDescriptive. It's currently $building.activity.</p>
 <<button "Create a ship">><<run setup.docks.ships.create($town, $building)>><<update>><</button>>
 <<include "ShipList">>
 <<details "CreateNewNpc" "People Around">>
