@@ -5,4 +5,4 @@
     <<set _race to '<label name="race" for="listbox-npcscurrentpassagekeyrace"><<listbox "$npcs[$currentPassage.key].race" autoselect>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>'>>
     <<set _gender to '<label name="gender" for="listbox-npcscurrentpassagekeygender"><<listbox "$npcs[$currentPassage.key].gender" autoselect>><<optionsfrom Object.keys(lib.genderData)>><</listbox>></label>'>>
     <<set _replaceNpc to $npcs[$currentPassage.key]>>
-<</silently>>\
+<</silently>>

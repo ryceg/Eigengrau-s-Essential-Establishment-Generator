@@ -21,6 +21,8 @@ sugarcube-2:
       container: true
     ifdefprint: {}
     idp: {}
+    nosp: 
+      container: true
     import: {}
     export: {}
     # live-update.js
