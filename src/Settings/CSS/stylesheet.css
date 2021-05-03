@@ -678,14 +678,6 @@ input#mce-EMAIL.required.email:focus,
 input#mce-EMAIL.required.email:hover {
   background-color: rgb(238, 238, 238);
 }
-.error-view {
-  display: block;
-  background-color: transparent;
-  font-size: 16px;
-}
-.error-view > .error-source:not([hidden]) {
-	background-color: rgba(255, 255, 255, 0.2);
-}
 
 #ui-bar {
 	background-color: var(--background-primary);
@@ -798,105 +790,6 @@ input#mce-EMAIL.required.email:hover {
 }
 
 
-.pre-scrollable {
-  max-height: 340px;
-  overflow-y: scroll;
-}
-
-
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.no-gutters > .col,
-.no-gutters > [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-
-@media (max-width: 575.98px) {
-  .table-responsive-sm {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-sm > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .table-responsive-md {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-md > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .table-responsive-lg {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-lg > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .table-responsive-xl {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-xl > .table-bordered {
-    border: 0;
-  }
-}
-
-.table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.table-responsive > .table-bordered {
-  border: 0;
-}
-
 .classTable{
     margin-top:25px;
     margin-bottom:40px;
@@ -910,7 +803,7 @@ input#mce-EMAIL.required.email:hover {
     border-image-source: url("./src/Resources/table-wrap.png");
     border-image-width:47px;
 }
-.classTable h5{
+.classTable h5 {
     margin-bottom:10px
 }
 

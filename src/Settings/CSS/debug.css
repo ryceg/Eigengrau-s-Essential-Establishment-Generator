@@ -1,3 +1,13 @@
+.error-view {
+  display: block;
+  background-color: transparent;
+  font-size: 16px;
+}
+.error-view > .error-source:not([hidden]) {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+
 
 /* Debug bar styling */
 #debug-bar,
