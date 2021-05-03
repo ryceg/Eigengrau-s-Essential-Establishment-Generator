@@ -93,7 +93,7 @@ export const createFriends = (town: Town, npc: NPC) => {
       },
       base: {
         socialClass: npc.socialClass || 'commoner',
-        profession: 'pastor'
+        professionSector: 'religion'
       }
     },
     'customer': {
