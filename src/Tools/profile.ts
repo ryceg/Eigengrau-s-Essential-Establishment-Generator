@@ -36,7 +36,7 @@ Macro.add('profile', {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
     let obj: Faction | NPC | Deity | Building | Road = this.args[0]
     if (typeof obj === 'string') obj = setup.findViaKey(obj)
-    const readout = this.args[1] || obj.name
+    const readout = obj.name || this.args[1]
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
     // @ts-ignore
     const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
