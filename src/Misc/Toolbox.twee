@@ -3,9 +3,9 @@
 <<include "CreateRandomNPC">>
 /* <<include "RandomAdventure">> */
 <<include "CreateScenario">>
-<<include "CreateFaction">><<if _tempFaction>><<profile _tempFaction>><</if>>
+<<include "CreateFaction">><<if _tempFaction>><p><<profile _tempFaction>></p><</if>>
 <h4><<link "One Shot - The Poisoned Potioner" AdventureOutput>><<run setup.history({passageName: "AdventureOutput", linkDescription: "Adventure", name: "Adventure"})>><</link>></h4>
-<<link "Generate a random roleplaying question for players">><<set $toolbox.question to lib.createRoleplayQuestion()>><<update>><</link>><<if $toolbox.question>><div class='descriptive'>$toolbox.question</div><</if>>
+<<link "Generate a random roleplaying question for players">><<set $toolbox.question to lib.createRoleplayQuestion()>><<update>><</link>><<if $toolbox.question>><p><div class='descriptive'>$toolbox.question</div></p><</if>>
 <<link "<h6>Generate some mercenaries</h6>">><<set $toolbox.mercenaries to setup.createMercenaries($town)>><<update>><</link>><<if $toolbox.mercenaries>><div class='descriptive'><h6>$toolbox.mercenaries.name</h6>$toolbox.mercenaries.readout</div><</if>>
 <<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<update>><</link>><<if $toolbox.raiders>><div class='descriptive'>$toolbox.raiders</div><blockquote>Original list by <a href='https://redd.it/7ti1g9'>/u/Zazulio</a></blockquote><</if>>
 <<include "RandomPotion">>
