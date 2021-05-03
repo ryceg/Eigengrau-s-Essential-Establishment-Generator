@@ -36,14 +36,14 @@ Macro.add('profile', {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
     let obj: Faction | NPC | Deity | Building | Road = this.args[0]
     if (typeof obj === 'string') obj = setup.findViaKey(obj)
-    const readout = obj.name || this.args[1]
+    const readout = this.args[1] || obj.name
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
     // @ts-ignore
     const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
     const tip = $(`<a data-id="${id}" data-object-type=${obj.objectType} class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
-        setup.history(obj, obj.passageName, readout)
+        setup.history(obj, obj.passageName, obj.name || readout)
         // @ts-ignore
         if (settings.showSliders && obj.initPassage) {
           // @ts-ignore
