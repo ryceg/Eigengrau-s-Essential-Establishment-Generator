@@ -43,7 +43,7 @@ Macro.add('profile', {
     const tip = $(`<a data-id="${id}" data-object-type=${obj.objectType} class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
-        setup.history(obj, obj.passageName, readout)
+        setup.history(obj, obj.passageName, obj.name || readout)
         // @ts-ignore
         if (settings.showSliders && obj.initPassage) {
           // @ts-ignore
