@@ -710,19 +710,6 @@ input#mce-EMAIL.required.email:hover {
 	background-color: transparent;
 	border-color: var(--background-primary);
 }
-#menu ul {
-	border-color: var(--background-secondary);
-}
-#menu li:not(:first-child) {
-	border-top-color: var(--background-secondary);
-}
-#menu li a {
-	color: var(--text-normal);
-}
-#menu li a:hover {
-	background-color: var(--background-secondary);
-	border-color: var(--text-normal);
-}
 
 
 .classTable{
