@@ -562,64 +562,24 @@ pre+descriptive{
 }
 
 
-table {
-    font-family: ScalySans;
+
+.body:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 55px;
     width: 100%;
-    margin-bottom: 1em;
-    font-size: 10pt;
-    line-height: 1.1em;
-    table-layout: auto;
+    background-image: url("./src/Resources/footer.png");
+    background-size: cover;
+    column-span: all;
 }
-
-table.a {
-table-layout: auto;
-width: 180px;
+.body:nth-child(even):after {transform: scaleX(-1)}
+.body:nth-child(even) .pageNumber {left: 2px}
+.body:nth-child(even) .footnote {
+    left: 80px;
+    text-align: left
 }
-    table em {
-        font-family: ScalySans;
-        font-style: italic
-    }
-    table strong {
-        font-family: ScalySans;
-        font-weight: 800;
-        letter-spacing: -0.02em
-    }
-    table thead {
-        font-weight: 800
-    }
-    table thead th {
-        vertical-align: bottom;
-        padding-bottom: .3em;
-        padding-right: .1em;
-        padding-left: .1em
-    }
-    table tbody tr td {
-        padding: .3em .1em
-    }
-    table tbody tr:nth-child(odd) {
-        background-color: var(--table-green)
-    }
-    tr:nth-child(even) {
-      background-color: var(--table-green);
-    }
-
-    .body:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 55px;
-        width: 100%;
-        background-image: url("./src/Resources/footer.png");
-        background-size: cover;
-        column-span: all;
-    }
-    .body:nth-child(even):after {transform: scaleX(-1)}
-    .body:nth-child(even) .pageNumber {left: 2px}
-    .body:nth-child(even) .footnote {
-        left: 80px;
-        text-align: left
-    }
 
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
