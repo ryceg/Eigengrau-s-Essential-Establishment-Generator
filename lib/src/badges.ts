@@ -74,7 +74,7 @@ export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   if (badge.imgArgs) img += badge.imgArgs
   img += ` src="${url}">`
 
-  if (badge.link) return `<a href="${badge.link}">${img}</a>`
+  if (badge.link) return `<a href="${badge.link}" target="_blank">${img}</a>`
   return img
 }
 
