@@ -58,13 +58,13 @@ const kinsey: Record<number, Kinsey> = {
     }
   },
   1: {
-    sexuality: 'heterosexual with passing interest in other $currentNPC.menwomen',
+    sexuality: 'primarily prefers other genders, but sometimes finds the same gender attractive',
     partnerGenderProbability (npc) {
       return random(100) < 90 ? lib.getOppositeGender(npc.gender) : npc.gender
     }
   },
   2: {
-    sexuality: 'predominantly heterosexual, but with more than a passing interest in $currentNPC.menwomen',
+    sexuality: 'predominantly prefers other genders, but sometimes finds the same gender attractive',
     partnerGenderProbability (npc) {
       return random(100) < 70 ? lib.getOppositeGender(npc.gender) : npc.gender
     }
@@ -76,13 +76,13 @@ const kinsey: Record<number, Kinsey> = {
     }
   },
   4: {
-    sexuality: 'mostly homosexual, but with more than a passing interest in the opposite sex',
+    sexuality: 'predominantly prefers the same gender, but finds other genders attractive',
     partnerGenderProbability (npc) {
       return random(100) < 70 ? npc.gender : lib.getOppositeGender(npc.gender)
     }
   },
   5: {
-    sexuality: 'homosexual with passing interest in the opposite sex',
+    sexuality: 'prefers the same gender, but sometimes finds other genders attractive',
     partnerGenderProbability (npc) {
       return random(100) < 90 ? npc.gender : lib.getOppositeGender(npc.gender)
     }
