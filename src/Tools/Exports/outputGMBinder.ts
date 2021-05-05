@@ -1,6 +1,5 @@
 export const outputGMBinder = () => {
   const output = setup.outputEverything() as Record<string, any>
-
   let string = addGMBinderPretext()
   string += output.town
   string += addPageBreak()
@@ -17,7 +16,7 @@ export const outputGMBinder = () => {
     string += addGMBinderPart(type)
     string += addPageBreak()
     for (const page in output[type]) {
-      string += `<h2>${output[type as string][page as string].name}</h2>${output[type][page].output}`
+      string += `<h2>${output[type as string][page as string].name}</h2>\n${output[type][page].output}\n`
       string += addPageBreak()
     }
     string += addPageBreak()
@@ -209,18 +208,15 @@ Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes
 
 </div>
 
-\\pagebreakNum
-
-
-`
+${addPageBreak()}`
 }
 
 function addPageBreak () {
-  return `
-
-\\pagebreakNum
-
-`
+  switch (State.temporary.exportType) {
+    case 'GMBinder': return '\n\n\\pagebreakNum\n\n'
+    case 'Homebrewery': return '\n\n\\page\n\n'
+    default: return '\n\n\\page\n\n'
+  }
 }
 
 // function addColumnBreak () {

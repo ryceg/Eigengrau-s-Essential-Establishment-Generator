@@ -10,9 +10,13 @@
 <<details "TownListReligion" "Religious Demographics">>
 <<details "TownListFactions" "List of Factions">>
 <<details "TownListBuildings" "List of Buildings">><</nobr>>
-\<<if _exportType === 'GMBinder'>>
+<<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 
+
+<<elseif _exportType === 'Homebrewery'>>
+
+\\pagebreak
 
 <</if>>
 <<nobr>><<details "TownListNpcs" "List of NPCs">>
