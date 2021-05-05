@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Quick roleplay questions to the toolbox
+- Homebrewery export function
+- Hyperlinking to both Homebrewery and GMBinder exports (so you can click on links in the PDF to jump to the profile.)
 
 ### Changed
 - Changed the background from a vomit-inducing pink to a dark grey when dialogues or settings are open.
