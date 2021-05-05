@@ -1,5 +1,5 @@
-:: StandaloneDungeon
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1 class="interactive-only">$building.name</h1><p>$building.name is $building.location and was built $building.age. 
+:: StandaloneDungeon [nobr]
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>$building.name is $building.location and was built $building.age. 
 It is known for $building.knownFor, and consists of $building.format. 
 It is rumoured that hidden inside the dungeon is $building.secret.</p>
 <h4>Cells</h4><p>The cells inside the dungeon are $building.cells.condition, and prisoners are kept in $building.cells.format.</p>
