@@ -1,0 +1,37 @@
+
+table {
+  font-family: ScalySans;
+  width: 100%;
+  margin-bottom: 1em;
+  font-size: 10pt;
+  line-height: 1.1em;
+  table-layout: auto;
+}
+
+table em {
+  font-family: ScalySans;
+  font-style: italic
+}
+table strong {
+  font-family: ScalySans;
+  font-weight: 800;
+  letter-spacing: -0.02em
+}
+table thead {
+  font-weight: 800
+}
+table thead th {
+  vertical-align: bottom;
+  padding-bottom: .3em;
+  padding-right: .1em;
+  padding-left: .1em
+}
+table tbody tr td {
+  padding: .3em .1em
+}
+table tbody tr:nth-child(odd) {
+  background-color: var(--table-green)
+}
+tr:nth-child(even) {
+background-color: var(--table-green);
+}

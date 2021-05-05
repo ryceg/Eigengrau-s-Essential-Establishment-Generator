@@ -20,6 +20,7 @@
   --background-floating: hsl(0, 0%, 90%);
   --monster-yellow: hsl(40, 89%, 95%);
   --descriptive-yellow: hsl(50, 60%, 95%);
+  --grey-background: hsla(0, 0%, 10%, 0.5);
 }
 
 html[data-theme="dark"], html.dark {
@@ -527,98 +528,23 @@ pre+.descriptive{
     margin-top:8px
 }
 
-descriptive {
-    display:inline-block;
-    margin-bottom:1em;
-    background-color:var(--descriptive-yellow);
-    font-family:ScalySans;
-    border-style:solid;
-    border-width:7px;
-    border-image: url("./src/Resources/sidebars.png") 12 round;
-    border-image-outset:4px;
-    box-shadow:0 0 6px var(--background-primary);
-}
-
-descriptive p {
-  display:block;
-  padding-bottom:0;
-  line-height:1.5em
-}
-descriptive p+p{
-  padding-top:.8em
-}
-descriptive em{
-  font-family:ScalySans;
-  font-style:italic
-}
-descriptive strong{
-  font-family:ScalySans;
-  font-weight:800;
-  letter-spacing:-0.02em
-}
-pre+descriptive{
-  margin-top:8px
-}
-
-
-table {
-    font-family: ScalySans;
+.body:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 55px;
     width: 100%;
-    margin-bottom: 1em;
-    font-size: 10pt;
-    line-height: 1.1em;
-    table-layout: auto;
+    background-image: url("./src/Resources/footer.png");
+    background-size: cover;
+    column-span: all;
 }
-
-table.a {
-table-layout: auto;
-width: 180px;
+.body:nth-child(even):after {transform: scaleX(-1)}
+.body:nth-child(even) .pageNumber {left: 2px}
+.body:nth-child(even) .footnote {
+    left: 80px;
+    text-align: left
 }
-    table em {
-        font-family: ScalySans;
-        font-style: italic
-    }
-    table strong {
-        font-family: ScalySans;
-        font-weight: 800;
-        letter-spacing: -0.02em
-    }
-    table thead {
-        font-weight: 800
-    }
-    table thead th {
-        vertical-align: bottom;
-        padding-bottom: .3em;
-        padding-right: .1em;
-        padding-left: .1em
-    }
-    table tbody tr td {
-        padding: .3em .1em
-    }
-    table tbody tr:nth-child(odd) {
-        background-color: var(--table-green)
-    }
-    tr:nth-child(even) {
-      background-color: var(--table-green);
-    }
-
-    .body:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 55px;
-        width: 100%;
-        background-image: url("./src/Resources/footer.png");
-        background-size: cover;
-        column-span: all;
-    }
-    .body:nth-child(even):after {transform: scaleX(-1)}
-    .body:nth-child(even) .pageNumber {left: 2px}
-    .body:nth-child(even) .footnote {
-        left: 80px;
-        text-align: left
-    }
 
 /***********************************************************************
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
@@ -677,279 +603,6 @@ input#mce-EMAIL.required.email:focus,
 input#mce-EMAIL.required.email:hover {
   background-color: rgb(238, 238, 238);
 }
-.error-view {
-  display: block;
-  background-color: transparent;
-  font-size: 16px;
-}
-.error-view > .error-source:not([hidden]) {
-	background-color: rgba(255, 255, 255, 0.2);
-}
-
-#ui-bar {
-	background-color: var(--background-primary);
-  border-right-width: 10px;
-  border-right-color: var(--header-secondary);
-  border-right-style: double;
-}
-#ui-bar hr {
-	border-color: var(--background-primary);
-}
-#ui-bar-toggle{
-  color: var(--text-normal);
-	border-color: var(--background-primary);
-}
-
-#ui-bar-history {
-  display: none;
-}
-#ui-bar-history [id|="history"] {
-	color: var(--text-normal);
-	border-color: var(--background-primary);
-}
-#ui-bar-toggle:hover,
-#ui-bar-history [id|="history"]:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
-}
-#ui-bar-history [id|="history"]:disabled {
-	color: var(--background-primary);
-	background-color: transparent;
-	border-color: var(--background-primary);
-}
-#menu ul {
-	border-color: var(--background-secondary);
-}
-#menu li:not(:first-child) {
-	border-top-color: var(--background-secondary);
-}
-#menu li a {
-	color: var(--text-normal);
-}
-#menu li a:hover {
-	background-color: var(--background-secondary);
-	border-color: var(--text-normal);
-}
-
-/* Default dialog styling */
-#ui-overlay {
-	background-color: var(--background-accent);
-}
-#ui-dialog-titlebar {
-  text-align: center;
-	background-color: var(--background-secondary);
-}
-#ui-dialog-close:hover {
-	background-color: #b44;
-	border-color: #a33;
-}
-#ui-dialog-body {
-	background-color: var(--background-tertiary);
-	border-color: var(--background-secondary);
-}
-#ui-dialog-body hr {
-	background-color: var(--background-secondary);
-}
-#ui-dialog-body.restart {
-  text-align: center;
-	background-color: var(--background-tertiary);
-	border-color: var(--background-secondary);
-}
-/* List-based dialog styling */
-#ui-dialog-body.list li:not(:first-child) {
-	border-top-color: var(--background-secondary);
-}
-#ui-dialog-body.list li a {
-	color: var(--text-normal);
-}
-#ui-dialog-body.list li a:hover {
-	background-color: var(--background-secondary);
-	border-color: var(--text-normal);
-}
-
-/* Saves dialog styling */
-#ui-dialog-body.saves > *:not(:first-child),
-#ui-dialog-body.saves tr:not(:first-child) {
-  border-top-color: var(--background-secondary);
-  text-align: left;
-}
-#ui-dialog-body.saves .empty {
-  color: var(--background-accent);
-  text-align: left;
-}
-
-/* Settings dialog styling */
-#ui-dialog-body.settings button[id|="setting-control"] {
-	color: var(--text-normal);
-	border-color: var(--background-secondary);
-}
-#ui-dialog-body.settings button[id|="setting-control"]:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
-}
-#ui-dialog-body.settings button[id|="setting-control"].enabled {
-	background-color: var(--interactive-active);
-	border-color: var(--interactive-hover);
-}
-#ui-dialog-body.settings button[id|="setting-control"].enabled:hover {
-	background-color: var(--interactive-hover);
-	border-color: var(--interactive-muted);
-}
-
-/* Debug bar styling */
-#debug-bar,
-#debug-bar-watch {
-	background-color: var(--background-primary);
-	border-color: var(--background-secondary);
-}
-#debug-bar-watch div {
-	color: var(--background-accent);
-}
-#debug-bar-watch-toggle,
-#debug-bar-views-toggle {
-	color: var(--text-normal);
-	border-color: var(--background-secondary);
-}
-#debug-bar-watch-toggle:hover,
-#debug-bar-views-toggle:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
-}
-#debug-bar-watch:not([hidden]) ~ div #debug-bar-watch-toggle,
-html[data-debug-view] #debug-bar-views-toggle {
-	background-color: var(--interactive-active);
-	border-color: var(--interactive-hover);
-}
-#debug-bar-watch:not([hidden]) ~ div #debug-bar-watch-toggle:hover,
-html[data-debug-view] #debug-bar-views-toggle:hover {
-	background-color: var(--interactive-hover);
-	border-color: var(--interactive-hover);
-}
-
-/* Debug view styling */
-html:not([data-debug-view]) #debug-view-toggle {
-	color: var(--text-normal);
-	border-color: var(--background-secondary);
-}
-html:not([data-debug-view]) #debug-view-toggle:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
-}
-html[data-debug-view] #debug-view-toggle {
-	background-color: var(--interactive-active);
-	border-color: var(--interactive-hover);
-}
-html[data-debug-view] #debug-view-toggle:hover {
-	background-color: var(--interactive-hover);
-	border-color: var(--interactive-hover);
-}
-html[data-debug-view] .debug {
-	background-color: #dc9;
-}
-html[data-debug-view] .debug.hidden,
-html[data-debug-view] .debug.hidden .debug {
-	background-color: #bbb;
-}
-
-
-.pre-scrollable {
-  max-height: 340px;
-  overflow-y: scroll;
-}
-
-
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.no-gutters > .col,
-.no-gutters > [class*="col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-
-@media (max-width: 575.98px) {
-  .table-responsive-sm {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-sm > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .table-responsive-md {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-md > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .table-responsive-lg {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-lg > .table-bordered {
-    border: 0;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .table-responsive-xl {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .table-responsive-xl > .table-bordered {
-    border: 0;
-  }
-}
-
-.table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.table-responsive > .table-bordered {
-  border: 0;
-}
 
 .classTable{
     margin-top:25px;
@@ -964,7 +617,7 @@ html[data-debug-view] .debug.hidden .debug {
     border-image-source: url("./src/Resources/table-wrap.png");
     border-image-width:47px;
 }
-.classTable h5{
+.classTable h5 {
     margin-bottom:10px
 }
 
