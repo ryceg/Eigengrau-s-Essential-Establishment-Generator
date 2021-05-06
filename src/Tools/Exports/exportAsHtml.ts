@@ -24,6 +24,7 @@ export const exportAsHtml = function (passageName: string, currentPassage?: any)
   // interactive-only gets scrubbed twice because of hidden links.
   $offshore = removeElement($offshore, '.interactive-only')
   swapElement($offshore, 'data-tippy-content', 'title')
+  if (State.temporary.exportType !== 'Foundry') addElementBasedOnOtherProperty($offshore, 'data-id', 'a', 'href')
 
   // if you need to escape the characters, you can use ${Util.escape($offshore.html())}
   return $offshore.html().trim()
@@ -41,6 +42,14 @@ const swapElement = function ($offshore: JQuery<HTMLElement>, element: string, n
     $el
       .attr(newElement, $el.attr(element) as string)
       .removeAttr(element)
+  })
+}
+
+const addElementBasedOnOtherProperty = function ($offshore: JQuery<HTMLElement>, finder: string, target: string, element: string) {
+  $offshore.find(target).each(function (_, el) {
+    const $el = $(el)
+    $el
+      .attr(element, `#${this.getAttribute(finder)}`)
   })
 }
 

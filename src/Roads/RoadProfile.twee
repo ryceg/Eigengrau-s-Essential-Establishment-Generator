@@ -1,7 +1,7 @@
 :: RoadProfile [nobr]
 /* <<set $currentPassage to lib.findInContainer($town.roads, "key", $currentPassage.key)>> */
 <<include "PrintImage">>
-<h1 class="interactive-only">$currentPassage.name</h1>
+<h1 class="interactive-only">$currentPassage.name</h1><span @id="$currentPassage.key"></span>
 <p>$currentPassage.description</p>
 <<liveblock>><span class="interactive-only"><label name="Select new building type" for="listbox-newbuilding"><<listbox "$newBuilding">><<optionsfrom Object.keys(setup.createBuildingKeys).filter(building => {
   const nsfwItems = ['Brothel'];

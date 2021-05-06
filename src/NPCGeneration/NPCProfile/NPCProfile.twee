@@ -1,7 +1,7 @@
 :: NPCProfile [nobr]
 <span class="interactive-only"><<include "NPCHeader">></span>
 <<if def RiTa>><quote><<print lib.ArpabetToIpa(RiTa.analyze($currentNPC.name))>></quote><br><</if>>
-<p><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
+<p><span @id="$currentNPC.key"><<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">><<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name<<else>><<print lib.firstCharacter($currentNPC.name)>><</if>></span> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
 <<print $currentNPC.heshe.toUpperFirst()>> is <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightInches, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and has $currentNPC.eyes eyes<<if def $currentNPC.beard>> and <<print lib.articles.output($currentNPC.beard)>>,<</if>> with $currentNPC.skinColour skin. 
 The most notable physical trait of $currentNPC.firstName is that $currentNPC.heshe has $currentNPC.physicalTrait.</p>
 <p>$currentNPC.firstName $currentNPC.trait. 

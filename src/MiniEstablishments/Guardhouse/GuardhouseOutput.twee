@@ -4,7 +4,7 @@
 <<set $currentFaction to lib.getPolice($town.factions)>>
 <<set $associatedNPC to $npcs[$currentPassage.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to lib.guardhouseData.get.customers>>
-<h1 class="interactive-only">$currentPassage.name</h1><p>You make your way down <<print lib.createTippyFull($town.roads[$currentPassage.road].description, $town.roads[$currentPassage.road].name)>>, and enter $currentPassage.name $currentPassage.structure.descriptor. $currentPassage.name is known for $currentPassage.notableFeature</p>
+<h1 class="interactive-only">$currentPassage.name</h1><span @id="$building.key"></span><p>You make your way down <<print lib.createTippyFull($town.roads[$currentPassage.road].description, $town.roads[$currentPassage.road].name)>>, and enter $currentPassage.name $currentPassage.structure.descriptor. $currentPassage.name is known for $currentPassage.notableFeature</p>
 <p>It is run by <<profile $town.factions[$currentFaction.key]>>, who are $currentPassage.expertise.
 At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $currentPassage), $currentPassage, undefined)>></p>
 <<include "PolicingFaction">>
