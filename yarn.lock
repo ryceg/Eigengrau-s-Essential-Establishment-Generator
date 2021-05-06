@@ -834,6 +834,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/intro.js@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/intro.js/-/intro.js-3.0.1.tgz#2a5272d6ceb715676f496fd0060eedc70d98c6fe"
+  integrity sha512-L4vCKY/4ZFpRgILDHd3oacARWYKYpz3oJfjweoc0ooM+OoM1HEtGRFM0JuNYQNTrgUXe+R4rUyLDYSeSnrmdLw==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"
@@ -2807,6 +2812,11 @@ interpret@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
+
+intro.js@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/intro.js/-/intro.js-3.4.0.tgz#615475f93988369e2ef25da2c397c82c150df4e0"
+  integrity sha512-LlOM5izNtkPEtjusCYDZs6Nt9JrykpUuqWh5bfQJtWVMWtg2vGzxzJDGrTdF9XUzVZvWzVIdkga/M/z8AX6hlg==
 
 ip-regex@^2.1.0:
   version "2.1.0"

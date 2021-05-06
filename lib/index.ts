@@ -1,4 +1,6 @@
 import './sentry'
+declare module 'intro.js'
+// export * as intro from '../node_modules/intro.js'
 
 export * from './alchemist/_common'
 export * from './alchemist/alchemistData'
