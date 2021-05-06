@@ -6,4 +6,4 @@
 <<include "CreateBuilding">>
 <span id="buildings" role="list"><<include "RoadsList">></span>
 <<run console.log($town)>>
-<<include "Popup">>
+<<include "Popup">><<done>><<run setup.tippyTutorial()>><</done>>
