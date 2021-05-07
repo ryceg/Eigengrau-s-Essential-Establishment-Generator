@@ -157,17 +157,21 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        // const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random().toUpperFirst()} ${[name.noun.random().toUpperFirst(), name.wordNoun.random().toUpperFirst()].random()}`,
-            `The ${name.foodAdjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
-            `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${name.beast.random().toUpperFirst()}'s ${name.noun.random().toUpperFirst()}`,
-            `${name.adjective.random().toUpperFirst()} ${[`${building.associatedNPC.firstName}'s `, name.beast.random().toUpperFirst()].random()} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${lib.random(lib.flora.fruit.fruitS).toUpperFirst()} ${name.nounBakedGood.random().toUpperFirst()}`,
-            `The ${lib.random(lib.flora.fruit.tree).toUpperFirst()} Tree ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${adjective} ${[noun, wordNoun].random()}`,
+            `The ${name.foodAdjective.random()} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `The ${name.beast.random()}'s ${noun}`,
+            `${adjective} ${[`${building.associatedNPC.firstName}'s `, name.beast.random()].random()} ${wordNoun}`,
+            `The ${lib.random(lib.flora.fruit.fruitS)} ${name.nounBakedGood.random()}`,
+            `The ${lib.random(lib.flora.fruit.tree)} Tree ${wordNoun}`,
             unique
         ].random())
       },
@@ -535,17 +539,21 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random()} ${[name.noun.random(), name.wordNoun.random()].random()}`,
-            `The ${town.name} ${name.wordNoun.random()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `The ${name.adjective.random()} ${lib.flora.flower.stemS.random()}`,
+            `The ${adjective} ${[noun, wordNoun].random()}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `The ${adjective} ${lib.flora.flower.stemS.random()}`,
             `The ${lib.flora.flower.stemS.random()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
-            `${lib.random(lib.flora.flower.stemS)} Petals ${name.wordNoun.random()}`,
-            `The ${lib.random(lib.flora.flower.bush)} Bush ${name.wordNoun.random()}`,
-            `${name.adjectivePerson.random()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
+            `${lib.random(lib.flora.flower.stemS)} Petals ${wordNoun}`,
+            `The ${lib.random(lib.flora.flower.bush)} Bush ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
             unique
         ].random())
       },
@@ -817,13 +825,17 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random()} ${[name.noun.random(), name.wordNoun.random()].random()}`,
-            `The ${town.name} ${name.wordNoun.random()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `${name.adjectivePerson.random()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
+            `The ${adjective} ${[noun, wordNoun].random()}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
             unique
         ].random())
       },
@@ -1510,13 +1522,17 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
-            `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
-            `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
+            `The ${adjective} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
             unique
         ].random())
       },
@@ -1856,13 +1872,17 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random()} ${name.noun.random()}`,
-            `The ${town.name} ${name.wordNoun.random()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `${name.adjectivePerson.random()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
+            `The ${adjective} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
             `${building.associatedNPC.lastName}'s Shoe Repair`,
             unique
         ].random())
@@ -2116,14 +2136,18 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random().toUpperFirst()} ${name.noun.random().toUpperFirst()}`,
-            `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random().toUpperFirst()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
-            `${name.adjectivePerson.random().toUpperFirst()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random().toUpperFirst()}`,
-            `${building.associatedNPC.lastName}'s ${name.noun.random().toUpperFirst()}`,
+            `The ${adjective} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${building.associatedNPC.lastName}'s ${noun}`,
             unique
         ].random())
       },
@@ -2409,15 +2433,19 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        // const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random()} ${[name.noun.random(), name.wordNoun.random()].random()}`,
-            `The ${name.jewelleryAdjective.random()} ${name.noun.random()}`,
-            `The ${town.name} ${name.wordNoun.random()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random()}`,
-            `The ${name.adjective.random()} ${name.nounJewelledGood.random()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `${building.associatedNPC.lastName}'s ${name.noun.random()}`,
+            `The ${adjective} ${[noun, wordNoun].random()}`,
+            `The ${name.jewelleryAdjective.random()} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `The ${adjective} ${name.nounJewelledGood.random()}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${building.associatedNPC.lastName}'s ${noun}`,
             unique
         ].random())
       },
@@ -2690,14 +2718,18 @@ export const goodsAndServices = {
     name: {
       function (town, building) {
         const name = setup.goodsAndServices[building.type].name
-        const unique = name.unique.random() || `The ${town.name} ${name.wordNoun.random().toUpperFirst()}`
+        const adjective = lib.random(setup.goodsAndServices[building.type].name.adjective)
+        const noun = lib.random(setup.goodsAndServices[building.type].name.noun)
+        const wordNoun = lib.random(setup.goodsAndServices[building.type].name.wordNoun)
+        const adjectivePerson = lib.random(setup.goodsAndServices[building.type].name.adjectivePerson)
+        const unique = name.unique.random() || `The ${town.name} ${wordNoun}`
         return lib.toTitleCase([
-            `The ${name.adjective.random()} ${name.noun.random()}`,
-            `The ${town.name} ${name.wordNoun.random()}`,
-            `The ${town.roads[building.road].name} ${name.wordNoun.random()}`,
-            `${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `${name.adjectivePerson.random()} ${building.associatedNPC.firstName}'s ${name.wordNoun.random()}`,
-            `${building.associatedNPC.lastName}'s ${name.noun.random()}`,
+            `The ${adjective} ${noun}`,
+            `The ${town.name} ${wordNoun}`,
+            `The ${town.roads[building.road].name} ${wordNoun}`,
+            `${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${adjectivePerson} ${building.associatedNPC.firstName}'s ${wordNoun}`,
+            `${building.associatedNPC.lastName}'s ${noun}`,
             unique
         ].random())
       },
