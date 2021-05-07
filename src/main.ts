@@ -50,6 +50,7 @@ import { copyText } from './Tools/Exports/clipboard'
 import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
 import { createStartBuildings } from './Town/js/createStartBuildings'
 import { npcDeath, createDeadNPC } from './NPCGeneration/SetupDeath'
+import { goodsAndServices } from './Buildings/goodsAndServices'
 
 declare global {
   interface Setup {
@@ -115,6 +116,7 @@ declare global {
     createStartBuildings: typeof createStartBuildings
     npcDeath: typeof npcDeath
     createDeadNPC: typeof createDeadNPC
+    goodsAndServices: typeof goodsAndServices
   }
 }
 
@@ -180,8 +182,11 @@ Object.assign(setup, {
   createGuardhouseName,
   createStartBuildings,
   npcDeath,
-  createDeadNPC
+  createDeadNPC,
+  goodsAndServices
 })
+
+// setup.goodsAndServices = initGoodsAndServices()
 
 /**
  * Initializes the data structures.
@@ -196,7 +201,7 @@ setup.init = (setup => () => {
   setup.initMisc()
   setup.initNpcData()
   setup.initTavernData()
-  setup.initGoodsAndServices()
+  // setup.initGoodsAndServices()
   setup.initDocks()
   setup.initCastle()
   setup.initBuildingTypes()

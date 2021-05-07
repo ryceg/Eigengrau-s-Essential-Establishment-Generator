@@ -7,7 +7,9 @@ export interface Location {
   /** The type of building- 'castle', 'townSquare', 'generalStore', etc. */
   type: string
   buildingType: string
+  initPassage?: string
   passageName?: string
+  PassageFormat?: string
   parentKey?: string
   name?: string
   wordNoun?: string
@@ -28,8 +30,30 @@ export interface Structure extends Location {
   owner?: string
 }
 
+export type BuildingTypes =
+'home'
+| 'alchemist'
+| 'bakery'
+| 'barber'
+| 'brothel'
+| 'butcher'
+| 'castle'
+| 'cobbler'
+| 'dungeon'
+| 'fletcher'
+| 'florist'
+| 'generalStore'
+| 'graveyard'
+| 'guardhouse'
+| 'jeweller'
+| 'tailor'
+| 'tavern'
+| 'temple'
+| 'townSquare'
+| 'market'
 export interface Building extends Structure {
   passageName: string
+  type: BuildingTypes
   name: string
   priceModifier: number
   wealth?: string
