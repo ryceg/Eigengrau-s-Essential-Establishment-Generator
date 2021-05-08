@@ -17,7 +17,7 @@
         <td><<profile _deityData>></td>
         <td><<print Math.trunc($town.population * (lib.getPantheonPercentages($town, State.metadata.get('pantheon'))[_deity] / 100))>></td>
         <td><<print lib.getPantheonPercentages($town, State.metadata.get('pantheon'))[_deity].toFixed(2)>></td>
-        <td><span class="tip religion-slider" data-tippy-content="This is calculated from the town, and represents the base probability."><<print lib.getUnalteredTownDeityWeightings($town, getPantheonDeities($town, State.metadata.get('pantheon')))[_deity].toFixed(0)>></span></td>
+        <td><span class="tip religion-slider" data-tippy-content="This is calculated from the town, and represents the base probability."><<print lib.getUnalteredTownDeityWeightings($town, lib.getPantheonDeities($town, State.metadata.get('pantheon')))[_deity].toFixed(0)>></span></td>
         <td><span class="tip religion-slider" data-tippy-content="This is added to the base probability- it doesn't need to add up to a round number."><<numberslider `"$town.religion._modifiers['" + _deity + "']"` $town.religion._modifiers[_deity] -1000 1000 5>></span></td>
     </tr>
     /* <</capture>> */
