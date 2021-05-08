@@ -18,7 +18,7 @@ export const findContainerViaKey = (key: string) => {
   if (State.variables.town.factions[key]) {
     return State.variables.town.factions
   }
-  if (lib.findInArray(lib.getPantheon(State.variables.town).gods, 'key', key)) return lib.getPantheon(State.variables.town).gods
+  if (lib.findInArray(lib.getPantheonDeities(State.variables.town), 'key', key)) return lib.getPantheonDeities(State.variables.town)
   return State.variables.town.buildings.find(building => {
     return building.key === key
   })

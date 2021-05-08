@@ -17,7 +17,7 @@ export const outputEverything = () => {
     buildings: outputFromArray(State.variables.town.buildings),
     factions: outputFromObject(State.variables.town.factions),
     NPCs: outputFromObject(State.variables.npcs),
-    pantheon: outputFromArray(lib.getPantheon(State.variables.town, State.metadata.get('pantheon')).gods)
+    pantheon: outputFromArray(lib.getPantheonDeities(State.variables.town, State.metadata.get('pantheon')))
   }
   return output
 }

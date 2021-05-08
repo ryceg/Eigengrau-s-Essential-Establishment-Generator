@@ -1,16 +1,20 @@
 import { findInArray } from '../../lib/src/findInArray'
 import { Town } from '../../lib/town/_common'
 import { compileWeightToPercentile, getTownDeityWeightings } from './createTownReligion'
-import { Pantheon, religion } from './religion'
+import { Deity, Pantheon, religion } from './religion'
 
 export const getDeity = (town: Town, deity: string, customPantheon?: Pantheon) => {
   return findInArray(
-    getPantheon(town, customPantheon).gods, 'name', deity)
+    getPantheonDeities(town, customPantheon), 'name', deity)
 }
 
 export const getPantheon = (town: Town, customPantheon?: Pantheon): Pantheon => {
   if (isUsingCustomPantheon(town)) return getCustomPantheon(town, customPantheon)
   return religion.pantheon[town.religion.pantheon]
+}
+
+export const getPantheonDeities = (town: Town, customPantheon?: Pantheon): Deity[] => {
+  return getPantheon(town, customPantheon).gods
 }
 
 export const getPantheonNames = (town: Town, customPantheon?: Pantheon) => {
@@ -47,7 +51,7 @@ export const getAllPantheonPercentages = (town: Town, customPantheon?: Pantheon)
   return Object.fromEntries(
     Object.entries(
       compileWeightToPercentile(
-        getTownDeityWeightings(town, getPantheon(town, customPantheon).gods)
+        getTownDeityWeightings(town, getPantheonDeities(town, customPantheon))
       ))
       .sort(
         ([, a], [, b]) => a - b)
@@ -58,7 +62,7 @@ export const getAllPantheonPercentages = (town: Town, customPantheon?: Pantheon)
 export const getPantheonPercentages = (town: Town, customPantheon?: Pantheon) => {
   console.log('Getting pantheon percentages...')
   const temp = compileWeightToPercentile(
-    getTownDeityWeightings(town, getPantheon(town, customPantheon).gods)
+    getTownDeityWeightings(town, getPantheonDeities(town, customPantheon))
   )
 
   return Object.fromEntries(
