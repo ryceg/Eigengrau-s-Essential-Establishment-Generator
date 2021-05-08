@@ -29,12 +29,7 @@ interface Followers {
    */
   favouredWeapon: string
   /**
-   * Holy days.
-   * Descriptions of the holy days are in arrays; i.e. `holyDays: [['name of holy day', 'description of holy day'], 'holy day that doesn't have a description']`
-   * @example ['the month of January', 'Saturdays', 'days ending with the letter y']
-   * @example [['the first Friday of February', 'This day is said to be when time stood still for a moment.'], 'days with full moons']
-   * @usage 'Their holy days are ______' (parsed as a list with an oxford comma.)
-   * @default 'earth'
+   * Days that are considered holy.
    */
   holyDays: Information
   race?: RaceName
@@ -66,14 +61,34 @@ export interface Pantheon {
    */
   followers?: Followers
   gods: Deity[]
+  meta?: {
+    /** Who originally created this pantheon? */
+    author?: string
+    /** If multiple people worked on this, add their names to the array. */
+    contributors?: string[]
+    /** If you hold the copyright to the pantheon, you may list it here. Public domain pantheons (i.e. Norse, etc.) may be specified as public domain. */
+    license?: string
+    /** If this pantheon is hosted online, link it here. */
+    repository?: string
+    /** Helps troubleshoot any issues people may have if there's a version number. */
+    version?: number
+    /** Any other information that you might care to tell the reader, such as an email address to contact them, etc. */
+    notes?: string
+  }
 }
 
 export type DeityStatus = 'alive' | 'imprisoned' | 'dormant' | 'dead' | 'uncertain'
 
 export interface Deity {
-  /** This makes tippy work */
+  /**
+   * @readonly
+   * This makes tippy work. Keep it exactly like this.
+   */
   objectType: 'deity'
-  /** Required for profiles */
+  /**
+   * @readonly
+   * Required for profiles. Keep it exactly like this.
+   */
   passageName: 'DeityProfile'
   /**
    * For sanity's sake, only one name is allowed so we can easily find the deity. If your deity has multiple names, you can add them to `aliases`, which it will be pulled from at random.
@@ -82,7 +97,9 @@ export interface Deity {
   /** Needed to make the profiles work */
   key: string
   /**
-   * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy. Some people may worship these gods, so their status is important
+   * Some gods have died, or else have been imprisoned, or they have just retreated to dormancy.
+   * Some people may still worship these gods, so their status is important.
+   * Using the type is preferred, as it detects tense.
    * @example ```Baldr: 'dead'```
    * @example ```Kronos: 'imprisoned'```
    * @example ```Pan: 'uncertain'```
@@ -4322,7 +4339,15 @@ export const religion: ReligionData = {
             }
           ]
         }
-      ]
+      ],
+      meta: {
+        author: 'unknown',
+        contributors: ['ryceg', 'Dark07', 'Maha', 'GadgetBoy', 'Jen9C', 'Levendor', 'Wumbo'],
+        license: 'public domain',
+        repository: 'https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/lib/religion/religion.ts#L580',
+        version: 0.1,
+        notes: 'Included as the default pantheon.'
+      }
     },
     norse: {
       name: 'norse',

@@ -3907,5 +3907,13 @@
         }
       ]
     }
-  ]
+  ],
+  "meta": {
+    "author": "unknown",
+    "contributors": ["contributors go here"],
+    "license": "license goes here",
+    "repository": "github URL goes here",
+    "version": 0.1,
+    "notes": "Notes go here!"
+  }
 }
