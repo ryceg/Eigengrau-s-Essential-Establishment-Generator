@@ -46,7 +46,7 @@
   <<case 'deity'>>
     <label name="Select deity" for="listbox-target">
       <<listbox "$target" autoselect>>
-        <<optionsfrom lib.getPantheon($town, State.metadata.get('pantheon')).gods.reduce(
+        <<optionsfrom lib.getPantheonDeities($town, State.metadata.get('pantheon')).reduce(
           (obj, deity) => Object.assign(obj, { 
             [deity.name]: deity.key 
             }), {})>>

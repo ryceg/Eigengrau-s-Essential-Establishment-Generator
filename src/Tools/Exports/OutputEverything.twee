@@ -18,7 +18,7 @@
     <<set _exportContent to setup.outputGMBinder()>>
     <<replace "#tutorial">><<include "HomebreweryTutorial">><</replace>>
   <<case "Raw JSON">>
-    <<set _exportContent to JSON.stringify($town) + JSON.stringify($npcs) + JSON.stringify(lib.getPantheon($town, State.metadata.get('pantheon')).gods)>>
+    <<set _exportContent to JSON.stringify($town) + JSON.stringify($npcs) + JSON.stringify(lib.getPantheonDeities($town, State.metadata.get('pantheon')))>>
     <<replace "#tutorial">>This is all of the data from the {{{$town}}} and {{{$npcs}}} objects, for whatever purposes you may desire.<</replace>>
   <<case "Foundry">>
   <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({

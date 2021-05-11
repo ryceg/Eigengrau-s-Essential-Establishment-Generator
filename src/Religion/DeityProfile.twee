@@ -1,5 +1,5 @@
 :: DeityProfile [nobr]
-<<set $currentPassage to lib.findInArray(lib.getPantheon($town, State.metadata.get('pantheon')).gods, 'name', $currentPassage.name)>>
+<<set $currentPassage to lib.findInArray(lib.getPantheonDeities($town, State.metadata.get('pantheon')), 'name', $currentPassage.name)>>
 <<if recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage>>
 <div id="illustration-buffer">
 <<print lib.getCustomImage(recall('customImages.deity.' + $currentPassage.key) || $currentPassage.customImage)>></div><img id="paper" src=./src/Resources/0001.png top=15vw display=block>

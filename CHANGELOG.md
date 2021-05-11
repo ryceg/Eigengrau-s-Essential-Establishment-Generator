@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Toolbox is now one column
 - Made the sexuality descriptors more inclusive
 - Breadcrumb now displays the character's name, not their description
+- Fixed an issue with editing probability of deities that are at 0% worship.
 
 ## 2.8.7
 
