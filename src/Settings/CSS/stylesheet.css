@@ -208,7 +208,7 @@ body[data-tags~="force-one-column"] {
   font-weight: bold;
 }
 
-footer {
+.passage footer {
   position: relative;
   width: 100%;
   height: 55px;

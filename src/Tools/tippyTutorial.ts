@@ -1,63 +1,80 @@
-import introJs from 'intro.js'
-
-// const tourButton = () => {
-//   // const button = document.createElement('button')
-//   // button.textContent = 'Next'
-//   // button.style.marginTop = '0'
-//   // button.style.marginBottom = '0'
-//   // button.onclick = (ev) => {
-//   //   alert('Yay!')
-//   // }
-//   const button = $('<button/>', {
-//     text: 'Next',
-//     click () {
-//       alert('test')
-//     }
-//   })
-//   button.css('marginTop', 0)
-//   button.css('marginBottom', 0)
-//   return button.get(0).outerHTML
-// }
+import Shepherd from 'shepherd.js'
 
 export const tippyTutorial = () => {
-  // const count = 0
-  // const obj = sequence[count]
-  // if (document.getElementById(obj.target)) {
-  // const tip = $(`#${obj.target}`)
-  console.log('intro js')
-  introJs().setOptions({
+  const tour = new Shepherd.Tour({
+    modalContainer: document.getElementById('passage-start'),
+    useModalOverlay: true,
+    stepsContainer: document.getElementById('passages'),
+    defaultStepOptions: {
+      cancelIcon: {
+        enabled: true
+      },
+      buttons: [
+        {
+          action () {
+            return this.back()
+          },
+          classes: 'shepherd-button-secondary',
+          text: 'Back'
+        },
+        {
+          action () {
+            return this.next()
+          },
+          text: 'Next'
+        }
+      ],
+      scrollTo: true,
+      classes: 'descriptive'
+      // scrollTo: true
+      // scrollTo: { behavior: 'smooth', block: 'center' }
+    },
     steps: [
       {
-        element: '#passage-header',
-        intro: 'This is the breadcrumb navbar. It is your primary method of getting around, and retracing your steps.'
+        title: 'Brief Overview',
+        text: 'This is the brief description of the town; you can hover over the dotted parts to bring up tooltips with additional context or info.',
+        attachto: {
+          element: '#story-title',
+          on: 'bottom'
+        }
       },
       {
-        element: '#brief-description',
-        intro: 'This is the brief description of the town; you can hover over the dotted parts to bring up tooltips with additional context or info.'
+        title: 'Quick Scenarios',
+        text: 'This is the quick scenario generator, which is for quick non-combat focused encounters.',
+        attachto: {
+          element: '#quick-scenario-generator',
+          on: 'auto'
+        }
       },
       {
-        element: '#quick-scenario-generator',
-        intro: 'This is the quick scenario generator, which is for quick non-combat focused encounters.'
+        title: 'Town Description',
+        text: 'This hyperlink takes you to the detailed town description, which outlines how the town functions, along with some stats.',
+        attachto: {
+          element: '#detailed-description',
+          on: 'auto'
+        }
       },
       {
-        element: '#quick-scenario-generator',
-        intro: 'This is the quick scenario generator, which is for quick non-combat focused encounters.'
+        title: 'Sidebar menu',
+        text: 'The sidebar menu is where you can access saving, the toolbox (a collection of standalone tools), and export to Foundry.',
+        attachTo: {
+          element: '#menu-story',
+          on: 'right'
+        },
+        popperOptions: {
+          modifiers: [{ name: 'offset', options: { offset: [0, 300] } }]
+        }
       },
       {
-        element: '#detailed-description',
-        intro: 'This hyperlink takes you to the detailed town description, which outlines how the town functions, along with some stats.'
+        title: 'Breadcrumb',
+        text: 'This is the breadcrumb, and is used to navigate around.',
+        attachTo: {
+          element: '#passage-header',
+          on: 'bottom'
+        }
       }
     ]
-    // tippy(tip.get(0), {
-    //   // content: `<p style='margin-top: 0px'>${obj.description}</p>${tourButton()}`,
-    //   content: obj.description,
-    //   animation: 'shift-toward',
-    //   showOnCreate: true,
-    //   arrow: true,
-    //   delay: [300],
-    //   duration: [100, 1000000],
-    //   hideOnClick: true
-    //   // interactive: true
-    // })
-  }).start()
+  })
+
+  tour.start()
 }
