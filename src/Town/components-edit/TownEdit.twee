@@ -12,5 +12,5 @@
 <<include "EditReligion">><<done>><<run tippy('[data-tippy-content]')>><</done>><</nobr>>
 <<button "Save Changes" TownOutput>>
   <<include "Rerender">>
-  <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
+  <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name}, 'TownOutput', $town.name)>>
 <</button>>

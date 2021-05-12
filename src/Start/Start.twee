@@ -1,4 +1,11 @@
 :: Start [nobr]
+<<run window.history.pushState({
+  key: "Start", 
+  objectType: 'passage',
+  passageName: "Start", 
+  linkDescription: $town.name, 
+  name: $town.name
+  }, 'Start')>>
 <<set $currentPassage to $town>><<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'>[img[banner]]</div><<include "PrintImage">>
 <section id='quick-scenario-generator'><h3 class='hide-on-print'>Quick Scenario Generator</h3><<include "CreateScenario">></section><</if>>
 <<include "BriefDescription">>

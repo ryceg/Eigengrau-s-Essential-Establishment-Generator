@@ -7,29 +7,42 @@ export const history = (object: any, passageName: string, linkDescription: strin
   addGtagEvent()
 }
 
+interface HistoryItem {
+    data: {
+      key: string
+      objectType: string
+      passageName: string
+      linkDescription: string
+    }
+    passageName: string
+    linkDescription: string
+}
+
 /**
  * Adds to the history
- * @param {any} object
- * @param {string} passageName
- * @param {string} linkDescription
  */
-function addToHistory (object: any, passageName: string, linkDescription: string) {
-  const history = State.variables.history as any[]
-  passageName = passageName || object.passageName
-  linkDescription = linkDescription || object.linkDescription || object.name
+function addToHistory (
+  object: any,
+  passageName = object.passageName,
+  linkDescription = object.linkDescription || object.name) {
+  const SVhistory = State.variables.history as HistoryItem[]
   object.objectType = object.objectType || object.passageName
-  const key = object.parentKey || object.key || passageName
-  if (history.length > 0 && history.last().data.key === key) return
-  if (Array.isArray(history)) {
-    history.push({
-      data: {
-        key,
-        objectType: object.objectType,
-        passageName,
-        linkDescription
-      },
+  const key = object.parentKey || object.key || object.name || passageName
+  const state = {
+    data: {
+      key,
+      objectType: object.objectType,
       passageName,
       linkDescription
-    })
+    },
+    passageName,
+    linkDescription
   }
+  if (SVhistory.length > 0 && SVhistory.last().data.key === key) return
+  if (Array.isArray(SVhistory)) {
+    SVhistory.push(state)
+  }
+
+  window.history.pushState(state, passageName)
+  // window.location.search = key
 }

@@ -32,3 +32,17 @@ $('<span id="badge" />')
   .appendTo('#fun-container')
 
 $(document.body).append('<div class="background-image" />')
+
+window.onpopstate = function () {
+  if (window.history.state) {
+    const historyLength = State.variables.history.length
+    if (historyLength > 1) {
+      State.variables.history.length -= 1
+      Engine.play(State.variables.currentPassage.passageName)
+      State.variables.currentPassage = window.history.state.data
+    } else if (historyLength === 0) {
+      Engine.play('Start')
+    }
+    $(document).trigger(':liveupdate')
+  }
+}
