@@ -49,6 +49,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 650,
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
@@ -139,6 +141,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 500,
     ageTraits: {
       'ageDescriptors': [
+        [300, 'ancient'],
+        [250, 'incredibly elderly'],
         [200, 'vulnerably elderly'],
         [190, 'withered'],
         [180, 'elderly'],
@@ -232,6 +236,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 703,
     ageTraits: {
       'ageDescriptors': [
+        [1000, 'ancient'],
+        [900, 'incredibly elderly'],
         [800, 'vulnerably elderly'],
         [750, 'withered'],
         [700, 'elderly'],
@@ -324,6 +330,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 703,
     ageTraits: {
       'ageDescriptors': [
+        [500, 'ancient'],
+        [440, 'incredibly elderly'],
         [400, 'vulnerably elderly'],
         [360, 'withered'],
         [320, 'elderly'],
@@ -415,6 +423,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 703,
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [70, 'vulnerably elderly'],
         [65, 'withered'],
         [60, 'elderly'],
@@ -721,6 +731,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 703,
     ageTraits: {
       'ageDescriptors': [
+        [230, 'ancient'],
+        [200, 'incredibly elderly'],
         [180, 'vulnerably elderly'],
         [150, 'withered'],
         [130, 'elderly'],
@@ -813,6 +825,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     viableBreedingPartners: ['human', 'orc', 'half-elf', 'half-orc'],
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
@@ -905,6 +919,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     viableBreedingPartners: ['human', 'elf', 'orc', 'half-elf', 'half-orc', 'tiefling'],
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
@@ -996,6 +1012,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     viableBreedingPartners: ['human', 'tiefling'],
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
@@ -1087,6 +1105,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     viableBreedingPartners: ['human', 'orc', 'half-orc'],
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
@@ -1179,6 +1199,8 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     viableBreedingPartners: ['lizardfolk'],
     ageTraits: {
       'ageDescriptors': [
+        [100, 'ancient'],
+        [90, 'incredibly elderly'],
         [80, 'vulnerably elderly'],
         [75, 'withered'],
         [70, 'elderly'],
