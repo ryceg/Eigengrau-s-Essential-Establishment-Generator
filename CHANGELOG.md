@@ -7,9 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Browser back and forward navigation!
 - Quick roleplay questions to the toolbox
 - Homebrewery export function
 - Hyperlinking to both Homebrewery and GMBinder exports (so you can click on links in the PDF to jump to the profile.)
+
 
 ### Changed
 - Changed the background from a vomit-inducing pink to a dark grey when dialogues or settings are open.
@@ -19,6 +21,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Made the sexuality descriptors more inclusive
 - Breadcrumb now displays the character's name, not their description
 - Fixed an issue with editing probability of deities that are at 0% worship.
+- Fixed an issue where the breadcrumb would create empty paragraphs.
+- Fixed an issue with widowed elements.
+- Fixed an issue with Patreon supporters not displaying properly on subsequent navigation.
 
 ## 2.8.7
 
