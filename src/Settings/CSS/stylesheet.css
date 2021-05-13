@@ -466,6 +466,9 @@ blockquote {
     border-width: 11px;
     border-image: url("./src/Resources/note-wrap.png") 11;
     border-image-outset: 9px 0;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid; /* IE 10+ */
 }
 
 html.dark blockquote {
@@ -506,11 +509,14 @@ blockquote h5 {
     border-image: url("./src/Resources/sidebars.png") 12 round;
     border-image-outset: 4px;
     box-shadow:0 0 6px var(--background-primary);
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid; /* IE 10+ */
 }
 .descriptive p {
     display:block;
     padding-bottom:0;
-    line-height:1.5em
+    line-height:1.5em;
 }
 .descriptive p+p{
     padding-top:.8em
