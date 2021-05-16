@@ -33,7 +33,7 @@ html[data-theme="dark"], html.dark {
   --interactive-normal: hsl(0, 0%, 25%);
   --interactive-hover: hsl(0, 0%, 40%);
   --header-primary: hsl(2, 55%, 50%);
-  --header-secondary: hsl(50, 14%, 50%);
+  --header-secondary: hsl(40, 50%, 60%);
   --interactive-active: hsl(0, 20%, 40%);
   --interactive-hover: hsl(0, 25%, 45%);
   --interactive-muted: hsl(0, 50%, 25%);
