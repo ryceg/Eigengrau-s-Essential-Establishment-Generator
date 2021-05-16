@@ -36,13 +36,26 @@ $(document.body).append('<div class="background-image" />')
 window.onpopstate = function () {
   if (window.history.state) {
     const historyLength = State.variables.history.length
-    if (historyLength > 1) {
+    if (historyLength >= 1) {
+      const index = getIndexOfCurrentHistory(State.variables.history, window.history.state) - 1
+      State.variables.currentPassage.key = State.variables.history[index].data.key
+      Engine.play(State.variables.history[index].data.passageName)
       State.variables.history.length -= 1
-      Engine.play(State.variables.currentPassage.passageName)
-      State.variables.currentPassage = window.history.state.data
     } else if (historyLength === 0) {
+      State.variables.history.length = 0
       Engine.play('Start')
     }
     $(document).trigger(':liveupdate')
   }
+}
+
+function getIndexOfCurrentHistory (history, state) {
+  /**
+   * @type {number}
+   */
+  const index = history.findIndex(item => {
+    return state.data.key === item.data.key
+  })
+  if (index === -1) return history.length
+  return index
 }
