@@ -7,7 +7,7 @@ export const history = (object: any, passageName: string, linkDescription: strin
   addGtagEvent()
 }
 
-interface HistoryItem {
+export interface HistoryItem {
     data: {
       key: string
       objectType: string

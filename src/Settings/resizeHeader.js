@@ -40,6 +40,7 @@ window.onpopstate = function () {
       const index = getIndexOfCurrentHistory(State.variables.history, window.history.state) - 1
       State.variables.currentPassage.key = State.variables.history[index].data.key
       Engine.play(State.variables.history[index].data.passageName)
+      // window.history.replaceState(State.variables.history[index].data, State.variables.history[index].passageName)
       State.variables.history.length -= 1
     } else if (historyLength === 0) {
       State.variables.history.length = 0
@@ -49,6 +50,11 @@ window.onpopstate = function () {
   }
 }
 
+/**
+ * @param {import("../Tools/history").HistoryItem[]} history
+ * @param {import("../Tools/history").HistoryItem[]} state
+ * @returns {number}
+ */
 function getIndexOfCurrentHistory (history, state) {
   /**
    * @type {number}
