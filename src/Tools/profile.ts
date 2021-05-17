@@ -44,13 +44,7 @@ Macro.add('profile', {
       .ariaClick(() => {
         State.variables.currentPassage = obj
         setup.history(obj, obj.passageName, obj.name || readout)
-        // @ts-ignore
-        if (settings.showSliders && obj.initPassage) {
-          // @ts-ignore
-          Engine.play(obj.initPassage)
-        } else {
-          Engine.play(obj.passageName)
-        }
+        Engine.play(obj.passageName)
       })
     /* do any other title addition and stuff here */
     setup.makeTippyTitle($(tip)[0], obj)

@@ -28,6 +28,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed an issue with widowed elements.
 - Fixed an issue with Patreon supporters not displaying properly on subsequent navigation.
 
+### Removed
+- "Sliders" popup.
+
 ## 2.8.7
 
 ### Changed
