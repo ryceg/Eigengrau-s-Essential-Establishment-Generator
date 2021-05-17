@@ -1,21 +1,17 @@
 import { addGtagEvent } from './addGtagEvent'
 
 // uses State.variables.history
-export const history = (object: any, passageName: string, linkDescription: string) => {
+export const history = (object: any, passageName = object.passageName, linkDescription = object.linkDescription || object.name) => {
   addToHistory(object, passageName, linkDescription)
   // window.location.search = `${passageName}=${object.key}`
   addGtagEvent()
 }
 
 export interface HistoryItem {
-    data: {
-      key: string
-      objectType: string
+      key?: string
+      objectType?: string
       passageName: string
       linkDescription: string
-    }
-    passageName: string
-    linkDescription: string
 }
 
 /**
@@ -25,20 +21,16 @@ function addToHistory (
   object: any,
   passageName = object.passageName,
   linkDescription = object.linkDescription || object.name) {
-  const SVhistory = State.variables.history as HistoryItem[]
-  object.objectType = object.objectType || object.passageName
-  const key = object.parentKey || object.key || object.name || passageName
-  const state = {
-    data: {
-      key,
-      objectType: object.objectType,
-      passageName,
-      linkDescription
-    },
+  const SVhistory = State.variables.history
+  const objectType = object.objectType || undefined
+  const key = object.parentKey || object.key || undefined
+  const state: HistoryItem = {
+    key,
+    objectType,
     passageName,
     linkDescription
   }
-  if (SVhistory.length > 0 && SVhistory.last().data.key === key) return
+  if (SVhistory.length > 0 && SVhistory.last()?.linkDescription === linkDescription) return
   if (Array.isArray(SVhistory)) {
     SVhistory.push(state)
   }
