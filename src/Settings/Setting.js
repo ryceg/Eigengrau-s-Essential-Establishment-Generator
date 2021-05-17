@@ -131,10 +131,10 @@ Setting.addToggle('ignoreRace', {
   onChange: settingIgnoreRace
 })
 
-Setting.addToggle('forceOneColumn', {
-  label: 'Force one column?',
-  desc: 'Force one column for larger screens.',
-  onChange: settingForceOneColumn
+Setting.addToggle('displayTwoColumns', {
+  label: 'Display two columns?',
+  desc: 'Display as two columns, like a book?',
+  onChange: settingDisplayTwoColumns
 })
 
 Setting.addToggle('hideAds', {
@@ -170,11 +170,11 @@ if (State.metadata.get('disableNSFW') !== settings.disableNSFW) {
   settings.disableNSFW = State.metadata.get('disableNSFW')
 }
 
-if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
-  settings.forceOneColumn = State.metadata.get('forceOneColumn')
+if (State.metadata.get('displayTwoColumns') !== settings.displayTwoColumns) {
+  settings.displayTwoColumns = State.metadata.get('displayTwoColumns')
 }
 
-if (settings.forceOneColumn) {
+if (settings.displayTwoColumns) {
   jQuery('html').addClass('force-one-column')
 }
 
@@ -240,19 +240,19 @@ function settingDisableAnalytics () {
   }
 }
 
-function settingForceOneColumn () {
-  const forceOneColumn = State.metadata.get('forceOneColumn')
-  if (settings.forceOneColumn !== forceOneColumn) {
-    State.metadata.set('forceOneColumn', settings.forceOneColumn)
+function settingDisplayTwoColumns () {
+  const displayTwoColumns = State.metadata.get('displayTwoColumns')
+  if (settings.displayTwoColumns !== displayTwoColumns) {
+    State.metadata.set('displayTwoColumns', settings.displayTwoColumns)
   }
   addOneColumn()
 }
 
 function addOneColumn () {
-  if (settings.forceOneColumn) {
-    jQuery('html').addClass('force-one-column')
-  } else {
+  if (settings.displayTwoColumns) {
     jQuery('html').removeClass('force-one-column')
+  } else {
+    jQuery('html').addClass('force-one-column')
   }
 }
 

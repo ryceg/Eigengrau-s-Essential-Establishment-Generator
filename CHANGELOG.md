@@ -15,9 +15,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Changed the background from a vomit-inducing pink to a dark grey when dialogues or settings are open.
+- Dark mode secondary colour has been changed from a brown to a gold.
+- Made one column the default and two columns the optional.
 - Fixed an error where "pastors" were not being found.
+- Shifted the quick scenario generator to the bottom of the page.
 - Banner links now open in new tabs
-- Toolbox is now one column
+- Toolbox is now one always column.
 - Made the sexuality descriptors more inclusive
 - Breadcrumb now displays the character's name, not their description
 - Fixed an issue with editing probability of deities that are at 0% worship.
