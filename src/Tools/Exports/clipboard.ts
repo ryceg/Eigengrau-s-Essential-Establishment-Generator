@@ -5,8 +5,18 @@ export const copyText = (jsonText: string) => {
 
 function updateClipboard (copyText: string) {
   navigator.clipboard.writeText(copyText).then(function () {
-    $('#notify').trigger(':notify', { message: 'Copied to the clipboard successfully!' })
+    $(document).trigger({
+      type: ':notify',
+      message: 'Copied to the clipboard successfully!',
+      time: false,
+      classes: false
+    })
   }, function () {
-    $('#notify').trigger(':notify', { message: 'Copy to the clipboard failed!' })
+    $(document).trigger({
+      type: ':notify',
+      message: 'Copy to the clipboard failed :(',
+      time: false,
+      classes: false
+    })
   })
 }
