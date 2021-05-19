@@ -1,5 +1,5 @@
-:: BiomeGenerationRefresh [force-one-column]
-<details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update"><<nobr>>
+:: BiomeGenerationRefresh [force-one-column nobr]
+<details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update">
 <<print lib.firstCharacter($town.name)>> is located in the
 <label name="Terrain" for="listbox-townterrain">
   <<listbox "$town.terrain" autoselect>>
@@ -56,4 +56,4 @@ Politically, they are a
   <<listbox "$town.politicalSource" autoselect>>
     <<optionsfrom $listboxes.politicalSource>>
   <</listbox>>
-</label><</nobr>></span><</liveblock>></details><<done>><<run tippy('[data-tippy-content]')>><</done>>
+</label></span><</liveblock>></details><<done>><<run tippy('[data-tippy-content]')>><</done>>
