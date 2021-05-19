@@ -35,9 +35,10 @@ $(document.body).append('<div class="background-image" />')
 
 window.onpopstate = function () {
   if (window.history.state) {
+  /** @type {number} */
     const historyLength = State.variables.history.length
+    const index = historyLength - 2
     if (historyLength > 1) {
-      const index = historyLength - 1
       if (State.variables.history[index].key) State.variables.currentPassage.key = State.variables.history[index].key
       Engine.play(State.variables.history[index].passageName)
       State.variables.history.length -= 1
