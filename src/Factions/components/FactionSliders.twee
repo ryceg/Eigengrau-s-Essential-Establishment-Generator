@@ -1,4 +1,4 @@
-:: FactionSliders [force-one-column, nobr]
+:: FactionSliders [force-one-column nobr]
 <<set $currentPassage to $town.factions[$currentPassage.key]>>
 <<run $("body").on("change", [".type"], function() {
   $(document).trigger(":liveupdate");

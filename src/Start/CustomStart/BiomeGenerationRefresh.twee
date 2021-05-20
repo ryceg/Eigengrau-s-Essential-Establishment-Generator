@@ -1,4 +1,4 @@
-:: BiomeGenerationRefresh [force-one-column nobr]
+:: BiomeGenerationRefresh [force-one-column nobr nofx]
 <details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update">
 <<print lib.firstCharacter($town.name)>> is located in the
 <label name="Terrain" for="listbox-townterrain">

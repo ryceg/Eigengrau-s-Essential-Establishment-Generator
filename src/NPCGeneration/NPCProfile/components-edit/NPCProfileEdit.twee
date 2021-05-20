@@ -1,4 +1,4 @@
-:: NPCProfileEdit [force-one-column nobr]
+:: NPCProfileEdit [force-one-column nobr nofx]
 <<liveblock>><span class="auto-update"><h1><<include "NPCSaveEdits">><<if def $npcs[$currentPassage.key].title>><<print $npcs[$currentPassage.key].title>> <</if>><label name="name"><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></label></h1></span>
 <<set $currentPassage.deleteEnabled to true>>
 <<include "NPCEditListbox">>

@@ -1,4 +1,4 @@
-:: EditRaces [nobr]
+:: EditRaces [nobr nofx]
 <<run lib.updateDemographics($town, $town._baseDemographics)>><<liveblock>>
 <details class="races-slider" open><summary>Racial Demographics</summary>
 <span class="tip" title="How many people live here?">Town Population: <<numberslider "$town.population" $town.population 30 12000 10>></span>
