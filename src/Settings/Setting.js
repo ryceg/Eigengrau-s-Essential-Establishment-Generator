@@ -175,7 +175,7 @@ if (State.metadata.get('displayTwoColumns') !== settings.displayTwoColumns) {
 }
 
 if (settings.displayTwoColumns) {
-  jQuery('html').addClass('force-one-column')
+  jQuery('html').addClass('two-columns')
 }
 
 function settingIgnoreGender () {
@@ -184,6 +184,7 @@ function settingIgnoreGender () {
     State.metadata.set('ignoreGender', settings.ignoreGender)
     State.variables.town.ignoreGender = settings.ignoreGender
   }
+  notifyOfNeedToRestart()
 }
 
 function settingIgnoreRace () {
@@ -192,6 +193,7 @@ function settingIgnoreRace () {
     State.metadata.set('ignoreRace', settings.ignoreRace)
     State.variables.town.ignoreRace = settings.ignoreRace
   }
+  notifyOfNeedToRestart()
 }
 
 function settingShowBiomeGeneration () {
@@ -204,6 +206,7 @@ function settingShowBiomeGeneration () {
     event_action: 'clicked',
     event_label: 'customised in settings'
   })
+  notifyOfNeedToRestart()
 }
 
 function settingDisableNSFW () {
@@ -217,6 +220,7 @@ function settingDisableNSFW () {
     event_action: 'clicked',
     event_label: 'customised in settings'
   })
+  notifyOfNeedToRestart()
 }
 
 function settingHideAds () {
@@ -245,24 +249,28 @@ function settingDisplayTwoColumns () {
   if (settings.displayTwoColumns !== displayTwoColumns) {
     State.metadata.set('displayTwoColumns', settings.displayTwoColumns)
   }
-  addOneColumn()
+  addClass('html', settings.displayTwoColumns, 'two-columns')
 }
 
-function addOneColumn () {
-  if (settings.displayTwoColumns) {
-    jQuery('html').removeClass('force-one-column')
+function addClass (targetElement, setting, className) {
+  const element = jQuery(targetElement)
+  if (setting) {
+    element.addClass(className)
   } else {
-    jQuery('html').addClass('force-one-column')
+    element.removeClass(className)
   }
 }
 
 function settingDarkMode () {
-  const $html = jQuery('html')
-
-  if (settings.darkMode) {
-    $html.addClass('dark')
-  } else {
-    $html.removeClass('dark')
-  }
+  addClass('html', settings.darkMode, 'dark')
 }
 Setting.save()
+
+function notifyOfNeedToRestart () {
+  $(document).trigger({
+    type: ':notify',
+    message: 'These changes will not take effect until you restart.',
+    time: false,
+    classes: false
+  })
+}
