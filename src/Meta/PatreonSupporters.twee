@@ -1,17 +1,7 @@
 :: PatreonSupporters [nobr]
 <h2>Patreon Supporters</h2>
 Special thanks to my [[Patreon|https://www.patreon.com/join/eigengrausgenerator?]] supporters!
-<<if setup.supporters>><table>
-<tbody><<set _supportersList to setup.supporters>>
-<<for _i to 0; _i lt 10; _i++>>
-<<set $patreonSupporters to lib.weightRandom(_supportersList)>>
-<<run delete _supportersList[$patreonSupporters]>>
-<<set $patreonSupporters2 to lib.weightRandom(_supportersList)>>
-<<run delete _supportersList[$patreonSupporters2]>>
-  <tr>
-    <td>- $patreonSupporters</td>
-    <td>- $patreonSupporters2</td>
-  </tr>
-<</for>>
-</tbody>
-</table><</if>>
+<<if setup.supporters>>
+<ul style="columns:2; -webkit-columns:2; -moz-columns:2;">
+<<for _index, _item range setup.printSupporters()>><li>_item</li><</for>>
+</ul><</if>>

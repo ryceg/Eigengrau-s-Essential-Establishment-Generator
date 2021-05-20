@@ -33,7 +33,7 @@ html[data-theme="dark"], html.dark {
   --interactive-normal: hsl(0, 0%, 25%);
   --interactive-hover: hsl(0, 0%, 40%);
   --header-primary: hsl(2, 55%, 50%);
-  --header-secondary: hsl(50, 14%, 50%);
+  --header-secondary: hsl(40, 50%, 60%);
   --interactive-active: hsl(0, 20%, 40%);
   --interactive-hover: hsl(0, 25%, 45%);
   --interactive-muted: hsl(0, 50%, 25%);
@@ -128,40 +128,19 @@ article {
   padding-bottom: 5vw;
 }
 
+html.two-columns #illustration-buffer {
+  column-span: all;
+}
+
 @font-face {
   font-family: Bookinsanity;
   src: 
     local(Bookinsanity)
 }
 
-.force-one-column .passage  {
-  column-count: 1;
-}
-
-body[data-tags~="force-one-column"] {
-  column-count: 1;
-}
-
 .error-view[data-tags~="squash-errors"] {
     display: hidden;
 }
-
-.force-one-column {
-  column-count: 1;
-}
-
-#passage-biomegeneration {
-  column-count: 1;
-}
-
-#passage-townedit {
-  column-count: 1;
-}
-
-#passage-npcprofileedit {
-  column-count: 1;
-}
-
 
 #illustration-banner {
   column-span: all;
@@ -466,6 +445,9 @@ blockquote {
     border-width: 11px;
     border-image: url("./src/Resources/note-wrap.png") 11;
     border-image-outset: 9px 0;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid; /* IE 10+ */
 }
 
 html.dark blockquote {
@@ -506,11 +488,14 @@ blockquote h5 {
     border-image: url("./src/Resources/sidebars.png") 12 round;
     border-image-outset: 4px;
     box-shadow:0 0 6px var(--background-primary);
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+    page-break-inside: avoid; /* Firefox */
+    break-inside: avoid; /* IE 10+ */
 }
 .descriptive p {
     display:block;
     padding-bottom:0;
-    line-height:1.5em
+    line-height:1.5em;
 }
 .descriptive p+p{
     padding-top:.8em

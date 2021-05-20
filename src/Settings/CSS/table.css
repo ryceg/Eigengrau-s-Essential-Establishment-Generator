@@ -6,6 +6,9 @@ table {
   font-size: 10pt;
   line-height: 1.1em;
   table-layout: auto;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
 }
 
 table em {

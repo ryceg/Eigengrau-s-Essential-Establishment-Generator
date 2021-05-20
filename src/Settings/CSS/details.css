@@ -1,0 +1,41 @@
+details summary > * {
+  display: inline;
+}
+
+details summary { 
+  cursor: pointer;
+}
+
+@keyframes details-show {
+  from {
+    opacity:0;
+    transform: var(--details-translate, translateY(-0.5em));
+  }
+}
+
+details[open] > *:not(summary) {
+  animation: details-show 250ms ease-in-out;
+}
+
+details[open][data-tags~="nofx"] > *:not(summary) {
+  animation: none;
+}
+
+
+
+summary::-webkit-details-marker {
+  display: none;
+}
+summary:before {
+  content: "+";
+  color: var(--header-primary);
+  margin-right: 5px;
+}
+
+summary:before:not([data-tags~="nofx"])  {
+  transition: .6s ease-in-out;
+}
+
+details[open] summary::before { 
+  content: "—";
+}

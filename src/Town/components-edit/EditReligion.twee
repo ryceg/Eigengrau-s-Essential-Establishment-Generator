@@ -1,4 +1,4 @@
-:: EditReligion
+:: EditReligion [nofx]
 <details open><summary>Religion Demographics</summary><<liveblock>><<set $town.religionProbabilities to lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))>>$town.name <<print lib.getPredominantReligion($town, lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))).amountDescriptive>><</liveblock>>.
 <table class='classTable religion-slider'>
     <tr>

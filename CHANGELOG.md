@@ -4,21 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.8.8
 
 ### Added
+- Browser back and forward navigation!
 - Quick roleplay questions to the toolbox
 - Homebrewery export function
 - Hyperlinking to both Homebrewery and GMBinder exports (so you can click on links in the PDF to jump to the profile.)
+- Added some CSS for the details elements, indicating when there's an expandable element.
+- Added toast notifications for settings that only propagate on restart.
+- Added a toast notification that warns when two column format is not supported.
+
 
 ### Changed
 - Changed the background from a vomit-inducing pink to a dark grey when dialogues or settings are open.
+- Fixed biome not showing up in town editing.
+- Adjusted the CSS so that the `<h1>` heading on the town page is always visible, no matter the viewport size.
+- Dark mode secondary colour has been changed from a brown to a gold.
+- Made one column the default and two columns the optional.
 - Fixed an error where "pastors" were not being found.
+- Shifted the quick scenario generator to the bottom of the page.
 - Banner links now open in new tabs
-- Toolbox is now one column
+- Toolbox is now one always column.
 - Made the sexuality descriptors more inclusive
 - Breadcrumb now displays the character's name, not their description
 - Fixed an issue with editing probability of deities that are at 0% worship.
+- Fixed an issue where the breadcrumb would create empty paragraphs.
+- Fixed an issue with widowed elements.
+- Fixed an issue with Patreon supporters not displaying properly on subsequent navigation.
+- Cookies consent is now a dialog box.
+- Welcome page is now a dialog box.
+
+### Removed
+- "Sliders" popup.
 
 ## 2.8.7
 

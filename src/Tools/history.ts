@@ -1,35 +1,40 @@
 import { addGtagEvent } from './addGtagEvent'
 
 // uses State.variables.history
-export const history = (object: any, passageName: string, linkDescription: string) => {
+export const history = (object: any, passageName = object.passageName, linkDescription = object.linkDescription || object.name) => {
   addToHistory(object, passageName, linkDescription)
   // window.location.search = `${passageName}=${object.key}`
   addGtagEvent()
 }
 
+export interface HistoryItem {
+      key?: string
+      objectType?: string
+      passageName: string
+      linkDescription: string
+}
+
 /**
  * Adds to the history
- * @param {any} object
- * @param {string} passageName
- * @param {string} linkDescription
  */
-function addToHistory (object: any, passageName: string, linkDescription: string) {
-  const history = State.variables.history as any[]
-  passageName = passageName || object.passageName
-  linkDescription = linkDescription || object.linkDescription || object.name
-  object.objectType = object.objectType || object.passageName
-  const key = object.parentKey || object.key || passageName
-  if (history.length > 0 && history.last().data.key === key) return
-  if (Array.isArray(history)) {
-    history.push({
-      data: {
-        key,
-        objectType: object.objectType,
-        passageName,
-        linkDescription
-      },
-      passageName,
-      linkDescription
-    })
+function addToHistory (
+  object: any,
+  passageName = object.passageName,
+  linkDescription = object.linkDescription || object.name) {
+  const SVhistory = State.variables.history
+  const objectType = object.objectType || undefined
+  const key = object.parentKey || object.key || undefined
+  const state: HistoryItem = {
+    key,
+    objectType,
+    passageName,
+    linkDescription
   }
+  if (SVhistory.length > 0 && SVhistory.last()?.linkDescription === linkDescription) return
+  if (Array.isArray(SVhistory)) {
+    SVhistory.push(state)
+  }
+
+  window.history.pushState(state, passageName)
+  // window.location.search = key
 }

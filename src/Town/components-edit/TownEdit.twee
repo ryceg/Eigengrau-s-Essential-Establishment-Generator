@@ -1,16 +1,15 @@
-:: TownEdit
-<<nobr>><<run $("body").on("change", [".races-slider", ".religion-slider"], function() {
+:: TownEdit [nobr]
+<<run $("body").on("change", [".races-slider", ".religion-slider"], function() {
   $(document).trigger(":liveupdate");
 });>>
 <<include "EditTownName">>
-<</nobr>>
-<<include "EditSociopolitics">>
+<<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
+<span id="refresh"><<include "BiomeGenerationRefresh">></span>
 <<include "EditSliders">>
 <hr>
-<<nobr>>
 <<include "EditRaces">>
-<<include "EditReligion">><<done>><<run tippy('[data-tippy-content]')>><</done>><</nobr>>
+<<include "EditReligion">><<done>><<run tippy('[data-tippy-content]')>><</done>>
 <<button "Save Changes" TownOutput>>
   <<include "Rerender">>
-  <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>>
+  <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name}, 'TownOutput', $town.name)>>
 <</button>>

@@ -1,13 +1,15 @@
 :: Popup
-<<nobr>><<if !_isTextOutput>>
-<<set _roll to random(1, 99)>>
-<<if _roll gt 80>>
-  <blockquote class='interactive-only hide-on-print'>Find us on Reddit at [[/r/EigengrausGenerator|https://www.reddit.com/r/EigengrausGenerator]]!</blockquote>
-<<elseif _roll gt 55>>
-  <blockquote class='interactive-only hide-on-print'><<include "PatreonSupporters">></blockquote>
-<<elseif _roll gt 40>>
-  <blockquote class='interactive-only hide-on-print'><<include "EmailSignUp">></blockquote>
-<<elseif _roll lte 40>>
-  <blockquote class='interactive-only hide-on-print'>If you have any bug reports, please click here: [[Submit a bug report|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/]]</blockquote>
+<<if !_isTextOutput>>
+  <<set _roll to random(1, 5)>>
+  <<if _roll is 5>>
+    <blockquote class='interactive-only hide-on-print'>Did you know? Eigengrau's Generator can <<link "Export to Foundry" OutputEverything>><<set $history.length to 0>><<run setup.history({passageName: "OutputEverything", linkDescription: "Export", name: "Export"})>><</link>></blockquote>
+  <<elseif _roll is 4>>
+    <blockquote class='interactive-only hide-on-print'>Find us on Reddit at [[/r/EigengrausGenerator|https://www.reddit.com/r/EigengrausGenerator]]!</blockquote>
+  <<elseif _roll is 3>>
+    <blockquote class='interactive-only hide-on-print'><<include "PatreonSupporters">></blockquote>
+  <<elseif _roll is 2>>
+    <blockquote class='interactive-only hide-on-print'><<include "EmailSignUp">></blockquote>
+  <<elseif _roll is 1>>
+    <blockquote class='interactive-only hide-on-print'>If you have any bug reports, please click here: [[Submit a bug report|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/]]</blockquote>
+  <</if>>
 <</if>>
-<</if>><</nobr>>

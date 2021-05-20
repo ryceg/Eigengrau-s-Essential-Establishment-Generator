@@ -1,3 +1,4 @@
+import { HistoryItem } from 'src/Tools/history'
 import { NPC } from './lib/npc-generation/_common'
 import { Town } from './lib/town/_common'
 
@@ -9,10 +10,8 @@ declare module 'twine-sugarcube' {
   export interface SugarCubeSettingVariables {
     silverStandard?: boolean
     ignoreGender?: boolean
-    showTutorial?: boolean
     showBiomeGeneration?: boolean
-    showSliders?: boolean
-    forceOneColumn?: boolean
+    displayTwoColumns?: boolean
     hideAds?: boolean
     disableAnalytics?: boolean
     disableNSFW?: boolean
@@ -25,6 +24,8 @@ declare module 'twine-sugarcube' {
     town: Town
     npcs: Record<string, NPC>
     [key: string]: unknown
+    history: HistoryItem[]
+    currentPassage: any
   }
 
   export interface Util {

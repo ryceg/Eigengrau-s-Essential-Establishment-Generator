@@ -1,4 +1,4 @@
-:: OutputEverything [force-one-column, squash-errors]
+:: OutputEverything [force-one-column squash-errors]
 <label name="Export type" for="listbox-exporttype"><<listbox "_exportType">>
   <<option "GMBinder">>
   <<option "Homebrewery">>
