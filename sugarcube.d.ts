@@ -10,7 +10,6 @@ declare module 'twine-sugarcube' {
   export interface SugarCubeSettingVariables {
     silverStandard?: boolean
     ignoreGender?: boolean
-    showTutorial?: boolean
     showBiomeGeneration?: boolean
     displayTwoColumns?: boolean
     hideAds?: boolean

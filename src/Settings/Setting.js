@@ -153,10 +153,6 @@ if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
 }
 
-if (State.metadata.get('showTutorial') !== settings.showTutorial) {
-  settings.showTutorial = State.metadata.get('showTutorial')
-}
-
 if (State.metadata.get('disableAnalytics') !== settings.disableAnalytics) {
   settings.disableAnalytics = State.metadata.get('disableAnalytics')
   window['ga-disable-UA-119249239-1'] = settings.disableAnalytics
