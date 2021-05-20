@@ -32,6 +32,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed an issue where the breadcrumb would create empty paragraphs.
 - Fixed an issue with widowed elements.
 - Fixed an issue with Patreon supporters not displaying properly on subsequent navigation.
+- Cookies consent is now a dialog box.
+- Welcome page is now a dialog box.
 
 ### Removed
 - "Sliders" popup.
