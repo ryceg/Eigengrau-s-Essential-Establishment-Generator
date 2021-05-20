@@ -1,19 +1,17 @@
 :: Start [nobr]
 <<run window.history.pushState({
-  data: {
-  key: "Start", 
-  objectType: 'passage',
+  key: undefined, 
+  objectType: undefined,
   passageName: "Start", 
-  linkDescription: $town.name, 
-  name: $town.name
-  },
-  passageName: 'Start'
+  linkDescription: $town.name
   }, 'Start')>>
 <<set $currentPassage to $town>><<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'>[img[banner]]</div><<include "PrintImage">><</if>>
 <<include "BriefDescription">>
+<br>
 <span id='detailed-description' class="tip hide-on-print" tabindex="0" data-tippy-content="Find the overview of the town and its sociopolitical structure here!"><<link "Detailed description of $town.name" TownOutput>><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><</link>></span>
+<br>
 <<include "CreateBuilding">>
 <span id="buildings" role="list"><<include "RoadsList">></span>
 <<run console.log($town)>>
 <<if !_isTextOutput>><section id='quick-scenario-generator'><h3 class='hide-on-print'>Quick Scenario Generator</h3><<include "CreateScenario">></section><</if>>
-<<include "Popup">>
+<<include "Popup">><<done>><<run tippy('#detailed-description')>><</done>>
