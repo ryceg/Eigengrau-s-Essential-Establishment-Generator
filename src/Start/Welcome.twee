@@ -1,9 +1,13 @@
 :: Welcome [force-one-column nobr]
-
+<<set setup.data.hasSeenWelcome to true>>
+<<if State.metadata.get("hasSeenTutorial") === true>>
 Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
+<<else>>
+Welcome! It looks like this is your first time using Eigengrau's Essential Establishment Generator- we would suggest that you take the quick tutorial to get the most out of the generator!
+<</if>>
 <br>
 <<button "yes, take me to the tutorial" Tutorial>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
-<<button "no, let me create a new town" BiomeGeneration>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
+<<button "no, let me create a new town" BiomeGeneration>><<notify 5000>><<include "RevisitTutorialReminder">><</notify>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
 <span id="remember">
   <<button "Never show me this screen again.">>
     <<run State.metadata.set("hasSeenTutorial", true)>>

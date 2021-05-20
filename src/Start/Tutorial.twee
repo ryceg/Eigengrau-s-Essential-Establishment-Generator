@@ -12,20 +12,33 @@ This generator is different because it generates text that you can read out to p
 It creates towns from the ground up, with the biome impacting types of building material that are available, a town's wealth and population changing what establishments are featured, and sociopolitics and economic modeling influencing the types of people that inhabit the town.
 <</fadein>></p>
 <br>
-<p><<fadein 1400ms 13s>>
+<p><<fadein 1400ms 10s>>
 Eigengrau's Generator is built much like a website, with hyperlinks taking you to different pages. It also has <span class="tip dotted block" tabindex="0" data-tippy-content="Like this!">tooltips</span>, which provide <span class="tip dotted block" tabindex="0" data-tippy-content="Additional DM notes are displayed in tooltips that look like this!">quick additional information</span> that can be <span class="tip dotted description" tabindex="0" id="tutorial-example" data-tippy-content="Stuff that can be read out to players looks like this!">read out to players</span>.<<done>><<run tippy('.block')>><<run tippy('.description', { theme: 'descriptive'})>><</done>>
 <</fadein>></p>
 <br>
-<p><<fadein 1500ms 17s>>
+<p><<fadein 1500ms 14s>>
 If you get lost, you can always navigate via the breadcrumb menu in the top left, which currently reads <b>"The $town.type of $town.name"</b>. That link will take you to the homepage.
 <</fadein>></p>
 <br>
-<p><<fadein 500ms 20s>>
+<p><<fadein 500ms 18s>>
 Eigengrau's Generator is open source, and totally free to use. If you enjoy using this tool, please consider supporting me on [[Patreon|"https://www.patreon.com/eigengrausgenerator"]], which unlocks exporting to Foundry, custom pantheons, and more!
 <</fadein>></p>
 <br>
-<p><<fadein 500ms 23s>>
+<p><<fadein 500ms 22s>>
 Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://www.reddit.com/r/EigengrausGenerator]]! I don't bite.
+<</fadein>></p>
+<br>
+<p><<fadein 500ms 25s>>
+<details><summary>A (Brief) List of Features</summary>
+<ul>
+  <li>Export functionality to [[Foundry, GMBinder and Homebrewery|OutputEverything]]</li>
+  <li>Detailed NPC backstories</li>
+  <li>Cohesive town, generated with interconnected inhabitants</li>
+  <li><span id='detailed-description' class="tip hide-on-print" tabindex="0" data-tippy-content="Find the overview of the town and its sociopolitical structure here!"><<link "Town racial, religion, and social demographic modeling" TownOutput>><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><</link>></span></li>
+  <li>Many different building types ready to read out to players</li>
+  <li>Custom pantheons (Hero tier Patron feature)</li>
+</ul>
+</details>
 <</fadein>></p>
 <br>
 <<fadein 15s 4s>>
@@ -42,7 +55,7 @@ Also, join us on [[Discord|https://discord.gg/MphCTJY]], and [[Reddit|https://ww
   })>>
 <</button>> -- 
 <span id="remember">
-<<button "Please never show me the tutorial again.">>
+<<button "Please don't show me the tutorial again.">>
   <<run State.metadata.set("hasSeenTutorial", true)>>
   <<replace "#remember">>Okay, got it! You can always revisit the tutorial in the settings page.<</replace>>
 <</button>></span>
