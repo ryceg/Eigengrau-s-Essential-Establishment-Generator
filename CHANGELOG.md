@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Homebrewery export function
 - Hyperlinking to both Homebrewery and GMBinder exports (so you can click on links in the PDF to jump to the profile.)
 - Added some CSS for the details elements, indicating when there's an expandable element.
+- Added toast notifications for settings that only propagate on restart.
+- Added a toast notification that warns when two column format is not supported.
 
 
 ### Changed

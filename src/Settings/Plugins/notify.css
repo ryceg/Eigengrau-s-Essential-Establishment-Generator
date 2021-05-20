@@ -6,6 +6,7 @@
 #notify {
 	position : fixed;
 	display : block;
+	z-index: 9999999999999999;
 	width : 16em;
 	right : -20em; 
 	top : 3em;
@@ -25,5 +26,5 @@
 	top: auto;
 	bottom: 1em;
 	padding: 1em;
-	z-index: 100;
+	z-index: 9999999999999999;
 }

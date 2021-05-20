@@ -128,40 +128,19 @@ article {
   padding-bottom: 5vw;
 }
 
+html.two-columns #illustration-buffer {
+  column-span: all;
+}
+
 @font-face {
   font-family: Bookinsanity;
   src: 
     local(Bookinsanity)
 }
 
-.force-one-column .passage  {
-  column-count: 1;
-}
-
-body[data-tags~="force-one-column"] {
-  column-count: 1;
-}
-
 .error-view[data-tags~="squash-errors"] {
     display: hidden;
 }
-
-.force-one-column {
-  column-count: 1;
-}
-
-#passage-biomegeneration {
-  column-count: 1;
-}
-
-#passage-townedit {
-  column-count: 1;
-}
-
-#passage-npcprofileedit {
-  column-count: 1;
-}
-
 
 #illustration-banner {
   column-span: all;

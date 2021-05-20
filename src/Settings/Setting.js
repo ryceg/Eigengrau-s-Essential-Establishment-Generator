@@ -250,6 +250,14 @@ function settingDisplayTwoColumns () {
     State.metadata.set('displayTwoColumns', settings.displayTwoColumns)
   }
   addClass('html', settings.displayTwoColumns, 'two-columns')
+  if (window.visualViewport.width < 767 && settings.displayTwoColumns) {
+    $(document).trigger({
+      type: ':notify',
+      message: 'Unfortunately, two column formatting looks awful on small screens; increase your viewport in order for this to have an effect.',
+      time: 5000,
+      classes: false
+    })
+  }
 }
 
 function addClass (targetElement, setting, className) {
