@@ -17,14 +17,23 @@ details[open] > *:not(summary) {
   animation: details-show 250ms ease-in-out;
 }
 
+details[open][data-tags~="nofx"] > *:not(summary) {
+  animation: none;
+}
+
+
+
 summary::-webkit-details-marker {
   display: none;
 }
 summary:before {
   content: "+";
   color: var(--header-primary);
-  transition: .6s ease-in-out;
   margin-right: 5px;
+}
+
+summary:before:not([data-tags~="nofx"])  {
+  transition: .6s ease-in-out;
 }
 
 details[open] summary::before { 

@@ -43,15 +43,15 @@
 
 <<set $town to setup.createTownBiome()>>
 
-<<if State.metadata.get("showTutorial") is true>>
-	<<set Config.passages.start = "Welcome">>
-<<else>>
+<<if State.metadata.get("neverShowWelcome") is true>>
 	<<if State.metadata.get("showBiomeGeneration") is true>>
-			<<set Config.passages.start = "BiomeGeneration">>
-		<<else>>
-			<<set Config.passages.start = "Start">>
-			<<set $town to setup.createTown($town)>>
+				<<set Config.passages.start = "BiomeGeneration">>
+			<<else>>
+				<<set Config.passages.start = "Start">>
+				<<set $town to setup.createTown($town)>>
 	<</if>>
+<<else>>
+	<<set Config.passages.start = "Welcome">>
 <</if>>
 <<set _t to lib.books.normal>><<set $_ to ''>>
 <<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][4]>><</for>>
