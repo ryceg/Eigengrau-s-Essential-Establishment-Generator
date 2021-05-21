@@ -31,3 +31,4 @@
       passage: 'Welcome'
     })>>
 <</if>>
+<span id='test'>asd,</span><<button 'Tst'>><<run setup.tippyTutorial()>><</button>>
