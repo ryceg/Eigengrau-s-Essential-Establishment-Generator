@@ -49,7 +49,7 @@ import { outputGMBinder } from './Tools/Exports/outputGMBinder'
 import { copyText } from './Tools/Exports/clipboard'
 import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
 import { createStartBuildings } from './Town/js/createStartBuildings'
-import { npcDeath, createDeadNPC } from './NPCGeneration/SetupDeath'
+import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
 
 declare global {
   interface Setup {
