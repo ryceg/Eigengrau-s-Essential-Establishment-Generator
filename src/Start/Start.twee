@@ -14,7 +14,7 @@
 <<run console.log($town)>>
 <<if !_isTextOutput>><section id='quick-scenario-generator'><h3 class='hide-on-print'>Quick Scenario Generator</h3><<include "CreateScenario">></section><</if>>
 <<include "Popup">><<done>><<run tippy('#detailed-description')>><</done>>
-<<if State.metadata.get('cookiePopupWasShown') !== true>>
+<<if State.metadata.get('cookiePopupWasShown') !== true && settings.disableAnalytics !== true>>
   <<run setup.openDialog({
       header: `Cookies`,
       passage: 'CookieConsent',

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.9
+
+### Added
+- Toast to notify user when they have selected an invalid combination of town terrain + location.
+### Changed
+- Fixed an issue with editing towns not working. Like, at all.
+- Fixed an issue where changing town location and terrain would throw an error.
+- Made religion testing a little more robust.
+- Wording and CSS on the welcome screen.
+- Town now fully generates on start instead of in two passes.
+
 ## 2.8.8
 
 ### Added

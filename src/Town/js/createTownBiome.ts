@@ -17,13 +17,14 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
       terrain,
       currentSeason: season,
       ignoreGender: false,
-      pregen: true,
       generated: 'biome',
       factions: {},
       buildings: [],
       npcRelations: {},
       families: {},
-      religion: {},
+      religion: {
+        _customPantheon: State.metadata.get('pantheon')
+      },
       population: lib.townData.type[type].population(),
       _type: type,
       type,

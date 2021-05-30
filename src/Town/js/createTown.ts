@@ -1,22 +1,23 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, RollArray, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
-export const createTown = (base: TownBasics) => {
-  const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
-  const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
-  const season = base.currentSeason || lib.random(['summer', 'autumn', 'winter', 'spring'])
-  // @ts-ignore
-  const townName = base.name || setup.createTownName(base)
-  console.groupCollapsed(`${townName} is loading...`)
+export const createTown = (base: TownBasics | Town) => {
+  console.groupCollapsed('The town is loading...')
   console.log(base)
   // @ts-ignore
   if (!base) base = setup.createTownBiome()
+  const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
+  const terrain = base.terrain || lib.weightRandom(lib.townData.defaults.terrain) as Biome
+  const season = base.currentSeason || lib.weightRandom(lib.townData.defaults.season) as Seasons
+  // @ts-ignore
+  const townName = base.name || setup.createTownName(base)
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    generated: 'full',
     objectType: 'town',
     townMaterial: 'mainTownMaterial',
     ignoreGender: false,
@@ -25,7 +26,8 @@ export const createTown = (base: TownBasics) => {
       land: 5,
       tithe: 1
     },
-
+    _type: type,
+    location: lib.weightRandom(lib.terrain[terrain].start),
     // @ts-ignore
     get type () {
       // @ts-ignore
@@ -89,6 +91,42 @@ export const createTown = (base: TownBasics) => {
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
+    _demographicPercentile: {} as Record<RaceName, number>,
+    _baseDemographics: {} as Record<RaceName, number>,
+    // Clone the raw demographic data for the town type.
+    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
+    get baseDemographics () {
+      console.log('Getting base demographics.')
+      return this._baseDemographics
+    },
+    set baseDemographics (newDemographics) {
+      console.log('Setting base demographics.')
+      Object.keys(newDemographics).forEach((byRace) => {
+        const race = byRace as RaceName
+        this._baseDemographics[race] = newDemographics[race]
+      })
+      console.log(this.demographicPercentile)
+    },
+    set demographicPercentile (data) { console.log('Useless demographicPercentile setter. ') },
+    get demographicPercentile () {
+      console.log('Getting demographic percent.')
+
+      // Get an array of the demographic keys (race names).
+      const races = Object.keys(this.baseDemographics) as RaceName[]
+
+      // Calculate the sum of the raw demographic values.
+      const sum = races
+        .map((byRace) => this.baseDemographics[byRace])
+        .reduce((acc, cur) => acc + cur, 0)
+
+      // Calculate the demographic percentages.
+      races.forEach((byRace) => {
+        const race: RaceName = byRace
+        this._demographicPercentile[race] =
+            (this.baseDemographics[race] / sum) * 100
+      })
+      return this._demographicPercentile
+    },
     get economicIdeology () {
       return this._economicIdeology
     },
@@ -119,6 +157,11 @@ export const createTown = (base: TownBasics) => {
       } else {
         return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription
       }
+    },
+    set politicalSourceDescription (data) {
+      console.warn('Trying to set politicalSourceDescription, which is a read-only!')
+      console.log(this.religionPercentages)
+      console.log(data)
     },
     // get wealth () {
     //   const rollData = lib.townData.rollData.wealth as TownRollData
@@ -159,7 +202,9 @@ export const createTown = (base: TownBasics) => {
       /** @description Percentage of the dominant gender */
       genderMakeup: lib.random(49, 51)
     }
-  }, base)
+  }, base, {
+    generated: 'full'
+  })
   lib.townDemographics(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
@@ -193,7 +238,8 @@ export const createTown = (base: TownBasics) => {
     }
   })
 
-  if (!town.pregen || !town.generated) {
+  if (town.generated === 'biome') {
+    lib.createTownReligion(town as unknown as Town)
     assignSizeModifiers(town)
     assignEconomicModifiers(town)
     assignPoliticalModifiers(town)
@@ -206,8 +252,6 @@ export const createTown = (base: TownBasics) => {
   if (settings.disableNSFW === true || town.disableNSFW === true) {
     town.bans.push('slavery', 'prostitution')
   }
-
-  lib.createTownReligion(town as unknown as Town)
 
   setup.createSocioPolitics(town as unknown as Town)
 

@@ -1,18 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Town, TownRolls } from '../town/_common'
-import { Deity, DeityRank, PantheonTypes, religion } from './religion'
+import { Deity, DeityRank, Pantheon, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
 // import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { RaceName } from '@lib'
 import { random } from '../src/random'
 
-export const createTownReligion = (town: Town, pantheon?: PantheonTypes, deity?: string) => {
-  if (!pantheon) pantheon = 'greek'
-  town.religion.pantheon = pantheon
-  const tempWeights = getTownDeityWeightings(town)
+export const createTownReligion = (town: Town, pantheon?: Pantheon) => {
+  if (!pantheon) pantheon = religion.pantheon.greek
+  town.religion.pantheon = pantheon.name
+  const tempWeights = getTownDeityWeightings(town, pantheon.gods)
   town.religionProbabilities = gradeDeityWeightings(tempWeights)
-  // if (!deity) deity = getRandomDeity(town)
-  // town.religion.deity = deity
 }
 
 /**
@@ -29,14 +27,16 @@ export const rankProbabilities: Record<DeityRank, number> = {
 }
 
 const getDeityWeightFromRace = (town: Town, deity: Deity) => {
+  console.log(`Getting the weight for ${deity.name}`)
   let probability = rankProbabilities[deity.rank] || 10
-  Object.keys(town._demographicPercentile).forEach(function (key) {
+  console.log(town)
+  for (const key of Object.keys(town._demographicPercentile)) {
     const race = key as RaceName
     if (deity?.probabilityWeightings?.race?.[race]) {
       const raceWeight = deity.probabilityWeightings.race[race]
       if (raceWeight) probability += calcPercentage(raceWeight, town._demographicPercentile[race])
     }
-  })
+  }
   return probability
 }
 
@@ -46,10 +46,10 @@ export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbac
   const weightings: Record<string, number> = {}
 
   for (const deity of deities) {
-    if (town.ignoreRace) {
-      weightings[deity.name] = rankProbabilities[deity.rank]
+    if (town?.ignoreRace) {
+      weightings[deity.name] = rankProbabilities[deity.rank] || 7
     } else {
-      weightings[deity.name] = getDeityWeightFromRace(town, deity)
+      weightings[deity.name] = getDeityWeightFromRace(town, deity) || 7
     }
 
     weightings[deity.name] = addIfDefined(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], weightings[deity.name])
@@ -65,7 +65,6 @@ export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbac
         weightings[deity.name])
     }
   }
-  console.log(weightings)
   return weightings
 }
 
@@ -210,8 +209,12 @@ export const addIfDefined = (arg: number | undefined, target: number) => {
   return target + arg
 }
 
+export const getFallbackPantheon = (town: Town): Pantheon => {
+  const pantheonName = town.religion.pantheon
+  const pantheon = religion.pantheon[pantheonName as PantheonTypes] || town.religion._customPantheon || religion.pantheon.greek
+  return pantheon
+}
+
 export const getFallbackDeities = (town: Town): Deity[] => {
-  const pantheonName = town.religion.pantheon || 'greek'
-  const pantheon = religion.pantheon[pantheonName as PantheonTypes]
-  return pantheon.gods
+  return getFallbackPantheon(town).gods
 }

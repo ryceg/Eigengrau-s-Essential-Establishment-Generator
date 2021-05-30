@@ -28,7 +28,6 @@ export type TownRolls =
 
 export interface TownBasics {
   name: string
-  pregen?: boolean
   generated: 'biome' | 'full'
   type: TownType
   _type: TownType
@@ -81,7 +80,7 @@ export interface Town extends TownBasics {
   guard: Faction
   religionProbabilities: Record<string, number>
   religion: {
-    customPantheon?: Pantheon
+    _customPantheon?: Pantheon
     /** Each item indexes the matching deity in the pantheon */
     _modifiers: Record<string, number>
     /** Probabilities sans the manual bonuses. */

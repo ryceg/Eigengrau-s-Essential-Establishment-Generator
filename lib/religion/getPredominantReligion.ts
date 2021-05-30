@@ -10,10 +10,12 @@ interface WorshipMakeup extends PredominantInfo {
 }
 
 export const getPredominantReligion = (town: Town, percentages: Record<string, number>): WorshipMakeup => {
-  console.log('Getting the predominant race...')
-
+  console.log('Getting the predominant deity...')
+  console.log(percentages)
   // Pick out the primary & secondary Race name percentages.
-  const [primary, secondary] = sortArray(percentages).reverse()
+  const sortedArray = sortArray(percentages).reverse()
+  console.log(sortedArray)
+  const [primary, secondary] = sortedArray
   const [primaryDeity, percentile] = primary
 
   const [secondaryDeity, secondaryPercentile] = secondary

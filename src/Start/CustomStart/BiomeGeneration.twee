@@ -1,15 +1,11 @@
-:: BiomeGeneration [force-one-column nobr nofx]
-<<run $("body").on("change", ".races-slider", function() {
-  $(document).trigger(":liveupdate");
-});>>
-<<liveblock>>
+:: BiomeGeneration [force-one-column nofx]
+<span style='display:flex'><<liveblock>>
     <<link "reroll">>
         <<set $town.name to setup.createTownName($town)>><<update>>
-    <</link>>
-      <label class="auto-update" name="Town name"><<textbox "$town.name" $town.name>></label>
-<</liveblock>>
-<<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
-<span id="refresh"><<include "BiomeGenerationRefresh">></span>
+    <</link>> -- <label class="auto-update" name="Town name"><<textbox "$town.name" $town.name>></label>
+<</liveblock>></span>
+<hr>
+<<include "BiomeGenerationRefresh">>
 <hr>
 <<include "EditSliders">>
 <hr>
