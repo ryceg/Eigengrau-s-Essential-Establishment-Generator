@@ -11,7 +11,10 @@ const isProduction = env === 'production'
 
 const plugins = [
   // avoids issues with the Node-specific variable `process`.
-  replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
+  replace({
+    'process.env.NODE_ENV': JSON.stringify(env),
+    'preventAssignment': true
+  }),
   json(),
   babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled' }),
   nodeResolve({ browser: true }),
