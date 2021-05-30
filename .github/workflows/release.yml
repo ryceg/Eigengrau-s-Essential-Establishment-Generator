@@ -30,6 +30,15 @@ jobs:
 
       - name: Copy resources
         run: cp -r ./src/Resources ./gh-pages/src/
+
+      - name: Copy index.html
+        run: cp -r ./index.html ./
+
+      - name: Copy main
+        run: cp -r ./main.js ./
+
+      - name: Copy main map
+        run: cp -r ./main.js.map ./
         
       - name: Create TypeDocs
         run: yarn typedoc
