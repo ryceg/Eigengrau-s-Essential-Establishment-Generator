@@ -31,7 +31,7 @@
   <</if>>
 When $currentNPC.heshe is relaxed, $currentNPC.heshe is $currentNPC.calmTrait. 
 In moments of stress, $currentNPC.heshe becomes $currentNPC.stressTrait. 
-Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>> of <<profile _deity>>. 
+Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getReligiosityDescription($town, $currentNPC), lib.articles.output($currentNPC.religion.strength))>><<if _deity>> of <<profile _deity>><</if>>. 
 <p>
   <<if lib.isBreakingGenderNorms($town, $currentNPC) && $currentNPC.roll.professionLuck > 0>>
       Despite sexism against $currentNPC.himher, 
@@ -41,10 +41,10 @@ Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getRelig
   $currentNPC.professionSuccess, with a background of being <<print lib.articles.output($currentNPC.background)>>. 
 
   <<if lib.socialClass[$currentNPC.socialClass].lifestyle.includes(lib.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>
-    <<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class
+    <<print $currentNPC.heshe.toUpperFirst()>> belongs to the <<print lib.createTippyFull($currentNPC.firstName + " " + lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, $currentNPC.socialClass)>> social class.
   <<else>>
-    <<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>
-  <</if>>.
+    <<print $currentNPC.heshe.toUpperFirst()>> belongs to the $currentNPC.socialClass social class, but <<print lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription>>.
+  <</if>>
 </p>
 <p>
   $currentNPC.firstName currently has $currentNPC.pockets in $currentNPC.hisher pockets, 
