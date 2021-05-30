@@ -1743,8 +1743,6 @@ var lib = (function (exports) {
       console.log('Searching for an existing road...');
 
       for (const key in town.roads) {
-        console.log(Object.values(town.roads[key].inhabitants.buildings).length);
-
         if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
           console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`);
           continue;
@@ -18916,7 +18914,8 @@ var lib = (function (exports) {
       home: {
         road: road.key
       }
-    }); // return family as Family
+    });
+    console.log('Assigned a house!'); // return family as Family
   }
 
   function filterNpcByProfession(npcs, profession) {
@@ -23763,12 +23762,11 @@ var lib = (function (exports) {
   };
 
   /* eslint-disable @typescript-eslint/ban-ts-comment */
-  const createTownReligion = (town, pantheon, deity) => {
-    if (!pantheon) pantheon = 'greek';
-    town.religion.pantheon = pantheon;
-    const tempWeights = getTownDeityWeightings(town);
-    town.religionProbabilities = gradeDeityWeightings(tempWeights); // if (!deity) deity = getRandomDeity(town)
-    // town.religion.deity = deity
+  const createTownReligion = (town, pantheon) => {
+    if (!pantheon) pantheon = religion.pantheon.greek;
+    town.religion.pantheon = pantheon.name;
+    const tempWeights = getTownDeityWeightings(town, pantheon.gods);
+    town.religionProbabilities = gradeDeityWeightings(tempWeights);
   };
   /**
    * The probabilities that replace the default 10.
@@ -23785,15 +23783,19 @@ var lib = (function (exports) {
   };
 
   const getDeityWeightFromRace = (town, deity) => {
+    console.log(`Getting the weight for ${deity.name}`);
     let probability = rankProbabilities[deity.rank] || 10;
-    Object.keys(town._demographicPercentile).forEach(function (key) {
+    console.log(town);
+
+    for (const key of Object.keys(town._demographicPercentile)) {
       const race = key;
 
       if (deity?.probabilityWeightings?.race?.[race]) {
         const raceWeight = deity.probabilityWeightings.race[race];
         if (raceWeight) probability += calcPercentage(raceWeight, town._demographicPercentile[race]);
       }
-    });
+    }
+
     return probability;
   };
   /** Gets everything static- i.e. no user-intervention specific modifiers. */
@@ -23804,10 +23806,10 @@ var lib = (function (exports) {
     const weightings = {};
 
     for (const deity of deities) {
-      if (town.ignoreRace) {
-        weightings[deity.name] = rankProbabilities[deity.rank];
+      if (town?.ignoreRace) {
+        weightings[deity.name] = rankProbabilities[deity.rank] || 7;
       } else {
-        weightings[deity.name] = getDeityWeightFromRace(town, deity);
+        weightings[deity.name] = getDeityWeightFromRace(town, deity) || 7;
       }
 
       weightings[deity.name] = addIfDefined(deity?.probabilityWeightings?.economicIdeology?.[town.economicIdeology], weightings[deity.name]);
@@ -23821,7 +23823,6 @@ var lib = (function (exports) {
       }
     }
 
-    console.log(weightings);
     return weightings;
   };
   /** Modifies the town religion weights based on the user defined weights. */
@@ -23959,10 +23960,13 @@ var lib = (function (exports) {
     if (!arg) return target;
     return target + arg;
   };
+  const getFallbackPantheon = town => {
+    const pantheonName = town.religion.pantheon;
+    const pantheon = religion.pantheon[pantheonName] || town.religion._customPantheon || religion.pantheon.greek;
+    return pantheon;
+  };
   const getFallbackDeities = town => {
-    const pantheonName = town.religion.pantheon || 'greek';
-    const pantheon = religion.pantheon[pantheonName];
-    return pantheon.gods;
+    return getFallbackPantheon(town).gods;
   };
 
   /**
@@ -23982,9 +23986,12 @@ var lib = (function (exports) {
   }
 
   const getPredominantReligion = (town, percentages) => {
-    console.log('Getting the predominant race...'); // Pick out the primary & secondary Race name percentages.
+    console.log('Getting the predominant deity...');
+    console.log(percentages); // Pick out the primary & secondary Race name percentages.
 
-    const [primary, secondary] = sortArray(percentages).reverse();
+    const sortedArray = sortArray(percentages).reverse();
+    console.log(sortedArray);
+    const [primary, secondary] = sortedArray;
     const [primaryDeity, percentile] = primary;
     const [secondaryDeity, secondaryPercentile] = secondary;
 
@@ -24146,38 +24153,58 @@ var lib = (function (exports) {
   }
 
   const getDeity = (town, deity, customPantheon) => {
+    console.log(`Getting ${deity}...`);
     return findInArray(getPantheonDeities(town, customPantheon), 'name', deity);
   };
   const getPantheon = (town, customPantheon) => {
-    if (isUsingCustomPantheon(town)) return getCustomPantheon(town, customPantheon);
+    townHasPantheon(town);
+    console.log(`Getting pantheon that matched ${town.religion.pantheon}`);
+
+    if (isUsingCustomPantheon(town, customPantheon)) {
+      console.log('Using a custom pantheon!');
+      return getCustomPantheon(town, customPantheon);
+    }
+
     return religion.pantheon[town.religion.pantheon];
   };
   const getPantheonDeities = (town, customPantheon) => {
+    console.log('Getting pantheon deities...');
     return getPantheon(town, customPantheon).gods;
   };
   const getPantheonNames = (town, customPantheon) => {
+    console.log('Getting pantheon names...');
     return Object.keys(getAllPantheons(town, customPantheon));
   };
   const getAllPantheons = (town, customPantheon) => {
+    console.log('Getting all pantheons...');
     const pantheons = Object.assign({}, religion.pantheon);
     if (seeIfCustomPantheonExists(town, customPantheon)) pantheons[getCustomPantheon(town, customPantheon).name] = getCustomPantheon(town, customPantheon);
     return pantheons;
   };
   /** If the pantheon being used doesn't exist in the data, it's obviously custom. */
 
-  const isUsingCustomPantheon = town => {
+  const isUsingCustomPantheon = (town, customPantheon = getFallbackPantheon(town)) => {
+    console.log('Checking to see if you are using a custom pantheon...'); // if (!town.religion.pantheon) return false
+
+    if (!town.religion._customPantheon) return false;
     if (religion.pantheon[town.religion.pantheon]) return false;
+    if (customPantheon?.name === 'greek') return false;
+    console.log('Looks like you are using a custom pantheon!');
+    if (town.religion.pantheon === customPantheon.name) return true;
     return true;
   };
   const seeIfCustomPantheonExists = (town, customPantheon) => {
+    console.log('Checking to see if a custom pantheon exists...');
     if (customPantheon) return true;
-    if (town.religion.customPantheon) return true;
+    if (town.religion._customPantheon) return true;
+    console.log('Looks like the custom pantheon does not exist!');
     return false;
   };
   const getCustomPantheon = (town, customPantheon) => {
-    if (town.religion.customPantheon) return town.religion.customPantheon;
+    console.log('Getting the custom pantheon...');
     if (customPantheon) return customPantheon;
-    throw new Error('Custom panthon not defined!');
+    if (town.religion._customPantheon) return town.religion._customPantheon;
+    throw new Error('Custom pantheon not defined!');
   };
   /** For getting ALL deities, including 0% ones. */
 
@@ -24189,6 +24216,14 @@ var lib = (function (exports) {
     console.log('Getting pantheon percentages...');
     const temp = compileWeightToPercentile(getTownDeityWeightings(town, getPantheonDeities(town, customPantheon)));
     return Object.fromEntries(Object.entries(temp).filter(([, value]) => value > 1).sort(([, a], [, b]) => a - b).reverse());
+  };
+
+  const townHasPantheon = town => {
+    switch (typeof town.religion.pantheon) {
+      case 'undefined':
+        town.religion.pantheon = 'greek';
+        break;
+    }
   };
 
   const deityIsWas = status => {
@@ -37702,6 +37737,7 @@ var lib = (function (exports) {
   exports.getDeity = getDeity;
   exports.getDeityProbabilities = getDeityProbabilities;
   exports.getFallbackDeities = getFallbackDeities;
+  exports.getFallbackPantheon = getFallbackPantheon;
   exports.getGenderTrait = getGenderTrait;
   exports.getGuardFunding = getGuardFunding;
   exports.getLocalImage = getLocalImage;
