@@ -30,6 +30,7 @@ export const createTown = (base: TownBasics | Town) => {
     location: lib.weightRandom(lib.terrain[terrain].start),
     // @ts-ignore
     get type () {
+      // @ts-ignore
       return getTownType(this)
     },
     set type (type) {
