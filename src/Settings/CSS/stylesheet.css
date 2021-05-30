@@ -187,6 +187,12 @@ html.two-columns #illustration-buffer {
   font-weight: bold;
 }
 
+.button-line {
+  display: grid;
+  grid-gap: 1em;
+  grid-auto-flow: column;
+}
+
 footer {
   position: relative;
   width: 100%;

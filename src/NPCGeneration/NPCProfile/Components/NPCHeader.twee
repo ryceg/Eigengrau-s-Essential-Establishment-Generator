@@ -7,7 +7,7 @@
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
 $currentNPC.title
 <</if>>$currentNPC.name</h1>
-<<if def $currentNPC.key>>
+<span class='button-line'><<if def $currentNPC.key>>
   <<button "Edit $currentNPC.name">>
     <<run setup.openDialog({
       header: `Editing ${$currentNPC.name}`,
@@ -15,12 +15,13 @@ $currentNPC.title
       rerender: true,
       dialogOpts: $npcs[$currentPassage.key]
     })>>
-  <</button>><br>
+  <</button>>
 <</if>>
 
 <<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
     <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
 <</if>>
+</span>
 <<set $customImages to recall('customImages')>>
 <<set $currentImage to $currentPassage.customImage || null>>
 <<if $currentImage>>

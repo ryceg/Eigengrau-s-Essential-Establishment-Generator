@@ -6,7 +6,7 @@ Welcome! Is this your first time using Eigengrau's Essential Establishment Gener
 Welcome! It looks like this is your first time using Eigengrau's Essential Establishment Generator- we would suggest that you take the quick tutorial to get the most out of the generator!
 <</if>>
 <br>
-<span style='display: grid;grid-gap: 1em;grid-auto-flow: column;'><<button "yes, take me to the tutorial" Tutorial>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>>
+<span class='button-line'><<button "yes, take me to the tutorial" Tutorial>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>>
 <<button "no, let me customise the town first" BiomeGeneration>><<notify 5000>><<include "RevisitTutorialReminder">><</notify>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>>
 <span id="remember">
   <<button "Never show me this screen again.">>
