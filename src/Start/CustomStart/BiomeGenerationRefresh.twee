@@ -1,5 +1,32 @@
 :: BiomeGenerationRefresh [force-one-column nobr nofx]
-<details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update">
+<<run $('body').on('change', 'select', () => {
+  let { terrain, location } = State.variables.town;
+  if (!lib.terrain?.[terrain]?.location?.[location]?.origin) {
+    State.variables.town.location = Object.keys(lib.terrain[terrain].location).random();
+    $(document).trigger({
+      type: ':notify',
+      message: 'There are no origins for a ' + terrain + ' ' + location + '.',
+      time: false,
+      classes: false
+    });
+    location = State.variables.town.location;
+    State.variables.town.origin = Object.keys(lib.terrain[terrain].location[location].origin).random();
+  }
+  State.variables.listboxes = {
+    terrain: Object.keys(lib.terrain),
+    location: Object.keys(lib.terrain[terrain].location),
+    vegetation: ['thick', 'lush', 'sparse', 'desolate'],
+    origin: lib.terrain[terrain].location[location].origin,
+    primaryCrop: lib.townData.misc.primaryCrop,
+    primaryExport: lib.townData.misc.primaryExport,
+    season: Object.keys(lib.terrain.temperate.weather.season),
+    economicIdeology: lib.economicPairs,
+    politicalIdeology: lib.politicalIdeologyPairs,
+    politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'anarchy']
+  };
+  $(document).trigger(':liveupdate');
+})>>
+<<liveblock>><details open><summary>Basics</summary><<include "ListboxOptions">><span class="auto-update">
 <<print lib.firstCharacter($town.name)>> is located in the
 <label name="Terrain" for="listbox-townterrain">
   <<listbox "$town.terrain" autoselect>>
@@ -56,4 +83,4 @@ Politically, they are a
   <<listbox "$town.politicalSource" autoselect>>
     <<optionsfrom $listboxes.politicalSource>>
   <</listbox>>
-</label></span><</liveblock>></details><<done>><<run tippy('[data-tippy-content]')>><</done>>
+</label></span></details><<done>><<run tippy('[data-tippy-content]')>><</done>><</liveblock>>
