@@ -7,7 +7,7 @@ Welcome! It looks like this is your first time using Eigengrau's Essential Estab
 <</if>>
 <br>
 <<button "yes, take me to the tutorial" Tutorial>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
-<<button "no, let me create a new town" BiomeGeneration>><<notify 5000>><<include "RevisitTutorialReminder">><</notify>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
+<<button "no, let me customise the town first" BiomeGeneration>><<notify 5000>><<include "RevisitTutorialReminder">><</notify>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>> -- 
 <span id="remember">
   <<button "Never show me this screen again.">>
     <<run State.metadata.set("hasSeenTutorial", true)>>
