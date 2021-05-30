@@ -2,20 +2,20 @@
 <<run $("body").on("change", ["button", 'input'], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<lb>><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion.customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
+<<lb>><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
       header: 'Patreon Only',
       passage: 'ImportPatreon',
       rerender: true
     })>><</button>><</if>> --
 <<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
-<<if def $town.religion.customPantheon or State.metadata.has('pantheon')>>
-<<run State.metadata.set('pantheon', $town.religion.customPantheon)>>
+<<if def $town.religion._customPantheon or State.metadata.has('pantheon')>>
+<<run State.metadata.set('pantheon', $town.religion._customPantheon)>>
  -- 
   <<button "Delete custom pantheon">>
     <<if lib.isUsingCustomPantheon($town, State.metadata.get('pantheon'))>>
       <<set $town.religion.pantheon to 'greek'>>
     <</if>>
-    <<set $town.religion.customPantheon to {}>><<update>>
+    <<set $town.religion._customPantheon to {}>><<update>>
   <<run State.metadata.delete('pantheon')>>
   <</button>>
 <</if>> -- <<button "Refresh">><<update>><</button>>
