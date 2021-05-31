@@ -6,7 +6,7 @@
     <<print lib.ArpabetToIpa(RiTa.analyze($currentNPC.name))>>
   </quote>
   <br>
-<</if>>
+<</if>><<button "Test">><<run lib.retrieveNPC($currentNPC.key)>><</button>>
 <p>
   <span @id="$currentNPC.key">
     <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>

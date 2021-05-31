@@ -26,3 +26,4 @@
       passage: 'Welcome'
     })>>
 <</if>>
+<<button "Store to Forage">><<run lib.addNPC($npcs)>><<run alert('success!')>><</button>>
