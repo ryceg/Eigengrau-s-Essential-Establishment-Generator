@@ -1,4 +1,9 @@
 :: NPCProfile [nobr]
+/* <<set $currentNPC to $npcs[$currentPassage.key]>> */
+/* <<set $currentNPC to lib.retrieveNPC($currentPassage.key)>> */
+<<when $currentNPC = lib.retrieveNPC($currentPassage.key)>>
+<<button "Refresh">><<run console.log($currentNPC)>><<update>><</button>>
+<<liveblock>>
 <span class="interactive-only"><<include "NPCHeader">></span>
 <<set _deity to lib.getDeity($town, $currentNPC.religion.deity, State.metadata.get('pantheon'))>>
 <<if def RiTa>>
@@ -80,4 +85,4 @@ Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getRelig
 <<include "NPCEarlyLife">>
 <<include "NPCLifeEvents">>
 <<include "NPCRelationshipsTable">>
-<<run console.groupEnd()>><<run console.log($currentNPC)>>
+<<run console.groupEnd()>><<run console.log($currentNPC)>><</liveblock>><</when>>

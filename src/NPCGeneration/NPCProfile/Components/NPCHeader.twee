@@ -2,7 +2,6 @@
 <h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
 <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
-<<set $currentNPC to $npcs[$currentPassage.key]>>
 <<run console.groupCollapsed($currentNPC.name)>>
 <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
 $currentNPC.title

@@ -52,8 +52,13 @@ const birthplaceTable: ThresholdTable = [
   [1, 'on an Outer Plane']
 ]
 
+let dbnpcs: Record<string, NPC>
+lib.getNPCs().then(val => {
+  if (val) dbnpcs = val
+})
+
 /**
- * @warn Uses State.variables.npcs, getMarriages
+ * @warn Uses dbnpcs, getMarriages
  */
 const familyUnits: Record<string, FamilyUnit> = {
   bothParents: {
@@ -63,7 +68,7 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleStepmother: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.father]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, dbnpcs[familyUnitObj.father]),
     descriptor: 'my single stepmother'
   },
   singleMother: {
@@ -73,7 +78,7 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   singleStepfather: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => lib.getMarriages(town, State.variables.npcs[familyUnitObj.mother]),
+    exclusions: (town, familyUnitObj) => lib.getMarriages(town, dbnpcs[familyUnitObj.mother]),
     descriptor: 'my single stepfather'
   },
   singleFather: {
@@ -88,12 +93,12 @@ const familyUnits: Record<string, FamilyUnit> = {
   },
   maternalGrandparents: {
     probability: 6,
-    exclusions: (town, familyUnitObj) => lib.knewParents(town, State.variables.npcs[familyUnitObj.mother]),
+    exclusions: (town, familyUnitObj) => lib.knewParents(town, dbnpcs[familyUnitObj.mother]),
     descriptor: 'my maternal grandparents'
   },
   paternalGrandparents: {
     probability: 4,
-    exclusions: (town, familyUnitObj) => lib.knewParents(town, State.variables.npcs[familyUnitObj.father]),
+    exclusions: (town, familyUnitObj) => lib.knewParents(town, dbnpcs[familyUnitObj.father]),
     descriptor: 'my paternal grandparents'
   },
   extendedFamily: {

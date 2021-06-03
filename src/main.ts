@@ -190,6 +190,7 @@ Object.assign(setup, {
  * the order is very important.
  */
 setup.init = (setup => () => {
+  lib.initDB(['npcs', 'buildings', 'factions', 'pantheons'])
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 

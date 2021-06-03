@@ -43,6 +43,12 @@ Macro.add('profile', {
     const tip = $(`<a data-id="${id}" data-object-type=${obj.objectType} class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
+        if (obj.objectType === 'npc') {
+          const npc = lib.retrieveNPC(obj.key)
+          npc.then(value => {
+            State.variables.currentNPC = value
+          })
+        }
         setup.history(obj, obj.passageName, obj.name || readout)
         Engine.play(obj.passageName)
       })

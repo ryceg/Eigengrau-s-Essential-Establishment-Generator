@@ -13,6 +13,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
   const debtRate = Math.abs(profit / grossIncome)
   /** Usually 3-10 */
   const cashLiquidity = Math.abs(grossIncome / profit)
+
   console.log({
     profit,
     grossIncome,
@@ -28,14 +29,14 @@ export const createDebt = (town: Town, npc: NPC): void => {
   }
 
   if (profit < -40) {
-    const debtor = findDebtor(town, npc, 'moneylender') || createDebtor(town)
+    const debtor = findDebtor(town, npc, 'moneylender') as NPC || createDebtor(town) as NPC
     createRelationship(town, npc, debtor, { relationship: 'debtor', reciprocalRelationship: 'creditor' })
     npc.finances.creditors[debtor.key] = Math.round(cashLiquidity * grossIncome)
     debtor.finances.debtors[npc.key] = npc.finances.creditors[debtor.key]
   }
 
   if (profit < -300 || lib.socialClass[npc.socialClass].landRate <= 3) {
-    const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') || createDebtor(town)
+    const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') as NPC || createDebtor(town) as NPC
     createRelationship(town, npc, predatoryDebtor, { relationship: 'predatory debtor', reciprocalRelationship: 'creditor' })
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
@@ -46,9 +47,9 @@ export const createDebt = (town: Town, npc: NPC): void => {
 
 function findDebtor (town: Town, npc: NPC, type: string) {
   const profession = town.professions[type]
-
+  const npcs = lib.getNPCs()
   if (profession?.population > 0) {
-    return Object.values(State.variables.npcs).find(otherNPC => {
+    return Object.values(npcs).find(otherNPC => {
       return otherNPC.profession === type && otherNPC.key !== npc.key
     })
   }

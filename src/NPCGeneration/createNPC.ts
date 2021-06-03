@@ -222,6 +222,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   if (!npc.keyIsAlreadyDefined) {
     // @ts-ignore
     State.variables.npcs[npc.key] = npc
+    lib.addNPC(npc as unknown as NPC)
   }
 
   State.temporary.newNPC = npc
