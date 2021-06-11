@@ -2,7 +2,7 @@
 <span class="auto-update"><h1><<include "NPCSaveEdits">><<if def $npcs[$currentPassage.key].title>><<lh $npcs[$currentPassage.key].title>> <</if>><label name="name"><<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>></label></h1></span>
 <<set $currentPassage.deleteEnabled to true>>
 <<include "NPCEditListbox">>
-<span class='button-line'><label name="replace NPC" for="listbox-replacenpc">
+<span class='flex-line'><label name="replace NPC" for="listbox-replacenpc">
   <<listbox "_replaceNpc" autoselect>>
     <<optionsfrom $npcs>>
     <<optionsfrom lib.patreonCharacters>>

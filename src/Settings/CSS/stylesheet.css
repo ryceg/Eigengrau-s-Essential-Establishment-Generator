@@ -187,10 +187,10 @@ html.two-columns #illustration-buffer {
   font-weight: bold;
 }
 
-.button-line {
-  display: grid;
-  grid-gap: 1em;
-  grid-auto-flow: column;
+.flex-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 footer {
