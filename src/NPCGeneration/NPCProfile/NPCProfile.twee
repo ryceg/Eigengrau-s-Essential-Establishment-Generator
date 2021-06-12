@@ -1,20 +1,20 @@
 :: NPCProfile [nobr]
-<span class="interactive-only"><<include "NPCHeader">></span>
+<span class="interactive-only">
+  <<include "NPCHeader">>
+</span>
 <<set _deity to lib.getDeity($town, $currentNPC.religion.deity, State.metadata.get('pantheon'))>>
-<<if def RiTa>>
-  <quote>
-    <<print lib.ArpabetToIpa(RiTa.analyze($currentNPC.name))>>
-  </quote>
-  <br>
-<</if>>
+<quote>
+  <<print lib.extractIpa($currentNPC.name)>>
+</quote>
+<br>
 <p>
-  <span @id="$currentNPC.key">
-    <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
-        <<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name
-      <<else>>
-        <<print lib.firstCharacter($currentNPC.name)>>
-    <</if>>
-  </span> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
+<span @id="$currentNPC.key">
+  <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
+      <<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name
+    <<else>>
+      <<print lib.firstCharacter($currentNPC.name)>>
+  <</if>>
+</span> is <<print lib.createTippyFull($currentNPC.ageYears + " years old, to be exact.", lib.articles.output($currentNPC.age))>> $currentNPC.malefemale $currentNPC.race. 
   <<print $currentNPC.heshe.toUpperFirst()>> is <<print lib.createTippyFull(setup.metricHeight($currentNPC.heightInches, settings.showMetric), $currentNPC.height)>> and <<print lib.createTippyFull(setup.metricWeight($currentNPC, settings.showMetric), $currentNPC.weight)>>, and has $currentNPC.eyes eyes
   <<if def $currentNPC.beard>>
     and <<print lib.articles.output($currentNPC.beard)>>,
