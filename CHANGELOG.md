@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a bug where the key to roads was being assigned rather than the road itself.
 - Changed expanded details to use – rather than - so there is less shifting of the text.
 - Shifted RiTa to an imported module.
+- Fixed the surface level NPC editing issue.
 
 ### Removed
 - SugarCube history has been removed (as it was not being used), which should reduce lag on larger towns.
