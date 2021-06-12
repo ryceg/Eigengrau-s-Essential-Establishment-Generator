@@ -115,7 +115,7 @@ export function createFamily (town: Town, npc: NPC) {
 export function createFamilyHouse (town: Town, family: Family) {
   const road = town.roads[family.home.road] ||
     roads.findExisting(town) ||
-    random(Object.keys(town.roads))
+    random(Object.values(town.roads))
   // roads.assign(town)
 
   for (const member in family.members) {
