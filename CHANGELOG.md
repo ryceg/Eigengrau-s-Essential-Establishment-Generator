@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.10
+
+### Added
+- Flex to button rows so they are a little more responsive on smaller screens.
+### Changed
+- Fixed a bug where the key to roads was being assigned rather than the road itself.
+- Changed expanded details to use – rather than - so there is less shifting of the text.
+
 ## 2.8.9
 
 ### Added
