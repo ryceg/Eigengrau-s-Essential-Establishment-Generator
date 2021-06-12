@@ -1,10 +1,5 @@
 import { NPC } from '../_common'
 
-interface SanitizedVirtue {
-  wasVice: boolean
-  virtue: Virtues
-}
-
 export const traits = {
   virtueKey: {
     chaste: 'lustful',
@@ -41,6 +36,10 @@ export const traits = {
 export type Virtues = keyof typeof traits['virtueKey']
 export type Vices = keyof typeof traits['viceKey']
 export type VirtuesVices = Virtues | Vices
+interface SanitizedVirtue {
+  wasVice: boolean
+  virtue: Virtues
+}
 
 export const personalityTraitExists = (personalityTrait: string) => {
   return Object.keys(lib.personalityTraits).includes(personalityTrait)

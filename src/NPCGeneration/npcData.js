@@ -292,7 +292,7 @@ setup.initNpcData = () => {
             ].random()
           } else {
             return [
-              `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a hero's festival"].random()}. While I was there, I ${festivalDid}.`
+              `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'an autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a hero's festival"].random()}. While I was there, I ${festivalDid}.`
             ].random()
           }
         },
