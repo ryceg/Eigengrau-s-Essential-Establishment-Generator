@@ -3,13 +3,15 @@
 <<set $currentPassage to $town.factions[$currentPassage.key]>><<run console.log($currentPassage)>>
 <<set $currentPassage.availableRelationships to lib.factionData.types[$currentPassage.type].members.professions>>
 <h1 class="interactive-only">$currentPassage.name</h1><span @id="$currentPassage.key"></span>
-<<button "Edit $currentPassage.name" FactionSliders>>
+<span class='flex-line'>
+  <<button "Edit $currentPassage.name" FactionSliders>>
     <<run setup.history($currentPassage, "FactionSliders", "Editing " + $currentPassage.name)>>
   <</button>>
+</span>
 <p><<print lib.firstCharacter($currentPassage.name)>> is <<print lib.articles.output($currentPassage.type)>> $currentPassage.wordNoun. It's $currentPassage.age, and the $currentPassage.size faction has <<print lib.articles.output($currentPassage.reputation)>> reputation, and is motivated by $currentPassage.motivation. They are $currentPassage.misc.</p>
 <<if $currentPassage.isPolicing>><<include "PolicingFaction">><</if>>
 <<include "FactionGovernance">>
-<p><h3>Members</h3>Members of $currentPassage.name are identifiable by $currentPassage.membersTrait. Membership requires $currentPassage.joiningRequirement, and costs $currentPassage.joiningFee. The initiation into $currentPassage.name involves $currentPassage.joiningInitiation.</p>
+<p><h3>Members</h3>Members of $currentPassage.name are identifiable by <<print $currentPassage.membersTrait || $currentFaction.membersTrait>>. Membership requires $currentPassage.joiningRequirement, and costs $currentPassage.joiningFee. The initiation into $currentPassage.name involves $currentPassage.joiningInitiation.</p>
 <<linkreplace "<h4>Create Members</h4>" t8n>><<include "CreateFactionNpc">><</linkreplace>>
 <<include "FactionRelationshipsTable">>
 <<include "FactionResources">>

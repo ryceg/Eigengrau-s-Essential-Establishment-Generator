@@ -1,5 +1,6 @@
 document.cookie = 'SameSite=Strict'
 Config.cleanupWikifierOutput = true
+Config.history.maxStates = 1
 
 $(document).on(':dialogopened', function () {
   if ($('#ui-dialog-body').hasClass('settings')) {

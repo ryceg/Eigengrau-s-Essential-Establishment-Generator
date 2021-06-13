@@ -2,11 +2,11 @@
 <<run $("body").on("change", ["button", 'input'], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<lb>><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
+<<lb>><span class='flex-line'><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
       header: 'Patreon Only',
       passage: 'ImportPatreon',
       rerender: true
-    })>><</button>><</if>> --
+    })>><</button>><</if>></span> --
 <<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
 <<if def $town.religion._customPantheon or State.metadata.has('pantheon')>>
 <<run State.metadata.set('pantheon', $town.religion._customPantheon)>>

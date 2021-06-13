@@ -14,8 +14,17 @@
 'buildingType': {}, 
 'factionType': {}
 }, State.metadata.get('customImages'))>>
-<<button "Edit Existing Images" ShowAllSaved>><</button>><<button "Refresh">><<update>><</button>> -- <label name="Select building type" for="listbox-target"><<listbox "$targetType">><<optionsfrom _objectTypes>>
-<</listbox>></label>
+
+  <<button "Edit Existing Images" ShowAllSaved>>
+  <</button>>
+  <<button "Refresh">>
+    <<update>>
+  <</button>> 
+  <label name="Select building type" for="listbox-target">
+    <<listbox "$targetType">>
+      <<optionsfrom _objectTypes>>
+    <</listbox>>
+  </label>
 /* <<run $("body").on("change", ['#listbox-target', '#listbox-targettype'], function() {
   $(document).trigger(":liveupdate");
 });>> */

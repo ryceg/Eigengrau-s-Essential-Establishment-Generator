@@ -1,3 +1,5 @@
+import RiTa from 'rita'
+
 interface RitaAnalyze {
   phones: string
   pos: string
@@ -6,7 +8,34 @@ interface RitaAnalyze {
   tokens: string
 }
 
-export function ArpabetToIpa (analyze: RitaAnalyze) {
+export function extractIpa (word: string) {
+  return arpabetToIpa(RiTa.analyze(word) || word)
+}
+
+// export function convertToPastTense (sentence: string) {
+//   const basics: Record<string, string> = {
+//     is: 'was',
+//     are: 'were',
+//     has: 'had',
+//     have: 'had'
+//   }
+//   const output: string[] = []
+//   const tokens: string[] = RiTa.tokenize(sentence)
+//   for (const word of tokens) {
+//     if (basics[word]) {
+//       output.push(basics[word])
+//     } else if (RiTa.isVerb(word)) {
+//       output.push(
+//         RiTa.pastPart(
+//           RiTa.singularize(word)))
+//     } else {
+//       output.push(word)
+//     }
+//   }
+//   return RiTa.untokenize(output)
+// }
+
+export function arpabetToIpa (analyze: RitaAnalyze) {
   // const ipaSounds = {
   //   'ɑ': {
   //     examples: ['fast, car, hard, bath'],
@@ -413,8 +442,7 @@ export function ArpabetToIpa (analyze: RitaAnalyze) {
   //     type: 'Syllabification'
   //   }
   // }
-  const str = analyze.phones
-  const ArpabetToIpaTable: Record<string, string> = {
+  const arpabetToIpaTable: Record<string, string> = {
     AA: 'ɑ',
     AE: 'æ',
     AH: 'ʌ',
@@ -466,16 +494,16 @@ export function ArpabetToIpa (analyze: RitaAnalyze) {
     Z: 'z',
     ZH: 'ʒ'
   }
-  const arrayOfWords = str.split(' ')
+  const arrayOfWords = analyze.phones.split(' ')
   let resultantString = ''
   for (const word of arrayOfWords) {
     const phoneme = word.split('-')
     for (const key of phoneme) {
-      resultantString += ArpabetToIpaTable[key.toUpperCase()]
+      resultantString += arpabetToIpaTable[key.toUpperCase()]
     }
     resultantString += ' '
   }
 
-  console.log(str, arrayOfWords, resultantString)
+  // console.log(arrayOfWords, resultantString)
   return `/${resultantString}/.`
 }
