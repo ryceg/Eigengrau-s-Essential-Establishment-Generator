@@ -2524,6 +2524,30 @@ export const professions: Record<string, Profession> = {
       }
     }
   },
+  'conscripted soldier': {
+    sv: 1000,
+    isBackground: true,
+    type: 'profession',
+    sector: 'military',
+    description: 'serves in an army against their will.',
+    domSub: 'dom',
+    dailyWage: 2,
+    socialClass: 'indentured servitude',
+    socialClassRoll () {
+      return 20 + dice(8, 6)
+    },
+    relationships (town, npc) {
+      return {
+        coworker: {
+          relationship: 'co-worker',
+          probability: 20,
+          base: {
+            profession: npc.profession
+          }
+        }
+      }
+    }
+  },
   'spice merchant': {
     sv: 1500,
     type: 'business',

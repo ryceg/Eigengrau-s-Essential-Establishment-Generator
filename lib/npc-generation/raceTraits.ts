@@ -141,6 +141,7 @@ export const raceTraits: Record<RaceName, RaceTrait> = {
     bmiModifier: 500,
     ageTraits: {
       'ageDescriptors': [
+        [400, 'ancient'],
         [300, 'ancient'],
         [250, 'incredibly elderly'],
         [200, 'vulnerably elderly'],
