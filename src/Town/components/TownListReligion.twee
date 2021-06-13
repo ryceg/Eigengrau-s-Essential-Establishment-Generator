@@ -2,7 +2,7 @@
 <div class='classTable' id="religion">
 <<liveblock>>
 <<set _religionPercentages to lib.getPantheonPercentages($town, State.metadata.get('pantheon'))>>
-$town.name <<print lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>>.<</liveblock>>
+$town.name <<lh lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>>.<</liveblock>>
 <table>
     <tr>
         <th>Deity</th>
