@@ -1,5 +1,5 @@
 import { NPC, ThresholdTable } from '@lib'
-import { Virtues } from './getTraits'
+import { getTrait, Virtues } from './getTraits'
 
 /**
  * @usage 'is _____'
@@ -279,16 +279,15 @@ export const traitDescriptions: Record<Virtues, ThresholdTable<string>> = {
     [1, 'craven']
   ]
 }
-
-const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => {
-  if (Math.abs(firstTrait - secondTrait) > 9) return 'but'
-  return 'and'
-}
-
 interface TraitDescriptions {
   trait: Virtues
   result: string
   roll: number
+}
+
+const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => {
+  if (Math.abs(firstTrait - secondTrait) > 9) return 'but'
+  return 'and'
 }
 
 export const getTraitDescription = (trait: Virtues, roll: number) => {
@@ -300,14 +299,15 @@ export const getTraitDescription = (trait: Virtues, roll: number) => {
     }
   }
   if (results) return results
+  return null
 }
 
 export const getAllTraits = (npc: NPC) => {
   const traitDescriptions: TraitDescriptions[] = []
   for (const temp in npc.roll.traits) {
     const trait = temp as Virtues
-    // const roll = getTrait(trait, npc, true)
-    const roll = Math.clamp(npc.roll.traits[trait] / 5, 1, 19)
+    const roll = getTrait(trait, npc, true)
+    // const roll = Math.clamp(npc.roll.traits[trait] / 5, 1, 19)
     const result = getTraitDescription(trait, roll)
     if (result) {
       traitDescriptions.push({ trait, roll, result })

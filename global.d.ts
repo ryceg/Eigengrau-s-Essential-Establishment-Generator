@@ -22,3 +22,5 @@ declare function gtag(event: string, action: string, data: {
   event_action?: string,
   value?: string
 }): void
+
+declare module 'rita'

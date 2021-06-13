@@ -157,7 +157,6 @@ export const roads = {
   findExisting: (town: Town): Road | undefined => {
     console.log('Searching for an existing road...')
     for (const key in town.roads) {
-      console.log(Object.values(town.roads[key].inhabitants.buildings).length)
       if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
         console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
         continue

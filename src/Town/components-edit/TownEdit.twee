@@ -9,7 +9,7 @@
 <hr>
 <<include "EditRaces">>
 <<include "EditReligion">><<done>><<run tippy('[data-tippy-content]')>><</done>>
-<<button "Save Changes" TownOutput>>
+<span class='flex-line'><<button "Save Changes" TownOutput>>
   <<include "Rerender">>
   <<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name}, 'TownOutput', $town.name)>>
-<</button>>
+<</button>></span>
