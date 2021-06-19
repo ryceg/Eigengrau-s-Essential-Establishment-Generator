@@ -1,3 +1,7 @@
+.tip, .tippy-religion-percentage, .tippy-races-percentage {
+  display: inline-block;
+}
+
 .tippy-box[data-animation='perspective'][data-placement^="top"] {
   transform-origin: bottom;
 }
