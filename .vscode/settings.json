@@ -8,7 +8,9 @@
     "**/bower_components": true,
     "**/*.code-search": true,
     "src/init.js": true,
-    "gh-pages/**": true
+    "gh-pages/**": true,
+    "/src/Tools/Exports/example.json": true,
+    "/yarn.lock": true
   },
   "editor.formatOnSave": false,
   "prettier.semi": false,
