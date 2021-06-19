@@ -1,5 +1,9 @@
-.tip, .tippy-religion-percentage, .tippy-races-percentage {
+.tippy-religion-percentage, .tippy-races-percentage {
   display: inline-block;
+}
+
+.tip {
+  display: inline;
 }
 
 .tippy-box[data-animation='perspective'][data-placement^="top"] {

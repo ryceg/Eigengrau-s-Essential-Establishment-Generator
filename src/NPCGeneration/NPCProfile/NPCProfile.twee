@@ -6,8 +6,7 @@
 <quote>
   <<print lib.extractIpa($currentNPC.name)>>
 </quote>
-<br>
-<p>
+<p class='no-indent'>
 <span @id="$currentNPC.key">
   <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
       <<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name

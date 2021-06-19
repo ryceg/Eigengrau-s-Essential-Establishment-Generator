@@ -258,14 +258,16 @@ img, embed, object, video {
   border-radius: 4px;
 }
 
+.no-indent {
+  text-indent: 0;
+}
+
 .first-character {
-  float: left;
-  font-family: Solbera Imitation;
-  font-size: 75px;
-  line-height: 60px;
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-left: 3px;
+  float:          left;
+  font-family:    Solbera Imitation;
+  font-size:      10em;
+  color:          var(--text-normal);
+  line-height:    .8em
 }
 
 
