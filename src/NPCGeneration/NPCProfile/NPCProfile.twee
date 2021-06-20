@@ -1,5 +1,7 @@
 :: NPCProfile [nobr]
-<<liveblock>><span class="interactive-only">
+<<liveblock>>
+<<set $currentNPC to $npcs[$currentPassage.key]>>
+<span class="interactive-only">
   <<include "NPCHeader">>
 </span>
 <<set _deity to lib.getDeity($town, $currentNPC.religion.deity, State.metadata.get('pantheon'))>>
