@@ -2,7 +2,7 @@
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
 import { ThresholdTable } from '../src/rollFromTable'
-import { GenderName } from '../src/genderData'
+import { GenderName } from '../npc-generation/genderData'
 
 import { bmiDescriptions } from './bmiDescriptions'
 import { GenderTraits, RaceName, raceTraits } from './raceTraits'
