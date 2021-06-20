@@ -18,7 +18,8 @@
         header: `Editing ${$currentNPC.name}`,
         passage: 'NPCProfileEdit',
         rerender: true,
-        dialogOpts: $npcs[$currentPassage.key]
+        dialogOpts: $npcs[$currentPassage.key],
+        func: setup.preparePlaceholders
       })>>
     <</button>>
   <</if>>
