@@ -3,7 +3,7 @@
   <h1>
     <<include "NPCSaveEdits">>
     <<if def $npcs[$currentPassage.key].title>>
-      <<lh $npcs[$currentPassage.key].title>> 
+      <<print $npcs[$currentPassage.key].title>> 
     <</if>>
     <label name="name">
       <<textbox "$npcs[$currentPassage.key].name" $npcs[$currentPassage.key].name>>
@@ -11,10 +11,9 @@
   </h1>
 </span>
 <<set $currentPassage.deleteEnabled to true>>
-<<include "NPCEditListbox">>
 <span class='flex-line'>
   <label name="replace NPC" for="listbox-replacenpc">
-    <<listbox "_replaceNpc" autoselect>>
+    <<listbox "$npcs[$currentPassage.key]" autoselect>>
       <<optionsfrom $npcs>>
       <<optionsfrom lib.patreonCharacters>>
     <</listbox>>
@@ -41,9 +40,9 @@
 </span>
 <br>
 <<if def $npcs[$currentPassage.key].title>>
-  <<lh $npcs[$currentPassage.key].title>> 
-<</if>><<lh $npcs[$currentPassage.key].name>> is 
-<<lh lib.articles.find($npcs[$currentPassage.key].age)>> 
+  <<print $npcs[$currentPassage.key].title>> 
+<</if>><<print $npcs[$currentPassage.key].name>> is 
+<<print lib.articles.find($npcs[$currentPassage.key].age)>> 
 <span @id="_age" class="tip">
   <label name="age">
     <<textbox "$npcs[$currentPassage.key].age" $npcs[$currentPassage.key].age>>
@@ -51,10 +50,19 @@
 </span> 
 <span class="auto-update">
   <span class="tip" title="Non binary options coming soon!">
-    _gender
-  </span> _race
+    <label name="gender" for="listbox-npcscurrentpassagekeygender">
+      <<listbox "$npcs[$currentPassage.key].gender" autoselect>>
+        <<optionsfrom Object.keys(lib.genderData)>>
+      <</listbox>>
+    </label>
+  </span> 
+  <label name="race" for="listbox-npcscurrentpassagekeyrace">
+    <<listbox "$npcs[$currentPassage.key].race" autoselect>>
+      <<optionsfrom Object.keys(lib.raceTraits)>>
+    <</listbox>>
+  </label>
 </span>. 
-<<lh $npcs[$currentPassage.key].heshe.toUpperFirst()>> is 
+<<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> is 
 <span @id="_height" class="tip">
   <label name="height">
     <<textbox "$npcs[$currentPassage.key]._height" ''>>
@@ -67,40 +75,40 @@
 </span>, and has 
 <label name="eyes">
   <<textbox "$npcs[$currentPassage.key].eyes" $npcs[$currentPassage.key].eyes>>
-</label> eyes<<if def $npcs[$currentPassage.key].beard>> and <<lh lib.articles.find($npcs[$currentPassage.key].beard)>> <label name="beard"><<textbox "$npcs[$currentPassage.key].beard" $npcs[$currentPassage.key].beard>></label>,<</if>> with <label name="skinColour"><<textbox "$npcs[$currentPassage.key].skinColour" $npcs[$currentPassage.key].skinColour>></label> skin. 
-The most notable physical trait of <<lh $npcs[$currentPassage.key].firstName>> is that <<lh $npcs[$currentPassage.key].heshe>> has <label name="physicalTrait"><<textbox "$npcs[$currentPassage.key].physicalTrait" $npcs[$currentPassage.key].physicalTrait>></label>.
+</label> eyes<<if def $npcs[$currentPassage.key].beard>> and <<print lib.articles.find($npcs[$currentPassage.key].beard)>> <label name="beard"><<textbox "$npcs[$currentPassage.key].beard" $npcs[$currentPassage.key].beard>></label>,<</if>> with <label name="skinColour"><<textbox "$npcs[$currentPassage.key].skinColour" $npcs[$currentPassage.key].skinColour>></label> skin. 
+The most notable physical trait of <<print $npcs[$currentPassage.key].firstName>> is that <<print $npcs[$currentPassage.key].heshe>> has <label name="physicalTrait"><<textbox "$npcs[$currentPassage.key].physicalTrait" $npcs[$currentPassage.key].physicalTrait>></label>.
 
-<<lh $npcs[$currentPassage.key].firstName>> <label name="trait"><<textbox "$npcs[$currentPassage.key].trait" $npcs[$currentPassage.key].trait>></label>. <<if def $npcs[$currentPassage.key].vocalPattern>><<lh $npcs[$currentPassage.key].heshe.toUpperFirst()>> <label name="vocalPattern"><<textbox "$npcs[$currentPassage.key].vocalPattern" $npcs[$currentPassage.key].vocalPattern>></label>. 
-<</if>>When <<lh $npcs[$currentPassage.key].heshe>> is relaxed, <<lh $npcs[$currentPassage.key].heshe>> is <label name="calmTrait"><<textbox "$npcs[$currentPassage.key].calmTrait" $npcs[$currentPassage.key].calmTrait>></label>. In moments of stress, <<lh $npcs[$currentPassage.key].heshe>> becomes <label name="stressTrait"><<textbox "$npcs[$currentPassage.key].stressTrait" $npcs[$currentPassage.key].stressTrait>></label>. <<if $npcs[$currentPassage.key].knownLanguages.length == 2>><<lh $npcs[$currentPassage.key].firstName>> knows <<lh $npcs[$currentPassage.key].knownLanguages[0]>> and <<lh $npcs[$currentPassage.key].knownLanguages[1]>>.<</if>>
+<<print $npcs[$currentPassage.key].firstName>> <label name="trait"><<textbox "$npcs[$currentPassage.key].trait" $npcs[$currentPassage.key].trait>></label>. <<if def $npcs[$currentPassage.key].vocalPattern>><<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> <label name="vocalPattern"><<textbox "$npcs[$currentPassage.key].vocalPattern" $npcs[$currentPassage.key].vocalPattern>></label>. 
+<</if>>When <<print $npcs[$currentPassage.key].heshe>> is relaxed, <<print $npcs[$currentPassage.key].heshe>> is <label name="calmTrait"><<textbox "$npcs[$currentPassage.key].calmTrait" $npcs[$currentPassage.key].calmTrait>></label>. In moments of stress, <<print $npcs[$currentPassage.key].heshe>> becomes <label name="stressTrait"><<textbox "$npcs[$currentPassage.key].stressTrait" $npcs[$currentPassage.key].stressTrait>></label>. <<if $npcs[$currentPassage.key].knownLanguages.length == 2>><<print $npcs[$currentPassage.key].firstName>> knows <<print $npcs[$currentPassage.key].knownLanguages[0]>> and <<print $npcs[$currentPassage.key].knownLanguages[1]>>.<</if>>
 
-<<lh $npcs[$currentPassage.key].firstName>> is 
-<<lh lib.articles.find($npcs[$currentPassage.key].profession)>> 
+<<print $npcs[$currentPassage.key].firstName>> is 
+<<print lib.articles.find($npcs[$currentPassage.key].profession)>> 
   <<listbox "$npcs[$currentPassage.key].profession" autoselect>>
     <<optionsfrom Object.keys(lib.professions)>>
   <</listbox>>
 , with a background of being 
-<<lh lib.articles.find($npcs[$currentPassage.key].background)>> 
+<<print lib.articles.find($npcs[$currentPassage.key].background)>> 
 <<listbox "$npcs[$currentPassage.key].background" autoselect>>
   <<optionsfrom Object.keys(lib.backgroundTraits)>>
 <</listbox>>. 
-<<lh $npcs[$currentPassage.key].firstName>> currently has 
+<<print $npcs[$currentPassage.key].firstName>> currently has 
 <label name="pockets">
   <<textbox "$npcs[$currentPassage.key].pockets" $npcs[$currentPassage.key].pockets>>
-</label> in <<lh $npcs[$currentPassage.key].hisher>> pockets, and <<money $npcs[$currentPassage.key].wealth>> to <<lh $npcs[$currentPassage.key].hisher>> name. 
-/* In combat, <<lh $npcs[$currentPassage.key].heshe>> uses <label name="weapon"><<textbox "$npcs[$currentPassage.key].weapon" $npcs[$currentPassage.key].weapon>></label>. */
+</label> in <<print $npcs[$currentPassage.key].hisher>> pockets, and <<money $npcs[$currentPassage.key].wealth>> to <<print $npcs[$currentPassage.key].hisher>> name. 
+/* In combat, <<print $npcs[$currentPassage.key].heshe>> uses <label name="weapon"><<textbox "$npcs[$currentPassage.key].weapon" $npcs[$currentPassage.key].weapon>></label>. */
 <br>
 <span class="tip" data-tippy-content="Add notes here"><<textarea "$npcs[$currentPassage.key].note" $npcs[$currentPassage.key].note>></span>
 <br>
 <details><summary>Edit Stats</summary><<include "NPCEditStats">></details>
 <br>
-<details><summary>Early Life</summary><div class='descriptive'>I was born <label name="birthplace"><<textbox "$npcs[$currentPassage.key].birthplace" $npcs[$currentPassage.key].birthplace>></label>, and was raised by <label name="familyUnit"><<textbox "$npcs[$currentPassage.key].familyUnit" $npcs[$currentPassage.key].familyUnit>></label><<if $npcs[$currentPassage.key].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentPassage.key].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentPassage.key].siblingNumber siblings.<</if>> I had <<lh lib.articles.find($npcs[$currentPassage.key].familyLifestyle)>> <label name="familyLifestyle"><<textbox "$npcs[$currentPassage.key].familyLifestyle" $npcs[$currentPassage.key].familyLifestyle>></label> upbringing in <label name="familyHome"><<textbox "$npcs[$currentPassage.key].familyHome" $npcs[$currentPassage.key].familyHome>></label>. <<if !$npcs[$currentPassage.key].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentPassage.key].parentalLineage>>$npcs[$currentPassage.key].parentalLineage.<</if>> <label name="childhoodMemories"><<textbox "$npcs[$currentPassage.key].childhoodMemories" $npcs[$currentPassage.key].childhoodMemories>></label>.</div></details>
+<details><summary>Early Life</summary><div class='descriptive'>I was born <label name="birthplace"><<textbox "$npcs[$currentPassage.key].birthplace" $npcs[$currentPassage.key].birthplace>></label>, and was raised by <label name="familyUnit"><<textbox "$npcs[$currentPassage.key].familyUnit" $npcs[$currentPassage.key].familyUnit>></label><<if $npcs[$currentPassage.key].siblingNumber == 0>> as an only child.<<elseif $npcs[$currentPassage.key].siblingNumber == 1>> with my brother.<<else>>, along with my $npcs[$currentPassage.key].siblingNumber siblings.<</if>> I had <<print lib.articles.find($npcs[$currentPassage.key].familyLifestyle)>> <label name="familyLifestyle"><<textbox "$npcs[$currentPassage.key].familyLifestyle" $npcs[$currentPassage.key].familyLifestyle>></label> upbringing in <label name="familyHome"><<textbox "$npcs[$currentPassage.key].familyHome" $npcs[$currentPassage.key].familyHome>></label>. <<if !$npcs[$currentPassage.key].knewParents>>I didn't know my parents growing up.<</if>><<if $npcs[$currentPassage.key].parentalLineage>>$npcs[$currentPassage.key].parentalLineage.<</if>> <label name="childhoodMemories"><<textbox "$npcs[$currentPassage.key].childhoodMemories" $npcs[$currentPassage.key].childhoodMemories>></label>.</div></details>
 <br>
-<details><summary>Becoming a <<lh $npcs[$currentPassage.key].profession>></summary><div class='descriptive'>"<<textarea "$npcs[$currentPassage.key].backgroundOrigin" $npcs[$currentPassage.key].backgroundOrigin>> <<textarea "$npcs[$currentPassage.key].professionOrigin" $npcs[$currentPassage.key].professionOrigin>> That's how I became <<lh lib.articles.output($npcs[$currentPassage.key].profession)>>. <<textarea "$npcs[$currentPassage.key].bond" $npcs[$currentPassage.key].bond>> <<textarea "$npcs[$currentPassage.key].ideal" $npcs[$currentPassage.key].ideal>>"</div></details>
+<details><summary>Becoming a <<print $npcs[$currentPassage.key].profession>></summary><div class='descriptive'>"<<textarea "$npcs[$currentPassage.key].backgroundOrigin" $npcs[$currentPassage.key].backgroundOrigin>> <<textarea "$npcs[$currentPassage.key].professionOrigin" $npcs[$currentPassage.key].professionOrigin>> That's how I became <<print lib.articles.output($npcs[$currentPassage.key].profession)>>. <<textarea "$npcs[$currentPassage.key].bond" $npcs[$currentPassage.key].bond>> <<textarea "$npcs[$currentPassage.key].ideal" $npcs[$currentPassage.key].ideal>>"</div></details>
 <br>
 <details><summary>Life Events</summary><div class='descriptive'>Well, I certainly have a tale or two...
-<<lh setup.getLifeEvents($currentNPC)>></div></details>
+<<print setup.getLifeEvents($currentNPC)>></div></details>
 
-<<if def $npcs[$currentPassage.key].partnerID>><<lh $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
+<<if def $npcs[$currentPassage.key].partnerID>><<print $npcs[$currentPassage.key].firstName>> has a partner, <<profile $npcs[$currentPassage.key].partnerID>><</if>>
 
 <<include "NPCRelationshipsTableEdit">>
 
