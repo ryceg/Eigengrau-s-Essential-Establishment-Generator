@@ -1,5 +1,5 @@
 :: NPCProfile [nobr]
-<span class="interactive-only">
+<<liveblock>><span class="interactive-only">
   <<include "NPCHeader">>
 </span>
 <<set _deity to lib.getDeity($town, $currentNPC.religion.deity, State.metadata.get('pantheon'))>>
@@ -78,5 +78,5 @@ Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getRelig
 <</if>>
 <<include "NPCEarlyLife">>
 <<include "NPCLifeEvents">>
-<<include "NPCRelationshipsTable">>
+<<include "NPCRelationshipsTable">><</liveblock>>
 <<run console.groupEnd()>><<run console.log($currentNPC)>>
