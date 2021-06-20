@@ -1,0 +1,24 @@
+:: NPCEditStats [nobr]
+Social Class: <<listbox "$npcs[$currentPassage.key].socialClass" autoselect>>
+  <<optionsfrom Object.keys(lib.socialClass)>>
+<</listbox>>
+<br>
+Lifestyle standard: <<listbox "$npcs[$currentPassage.key].lifestyleStandard" autoselect>>
+  <<optionsfrom Object.keys(lib.lifestyleStandards)>>
+<</listbox>>
+<br>
+<label for="numberbox-npcs-currentpassage-key-heightInches">Height (in inches):</label>
+<<numberbox "$npcs[$currentPassage.key].heightInches" $npcs[$currentPassage.key].heightInches>> : <<lh $npcs[$currentPassage.key].height>>
+<br>
+<label for="numberbox-npcs-currentpassage-key-weightPounds">Weight (in pounds):</label>
+<<numberbox "$npcs[$currentPassage.key].weightPounds" $npcs[$currentPassage.key].weightPounds>> : <<lh $npcs[$currentPassage.key].weight>>
+<br>
+<<for _key, _obj range $npcs[$currentPassage.key].roll.traits>>
+<<set _trait to $npcs[$currentPassage.key].roll.traits[_key]>>
+<<set _label to "numberbox-npcs-currentpassage-key-roll-traits-" + _key>>
+<<capture _key, _obj, _trait, _label>>
+<label @for=_label><<lh _key.toUpperFirst()>></label>:
+<<numberbox "$npcs[$currentPassage.key].roll.traits[_key]" _trait>>
+<br>
+<</capture>>
+<</for>>
