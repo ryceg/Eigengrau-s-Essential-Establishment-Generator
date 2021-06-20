@@ -103,6 +103,19 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     },
     hairColour: lib.random(data.hairColour),
     hairType: lib.random(data.hairType),
+    get bmi (): number {
+      return lib.getNPCBMI(this.weightPounds as number, this.heightInches as number, lib.raceTraits[this.race].bmiModifier)
+    },
+    _weight: '',
+    get weight (): string {
+      if (this._weight) return this._weight
+      return lib.getNPCWeight(this.bmi as number, this.muscleMass)
+    },
+    _height: '',
+    get height (): string {
+      if (this._height) return this._height
+      return lib.getNPCHeight(this.heightInches as number)
+    },
     get hair () {
       return `${this.hairType} ${this.hairColour} hair`
     },
