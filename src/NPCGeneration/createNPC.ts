@@ -175,7 +175,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
       }
     })
   }
-  lib.assign(npc, lib.genderData[npc.gender])
+  // lib.assign(npc, lib.genderData[npc.gender])
   // lib.assign(npc.pronouns, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 

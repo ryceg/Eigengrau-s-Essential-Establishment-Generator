@@ -65,12 +65,12 @@
 <<print $npcs[$currentPassage.key].heshe.toUpperFirst()>> is 
 <span @id="_height" class="tip">
   <label name="height">
-    <<textbox "$npcs[$currentPassage.key]._height" ''>>
+    <<textbox "$npcs[$currentPassage.key]._height" $npcs[$currentPassage.key]._weight>>
   </label>
 </span> and 
 <span @id="_weight" class="tip">
   <label name="weight">
-    <<textbox "$npcs[$currentPassage.key]._weight" ''>>
+    <<textbox "$npcs[$currentPassage.key]._weight" $npcs[$currentPassage.key]._weight>>
   </label>
 </span>, and has 
 <label name="eyes">
