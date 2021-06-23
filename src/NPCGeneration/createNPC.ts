@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { AgeName, GenderName, NPC, RaceName, Town } from '@lib'
+import type { AgeName, ClassName, GenderName, NPC, RaceName, Town } from '@lib'
 import { createDebt } from './createDebt'
 import { createSexuality } from './Relationships/createSexuality'
 
@@ -64,7 +64,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   }
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
-  let dndClass
+  let dndClass: ClassName
   if (lib.findProfession(town, base as NPC, profession).type === 'dndClass') {
     base.hasClass = true
     dndClass = base.dndClass || profession
@@ -167,15 +167,15 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     gender: npc.gender || npc._gender,
     race: npc.race || npc._race
   })
-  for (const pronoun in lib.genderData[npc.gender]) {
-    Object.defineProperty(npc, pronoun, {
-      get (this: NPC) {
-        // @ts-ignore
-        return lib.genderData[npc.gender][pronoun]
-      }
-    })
-  }
-  // lib.assign(npc, lib.genderData[npc.gender])
+  // for (const pronoun in lib.genderData[npc.gender]) {
+  //   Object.defineProperty(npc, pronoun, {
+  //     get (this: NPC) {
+  //       // @ts-ignore
+  //       return lib.genderData[npc.gender][pronoun]
+  //     }
+  //   })
+  // }
+  lib.assign(npc, lib.genderData[npc.gender])
   // lib.assign(npc.pronouns, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
