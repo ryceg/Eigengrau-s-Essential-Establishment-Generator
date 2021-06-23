@@ -7,10 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Changed 
-- Fixed racial description while editing not updating.
+- Fixed racial description while editing town demographics not updating.
 - Fixed an annoying issue where the period at the end of the sentence for racial and religious demographics would be pushed to a new line.
 - Made the dropcap on NPC profile pages standardized
 - The text following the dropcap on the NPC profile page is no longer indented weirdly.
+- Fixed NPC gender not changing or refreshing properly when editing.
 
 
 ## 2.8.10

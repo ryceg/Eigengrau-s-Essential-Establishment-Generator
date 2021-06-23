@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { AgeName, ClassName, GenderName, NPC, RaceName, Town } from '@lib'
+import type { AgeName, GenderName, NPC, RaceName, Town } from '@lib'
 import { createDebt } from './createDebt'
 import { createSexuality } from './Relationships/createSexuality'
 
@@ -64,7 +64,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   }
   console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
-  let dndClass: ClassName
+  let dndClass
   if (lib.findProfession(town, base as NPC, profession).type === 'dndClass') {
     base.hasClass = true
     dndClass = base.dndClass || profession

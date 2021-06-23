@@ -51,7 +51,7 @@
 <span class="auto-update">
   <span class="tip" title="Non binary options coming soon!">
     <label name="gender" for="listbox-npcscurrentpassagekeygender">
-      <<listbox "$npcs[$currentPassage.key].gender" autoselect>>
+      <<listbox "$npcs[$currentPassage.key]._gender" autoselect>>
         <<optionsfrom Object.keys(lib.genderData)>>
       <</listbox>>
     </label>

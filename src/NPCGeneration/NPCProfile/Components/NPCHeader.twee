@@ -2,6 +2,7 @@
 <<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
   <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
+<<include "NPCSaveEdits">>
 <<set $currentNPC to $npcs[$currentPassage.key]>>
 <<set $customImages to recall('customImages')>>
 <<set $currentImage to $currentPassage.customImage || null>>
