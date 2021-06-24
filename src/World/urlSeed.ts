@@ -1,9 +1,14 @@
+/**
+ * This handles the allocation of a new URL seed.
+ */
 export const urlSeed = () => {
-  const seed = getValidSeed(location.hash.replace('#', ''))
+  const url = new URL('https://eigengrausgenerator.com/?seed=crazyrandomdogorsomething')
+  const params = new URLSearchParams(url.search)
 
+  const seed = getValidSeed(params.get('seed'))
   console.log(`Setting the location hash to ${seed}`)
-  State.metadata.set('seed', seed)
-  location.hash = seed
+  params.set('seed', seed)
+  location.search = params.toString()
 
   console.log('Spinning up PRNG')
   State.prng.init(seed)
@@ -11,16 +16,16 @@ export const urlSeed = () => {
 
 $(document).one(':enginerestart', () => {
   console.log('Creating a new seed...')
-  location.hash = createSeed()
+  location.search = createSeed()
   console.log('Restarting the engine...')
 })
-
 /**
  * Validates and adjust a seed.
  * @param seed - Seed to validate/adjust.
  * @returns A valid seed.
  */
-function getValidSeed (seed: string): string {
+function getValidSeed (seed: string | null): string {
+  if (!seed) seed = createSeed()
   if (seed.length <= 0) {
     console.log('Creating a seed...')
     return createSeed()
