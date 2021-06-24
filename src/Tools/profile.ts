@@ -27,23 +27,25 @@ export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: 
   const text = JSON.stringify(readout)
 
   const key = JSON.stringify(result.key)
-
-  return `<<profile \`$${type}[${key}]\`${text}>>`
+  return `<<profile ${key} ${text}>>`
 }
 
 Macro.add('profile', {
   handler () {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
     let obj: Faction | NPC | Deity | Building | Road = this.args[0]
-    if (typeof obj === 'string') obj = setup.findViaKey(obj)
+    if (typeof obj === 'string') {
+      obj = setup.findViaKey(obj)
+    }
     const readout = this.args[1] || obj.name
+    const objType = obj.objectType || 'npc'
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
     // @ts-ignore
-    const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
-    const tip = $(`<a data-id="${id}" data-object-type=${obj.objectType} class="link-internal macro-link ${id}">${readout}</a>`)
+    const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || lib.getUUID())
+    const tip = $(`<a data-id="${id}" data-object-type=${objType} class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
-        setup.history(obj, obj.passageName, obj.name || readout)
+        setup.history(obj, obj.passageName, readout)
         Engine.play(obj.passageName)
       })
     /* do any other title addition and stuff here */

@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.8.11
 
 ### Changed 
 - Fixed racial description while editing town demographics not updating.
@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Made the dropcap on NPC profile pages standardized
 - The text following the dropcap on the NPC profile page is no longer indented weirdly.
 - Fixed NPC gender not changing or refreshing properly when editing.
+- Fixed buildings not working in the nav bar.
+- Made the profiles just pass the ID as a string, which should be slightly faster.
 
 
 ## 2.8.10
