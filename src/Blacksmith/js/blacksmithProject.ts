@@ -12,7 +12,7 @@ export const createBlacksmithProject = function (town: Town, smithy: Smithy, bla
       function (town: Town) {
         // @ts-ignore
         const market = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
-        return `${lib.articles.output(lib.random(weapon))} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        return `${lib.articles.output(lib.random(weapon))} to sell at ${setup.profile(market, 'the markets')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     {
@@ -50,7 +50,7 @@ export const createBlacksmithProject = function (town: Town, smithy: Smithy, bla
       function (town: Town) {
         // @ts-ignore
         const market = lib.findInArray(town.buildings, 'buildingType', 'market') || setup.createNewBuilding(town, 'Market')
-        return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets', 'town.buildings')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
+        return `some ${mundane.random()} to sell at ${setup.profile(market, 'the markets')} ${["in a couple day's time", 'soon', 'tomorrow', 'next Saturday', 'the day after tomorrow'].random()}.`
       }
     },
     {
@@ -122,7 +122,7 @@ export const createBlacksmithProject = function (town: Town, smithy: Smithy, bla
       function (town: Town) {
         // @ts-ignore
         const building = lib.findInArray(town.buildings, 'buildingType', 'temple') || setup.createNewBuilding(town, 'Temple')
-        return `an ornamental ${lib.random(weapon)} for ${setup.profile(building.associatedNPC, 'the priest')} of ${setup.profile(building, building.name, 'town.buildings')}.`
+        return `an ornamental ${lib.random(weapon)} for ${setup.profile(building.associatedNPC, 'the priest')} of ${setup.profile(building)}.`
       }
     }
   ]
