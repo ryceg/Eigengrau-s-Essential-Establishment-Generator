@@ -8,11 +8,14 @@ Lifestyle standard: <<listbox "$npcs[$currentPassage.key].lifestyleStandard" aut
 <</listbox>>
 <br>
 <label for="numberbox-npcs-currentpassage-key-heightInches">Height (in inches):</label>
-<<numberbox "$npcs[$currentPassage.key].heightInches" $npcs[$currentPassage.key].heightInches>> : <<lh $npcs[$currentPassage.key].height>>
+<<numberbox "$npcs[$currentPassage.key].heightInches" $npcs[$currentPassage.key].heightInches>> 
+/* : <<lh $npcs[$currentPassage.key].height>> */
 <br>
 <label for="numberbox-npcs-currentpassage-key-weightPounds">Weight (in pounds):</label>
-<<numberbox "$npcs[$currentPassage.key].weightPounds" $npcs[$currentPassage.key].weightPounds>> : <<lh $npcs[$currentPassage.key].weight>>
+<<numberbox "$npcs[$currentPassage.key].weightPounds" $npcs[$currentPassage.key].weightPounds>> 
+/* : <<lh $npcs[$currentPassage.key].weight>> */
 <br>
+<h4>Personality Traits (5-95 range)</h4>
 <<for _key, _obj range $npcs[$currentPassage.key].roll.traits>>
 <<set _trait to $npcs[$currentPassage.key].roll.traits[_key]>>
 <<set _label to "numberbox-npcs-currentpassage-key-roll-traits-" + _key>>

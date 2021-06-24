@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2.8.11
 
+### Added
+- Some of the NPC stats are now editable.
+
 ### Changed 
 - Fixed racial description while editing town demographics not updating.
 - Fixed an annoying issue where the period at the end of the sentence for racial and religious demographics would be pushed to a new line.
