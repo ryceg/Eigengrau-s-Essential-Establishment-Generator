@@ -40,8 +40,8 @@ jobs:
       - name: Copy main map
         run: cp -r ./gh-pages/main.js.map ./
         
-      - name: Create TypeDocs
-        run: yarn typedoc
+      # - name: Create TypeDocs
+      #   run: yarn typedoc
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1

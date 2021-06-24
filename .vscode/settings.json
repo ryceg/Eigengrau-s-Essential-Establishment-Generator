@@ -3,6 +3,15 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "src/init.js": true,
+    "gh-pages/**": true,
+    "/src/Tools/Exports/example.json": true,
+    "/yarn.lock": true
+  },
   "editor.formatOnSave": false,
   "prettier.semi": false,
   "highlight.maxMatches": 250,

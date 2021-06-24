@@ -19,7 +19,7 @@
     <</button>>
     <<liveblock>>
         <<if $currentPassage.randomNPC>>
-        <div id="NPC" class="descriptive">
+        <div id="NPC" class="descriptive no-indent">
             <h3>$currentPassage.randomNPC.name</h3>
             <<print lib.firstCharacter(lib.articles.output($currentPassage.randomNPC.descriptor).toUpperFirst())>> is currently <<print $currentPassage.randomNPC.idle.random()>> in the corner. 
             You strike up conversation with $currentPassage.randomNPC.himher, and the $currentPassage.randomNPC.descriptor introduces $currentPassage.randomNPC.himherself as 

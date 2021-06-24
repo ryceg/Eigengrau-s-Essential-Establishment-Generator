@@ -1,6 +1,6 @@
 import { ThresholdTable } from '../src/rollFromTable'
 import { dice } from '../src/dice'
-import { GenderName } from '../src/genderData'
+import { GenderName } from '../npc-generation/genderData'
 
 export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc' | 'lizardfolk'
 

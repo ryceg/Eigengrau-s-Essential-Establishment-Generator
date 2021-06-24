@@ -9,7 +9,7 @@ import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 import { Pantheon, PantheonTypes } from 'lib/religion/religion'
-import { GenderName } from '../../lib/src/genderData'
+import { GenderName } from '../../lib/npc-generation/genderData'
 import { Biome, Seasons } from '../../lib/src/terrain'
 
 export type PoliticalSource = keyof typeof townData.politicalSource

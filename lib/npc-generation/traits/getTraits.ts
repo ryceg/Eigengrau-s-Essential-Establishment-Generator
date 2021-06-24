@@ -64,7 +64,7 @@ const getInverseTrait = (trait: VirtuesVices) => {
 
 export const getTrait = (trait: VirtuesVices, npc: NPC, humanized?: boolean) => {
   const sanitizedVirtue = getVirtue(trait)
-  if (sanitizedVirtue.wasVice === false) return sanitizeTraitValues(npc.roll.traits[trait as Virtues])
+  if (sanitizedVirtue.wasVice === false) return sanitizeTraitValues(npc.roll.traits[trait as Virtues], humanized)
   const correspondingVirtue = getVirtue(trait)
   return sanitizeTraitValues(npc.roll.traits[correspondingVirtue.virtue], humanized)
 }
