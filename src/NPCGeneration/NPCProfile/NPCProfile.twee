@@ -1,4 +1,6 @@
 :: NPCProfile [nobr]
+<<set $currentNPC to $npcs[$currentPassage.key]>>
+<<liveblock>>
 <span class="interactive-only">
   <<include "NPCHeader">>
 </span>
@@ -6,8 +8,7 @@
 <quote>
   <<print lib.extractIpa($currentNPC.name)>>
 </quote>
-<br>
-<p>
+<p class='no-indent'>
 <span @id="$currentNPC.key">
   <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
       <<print lib.firstCharacter($currentNPC.title)>> $currentNPC.name
@@ -79,5 +80,5 @@ Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getRelig
 <</if>>
 <<include "NPCEarlyLife">>
 <<include "NPCLifeEvents">>
-<<include "NPCRelationshipsTable">>
+<<include "NPCRelationshipsTable">><</liveblock>>
 <<run console.groupEnd()>><<run console.log($currentNPC)>>

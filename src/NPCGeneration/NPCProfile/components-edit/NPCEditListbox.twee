@@ -1,8 +1,0 @@
-:: NPCEditListbox
-<<silently>>
-    <<set _class to '<label name="class" for="listbox-npcscurrentpassagekeyprofession"><<listbox "$npcs[$currentPassage.key].profession" autoselect>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>'>>
-    <<set _background to '<label name="background" for="listbox-npcscurrentpassagekeybackground"><<listbox "$npcs[$currentPassage.key].background" autoselect>><<optionsfrom Object.keys(lib.backgroundTraits)>><</listbox>></label>'>>
-    <<set _race to '<label name="race" for="listbox-npcscurrentpassagekeyrace"><<listbox "$npcs[$currentPassage.key].race" autoselect>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>'>>
-    <<set _gender to '<label name="gender" for="listbox-npcscurrentpassagekeygender"><<listbox "$npcs[$currentPassage.key].gender" autoselect>><<optionsfrom Object.keys(lib.genderData)>><</listbox>></label>'>>
-    <<set _replaceNpc to $npcs[$currentPassage.key]>>
-<</silently>>

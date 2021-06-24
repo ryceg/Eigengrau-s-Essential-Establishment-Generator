@@ -150,8 +150,10 @@ tippy.setDefaultProps({
   followCursor: 'horizontal',
   animation: 'perspective',
   theme: 'blockquote',
+  inlinePositioning: true,
   // theme: 'descriptive',
   allowHTML: true,
+  // // uncomment the next two for manual tippy activation.
   // hideOnClick: 'toggle',
   // trigger: 'click',
   inertia: true

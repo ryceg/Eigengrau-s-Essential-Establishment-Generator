@@ -11,8 +11,7 @@ sugarcube-2:
 
     # misc
     numberslider: {}
-    numberbox:
-      container: true
+    numberbox: {}
     notify:
       container: true
     fadein:

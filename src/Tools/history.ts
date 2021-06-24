@@ -22,8 +22,8 @@ function addToHistory (
   passageName = object.passageName,
   linkDescription = object.linkDescription || object.name) {
   const SVhistory = State.variables.history
-  const objectType = object.objectType || undefined
-  const key = object.parentKey || object.key || undefined
+  const objectType = object.objectType || null
+  const key = object.parentKey || object.key || null
   const state: HistoryItem = {
     key,
     objectType,
@@ -36,5 +36,5 @@ function addToHistory (
   }
 
   window.history.pushState(state, passageName)
-  // window.location.search = key
+  // window.location.hash = key
 }

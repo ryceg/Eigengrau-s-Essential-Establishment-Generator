@@ -5,11 +5,11 @@
 <<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
 <article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
 <article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
-<article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article>
+<article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article><</nobr>>
 <<details "TownListRaces" "Racial Demographics">>
 <<details "TownListReligion" "Religious Demographics">>
 <<details "TownListFactions" "List of Factions">>
-<<details "TownListBuildings" "List of Buildings">><</nobr>>
+<<details "TownListBuildings" "List of Buildings">>
 <<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 

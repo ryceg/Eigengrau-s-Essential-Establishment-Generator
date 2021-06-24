@@ -1,4 +1,4 @@
-import { GenderName } from '../src/genderData'
+import { GenderName } from '../npc-generation/genderData'
 import { random } from '../src/random'
 import { capitalizeFirstLetter } from '../src/utils'
 import { RaceName, raceTraits } from './raceTraits'

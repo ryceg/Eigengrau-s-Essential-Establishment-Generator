@@ -103,6 +103,19 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     },
     hairColour: lib.random(data.hairColour),
     hairType: lib.random(data.hairType),
+    get bmi (): number {
+      return lib.getNPCBMI(this.weightPounds as number, this.heightInches as number, lib.raceTraits[this.race].bmiModifier)
+    },
+    _weight: '',
+    get weight (): string {
+      if (this._weight) return this._weight
+      return lib.getNPCWeight(this.bmi as number, this.muscleMass)
+    },
+    _height: '',
+    get height (): string {
+      if (this._height) return this._height
+      return lib.getNPCHeight(this.heightInches as number)
+    },
     get hair () {
       return `${this.hairType} ${this.hairColour} hair`
     },
@@ -121,7 +134,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     profession,
     pockets: lib.random(data.pockets),
     wealth: lib.dice(2, 50),
-    currentMood: data.currentMood,
     hasHistory: base.hasHistory || false,
     idle: data.idle,
     get gender (): GenderName {
@@ -145,7 +157,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
       return lib.raceTraits[this._race].raceWords.raceName
     },
     knownLanguages: lib.raceTraits[race].knownLanguages,
-    reading: lib.random(data.reading),
     ...base
   }
 
@@ -156,9 +167,16 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     gender: npc.gender || npc._gender,
     race: npc.race || npc._race
   })
-
+  // for (const pronoun in lib.genderData[npc.gender]) {
+  //   Object.defineProperty(npc, pronoun, {
+  //     get (this: NPC) {
+  //       // @ts-ignore
+  //       return lib.genderData[npc.gender][pronoun]
+  //     }
+  //   })
+  // }
   lib.assign(npc, lib.genderData[npc.gender])
-  lib.assign(npc.pronouns, lib.genderData[npc.gender])
+  // lib.assign(npc.pronouns, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
