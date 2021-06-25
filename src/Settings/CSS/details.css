@@ -23,7 +23,7 @@ details[open][data-tags~="nofx"] > *:not(summary) {
 
 
 
-summary::-webkit-details-marker {
+summary::marker {
   display: none;
 }
 summary:before {

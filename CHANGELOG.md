@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2.8.12
+
+### Added
+- You can now link directly to buildings and the owners of buildings that were pre-generated.
+
+### Changed
+- The generator no longer uses the `location.hash` for the seed, and instead uses the `location.search` property. 
+
 ## 2.8.11
 
 ### Added
