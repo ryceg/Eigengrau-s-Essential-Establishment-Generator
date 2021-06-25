@@ -1,23 +1,30 @@
+const RESET_SEED = 'resetSeed'
+
 /**
  * This handles the allocation of a new URL seed.
  */
 export const urlSeed = () => {
   const params = new URLSearchParams(document.location.search)
-  const seed = getValidSeed(params.get('seed'))
-  console.log(`Setting the search 'seed' parameter to ${seed}`)
+  let origSeed = params.get('seed')
+  if (recall(RESET_SEED, false)) {
+    origSeed = null
+    forget(RESET_SEED)
+  }
+  const seed = getValidSeed(origSeed)
+  if (origSeed !== seed) {
+    params.set('seed', seed)
+    document.location.search = params.toString()
+  }
 
-  params.set('seed', seed)
-  location.search = params.toString()
-
-  console.log('Spinning up PRNG')
+  console.log(`Spinning up PRNG with "${seed}"`)
   State.prng.init(seed)
 }
 
+/** This tells the engine that it needs to generate a new seed. */
 $(document).one(':enginerestart', () => {
-  console.log('Creating a new seed...')
-  location.search = createSeed()
-  console.log('Restarting the engine...')
+  memorize(RESET_SEED, true)
 })
+
 /**
  * Validates and adjust a seed.
  * @param seed - Seed to validate/adjust.
@@ -33,7 +40,6 @@ function getValidSeed (seed: string | null): string {
     console.warn(`Seed not long enough! Appending some filler to ${seed}...`)
     seed += createSeed()
   }
-  alert(seed)
   return seed
 }
 
@@ -43,4 +49,38 @@ function getValidSeed (seed: string | null): string {
 function createSeed () {
   const { adjectives, animals } = lib.urlData
   return `${adjectives.random()}${adjectives.random()}${animals.random()}`
+}
+
+const passageExists = (key: string): boolean => {
+  if (Story.get(key)) return true
+  return false
+}
+
+export function navigateToObj () {
+  const hash = document.location.hash.replace('#', '')
+  if (hash) {
+    if (passageExists(hash)) {
+      setup.history(State.variables.town, hash, hash)
+      Engine.play(hash)
+    } else if (setup.findIfExistsViaKey(hash) === true) {
+      const obj = setup.findViaKey(hash)
+      State.variables.currentPassage = obj
+      setup.history(obj, obj.passageName, obj.name)
+      Engine.play(obj.passageName)
+    } else {
+      removeHash()
+    }
+  }
+}
+
+function removeHash () {
+  history.pushState('', document.title, window.location.pathname + window.location.search)
+  $(document).trigger({
+    type: ':notify',
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    message: 'Sorry, unfortunately this key was not linked to a pregenerated object; linking only works to building owners that are generated at start with no user interaction.',
+    delay: 8000,
+    classes: false
+  })
 }
