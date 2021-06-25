@@ -36,5 +36,5 @@ function addToHistory (
   }
 
   window.history.pushState(state, passageName)
-  // window.location.hash = key
+  window.location.hash = key || passageName
 }

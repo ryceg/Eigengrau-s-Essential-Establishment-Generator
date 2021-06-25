@@ -1,5 +1,16 @@
 import type { Building, Deity, Faction, NPC, Road } from '@lib'
 
+export const findIfExistsViaKey = (key: string): boolean => {
+  if (State.variables.npcs[key]) return true
+  if (State.variables.town.factions[key]) return true
+  if (State.variables.town.roads[key]) return true
+  const building = State.variables.town.buildings.find(building => {
+    return building.key === key
+  })
+  if (building) return true
+  return false
+}
+
 export const findViaKey = (key: string): Faction | Building | NPC | Road | Deity => {
   if (State.variables.npcs[key]) return State.variables.npcs[key]
   if (State.variables.town.factions[key]) return State.variables.town.factions[key]

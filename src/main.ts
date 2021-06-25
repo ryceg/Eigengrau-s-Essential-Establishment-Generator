@@ -31,14 +31,14 @@ import { openDialog, rerenderPage } from './Dialog/openDialog'
 import { addSettingButton } from './Settings/settingButton'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
-import { urlSeed } from './World/urlSeed'
+import { urlSeed, navigateToObj } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
 import { createTown, getTownType } from './Town/js/createTown'
-import { findViaKey } from './Tools/findViaKey'
+import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
 import { createSmithy } from './Blacksmith/js/createSmithy'
@@ -94,6 +94,7 @@ declare global {
     graveStone: typeof graveStone
     townSquare: typeof townSquare
     urlSeed: typeof urlSeed
+    navigateToObj: typeof navigateToObj
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
@@ -102,6 +103,7 @@ declare global {
     createTown: typeof createTown
     getTownType: typeof getTownType
     findViaKey: typeof findViaKey
+    findIfExistsViaKey: typeof findIfExistsViaKey
     createBlacksmithProject: typeof createBlacksmithProject
     createSmithyName: typeof createSmithyName
     createSmithy: typeof createSmithy
@@ -160,6 +162,7 @@ Object.assign(setup, {
   graveStone,
   townSquare,
   urlSeed,
+  navigateToObj,
   deleteFaction,
   leaderFaction,
   plothooks,
@@ -168,6 +171,7 @@ Object.assign(setup, {
   createTown,
   getTownType,
   findViaKey,
+  findIfExistsViaKey,
   createBlacksmithProject,
   createSmithyName,
   createSmithy,

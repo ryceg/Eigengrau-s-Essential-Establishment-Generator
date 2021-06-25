@@ -2,7 +2,7 @@
 <<nosp>><<liveblock>>
 <<set $town.ignoreGender to settings.ignoreGender>>
 <nav>
-  <<link "The $town.type of $town.name">><<if $town.generated === 'biome'>><<set $town to setup.createTown($town)>><</if>><<unset $currentPassage>><<unset $currentNPC>><<set $history to []>><<goto "Start">><</link>>
+  <<link "The $town.type of $town.name">><<if $town.generated === 'biome'>><<set $town to setup.createTown($town)>><</if>><<unset $currentPassage>><<unset $currentNPC>><<set $history to []>><<run history.pushState('', document.title, window.location.pathname + window.location.search)>><<goto "Start">><</link>>
 </nav>
 <<for _i, _passage range $history>><<set _link to lib.toTitleCase(_passage.linkDescription)>><<capture _i, _passage, _link>><<if _i < $history.length - 1>><nav class="breadcrumb-link"><<link _link _passage.passageName>><<set $currentPassage to _passage>><<run $history.length = _i>><<run setup.history(_passage, _passage.passageName, _passage.linkDescription)>><</link>></nav><</if>><</capture>><</for>><<if def $history.last()>><nav class="breadcrumb-link last"><<print lib.toTitleCase($history.last().linkDescription)>></nav><</if>>
 <</liveblock>><</nosp>>

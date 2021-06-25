@@ -1,18 +1,28 @@
+const RESET_SEED = 'resetSeed'
+
+/**
+ * This handles the allocation of a new URL seed.
+ */
 export const urlSeed = () => {
-  const seed = getValidSeed(location.hash.replace('#', ''))
+  const params = new URLSearchParams(document.location.search)
+  let origSeed = params.get('seed')
+  if (recall(RESET_SEED, false)) {
+    origSeed = null
+    forget(RESET_SEED)
+  }
+  const seed = getValidSeed(origSeed)
+  if (origSeed !== seed) {
+    params.set('seed', seed)
+    document.location.search = params.toString()
+  }
 
-  console.log(`Setting the location hash to ${seed}`)
-  State.metadata.set('seed', seed)
-  location.hash = seed
-
-  console.log('Spinning up PRNG')
+  console.log(`Spinning up PRNG with "${seed}"`)
   State.prng.init(seed)
 }
 
+/** This tells the engine that it needs to generate a new seed. */
 $(document).one(':enginerestart', () => {
-  console.log('Creating a new seed...')
-  location.hash = createSeed()
-  console.log('Restarting the engine...')
+  memorize(RESET_SEED, true)
 })
 
 /**
@@ -20,17 +30,16 @@ $(document).one(':enginerestart', () => {
  * @param seed - Seed to validate/adjust.
  * @returns A valid seed.
  */
-function getValidSeed (seed: string): string {
+function getValidSeed (seed: string | null): string {
+  if (!seed) seed = createSeed()
   if (seed.length <= 0) {
     console.log('Creating a seed...')
-    return createSeed()
+    seed = createSeed()
   }
-
   if (seed.length <= 16) {
     console.warn(`Seed not long enough! Appending some filler to ${seed}...`)
-    return seed + createSeed()
+    seed += createSeed()
   }
-
   return seed
 }
 
@@ -40,4 +49,38 @@ function getValidSeed (seed: string): string {
 function createSeed () {
   const { adjectives, animals } = lib.urlData
   return `${adjectives.random()}${adjectives.random()}${animals.random()}`
+}
+
+const passageExists = (key: string): boolean => {
+  if (Story.get(key)) return true
+  return false
+}
+
+export function navigateToObj () {
+  const hash = document.location.hash.replace('#', '')
+  if (hash) {
+    if (passageExists(hash)) {
+      setup.history(State.variables.town, hash, hash)
+      Engine.play(hash)
+    } else if (setup.findIfExistsViaKey(hash) === true) {
+      const obj = setup.findViaKey(hash)
+      State.variables.currentPassage = obj
+      setup.history(obj, obj.passageName, obj.name)
+      Engine.play(obj.passageName)
+    } else {
+      removeHash()
+    }
+  }
+}
+
+function removeHash () {
+  history.pushState('', document.title, window.location.pathname + window.location.search)
+  $(document).trigger({
+    type: ':notify',
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    message: 'Sorry, unfortunately this key was not linked to a pregenerated object; linking only works to building owners that are generated at start with no user interaction.',
+    delay: 8000,
+    classes: false
+  })
 }
