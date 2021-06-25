@@ -2,11 +2,11 @@
  * This handles the allocation of a new URL seed.
  */
 export const urlSeed = () => {
-  const url = new URL('https://eigengrausgenerator.com/?seed=crazyrandomdogorsomething')
+  const url = new URL(window.location.href)
   const params = new URLSearchParams(url.search)
-
   const seed = getValidSeed(params.get('seed'))
-  console.log(`Setting the location hash to ${seed}`)
+  console.log(`Setting the search 'seed' parameter to ${seed}`)
+
   params.set('seed', seed)
   location.search = params.toString()
 
@@ -30,12 +30,10 @@ function getValidSeed (seed: string | null): string {
     console.log('Creating a seed...')
     return createSeed()
   }
-
   if (seed.length <= 16) {
     console.warn(`Seed not long enough! Appending some filler to ${seed}...`)
     return seed + createSeed()
   }
-
   return seed
 }
 
