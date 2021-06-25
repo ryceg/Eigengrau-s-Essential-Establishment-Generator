@@ -2,8 +2,7 @@
  * This handles the allocation of a new URL seed.
  */
 export const urlSeed = () => {
-  const url = new URL(window.location.href)
-  const params = new URLSearchParams(url.search)
+  const params = new URLSearchParams(document.location.search)
   const seed = getValidSeed(params.get('seed'))
   console.log(`Setting the search 'seed' parameter to ${seed}`)
 
@@ -28,12 +27,13 @@ function getValidSeed (seed: string | null): string {
   if (!seed) seed = createSeed()
   if (seed.length <= 0) {
     console.log('Creating a seed...')
-    return createSeed()
+    seed = createSeed()
   }
   if (seed.length <= 16) {
     console.warn(`Seed not long enough! Appending some filler to ${seed}...`)
-    return seed + createSeed()
+    seed += createSeed()
   }
+  alert(seed)
   return seed
 }
 
