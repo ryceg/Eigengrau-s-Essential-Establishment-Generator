@@ -52,7 +52,7 @@ function createSeed () {
 }
 
 const passageExists = (key: string): boolean => {
-  if (Story.get(key)) return true
+  if (Story.has(key)) return true
   return false
 }
 
