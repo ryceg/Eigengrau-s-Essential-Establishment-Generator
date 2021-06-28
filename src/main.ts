@@ -51,8 +51,8 @@ import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Gua
 import { createStartBuildings } from './Town/js/createStartBuildings'
 import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
 import { createStartFactions } from './Town/js/createStartFactions'
-import { buildingTypes } from './Town/js/createNewBuilding'
-// import { exportToNovel } from './Tools/Exports/exportNovelAI'
+import { buildingTypes } from './Town/js/buildingTypes'
+import { createFaction } from './Factions/createFaction'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -123,7 +123,7 @@ declare global {
     createDeadNPC: typeof createDeadNPC
     createStartFactions: typeof createStartFactions
     buildingTypes: typeof buildingTypes
-    // exportToNovel: typeof exportToNovel
+    createFaction: typeof createFaction
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -195,8 +195,8 @@ Object.assign(setup, {
   npcDeath,
   createDeadNPC,
   createStartFactions,
-  buildingTypes
-  // exportToNovel
+  buildingTypes,
+  createFaction
   // createBuildingKeys,
   // createNewBuilding
 })
