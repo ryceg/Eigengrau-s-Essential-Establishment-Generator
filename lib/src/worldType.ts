@@ -95,7 +95,7 @@ export const WizardSchool: Record<WizardSchools, FifthEditionBookInfo> = {
   }
 }
 
-export const ClericDomain: Record<ClericDomains, FifthEditionBookInfo> = {
+export const ClericDomain: Record<ClericDomains, FifthEditionBookInfo | FifthEditionBookInfo[]> = {
   arcana: {
     source: 'SCAG'
   },

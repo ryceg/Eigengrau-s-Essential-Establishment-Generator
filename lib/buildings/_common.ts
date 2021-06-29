@@ -1,5 +1,4 @@
 import { NPC } from '../npc-generation/_common'
-
 export interface Location {
   key: string
   /** 'building', 'faction', 'npc', or 'room'. */
@@ -12,6 +11,7 @@ export interface Location {
   name?: string
   wordNoun?: string
   needsWordNoun?: boolean
+  description?: string
   associatedNPC?: NPC
   tippyDescription?: string
   isOffRoad?: boolean
