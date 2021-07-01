@@ -150,12 +150,12 @@ export const createTown = (base: TownBasics | Town) => {
     get politicalSourceDescription () {
       if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
         if (this.politicalIdeology === 'autocracy') {
-          return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
+          return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription(this as unknown as Town)
         } else {
-          return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription
+          return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription(this as unknown as Town)
         }
       } else {
-        return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription
+        return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription(this as unknown as Town)
       }
     },
     set politicalSourceDescription (data) {
