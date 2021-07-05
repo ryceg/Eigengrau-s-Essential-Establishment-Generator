@@ -26,3 +26,5 @@
       passage: 'Welcome'
     })>>
 <</if>>
+
+<<button "Run">><<run setup.exportToNovel($town, $npcs)>><</button>>

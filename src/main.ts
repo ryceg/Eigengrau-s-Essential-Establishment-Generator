@@ -52,6 +52,7 @@ import { createStartBuildings } from './Town/js/createStartBuildings'
 import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
 import { createStartFactions } from './Town/js/createStartFactions'
 import { buildingTypes } from './Town/js/createNewBuilding'
+// import { exportToNovel } from './Tools/Exports/exportNovelAI'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -122,6 +123,7 @@ declare global {
     createDeadNPC: typeof createDeadNPC
     createStartFactions: typeof createStartFactions
     buildingTypes: typeof buildingTypes
+    // exportToNovel: typeof exportToNovel
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -194,6 +196,7 @@ Object.assign(setup, {
   createDeadNPC,
   createStartFactions,
   buildingTypes
+  // exportToNovel
   // createBuildingKeys,
   // createNewBuilding
 })
