@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Faction, FactionType, Town } from '@lib'
+
 // uses setup.leaderFaction
-setup.createFaction = (town, opts = {}) => {
-  /** @type {import("../../lib/index").FactionType} type */
-  const type = opts.type || lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
+export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const type = opts?.type || lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type as FactionType
 
   // s are defined immediately in case they're needed in the subroutines out of order (i.e. it makes no sense to initialise Size in the size.js function if it's being used in "reputation.js")
 
@@ -35,7 +39,7 @@ setup.createFaction = (town, opts = {}) => {
   if (typeof faction.type === 'undefined') {
     console.warn('Faction type was somehow missed. Rerolling...')
     console.log(faction)
-    /** @type {import("../../lib/index").FactionType} type */
+    // @ts-ignore
     const type2 = lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
     if (!type2) {
       console.error('faction type was not defined! Defaulting to merchants.')
@@ -49,27 +53,27 @@ setup.createFaction = (town, opts = {}) => {
     livery: lib.createLivery(faction.type)
   })
 
-  lib.setFactionAge(faction)
-  faction.name = faction.name || lib.setFactionName(town, faction)
+  lib.setFactionAge(faction as Faction)
+  faction.name = faction.name || lib.setFactionName(town, faction as Faction)
 
   console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
 
-  lib.setFactionReputation(faction)
-  lib.setFactionSize(town, faction)
-  lib.setFactionInfluence(faction)
-  lib.setFactionResources(faction)
-  lib.setFactionStability(faction)
-  setup.leaderFaction(town, faction)
-  lib.setFactionJoinStats(faction)
-  lib.setFactionMisc(faction)
+  lib.setFactionReputation(faction as Faction)
+  lib.setFactionSize(town, faction as Faction)
+  lib.setFactionInfluence(faction as Faction)
+  lib.setFactionResources(faction as Faction)
+  lib.setFactionStability(faction as Faction)
+  setup.leaderFaction(town, faction as Faction)
+  lib.setFactionJoinStats(faction as Faction)
+  lib.setFactionMisc(faction as Faction)
 
-  lib.createAllies(faction)
-  lib.createRivals(faction)
+  lib.createAllies(faction as Faction)
+  lib.createRivals(faction as Faction)
 
-  faction.tippyDescription = `${lib.articles.output(faction.size).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
+  faction.tippyDescription = `${lib.articles.output(faction.size as string).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
   console.groupEnd()
   console.log(`${faction.name} have loaded.`)
   console.log(faction)
-  return faction
+  return faction as Faction
 }

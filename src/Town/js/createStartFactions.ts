@@ -1,6 +1,7 @@
 // uses setup.createFaction
 
 import { Town } from '@lib'
+import { createFaction } from '../../Factions/createFaction'
 
 // already has a definition
 export const createStartFactions = (town: Town) => {
@@ -9,7 +10,7 @@ export const createStartFactions = (town: Town) => {
   const factionsNumber = getFactionsNumber(town)
 
   for (let i = 0; i <= factionsNumber; i++) {
-    const tempFaction = setup.createFaction(town)
+    const tempFaction = createFaction(town)
     town.factions[tempFaction.key] = tempFaction
   }
 
