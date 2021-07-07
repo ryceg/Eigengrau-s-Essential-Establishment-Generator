@@ -1,27 +1,4 @@
 setup.initBuildingTypes = () => {
-  setup.buildingTypes = {
-    'Alchemist': 'alchemist',
-    'Bakery': 'bakery',
-    'Barber': 'barber',
-    'Brothel': 'brothel',
-    'Butcher': 'butcher',
-    'Castle': 'castle',
-    'Cobbler': 'cobbler',
-    'Docks': 'docks',
-    'Dungeon': 'dungeon',
-    'Fletcher': 'fletcher',
-    'Florist': 'florist',
-    'General Store': 'generalStore',
-    'Graveyard': 'graveyard',
-    'Guardhouse': 'guardhouse',
-    'Jeweller': 'jeweller',
-    'Market': 'market',
-    'Smithy': 'smithy',
-    'Tailor': 'tailor',
-    'Tavern': 'tavern',
-    'Temple': 'temple',
-    'Town Square': 'townSquare'
-  }
   setup.createBuildingKeys = {
     // please keep this in alphabetic order
     // TODO automatically sort into alphabetic order

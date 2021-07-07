@@ -3,7 +3,7 @@
 <<include "BriefDescription">>
 <p>The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output(lib.getTownWealth($town.roll.wealth))>> existence. 
 <<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
-<article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
+<article><h3>Government in $town.name</h3><<print $town.economicIdeologyDescription($town)>> <<print $town.politicalSourceDescription($town)>></article>
 <article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
 <article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article><</nobr>>
 <<details "TownListRaces" "Racial Demographics">>

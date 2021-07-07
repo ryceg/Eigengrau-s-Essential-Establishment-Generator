@@ -50,6 +50,10 @@ import { copyText } from './Tools/Exports/clipboard'
 import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
 import { createStartBuildings } from './Town/js/createStartBuildings'
 import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
+import { createStartFactions } from './Town/js/createStartFactions'
+import { buildingTypes } from './Town/js/buildingTypes'
+import { createFaction } from './Factions/createFaction'
+// import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
   interface Setup {
@@ -117,6 +121,11 @@ declare global {
     createStartBuildings: typeof createStartBuildings
     npcDeath: typeof npcDeath
     createDeadNPC: typeof createDeadNPC
+    createStartFactions: typeof createStartFactions
+    buildingTypes: typeof buildingTypes
+    createFaction: typeof createFaction
+    // createBuildingKeys: typeof createBuildingKeys
+    // createNewBuilding: typeof createNewBuilding
   }
 }
 
@@ -184,7 +193,12 @@ Object.assign(setup, {
   createGuardhouseName,
   createStartBuildings,
   npcDeath,
-  createDeadNPC
+  createDeadNPC,
+  createStartFactions,
+  buildingTypes,
+  createFaction
+  // createBuildingKeys,
+  // createNewBuilding
 })
 
 /**
