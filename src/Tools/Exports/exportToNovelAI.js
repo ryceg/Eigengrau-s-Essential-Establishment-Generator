@@ -1,8 +1,10 @@
 setup.exportToNovel = (town, npcs) => {
+  State.temporary.exportType = 'novelai'
   const briefDescription = Story.get('BriefDescription').processText().trim()
   const $offshore = $('<div />')
   const doc3 = $offshore.wiki(briefDescription)
-  const resultText = doc3.textContent || doc3.innerText || doc3.innerHTML
+  const temp = doc3[0].textContent || doc3[0].innerText || doc3[0].innerHTML
+  const resultText = temp.replace(/  +/g, ' ')
   alert(JSON.stringify(resultText))
   const novel = {
     scenarioVersion: 0,
@@ -12,7 +14,7 @@ setup.exportToNovel = (town, npcs) => {
     /** The prompt part of it */
     prompt: `
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
-    ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription(town)}
+    ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
     ${lib.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
     tags: [

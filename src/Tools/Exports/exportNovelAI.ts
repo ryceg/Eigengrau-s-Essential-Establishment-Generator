@@ -35,15 +35,21 @@ interface LorebookEntry {
 }
 
 export function exportToNovel (town: Town, npcs: Record<string, NPC>) {
+  State.temporary.exportType = 'novelai'
+  const briefDescription = Story.get('BriefDescription').processText().trim()
+  const $offshore = $('<div />')
+  const doc3 = $offshore.wiki(briefDescription)
+  const temp = doc3[0].textContent || doc3[0].innerText || doc3[0].innerHTML
+  const resultText = temp.replace(/  +/g, ' ')
   const novel = {
     scenarioVersion: 0,
     title: `The ${town.type} of ${town.name}`,
     /** Brief overview */
-    description: Story.get('BriefDescription').processText().trim(),
+    description: `The ${town.type} of ${town.name} is a ${town.economicIdeology} ${town.politicalIdeology} ${town.politicalSource}. It has a population of ${town.population}, and its citizens live a ${town.wealth} life. The ${town.type} grew around ${lib.articles.output(town.origin)}, and is comprised ${lib.getPredominantRace(town.demographicPercentile).amountDescriptive}.`,
     /** The prompt part of it */
     prompt: `
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
-    ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription(town)}
+    ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
     ${lib.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
     tags: [
@@ -54,7 +60,7 @@ export function exportToNovel (town: Town, npcs: Record<string, NPC>) {
     ],
     context: [
       {
-        text: Story.get('BriefDescription').processText().trim(),
+        text: resultText,
         contextConfig: {
           prefix: '',
           suffix: '\n',

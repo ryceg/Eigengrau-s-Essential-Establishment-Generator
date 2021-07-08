@@ -1,2 +1,3 @@
 :: RacesPercentageList
-<span class='tippy-races-percentage'></span><<done>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</done>>
+<<if _exportType is 'novelai'>><<print lib.getPredominantRace($town.demographicPercentile).amountDescriptive>>
+<<else>><span class='tippy-races-percentage'></span><<done>><<run setup.createRaceHTML($town.demographicPercentile, 'tippy-races-percentage')>><</done>><</if>>
