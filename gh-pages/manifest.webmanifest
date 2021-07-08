@@ -1,0 +1,22 @@
+{
+  "short_name": "EEEG",
+  "name": "Eigengrau's Essential Establishment Generator",
+  "description": "A town generator suitable for out-of-the-box play in any fantasy TTRPG setting.",
+  "icons": [
+    {
+      "src": "/src/Resources/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/Resources/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#111111",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#dedede"
+}
