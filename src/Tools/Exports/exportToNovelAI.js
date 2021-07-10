@@ -16,7 +16,7 @@ setup.exportToNovel = (town, npcs) => {
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
     ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
-    ${lib.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
+    ${setup.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
     tags: [
       'fantasy',
       'dungeons and dragons',

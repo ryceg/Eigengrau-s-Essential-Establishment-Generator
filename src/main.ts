@@ -53,6 +53,7 @@ import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
 import { createStartFactions } from './Town/js/createStartFactions'
 import { buildingTypes } from './Town/js/buildingTypes'
 import { createFaction } from './Factions/createFaction'
+import { getTownMilitary } from './Town/js/getTownMilitary'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -124,6 +125,7 @@ declare global {
     createStartFactions: typeof createStartFactions
     buildingTypes: typeof buildingTypes
     createFaction: typeof createFaction
+    getTownMilitary: typeof getTownMilitary
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -196,7 +198,8 @@ Object.assign(setup, {
   createDeadNPC,
   createStartFactions,
   buildingTypes,
-  createFaction
+  createFaction,
+  getTownMilitary
   // createBuildingKeys,
   // createNewBuilding
 })
