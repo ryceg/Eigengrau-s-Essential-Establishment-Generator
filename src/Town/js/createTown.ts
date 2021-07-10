@@ -147,22 +147,22 @@ export const createTown = (base: TownBasics | Town) => {
       this._politicalIdeology = value
       Object.assign(this, lib.townData.politicalIdeology[this._politicalIdeology].data)
     },
-    get politicalSourceDescription () {
-      if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
-        if (this.politicalIdeology === 'autocracy') {
-          return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription(this as unknown as Town)
-        } else {
-          return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription(this as unknown as Town)
-        }
-      } else {
-        return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription(this as unknown as Town)
-      }
-    },
-    set politicalSourceDescription (data) {
-      console.warn('Trying to set politicalSourceDescription, which is a read-only!')
-      console.log(this.religionPercentages)
-      console.log(data)
-    },
+    // get politicalSourceDescription () {
+    //   if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
+    //     if (this.politicalIdeology === 'autocracy') {
+    //       return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription(this as unknown as Town)
+    //     } else {
+    //       return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription(this as unknown as Town)
+    //     }
+    //   } else {
+    //     return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription(this as unknown as Town)
+    //   }
+    // },
+    // set politicalSourceDescription (data) {
+    //   console.warn('Trying to set politicalSourceDescription, which is a read-only!')
+    //   console.log(this.religionPercentages)
+    //   console.log(data)
+    // },
     // get wealth () {
     //   const rollData = lib.townData.rollData.wealth as TownRollData
     //   if (rollData) {

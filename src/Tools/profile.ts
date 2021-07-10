@@ -12,7 +12,7 @@ import type { NPC, Building, Faction, Road, Deity } from '@lib'
  * TODO: update documentation here.
  * For factions, point towards `town.factions`
  */
-export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: string): string => {
+export const profile = (obj: NPC | Building | Faction | Road | Deity | string, readout?: string): string => {
   let result
   if (typeof obj === 'string') {
     console.warn(`Profile function for ${obj} called with a string.`)

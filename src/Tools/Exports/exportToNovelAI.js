@@ -14,7 +14,7 @@ setup.exportToNovel = (town, npcs) => {
     /** The prompt part of it */
     prompt: `
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
-    ${town.economicIdeologyDescription(town)} ${town.politicalSourceDescription}
+    ${town.economicIdeologyDescription(town)} ${setup.getPoliticalSourceDescription(town)}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
     ${setup.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
     tags: [

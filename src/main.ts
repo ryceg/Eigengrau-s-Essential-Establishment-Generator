@@ -54,6 +54,7 @@ import { createStartFactions } from './Town/js/createStartFactions'
 import { buildingTypes } from './Town/js/buildingTypes'
 import { createFaction } from './Factions/createFaction'
 import { getTownMilitary } from './Town/js/getTownMilitary'
+import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -126,6 +127,7 @@ declare global {
     buildingTypes: typeof buildingTypes
     createFaction: typeof createFaction
     getTownMilitary: typeof getTownMilitary
+    getPoliticalSourceDescription: typeof getPoliticalSourceDescription
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -199,7 +201,8 @@ Object.assign(setup, {
   createStartFactions,
   buildingTypes,
   createFaction,
-  getTownMilitary
+  getTownMilitary,
+  getPoliticalSourceDescription
   // createBuildingKeys,
   // createNewBuilding
 })
