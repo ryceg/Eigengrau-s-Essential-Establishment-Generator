@@ -3,6 +3,7 @@
   <<option "GMBinder">>
   <<option "Homebrewery">>
   <<option "Foundry">>
+  <<option "NovelAI">>
   <<option "Raw JSON">>
 <</listbox>></label> -- <span class="tip" data-tippy-content="This can take a while."><<button "Export">>
 <<run setup.addGtagEvent({
@@ -20,6 +21,14 @@
   <<case "Raw JSON">>
     <<set _exportContent to JSON.stringify($town) + JSON.stringify($npcs) + JSON.stringify(lib.getPantheonDeities($town, State.metadata.get('pantheon')))>>
     <<replace "#tutorial">>This is all of the data from the {{{$town}}} and {{{$npcs}}} objects, for whatever purposes you may desire.<</replace>>
+  <<case "NovelAI">>
+    <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({
+        header: 'Patreon Only',
+        passage: 'ImportPatreon',
+        rerender: true
+      })>><<else>>
+    <<run setup.exportToNovelAI($town, $npcs)>>
+    <</if>>
   <<case "Foundry">>
   <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({
       header: 'Patreon Only',
