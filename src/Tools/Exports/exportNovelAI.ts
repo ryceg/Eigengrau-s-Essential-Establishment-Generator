@@ -34,20 +34,27 @@ interface LorebookEntry {
     forceActivation: boolean
 }
 
-export function exportToNovel (town: Town, npcs: Record<string, NPC>) {
-  State.temporary.exportType = 'novelai'
-  const briefDescription = Story.get('BriefDescription').processText().trim()
+/** Gets the passage, processes it, and then strips it of everything into just plain text. */
+function getPassageText (passageName: string) {
+  const passageContents = Story.get(passageName).processText().trim()
   const $offshore = $('<div />')
-  const doc3 = $offshore.wiki(briefDescription)
-  const temp = doc3[0].textContent || doc3[0].innerText || doc3[0].innerHTML
-  const resultText = temp.replace(/  +/g, ' ')
+  const wikified = $offshore.wiki(passageContents)
+  const unformatted = wikified[0].textContent || wikified[0].innerText || wikified[0].innerHTML
+  const resultText = unformatted.replace(/  +/g, ' ')
+  return resultText
+}
+
+/** Exports to the NovelAI `.scenario` format. Still very much a work in progress. */
+export function exportToNovelAI (town: Town, npcs: Record<string, NPC>) {
+  State.temporary.exportType = 'novelai'
+  const briefDescription = getPassageText('BriefDescription')
   const novel = {
     scenarioVersion: 0,
     title: `The ${town.type} of ${town.name}`,
     /** Brief overview */
-    description: `The ${town.type} of ${town.name} is a ${town.economicIdeology} ${town.politicalIdeology} ${town.politicalSource}. It has a population of ${town.population}, and its citizens live a ${town.wealth} life. The ${town.type} grew around ${lib.articles.output(town.origin)}, and is comprised ${lib.getPredominantRace(town.demographicPercentile).amountDescriptive}.`,
+    description: `The ${town.type} of ${town.name} is a ${town.economicIdeologyIST} ${town.politicalIdeology} ${town.politicalSource}. It has a population of ${town.population}, and its citizens live a ${lib.getTownWealth(town.roll.wealth)} life. The ${town.type} grew around ${lib.articles.output(town.origin)}, and is comprised ${lib.getPredominantRace(town.demographicPercentile).amountDescriptive}.`,
     /** The prompt part of it */
-    prompt: `
+    prompt: `${briefDescription}
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
     ${town.economicIdeologyDescription(town)} ${setup.getPoliticalSourceDescription(town)}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
@@ -60,7 +67,7 @@ export function exportToNovel (town: Town, npcs: Record<string, NPC>) {
     ],
     context: [
       {
-        text: resultText,
+        text: briefDescription,
         contextConfig: {
           prefix: '',
           suffix: '\n',
@@ -88,9 +95,29 @@ export function exportToNovel (town: Town, npcs: Record<string, NPC>) {
     ],
     placeholders: [
       {
-        key: '1townName',
+        key: town.name,
         description: `the name of the ${town.type}`,
         defaultValue: town.name
+      },
+      {
+        key: town.leaderType,
+        description: 'the leadership type',
+        defaultValue: town.leaderType
+      },
+      {
+        key: lib.getPolice(town.factions).name,
+        description: 'The name of the guards',
+        defaultValue: lib.getPolice(town.factions).name
+      },
+      {
+        key: town.leader.title,
+        description: `title of the leader of the ${town.type}`,
+        defaultValue: town.leader.title
+      },
+      {
+        key: npcs[town.leader.key].name,
+        description: 'name of the leader',
+        defaultValue: npcs[town.leader.key].name
       }
     ],
     settings: {

@@ -55,6 +55,7 @@ import { buildingTypes } from './Town/js/buildingTypes'
 import { createFaction } from './Factions/createFaction'
 import { getTownMilitary } from './Town/js/getTownMilitary'
 import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
+import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -128,6 +129,7 @@ declare global {
     createFaction: typeof createFaction
     getTownMilitary: typeof getTownMilitary
     getPoliticalSourceDescription: typeof getPoliticalSourceDescription
+    exportToNovelAI: typeof exportToNovelAI
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -202,7 +204,8 @@ Object.assign(setup, {
   buildingTypes,
   createFaction,
   getTownMilitary,
-  getPoliticalSourceDescription
+  getPoliticalSourceDescription,
+  exportToNovelAI
   // createBuildingKeys,
   // createNewBuilding
 })
