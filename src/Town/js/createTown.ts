@@ -17,6 +17,7 @@ export const createTown = (base: TownBasics | Town) => {
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    key: lib.getUUID(),
     generated: 'full',
     objectType: 'town',
     townMaterial: 'mainTownMaterial',

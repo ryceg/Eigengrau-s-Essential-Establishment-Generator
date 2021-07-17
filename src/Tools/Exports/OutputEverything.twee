@@ -27,7 +27,10 @@
         passage: 'ImportPatreon',
         rerender: true
       })>><<else>>
-    <<run setup.exportToNovelAI($town, $npcs)>>
+    <<set _exportContent to JSON.stringify(setup.exportToNovelAI($town, $npcs))>>
+    <<set _link to "https://novelai.net/#/stories/" + $town.key>>
+    <<set _title to $town.type + ' of ' + $town.name + '.scenario'>>
+    <<replace "#tutorial">>Download the `_title` file, and then import the scenario [[here|_link]].<</replace>>
     <</if>>
   <<case "Foundry">>
   <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({

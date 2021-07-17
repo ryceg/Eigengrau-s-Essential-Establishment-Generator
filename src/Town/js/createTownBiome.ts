@@ -15,6 +15,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
     {
       // name: townName,
       terrain,
+      key: lib.getUUID(),
       currentSeason: season,
       ignoreGender: false,
       generated: 'biome',

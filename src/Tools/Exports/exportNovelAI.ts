@@ -91,6 +91,8 @@ interface NovelAIScenario {
        */
       trimResponses: boolean
       banBrackets: boolean
+      /** Determines the theme */
+      prefix?: string
     },
     lorebook: {
       lorebookVersion: 1,
@@ -293,7 +295,8 @@ export function exportToNovelAI (town: Town, npcs: Record<string, NPC>) {
         ]
       },
       trimResponses: true,
-      banBrackets: true
+      banBrackets: true,
+      prefix: 'theme_generalfantasy'
     },
     lorebook: {
       lorebookVersion: 1,
@@ -375,11 +378,12 @@ export function exportToNovelAI (town: Town, npcs: Record<string, NPC>) {
   })
   alert(JSON.stringify(placeholders))
   novel.prompt = makePlaceholders(novel.prompt, placeholders)
-  // makePlaceholders(novel.lorebook.entries, placeholders)
   downloadObjectAsJson(novel, `The ${town.type} of ${town.name}`)
+  return novel
 }
 
-function downloadObjectAsJson (exportObj: unknown, exportName: string) {
+/** Downloads the object as a `.json` file. */
+function downloadObjectAsJson (exportObj: NovelAIScenario | unknown, exportName: string) {
   const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(exportObj))}`
   const downloadAnchorNode = document.createElement('a')
   downloadAnchorNode.setAttribute('href', dataStr)
