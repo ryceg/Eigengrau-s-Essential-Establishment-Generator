@@ -5,7 +5,7 @@
 <<run setup.init()>>
 
 <<set setup.data to {
-	versionNumber: "2.8.12",
+	versionNumber: "2.8.13",
 	badges: {
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
@@ -49,7 +49,7 @@
 		<<set Config.passages.start = "Start">>
 <</if>>
 <<set _t to lib.books.normal>><<set $_ to ''>>
-<<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][4]>><</for>>
+<<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][6]>><</for>>
 <<if location.origin === 'file://'>><<set settings.disableAnalytics to true>><<run memorize('patreonPass', $_)>><<notify 10000>>Patreon features are unlocked since you're running locally.<</notify>>
 <<elseif location.hash.includes('npt')>><<run memorize('patreonPass', $_)>><<set settings.hideAds to true>>
 <</if>>

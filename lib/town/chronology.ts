@@ -2,7 +2,7 @@ import { Building, Deity, Faction, Family, NPC } from '@lib'
 import { Location } from 'src/World/locations'
 
 export interface TownHistory {
-  events: TownEvent[]
+  events: Record<string, TownEvent>
 }
 
 export interface TownEvent {
@@ -24,6 +24,11 @@ export interface TownEvent {
     duration: number
   }
   /** Was this event a good thing? */
-  isGood: boolean | undefined
+  sentiment?: {
+    /** Is it just generally considered to be a good thing for the town? */
+    isGood?: boolean
+    /** Was this event a good thing from an NPC's perspective? */
+    npcTest?(NPC: NPC): boolean
+  }
 
 }

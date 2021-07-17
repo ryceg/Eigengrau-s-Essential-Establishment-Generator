@@ -67,6 +67,8 @@ export interface TownProfessions extends Profession {
 }
 
 export interface Town extends TownBasics {
+  economicIdeologyDescription(town: Town): string
+  politicalSourceDescription(town: Town): string
   localImage: string
   taxes: {
     welfare: number

@@ -23,6 +23,7 @@ export interface Setup {
 
   createStartBuildings(town: Town): void
   createStartFactions(town: Town): void
+  createFaction(town: Town): Faction
   createTownBiome(base: Partial<Town>): TownBasics
   createTown(base: TownBasics): Town
   createCastle(town: Town): Building

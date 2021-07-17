@@ -220,11 +220,7 @@ function addPageBreak () {
 }
 
 // function addColumnBreak () {
-//   return `
-
-// \\columnbreak
-
-// `
+//   return '\n\n\\columnbreak\n\n'
 // }
 
 // function addBreaks (text) {

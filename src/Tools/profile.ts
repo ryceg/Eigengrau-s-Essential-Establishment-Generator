@@ -12,7 +12,7 @@ import type { NPC, Building, Faction, Road, Deity } from '@lib'
  * TODO: update documentation here.
  * For factions, point towards `town.factions`
  */
-export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: string): string => {
+export const profile = (obj: NPC | Building | Faction | Road | Deity | string, readout?: string): string => {
   let result
   if (typeof obj === 'string') {
     console.warn(`Profile function for ${obj} called with a string.`)
@@ -27,6 +27,11 @@ export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: 
   const text = JSON.stringify(readout)
 
   const key = JSON.stringify(result.key)
+
+  // this is a temporary measure (that will no doubt remain in the codebase for far longer than a 'temporary' measure)
+  // it is to get pure text from the profile function instead of having to do a lot of Twine processing and then jquery fuckery to strip HTML.
+  // it is only relevant when the `exportToNovelAI` function is called.
+  if (State.temporary.exportType === 'novelai') return readout
   return `<<profile ${key} ${text}>>`
 }
 
