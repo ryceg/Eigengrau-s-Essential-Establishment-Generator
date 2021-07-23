@@ -272,6 +272,7 @@ export const createTown = (base: TownBasics | Town) => {
   // @ts-ignore
   setup.createStartFactions(town)
   setup.findPoliceSource(town as unknown as Town)
+  lib.replaceTownName(town as unknown as Town)
   town.generated = 'full'
   lib.townRender(town as unknown as Town)
 
