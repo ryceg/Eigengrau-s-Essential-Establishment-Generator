@@ -26,4 +26,3 @@
       passage: 'Welcome'
     })>>
 <</if>>
-<<print lib.getGPTResponse('Hello there! I am a')>>
