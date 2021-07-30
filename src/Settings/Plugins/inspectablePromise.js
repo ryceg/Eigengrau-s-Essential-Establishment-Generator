@@ -65,5 +65,5 @@
 //     get progress () { return this[progressProp] }
 //   }
 
-//   return InspectablePromise
+//   return new InspectablePromise()
 // })()
