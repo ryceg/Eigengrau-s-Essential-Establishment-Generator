@@ -11,6 +11,7 @@ import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { random } from '../src/random'
 import { Town } from './_common'
+import { addToContainerDB } from '../src/localForage'
 import { Namesake } from '../npc-generation/_common'
 
 export interface RoadData {
@@ -244,6 +245,7 @@ export const roads = {
     } else {
       road.precedingText = roads.precedingText.default(town, road as Road)
     }
+    addToContainerDB('roads', road.key, road)
 
     return road as Road
   },

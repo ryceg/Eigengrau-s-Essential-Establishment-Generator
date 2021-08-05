@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { addToDB, BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics | Town) => {
   console.groupCollapsed('The town is loading...')
@@ -279,6 +279,8 @@ export const createTown = (base: TownBasics | Town) => {
   console.groupEnd()
   console.log(`${town.name} has loaded.`)
   console.log(town)
+
+  addToDB('town', town)
   return town as unknown as Town
 }
 

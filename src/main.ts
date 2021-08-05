@@ -219,7 +219,7 @@ Object.assign(setup, {
 setup.init = (setup => () => {
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
-
+  lib.initLocalForage()
   setup.initMisc()
   setup.initNpcData()
   setup.initTavernData()

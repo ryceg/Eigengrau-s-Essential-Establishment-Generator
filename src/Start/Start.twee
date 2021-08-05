@@ -26,3 +26,13 @@
       passage: 'Welcome'
     })>>
 <</if>>
+
+/* <<when lib.fetchFromDB('leader')
+  .then((val) => State.temporary.promise = val)>>
+<<print _promise.name>>
+<</when>> */
+
+/* <<when lib.fetchGPTResponse('This is a description of the fantasy town. \n The town of ')
+  .hen((val) => State.temporary.test = val)>>
+  <<print _test>>
+  <</when>> */

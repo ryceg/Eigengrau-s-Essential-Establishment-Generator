@@ -34,5 +34,6 @@ setup.createNewBuilding = (town, type, opts) => {
   const newBuilding = setup.createBuildingKeys[lib.toTitleCase(type)](town, { ...opts, isHighlighted: true })
   console.log(town)
   if (Array.isArray(town.buildings)) town.buildings.push(newBuilding)
+  lib.addToContainerDB('buildings', newBuilding.key, newBuilding)
   return newBuilding
 }

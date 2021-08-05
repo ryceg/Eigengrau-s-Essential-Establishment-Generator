@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Faction, FactionType, Town } from '@lib'
+import { addToContainerDB, Faction, FactionType, Town } from '@lib'
 
 // uses setup.leaderFaction
 export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
@@ -71,7 +71,7 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
   lib.createRivals(faction as Faction)
 
   faction.tippyDescription = `${lib.articles.output(faction.size as string).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
-
+  addToContainerDB('factions', faction.key, faction)
   console.groupEnd()
   console.log(`${faction.name} have loaded.`)
   console.log(faction)
