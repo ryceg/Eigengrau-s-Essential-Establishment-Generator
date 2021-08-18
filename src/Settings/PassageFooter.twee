@@ -5,7 +5,7 @@
 
 
 
-<footer class="footer"></footer>
+<footer class="footer"><<link "Credits" Credits>><<set $history.length to 0>><<run setup.history({passageName: "Credits", linkDescription: "Credits", name: "Credits"})>><</link>> <<link "Legal" Legal>><<set $history.length to 0>><<run setup.history({passageName: "Legal", linkDescription: "Legal", name: "Legal"})>><</link>> [[Patreon|https://patreon.com/eigengrausgenerator/join]] [[GitHub|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator]] [[Press Kit|https://priceless-darwin-158c20.netlify.app/press-kit/]] </footer>
 <<if !State.metadata.has('cookiePopupWasShown')>>
   <<include "CookieConsent">>
   <<run State.metadata.set('cookiePopupWasShown', true)>>

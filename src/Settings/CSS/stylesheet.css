@@ -240,6 +240,14 @@ footer {
   background-size: cover;
   z-index: 5;
   column-span: all;
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+footer a {
+  color: var(--text-link);
+  font-size: xx-small;
+  padding-top: 4em;
 }
 
 
@@ -407,7 +415,6 @@ margin-top:         -0.8em;
 #passages p+p, #passages ul+p, #passages ol+p {
     text-indent:    1em
 }
-
 
 /* Text Decoration */
 
