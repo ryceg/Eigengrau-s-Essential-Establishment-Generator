@@ -8,12 +8,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Restart link in the breadcrumb header
+- Added links to stuff to footer
+- Added icons to sidebar
+
 ### Changed
 - Unlocked Pantheon system thanks to Patrons.
 - Changed some CSS with the importing of Pantheons.
 - Fixed a typo or two.
-- 
+- Fixed an issue where creating customers would ignore input fields.
 - Updated dependencies
+
+### Removed
+- Credits/Legal from the sidebar
 
 ## 2.8.13
 

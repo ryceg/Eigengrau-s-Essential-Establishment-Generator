@@ -6,5 +6,3 @@
 <<link "Export to Foundry or GMBinder" OutputEverything>><<set $history.length to 0>><<run setup.history({passageName: "OutputEverything", linkDescription: "Export", name: "Export"})>><</link>>
 
 [[Submit a bug or suggestion|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose]]
-
-<<link "Credits / Legal" Credits>><<set $history.length to 0>><<run setup.history({passageName: "Credits", linkDescription: "Credits", name: "Credits"})>><</link>>

@@ -160,6 +160,17 @@ html.two-columns #illustration-buffer {
   column-span: all;
 }
 
+#town-permalink::before {
+  content: "\e800 ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
 #passage-header-nav {
   overflow-y:hidden;
   overflow-x:scroll;
@@ -176,6 +187,7 @@ html.two-columns #illustration-buffer {
 
 .restart::before {
   content: "\e824 ";
+  padding-right: .4em;
   font-family: tme-fa-icons;
   font-style: normal;
   font-weight: 400;
@@ -409,6 +421,71 @@ p:empty {
 margin-top:         -0.8em;
 }
 
+#story-menu > ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+#story-menu > ul > li {
+  display: block;
+  border: 1px solid transparent;
+  color: #eee;
+  text-transform: uppercase;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #444;
+}
+
+#story-menu > ul > li > a {
+  display: block;
+  /* padding: .25em .75em; */
+  border: 1px solid transparent;
+  color: var(--text-normal);
+  text-transform: uppercase;
+}
+
+#story-menu > ul > li > a:hover {
+  background-color: var(--background-secondary);
+  border-color: var(--text-normal);
+}
+
+#menu-story > li:nth-child(1) > a::before {
+  content: "\e839 ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#menu-story > li > a[data-passage="OutputEverything"]::before {
+  content: "\e829 ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#menu-story > li:nth-child(3) > a::before {
+  content: "\e838 ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#ui-bar-body {
+  margin: 1.5em 0
+}
 
 /* Text Indentation */
 
