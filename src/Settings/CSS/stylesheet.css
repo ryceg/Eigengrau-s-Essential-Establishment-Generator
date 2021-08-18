@@ -147,6 +147,8 @@ html.two-columns #illustration-buffer {
 }
 
 #passage-header {
+  justify-content: space-between;
+  display: flex;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -155,9 +157,44 @@ html.two-columns #illustration-buffer {
   background-color: transparent;
   /* background-color: var(--background-floating); */
   backdrop-filter: opacity(50%) blur(3px);
-  overflow: auto;
-  white-space: nowrap;
   column-span: all;
+}
+
+#passage-header-nav {
+  overflow-y:hidden;
+  overflow-x:scroll;
+  white-space: nowrap;
+}
+
+.restart {
+  float: right;
+  padding-left: 2em;
+  margin-left: .5em;
+  width: 9em;
+  border-left: 1px solid var(--text-muted);
+}
+
+.restart::before {
+  content: "\e824 ";
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.restart a {
+  color: var(--text-link-hover);
+}
+
+.restart:hover {
+  background-color: var(--background-secondary);
+  /* border-color: var(--text-normal); */
+  border-left: 1px solid var(--text-normal);
+  border-right: 1px solid var(--text-muted);
+  border-top: 1px solid var(--text-muted);
+  border-bottom: 1px solid var(--text-muted);
 }
 
 #passage-header.scrolled {

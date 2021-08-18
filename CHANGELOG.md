@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Unreleased
+
+### Added
+- Restart link in the breadcrumb header
+### Changed
+- Unlocked Pantheon system thanks to Patrons.
+- Changed some CSS with the importing of Pantheons.
+- Fixed a typo or two.
+- 
+- Updated dependencies
+
 ## 2.8.13
 
 ### Added
