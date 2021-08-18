@@ -2,15 +2,15 @@
 <<run $("body").on("change", ["button", 'input'], function() {
   $(document).trigger(":liveupdate");
 });>>
-<<lb>><span class='flex-line'><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<button "Import (Patreon Only)">><<run setup.openDialog({
-      header: 'Patreon Only',
-      passage: 'ImportPatreon',
+<<lb>><span class='flex-line'><<if State.metadata.get('patreonPass') === $_>><<set _isPatron to true>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><<else>><<set _isPatron to false>><<if recall('seenReligionThanks') !== true>><<button "Import">><<run memorize('seenReligionThanks', true)>><<run setup.openDialog({
+      header: 'A Brief Message',
+      passage: 'PatreonThanks',
       rerender: true
-    })>><</button>><</if>></span> --
+    })>><</button>><<else>><<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>><</if>><</if>>
 <<listbox "$town.religion.pantheon" autoselect>><<optionsfrom lib.getPantheonNames($town, State.metadata.get('pantheon'))>><</listbox>>
 <<if def $town.religion._customPantheon or State.metadata.has('pantheon')>>
 <<run State.metadata.set('pantheon', $town.religion._customPantheon)>>
- -- 
+
   <<button "Delete custom pantheon">>
     <<if lib.isUsingCustomPantheon($town, State.metadata.get('pantheon'))>>
       <<set $town.religion.pantheon to 'greek'>>
@@ -18,7 +18,7 @@
     <<set $town.religion._customPantheon to {}>><<update>>
   <<run State.metadata.delete('pantheon')>>
   <</button>>
-<</if>> -- <<button "Refresh">><<update>><</button>>
+<</if>><<button "Refresh">><<update>><</button>></span>
 <ol>
 <<if _isPatron === false>><li>Join the Patreon at the Hero or higher tier [[here|https://www.patreon.com/join/eigengrausgenerator?]]</li>
 <li>Find the code in the [[welcome note|https://www.patreon.com/eigengrausgenerator/membership]]</li>
