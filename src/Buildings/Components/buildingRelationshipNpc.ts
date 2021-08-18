@@ -20,16 +20,16 @@ interface Args {
   relationshipKey: string
 }
 
-export const createReciprocalRelationshipNpc = (town: Town, building: Building, associatedNPC: NPC, relationshipTable: Record<string, any>[], args: Args) => {
-  // args: {
-  //   objectKey?: 'building' - this is for if you're accessing a relationships object that has different names for the relationships
-  //   relationshipKey?: 'relationship' - this is the discriminator for reciprocalRelationship / relationship
-  //   targetKey: string - this is the string that's fed to the function. Typically _stringRelationship.
-  // }
-  //
+export const createReciprocalRelationshipNpc = (
+  town: Town,
+  building: Building,
+  associatedNPC: NPC,
+  relationshipTable: Record<string, any>[],
+  args: Args) => {
   console.log('Creating a new NPC for this building.')
   console.log(relationshipTable, args, associatedNPC)
-  lib.assign({
+  alert(JSON.stringify(args))
+  Object.assign({
     base: {},
     objectKey: 'building',
     relationshipKey: 'relationship'
@@ -42,8 +42,9 @@ export const createReciprocalRelationshipNpc = (town: Town, building: Building, 
   // FIXME: Uses relationshipDescription instead of the [objectKey][relationshipKey] that it should.
   const relationship = lib.findInArray(relationshipTable, 'relationshipDescription', args.targetKey)
 
-  const base: Partial<NPC> = {}
-  if (relationship?.base) Object.assign(base, relationship.base, args.base)
+  let base: Partial<NPC> = {}
+  if (relationship?.base) base = Object.assign(base, relationship.base, args?.base)
+  alert(JSON.stringify(base))
   const npc = setup.createNPC(town, base)
   if (relationship?.relationships?.associatedNPC) {
     setup.createRelationship(town, associatedNPC, npc, {
