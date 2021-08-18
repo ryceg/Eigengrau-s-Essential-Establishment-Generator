@@ -13,6 +13,7 @@
                 targetKey: _stringRelationship 
             })>>
         <<update>>
+            <<include "RandomNPCPrep">>
             <<replace "#BuildingRelationshipsTable">><<include "BuildingRelationshipsTable">><</replace>>
             <<replace "#NPCListboxes">><<include "NPCListboxes">><</replace>>
             <<run tippy('.tip')>>

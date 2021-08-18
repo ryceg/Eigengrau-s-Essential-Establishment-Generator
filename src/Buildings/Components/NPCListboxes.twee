@@ -1,12 +1,11 @@
-:: NPCListboxes [nobr]
-<<liveblock>>
-<<set _randomNPC to {
-      gender: ["man", "woman"].random(),
-      race: Object.keys(lib.raceTraits).random(),
-      ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random()
-    }>>
+:: RandomNPCPrep [nobr]
+<<set _randomNPC to setup.randomiseNPC()>>
 <<set _relationships to $currentPassage.availableRelationships || "visitor">>
 <<set _stringRelationship to _relationships.random().relationshipDescription>>
+
+:: NPCListboxes [nobr]
+<<if !_randomNPC>><<include "RandomNPCPrep">><</if>>
+<<liveblock>>
   <span id="NPCListboxes" class='hide-on-print'>
     <label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
     -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "elderly"]>><</listbox>></label>
