@@ -32,7 +32,7 @@ export const createTown = (base: TownBasics | Town) => {
     // @ts-ignore
     get type () {
       // @ts-ignore
-      return getTownType(this)
+      return lib.getTownType(this)
     },
     set type (type) {
       console.log('type unnecessary')
@@ -101,32 +101,13 @@ export const createTown = (base: TownBasics | Town) => {
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
-      console.log('Setting base demographics.')
-      Object.keys(newDemographics).forEach((byRace) => {
-        const race = byRace as RaceName
-        this._baseDemographics[race] = newDemographics[race]
-      })
-      console.log(this.demographicPercentile)
+      lib.setBaseDemographics(this as unknown as Town, newDemographics)
+      lib.updateDemographics(this as unknown as Town, newDemographics)
+      this.demographicPercentile = lib.getDemographicPercentile(this as unknown as Town)
     },
     set demographicPercentile (data) { console.log('Useless demographicPercentile setter. ') },
     get demographicPercentile () {
-      console.log('Getting demographic percent.')
-
-      // Get an array of the demographic keys (race names).
-      const races = Object.keys(this.baseDemographics) as RaceName[]
-
-      // Calculate the sum of the raw demographic values.
-      const sum = races
-        .map((byRace) => this.baseDemographics[byRace])
-        .reduce((acc, cur) => acc + cur, 0)
-
-      // Calculate the demographic percentages.
-      races.forEach((byRace) => {
-        const race: RaceName = byRace
-        this._demographicPercentile[race] =
-            (this.baseDemographics[race] / sum) * 100
-      })
-      return this._demographicPercentile
+      return lib.getDemographicPercentile(this as unknown as Town)
     },
     get economicIdeology () {
       return this._economicIdeology
@@ -280,21 +261,6 @@ export const createTown = (base: TownBasics | Town) => {
   console.log(`${town.name} has loaded.`)
   console.log(town)
   return town as unknown as Town
-}
-
-export const getTownType = (town: TownBasics): TownType => {
-  if (town.population > 6000) return 'city'
-  if (town.population > 3000) return 'town'
-  if (town.population > 1000) return 'village'
-  if (town.population > 30) return 'hamlet'
-
-  // TODO: Remove unexpected side effect are bad.
-  if (town.population <= 30) {
-    console.log('Population is less than 30. Setting to 30.')
-    town.population = 30
-    return 'hamlet'
-  }
-  return 'village'
 }
 
 function calculateTax (nominalTarget: number, economics: number) {
