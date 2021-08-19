@@ -1,45 +1,54 @@
-:: BartenderTalk
-<<linkreplace "<h4>Talk with $associatedNPC.name</h4>" t8n>><<nobr>><p>
-<<set _shortage to random(1, 10)>>
-	<<if $building.roll.wealth gt 80>>
-		<<set _shortage += 4>>
-	<<elseif $building.roll.wealth gt 70>>
-		<<set _shortage += 3>>
-	<<elseif $building.roll.wealth gt 60>>
-		<<set _shortage += 2>>
-	<<elseif $building.roll.wealth gt 50>>
-		<<set _shortage += 1>>
-	<<elseif $building.roll.wealth gt 40>>
-		<<set _shortage -= 1>>
-	<<elseif $building.roll.wealth gt 30>>
-		<<set _shortage -= 2>>
-	<<elseif $building.roll.wealth gt 20>>
-		<<set _shortage -= 3>>
-	<<elseif $building.roll.wealth lte 20>>
-		<<set _shortage -= 4>>
-<</if>>
-<<if _shortage gt 7, $building.roll.activity gt 70>>
-		<<set _talk to ["We're lucky that I bought that extra case of grog... I get the feeling that we're gonna need it.",
-		"I'm glad that Breiga kept an eye on the stock levels, otherwise we'd have sold out of <<print $building.shortages.random()>>."].random()>>
-	<<elseif _shortage gt 7>>
-		<<set _talk to ["Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I'll not be running out any time soon.", "I think that I may have oversupplied on <<print $building.shortages.random()>>..."].random()>>
-	<<elseif _shortage gt 4>>
-		<<set _talk to ["We've currently got a bit of a shortage of <<print $building.shortages.random()>>, but hopefully we'll be getting a cartload overmorrow.",
-"We're currently running out of <<print $building.shortages.random()>>, but with any luck, we'll be getting some more before the night is out.",
-"I don't know how it happened, but we're running out of <<print $building.shortages.random()>>... To be honest, I reckon the barmaid is to blame.",
-"I swear that I ordered a cartload last week, but I'll be damned if we're not running low on <<print $building.shortages.random()>> somehow.",
-"I told the barmaid to order some, but wouldn't you know, I find myself low on <<print $building.shortages.random()>>!"].random()>>
-	<<elseif _shortage lte 4, $building.population gt 70>>
-		<<set _talk to ["Things are honestly in a mess at the moment around the $building.name, we've got a full house, and I'm low on <<print $building.shortages.random()>> AND <<print $building.shortages.random()>>! How does that even happen!?",
-		"You can tell that business is booming, but there's only one more case of <<print $building.shortages.random()>>, and we're completely out of <<print $building.shortages.random()>>!"].random()>>
-	<<elseif _shortage lte 4, $building.roll.activity lt 40>>
-		<<set _talk to ["Well, you can probably guess that business isn't the best right at this moment. Maybe the lack of <<print $building.shortages.random()>> has something to do with it...",
-		"Business is slow, I'm not gonna lie. We've had no cartments of <<print $building.shortages.random()>> for almost a week, certainly isn't helping things."].random()>>
-	<<elseif _shortage lte 4>>
-		<<set _talk to "Well, business could be better. We've got a bit of a shortage on <<print $building.shortages.random()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">>
-<</if>><</nobr>><h3>$associatedNPC.name</h3>
-$associatedNPC.name looks <<print setup.npcData.currentMood.random()>>, but seems pleased with the welcome distraction from the patrons, who $associatedNPC.heshe tells you are for the most part <<print lib.articles.output(lib.getTavernSin($building))>> lot. $associatedNPC.firstName pours $associatedNPC.himherself a drink while you talk with the $associatedNPC.weight $associatedNPC.manwoman about the regular goings on in $town.name, and $building.name, and $associatedNPC.firstName says "_talk"</p>
-<span class="interactive-only"><<linkreplace "Talk more with $associatedNPC.name" t8n>>
-<p>$associatedNPC.firstName tells you that $associatedNPC.heshe <<print ["loves working in $building.name", "hates working in $building.name", "finds working in the $building.wordNoun boring", "finds working in the $building.wordNoun fun"].random()>>. $associatedNPC.firstName says "Before I took over $building.name, I was <<print lib.articles.output($associatedNPC.background)>>. $associatedNPC.backgroundOrigin <<if $associatedNPC.profession isnot "bartender">>Then, I took up adventuring as <<print lib.articles.output($associatedNPC.profession)>>;<</if>> $associatedNPC.professionOrigin</p>
-<</linkreplace>></span>
+:: BartenderTalk [nobr]
+<<linkreplace "<h4>Talk with $associatedNPC.name</h4>" t8n>>
+	<<set _shortage to random(1, 10)>>
+		<<if $building.roll.wealth gt 80>>
+			<<set _shortage += 4>>
+		<<elseif $building.roll.wealth gt 70>>
+			<<set _shortage += 3>>
+		<<elseif $building.roll.wealth gt 60>>
+			<<set _shortage += 2>>
+		<<elseif $building.roll.wealth gt 50>>
+			<<set _shortage += 1>>
+		<<elseif $building.roll.wealth gt 40>>
+			<<set _shortage -= 1>>
+		<<elseif $building.roll.wealth gt 30>>
+			<<set _shortage -= 2>>
+		<<elseif $building.roll.wealth gt 20>>
+			<<set _shortage -= 3>>
+		<<elseif $building.roll.wealth lte 20>>
+			<<set _shortage -= 4>>
+	<</if>>
+	<<if _shortage gt 7, $building.roll.activity gt 70>>
+			<<set _talk to ["We're lucky that I bought that extra case of grog... I get the feeling that we're gonna need it.",
+			"I'm glad that Breiga kept an eye on the stock levels, otherwise we'd have sold out of <<print $building.shortages.random()>>."].random()>>
+		<<elseif _shortage gt 7>>
+			<<set _talk to ["Business is alright, in honesty I think that I prefer running out of supplies than not... At the moment, it looks like I'll not be running out any time soon.", "I think that I may have oversupplied on <<print $building.shortages.random()>>..."].random()>>
+		<<elseif _shortage gt 4>>
+			<<set _talk to ["We've currently got a bit of a shortage of <<print $building.shortages.random()>>, but hopefully we'll be getting a cartload overmorrow.",
+	"We're currently running out of <<print $building.shortages.random()>>, but with any luck, we'll be getting some more before the night is out.",
+	"I don't know how it happened, but we're running out of <<print $building.shortages.random()>>... To be honest, I reckon the barmaid is to blame.",
+	"I swear that I ordered a cartload last week, but I'll be damned if we're not running low on <<print $building.shortages.random()>> somehow.",
+	"I told the barmaid to order some, but wouldn't you know, I find myself low on <<print $building.shortages.random()>>!"].random()>>
+		<<elseif _shortage lte 4, $building.population gt 70>>
+			<<set _talk to ["Things are honestly in a mess at the moment around the $building.name, we've got a full house, and I'm low on <<print $building.shortages.random()>> AND <<print $building.shortages.random()>>! How does that even happen!?",
+			"You can tell that business is booming, but there's only one more case of <<print $building.shortages.random()>>, and we're completely out of <<print $building.shortages.random()>>!"].random()>>
+		<<elseif _shortage lte 4, $building.roll.activity lt 40>>
+			<<set _talk to ["Well, you can probably guess that business isn't the best right at this moment. Maybe the lack of <<print $building.shortages.random()>> has something to do with it...",
+			"Business is slow, I'm not gonna lie. We've had no cartments of <<print $building.shortages.random()>> for almost a week, certainly isn't helping things."].random()>>
+		<<elseif _shortage lte 4>>
+			<<set _talk to "Well, business could be better. We've got a bit of a shortage on <<print $building.shortages.random()>>, and that certainly can't be helping things, but I suppose there's always some bad days; they're just not spending the coin, is all.">>
+	<</if>>
+	<p>
+		<h3>$associatedNPC.name</h3>
+		$associatedNPC.name looks <<print setup.npcData.currentMood.random()>>, but seems pleased with the welcome distraction from the patrons, who $associatedNPC.heshe tells you are for the most part <<print lib.articles.output(lib.getTavernSin($building))>> lot. 
+		$associatedNPC.firstName pours $associatedNPC.himherself a drink while you talk with the $associatedNPC.weight $associatedNPC.manwoman about the regular goings on in $town.name, and $building.name, and $associatedNPC.firstName says "_talk"
+	</p>
+	<span class="interactive-only">
+		<<linkreplace "Talk more with $associatedNPC.name" t8n>>
+		<p>
+			$associatedNPC.firstName tells you that $associatedNPC.heshe <<print ["loves working in $building.name", "hates working in $building.name", "finds working in the $building.wordNoun boring", "finds working in the $building.wordNoun fun"].random()>>. 
+			$associatedNPC.firstName says "Before I took over $building.name, I was <<print lib.articles.output($associatedNPC.background)>>. $associatedNPC.backgroundOrigin <<if $associatedNPC.profession isnot "bartender">>Then, I took up adventuring as <<print lib.articles.output($associatedNPC.profession)>>;<</if>> $associatedNPC.professionOrigin
+		</p>
+	<</linkreplace>>
+	</span>
 <</linkreplace>>
