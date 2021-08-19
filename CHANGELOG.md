@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Restart link in the breadcrumb header
 - Added links to stuff to footer
 - Added icons to sidebar
+- Added request to vote for the generator
 
 ### Changed
 - Unlocked Pantheon system thanks to Patrons.

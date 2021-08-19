@@ -21,3 +21,6 @@ The results are announced on the 17th September.
 <<update>>
 <<run window.open('https://vote.ennie-awards.com/vote/2021/ballot.php?category_id=3', '_blank')>>
 <</button>>
+<<button "Share the generator">>
+<<run UI.share();>>
+<</button>>

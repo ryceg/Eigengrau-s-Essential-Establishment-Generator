@@ -503,7 +503,18 @@ margin-top:         -0.8em;
   border-color: var(--text-normal);
 }
 
-#menu-story > li:nth-child(1) > a::before {
+#ennies-sidebar {
+  content: "\e80b ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#menu-story > li > a[data-passage="Toolbox"]::before {
   content: "\e839 ";
   padding-right: .4em;
   font-family: tme-fa-icons;
@@ -525,7 +536,7 @@ margin-top:         -0.8em;
   line-height: 1;
 }
 
-#menu-story > li:nth-child(3) > a::before {
+#menu-story > li > a[href="https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose"]::before {
   content: "\e838 ";
   padding-right: .4em;
   font-family: tme-fa-icons;
