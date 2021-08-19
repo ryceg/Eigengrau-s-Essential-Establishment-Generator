@@ -185,8 +185,61 @@ html.two-columns #illustration-buffer {
   border-left: 1px solid var(--text-muted);
 }
 
-.restart::before {
+.restart#new-town::before {
   content: "\e824 ";
+  padding-right: .4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#ennies {
+  position: fixed;
+  top: 4em;
+  padding: .5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  right: 4em;
+  background: var(--background-floating);
+  border-radius: 12px;
+  border-width: 2px;
+  border-color: var(--interactive-muted);
+  border-style: solid;
+  -webkit-animation: btnWiggle 5s infinite;
+  -moz-animation: btnWiggle 5s infinite;
+  -o-animation: btnWiggle 5s infinite;
+  animation: btnWiggle 5s infinite;
+}
+
+
+/* animation */
+@-webkit-keyframes btnWiggle {
+  0% {-webkit-transform: rotate(0deg);}
+  2% {-webkit-transform: rotate(-1deg);}
+  3.5% {-webkit-transform: rotate(1deg);}
+  5% {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(0deg);}
+}
+@-o-keyframes btnWiggle {
+  0% {-webkit-transform: rotate(0deg);}
+  2% {-webkit-transform: rotate(-1deg);}
+  3.5% {-webkit-transform: rotate(1deg);}
+  5% {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(0deg);}
+}
+@keyframes btnWiggle {
+  0% {-webkit-transform: rotate(0deg);}
+  2% {-webkit-transform: rotate(-1deg);}
+  3.5% {-webkit-transform: rotate(1deg);}
+  5% {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(0deg);}
+}
+
+#ennies::before {
+  content: "\e80b ";
   padding-right: .4em;
   font-family: tme-fa-icons;
   font-style: normal;

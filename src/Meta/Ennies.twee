@@ -1,0 +1,23 @@
+:: Ennies [nobr]
+A small favour to ask of you... Eigengau's Generator has been nominated for an ENnie for Best Digital Aid. 
+This is a huge deal for me, and it's especially exciting to see the work I've been doing for the past few years now come to fruition.
+I only get the one shot at the ENnie, though- products can't be re-submitted.
+<br>
+If you like the generator (and I truly hope that you do!), please consider voting for me.
+It is open to the public, anonymous, and voting closes on the 27th of August. 
+It's super easy, and takes literally ten seconds (I timed!). 
+Just click the button, select 1 for "Eigengrau's Essential Establishment Generator", and hit "Vote"!
+<br>
+The results are announced on the 17th September. 
+<br>
+<<run memorize('enniesSeen', true)>>
+<<button "Vote 1 Eigengrau's Essential Establishment Generator">>
+<<run setup.addGtagEvent({
+    event_category: 'voted',
+    event_action: 'clicked',
+    event_label: 'voted in ennies'
+})>>
+<<run memorize('enniesVoted', true)>>
+<<update>>
+<<run window.open('https://vote.ennie-awards.com/vote/2021/ballot.php?category_id=3', '_blank')>>
+<</button>>
