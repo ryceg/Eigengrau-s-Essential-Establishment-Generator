@@ -87,6 +87,7 @@ export * from './npc-generation/setAge'
 export * from './npc-generation/setRace'
 export * from './npc-generation/swapNPCs'
 export * from './npc-generation/npcFinances'
+export * from './npc-generation/randomiseNPC'
 
 export * from './npc-generation/traits/createPersonality'
 export * from './npc-generation/traits/getTraits'
