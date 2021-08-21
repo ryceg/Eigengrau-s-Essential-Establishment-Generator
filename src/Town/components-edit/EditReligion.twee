@@ -3,8 +3,8 @@
     <summary>Religion Demographics</summary>
 <<liveblock>>
     <<set $town.religionProbabilities to lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))>>
-    $town.name <<print lib.getPredominantReligion($town, lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))).amountDescriptive>>
-<</liveblock>>.
+    $town.name <<print lib.getPredominantReligion($town, lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))).amountDescriptive>>.
+<</liveblock>>
 <table class='classTable religion-slider'>
     <tr>
         <th>Deity</th>
@@ -18,15 +18,15 @@
     <<if ndef $town.religion._modifiers[_deity]>>
         <<set $town.religion._modifiers[_deity] to 0>>
     <</if>>
-/* <<capture _deity, _deityPercentage, _deityData>> */
+<<capture _deityData, _deity>>
 /* <<if _deityPercentage === 0>><<continue>><</if>> */
     <tr>
         <td><<profile _deityData>></td>
-        <td><<print Math.trunc($town.population * (lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[_deity] / 100))>></td>
-        <td><<print lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[_deity].toFixed(2)>></td>
+        <td><<lh Math.trunc($town.population * (lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[_deity] / 100))>></td>
+        <td><<lh lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[_deity].toFixed(2)>></td>
         <td>
             <span class="tip religion-slider" data-tippy-content="This is calculated from the town, and represents the base probability.">
-                <<print lib.getUnalteredTownDeityWeightings($town, lib.getPantheonDeities($town, State.metadata.get('pantheon')))[_deity].toFixed(0)>>
+                <<lh lib.getUnalteredTownDeityWeightings($town, lib.getPantheonDeities($town, State.metadata.get('pantheon')))[_deity].toFixed(0)>>
             </span>
         </td>
         <td>
@@ -35,7 +35,7 @@
             </span>
         </td>
     </tr>
-    /* <</capture>> */
+    <</capture>>
 <</for>>
 </table>
 </details>

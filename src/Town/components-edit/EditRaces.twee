@@ -1,7 +1,4 @@
 :: EditRaces [nobr nofx]
-/* <<liveblock>> */
-<<run alert(JSON.stringify($town.baseDemographics))>>
-<<run alert(JSON.stringify($town.demographicPercentile))>>
 <details class="races-slider" open>
   <summary>Racial Demographics</summary>
   <span class="tip" data-tippy-content="How many people live here?">
@@ -9,7 +6,7 @@
   </span>
   <br>
   <p>
-    <<print lib.getRaceReadout($town)>>.
+    <<lh lib.getRaceReadout($town)>>
   </p>
   <br>
   <table id='races' style='column-span: all'>
@@ -19,17 +16,19 @@
       <th>Percentage</th>
       <th>Raw Number</th>
     </tr>
-  <<for _race, _percentage range $town.demographicPercentile>>
-    <tr>
-      <td><<print _race.toUpperFirst()>></td>
-      <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
-      <td><<print _percentage.toFixed(2)>></td>
-      <td>
-        <span class="tip races-slider" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">
-          <<numberslider `"$town.baseDemographics['" + _race + "']"` $town.baseDemographics[_race] 0 100 1>>
-        </span>
-      </td>
-    </tr>
+  <<for _race, _raw range $town.baseDemographics>>
+    <<capture _race, _raw>>
+      <tr>
+        <td><<print _race.toUpperFirst()>></td>
+        <td><<print Math.trunc(lib.getRacePopulation(_race, $town.baseDemographics, $town.population))>></td>
+        <td><<print Math.trunc($town.demographicPercentile[_race])>></td>
+        <td>
+          <span class="tip races-slider" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">
+            <<numberslider `"$town.baseDemographics['" + _race + "']"` $town.baseDemographics[_race] 0 100 1>>
+          </span>
+        </td>
+      </tr>
+    <</capture>>
   <</for>>
   </table><<run lib.addTippyAccessibility()>>
 </details>

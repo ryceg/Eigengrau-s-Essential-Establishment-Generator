@@ -26,3 +26,21 @@
       passage: 'Welcome'
     })>>
 <</if>>
+<<set $testDemographics to {
+  foo: 12,
+  bar: 15,
+  baz: 11
+}>>
+<<set $testPop to random(1000, 5000)>>
+<<for _race, _percentage range $testDemographics>>
+  <<capture _race, _percentage>>
+    <tr>
+      <td><<lh _race.toUpperFirst()>></td>
+      <td><<lh Math.trunc($testPop * (_percentage / 100))>></td>
+      <td><<lh _percentage.toFixed(2)>></td>
+      <td>
+          <<numberslider `"$testDemographics['" + _race + "']"` $testDemographics[_race] 0 100 1>>
+      </td>
+    </tr>
+  <</capture>>
+<</for>>

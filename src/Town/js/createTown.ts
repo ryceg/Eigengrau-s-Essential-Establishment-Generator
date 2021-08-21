@@ -94,16 +94,12 @@ export const createTown = (base: TownBasics | Town) => {
     _politicalIdeology: politicalIdeology,
     _demographicPercentile: {} as Record<RaceName, number>,
     _baseDemographics: {} as Record<RaceName, number>,
-    // Clone the raw demographic data for the town type.
-    // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
     get baseDemographics () {
       console.log('Getting base demographics.')
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
       lib.setBaseDemographics(this as unknown as Town, newDemographics)
-      lib.updateDemographics(this as unknown as Town, newDemographics)
-      this.demographicPercentile = lib.getDemographicPercentile(this as unknown as Town)
     },
     set demographicPercentile (data) { console.log('Useless demographicPercentile setter. ') },
     get demographicPercentile () {
