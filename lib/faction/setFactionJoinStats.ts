@@ -1,8 +1,8 @@
-import { assign, sumWeights } from '../src/utils'
+import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 import { factionData } from './factionData'
-import { weightRandom } from '../src/weightRandom'
+import { sumWeights, weightRandom } from '../src/weightRandom'
 
 export function setFactionJoinStats (faction: Faction): void {
   console.log('determining joining stats...')

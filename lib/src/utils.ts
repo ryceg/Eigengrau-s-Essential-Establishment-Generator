@@ -1,6 +1,5 @@
-import { DeepReadonly, WeightRecord } from '../types'
+import { DeepReadonly } from '../types'
 import { randomFloat } from './randomFloat'
-import { validateWeight } from './weightRandom'
 
 /**
  * An alternative, stricter typed version of `Object.keys`.
@@ -146,19 +145,4 @@ export function repeat (fn: (index: number) => void, times: number) {
 
 export function capitalizeFirstLetter (text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1)
-}
-
-export function sumWeights<T extends string> (
-  defaultWeights: WeightRecord<T>,
-  customWeights: WeightRecord<T>
-) {
-  const finalWeights: WeightRecord<T> = {}
-
-  for (const name of keys(customWeights)) {
-    const weight = validateWeight(customWeights[name])
-    const defaultWeight = defaultWeights[name] ?? 0
-    finalWeights[name] = defaultWeight + weight
-  }
-
-  return finalWeights
 }
