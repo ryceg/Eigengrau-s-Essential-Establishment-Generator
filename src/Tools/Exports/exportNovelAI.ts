@@ -376,7 +376,6 @@ export function exportToNovelAI (town: Town, npcs: Record<string, NPC>) {
   const placeholders = novel.placeholders.map(obj => {
     return obj.key
   })
-  alert(JSON.stringify(placeholders))
   novel.prompt = makePlaceholders(novel.prompt, placeholders)
   downloadObjectAsJson(novel, `The ${town.type} of ${town.name}`)
   return novel

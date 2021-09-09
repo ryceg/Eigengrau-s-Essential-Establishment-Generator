@@ -28,7 +28,6 @@ export const createReciprocalRelationshipNpc = (
   args: Args) => {
   console.log('Creating a new NPC for this building.')
   console.log(relationshipTable, args, associatedNPC)
-  alert(JSON.stringify(args))
   Object.assign({
     base: {},
     objectKey: 'building',
@@ -44,7 +43,6 @@ export const createReciprocalRelationshipNpc = (
 
   let base: Partial<NPC> = {}
   if (relationship?.base) base = Object.assign(base, relationship.base, args?.base)
-  alert(JSON.stringify(base))
   const npc = setup.createNPC(town, base)
   if (relationship?.relationships?.associatedNPC) {
     setup.createRelationship(town, associatedNPC, npc, {
