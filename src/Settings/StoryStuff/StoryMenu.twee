@@ -1,14 +1,6 @@
 
 :: StoryMenu
 
-<<link "Vote in ENnies">>
-    <<run setup.openDialog({
-    header: `Vote for Eigengrau's Generator`,
-          passage: 'Ennies',
-          rerender: false,
-  })>>
-<</link>>
-
 <<link "Toolbox" Toolbox>><<set $history.length to 0>><<run setup.history({passageName: "Toolbox", linkDescription: "Toolbox", name: "Toolbox"})>><</link>>
 
 <<link "Export to Foundry or GMBinder" OutputEverything>><<set $history.length to 0>><<run setup.history({passageName: "OutputEverything", linkDescription: "Export", name: "Export"})>><</link>>

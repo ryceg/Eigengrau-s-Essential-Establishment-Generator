@@ -2,10 +2,4 @@
 <header id="passage-header"><span id="passage-header-nav"><<include "Breadcrumb">></span><span class='restart' id='new-town' data-tippy-content="Discard the current town and generate a new town!"> <<link "Roll a new town">>
 <<run UI.restart()>>
 <</link>></span></header>
-<<include "EnnieHeader">><<done>><<run tippy('.restart')>><<run tippy('#ennies')>><</done>>
-:: EnnieHeader
-<<liveblock>><<if !recall('enniesSeen')>><span id="ennies" data-tippy-content="Please vote for me in the ENnies! Voting only takes 3 seconds."><<link "Vote in ENnies!">><<run setup.openDialog({
-  header: `Vote for Eigengrau's Generator`,
-        passage: 'Ennies',
-        rerender: false,
-})>><</link>>   <<link "❌">><<run memorize('enniesSeen', true)>><<remove "#ennies">><</link>></span><</if>><</liveblock>>
+<<done>><<run tippy('.restart')>><</done>>

@@ -196,7 +196,7 @@ html.two-columns #illustration-buffer {
   line-height: 1;
 }
 
-#ennies {
+#wiggle {
   position: fixed;
   top: 4em;
   padding: .5em;
@@ -238,7 +238,7 @@ html.two-columns #illustration-buffer {
   100% {-webkit-transform: rotate(0deg);}
 }
 
-#ennies::before {
+#wiggle::before {
   content: "\e80b ";
   padding-right: .4em;
   font-family: tme-fa-icons;
@@ -503,7 +503,7 @@ margin-top:         -0.8em;
   border-color: var(--text-normal);
 }
 
-#ennies-sidebar {
+#wiggle-sidebar {
   content: "\e80b ";
   padding-right: .4em;
   font-family: tme-fa-icons;
