@@ -249,6 +249,10 @@ html.two-columns #illustration-buffer {
   line-height: 1;
 }
 
+span.macro-live {
+  display: inline-block;
+}
+
 .restart a {
   color: var(--text-link-hover);
 }

@@ -1,12 +1,13 @@
 :: EditRaces [nobr nofx]
 <details class="races-slider" open>
   <summary>Racial Demographics</summary>
+  <<liveblock>>
   <span class="tip" data-tippy-content="How many people live here?">
     Town Population: <<numberslider "$town.population" $town.population 30 12000 10>>
   </span>
   <br>
   <p>
-    <<lh lib.getRaceReadout($town)>>
+    <<print lib.getRaceReadout($town)>>
   </p>
   <br>
   <table id='races' style='column-span: all'>
@@ -17,11 +18,13 @@
       <th>Raw Number</th>
     </tr>
   <<for _race, _raw range $town.baseDemographics>>
-    <<capture _race, _raw>>
+  <<set _populations to lib.getRacesPopulation($town.baseDemographics, $town.population)>>
+  <<set _percentages to lib.getRacesPercentile($town.baseDemographics)>>
+    <<capture _race, _raw, _populations, _percentages>>
       <tr>
         <td><<print _race.toUpperFirst()>></td>
-        <td><<print Math.trunc(lib.getRacePopulation(_race, $town.baseDemographics, $town.population))>></td>
-        <td><<print Math.trunc($town.demographicPercentile[_race])>></td>
+        <td><<print Math.trunc(_populations[_race])>></td>
+        <td><<print Math.trunc(_percentages[_race])>></td>
         <td>
           <span class="tip races-slider" data-tippy-content="This is automatically converted into a percentage; you don't need to worry about it not adding up to 100!">
             <<numberslider `"$town.baseDemographics['" + _race + "']"` $town.baseDemographics[_race] 0 100 1>>
@@ -31,5 +34,6 @@
     <</capture>>
   <</for>>
   </table><<run lib.addTippyAccessibility()>>
+  <</liveblock>>
 </details>
 /* <</liveblock>> */

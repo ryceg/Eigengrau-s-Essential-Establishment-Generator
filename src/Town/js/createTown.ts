@@ -99,7 +99,13 @@ export const createTown = (base: TownBasics | Town) => {
       return this._baseDemographics
     },
     set baseDemographics (newDemographics) {
-      lib.setBaseDemographics(this as unknown as Town, newDemographics)
+      // lib.setBaseDemographics(this as unknown as Town, newDemographics)
+      console.log('Setting base demographics.')
+      // alert(JSON.stringify(newDemographics))
+      Object.keys(newDemographics).forEach((byRace) => {
+        const race = byRace as RaceName
+        this._baseDemographics[race] = newDemographics[race]
+      })
     },
     set demographicPercentile (data) { console.log('Useless demographicPercentile setter. ') },
     get demographicPercentile () {
