@@ -1,5 +1,5 @@
 :: RandomNPCPrep [nobr]
-<<set _randomNPC to setup.randomiseNPC()>>
+<<set _randomNPC to lib.randomiseNPC()>>
 <<set _relationships to $currentPassage.availableRelationships || "visitor">>
 <<set _stringRelationship to _relationships.random().relationshipDescription>>
 

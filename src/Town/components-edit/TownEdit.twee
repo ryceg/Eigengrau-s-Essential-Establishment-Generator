@@ -3,8 +3,10 @@
   $(document).trigger(":liveupdate");
 });>>
 <<include "EditTownName">>
-<<button "Refresh">><<update>><<replace "#refresh">><<include "BiomeGenerationRefresh">><</replace>><</button>>
-<span id="refresh"><<include "BiomeGenerationRefresh">></span>
+<<button "Refresh">>
+  <<update>>
+<</button>>
+<<include "BiomeGenerationRefresh">>
 <<include "EditSliders">>
 <hr>
 <<include "EditRaces">>

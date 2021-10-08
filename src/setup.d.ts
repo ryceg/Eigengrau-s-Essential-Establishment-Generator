@@ -27,7 +27,6 @@ export interface Setup {
   createTownBiome(base: Partial<Town>): TownBasics
   createTown(base: TownBasics): Town
   createCastle(town: Town): Building
-  getTownType(town: Town): string
   createTownName(town: Town): string
 }
 

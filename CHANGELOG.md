@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Unreleased
+
+### Added
+
+### Changed
+- Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
+
 ## 2.8.14
 
 ### Added

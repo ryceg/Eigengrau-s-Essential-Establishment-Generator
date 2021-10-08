@@ -37,7 +37,7 @@ import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTownName } from './Town/js/createTownName'
-import { createTown, getTownType } from './Town/js/createTown'
+import { createTown } from './Town/js/createTown'
 import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
@@ -56,7 +56,6 @@ import { createFaction } from './Factions/createFaction'
 import { getTownMilitary } from './Town/js/getTownMilitary'
 import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
 import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
-import { randomiseNPC } from './Buildings/Components/randomiseNPC'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -109,7 +108,6 @@ declare global {
     createTownBiome: typeof createTownBiome
     createTownName: typeof createTownName
     createTown: typeof createTown
-    getTownType: typeof getTownType
     findViaKey: typeof findViaKey
     findIfExistsViaKey: typeof findIfExistsViaKey
     createBlacksmithProject: typeof createBlacksmithProject
@@ -131,7 +129,6 @@ declare global {
     getTownMilitary: typeof getTownMilitary
     getPoliticalSourceDescription: typeof getPoliticalSourceDescription
     exportToNovelAI: typeof exportToNovelAI
-    randomiseNPC: typeof randomiseNPC
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -186,7 +183,6 @@ Object.assign(setup, {
   createTownBiome,
   createTownName,
   createTown,
-  getTownType,
   findViaKey,
   findIfExistsViaKey,
   createBlacksmithProject,
@@ -207,8 +203,7 @@ Object.assign(setup, {
   createFaction,
   getTownMilitary,
   getPoliticalSourceDescription,
-  exportToNovelAI,
-  randomiseNPC
+  exportToNovelAI
   // createBuildingKeys,
   // createNewBuilding
 })

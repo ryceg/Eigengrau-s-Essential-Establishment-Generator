@@ -1,6 +1,8 @@
 import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
+import { getRacesPercentile } from './townDemographics'
+import { isPercentile } from './isPercentile'
 
 export interface PredominantInfo {
   /** Percentage of most populous race */
@@ -18,8 +20,16 @@ interface PredominantRace extends PredominantInfo {
   secondaryRace: RaceName;
 }
 
+export function getPredominantRaceFromBase (baseDemographics: Record<RaceName, number>): PredominantRace {
+  const percentages = getRacesPercentile(baseDemographics)
+  return getPredominantRace(percentages)
+}
+
 export function getPredominantRace (percentages: Record<RaceName, number>): PredominantRace {
   console.log('Getting the predominant race...')
+  if (!isPercentile(percentages)) {
+    percentages = getRacesPercentile(percentages)
+  }
 
   // Pick out the primary & secondary Race name percentages.
   const [primary, secondary] = sortArray(percentages).reverse()
