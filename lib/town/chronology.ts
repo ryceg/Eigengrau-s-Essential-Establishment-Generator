@@ -1,4 +1,5 @@
-import { Building, Deity, Faction, Family, NPC, Town } from '@lib'
+import { Building, createNamesake, createTippyFull, Deity, Faction, Family, Namesake, NPC, Town } from '@lib'
+import { createPlague } from 'lib/src/plague'
 import { Location } from 'src/World/locations'
 
 export interface TownHistory {
@@ -12,7 +13,7 @@ export interface TownEvent {
   description: string
   about?: {
     /* Who instigated the event? */
-    instigator?: string | NPC | Family | Faction | Deity
+    instigator?: string | NPC | Family | Faction | Deity | Namesake
     /* What did the event involve? */
     target?: string | NPC | Family | Faction | Deity | Building
     /* Where did the event take place? */
@@ -21,7 +22,7 @@ export interface TownEvent {
   time: {
     /** Time in days that has elapsed since the event. */
     since?: number
-    /** Total duration of the event. */
+    /** Total duration in days of the event. */
     duration: number
   }
   /** Was this event a good thing? */
@@ -80,7 +81,7 @@ export const townEvents: TownEventsData = {
             location: town.location
           },
           time: {
-            duration: lib.random([0, 1, 1, 2, 3, 5, 7])
+            duration: lib.random([0.5, 1, 1, 2, 3, 5, 7])
           },
           sentiment: {
             isGood: false
@@ -201,6 +202,83 @@ export const townEvents: TownEventsData = {
         return event
       },
       data: {}
+    },
+    plague: {
+      name: 'plague',
+      key: 'plague',
+      probability: 2,
+      excludes (town: Town) {
+        return [
+          town.roll.welfare < 90
+        ]
+      },
+      event (town: Town) {
+        const plague = createPlague(town)
+        const event = {
+          title: plague.name
+        } as TownEvent
+        Object.assign({
+          description: `The ${town.type} had an outbreak of ${plague.name}.`,
+          about: {
+            location: town.location
+          },
+          time: {
+            duration: lib.random([30, 80, 160, 260, 360, 480, 600])
+          },
+          sentiment: {
+            isGood: false
+          }
+        }, event)
+        return event
+      },
+      data: {}
+    },
+    terrorism: {
+      name: 'terrorism',
+      key: 'terrorism',
+      probability: 5,
+      excludes (town: Town) {
+        return [
+          town.roll.welfare < 90,
+          town.roll.sin > 5,
+          town.roll.guardFunding < 90
+        ]
+      },
+      event (town: Town) {
+        const event = {
+          title: 'Terrorist Attack'
+        } as TownEvent
+        const reason = lib.random(townEvents.data.terrorist.data.reason)
+        const npc = createNamesake(town, {
+          note: `A terrorist that attacked ${town.name} because ${reason}`
+        })
+        const readout = `A ${npc.race} called ${npc.firstName} ${npc.lastName}`
+        Object.assign({
+          description: `A ${createTippyFull(readout, 'terrorist')} attacked the ${town.type} because ${reason}.`,
+          about: {
+            location: town.location
+          },
+          time: {
+            duration: lib.random([30, 80, 160, 260, 360, 480, 600])
+          },
+          sentiment: {
+            isGood: false
+          }
+        }, event)
+        return event
+      },
+      data: {
+        /** The terrorist attacked because ___ */
+        reason: [
+          'they were mad',
+          'they were cursed by a hag',
+          'they were a foreign agent sent to cause chaos in these lands',
+          'they were a psychopath',
+          'they wanted to be infamous',
+          'the town did not accept them',
+          'they hated Mondays'
+        ]
+      }
     }
 
     // fire
