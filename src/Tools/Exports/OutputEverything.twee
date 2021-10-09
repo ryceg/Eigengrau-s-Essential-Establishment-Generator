@@ -1,4 +1,5 @@
 :: OutputEverything [force-one-column squash-errors]
+
 <label name="Export type" for="listbox-exporttype"><<listbox "_exportType">>
   <<option "GMBinder">>
   <<option "Homebrewery">>
@@ -48,6 +49,7 @@
 <<replace "#everything">>
   <<button "Copy">><<run setup.copyText()>><</button>> -- <<textbox "$outputEverything" _exportContent>>
 <</replace>>
-<</button>></span>
+<</button>>
+<<checkbox "$addPantheon" false true autocheck>> Include Pantheon?</span>
 <span id="everything"></span>
 <span id="tutorial"><<include "GoalBasedUnlockingText">></span>

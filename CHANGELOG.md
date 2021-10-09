@@ -7,9 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Ability to export pantheons during the export process
+- Native share menu for iOS & Android
 
 ### Changed
 - Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
+
+### Removed
+- ENnies related stuff
 
 ## 2.8.14
 

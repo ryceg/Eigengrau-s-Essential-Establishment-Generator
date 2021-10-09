@@ -16,8 +16,10 @@ export const outputEverything = () => {
     town: setup.exportAsHtml('TownOutput'),
     buildings: outputFromArray(State.variables.town.buildings),
     factions: outputFromObject(State.variables.town.factions),
-    NPCs: outputFromObject(State.variables.npcs),
-    pantheon: outputFromArray(lib.getPantheonDeities(State.variables.town, State.metadata.get('pantheon')))
+    NPCs: outputFromObject(State.variables.npcs)
+  }
+  if (State.variables.addPantheon) {
+    output.pantheon = outputFromArray(lib.getPantheonDeities(State.variables.town, State.metadata.get('pantheon')))
   }
   return output
 }
@@ -37,7 +39,7 @@ const constructObject = (
 const outputFromObject = (group: Record<string, NPC | Faction>) => {
   const obj: Record<string, Data> = {}
   for (const instance of Object.values(group)) {
-    obj[instance.key] = constructObject(instance)
+    obj[instance.key || instance.name] = constructObject(instance)
   }
   return obj
 }
@@ -45,7 +47,7 @@ const outputFromObject = (group: Record<string, NPC | Faction>) => {
 const outputFromArray = (group: Building[] | Deity[]) => {
   const obj: Record<string, Data> = {}
   for (const instance of group) {
-    obj[instance.key] = constructObject(instance)
+    obj[instance.key || instance.name] = constructObject(instance)
   }
   return obj
 }

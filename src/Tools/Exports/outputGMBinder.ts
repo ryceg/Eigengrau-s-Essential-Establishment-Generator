@@ -9,17 +9,22 @@ export const outputGMBinder = () => {
   const target = {
     buildings: 'buildings',
     factions: 'factions',
-    NPCs: 'NPCs'
+    NPCs: 'NPCs',
+    pantheon: 'pantheon'
   }
 
   for (const type in target) {
-    string += addGMBinderPart(type)
-    string += addPageBreak()
-    for (const page in output[type]) {
-      string += `<h2>${output[type as string][page as string].name}</h2>\n${output[type][page].output}\n`
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (output[target[type]]) {
+      string += addGMBinderPart(type)
+      string += addPageBreak()
+      for (const page in output[type]) {
+        string += `<h2>${output[type as string][page as string].name}</h2>\n${output[type][page].output}\n`
+        string += addPageBreak()
+      }
       string += addPageBreak()
     }
-    string += addPageBreak()
   }
   string += addGMBinderPosttext()
   return string
