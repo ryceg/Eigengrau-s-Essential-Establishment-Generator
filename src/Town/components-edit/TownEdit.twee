@@ -1,6 +1,7 @@
 :: TownEdit [nobr]
 <<run $("body").on("change", [".races-slider", ".religion-slider"], function() {
   $(document).trigger(":liveupdate");
+  tippy('.tip');
 });>>
 <<include "EditTownName">>
 <<button "Refresh">>

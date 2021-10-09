@@ -68,19 +68,4 @@ They harvest
   <</listbox>>
 </label>.
 
-Politically, they are a
-<label class="tip" data-tippy-content="How does the economy work?" name="Economic Ideology" for="listbox-towneconomicideology">
-  <<listbox "$town.economicIdeology" autoselect>>
-    <<optionsfrom $listboxes.economicIdeology>>
-  <</listbox>>
-</label>
-<label class="tip" data-tippy-content="Who leads the people?" name="Political Ideology" for="listbox-townpoliticalideology">
-  <<listbox "$town.politicalIdeology" autoselect>>
-    <<optionsfrom $listboxes.politicalIdeology>>
-  <</listbox>>
-</label>
-<label class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?" name="Political Source" for="listbox-townpoliticalsource">
-  <<listbox "$town.politicalSource" autoselect>>
-    <<optionsfrom $listboxes.politicalSource>>
-  <</listbox>>
-</label></span></details><<done>><<run tippy('[data-tippy-content]')>><</done>><</liveblock>>
+Politically, they are a <<include "EditSociopolitics">></span></details><<done>><<run tippy('[data-tippy-content]')>><</done>><</liveblock>>
