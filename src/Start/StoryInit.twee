@@ -62,4 +62,5 @@
     })
     .appendTo($fun);
 <</script>>
+<<run lib.shareMenu()>>
 <<run setup.navigateToObj()>>
