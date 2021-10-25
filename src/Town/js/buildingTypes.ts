@@ -6,6 +6,7 @@ export const buildingTypes = {
   'Butcher': 'butcher',
   'Castle': 'castle',
   'Cobbler': 'cobbler',
+  'Confectionery': 'confectionery',
   'Docks': 'docks',
   'Dungeon': 'dungeon',
   'Fletcher': 'fletcher',
