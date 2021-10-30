@@ -1,10 +1,10 @@
 :: TownListNpcs
 <<liveblock>><<nobr>>
-<table>
+<table id="npctable">
   <tr>
-    <th>Name</th>
-    <th>Race</th>
-    <th>Profession</th>
+    <th onclick="sortTable('npctable',0)">Name</th>
+    <th onclick="sortTable('npctable',1)">Race</th>
+    <th onclick="sortTable('npctable',2)">Profession</th>
     <span class="interactive-only"><th>Delete</th></span>
   </tr>
   <<for _i, _npc range $npcs>><<capture _i, _npc>><<set _profession to lib.toTitleCase(_npc.profession)>><<if !_npc.isThrowaway>>
@@ -15,3 +15,42 @@
   </tr>
   <</if>><</capture>><</for>>
   </table><</nobr>><</liveblock>>
+  <script>
+  
+function sortTable(title, n) {
+  var rows, i, x, y, shouldSwitch, switchcount = 0;
+  var table = document.getElementById(title);
+  var switching = true;
+  var dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
