@@ -19,6 +19,11 @@ interface GoodsAndServices {
       foodAdjective: string[]
     }
   }
+  confectionary: GoodsAndService & {
+    name: {
+      foodAdjective: string[]
+    }
+  }
   florist: GoodsAndService
   tailor: GoodsAndService
   butcher: GoodsAndService
@@ -61,6 +66,12 @@ interface BakeryGoodType {
   qualities: string[]
   precedingWord: string[]
   cooking: string[]
+}
+
+interface CandyGoodType {
+  synonyms?: string[]
+  qualities: string[]
+  precedingWord: string[]
 }
 
 interface GeneralGood {

@@ -18,6 +18,7 @@ export const createStartBuildings = (town: Town) => {
     'Tavern': ['bartender'],
     'Alchemist': ['alchemist', 'wizard'],
     'Bakery': ['pastry chef', 'baker'],
+    'Confectionery': ['chocolatier', 'candy-maker'],
     'General Store': ['shopkeep'],
     'Graveyard': ['gravedigger', 'sexton'],
     'Dungeon': ['jailer', 'bailiff'],
