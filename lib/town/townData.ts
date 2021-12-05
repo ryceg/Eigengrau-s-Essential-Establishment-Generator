@@ -6,7 +6,7 @@ import { WeightRecord } from '../types'
 import { PoliticalSource, Town } from './_common'
 import { NPC } from '../npc-generation/_common'
 import { FactionType } from '../faction/factionData'
-import { Seasons, Biome } from '@lib'
+import { Seasons, Biome, EconomicIdeologyIST, PoliticalIdeologyIC } from '@lib'
 
 export type TownType = 'hamlet' | 'village' | 'town' | 'city'
 export type EconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
@@ -59,7 +59,7 @@ interface TownData {
       modifiers: Record<RollKeys, number>
       descriptors: {
         economicIdeologyIC: string
-        economicIdeologyIST: string
+        economicIdeologyIST: EconomicIdeologyIST
         economicIdeologyDescription: (town: Town) => string
         tippy: string
       }
@@ -80,7 +80,7 @@ interface TownData {
         isFaction: boolean
         leaderType: string
         governmentType: FactionType
-        politicalIdeologyIC: string
+        politicalIdeologyIC: PoliticalIdeologyIC
         description: string
       }
     }

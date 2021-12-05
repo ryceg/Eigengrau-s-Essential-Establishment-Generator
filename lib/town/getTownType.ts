@@ -1,6 +1,6 @@
-import { TownBasics, TownType } from '@lib'
+import { Town, TownType } from '@lib'
 
-export const getTownType = (town: TownBasics): TownType => {
+export const getTownType = (town: Town): TownType => {
   if (town.population > 6000) return 'city'
   if (town.population > 3000) return 'town'
   if (town.population > 1000) return 'village'

@@ -24,7 +24,9 @@ export type TownRolls =
   | 'arcana'
   | 'equality'
   | 'religiosity'
+  | 'magic'
   | 'genderMakeup'
+  | 'size'
 
 export interface TownBasics {
   name: string

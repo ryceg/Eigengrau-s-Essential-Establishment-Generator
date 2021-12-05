@@ -1,12 +1,12 @@
 import { keys } from '../src/utils'
 import { townData } from './townData'
 import { randomFloat } from '../src/randomFloat'
+import { TownType } from '@lib'
 
 type Type = typeof townData.type
-type Size = keyof Type
-type Ideologies = Type[Size]['ideologies']
+type Ideologies = Type[TownType]['ideologies']
 
-export function politicsWeightedRoll <S extends Size, I extends keyof Ideologies> (size: S, type: I) {
+export function politicsWeightedRoll <S extends TownType, I extends keyof Ideologies> (size: S, type: I) {
   const townType = townData.type[size]
   const ideologyType = townType.ideologies[type]
 
@@ -28,4 +28,5 @@ export function politicsWeightedRoll <S extends Size, I extends keyof Ideologies
       return key
     }
   }
+  return pool[0]
 }

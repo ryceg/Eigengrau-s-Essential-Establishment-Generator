@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { assignEconomicModifiers, assignPoliticalModifiers, assignSizeModifiers, BinaryGender, Biome, calculateTax, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownType } from '@lib'
 
 export const createTown = (base: TownBasics | Town) => {
   console.groupCollapsed('The town is loading...')
@@ -263,30 +263,4 @@ export const createTown = (base: TownBasics | Town) => {
   console.log(`${town.name} has loaded.`)
   console.log(town)
   return town as unknown as Town
-}
-
-function calculateTax (nominalTarget: number, economics: number) {
-  return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
-}
-
-function assignSizeModifiers (town: TownBasics) {
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
-  assignRollModifiers(town, lib.townData.type[town.type].modifiers)
-}
-
-function assignEconomicModifiers (town: TownBasics) {
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
-  assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
-}
-
-function assignPoliticalModifiers (town: TownBasics) {
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
-  assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
-}
-
-function assignRollModifiers (town: TownBasics, modifiers: Record<TownRolls, number>) {
-  for (const [key, modifier] of Object.entries(modifiers)) {
-    const roll = key as TownRolls
-    town.roll[roll] = lib.fm(town.roll[roll], modifier)
-  }
 }

@@ -7,8 +7,7 @@ import { calcPercentage } from '../src/calcPercentage'
 
 export function townDemographics (town: TownBasics) {
   console.log(`Creating ${town.type} demographics.`)
-  const townType = townData.type[town.type]
-  town._baseDemographics = weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
+  town._baseDemographics = weightedRandomFetcher(town as Town, townData.type[town.type].demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
 }
 
 export function updateDemographics (town: TownBasics, newDemographics: Record<RaceName, number>) {
