@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Ability to export pantheons during the export process
 - Native share menu for iOS & Android
 - Explanation tooltip for the politics and economic ideologies
-
+- Confectionary shops (thanks, dcorriveau!)
 ### Changed
 - Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
 - Fixed a bug where popups on the town editing page would not fire after the first interaction.
