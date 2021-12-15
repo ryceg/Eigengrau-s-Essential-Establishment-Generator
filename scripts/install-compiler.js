@@ -19,6 +19,9 @@ downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
 
   downloadAndExtract(utils.links.storyFormats, utils.formatsZip, utils.formatsFolder).then(() => {
     utils.logSuccess('All done!')
+    if (process.platform === 'win32') {
+      logWarning('If you receive an error about SugarCube not being available, rename the folder ' + '"sugarcube-2" to "SugarCube" and try again.')
+    }
   })
 })
 
