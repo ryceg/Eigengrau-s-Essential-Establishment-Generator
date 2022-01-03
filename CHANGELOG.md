@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Explanation tooltip for the politics and economic ideologies
 - Confectionary shops (thanks, dcorriveau!)
 - Added a terminal warning when on Windows to fix a common issue when installing.
+- 🎲 favicon!
 ### Changed
 - Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
 - Fixed a bug where popups on the town editing page would not fire after the first interaction.
