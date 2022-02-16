@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { default: babel } = require('@rollup/plugin-babel')
-const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const commonjs = require('@rollup/plugin-commonjs')
-const replace = require('@rollup/plugin-replace')
-const json = require('@rollup/plugin-json')
-const { terser } = require('rollup-plugin-terser')
+
+import babel from '@rollup/plugin-babel'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import replace from '@rollup/plugin-replace'
+import json from '@rollup/plugin-json'
+import { terser } from 'rollup-plugin-terser'
 
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
@@ -16,7 +16,7 @@ const plugins = [
     'preventAssignment': true
   }),
   json(),
-  babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled' }),
+  babel.babel({ extensions: ['.js', '.ts'], babelHelpers: 'bundled' }),
   nodeResolve({ browser: true }),
   commonjs({ extensions: ['.js', '.ts', '.json'] })
 ]
@@ -25,7 +25,7 @@ if (isProduction) {
   plugins.push(terser())
 }
 
-module.exports = [
+export default [
   {
     input: 'src/main.ts',
     plugins,
@@ -35,6 +35,6 @@ module.exports = [
   {
     input: 'lib/index.ts',
     plugins,
-    output: { format: 'iife', name: 'lib', file: './gh-pages/main.js', sourcemap: true }
+    output: { file: './gh-pages/main.js', format: 'iife', name: 'lib', sourcemap: true }
   }
 ]

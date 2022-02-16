@@ -1,41 +1,41 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const http = require('https')
-const fs = require('fs')
-const yauzl = require('yauzl')
-const shell = require('shelljs')
-const utils = require('./utils')
 
-shell.mkdir('-p', utils.twineFolder)
+import { resolve as _resolve } from 'path'
+import { get } from 'https'
+import { createWriteStream } from 'fs'
+import { open } from 'yauzl'
+import { mkdir } from 'shelljs'
+import { twineFolder, logClear, logAction, logInfo, tweegoZip, links, formatsZip, formatsFolder, logSuccess, logError } from './utils'
+
+mkdir('-p', twineFolder)
 
 const tweegoLink = getTweegoLink()
 
-utils.logClear()
-utils.logAction('Downloading the tweego binary file from', tweegoLink)
-utils.logInfo('Copyright(c) 2014 - 2018 Thomas Michael Edwards <thomasmedwards@gmail.com>.\nAll rights reserved.')
+logClear()
+logAction('Downloading the tweego binary file from', tweegoLink)
+logInfo('Copyright(c) 2014 - 2022 Thomas Michael Edwards <thomasmedwards@gmail.com>.\nAll rights reserved.')
 
-downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
-  utils.logAction('Downloading the story formats from', utils.links.storyFormats)
+downloadAndExtract(tweegoLink, tweegoZip).then(() => {
+  logAction('Downloading the story formats from', links.storyFormats)
 
-  downloadAndExtract(utils.links.storyFormats, utils.formatsZip, utils.formatsFolder).then(() => {
-    utils.logSuccess('All done!')
+  downloadAndExtract(links.storyFormats, formatsZip, formatsFolder).then(() => {
+    logSuccess('All done!')
   })
 })
 
 function downloadAndExtract (link, filePath, outFolder) {
   return new Promise((resolve, reject) => {
-    http.get(link, request).on('error', utils.logError)
+    get(link, request).on('error', logError)
 
     function request (response) {
       // Recursively follow potential redirects.
       if (response.statusCode === 302) {
-        http.get(response.headers.location, request)
+        get(response.headers.location, request)
         return
       }
 
       // Handle successful response.
       if (response.statusCode === 200) {
-        const writeStream = fs.createWriteStream(filePath)
+        const writeStream = createWriteStream(filePath)
           .on('error', () => {
             reject(new Error('Could not write file to disk.'))
           })
@@ -52,10 +52,10 @@ function downloadAndExtract (link, filePath, outFolder) {
     }
 
     function unzip () {
-      yauzl.open(filePath, { lazyEntries: true }, (error, zip) => {
+      open(filePath, { lazyEntries: true }, (error, zip) => {
         if (error) throw error
 
-        utils.logAction('Unzipping...\n')
+        logAction('Unzipping...\n')
 
         zip.on('entry', entry => isFolder(entry) ? zip.readEntry() : unzipEntry(zip, entry))
         zip.on('end', resolve)
@@ -68,12 +68,12 @@ function downloadAndExtract (link, filePath, outFolder) {
     zip.openReadStream(entry, (error, stream) => {
       if (error) throw error
 
-      const folder = outFolder || utils.twineFolder
+      const folder = outFolder || twineFolder
 
-      const fileFolder = path.resolve(folder, getFileDirectory(entry.fileName))
-      shell.mkdir('-p', fileFolder)
-      const filePath = path.resolve(folder, entry.fileName)
-      const writeStream = fs.createWriteStream(filePath)
+      const fileFolder = _resolve(folder, getFileDirectory(entry.fileName))
+      mkdir('-p', fileFolder)
+      const filePath = _resolve(folder, entry.fileName)
+      const writeStream = createWriteStream(filePath)
 
       stream.on('end', () => zip.readEntry())
       stream.pipe(writeStream)
@@ -82,7 +82,7 @@ function downloadAndExtract (link, filePath, outFolder) {
 }
 
 function getTweegoLink () {
-  const platform = utils.links.tweego[process.platform]
+  const platform = links.tweego[process.platform]
   return platform[process.arch] || platform.x86
 }
 

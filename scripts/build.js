@@ -1,12 +1,17 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs')
-const path = require('path')
-const spawn = require('child_process').spawn
-const utils = require('./utils')
-const chokidar = require('chokidar')
-const cpy = require('cpy')
-const rollup = require('rollup')
 
+import fs from 'fs'
+import path from 'path'
+import { spawn } from 'child_process'
+import pkg from 'cpy'
+import * as rollup from 'rollup'
+import chokidar from 'chokidar'
+import utils from './utils.js'
+import { fileURLToPath } from 'url'
+import rollUpConfigs from './rollup.config.js'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const { cpy } = pkg
+console.log(utils.twineFolder)
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
 const parseArgs = () => {
@@ -90,9 +95,8 @@ const copyFiles = async (args) => {
 
 const bundleJS = async (args) => {
   const watch = args.includes('--watch')
-  const configs = require('./rollup.config')
   if (watch) {
-    for (const config of configs) {
+    for (const config of rollUpConfigs) {
       const watcher = rollup.watch(config)
       watcher.on('event', async ({ code, result, error }) => {
         switch (code) {
@@ -110,7 +114,7 @@ const bundleJS = async (args) => {
       process.on('beforeExit', () => watcher.close())
     }
   } else {
-    for (const { output, ...input } of configs) {
+    for (const { output, ...input } of rollUpConfigs) {
       const bundled = await rollup.rollup(input)
       await bundled.write(output)
     }

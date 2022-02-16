@@ -1,16 +1,19 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const chalk = require('chalk')
 
+import path, { resolve } from 'path'
+import chalk from 'chalk'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 // Folder to store the twine-related dependencies in.
-const twineFolder = path.resolve(__dirname, '..', '.twine')
+const twineFolder = resolve(__dirname, '..', '.twine')
 
-module.exports = {
+export default {
   // Useful paths.
   twineFolder,
-  tweegoZip: path.resolve(twineFolder, 'tweego.zip'),
-  formatsZip: path.resolve(twineFolder, 'formats.zip'),
-  formatsFolder: path.resolve(twineFolder, 'storyformats'),
+  tweegoZip: resolve(twineFolder, 'tweego.zip'),
+  formatsZip: resolve(twineFolder, 'formats.zip'),
+  formatsFolder: resolve(twineFolder, 'storyformats'),
 
   // Various download links.
   links: {
