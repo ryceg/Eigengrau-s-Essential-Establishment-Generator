@@ -656,7 +656,7 @@ setup.initCastle = () => {
         }
       ]
     },
-    lookingFor (town, building) {
+    lookingFor (town: Town, building: Building) {
       const reasons = [
         // the castle needs assistance ____
         function () {
