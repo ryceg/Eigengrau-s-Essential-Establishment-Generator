@@ -1,6 +1,6 @@
 setup.createTownSquare = (town, opts = {}) => {
   console.groupCollapsed('Creating townSquare function')
-  const townSquare = (opts.newBuilding || lib.createBuilding)(town, 'townSquare', opts)
+  const townSquare = (opts?.building || lib.createBuilding)(town, 'townSquare', opts)
 
   lib.assign(townSquare, {
     initPassage: 'TownSquareOutput',

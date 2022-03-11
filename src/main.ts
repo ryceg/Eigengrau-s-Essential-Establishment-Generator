@@ -60,150 +60,152 @@ import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
 
 declare global {
   interface Setup {
-    createAlchemist: typeof createAlchemist
-    brothelData: typeof brothelData
-    createBrothel: typeof createBrothel
-    deleteBuilding: typeof deleteBuilding
-    createMarriage: typeof createMarriage
-    createParentage: typeof createParentage
-    createRelationship: typeof createRelationship
-    createSocioPolitics: typeof createSocioPolitics
-    findPoliceSource: typeof findPoliceSource
-    getFatherMother: typeof getFatherMother
-    checkRaces: typeof checkRaces
-    expandNPC: typeof expandNPC
-    profile: typeof profile
-    getWakeUpByWealth: typeof getWakeUpByWealth
-    createTavern: typeof createTavern
-    money: typeof money
-    history: typeof history
     addGtagEvent: typeof addGtagEvent
-    profileAgeTooltip: typeof profileAgeTooltip
-    metricHeight: typeof metricHeight
-    metricWeight: typeof metricWeight
-    buildingTooltip: typeof buildingTooltip
-    createPercentageTooltip: typeof createPercentageTooltip
-    createRaceHTML: typeof createRaceHTML
-    createReligionHTML: typeof createReligionHTML
-    politicsDescription: typeof politicsDescription
-    politicsTooltip: typeof politicsTooltip
-    makeTippyTitle: typeof makeTippyTitle
-    createNPC: typeof createNPC
-    deleteNPC: typeof deleteNPC
-    deleteThrowawayNPCs: typeof deleteThrowawayNPCs
-    getLifeEvents: typeof getLifeEvents
-    openDialog: typeof openDialog
-    rerenderPage: typeof rerenderPage
     addSettingButton: typeof addSettingButton
-    getLocation: typeof getLocation
-    getEncounter: typeof getEncounter
-    getEventDescription: typeof getEventDescription
-    graveStone: typeof graveStone
-    townSquare: typeof townSquare
-    urlSeed: typeof urlSeed
-    navigateToObj: typeof navigateToObj
-    deleteFaction: typeof deleteFaction
-    leaderFaction: typeof leaderFaction
-    plothooks: typeof plothooks
-    createTownBiome: typeof createTownBiome
-    createTownName: typeof createTownName
-    createTown: typeof createTown
-    findViaKey: typeof findViaKey
-    findIfExistsViaKey: typeof findIfExistsViaKey
-    createBlacksmithProject: typeof createBlacksmithProject
-    createSmithyName: typeof createSmithyName
-    createSmithy: typeof createSmithy
-    createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
-    outputEverything: typeof outputEverything
-    exportAsHtml: typeof exportAsHtml
-    outputGMBinder: typeof outputGMBinder
+    brothelData: typeof brothelData
+    buildingTooltip: typeof buildingTooltip
+    buildingTypes: typeof buildingTypes
+    checkRaces: typeof checkRaces
     copyText: typeof copyText
+    createAlchemist: typeof createAlchemist
+    createBlacksmithProject: typeof createBlacksmithProject
+    createBrothel: typeof createBrothel
+    createDeadNPC: typeof createDeadNPC
+    createDocks: typeof createDocks
+    createFaction: typeof createFaction
     createGuardhouse: typeof createGuardhouse
     createGuardhouseName: typeof createGuardhouseName
+    createMarriage: typeof createMarriage
+    createNPC: typeof createNPC
+    createParentage: typeof createParentage
+    createPercentageTooltip: typeof createPercentageTooltip
+    createRaceHTML: typeof createRaceHTML
+    createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
+    createRelationship: typeof createRelationship
+    createReligionHTML: typeof createReligionHTML
+    createSmithy: typeof createSmithy
+    createSmithyName: typeof createSmithyName
+    createSocioPolitics: typeof createSocioPolitics
     createStartBuildings: typeof createStartBuildings
-    npcDeath: typeof npcDeath
-    createDeadNPC: typeof createDeadNPC
     createStartFactions: typeof createStartFactions
-    buildingTypes: typeof buildingTypes
-    createFaction: typeof createFaction
-    getTownMilitary: typeof getTownMilitary
-    getPoliticalSourceDescription: typeof getPoliticalSourceDescription
+    createTavern: typeof createTavern
+    createTown: typeof createTown
+    createTownBiome: typeof createTownBiome
+    createTownName: typeof createTownName
+    deleteBuilding: typeof deleteBuilding
+    deleteFaction: typeof deleteFaction
+    deleteNPC: typeof deleteNPC
+    deleteThrowawayNPCs: typeof deleteThrowawayNPCs
+    expandNPC: typeof expandNPC
+    exportAsHtml: typeof exportAsHtml
     exportToNovelAI: typeof exportToNovelAI
+    findIfExistsViaKey: typeof findIfExistsViaKey
+    findPoliceSource: typeof findPoliceSource
+    findViaKey: typeof findViaKey
+    getEncounter: typeof getEncounter
+    getEventDescription: typeof getEventDescription
+    getFatherMother: typeof getFatherMother
+    getLifeEvents: typeof getLifeEvents
+    getLocation: typeof getLocation
+    getPoliticalSourceDescription: typeof getPoliticalSourceDescription
+    getTownMilitary: typeof getTownMilitary
+    getWakeUpByWealth: typeof getWakeUpByWealth
+    graveStone: typeof graveStone
+    history: typeof history
+    leaderFaction: typeof leaderFaction
+    makeTippyTitle: typeof makeTippyTitle
+    metricHeight: typeof metricHeight
+    metricWeight: typeof metricWeight
+    money: typeof money
+    navigateToObj: typeof navigateToObj
+    npcDeath: typeof npcDeath
+    openDialog: typeof openDialog
+    outputEverything: typeof outputEverything
+    outputGMBinder: typeof outputGMBinder
+    plothooks: typeof plothooks
+    politicsDescription: typeof politicsDescription
+    politicsTooltip: typeof politicsTooltip
+    profile: typeof profile
+    profileAgeTooltip: typeof profileAgeTooltip
+    rerenderPage: typeof rerenderPage
+    townSquare: typeof townSquare
+    urlSeed: typeof urlSeed
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
 }
 
 Object.assign(setup, {
-  createAlchemist,
-  brothelData,
-  createBrothel,
-  deleteBuilding,
-  createMarriage,
-  createParentage,
-  createRelationship,
-  createSocioPolitics,
-  findPoliceSource,
-  getFatherMother,
-  checkRaces,
-  expandNPC,
-  profile,
-  getWakeUpByWealth,
-  createTavern,
-  money,
-  history,
   addGtagEvent,
-  profileAgeTooltip,
-  metricHeight,
-  metricWeight,
-  buildingTooltip,
-  createPercentageTooltip,
-  createRaceHTML,
-  createReligionHTML,
-  politicsDescription,
-  politicsTooltip,
-  makeTippyTitle,
-  createNPC,
-  deleteNPC,
-  deleteThrowawayNPCs,
-  getLifeEvents,
-  openDialog,
-  rerenderPage,
   addSettingButton,
-  getLocation,
-  getEncounter,
-  getEventDescription,
-  graveStone,
-  townSquare,
-  urlSeed,
-  navigateToObj,
-  deleteFaction,
-  leaderFaction,
-  plothooks,
-  createTownBiome,
-  createTownName,
-  createTown,
-  findViaKey,
-  findIfExistsViaKey,
-  createBlacksmithProject,
-  createSmithyName,
-  createSmithy,
-  createReciprocalRelationshipNpc,
-  outputEverything,
-  exportAsHtml,
+  brothelData,
+  buildingTooltip,
+  buildingTypes,
+  checkRaces,
   copyText,
-  outputGMBinder,
+  createAlchemist,
+  createBlacksmithProject,
+  createBrothel,
+  createDeadNPC,
+  createDocks,
+  createFaction,
   createGuardhouse,
   createGuardhouseName,
+  createMarriage,
+  createNPC,
+  createParentage,
+  createPercentageTooltip,
+  createRaceHTML,
+  createReciprocalRelationshipNpc,
+  createRelationship,
+  createReligionHTML,
+  createSmithy,
+  createSmithyName,
+  createSocioPolitics,
   createStartBuildings,
-  npcDeath,
-  createDeadNPC,
   createStartFactions,
-  buildingTypes,
-  createFaction,
-  getTownMilitary,
+  createTavern,
+  createTown,
+  createTownBiome,
+  createTownName,
+  deleteBuilding,
+  deleteFaction,
+  deleteNPC,
+  deleteThrowawayNPCs,
+  expandNPC,
+  exportAsHtml,
+  exportToNovelAI,
+  findIfExistsViaKey,
+  findPoliceSource,
+  findViaKey,
+  getEncounter,
+  getEventDescription,
+  getFatherMother,
+  getLifeEvents,
+  getLocation,
   getPoliticalSourceDescription,
-  exportToNovelAI
+  getTownMilitary,
+  getWakeUpByWealth,
+  graveStone,
+  history,
+  leaderFaction,
+  makeTippyTitle,
+  metricHeight,
+  metricWeight,
+  money,
+  navigateToObj,
+  npcDeath,
+  openDialog,
+  outputEverything,
+  outputGMBinder,
+  plothooks,
+  politicsDescription,
+  politicsTooltip,
+  profile,
+  profileAgeTooltip,
+  rerenderPage,
+  townSquare,
+  urlSeed
   // createBuildingKeys,
   // createNewBuilding
 })

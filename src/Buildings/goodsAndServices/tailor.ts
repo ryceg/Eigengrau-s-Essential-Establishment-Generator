@@ -1,46 +1,44 @@
 import { GoodsAndService } from '../goodsAndServices'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
-import { random } from '@lib'
+import { createNamesake } from '@lib'
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
+import { assertBuildingExists } from '../assertBuildingExists'
 
 export const tailor: GoodsAndService = {
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
+  create (town: Town, building: Building, opts?: BuildingOpts) {
+    assertBuildingExists(building)
 
     const typeData = tailor
 
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name = building.name || opts.name || typeData.name.function(town, building)
+    building.name ??= opts?.building?.name || typeData.name.function(town, building)
 
-    building.notableFeature = random(typeData.notableFeature)
-    building.specialty = random(typeData.specialty)
+    building.notableFeature ??= lib.random(typeData.notableFeature)
+    building.specialty ??= lib.random(typeData.specialty)
 
-    building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
+    building.tippyDescription = `${lib.articles.output(building.type)} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
     return building
   },
   name: {
     function (town: Town, building: Building) {
       const nameRoot = tailor.name
-      const noun = random(nameRoot.noun)
-      const wordNoun = random(nameRoot.wordNoun)
-      const adjective = random(nameRoot.adjective)
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const adjective = lib.random(nameRoot.adjective)
       const townName = town.name
       const roadName = town.roads[building.road].name
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      const firstName = building?.associatedNPC?.firstName || createNamesake(town).firstName
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      return lib.toTitleCase([
-        `The ${nameRoot.adjective.random().toUpperFirst()} ${[nameRoot.noun.random().toUpperFirst(), nameRoot.wordNoun.random().toUpperFirst()].random()}`,
-        `The ${town.name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
-        `The ${town.roads[building.road].name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
+      const namesake = building?.associatedNPC || createNamesake(town)
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      return lib.toTitleCase(lib.random([
+        `The ${adjective} ${[noun, wordNoun].random()}`,
+        `The ${town.name} ${wordNoun}`,
+        `The ${roadName} ${wordNoun}`,
         `${namesake.firstName}'s ${wordNoun}`,
-        `${nameRoot.adjectivePerson.random().toUpperFirst()} ${namesake.firstName}'s ${wordNoun}`,
+        `${lib.random(nameRoot.adjectivePerson)} ${namesake.firstName}'s ${wordNoun}`,
         unique
-      ].random())
+      ]))
     },
     unique: [
       'Golden Stitching',
@@ -129,7 +127,7 @@ export const tailor: GoodsAndService = {
       '$building.structure.descriptor called $building.name.'
     ].random()} You notice $building.notableFeature`,
     '',
-    'This $building.wordNoun is known for $building.specialty There is a <<profile $building.associatedNPC $building.associatedNPC.descriptor>> currently <<print $building.associatedNPC.idle.random()>>. <<print $building.associatedNPC.heshe.toUpperFirst()>> welcomes you, and asks what you are after.',
+    'This $building.wordNoun is known for $building.specialty There is a <<profile $building.associatedNPC $building.associatedNPC.descriptor>> currently <<print $building.associatedNPC.idle.random()>>. <<print $building.associatedNPC.heshe>> welcomes you, and asks what you are after.',
     '<<goods $building setup.goodsAndServices[$building.type].goods>>'
   ],
   profession: {

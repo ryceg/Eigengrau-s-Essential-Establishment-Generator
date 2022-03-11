@@ -1,26 +1,26 @@
+import { assert, createNamesake } from '@lib'
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
+import { assertBuildingExists } from '../assertBuildingExists'
 import { GoodsAndService } from '../goodsAndServices'
 
 export const florist: GoodsAndService = {
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
-
+  create (town: Town, building: Building, opts?: BuildingOpts) {
+    assertBuildingExists(building)
+    assert(building.buildingType === 'florist', 'building.buildingType must be florist')
     const typeData = florist
 
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name = building.name || opts.name || typeData.name.function(town, building)
+    building.name ??= opts?.building?.name || typeData.name.function(town, building)
 
-    building.notableFeature = random(typeData.notableFeature)
-    building.specialty = random(typeData.specialty)
+    building.notableFeature ??= lib.random(typeData.notableFeature)
+    building.specialty ??= lib.random(typeData.specialty)
 
-    building.flower1 = lib.flora.flower.stemP.random()
-    building.flower2 = lib.flora.flower.stemP.random()
-    building.flower = lib.flora.flower.stemS.random()
+    building.flower1 ??= lib.random(lib.flora.flower.stemP)
+    building.flower2 ??= lib.random(lib.flora.flower.stemP)
+    building.flower ??= lib.random(lib.flora.flower.stemS)
 
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
@@ -28,26 +28,28 @@ export const florist: GoodsAndService = {
   name: {
     function (town: Town, building: Building) {
       const nameRoot = florist.name
-      const noun = random(nameRoot.noun)
-      const wordNoun = random(nameRoot.wordNoun)
-      const adjective = random(nameRoot.adjective)
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const adjective = lib.random(nameRoot.adjective)
       const townName = town.name
       const roadName = town.roads[building.road].name
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      const firstName = building?.associatedNPC?.firstName || createNamesake(town).firstName
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      return lib.toTitleCase([
-        `The ${nameRoot.adjective.random().toUpperFirst()} ${[nameRoot.noun.random().toUpperFirst(), nameRoot.wordNoun.random().toUpperFirst()].random()}`,
-        `The ${town.name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
-        `The ${town.roads[building.road].name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
+      const namesake = building?.associatedNPC || createNamesake(town)
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      const stemS = lib.random(lib.flora.flower.stemS)
+      const bush = lib.random(lib.flora.flower.bush)
+      const adjectivePerson = lib.random(nameRoot.adjectivePerson)
+      return lib.toTitleCase(lib.random([
+        `The ${adjective} ${lib.random([noun, wordNoun])}`,
+        `The ${town.name} ${wordNoun}`,
+        `The ${roadName} ${wordNoun}`,
         `${namesake.firstName}'s ${wordNoun}`,
-        `The ${nameRoot.adjective.random().toUpperFirst()} ${lib.flora.flower.stemS.random().toUpperFirst()}`,
-        `The ${lib.flora.flower.stemS.random().toUpperFirst()}${[' Shop', ' Petal', ' Sprout', ' Greenhouse'].random()}`,
-        `${lib.flora.flower.stemS.random().toUpperFirst()} Petals ${nameRoot.wordNoun.random().toUpperFirst()}`,
-        `The ${lib.flora.flower.bush.random().toUpperFirst()} Bush ${nameRoot.wordNoun.random().toUpperFirst()}`,
-        `${nameRoot.adjectivePerson.random().toUpperFirst()} ${namesake.firstName}'s ${wordNoun}`,
+        `The ${adjective} ${stemS}`,
+        `The ${stemS} ${lib.random(['Shop', 'Petal', 'Sprout', 'Greenhouse'])}`,
+        `${stemS} Petals ${wordNoun}`,
+        `The ${bush} Bush ${wordNoun}`,
+        `${adjectivePerson} ${namesake.firstName}'s ${wordNoun}`,
         unique
-      ].random())
+      ]))
     },
     unique: [
       'The Daisy Chain',

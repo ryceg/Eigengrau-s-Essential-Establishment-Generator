@@ -70,6 +70,6 @@ export const createChemist = (town: Town, opts: Partial<Options> = {}): NPC => {
       'talks about the many uses for <<print lib.alchemistData.ingredients.random()>>, which $associatedNPC.heshe seems somewhat obsessed with',
       'tries to push various products on you all as you look about the shop'
     ],
-    ...opts.npc
+    ...opts?.npc
   })
 }

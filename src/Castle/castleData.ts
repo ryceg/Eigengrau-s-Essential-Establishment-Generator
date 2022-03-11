@@ -1,4 +1,125 @@
 // uses setup.createNPC, setup.profile, setup.createRelationship
+
+import { ThresholdTable, NPC, Building } from '@lib'
+import { Town } from 'lib/town/_common'
+import { Castle } from './createCastle'
+
+interface CastleData {
+  name: {
+    unique: string[]
+    wordNouns: string[]
+    nouns: string[]
+    adjectives: string[]
+    morphemes: {
+      prefix: string[]
+      suffix: string[]
+    }
+  }
+  location: Record<string, CastleLocation>
+  builtBy: string[]
+  knownFor: string[]
+  ruler: {
+    lookingFor: string[]
+    getAcquisitionMethod(town: Town, castle: Castle): AquisitionMethod
+    types: CastleRulerType
+  }
+  lookingFor(town: Town): string
+  siege: {
+    create(town: Town, siege: Siege): Siege
+    namePrefix: string[]
+    nameAdjective: string[]
+    nameNoun: string[]
+    causedBy: string[]
+    length: string[]
+    event: string[]
+    result: {
+      invadersWin: string[]
+      castleWin: string[]
+      other: string[]
+    }
+  }
+  rollData: {
+    condition: string[]
+    age: string[]
+    size: ThresholdTable,
+    landSize: ThresholdTable
+  }
+  dungeon: {
+    name: {
+      unique: string[]
+      adjectives: string[]
+      nouns: string[]
+      verbs: string[]
+      wordNoun: string[]
+    }
+    jailer: {
+      types: JailerTypes[]
+      base: {
+        profession: string
+      }
+    }
+    knownFor: string[]
+    secret: string[]
+    location: {
+      castle: string[]
+      standalone: string[]
+    }
+    age: string[]
+    format: string[]
+    cells: {
+      prisoners: {
+        create(town: Town, obj: any): string
+        npcs: PrisonerType[]
+        treatment: string[]
+      }
+      condition: string[]
+      format: string[]
+    }
+    rooms: {
+      type: string[]
+      feature: string[]
+    }
+  }
+}
+
+interface PrisonerType {
+  reasonForPunishment: string
+  base?: Partial<NPC>
+}
+interface JailerTypes {
+  type?: string
+  base?: Partial<NPC>
+}
+
+interface CastleRulerType {
+  probability?: number
+  type?: string
+  lookingFor?: string[]
+  acquisitionMethod?: string
+  base?: Partial<NPC>
+}
+
+interface Siege {
+  causedBy: string
+  length: string
+  event: string
+  result: string
+  namePrefix: string
+  nameAdjective: string
+  nameNoun: string
+  name: string
+  readout: string
+}
+
+interface CastleLocation {
+  vignette: string[]
+  defenseReason: string[]
+}
+
+interface AquisitionMethod {
+  acquisitionMethod: string
+}
+
 setup.initCastle = () => {
   setup.castle = {
     name: {
@@ -283,7 +404,7 @@ setup.initCastle = () => {
       'hosting many parties for foreign nobility'
     ],
     ruler: {
-      getAcquisitionMethod (town, castle) {
+      getAcquisitionMethod (town: Town, castle: Castle) {
         const methods = [
         // it was ____
           {
@@ -668,15 +789,15 @@ setup.initCastle = () => {
         function () {
           return 'as counsel on where to spend some accumulated gold'
         },
-        function (town) {
+        function (town: Town) {
           const npc = setup.createNPC(town, { socialClass: 'nobility' })
           return `from someone able to act as an escort for a ${setup.profile(npc, 'covert envoy')} to another region`
         },
-        function (town) {
+        function (town: Town) {
           const npc = setup.createNPC(town, { socialClass: 'nobility' })
           return `tracking down a ${setup.profile(npc, 'VIP')} who has disappeared`
         },
-        function (town) {
+        function (town: Town) {
           const npc = setup.createNPC(town, { socialClass: 'nobility' })
           return `with the covert escape of an ${setup.profile(npc, 'individual')}`
         },
@@ -697,7 +818,7 @@ setup.initCastle = () => {
       return lib.random(reasons)(town)
     },
     siege: {
-      create (town, siege = {}) {
+      create (town: Town, siege = {}) {
         const data = setup.castle.siege
         const result = Object.keys(data.result).random()
         lib.assign(siege, {
@@ -1120,7 +1241,7 @@ setup.initCastle = () => {
       ],
       cells: {
         prisoners: {
-          create (town, obj) {
+          create (town: Town, obj) {
             let imprisonmentLocation
             if (obj.parentKey) {
               imprisonmentLocation = obj.dungeon

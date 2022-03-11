@@ -1,25 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Building, NPC, Tavern, Town } from '@lib'
+import type { Tavern, Town } from '@lib'
+import { BuildingOpts } from '../../../lib/buildings/BuildingToCreate'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { createRelationship } from '../../NPCGeneration/Relationships/createRelationship'
 import { createBartender } from './createBartender'
 
-interface Options {
-  newBuilding?(town: Town, type: string): Building
-  newBartender?(town: Town, tavern: Building, base?: Partial<NPC>): NPC
-  associatedNPC?: Partial<NPC>
-}
-
-export const createTavern = (town: Town, opts: Options = {}): Tavern => {
+export const createTavern = (town: Town, opts?: BuildingOpts): Tavern => {
   // FIXME
   // @ts-expect-error Reassuring TS that it's okay that the function doesn't populate it perfectly is unfortunately beyond me.
-  const tavern: Tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern', opts)
+  const tavern: Tavern = (opts?.building || lib.createBuilding)(town, 'tavern', opts)
 
   tavern.name = lib.createTavernName()
   console.groupCollapsed(tavern.name)
 
   lib.assign(tavern, {
-    associatedNPC: (opts.newBartender || createBartender)(town, tavern, opts.associatedNPC)
+    associatedNPC: createBartender(town, tavern, opts?.npc)
   })
 
   lib.assign(tavern, {
@@ -80,8 +75,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     ].random(),
     // @ts-ignore
     // patrons: setup.tavern.patrons.random(),
-    // @ts-ignore
-    game: setup.tavern.games.random()
+    game: lib.random(setup.tavern.games)
   })
 
   lib.assign(tavern.roll, {

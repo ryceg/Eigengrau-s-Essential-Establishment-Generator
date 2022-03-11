@@ -1,17 +1,12 @@
-import { Building, NPC, Town } from '@lib'
-
-interface Options {
-  newBuilding(town: Town, type?: string): Guardhouse
-  npc: Partial<NPC>
-}
+import { Building, BuildingOpts, Town } from '@lib'
 
 export interface Guardhouse extends Building {
   expertise: string
   notableFeature: string
 }
 
-export const createGuardhouse = (town: Town, opts: Options) => {
-  const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse')
+export const createGuardhouse = (town: Town, opts: BuildingOpts) => {
+  const guardhouse = lib.createBuilding(town, 'guardhouse', opts?.building) as Guardhouse
 
   lib.assign(guardhouse, {
     initPassage: 'GuardhouseOutput',
@@ -20,7 +15,7 @@ export const createGuardhouse = (town: Town, opts: Options) => {
     objectType: 'building',
     wordNoun: lib.guardhouseData.name.wordNoun.random(),
     needsWordNoun: false,
-    associatedNPC: setup.createNPC(town, { profession: 'guard', ...opts.npc })
+    associatedNPC: setup.createNPC(town, { profession: 'guard', ...opts?.npc })
   })
   lib.createReciprocalRelationship(town, guardhouse, guardhouse.associatedNPC, { relationship: 'worker', reciprocalRelationship: 'place of employment' })
   guardhouse.notableFeature = lib.weightedRandomFetcher(town, lib.guardhouseData.notableFeature, guardhouse, undefined, 'function') as string

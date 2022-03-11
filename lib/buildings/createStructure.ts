@@ -57,8 +57,8 @@ export function createStructure (town: Town, building: Building) {
   })
 
   const descriptors = [
-    `${output(structure.material.noun)} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
-    `${output(structure.material.wealth)} ${structure.material.noun} ${[building.wordNoun, 'building'].random()} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
+    `${output(structure.material.noun)} ${lib.random([building.wordNoun, 'building'])} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`,
+    `${output(structure.material.wealth)} ${structure.material.noun} ${lib.random([building.wordNoun, 'building'])} with ${output(structure.roof.wealth)} ${structure.roof.verb} roof`
   ]
 
   if (building.size) {

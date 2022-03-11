@@ -1,15 +1,10 @@
-import { Building, NPC, Smithy, Town } from '@lib'
-
-interface Options {
-  newBuilding?(town: Town, type?: string): Building
-  npc?: Partial<NPC>
-}
+import { BuildingOpts, Smithy, Town } from '@lib'
 
 // uses setup.createNPC, setup.createSmithyName
-export const createSmithy = (town: Town, opts: Options = {}) => {
-  const smithy = (opts.newBuilding || lib.createBuilding)(town, 'smithy') as Smithy
+export const createSmithy = (town: Town, opts: BuildingOpts) => {
+  const smithy = lib.createBuilding(town, 'smithy', opts?.building) as Smithy
   console.groupCollapsed('Smithy loading...')
-  smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts.npc))
+  smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts?.npc))
   smithy.associatedNPC.owner = lib.random(lib.smithyData.owner)
   lib.createReciprocalRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   setup.createSmithyName(town, smithy)

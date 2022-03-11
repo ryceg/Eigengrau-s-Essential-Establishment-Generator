@@ -1,24 +1,18 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Alchemist, Building, NPC, Town } from '@lib'
+import type { Alchemist, Building, BuildingOpts, Town } from '@lib'
 import { createChemist } from './createChemist'
-
-interface Options {
-  newBuilding(town: Town, type: string): Building
-  npc: Partial<NPC>
-}
 
 /**
  * Creates an alchemist building.
  */
-export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchemist => {
+export const createAlchemist = (town: Town, opts?: BuildingOpts): Alchemist => {
   console.groupCollapsed('Alchemist loading...')
 
-  const createBuilding = opts.newBuilding || lib.createBuilding
-  const alchemist = createBuilding(town, 'alchemist', opts as Partial<Building>)
+  const alchemist = lib.createBuilding(town, 'alchemist', opts?.building)
 
   const associatedNPC = createChemist(town, opts)
 
-  lib.createReciprocalRelationship(town, alchemist as Building, associatedNPC, {
+  lib.createReciprocalRelationship(town, alchemist, associatedNPC, {
     relationship: 'owner',
     reciprocalRelationship: 'business'
   })

@@ -4,13 +4,13 @@ import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { RaceName } from '../npc-generation/raceTraits'
 import { Family, NPC, NpcRelationship } from '../npc-generation/_common'
-import { Road } from './roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
 import { Pantheon, PantheonTypes } from 'lib/religion/religion'
 import { GenderName } from '../../lib/npc-generation/genderData'
 import { Biome, Seasons } from '../../lib/src/terrain'
+import { Road } from './roads/roads'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 export type TownRolls =

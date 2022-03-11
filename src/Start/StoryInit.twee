@@ -40,7 +40,8 @@
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
-
+<<set Config.passages.start = "Welcome">>
+/* 
 <<set $town to setup.createTown(setup.createTownBiome())>>
 
 <<if recall("neverShowWelcome") is true && recall("showBiomeGeneration") is true>>
@@ -63,4 +64,4 @@
     .appendTo($fun);
 <</script>>
 <<run lib.shareMenu()>>
-<<run setup.navigateToObj()>>
+<<run setup.navigateToObj()>> */

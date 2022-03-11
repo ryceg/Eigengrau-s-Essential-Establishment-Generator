@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Building, NPC, Town } from '@lib'
+import type { Building, BuildingOpts, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { brothelData } from './brothelData'
 
 interface Brothel extends Building {
   initPassage: string
-  buildingType: string
   specialty: string
   talk: string
   rumour: string
@@ -13,14 +12,9 @@ interface Brothel extends Building {
   idle: string
 }
 
-interface Options {
-  newBuilding(town: Town, type?: string): Brothel
-  npc: Partial<NPC>
-}
-
-export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel => {
+export const createBrothel = (town: Town, opts: BuildingOpts): Brothel => {
   console.log('Creating a brothel...')
-  const brothel = (lib.createBuilding || opts.newBuilding)(town, 'brothel', opts as Partial<Brothel>)
+  const brothel = lib.createBuilding(town, 'brothel', opts?.building) as Brothel
 
   lib.assign(brothel, {
     name: lib.random(brothelData.name),

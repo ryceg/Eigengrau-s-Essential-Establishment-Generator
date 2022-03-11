@@ -1,5 +1,5 @@
 setup.createGraveyard = (town, opts = {}) => {
-  const graveyard = (opts.newBuilding || lib.createBuilding)(town, 'graveyard', opts)
+  const graveyard = (opts?.building || lib.createBuilding)(town, 'graveyard', opts)
 
   lib.assign(graveyard, {
     initPassage: 'GraveyardOutput',
@@ -14,7 +14,7 @@ setup.createGraveyard = (town, opts = {}) => {
     namePrefix: graveyardData.namePrefix.random(),
     nameSuffix: graveyardData.nameSuffix.random(),
     tree: lib.tree.create({ biome: 'plains' }),
-    associatedNPC: setup.createNPC(town, { profession: 'gravedigger', ...opts.npc }),
+    associatedNPC: setup.createNPC(town, { profession: 'gravedigger', ...opts?.npc }),
     gravediggerLook: `A gravedigger is ${graveyardData.gravediggerLook.random()}`,
     gravediggerChat: graveyardData.gravediggerChat.random()
   })

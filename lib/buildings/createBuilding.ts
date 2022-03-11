@@ -1,17 +1,16 @@
-import { getUUID, clampRolls, weightedRandomFetcher, findBuilding } from '..'
-import { Town } from '../town/_common'
+import { getUUID, clampRolls, weightedRandomFetcher, findBuilding, Road, roads, Town } from '..'
 import { MaterialType } from './structureData'
 import { Building } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
-import { Road, roads } from '../town/roads'
+
 import { assign } from '../src/utils'
 
-export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
+export function createBuilding (town: Town, type: string, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
   console.log(base)
 
-  const building = {
+  const building = Object.assign({
     key: getUUID(),
     objectType: 'building',
     road: '',
@@ -33,9 +32,10 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
     material: {
       noun: '',
       probability: 0
-    },
-    ...base
-  }
+    }
+  },
+  base
+  )
 
   // Not sure why we need to typecast this.
   clampRolls(building.roll as unknown as Record<string, number>)
