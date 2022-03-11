@@ -1,17 +1,18 @@
-import { createNamesake, findInArray, toTitleCase, townData } from '../'
-import { getBuildingRoad, getBuildingTier } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
-import { Building } from '../buildings/_common'
-import { raceTraits } from '../npc-generation/raceTraits'
-import { articles } from '../src/articles'
-import { ThresholdTable } from '../src/rollFromTable'
-import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
-import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { weightRandom } from '../src/weightRandom'
-import { WeightRecord } from '../types'
-import { random } from '../src/random'
-import { Town } from './_common'
-import { Namesake } from '../npc-generation/_common'
+import { createNamesake, findInArray, toTitleCase, townData } from '../../'
+import { getBuildingRoad, getBuildingTier } from '../../buildings/createBuilding'
+import { MaterialType, MaterialTypes, RoadMaterialType } from '../../buildings/structureData'
+import { Building } from '../../buildings/_common'
+import { raceTraits } from '../../npc-generation/raceTraits'
+import { articles } from '../../src/articles'
+import { ThresholdTable } from '../../src/rollFromTable'
+import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../../src/utils'
+import { weightedRandomFetcher } from '../../src/weightedRandomFetcher'
+import { weightRandom } from '../../src/weightRandom'
+import { WeightRecord } from '../../types'
+import { random } from '../../src/random'
+import { Town } from '.././_common'
+import { Namesake } from '../../npc-generation/_common'
+import { properNouns } from './properNouns'
 
 export interface RoadData {
   name: RoadType
@@ -85,7 +86,7 @@ interface RoadOwnership extends ProperNoun {
   isBuilding: string | false
 }
 
-interface ProperNoun {
+export interface ProperNoun {
   prefix: string
   canBePossessive?: boolean
   isUnique?: boolean
@@ -906,223 +907,6 @@ export const roads = {
   // road.currentOccupancy -= faction.roadSizeRequirement || Math.max(2, faction.roll.size / 5)
   // faction.road = getFactionRoad(faction, town).key
   // }
-}
-
-const properNouns: Record<string, ProperNoun & { probability?: number }> = {
-  main: {
-    prefix: 'main',
-    isUnique: true,
-    probability: 20,
-    isBuilding: false
-  },
-  keep: {
-    prefix: 'keep',
-    isUnique: false,
-    isBuilding: false
-  },
-  king: {
-    prefix: 'king',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  queen: {
-    prefix: 'queen',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  prince: {
-    prefix: 'prince',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  princess: {
-    prefix: 'princess',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  lord: {
-    prefix: 'lord',
-    isUnique: false,
-    isBuilding: false
-  },
-  ladies: {
-    prefix: 'ladies',
-    isUnique: false,
-    isBuilding: false
-  },
-  noble: {
-    prefix: 'noble',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  duke: {
-    prefix: 'duke',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  duchess: {
-    prefix: 'duchess',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  rogue: {
-    prefix: 'rogue',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  priest: {
-    prefix: 'priest',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  abbott: {
-    prefix: 'abbott',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  pope: {
-    prefix: 'pope',
-    isUnique: false,
-    isBuilding: false
-  },
-  spring: {
-    prefix: 'spring',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  winter: {
-    prefix: 'winter',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  summer: {
-    prefix: 'summer',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  autumn: {
-    prefix: 'autumn',
-    canBePossessive: true,
-    isUnique: false,
-    isBuilding: false
-  },
-  castle: {
-    prefix: 'castle',
-    isBuilding: 'castle',
-    isUnique: false
-  },
-  butcher: {
-    prefix: 'butcher',
-    isBuilding: 'butcher',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  tailor: {
-    prefix: 'tailor',
-    isBuilding: 'tailor',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  smith: {
-    prefix: 'smith',
-    isBuilding: 'smithy',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  potter: {
-    prefix: 'potter',
-    isBuilding: 'potter',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  baker: {
-    prefix: 'baker',
-    isBuilding: 'bakery',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  farrier: {
-    prefix: 'farrier',
-    isBuilding: 'smithy',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false
-  },
-  fisher: {
-    prefix: 'fisher',
-    canBePossessive: true,
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  old: {
-    prefix: 'old',
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  new: {
-    prefix: 'new',
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  common: {
-    prefix: 'common',
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  high: {
-    prefix: 'high',
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  low: {
-    prefix: 'low',
-    probability: 20,
-    isUnique: false,
-    isBuilding: false
-  },
-  north: {
-    prefix: 'north',
-    isUnique: false,
-    isBuilding: false
-  },
-  south: {
-    prefix: 'south',
-    isUnique: false,
-    isBuilding: false
-  },
-  west: {
-    prefix: 'west',
-    isUnique: false,
-    isBuilding: false
-  },
-  east: {
-    prefix: 'east',
-    isUnique: false,
-    isBuilding: false
-  }
 }
 
 interface ConstructedRoad {
