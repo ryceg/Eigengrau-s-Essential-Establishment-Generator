@@ -1,3 +1,5 @@
+import { FactionTypeData } from '@lib'
+
 export const nobles: FactionTypeData = {
   type: 'nobles',
   leader: {
