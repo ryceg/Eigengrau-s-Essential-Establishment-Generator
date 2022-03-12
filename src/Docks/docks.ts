@@ -3,7 +3,7 @@ import { Customer } from '../setup'
 import { docksRollData } from './rollData'
 import { shipsData } from './ship/shipsData'
 
-setup.initDocks = () => {
+export const initDocks = () => {
   setup.docks = docksData
 }
 

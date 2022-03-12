@@ -33,6 +33,7 @@ import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
 import { urlSeed, navigateToObj } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
+import { createDocks } from './Docks/createDocks'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
@@ -56,6 +57,8 @@ import { createFaction } from './Factions/createFaction'
 import { getTownMilitary } from './Town/js/getTownMilitary'
 import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
 import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
+import { initDocks } from './Docks/docks'
+import { initGoodsAndServices } from './Buildings/goodsAndServices'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -130,6 +133,8 @@ declare global {
     rerenderPage: typeof rerenderPage
     townSquare: typeof townSquare
     urlSeed: typeof urlSeed
+    initGoodsAndServices: typeof initGoodsAndServices
+    initDocks: typeof initDocks
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -205,7 +210,9 @@ Object.assign(setup, {
   profileAgeTooltip,
   rerenderPage,
   townSquare,
-  urlSeed
+  urlSeed,
+  initGoodsAndServices,
+  initDocks
   // createBuildingKeys,
   // createNewBuilding
 })
@@ -217,6 +224,7 @@ Object.assign(setup, {
  * the order is very important.
  */
 setup.init = (setup => () => {
+  console.log('Spinning up the random seed...')
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 

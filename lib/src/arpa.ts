@@ -1,4 +1,10 @@
-import RiTa from 'rita'
+// import RiTa from 'rita'
+
+class RiTa {
+  static analyze (word: string): RitaAnalyze {
+    throw new Error('Method not implemented.')
+  }
+}
 
 interface RitaAnalyze {
   phones: string

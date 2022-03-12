@@ -48,7 +48,8 @@ function getValidSeed (seed: string | null): string {
  */
 function createSeed () {
   const { adjectives, animals } = lib.urlData
-  return `${adjectives.random()}${adjectives.random()}${animals.random()}`
+  console.log('Creating the seed...')
+  return `${adjectives[Math.floor(Math.random() * adjectives.length)]}${adjectives[Math.floor(Math.random() * adjectives.length)]}${animals[Math.floor(Math.random() * animals.length)]}`
 }
 
 const passageExists = (key: string): boolean => {
