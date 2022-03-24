@@ -32,7 +32,6 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
       _economicIdeology: economicIdeology,
       _politicalSource: politicalSource,
       _politicalIdeology: politicalIdeology,
-      _demographicPercentile: {} as Record<RaceName, number>,
       baseDemographics: {} as Record<RaceName, number>,
       get demographicPercentile () {
         return lib.getDemographicPercentile(this as unknown as Town)

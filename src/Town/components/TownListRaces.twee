@@ -7,7 +7,7 @@
             <th>Population</th>
             <th>Percentage</th>
         </tr>
-        <<for _race, _percentage range $town._demographicPercentile>>
+        <<for _race, _percentage range $town.demographicPercentile>>
             <tr>
                 <td><<print _race.toUpperFirst()>></td>
                 <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
