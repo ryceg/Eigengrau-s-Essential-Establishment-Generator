@@ -92,6 +92,10 @@ export const createTown = (base: TownBasics | Town) => {
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
+    // @TODO: Figure out better way to assign this getter w/o having to have
+    // a setter
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    set demographicPercentile (data) {},
     get demographicPercentile () {
       return lib.getDemographicPercentile(this as unknown as Town)
     },
