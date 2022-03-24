@@ -1,5 +1,4 @@
 :: TownListRaces [nobr]
-/* <<run lib.updateDemographics($town, $town._baseDemographics)>> */
 <div class='classTable' id="races">
     $town.name is comprised <<lh lib.getPredominantRace($town.demographicPercentile).amountDescriptive>>.
     <table>

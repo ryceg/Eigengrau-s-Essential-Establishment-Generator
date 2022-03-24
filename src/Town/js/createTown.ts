@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { BinaryGender, Biome, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics | Town) => {
   console.groupCollapsed('The town is loading...')
@@ -92,22 +92,6 @@ export const createTown = (base: TownBasics | Town) => {
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
-    _demographicPercentile: {} as Record<RaceName, number>,
-    _baseDemographics: {} as Record<RaceName, number>,
-    get baseDemographics () {
-      console.log('Getting base demographics.')
-      return this._baseDemographics
-    },
-    set baseDemographics (newDemographics) {
-      // lib.setBaseDemographics(this as unknown as Town, newDemographics)
-      console.log('Setting base demographics.')
-      // alert(JSON.stringify(newDemographics))
-      Object.keys(newDemographics).forEach((byRace) => {
-        const race = byRace as RaceName
-        this._baseDemographics[race] = newDemographics[race]
-      })
-    },
-    set demographicPercentile (data) { console.log('Useless demographicPercentile setter. ') },
     get demographicPercentile () {
       return lib.getDemographicPercentile(this as unknown as Town)
     },
