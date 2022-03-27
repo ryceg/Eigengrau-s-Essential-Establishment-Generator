@@ -55,7 +55,10 @@ Macro.add('profile', {
       })
     /* do any other title addition and stuff here */
     setup.makeTippyTitle($(tip)[0], obj)
-    tippy(tip.get(0), tippyOpts)
-    $(this.output).append(tip)
+    const htmlElement = tip.get(0)
+    if (htmlElement) {
+      tippy(htmlElement, tippyOpts)
+      $(this.output).append(tip)
+    }
   }
 })
