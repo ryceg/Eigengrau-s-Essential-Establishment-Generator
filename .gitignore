@@ -7,3 +7,4 @@ gh-pages/**/*
 !gh-pages/CNAME
 .twine
 *.log
+.DS_STORE
