@@ -1,4 +1,5 @@
 :: TownListRaces [nobr]
+/* <<run lib.updateDemographics($town, $town._baseDemographics)>> */
 <div class='classTable' id="races">
     $town.name is comprised <<lh lib.getPredominantRace($town.demographicPercentile).amountDescriptive>>.
     <table>
@@ -7,7 +8,7 @@
             <th>Population</th>
             <th>Percentage</th>
         </tr>
-        <<for _race, _percentage range $town.demographicPercentile>>
+        <<for _race, _percentage range $town._demographicPercentile>>
             <tr>
                 <td><<print _race.toUpperFirst()>></td>
                 <td><<print Math.trunc($town.population * (_percentage / 100))>></td>

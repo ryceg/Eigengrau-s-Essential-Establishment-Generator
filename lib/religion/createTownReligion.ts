@@ -30,11 +30,11 @@ const getDeityWeightFromRace = (town: Town, deity: Deity) => {
   console.log(`Getting the weight for ${deity.name}`)
   let probability = rankProbabilities[deity.rank] || 10
   console.log(town)
-  for (const key of Object.keys(town.demographicPercentile)) {
+  for (const key of Object.keys(town._demographicPercentile)) {
     const race = key as RaceName
     if (deity?.probabilityWeightings?.race?.[race]) {
       const raceWeight = deity.probabilityWeightings.race[race]
-      if (raceWeight) probability += calcPercentage(raceWeight, town.demographicPercentile[race])
+      if (raceWeight) probability += calcPercentage(raceWeight, town._demographicPercentile[race])
     }
   }
   return probability

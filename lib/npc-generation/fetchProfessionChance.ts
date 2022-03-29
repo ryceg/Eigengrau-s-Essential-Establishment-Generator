@@ -1,101 +1,100 @@
 import { keys } from '../src/utils'
-import { getWeightedIndex } from '../src/math'
+import { randomFloat } from '../src/randomFloat'
 import { Town } from '../town/_common'
+
 import { isDominantGender, breakGenderNorms } from './breakGenderNorms'
 import { NPC } from './_common'
-
-/**
- * Grabs a list of available professions by town, and filters them by:
- * 1. NPC Social Class (e.g., nobility)
- * 2. NPC Profession Type (e.g., hobby or recreation or profession)
- * 3. NPC Sector (e.g., arts, magic, and so on)
- * 4. If the town adheres to gender norms, then profession by gender
- */
-function getAvailableProfessions (town: Town, npc: NPC): string[] {
-  const allAvailableProfessions = keys(town.professions)
-  let availableProfessions = allAvailableProfessions
-
-  // Properties which can affect which profession you choose, e.g., if your social class
-  // is 'aristocratic' why you'd never be a barber!
-  const professionProperties = {
-    professionSector: 'sector',
-    professionType: 'type',
-    socialClass: 'socialClass'
-  } as const
-
-  for (const key of keys(professionProperties)) {
-    if (npc[key]) {
-      const prop = professionProperties[key]
-      const filteredProfessions = allAvailableProfessions.filter(professionName => {
-        return town.professions[professionName][prop] === npc[key]
-      })
-
-      // sometimes the filtered professions by key returns nothing, in that case
-      // that'll be an error (but data probably should get more clean), since this can
-      // cause weird issues (e.g., nobile social class as peasant)
-      if (filteredProfessions.length > 0) {
-        availableProfessions = filteredProfessions
-      }
-      console.log(`npc ${key} was defined as ${npc[key]}, filtering professions to`, availableProfessions)
-    }
-  }
-
-  return filterProfessionsByGenderNorms(town, npc, availableProfessions)
-}
-
-function filterProfessionsByGenderNorms (town: Town, npc: NPC, availableProfessions: string[]): string[] {
-  // if we break gender norms, then all professions are available to all genders
-  if (breakGenderNorms(town)) return availableProfessions
-
-  // If we do _not_ break gender norms, some professions are off-limits to
-  // the dominant gender and vice versa
-  const controllingGender = isDominantGender(town, npc)
-    ? 'dom'
-    : 'sub'
-  return availableProfessions.filter(profession => {
-    const { domSub } = town.professions[profession]
-    return domSub == null
-      ? true // some professions do not have a dominant gender
-      : domSub === controllingGender
-  })
-}
-
-function setDnDClass (town: Town, npc: NPC, profession: string) {
-  const hasDnDClass = town.professions[profession]?.type === 'dndClass' ?? false
-  npc.hasClass = hasDnDClass
-  if (hasDnDClass) {
-    console.log(`${npc.name} is a ${profession} and therefore has a dndClass`)
-  }
-}
 
 /**
  * This gets the starting profession when a profession has not been defined.
  */
 export function fetchProfessionChance (town: Town, npc: NPC) {
-  const availableProfessions = getAvailableProfessions(town, npc)
-  console.log('available professions', availableProfessions)
+  console.log('Fetching profession...')
 
-  const professionIdxByPopulation = availableProfessions.map(profession => {
+  let professionNames = keys(town.professions)
+  let tempProfessionNames
+  const professionThings = {
+    socialClass: 'socialClass',
+    professionType: 'type',
+    professionSector: 'sector'
+  } as const
+  for (const key of keys(professionThings)) {
+    if (npc[key]) {
+      const temp = professionThings[key]
+      console.log(`${key} was defined as ${npc[key]}, so filtering to the available professions! Filtering down from:`)
+      console.log(professionNames)
+      tempProfessionNames = professionNames.filter(professionName => {
+        return town.professions[professionName][temp] === npc[key]
+      })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
+      console.log(professionNames)
+    }
+  }
+
+  if (breakGenderNorms(town) === false) {
+    if (isDominantGender(town, npc) === false) {
+      tempProfessionNames = professionNames.filter(profession => {
+        return town.professions[profession].domSub !== 'dom'
+      })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
+    } else {
+      tempProfessionNames = professionNames.filter(profession => {
+        return town.professions[profession].domSub !== 'sub'
+      })
+      if (tempProfessionNames.length > 0) {
+        professionNames = tempProfessionNames
+      }
+    }
+  }
+
+  const sum = professionNames.map(profession => {
     return town.professions[profession].population
   })
 
-  // @TODO: This probably needs to get weighted more better. Currently chooses
-  // a profession based on population of that profession amongst the town.
-  let resultantProfession = availableProfessions[getWeightedIndex(professionIdxByPopulation)]
-  if (!resultantProfession) {
+  let resultantProfession = professionNames[getIndex(sum)]
+  if (resultantProfession === undefined) {
     console.error('Failed to fetch a profession.')
     console.log({ npc })
     resultantProfession = 'noble'
   }
+  console.log(`Profession is: ${resultantProfession}`)
 
-  const exclusionFn = town.professions[resultantProfession]?.exclusions
-  if (typeof exclusionFn === 'function' && !exclusionFn(town, npc)) {
-    console.warn(`${npc.name} is unable to be a ${resultantProfession} due to an exclusion. Rerolling...`)
-    resultantProfession = fetchProfessionChance(town, npc)
+  // the on-load function is handled in lib.createClass because it should apply to *every* NPC with the profession, not just those that are rolled with it
+  if (town.professions[resultantProfession].exclusions) {
+    if (typeof town.professions[resultantProfession].exclusions === 'function') {
+      console.log('There is an exclusion function. Testing...')
+      if (!town.professions[resultantProfession].exclusions?.(town, npc)) {
+        console.warn(`${npc.name} is unable to be a ${resultantProfession}. Rerolling...`)
+        resultantProfession = fetchProfessionChance(town, npc)
+      }
+    }
   }
 
-  setDnDClass(town, npc, resultantProfession)
+  if (town.professions[resultantProfession].type === 'dndClass') {
+    console.log(`${npc.name} is a ${resultantProfession} and therefore has a dndClass.`)
+    npc.hasClass = true
+  } else {
+    npc.hasClass = false
+  }
 
-  console.log(`Profession is: ${resultantProfession}`)
   return resultantProfession
+}
+
+function getTotalWeight (sum: number[]) {
+  return sum.reduce((totalWeight, single) => totalWeight + single)
+}
+
+function getIndex (sum: number[]) {
+  const totalWeight = getTotalWeight(sum)
+  let random = Math.floor(randomFloat(1) * totalWeight)
+
+  for (let i = 0; i < sum.length; i++) {
+    random -= sum[i]
+    if (random < 0) return i
+  }
+  return 0
 }

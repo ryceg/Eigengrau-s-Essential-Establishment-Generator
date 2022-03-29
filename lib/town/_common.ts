@@ -51,6 +51,8 @@ export interface TownBasics {
   economicIdeologyIST: EconomicIdeologyIST
   politicalIdeologyIC: PoliticalIdeologyIC
   baseDemographics: Record<RaceName, number>
+  _baseDemographics: Record<RaceName, number>
+  _demographicPercentile: Record<RaceName, number>
   demographicPercentile: Record<RaceName, number>
   origin: string
   vegetation: string

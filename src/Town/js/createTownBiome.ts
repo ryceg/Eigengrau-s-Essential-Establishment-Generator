@@ -32,9 +32,40 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
       _economicIdeology: economicIdeology,
       _politicalSource: politicalSource,
       _politicalIdeology: politicalIdeology,
-      baseDemographics: {} as Record<RaceName, number>,
+      _demographicPercentile: {} as Record<RaceName, number>,
+      _baseDemographics: {} as Record<RaceName, number>,
+      // Clone the raw demographic data for the town type.
+      // _baseDemographics: clone(lib.townData.type['hamlet'].demographics.random().output),
+      get baseDemographics () {
+        console.log('Getting base demographics.')
+        return this._baseDemographics
+      },
+      set baseDemographics (newDemographics) {
+        console.log('Setting base demographics.')
+        Object.keys(newDemographics).forEach((byRace) => {
+          const race = byRace as RaceName
+          this._baseDemographics[race] = newDemographics[race]
+        })
+        console.log(this.demographicPercentile)
+      },
       get demographicPercentile () {
-        return lib.getDemographicPercentile(this as unknown as Town)
+        console.log('Getting demographic percent.')
+
+        // Get an array of the demographic keys (race names).
+        const races = Object.keys(this.baseDemographics) as RaceName[]
+
+        // Calculate the sum of the raw demographic values.
+        const sum = races
+          .map((byRace) => this.baseDemographics[byRace])
+          .reduce((acc, cur) => acc + cur, 0)
+
+        // Calculate the demographic percentages.
+        races.forEach((byRace) => {
+          const race: RaceName = byRace
+          this._demographicPercentile[race] =
+            (this.baseDemographics[race] / sum) * 100
+        })
+        return this._demographicPercentile
       },
       location: lib.weightRandom(lib.terrain[terrain].start),
       primaryCrop: lib.random(lib.townData.misc.primaryCrop),
