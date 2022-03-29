@@ -3591,32 +3591,6 @@
     "_economicIdeology": "capitalism",
     "_politicalSource": "constitutional monarchy",
     "_politicalIdeology": "sophocracy",
-    "_demographicPercentile": {
-      "dragonborn": 1.1466838570438582,
-      "dwarf": 60.85778892153937,
-      "elf": 1.8525712970860266,
-      "gnome": 17.830874479536973,
-      "goblin": 1.1817357243050945,
-      "half-elf": 1.7334339041020344,
-      "half-orc": 1.5092436985015927,
-      "halfling": 4.415227233104466,
-      "human": 7.23552597008297,
-      "lizardfolk": 1.1363072476435012,
-      "tiefling": 1.1006076670540952
-    },
-    "_baseDemographics": {
-      "dragonborn": 1.6851861985574998,
-      "dwarf": 89.43764694629435,
-      "elf": 2.722570447395538,
-      "gnome": 26.204557949033347,
-      "goblin": 1.7366990218866643,
-      "half-elf": 2.5474840980452256,
-      "half-orc": 2.218010339424777,
-      "halfling": 6.488693418868181,
-      "human": 10.63345265496471,
-      "lizardfolk": 1.6699365559974453,
-      "tiefling": 1.617471842088721
-    },
     "baseDemographics": {
       "dragonborn": 1.6851861985574998,
       "dwarf": 89.43764694629435,

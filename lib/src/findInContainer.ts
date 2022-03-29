@@ -25,7 +25,7 @@ export function findInContainer<T> (container: Record<string, T>) {
 
     for (const object of keys(container)) {
       const nested = container[object]
-      const values = nested[key] as Values<V>
+      const values = nested[key] as unknown as Values<V>
 
       if (values?.includes(value)) {
         console.log(`Found ${value} in ${object}`)
