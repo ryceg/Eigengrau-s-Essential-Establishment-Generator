@@ -10,9 +10,9 @@ import { NPC } from './_common'
  * Tests to see whether the npc is able to break gender norms.
  */
 export function breakGenderNorms (town: Town): boolean {
-  if (town.ignoreGender) {
-    return true
-  }
+  if (town.ignoreGender) return true
+  // @TODO: Add a setter to NPC so that whenever an NPC breaks one
+  // gender norm, they're likely to break other gender norms
   return dice(2, 50) < clamp(town.roll.equality, 0, 100)
 }
 
@@ -41,6 +41,8 @@ export function initSexistProfession (town: Town, npc: NPC): void {
   }
 }
 
+// @TODO: Make this a little more robust. You can break gender norms
+// in different ways than just one's job
 export function isBreakingGenderNorms (town: Town, npc: NPC): boolean {
   return npc.gender !== checkProfessionGender(town, npc)
 }

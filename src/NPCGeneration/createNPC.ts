@@ -45,16 +45,14 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     base = lib.getRandomValue(lib.patreonCharacters)
   }
 
-  lib.initSexistProfession(town, base as NPC)
-  console.log('Initialising gender.')
+  // @TODO: Race should probably effect gender
   lib.assign(base, {
     gender: lib.getNpcGender(town, base as NPC)
   })
-  lib.assignFunctionalGenderRoll(town, base as NPC)
+  lib.initSexistProfession(town, base as NPC)
 
   const race = base.race || lib.fetchRace(town, base)
 
-  console.log('Fetching profession.')
   const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
   const firstName = base.firstName || getFirstName(race, base.gender)
@@ -62,7 +60,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   if (lastName === '') {
     lastName = firstName
   }
-  console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
   if (lib.findProfession(town, base as NPC, profession).type === 'dndClass') {
@@ -141,6 +138,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     },
     set gender (gender) {
       this._gender = gender
+      // we do not need to do this, we can look gender data up
+      // when its necesary
       Object.assign(this, lib.genderData[gender])
     },
     get race (): RaceName {
@@ -163,20 +162,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // Add npc to npcRelations
   town.npcRelations[npc.key] = []
 
-  lib.assign(npc, {
-    gender: npc.gender || npc._gender,
-    race: npc.race || npc._race
-  })
-  // for (const pronoun in lib.genderData[npc.gender]) {
-  //   Object.defineProperty(npc, pronoun, {
-  //     get (this: NPC) {
-  //       // @ts-ignore
-  //       return lib.genderData[npc.gender][pronoun]
-  //     }
-  //   })
-  // }
   lib.assign(npc, lib.genderData[npc.gender])
-  // lib.assign(npc.pronouns, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
