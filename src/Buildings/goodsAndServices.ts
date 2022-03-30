@@ -1,11 +1,6 @@
 import { Town } from '../../lib/town/_common'
 import { Building } from '../../lib/buildings/_common'
 
-interface Setup {
-  initGoodsAndServices(): void
-  goodsAndServices: GoodsAndServices
-}
-
 interface GoodsAndServices {
   default: {
     create(
@@ -43,7 +38,7 @@ export interface GoodsAndService {
     wordNoun: string[]
     adjectivePerson?: string[]
   }
-  wordNoun: string
+  wordNoun?: string
   PassageFormat(): string[]
   profession: GoodsAndServicesProfession
   goods: GeneralGood[]
@@ -60,20 +55,6 @@ interface GoodsAndServicesProfession {
     idle: string[]
   }
 }
-
-interface BakeryGoodType {
-  synonyms?: string[]
-  qualities: string[]
-  precedingWord: string[]
-  cooking: string[]
-}
-
-interface CandyGoodType {
-  synonyms?: string[]
-  qualities: string[]
-  precedingWord: string[]
-}
-
 interface GeneralGood {
   summary: string
   cost: number
