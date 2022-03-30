@@ -173,7 +173,7 @@ html.two-columns #illustration-buffer {
 
 #passage-header-nav {
   overflow-y:hidden;
-  overflow-x:scroll;
+  overflow-x:auto;
   white-space: nowrap;
 }
 
@@ -247,10 +247,6 @@ html.two-columns #illustration-buffer {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-}
-
-span.macro-live {
-  display: inline-block;
 }
 
 .restart a {
