@@ -1,13 +1,5 @@
 import { random } from '../src/random'
-
-export interface BuildingToCreate {
-  buildingType: string
-  opts?: {
-    npc: {
-      profession: string
-    }
-  }
-}
+import { BuildingToCreate } from './BuildingToCreate'
 
 export function * cullBuildings (buildingsToCreate: BuildingToCreate[]) {
   const buildingsTally: Record<string, number> = {}

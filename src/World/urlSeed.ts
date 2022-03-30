@@ -16,8 +16,8 @@ export const urlSeed = () => {
     document.location.search = params.toString()
   }
 
-  console.log(`Spinning up PRNG with "${seed}"`)
   State.prng.init(seed)
+  console.log(`Spinning up PRNG with "${State.prng.seed}"`)
 }
 
 /** This tells the engine that it needs to generate a new seed. */

@@ -2,45 +2,57 @@ import { GoodsAndService } from '../goodsAndServices'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
 import { createNamesake, random } from '@lib'
-export const bakery: GoodsAndService = {
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
+import { assertBuildingExists } from '../assertBuildingExists'
+
+interface BakeryData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    nounBakedGood: string[]
+    beast: string[]
+    foodAdjective: string[]
+  }
+}
+
+interface Bakery extends Building {
+  fruit: string
+  fruits: string
+}
+
+export const bakery: BakeryData = {
   // the bakery can be used as an example of how to add more features to a building.
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
+  create (town: Town, building: Bakery, opts?: BuildingOpts): Bakery {
+    assertBuildingExists(building)
     const typeData = bakery
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name = building.name || opts.name || bakery.name.function(town, building)
-    building.notableFeature = bakery.notableFeature.random()
-    building.specialty = bakery.specialty.random()
+    building.name ??= building.name || opts?.building?.name || bakery.name.function(town, building)
+    building.notableFeature ??= lib.random(bakery.notableFeature)
+    building.specialty ??= lib.random(bakery.specialty)
+    building.fruit ??= lib.random(lib.flora.fruit.fruitS)
+    building.fruits ??= lib.random(lib.flora.fruit.fruitP)
 
-    building.fruit = lib.flora.fruit.fruitS.random()
-    building.fruits = lib.flora.fruit.fruitP.random()
-
-    building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${roadName}. Their specialty is ${building.specialty}`
+    building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
   },
   name: {
     function (town: Town, building: Building) {
       const nameRoot = bakery.name
-      const noun = random(nameRoot.noun)
-      const wordNoun = random(nameRoot.wordNoun)
-      const adjective = random(nameRoot.adjective)
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const adjective = lib.random(nameRoot.adjective)
       const townName = town.name
       const roadName = town.roads[building.road].name
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      const firstName = building?.associatedNPC?.firstName || createNamesake(town).firstName
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      const namesake = building?.associatedNPC || createNamesake(town)
       const foodAdjective = random(nameRoot.foodAdjective)
       return lib.toTitleCase(random([
         `The ${adjective} ${random([noun, wordNoun])}`,
         `The ${foodAdjective} ${noun}`,
         `The ${townName} ${wordNoun}`,
         `The ${roadName} ${wordNoun}`,
-        `${firstName}'s ${wordNoun}`,
+        `${namesake.firstName}'s ${wordNoun}`,
         `The ${random(nameRoot.beast)}'s ${noun}`,
-        `${adjective} ${random([`${firstName}'s `, nameRoot.beast])} ${wordNoun}`,
+        `${adjective} ${random([`${namesake.firstName}'s `, nameRoot.beast])} ${wordNoun}`,
         `The ${random(lib.flora.fruit.fruitS)} ${random(nameRoot.nounBakedGood)}`,
         `The ${random(lib.flora.fruit.tree)} Tree ${wordNoun}`,
         unique
@@ -179,7 +191,8 @@ export const bakery: GoodsAndService = {
       'biscuit factory',
       'boulangerie',
       'bakehouse'
-    ]
+    ],
+    adjectivePerson: []
   },
   PassageFormat: () => [
     // each array string will be a new line.
@@ -275,17 +288,17 @@ export const bakery: GoodsAndService = {
     },
     {
       summary: 'stale bread',
-      cost: random(1, 4),
+      cost: 4,
       description: 'A stale loaf. Not very appetizing.'
     },
     {
       summary: 'biscuit loaf',
-      cost: random(9, 14),
+      cost: 14,
       description: 'A loaf sliced and then baked a second time, biscuits last for a long time.'
     },
     {
       summary: 'sweet tart',
-      cost: random(10, 15),
+      cost: 15,
       description: 'A tasty looking fruit tart.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth > 70
@@ -374,6 +387,5 @@ export const bakery: GoodsAndService = {
     'baking their bread using magics.',
     'using an otherwise long lost technique to bake their breads.',
     'utilizing an ancient family bread recipe passed down for generations.'
-
   ]
 }
