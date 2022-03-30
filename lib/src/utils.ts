@@ -26,6 +26,16 @@ export function assign<T, S> (target: T, source: S): asserts target is T & S {
   Object.assign(target, source)
 }
 
+type Key = string | number | symbol;
+
+export function has<K extends Key, T> (key: K, t: T): t is T & Record<K, unknown> {
+  return key in t
+}
+
+export function isObject (maybeObj: unknown): maybeObj is Record<string | number | symbol, unknown> {
+  return typeof maybeObj === 'object' && maybeObj !== null
+}
+
 /**
  * Freezes objects to prevent accidental mutation.
  * To improve speed, it does not apply in production mode.
