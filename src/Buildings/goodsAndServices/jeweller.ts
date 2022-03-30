@@ -2,20 +2,27 @@ import { GoodsAndService } from '../goodsAndServices'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
 import { random } from '@lib'
-export const jeweller: GoodsAndService = {
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
+import { assertBuildingExists } from '../assertBuildingExists'
+
+interface JewellerData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    jewelleryAdjective: string[]
+    nounJewelledGood: string[]
+  }
+}
+
+export const jeweller: JewellerData = {
   // the bakery can be used as an example of how to add more features to a building.
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
+  create (town: Town, building: Building, opts?: BuildingOpts) {
+    assertBuildingExists(building)
     const typeData = jeweller
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
     console.log('Making a name!')
-    building.name = building.name || opts.name || typeData.name.function(town, building)
-    building.notableFeature = random(typeData.notableFeature)
-    building.specialty = random(typeData.specialty)
+    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.notableFeature ??= lib.random(typeData.notableFeature)
+    building.specialty ??= lib.random(typeData.specialty)
 
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
@@ -111,7 +118,8 @@ export const jeweller: GoodsAndService = {
       'silver smith',
       'gem shop',
       'jeweller'
-    ]
+    ],
+    adjectivePerson: []
   },
   PassageFormat: () => [
     // each array string will be a new line.
@@ -161,12 +169,12 @@ export const jeweller: GoodsAndService = {
     },
     {
       summary: 'silver cutlery',
-      cost: random(15, 25),
+      cost: 15,
       description: 'A piece of cutlery that has been silvered.'
     },
     {
       summary: 'singing cutlery',
-      cost: random(15, 25),
+      cost: 20,
       description: 'A piece of cutlery that has a hymn of praise engraved into the side of the blade.'
     },
     {
@@ -186,12 +194,12 @@ export const jeweller: GoodsAndService = {
     },
     {
       summary: 'brass ring',
-      cost: random(5, 15),
+      cost: 10,
       description: "A discolored old ring. Don't propose to a lovely lady with this one."
     },
     {
       summary: 'gold ring',
-      cost: random(200, 400),
+      cost: 300,
       description: 'A ring made out of gold. Suitable for a noble perhaps.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth > 25

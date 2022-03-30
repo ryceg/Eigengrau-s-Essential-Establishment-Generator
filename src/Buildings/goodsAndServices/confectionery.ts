@@ -1,42 +1,50 @@
+import { createNamesake } from '@lib'
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
+import { assertBuildingExists } from '../assertBuildingExists'
 import { GoodsAndService } from '../goodsAndServices'
 
-export const confectionery: GoodsAndService = {
+interface ConfectioneryData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    foodAdjective: string[]
+  }
+}
+
+export const confectionery: ConfectioneryData = {
   // the bakery can be used as an example of how to add more features to a building.
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
+  create (town: Town, building: Building, opts?: BuildingOpts) {
+    assertBuildingExists(building)
     const typeData = confectionery
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name = building.name || opts.name || confectionery.name.function(town, building)
-    building.notableFeature = confectionery.notableFeature.random()
-    building.specialty = confectionery.specialty.random()
+    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.notableFeature = lib.random(typeData.notableFeature)
+    building.specialty ??= lib.random(typeData.specialty)
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
   },
   name: {
     function (town: Town, building: Building) {
       const nameRoot = confectionery.name
-      const noun = random(nameRoot.noun)
-      const wordNoun = random(nameRoot.wordNoun)
-      const adjective = random(nameRoot.adjective)
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const adjective = lib.random(nameRoot.adjective)
       const townName = town.name
       const roadName = town.roads[building.road].name
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      const firstName = building?.associatedNPC?.firstName || createNamesake(town).firstName
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
-      return lib.toTitleCase([
-        `The ${nameRoot.adjective.random().toUpperFirst()} ${[nameRoot.noun.random().toUpperFirst(), nameRoot.wordNoun.random().toUpperFirst()].random()}`,
-        `The ${nameRoot.foodAdjective.random().toUpperFirst()} ${nameRoot.noun.random().toUpperFirst()}`,
-        `The ${town.name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
-        `The ${town.roads[building.road].name} ${nameRoot.wordNoun.random().toUpperFirst()}`,
+      const namesake = building?.associatedNPC || createNamesake(town)
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      const foodAdjective = lib.random(nameRoot.foodAdjective)
+      return lib.toTitleCase(lib.random(
+        [
+        `The ${adjective} ${lib.random([noun, wordNoun])}`,
+        `The ${foodAdjective} ${noun}`,
+        `The ${townName} ${wordNoun}`,
+        `The ${roadName} ${wordNoun}`,
         `${namesake.firstName}'s ${wordNoun}`,
         unique
-      ].random())
+        ])
+      )
     },
     unique: [
       'The Candy Crate',
@@ -139,7 +147,8 @@ export const confectionery: GoodsAndService = {
       'candy store',
       'snackshop',
       'sugar house'
-    ]
+    ],
+    adjectivePerson: []
   },
   PassageFormat: () => [
     // each array string will be a new line.
@@ -191,13 +200,13 @@ export const confectionery: GoodsAndService = {
     {
       summary: 'Piece of Candy',
       // cost: in copper pieces. The <<money>> macro handles currency conversion.
-      cost: random(2, 4),
+      cost: 3,
       // description: used in tooltip.
       description: 'A indescript piece of candy.'
     },
     {
       summary: 'Chocolate bar',
-      cost: random(4, 6),
+      cost: 5,
       description: 'A smaller chooclate bar with no frills.'
     },
     {
@@ -223,7 +232,7 @@ export const confectionery: GoodsAndService = {
     },
     {
       summary: 'Older Candy',
-      cost: random(1, 3),
+      cost: 2,
       description: 'A slightly older piece of leftover candy. Not very appetizing.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth < 20
@@ -231,12 +240,12 @@ export const confectionery: GoodsAndService = {
     },
     {
       summary: 'Brownie',
-      cost: random(7, 11),
+      cost: 15,
       description: 'A tasty brownie square. It is slightly filling'
     },
     {
       summary: 'Candied Apple',
-      cost: random(10, 15),
+      cost: 11,
       description: 'An apple that has been dipped in chocolate and left to harden. It is rich and delicious.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth > 60
@@ -244,17 +253,17 @@ export const confectionery: GoodsAndService = {
     },
     {
       summary: 'Box of Candies',
-      cost: random(100, 150),
+      cost: 125,
       description: 'A larger box of random candies. Meant for larger groups/sharing.'
     },
     {
       summary: 'Tray of Brownies',
-      cost: random(56, 88),
+      cost: 80,
       description: 'A collection of smaller brownies in one package. Much more filling.'
     },
     {
       summary: 'Piece of Brittle',
-      cost: random(10, 13),
+      cost: 12,
       description: 'A piece of candy made of carmalized sugar and nuts. Very tasty and light.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth > 40
@@ -262,7 +271,7 @@ export const confectionery: GoodsAndService = {
     },
     {
       summary: 'Bag of Gummies',
-      cost: random(12, 15),
+      cost: 15,
       description: 'A bag of assorted gummies. Nice and Tasty.',
       exclusions (town: Town, building: Building) {
         return building.roll.wealth > 40

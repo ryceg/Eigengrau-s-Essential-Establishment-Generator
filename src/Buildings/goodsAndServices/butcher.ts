@@ -2,21 +2,20 @@ import { GoodsAndService } from '../goodsAndServices'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
 import { createNamesake, random } from '@lib'
+import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
+import { assertBuildingExists } from '../assertBuildingExists'
 export const butcher: GoodsAndService = {
-  create (town: Town, building: Building, opts = {}) {
-    if (!building) {
-      console.error('A building was not passed!')
-      return
-    }
+  create (town: Town, building: Building, opts?: BuildingOpts) {
+    assertBuildingExists(building)
 
     const typeData = butcher
 
-    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts.npc })
+    building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name = building.name || opts.name || typeData.name.function(town, building)
+    building.name ??= opts?.building?.name || typeData.name.function(town, building)
 
-    building.notableFeature = random(typeData.notableFeature)
-    building.specialty = random(typeData.specialty)
+    building.notableFeature ??= lib.random(typeData.notableFeature)
+    building.specialty ??= lib.random(typeData.specialty)
 
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
     return building
@@ -24,12 +23,12 @@ export const butcher: GoodsAndService = {
   name: {
     function (town: Town, building: Building) {
       const nameRoot = butcher.name
-      const noun = random(nameRoot.noun)
-      const wordNoun = random(nameRoot.wordNoun)
-      const adjective = random(nameRoot.adjective)
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const adjective = lib.random(nameRoot.adjective)
       const townName = town.name
       const roadName = town.roads[building.road].name
-      const unique = random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
       const namesake = building?.associatedNPC || createNamesake(town)
       return lib.toTitleCase(random([
         `The ${adjective} ${noun}`,
