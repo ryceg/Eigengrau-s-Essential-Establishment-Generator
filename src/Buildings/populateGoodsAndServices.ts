@@ -7,8 +7,9 @@ import { cobbler } from './goodsAndServices/cobbler'
 import { fletcher } from './goodsAndServices/fletcher'
 import { jeweller } from './goodsAndServices/jeweller'
 import { barber } from './goodsAndServices/barber'
+import { GoodsAndService } from './goodsAndServices'
 
-export function populateGoodsAndServices (container) {
+export function populateGoodsAndServices (container: Record<string, GoodsAndService>) {
   container = {
     ...container,
     bakery,
