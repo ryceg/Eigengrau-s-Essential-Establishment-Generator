@@ -103,9 +103,17 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
+export function assertHtmlExists (el: HTMLElement | undefined): asserts el is HTMLElement {
+  if (el === undefined) {
+    throw new Error('Element does not exist!')
+  }
+}
+
 export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
   const tip = $(`<span class='tip dotted'>${content}</span>`)
-  tippy(tip.get(0), {
+  const el = tip.get(0)
+  if (!el) throw new Error('Could not find element')
+  tippy(el, {
     content: source,
     interactive: true,
     allowHTML: true
@@ -115,7 +123,7 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, con
   const htmlTarget = $(`.${target}`)
 
   for (const element of htmlTarget) {
-    $(tip.get(0)).appendTo(element)
+    $(el).appendTo(element)
   }
 }
 
@@ -126,11 +134,13 @@ export function createRaceHTML (percentages: Record<RaceName, number>, target: s
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
   const html = lib.formatArrayAsList(list)
+  assertHtmlExists(html)
   createPercentageTooltip(html, target, content || lib.getPredominantRace(percentages).amountDescriptive)
 }
 
 export function createReligionHTML (percentages: Record<string, number>, target: string, content?: string) {
   const html = lib.formatAsList(percentages)
+  assertHtmlExists(html)
   createPercentageTooltip(html, target, content || lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
   const button = $('<button/>', {
     text: 'Edit',
