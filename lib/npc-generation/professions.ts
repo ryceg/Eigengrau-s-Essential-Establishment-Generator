@@ -4907,6 +4907,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'baroness': {
+    sv: 2500,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a member of the lowest order of the nobility.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'chancellor': {
     sv: 5000,
     type: 'profession',
@@ -4955,6 +4968,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'countess': {
+    sv: 7000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a nobleperson ranking above a viscount and below a marquess.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'duke': {
     sv: 15000,
     type: 'profession',
@@ -4966,6 +4992,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'duchess': {
+    sv: 15000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'rules over a duchy and is of the highest rank below the monarch.',
+    domSub: 'dom',
+    dailyWage: 900,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'emperor': {
     sv: 25000,
@@ -4979,6 +5018,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'empress': {
+    sv: 25000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the supreme sovereign ruler of an extensive group of states or countries under a single authority.',
+    domSub: 'dom',
+    dailyWage: 2400,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'king': {
     sv: 20000,
     type: 'profession',
@@ -4990,6 +5042,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'queen': {
+    sv: 20000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the ruler of an independent state and its people.',
+    domSub: 'dom',
+    dailyWage: 2400,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'lady-in-Waiting': {
     sv: 3000,
@@ -5034,6 +5099,9 @@ export const professions: Record<string, Profession> = {
     socialClass: 'nobility',
     socialClassRoll () {
       return 75 + dice(8, 6)
+    },
+    exclusions (town, npc) {
+      if (npc.gender !== 'woman') return false
     }
   },
   'master-of-Coin': {
@@ -5139,6 +5207,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'princess': {
+    sv: 6000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the direct descendant of a monarch.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'senator': {
     sv: 5000,
     type: 'profession',
@@ -5210,6 +5291,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'viscountess': {
+    sv: 7000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a nobleperson ranking above a baron and below a count.',
+    domSub: 'dom',
+    dailyWage: 700,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'ward': {
     sv: 3000,
