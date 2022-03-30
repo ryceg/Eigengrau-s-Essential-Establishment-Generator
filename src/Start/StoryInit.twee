@@ -28,7 +28,7 @@
 <</if>>
 
 <<script>>
-  const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});
+  const gen = () => lib.createBadge(lib.random(lib.badges.fun), {imgArgs: 'style=width:100%'});
   const $badge = $(`<span id="badge" />`)
     .wiki(gen())
     .ariaClick(function () {
@@ -42,7 +42,6 @@
 <<set $history to []>>
 
 <<set $town to setup.createTown(setup.createTownBiome())>>
-
 <<if recall("neverShowWelcome") is true && recall("showBiomeGeneration") is true>>
 		<<set Config.passages.start = "BiomeGeneration">>
 	<<else>>
@@ -56,9 +55,9 @@
 <<script>>
   const $fun = $(`<span id="fun" class="tip" />`).appendTo('#fun-container');
   const $badge = $(`<span id="badge" />`)
-    .wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}))
+    .wiki(lib.createBadge(lib.random(lib.badges.fun), {imgArgs: 'style=width:100%'}))
     .ariaClick(function () {
-      $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}));
+      $(this).empty().wiki(lib.createBadge(lib.random(lib.badges.fun), {imgArgs: 'style=width:100%'}));
     })
     .appendTo($fun);
 <</script>>
