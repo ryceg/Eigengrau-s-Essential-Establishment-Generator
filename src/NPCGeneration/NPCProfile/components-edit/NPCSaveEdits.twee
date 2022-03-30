@@ -1,6 +1,5 @@
 :: NPCSaveEdits [nobr]
 <<run console.log('Saving changes to ' + $npcs[$currentPassage.key].name + '...')>>
-<<set $npcs[$currentPassage.key].gender to $npcs[$currentPassage.key]._gender>>
-<<run Object.assign($npcs[$currentPassage.key], lib.genderData[$npcs[$currentPassage.key]._gender])>>
-/* <<run Object.assign($npcs[$currentPassage.key].pronouns, lib.genderData[$npcs[$currentPassage.key].gender])>> */
+<<set $npcs[$currentPassage.key].gender to $npcs[$currentPassage.key].gender>>
+<<run Object.assign($npcs[$currentPassage.key], lib.genderData[$npcs[$currentPassage.key].gender])>>
 <<run Object.assign($npcs[$currentPassage.key], lib.raceTraits[$npcs[$currentPassage.key].race].raceWords)>>
