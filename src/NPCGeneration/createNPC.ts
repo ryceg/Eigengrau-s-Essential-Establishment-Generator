@@ -46,16 +46,14 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   }
 
   // @TODO: Race should probably effect gender
-  lib.assign(base, {
-    gender: lib.getNpcGender(town, base as NPC)
-  })
+  const gender = lib.getNpcGender(town, base)
   lib.initSexistProfession(town, base as NPC)
 
   const race = base.race || lib.fetchRace(town, base)
 
   const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
-  const firstName = base.firstName || getFirstName(race, base.gender)
+  const firstName = base.firstName || getFirstName(race, gender)
   let lastName = base.lastName || getLastName(race)
   if (lastName === '') {
     lastName = firstName
@@ -73,8 +71,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     key: base.key || lib.getUUID(),
     objectType: 'npc' as const,
     passageName: 'NPCProfile',
-    _gender: base.gender,
     _race: race,
+    gender,
     firstName,
     lastName,
     get name (): string {
@@ -92,7 +90,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     ageYears: lib.getAgeInYears(race, ageStage),
     muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     lifeEvents: [],
-    pronouns: {},
+    pronouns: lib.genderData[gender],
     religion: {},
     finances: {
       creditors: {},
@@ -133,15 +131,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     wealth: lib.dice(2, 50),
     hasHistory: base.hasHistory || false,
     idle: data.idle,
-    get gender (): GenderName {
-      return this._gender
-    },
-    set gender (gender) {
-      this._gender = gender
-      // we do not need to do this, we can look gender data up
-      // when its necesary
-      Object.assign(this, lib.genderData[gender])
-    },
     get race (): RaceName {
       return this._race
     },
@@ -162,7 +151,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // Add npc to npcRelations
   town.npcRelations[npc.key] = []
 
-  lib.assign(npc, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
