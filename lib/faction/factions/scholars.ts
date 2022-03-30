@@ -1,3 +1,5 @@
+import { FactionTypeData } from '@lib'
+
 export const scholars: FactionTypeData = {
   type: 'scholars',
   leader: {

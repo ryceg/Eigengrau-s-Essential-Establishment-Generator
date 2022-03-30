@@ -1,3 +1,5 @@
+import { FactionTypeData } from '@lib'
+
 export const seers: FactionTypeData = {
   type: 'seers',
   leader: {
