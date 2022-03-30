@@ -1,6 +1,6 @@
 import { dice } from '../src/dice'
-import { repeat, sumWeights } from '../src/utils'
-import { validateWeight, weightRandom } from '../src/weightRandom'
+import { repeat } from '../src/utils'
+import { sumWeights, validateWeight, weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'

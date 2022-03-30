@@ -31,3 +31,18 @@ export function validateWeight (weight?: number) {
   }
   throw new TypeError(`Weight "${weight}" is not a number.`)
 }
+
+export function sumWeights<T extends string> (
+  defaultWeights: WeightRecord<T>,
+  customWeights: WeightRecord<T>
+) {
+  const finalWeights: WeightRecord<T> = {}
+
+  for (const name of keys(customWeights)) {
+    const weight = validateWeight(customWeights[name])
+    const defaultWeight = defaultWeights[name] ?? 0
+    finalWeights[name] = defaultWeight + weight
+  }
+
+  return finalWeights
+}
