@@ -179,17 +179,17 @@ export const jeweller: JewellerData = {
     },
     {
       summary: 'slotted ring',
-      cost: lib.dice(5, 20),
+      cost: 18,
       description: 'This is a ring that has a slot for a gem, which makes it ideal for enchantments by a wizard.'
     },
     {
       summary: 'religious symbols',
-      cost: lib.dice(4, 10),
+      cost: 5,
       description: 'A religious symbol, that has been embossed in a relatively cheap metal.'
     },
     {
       summary: 'large religious symbol',
-      cost: lib.dice(4, 10),
+      cost: 8,
       description: 'A large religious symbol of the prominent good deity with a hidden compartment containing the religious symbol of a secret/oppressed evil deity.'
     },
     {
