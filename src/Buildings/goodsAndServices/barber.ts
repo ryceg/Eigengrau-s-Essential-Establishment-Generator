@@ -4,7 +4,14 @@ import { Town } from 'lib/town/_common'
 import { createNamesake, random } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
-export const barber: GoodsAndService = {
+
+interface BarberData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const barber: BarberData = {
   create (town: Town, building: Building, opts?: BuildingOpts): Building {
     assertBuildingExists(building)
     const typeData = barber

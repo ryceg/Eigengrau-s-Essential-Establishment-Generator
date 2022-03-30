@@ -4,7 +4,14 @@ import { Town } from 'lib/town/_common'
 import { createNamesake } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
-export const fletcher: GoodsAndService = {
+
+interface FletcherData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const fletcher: FletcherData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 

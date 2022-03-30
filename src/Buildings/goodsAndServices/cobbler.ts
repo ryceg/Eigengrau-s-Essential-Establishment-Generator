@@ -3,7 +3,14 @@ import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
-export const cobbler: GoodsAndService = {
+
+interface CobblerData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const cobbler: CobblerData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 

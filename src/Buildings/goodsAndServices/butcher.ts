@@ -4,7 +4,14 @@ import { Town } from 'lib/town/_common'
 import { createNamesake, random } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
-export const butcher: GoodsAndService = {
+
+interface ButcherData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const butcher: ButcherData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 

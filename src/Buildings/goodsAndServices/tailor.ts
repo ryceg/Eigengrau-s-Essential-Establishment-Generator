@@ -5,7 +5,13 @@ import { createNamesake } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
 
-export const tailor: GoodsAndService = {
+interface TailorData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const tailor: TailorData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 
