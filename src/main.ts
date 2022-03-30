@@ -56,6 +56,7 @@ import { createFaction } from './Factions/createFaction'
 import { getTownMilitary } from './Town/js/getTownMilitary'
 import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
 import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
+import { populateGoodsAndServices } from './Buildings/populateGoodsAndServices'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -215,13 +216,17 @@ Object.assign(setup, {
  * the order is very important.
  */
 setup.init = (setup => () => {
+  console.log('initialising random')
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
   setup.initNpcData()
   setup.initTavernData()
+  console.log('initialising goods and services')
   setup.initGoodsAndServices()
+  console.log('populating goods and services')
+  setup.goodsAndServices = populateGoodsAndServices(setup.goodsAndServices)
   setup.initDocks()
   setup.initCastle()
   setup.initBuildingTypes()
