@@ -8,32 +8,7 @@ import { calcPercentage } from '../src/calcPercentage'
 export function townDemographics (town: TownBasics) {
   console.log(`Creating ${town.type} demographics.`)
   const townType = townData.type[town.type]
-  town._baseDemographics = weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
-}
-
-export function updateDemographics (town: TownBasics, newDemographics: Record<RaceName, number>) {
-  console.log('Updating demographics.')
-  console.log('New:')
-  console.log(newDemographics)
-
-  const races = Object.keys(town._baseDemographics) as RaceName[]
-  for (const byRace of races) {
-    town._baseDemographics[byRace] = newDemographics[byRace]
-  }
-  updateDemographicPercentages(town)
-}
-
-const updateDemographicPercentages = (town: TownBasics) => {
-  // Get an array of the demographic keys (race names).
-  const races = Object.keys(town._baseDemographics) as RaceName[]
-  // Calculate the sum of the raw demographic values.
-  const sum = races
-    .map(byRace => town._baseDemographics[byRace])
-    .reduce((acc, cur) => acc + cur, 0)
-    // Calculate the demographic percentages.
-  races.forEach(byRace => {
-    town._demographicPercentile[byRace] = town._baseDemographics[byRace] / sum * 100
-  })
+  town.baseDemographics = weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
 }
 
 /** Returns the percentage of a single race, humanized to add up to part of 100.
