@@ -1,25 +1,25 @@
 
 import { MaterialType } from './structureData'
-import { Building, BuildingRollsDefault } from './_common'
+import { Building, BuildingRollsDefault, BuildingTypeName } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
 import { assign } from '../src/utils'
 import { Town } from '@lib'
 import { Road, roads } from '../town/roads'
-import { BuildingTypes } from 'src/Town/js/buildingTypes'
 
-export function createBuilding (town: Town, type: BuildingTypes, base: Partial<Building> = {}): Building {
+export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
   console.log(base)
 
   const building: Building = Object.assign({
     key: lib.getUUID(),
     objectType: 'building',
+    buildingType: type,
+    name: '',
     road: '',
     passageName: '',
     initPassage: '',
-    buildingType: '',
     type,
     roll: populateBuildingRolls(),
     priceModifier: getPriceModifier(),
