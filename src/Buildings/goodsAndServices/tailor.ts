@@ -19,7 +19,7 @@ export const tailor: TailorData = {
 
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.name ||= opts?.building?.name || typeData.name.function(town, building)
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)

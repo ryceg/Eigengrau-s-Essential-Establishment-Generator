@@ -25,7 +25,7 @@ export const bakery: BakeryData = {
     const typeData = bakery
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name ??= building.name || opts?.building?.name || bakery.name.function(town, building)
+    building.name ||= building.name || opts?.building?.name || bakery.name.function(town, building)
     building.notableFeature ??= lib.random(bakery.notableFeature)
     building.specialty ??= lib.random(bakery.specialty)
     building.fruit ??= lib.random(lib.flora.fruit.fruitS)

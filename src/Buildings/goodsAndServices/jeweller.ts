@@ -1,7 +1,7 @@
 import { GoodsAndService } from '../goodsAndServices'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
-import { random } from '@lib'
+import { createNamesake, random } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
 
@@ -20,7 +20,7 @@ export const jeweller: JewellerData = {
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
     console.log('Making a name!')
-    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.name ||= opts?.building?.name || typeData.name.function(town, building)
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)
 
@@ -28,17 +28,24 @@ export const jeweller: JewellerData = {
     return building
   },
   name: {
-    function (town: Town, building: Building) {
+    function (town: Town, building: Building): string {
       const nameRoot = jeweller.name
-      const unique = nameRoot.unique.random() || `The ${town.name} ${nameRoot.wordNoun.random()}`
+      const noun = lib.random(nameRoot.noun)
+      const wordNoun = lib.random(nameRoot.wordNoun)
+      const jewelleryAdjective = lib.random(nameRoot.jewelleryAdjective)
+      const jewelledNoun = lib.random(nameRoot.nounJewelledGood)
+      const adjective = lib.random(nameRoot.adjective)
+      const townName = town.name
+      const roadName = town.roads[building.road].name
+      const unique = lib.random(nameRoot.unique) || `The ${townName} ${wordNoun}`
+      const namesake = building?.associatedNPC || createNamesake(town)
       return lib.toTitleCase(random([
-        `The ${random(nameRoot.adjective)} ${random([nameRoot.noun, nameRoot.wordNoun])}`,
-        `The ${random(nameRoot.jewelleryAdjective)} ${random(nameRoot.noun)}`,
-        `The ${town.name} ${random(nameRoot.wordNoun)}`,
-        `The ${town.roads[building.road].name} ${random(nameRoot.wordNoun)}`,
-        `The ${random(nameRoot.adjective)} ${random(nameRoot.nounJewelledGood)}`,
-        `${building?.associatedNPC?.firstName}'s ${random(nameRoot.wordNoun)}`,
-        `${building?.associatedNPC?.lastName}'s ${random(nameRoot.noun)}`,
+        `The ${adjective} ${noun}`,
+        `The ${jewelleryAdjective} ${noun}`,
+        `The ${adjective} ${jewelledNoun}`,
+        `The ${townName} ${wordNoun}`,
+        `The ${roadName} ${wordNoun}`,
+        `${namesake.firstName}'s ${wordNoun}`,
         unique
       ]))
     },
