@@ -183,7 +183,7 @@ export function tavernSleep (tavern: Tavern) {
  * @returns {string}
  */
 function getWakeUpByType (tavern: Tavern) {
-  switch (tavern.type) {
+  switch (tavern.tavernType) {
     case 'brothel':
       return 'in spite of the whores moaning'
     case 'gambling den':
