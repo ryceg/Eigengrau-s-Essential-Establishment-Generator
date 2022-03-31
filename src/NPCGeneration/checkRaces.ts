@@ -15,7 +15,7 @@ export const checkRaces = (town: Town, npcs: Record<string, NPC>): Record<string
 
 function checkRace (town: Town, npcs: Record<string, NPC>, npcKey: string) {
   const npc = npcs[npcKey]
-  const race = lib.fetchRace(town, npc)
+  const race = lib.fetchRace(town)
   const gender = lib.validateNpcGender(town, npc)
   console.log(npc.race, 'to a', race)
   if (npc.race !== race || npc.gender !== gender) {
