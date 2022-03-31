@@ -5,6 +5,7 @@ import { last, capitalizeFirstLetter, getUUID, assign } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { Town } from '../town/_common'
 import { createRoadName } from './createRoadName'
+import { getRoadFeatures } from './getRoadFeatures'
 import { roadMaterialTypes } from './roadMaterialTypes'
 import { Road, roads } from './roads'
 import { roadTypes, RoadData } from './roadTypes'
@@ -15,7 +16,7 @@ export function createRoad (town: Town, opts?: Partial<Road>): Road {
   const roadPrefix = createRoadName(town)
   console.log('Finding a type...')
   const type = weightedRandomFetcher(town, roadTypes, null, undefined, 'object') as RoadData
-  const feature = roads.get.features(type)
+  const feature = getRoadFeatures(type)
 
   const widthRoll = type.width()
   const [, width] = roads.width.rolls.find(([threshold]) => {

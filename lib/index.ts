@@ -169,6 +169,7 @@ export * from './roads/roadNameProperNouns'
 export * from './roads/roads'
 export * from './roads/RoadType'
 export * from './roads/roadTypes'
+export * from './roads/getRoadFeatures'
 
 export * from './tavern/_common'
 export * from './tavern/createTavernName'

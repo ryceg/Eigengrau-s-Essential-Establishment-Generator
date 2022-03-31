@@ -4,7 +4,7 @@ import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { weightRandom } from '../src/weightRandom'
 import { Town } from '../town/_common'
 import { WeightRecord } from '../types'
-import { roadNameProperNouns } from './roadNameProperNouns'
+import { roadNameProperNouns } from './roadNameproperNouns'
 import { ProperNoun, roads } from './roads'
 
 interface RoadOwnership extends ProperNoun {

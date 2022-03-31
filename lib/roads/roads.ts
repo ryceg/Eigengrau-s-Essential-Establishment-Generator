@@ -71,15 +71,6 @@ export interface ProperNoun {
 }
 
 export const roads = {
-  get: {
-    features (type: RoadData): string {
-      const roadType = roadTypes[type.name]
-      if (roadType.features && lib.random(100) > 50) {
-        return lib.random(roadType.features)
-      }
-      return lib.random(roads.features)
-    }
-  },
   features: [
     'Helpful sign posts are dotted along the road pointing out the names of other streets.',
     'Grated storm drains at regular intervals grant access to the sewer system.',
