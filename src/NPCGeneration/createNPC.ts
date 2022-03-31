@@ -151,6 +151,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // Add npc to npcRelations
   town.npcRelations[npc.key] = []
 
+  // @TODO: remove this in favor of npc.pronouns.heshe et al. (future PR)
+  lib.assign(npc, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {
