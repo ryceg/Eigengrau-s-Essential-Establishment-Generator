@@ -1,7 +1,6 @@
 import { dice } from '../src/dice'
 import { clamp } from '../src/utils'
 import { random } from '../src/random'
-import { findProfession } from '../src/findProfession'
 import { Town } from '../town/_common'
 
 import { NPC } from './_common'
@@ -49,7 +48,7 @@ export function isBreakingGenderNorms (town: Town, npc: NPC): boolean {
  * Test for whether the profession is gendered.
  */
 function checkProfessionGender (town: Town, npc: NPC) {
-  const profession = findProfession(town, npc)
+  const profession = lib.findProfession(town, npc)
 
   const subGender = town.dominantGender === 'woman' ? 'man' : 'woman'
 

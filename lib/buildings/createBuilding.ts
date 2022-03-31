@@ -5,9 +5,7 @@ import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
 import { assign } from '../src/utils'
-import { Town } from '@lib'
-import { Road, roads } from '../roads/roads'
-import { assignRoad } from '../roads/assignRoad'
+import { Road, Town } from '@lib'
 
 export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
@@ -36,7 +34,7 @@ export function createBuilding (town: Town, type: BuildingTypeName, base: Partia
   lib.clampRolls(building.roll)
   if (base.road) {
     console.log('Road defined!')
-    roads.addBuilding(town, town.roads[base.road], building as Building)
+    lib.roads.addBuilding(town, town.roads[base.road], building as Building)
   }
   if (!building.road) building.road = getBuildingRoad(building as Building, town).key
   assign(building, {
@@ -68,7 +66,7 @@ export function getBuildingRoad (building: Building, town: Town): Road {
     const parentBuilding: Building | undefined = lib.findBuilding(town, building.parentKey)
     if (parentBuilding) return town.roads[parentBuilding.road]
   }
-  return assignRoad(town, building)
+  return lib.assignRoad(town, building)
 }
 
 function getPriceModifier (): number {

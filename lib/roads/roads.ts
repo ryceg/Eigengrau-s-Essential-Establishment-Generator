@@ -1,4 +1,4 @@
-import { findInArray } from '..'
+
 import { getBuildingRoad } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
@@ -11,7 +11,6 @@ import { random } from '../src/random'
 import { Town } from '../town/_common'
 import { Namesake } from '../npc-generation/_common'
 import { RoadType } from './RoadType'
-import { RoadData, roadTypes } from './roadTypes'
 
 export interface Road {
   /** The full title of the road- "King Street" */
@@ -246,7 +245,7 @@ export const roads = {
     }
   },
   deleteInhabitant: (town: Town, road: Road, key: string) => {
-    if (Object.keys(road.inhabitants.buildings).contains(key)) roads.deleteBuilding(town, road, findInArray(town.buildings, 'key', key) as Building)
+    if (Object.keys(road.inhabitants.buildings).contains(key)) roads.deleteBuilding(town, road, lib.findInArray(town.buildings, 'key', key) as Building)
     // if (Object.keys(road.inhabitants.factions).contains(key)) roads.deleteFaction(town, road, town.factions[key])
   },
   addBuilding: (town: Town, road: Road, building: Building) => {
