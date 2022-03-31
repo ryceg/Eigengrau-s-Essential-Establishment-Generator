@@ -72,7 +72,6 @@
     "yauzl": "^2.10.0"
   },
   "devDependencies": {
-    "typedoc": "^0.20.36",
-    "typedoc-neo-theme": "^1.1.0"
+    "typedoc": "^0.22.13"
   }
 }
