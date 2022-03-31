@@ -170,6 +170,7 @@ export const buildingRollTypesDefault = [
   'reputation',
   'roughness',
   'sin',
+  'magic',
   'size'
 ] as const
 
@@ -177,7 +178,6 @@ export const buildingRollTypesDefault = [
 export const buildingRollTypesAll = [
   ...buildingRollTypesDefault,
   'expertise',
-  'magic',
   'landSize',
   'age',
   'condition'
@@ -202,7 +202,7 @@ export interface Building extends Structure {
   reputation?: string
   notableFeature?: string
   specialty?: string
-  roll: BuildingRolls
+  roll: BuildingRollsDefault
 }
 
 export interface BuildingStructure {
@@ -241,10 +241,7 @@ export interface BuildingRollsDefault {
   sin: number
   size: number
   expertise: number
-  magic?: number
-  landSize?: number
-  age?: number
-  condition?: number
+  magic: number
 }
 
 export interface ReciprocalRelationship {
