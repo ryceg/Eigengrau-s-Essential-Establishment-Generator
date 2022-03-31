@@ -6,7 +6,8 @@ import { randomFloat } from '../src/randomFloat'
 
 import { assign } from '../src/utils'
 import { Town } from '@lib'
-import { Road, roads } from '../town/roads'
+import { Road, roads } from '../roads/roads'
+import { assignRoad } from '../roads/assignRoad'
 
 export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
@@ -67,7 +68,7 @@ export function getBuildingRoad (building: Building, town: Town): Road {
     const parentBuilding: Building | undefined = lib.findBuilding(town, building.parentKey)
     if (parentBuilding) return town.roads[parentBuilding.road]
   }
-  return roads.assign(town, building)
+  return assignRoad(town, building)
 }
 
 function getPriceModifier (): number {
