@@ -1,3 +1,5 @@
+import { FactionTypeData } from '@lib'
+
 export const druids: FactionTypeData = {
   type: 'druids',
   leader: {

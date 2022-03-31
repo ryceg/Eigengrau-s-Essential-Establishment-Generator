@@ -5,7 +5,6 @@ import { brothelData } from './brothelData'
 
 interface Brothel extends Building {
   initPassage: string
-  buildingType: string
   specialty: string
   talk: string
   rumour: string

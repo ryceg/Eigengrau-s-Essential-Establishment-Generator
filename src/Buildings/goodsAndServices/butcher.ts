@@ -4,7 +4,14 @@ import { Town } from 'lib/town/_common'
 import { createNamesake, random } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
-export const butcher: GoodsAndService = {
+
+interface ButcherData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const butcher: ButcherData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 
@@ -12,7 +19,7 @@ export const butcher: GoodsAndService = {
 
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.name ||= opts?.building?.name || typeData.name.function(town, building)
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)

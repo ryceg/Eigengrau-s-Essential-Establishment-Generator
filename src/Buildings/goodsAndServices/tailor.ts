@@ -5,7 +5,13 @@ import { createNamesake } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { assertBuildingExists } from '../assertBuildingExists'
 
-export const tailor: GoodsAndService = {
+interface TailorData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const tailor: TailorData = {
   create (town: Town, building: Building, opts?: BuildingOpts) {
     assertBuildingExists(building)
 
@@ -13,7 +19,7 @@ export const tailor: GoodsAndService = {
 
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.name ||= opts?.building?.name || typeData.name.function(town, building)
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)

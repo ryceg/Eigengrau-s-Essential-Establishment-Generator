@@ -1,7 +1,7 @@
-import { roads } from '../town/roads'
 import { Town } from '../town/_common'
 import { Family, NPC } from './_common'
 import { random } from '../src/random'
+import { findExistingRoad } from '../roads/findExistingRoad'
 
 export const familyRelationships = {
   /**
@@ -114,7 +114,7 @@ export function createFamily (town: Town, npc: NPC) {
 
 export function createFamilyHouse (town: Town, family: Family) {
   const road = town.roads[family.home.road] ||
-    roads.findExisting(town) ||
+    findExistingRoad(town) ||
     random(Object.values(town.roads))
   // roads.assign(town)
 

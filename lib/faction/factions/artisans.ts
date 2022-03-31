@@ -1,4 +1,4 @@
-import { FactionTypeData } from '../factionData'
+import { FactionTypeData } from '@lib'
 
 export const artisans: FactionTypeData = {
   type: 'artisans',

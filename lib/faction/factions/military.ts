@@ -1,3 +1,5 @@
+import { FactionTypeData } from '@lib'
+
 export const military: FactionTypeData = {
   type: 'military',
   leader: {

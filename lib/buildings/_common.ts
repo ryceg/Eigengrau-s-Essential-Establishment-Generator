@@ -1,4 +1,4 @@
-import { assign, clampRolls, generateBuildingMaterial, getBuildingRoad, getUUID, Town } from '@lib'
+// import { assign, clampRolls, generateBuildingMaterial, getBuildingRoad, getUUID, Town } from '@lib'
 import { NPC } from '../npc-generation/_common'
 
 export type ObjectTypeName =
@@ -160,6 +160,31 @@ export interface Structure extends Location {
   owner?: string
 }
 
+/** Present on every building */
+export const buildingRollTypesDefault = [
+  'wealth',
+  'cleanliness',
+  'activity',
+  'diversity',
+  'population',
+  'reputation',
+  'roughness',
+  'sin',
+  'magic',
+  'size'
+] as const
+
+/** These might not be defined. */
+export const buildingRollTypesAll = [
+  ...buildingRollTypesDefault,
+  'expertise',
+  'landSize',
+  'age',
+  'condition'
+] as const
+
+export type BuildingRollTypes = typeof buildingRollTypesAll[number]
+
 export interface Building extends Structure {
   passageName: string
   initPassage: string
@@ -177,7 +202,7 @@ export interface Building extends Structure {
   reputation?: string
   notableFeature?: string
   specialty?: string
-  roll: BuildingRolls
+  roll: BuildingRollsDefault
 }
 
 export interface BuildingStructure {
@@ -200,21 +225,23 @@ export interface BuildingMaterial {
   wealth: string
 }
 
-export interface BuildingRolls {
+export type BuildingRollsAll = {
+  // eslint-disable-next-line no-unused-vars
+  [key in BuildingRollTypes]: number
+}
+
+export interface BuildingRollsDefault {
   wealth: number
   cleanliness: number
-  size: number
-  landSize?: number
-  age?: number
-  condition?: number
   activity: number
   diversity: number
-  expertise: number
-  magic?: number
   population: number
   reputation: number
   roughness: number
   sin: number
+  size: number
+  expertise: number
+  magic: number
 }
 
 export interface ReciprocalRelationship {

@@ -18,13 +18,6 @@
   "typedocOptions": {
     "entryPoints": ["global.d.ts", "sugarcube.d.ts", "src/setup.d.ts", "lib/index.ts"],
     "out": "gh-pages/docs",
-    "links": [{
-      "label": "Live",
-      "url": "https://eigengrausgenerator.com"
-    }, {
-      "label": "Patreon",
-      "url": "https://patreon.com/eigengrausgenerator"
-    }]
   },
   "exclude": ["node_modules", "gh-pages"]
 }

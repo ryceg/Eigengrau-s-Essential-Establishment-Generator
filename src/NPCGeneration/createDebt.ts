@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { NPC, Town } from '@lib'
-import { createNPC } from './createNPC'
 import { createRelationship } from './Relationships/createRelationship'
 
 export const createDebt = (town: Town, npc: NPC): void => {
@@ -55,7 +54,7 @@ function findDebtor (town: Town, npc: NPC, type: string) {
 }
 
 function createDebtor (town: Town): NPC {
-  return createNPC(town, {
+  return setup.createNPC(town, {
     professionSector: 'crime',
     isShallow: true
   })

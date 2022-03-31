@@ -1,19 +1,32 @@
-import { assert, createNamesake } from '@lib'
+import { assert, createNamesake, NPC } from '@lib'
 import { BuildingOpts } from 'lib/buildings/BuildingToCreate'
 import { Building } from 'lib/buildings/_common'
 import { Town } from 'lib/town/_common'
 import { assertBuildingExists } from '../assertBuildingExists'
 import { GoodsAndService } from '../goodsAndServices'
 
-export const florist: GoodsAndService = {
-  create (town: Town, building: Building, opts?: BuildingOpts) {
+interface Florist extends Building {
+  associatedNPC: NPC
+  flower1: string
+  flower2: string
+  flower: string
+}
+
+interface FloristData extends GoodsAndService {
+  name: GoodsAndService['name'] & {
+    adjectivePerson: string[]
+  }
+}
+
+export const florist: FloristData = {
+  create (town: Town, building: Florist, opts?: BuildingOpts) {
     assertBuildingExists(building)
     assert(building.buildingType === 'florist', 'building.buildingType must be florist')
     const typeData = florist
 
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    building.name ??= opts?.building?.name || typeData.name.function(town, building)
+    building.name ||= opts?.building?.name || typeData.name.function(town, building)
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)

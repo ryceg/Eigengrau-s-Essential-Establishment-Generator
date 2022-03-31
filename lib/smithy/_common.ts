@@ -6,7 +6,6 @@ export interface Smithy extends Building {
   wordNoun: string
   passageName: string
   initPassage: string
-  buildingType: string
   weapons: string[]
   mundane: string[]
   expertise: string

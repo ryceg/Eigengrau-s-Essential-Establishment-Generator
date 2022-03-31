@@ -1,11 +1,11 @@
-import { BuildingRolls } from '../buildings/_common'
+import { BuildingRollsDefault } from '../buildings/_common'
 import { NPC } from '../npc-generation/_common'
 
 export interface GeneralStore {
   name: string
   associatedNPC: NPC
   assistant?: NPC
-  roll: BuildingRolls & {
+  roll: BuildingRollsDefault & {
     activity: number
     expertise: number
     reputation: number
