@@ -1,8 +1,6 @@
-import { fm, dice, closestMatch, ReligionStrength, rankProbabilities, compareRollToTarget, addIfDefined } from '../'
-import { Town } from '../town/_common'
-import { NPC } from './_common'
-import { random } from '../src/random'
-import { Virtues } from './traits/getTraits'
+
+import { Town } from '../../town/_common'
+import { NPC } from '../_common'
 
 export function getReligiosityDescription (town: Town, npc: NPC) {
   const selectedGod = npc.religion.deity
@@ -187,91 +185,6 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
       gregariousness: 0,
       note: `${npc.name} is a faithless heretic in the eyes of the majority of the population of ${town.name}, and no one would be caught dead speaking to ${npc.himher} because of it.`
     }
-
   ]
-  return closestMatch(religionDescription, 'note', 'strength', 'gregariousness', npc.roll.religiosity, npc.roll.gregariousness)
-}
-
-// uses setup.npcData.religion.strength
-export function createReligiosity (town: Town, npc: NPC) {
-  console.log(`Creating religion strength for ${npc.name}`)
-  npc.roll.religiosity = fm(dice(2, 40) + 10, town.roll.religiosity - 50)
-  npc.roll.religiosity = Math.clamp(npc.roll.religiosity, 1, 100)
-  if (npc.religion.strength) {
-    npc.roll.religiosity = getReligiosity(npc.religion.strength)
-  } else {
-    npc.religion.strength = getReligionStrength(npc.roll.religiosity)
-  }
-  npc.religion.deity = pickDeity(npc.roll.gender, getDeityProbabilities(town, npc))
-}
-
-export function getDeityProbabilities (town: Town, npc: NPC, deities = lib.getFallbackDeities(town)): Record<string, {
-  probability: number,
-  name: string
-}> {
-  const conformityMargin = 30
-  if (npc.roll.conformity - town.roll.religiosity > conformityMargin) {
-    const townDeity = {
-      [town.religion.deity]: { name: town.religion.deity, probability: 100 }
-    }
-    return townDeity
-  } else {
-    const probabilities: Record<string, {
-      probability: number,
-      name: string
-    }> = {}
-    for (const deity of deities) {
-      probabilities[deity.name] = {
-        probability: deity?.probabilityWeightings?.npc?.race?.[npc.race] || rankProbabilities[deity.rank] || 10,
-        name: deity.name
-      }
-      for (const prop in deity?.personality) {
-        if (!prop) break
-        const trait = prop as Virtues
-        addIfDefined(
-          compareRollToTarget(
-            deity?.personality[trait],
-            npc.roll.traits[trait],
-            {
-              bonus: 5,
-              tolerance: 'both',
-              maxDistance: 20
-            }
-          ),
-          probabilities[deity.name].probability)
-      }
-    }
-    return probabilities
-  }
-}
-
-export const pickDeity = (deityPicker: number, pool: Record<string, {
-  probability: number,
-  name: string
-}>) => {
-  for (const item in pool) {
-    deityPicker -= pool[item].probability
-    if (deityPicker < 0) {
-      return item
-    }
-  }
-  return pool[Object.keys(pool)[0]].name
-}
-
-function getReligiosity (religionStrength: ReligionStrength): number {
-  for (const [threshold, strength] of lib.religion.strength) {
-    if (strength === religionStrength) {
-      return threshold + random(1, 5)
-    }
-  }
-  return 0
-}
-
-function getReligionStrength (religiosityRoll: number): ReligionStrength {
-  for (const [threshold, strength] of lib.religion.strength) {
-    if (threshold <= religiosityRoll) {
-      return strength
-    }
-  }
-  return 'quiet true believer'
+  return lib.closestMatch(religionDescription, 'note', 'strength', 'gregariousness', npc.roll.religiosity, npc.roll.gregariousness)
 }

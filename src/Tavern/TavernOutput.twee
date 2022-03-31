@@ -1,6 +1,6 @@
 :: TavernOutput [tavern nobr]
 <<include "PrintImage">>
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<run lib.tavernTypeFix($building)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to setup.tavern.get.customers>>
 <<button "Edit $building.name" $building.initPassage>><</button>>

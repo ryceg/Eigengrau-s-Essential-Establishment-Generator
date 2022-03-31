@@ -1,11 +1,12 @@
-import { Building, BuildingRolls, BuildingStructure } from '../buildings/_common'
+import { Building, BuildingRollsDefault, BuildingStructure } from '../buildings/_common'
 import { NPC } from '../npc-generation/_common'
 
 export interface Tavern extends Building {
   barmaid: NPC
   associatedNPC: NPC
+  tavernType: string
   draw: string
-  roll: BuildingRolls & {
+  roll: BuildingRollsDefault & {
     bedCleanliness: number
     roughness: number
     reputation: number

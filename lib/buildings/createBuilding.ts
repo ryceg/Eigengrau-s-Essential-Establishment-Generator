@@ -1,44 +1,37 @@
-import { getUUID, clampRolls, weightedRandomFetcher, findBuilding } from '..'
-import { Town } from '../town/_common'
+
 import { MaterialType } from './structureData'
-import { Building } from './_common'
+import { Building, BuildingRollsDefault, BuildingTypeName } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
-import { Road, roads } from '../town/roads'
-import { assign } from '../src/utils'
 
-export function createBuilding (town: Town, type: string, base: Partial<Building> = {}) {
+import { assign } from '../src/utils'
+import { Road, Town } from '@lib'
+
+export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
   console.log(base)
 
-  const building = {
-    key: getUUID(),
+  const building: Building = Object.assign({
+    key: lib.getUUID(),
     objectType: 'building',
+    buildingType: type,
+    name: '',
     road: '',
+    passageName: '',
+    initPassage: '',
     type,
-    roll: {
-      magic: Math.floor(randomFloat(1) * 80) + 20,
-      size: Math.floor(randomFloat(1) * 80) + 20,
-      diversity: Math.floor(randomFloat(1) * 80) + 20,
-      wealth: random(1, 100),
-      population: random(1, 100),
-      reputation: random(1, 100),
-      sin: random(1, 100),
-      roughness: random(1, 100),
-      cleanliness: random(1, 100),
-      expertise: random(1, 100),
-      activity: random(1, 100)
-    },
+    roll: populateBuildingRolls(),
     priceModifier: getPriceModifier(),
     material: {
       noun: '',
       probability: 0
-    },
-    ...base
-  }
+    }
+  },
+  base
+  )
 
   // Not sure why we need to typecast this.
-  clampRolls(building.roll as unknown as Record<string, number>)
+  lib.clampRolls(building.roll)
   if (base.road) {
     console.log('Road defined!')
     lib.roads.addBuilding(town, town.roads[base.road], building as Building)
@@ -51,13 +44,29 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   return building
 }
 
+export function populateBuildingRolls (): BuildingRollsDefault {
+  return {
+    magic: Math.floor(randomFloat(1) * 80) + 20,
+    size: Math.floor(randomFloat(1) * 80) + 20,
+    diversity: Math.floor(randomFloat(1) * 80) + 20,
+    wealth: random(1, 100),
+    population: random(1, 100),
+    reputation: random(1, 100),
+    sin: random(1, 100),
+    roughness: random(1, 100),
+    cleanliness: random(1, 100),
+    expertise: random(1, 100),
+    activity: random(1, 100)
+  }
+}
+
 export function getBuildingRoad (building: Building, town: Town): Road {
   if (building.parentKey) {
     console.log('Has a parent!')
-    const parentBuilding: Building | undefined = findBuilding(town, building.parentKey)
+    const parentBuilding: Building | undefined = lib.findBuilding(town, building.parentKey)
     if (parentBuilding) return town.roads[parentBuilding.road]
   }
-  return roads.assign(town, building)
+  return lib.assignRoad(town, building)
 }
 
 function getPriceModifier (): number {
@@ -73,7 +82,7 @@ export function generateBuildingMaterial (town: Town, mainMaterial: string, buil
     }
   }
   town.materialProbability[mainMaterial].probability = 80
-  const tempMaterial = weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
+  const tempMaterial = lib.weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
   return tempMaterial
 }
 

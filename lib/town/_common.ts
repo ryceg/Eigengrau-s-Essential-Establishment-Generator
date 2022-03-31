@@ -4,7 +4,7 @@ import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
 import { RaceName } from '../npc-generation/raceTraits'
 import { Family, NPC, NpcRelationship } from '../npc-generation/_common'
-import { Road } from './roads'
+import { Road } from '../roads/roads'
 import { Weather } from '../src/weather'
 import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
@@ -53,8 +53,6 @@ export interface TownBasics {
   economicIdeologyIST: EconomicIdeologyIST
   politicalIdeologyIC: PoliticalIdeologyIC
   baseDemographics: Record<RaceName, number>
-  _baseDemographics: Record<RaceName, number>
-  _demographicPercentile: Record<RaceName, number>
   demographicPercentile: Record<RaceName, number>
   origin: string
   vegetation: string

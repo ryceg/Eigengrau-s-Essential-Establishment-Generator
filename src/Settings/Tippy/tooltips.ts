@@ -103,8 +103,15 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
+export function assertHtmlExists (el: HTMLElement | undefined): asserts el is HTMLElement {
+  if (el === undefined) {
+    throw new Error('Element does not exist!')
+  }
+}
+
 export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
   const tip = $(`<span class='tip dotted'>${content}</span>`)
+
   const element = tip.get(0)
   if (element) {
     tippy(element, {
@@ -113,6 +120,7 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, con
       allowHTML: true
     })
   }
+
   // this isn't working properly with multiple elements on the same page with the same target
   // const htmlTarget = Array.from(document.getElementsByClassName(target))
   const htmlTarget = $(`.${target}`)

@@ -1,12 +1,11 @@
 import { WeightRecord } from '../types'
 import { randomFloat } from './randomFloat'
-import { keys } from './utils'
 
 /**
  * @param specs Object containing elements as properties and their weight as value
  */
 export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
-  const specsKeys = keys(specs)
+  const specsKeys = lib.keys(specs)
 
   let totalWeight = 0
   for (const prop of specsKeys) {

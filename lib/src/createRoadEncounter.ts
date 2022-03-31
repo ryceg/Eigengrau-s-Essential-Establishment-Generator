@@ -1,6 +1,6 @@
 import { random } from './random'
 
-export function createRoad () {
+export function createRoadEncounter () {
   const type = random(['trail', 'path', 'path', 'road', 'road', 'road'])
   const noEncounter = random([true, true, true, false, false])
 

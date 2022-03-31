@@ -46,8 +46,8 @@
     "@types/jest": "^27.4.1",
     "@types/jquery": "^3.5.5",
     "@types/twine-sugarcube": "^2.33.1",
-    "@typescript-eslint/eslint-plugin": "^4.13.0",
-    "@typescript-eslint/parser": "^4.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
     "chalk": "^4.0.0",
     "chokidar": "^3.5.1",
     "cpy": "^8.1.1",
@@ -72,7 +72,6 @@
     "yauzl": "^2.10.0"
   },
   "devDependencies": {
-    "typedoc": "^0.20.36",
-    "typedoc-neo-theme": "^1.1.0"
+    "typedoc": "^0.22.13"
   }
 }

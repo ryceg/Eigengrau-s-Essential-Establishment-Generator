@@ -15,7 +15,7 @@ export const createSmithy = (town: Town, opts: Options = {}) => {
   setup.createSmithyName(town, smithy)
   lib.createStructure(town, smithy)
   lib.assign(smithy, {
-    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),
+    wordNoun: lib.random(['smithy', 'blacksmith', 'smithery', 'farrier shop']),
     passageName: 'SmithyOutput',
     initPassage: 'InitSmithy',
     buildingType: 'smithy',

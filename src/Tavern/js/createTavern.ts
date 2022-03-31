@@ -48,14 +48,15 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
     buildingType: 'tavern',
     objectType: 'building',
     localImage: 'tavern-illustration',
-    lighting: ['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit'].random(),
+    lighting: lib.random(['poorly lit', 'somewhat dark', 'dimly lit', 'well lit', 'brightly lit', 'well lit', 'brightly lit', 'bright and welcoming', 'fire-lit']),
     // @ts-ignore
-    stageDescriptor: setup.tavern.stageDescriptor.random(),
-    wordNoun: ['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery'].random(),
+    stageDescriptor: lib.random(setup.tavern.stageDescriptor),
+    wordNoun: lib.random(['tavern', 'tavern', 'tavern', 'tavern', 'pub', 'pub', 'pub', 'inn', 'inn', 'bar', 'bar', 'bar', 'watering hole', 'drinkery']),
     shortages: ['wine', 'booze', 'grog', 'whiskey', 'mutton', 'lamb', 'carrots', 'mugs', 'forks', 'frogs', 'bread', 'mushrooms', 'salt', 'silver pieces', 'chairs', 'eggs', 'potatoes'],
     // @ts-ignore
-    fun: setup.tavern.fun.random(),
-    type: [
+    fun: lib.random(setup.tavern.fun),
+    type: 'tavern',
+    tavernType: lib.random([
       'quiet and low-key bar',
       'regular',
       'regular',
@@ -77,11 +78,11 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
       'members-only club',
       'brothel',
       'brothel'
-    ].random(),
+    ]),
     // @ts-ignore
     // patrons: setup.tavern.patrons.random(),
     // @ts-ignore
-    game: setup.tavern.games.random()
+    game: lib.random(setup.tavern.games)
   })
 
   lib.assign(tavern.roll, {

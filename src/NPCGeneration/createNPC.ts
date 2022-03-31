@@ -21,7 +21,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // @ts-ignore
   const data = setup.npcData
 
-  // These are the very basic bits that need to be defined first- race, gender, and then names using those local variables.
   lib.assign(base, {
     roll: {
       traits: {},
@@ -37,19 +36,22 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
 
   if (base.isShallow === true) {
     console.log('NPC flagged as shallow.')
-    base.isThrowaway = base.isThrowaway ?? true
-    base.hasHistory = base.hasHistory ?? false
+    base.isThrowaway ??= true
+    base.hasHistory ??= false
   }
 
   if (base.canBeCustom === true && lib.random(1, 100) > 99) {
     base = lib.getRandomValue(lib.patreonCharacters)
   }
 
+  // Start NPC creation with properties of a humanoid that are more biological, like what race and age
+  // then work down to how those (if NPC is not shallow) effect other properties, like profession and
+  // religion
   // @TODO: Race should probably effect gender
+  const race = base.race || lib.fetchRace(town)
   const gender = lib.getNpcGender(town, base)
-  lib.initSexistProfession(town, base as NPC)
 
-  const race = base.race || lib.fetchRace(town, base)
+  lib.initSexistProfession(town, base as NPC)
 
   const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
