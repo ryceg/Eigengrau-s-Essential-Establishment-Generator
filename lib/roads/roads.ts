@@ -1,20 +1,17 @@
-import { createNamesake, findInArray, toTitleCase } from '..'
-import { getBuildingRoad, getBuildingTier } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes, RoadMaterialType } from '../buildings/structureData'
+import { findInArray } from '..'
+import { getBuildingRoad } from '../buildings/createBuilding'
+import { MaterialType, MaterialTypes } from '../buildings/structureData'
 import { Building } from '../buildings/_common'
 import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
 import { ThresholdTable } from '../src/rollFromTable'
-import { assign, capitalizeFirstLetter, getUUID, keys, last } from '../src/utils'
+import { keys } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { weightRandom } from '../src/weightRandom'
-import { WeightRecord } from '../types'
 import { random } from '../src/random'
 import { Town } from '../town/_common'
 import { Namesake } from '../npc-generation/_common'
 import { RoadType } from './RoadType'
 import { RoadData, roadTypes } from './roadTypes'
-import { roadNameProperNouns } from './roadNameProperNouns'
 
 export interface Road {
   /** The full title of the road- "King Street" */
@@ -65,15 +62,6 @@ export interface Road {
   }
 }
 
-interface RoadOwnership extends ProperNoun {
-  // we're not using 'name' because road.name is already being used
-  prefix: string
-  roadNameType: RoadNameType
-  canBePossessive: boolean
-  isUnique: boolean
-  isBuilding: string | false
-}
-
 export interface ProperNoun {
   prefix: string
   canBePossessive?: boolean
@@ -82,138 +70,7 @@ export interface ProperNoun {
   namesake?: Namesake
 }
 
-interface RoadMaterial {
-  type: string
-  /** @example `Main Street is a narrow paved street. It is ________` */
-  description: string[]
-}
-
-type RoadNameType = 'properNoun' | 'firstName' | 'lastName'
-
 export const roads = {
-  /** Creates the road */
-  create: (town: Town, opts?: Partial<Road>): Road => {
-    // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
-    console.log('Creating a road...')
-    const roadPrefix = roads.name.create(town)
-    console.log('Finding a type...')
-    const type = weightedRandomFetcher(town, roadTypes, null, undefined, 'object') as RoadData
-    const feature = roads.get.features(type)
-
-    const widthRoll = type.width()
-    const [, width] = roads.width.rolls.find(([threshold]) => {
-      return threshold <= widthRoll
-    }) || last(roads.width.rolls)
-
-    const road = {
-      prefix: capitalizeFirstLetter(roadPrefix.prefix),
-      key: getUUID(),
-      passageName: 'RoadProfile',
-      width,
-      objectType: 'road' as const,
-      feature,
-      namesake: roadPrefix.namesake || undefined,
-      type: capitalizeFirstLetter(type.name),
-      wordNoun: type.wordNoun || type.name,
-      hasTraffic: type.hasTraffic || true,
-      isDeadEnd: type.hasTraffic || false,
-      rolls: {
-        width: widthRoll,
-        wealth: lib.random(1, 100)
-      },
-      currentOccupancy: 0,
-      inhabitants: {
-        npcs: {
-        },
-        buildings: {
-        },
-        factions: {
-        }
-      },
-      ...opts
-    }
-
-    assign(road, {
-      name: toTitleCase(`${road.prefix} ${road.type}`),
-      tier: getBuildingTier(town.roll.wealth, road.rolls.wealth),
-      capacity: roads.width.getCapacity(road as Road)
-    })
-
-    const material = roads.material.get(town, road as Road)
-    if (typeof material.roadMaterialTypes === 'undefined') {
-      throw new Error('Could not get array of road material types.')
-    }
-    const constructionMethod = lib.random(material.roadMaterialTypes)
-
-    assign(road, {
-      constructionMethod: roads.material.types[constructionMethod].type,
-      materialUsed: material.noun
-    })
-
-    const materialUsedDescriptor = getUsedMaterialDescriptor(road)
-
-    assign(road, {
-      materialDescription: lib.random(roads.material.types[constructionMethod].description)
-    })
-
-    assign(road, {
-      description: `${road.name} is ${articles.output(`${road.width} ${materialUsedDescriptor}`)} ${road.wordNoun}. It is ${road.materialDescription} ${road.feature} `
-    })
-
-    if (road.namesake?.reason) {
-      road.description += road.namesake.reason
-    }
-
-    if (type.precedingText) {
-      road.precedingText = type.precedingText(town, road as Road)
-    } else {
-      road.precedingText = roads.precedingText.default(town, road as Road)
-    }
-
-    return road as Road
-  },
-  name: {
-    create (town: Town): RoadOwnership {
-      console.log('Creating a road name...')
-      const probabilities = {
-        properNoun: 5,
-        firstName: 2,
-        lastName: 2
-      } as WeightRecord<RoadNameType>
-      const selected = weightRandom(probabilities)
-      const namesake = createNamesake(town)
-      console.log('selected ', selected)
-      let road: ProperNoun
-      switch (selected) {
-        case 'firstName':
-          road = {
-            prefix: lib.random(1, 100) > 60 ? `${namesake.firstName}'s` : namesake.firstName,
-            canBePossessive: true,
-            isUnique: false,
-            namesake
-          }
-          break
-        case 'lastName':
-          road = {
-            prefix: lib.random(1, 100) > 90 ? `${namesake.lastName}'s` : namesake.lastName,
-            canBePossessive: true,
-            isUnique: false,
-            namesake
-          }
-          break
-        default:
-          road = weightedRandomFetcher(town, roadNameProperNouns, undefined, undefined, 'object') as ProperNoun
-      }
-      assign(road, {
-        roadNameType: selected
-      })
-      if (road.namesake && !road.namesake.reason) {
-        road.namesake.reason = roads.namesakes.reason(town, road.namesake)
-      }
-      return road as RoadOwnership
-    }
-
-  },
   get: {
     features (type: RoadData): string {
       const roadType = roadTypes[type.name]
@@ -395,48 +252,7 @@ export const roads = {
     },
     exclusions (town: Town, arg: MaterialType) {
       return !!arg.roadMaterialTypes
-    },
-    types: {
-      dirt: {
-        type: 'dirt',
-        description: [
-          'two thin lines of dirt road with grass growing around and in between them.',
-          'well trodden, though slightly muddy.',
-          'a desire path, with the grass just gently trodden down.',
-          'made of dirt that has been gently packed down.',
-          'made of dirt that has been packed down.',
-          'made of dirt that has been packed down. Unfortunately, it was done a long time ago, and is deteriorating slightly.'
-        ]
-      },
-      gravel: {
-        type: 'gravel',
-        description: [
-          'made of noisy and shifting gravel. Better watch your footing.',
-          'a loose gravel that was taken from a river bed.',
-          'made of colourful rocks and pebbles.',
-          'made of poorly packed gravel, which shifts around under foot.'
-        ]
-      },
-      pavement: {
-        type: 'paved',
-        description: [
-          'a misshapen and uneven cobblestone.',
-          'made of polished marble, intricately paved to form repeating geometric pattern.',
-          'made of broad flagstones, hewn perfectly flat and level.',
-          'made of rough, slightly uneven stones previously used as ballast in ships.'
-        ]
-      },
-      brick: {
-        type: 'brick',
-        description: [
-          'paved with moss covered bricks, of all different shapes and sizes.',
-          'paved with deep red bricks, some stamped with the town seal.',
-          'missing several bricks in places. Grass shoots up in the voids, threatening to take over the road.',
-          'freshly laid. You can see where the sand is still settling into the cracks to hold them in place.',
-          'an arrangement of baked moss and artichoke coloured bricks, made from compressed Gnomegrass and Eldenoak sap mixture.'
-        ]
-      }
-    } as Record<RoadMaterialType, RoadMaterial>
+    }
   },
   deleteInhabitant: (town: Town, road: Road, key: string) => {
     if (Object.keys(road.inhabitants.buildings).contains(key)) roads.deleteBuilding(town, road, findInArray(town.buildings, 'key', key) as Building)
@@ -455,19 +271,4 @@ export const roads = {
   // road.currentOccupancy -= faction.roadSizeRequirement || Math.max(2, faction.roll.size / 5)
   // faction.road = getFactionRoad(faction, town).key
   // }
-}
-
-interface ConstructedRoad {
-  constructionMethod: string
-  materialUsed: string
-}
-
-function getUsedMaterialDescriptor (road: ConstructedRoad) {
-  if (['gravel', 'dirt'].includes(road.constructionMethod)) {
-    return `${road.constructionMethod} and ${road.materialUsed}`
-  }
-  if (['brick'].includes(road.constructionMethod)) {
-    return `${road.materialUsed} ${road.constructionMethod}`
-  }
-  return `${road.constructionMethod} ${road.materialUsed}`
 }

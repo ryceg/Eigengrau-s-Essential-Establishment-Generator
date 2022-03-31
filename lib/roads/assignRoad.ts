@@ -2,6 +2,7 @@
 import { Building } from '../buildings/_common'
 import { townData } from '../town/townData'
 import { Town } from '../town/_common'
+import { createRoad } from './createRoad'
 import { findExistingRoad } from './findExistingRoad'
 import { Road, roads } from './roads'
 
@@ -17,7 +18,7 @@ export function assignRoad (town: Town, building?: Building): Road {
     // if it doesn't find a suitable road, make a new one.
     // @ts-expect-error Road might be defined if it's selected above.
     if (!road) {
-      road = roads.create(town, {
+      road = createRoad(town, {
         type: lib.random(roads.width.largeRoads),
         rolls: {
           width: lib.random(80, 100),
@@ -27,7 +28,7 @@ export function assignRoad (town: Town, building?: Building): Road {
       town.roads[road.key] = road
     }
   } else {
-    road = roads.create(town)
+    road = createRoad(town)
     town.roads[road.key] = road
   }
 
