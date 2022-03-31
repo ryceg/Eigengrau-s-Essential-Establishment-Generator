@@ -1,35 +1,27 @@
 
 import { MaterialType } from './structureData'
-import { Building } from './_common'
+import { Building, BuildingRollsDefault } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
 import { assign } from '../src/utils'
 import { Town } from '@lib'
 import { Road, roads } from '../town/roads'
+import { BuildingTypes } from 'src/Town/js/buildingTypes'
 
-export function createBuilding (town: Town, type: string, base: Partial<Building> = {}): Building {
+export function createBuilding (town: Town, type: BuildingTypes, base: Partial<Building> = {}): Building {
   console.log('Creating base building...')
   console.log(base)
 
-  const building = Object.assign({
+  const building: Building = Object.assign({
     key: lib.getUUID(),
     objectType: 'building',
     road: '',
+    passageName: '',
+    initPassage: '',
+    buildingType: '',
     type,
-    roll: {
-      magic: Math.floor(randomFloat(1) * 80) + 20,
-      size: Math.floor(randomFloat(1) * 80) + 20,
-      diversity: Math.floor(randomFloat(1) * 80) + 20,
-      wealth: random(1, 100),
-      population: random(1, 100),
-      reputation: random(1, 100),
-      sin: random(1, 100),
-      roughness: random(1, 100),
-      cleanliness: random(1, 100),
-      expertise: random(1, 100),
-      activity: random(1, 100)
-    },
+    roll: populateBuildingRolls(),
     priceModifier: getPriceModifier(),
     material: {
       noun: '',
@@ -40,7 +32,7 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   )
 
   // Not sure why we need to typecast this.
-  lib.clampRolls(building.roll as unknown as Record<string, number>)
+  lib.clampRolls(building.roll)
   if (base.road) {
     console.log('Road defined!')
     roads.addBuilding(town, town.roads[base.road], building as Building)
@@ -51,6 +43,22 @@ export function createBuilding (town: Town, type: string, base: Partial<Building
   })
 
   return building
+}
+
+export function populateBuildingRolls (): BuildingRollsDefault {
+  return {
+    magic: Math.floor(randomFloat(1) * 80) + 20,
+    size: Math.floor(randomFloat(1) * 80) + 20,
+    diversity: Math.floor(randomFloat(1) * 80) + 20,
+    wealth: random(1, 100),
+    population: random(1, 100),
+    reputation: random(1, 100),
+    sin: random(1, 100),
+    roughness: random(1, 100),
+    cleanliness: random(1, 100),
+    expertise: random(1, 100),
+    activity: random(1, 100)
+  }
 }
 
 export function getBuildingRoad (building: Building, town: Town): Road {
