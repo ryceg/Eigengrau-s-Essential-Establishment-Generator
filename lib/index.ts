@@ -166,6 +166,7 @@ export * from './tavern/getTavernSin'
 export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
 export * from './tavern/tavernSleep'
+export * from './tavern/tavernTypeFix'
 
 export * from '../src/Town/js/getTownMilitary'
 export * from './town/_common'
