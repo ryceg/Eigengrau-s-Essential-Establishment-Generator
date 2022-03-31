@@ -105,17 +105,23 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
 
 export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
   const tip = $(`<span class='tip dotted'>${content}</span>`)
-  tippy(tip.get(0), {
-    content: source,
-    interactive: true,
-    allowHTML: true
-  })
+  const element = tip.get(0)
+  if (element) {
+    tippy(element, {
+      content: source,
+      interactive: true,
+      allowHTML: true
+    })
+  }
   // this isn't working properly with multiple elements on the same page with the same target
   // const htmlTarget = Array.from(document.getElementsByClassName(target))
   const htmlTarget = $(`.${target}`)
 
   for (const element of htmlTarget) {
-    $(tip.get(0)).appendTo(element)
+    const tipGet = tip.get(0)
+    if (tipGet) {
+      $(tipGet).appendTo(element)
+    }
   }
 }
 
@@ -126,11 +132,13 @@ export function createRaceHTML (percentages: Record<RaceName, number>, target: s
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
   const html = lib.formatArrayAsList(list)
+  if (!html) return
   createPercentageTooltip(html, target, content || lib.getPredominantRace(percentages).amountDescriptive)
 }
 
 export function createReligionHTML (percentages: Record<string, number>, target: string, content?: string) {
   const html = lib.formatAsList(percentages)
+  if (!html) return
   createPercentageTooltip(html, target, content || lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
   const button = $('<button/>', {
     text: 'Edit',
