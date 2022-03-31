@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // uses State.variables.npcs, State.variables.town
 
-import type { NPC, Building, Faction, Road, Deity } from '@lib'
+import { NPC, Building, Faction, Road, Deity, assert } from '@lib'
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
@@ -23,6 +23,7 @@ export const profile = (obj: NPC | Building | Faction | Road | Deity | string, r
   if (!readout) {
     readout = result.name
   }
+
   // the user-facing text
   const text = JSON.stringify(readout)
 
@@ -31,6 +32,7 @@ export const profile = (obj: NPC | Building | Faction | Road | Deity | string, r
   // this is a temporary measure (that will no doubt remain in the codebase for far longer than a 'temporary' measure)
   // it is to get pure text from the profile function instead of having to do a lot of Twine processing and then jquery fuckery to strip HTML.
   // it is only relevant when the `exportToNovelAI` function is called.
+  assert(readout !== undefined, 'Profile function called with no readout.')
   if (State.temporary.exportType === 'novelai') return readout
   return `<<profile ${key} ${text}>>`
 }
