@@ -3048,7 +3048,6 @@
           "probability": 5,
           "tier": [3],
           "noun": "limestone",
-          "canBeUsedAsRoad": true,
           "roadMaterialTypes": ["pavement", "brick", "gravel"]
         },
         "npc": { "profession": "deacon" },
@@ -7475,7 +7474,6 @@
         "probability": 0,
         "tier": [1],
         "noun": "clay",
-        "canBeUsedAsRoad": true,
         "roadMaterialTypes": ["dirt"]
       },
       "cobblestone": {
@@ -7488,14 +7486,12 @@
         "probability": 5,
         "tier": [3],
         "noun": "limestone",
-        "canBeUsedAsRoad": true,
         "roadMaterialTypes": ["pavement", "brick", "gravel"]
       },
       "gypsum": {
         "probability": 5,
         "tier": [3],
         "noun": "gypsum",
-        "canBeUsedAsRoad": true,
         "roadMaterialTypes": ["dirt"]
       }
     },

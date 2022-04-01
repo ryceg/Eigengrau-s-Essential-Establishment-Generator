@@ -6,7 +6,6 @@ export interface MaterialType {
   noun: string
   tier: number[]
   alwaysAvailable?: boolean
-  canBeUsedAsRoad?: boolean
   roadMaterialTypes?: RoadMaterialType[]
 }
 
@@ -147,7 +146,6 @@ export const structureData = {
         probability: 5,
         tier: [1],
         noun: 'clay',
-        canBeUsedAsRoad: true,
         roadMaterialTypes: ['dirt']
       },
       'cobblestone': {
@@ -160,14 +158,12 @@ export const structureData = {
         probability: 5,
         tier: [3],
         noun: 'limestone',
-        canBeUsedAsRoad: true,
         roadMaterialTypes: ['pavement', 'brick', 'gravel']
       },
       'gypsum': {
         probability: 5,
         tier: [3],
         noun: 'gypsum',
-        canBeUsedAsRoad: true,
         roadMaterialTypes: ['dirt']
       }
     })
