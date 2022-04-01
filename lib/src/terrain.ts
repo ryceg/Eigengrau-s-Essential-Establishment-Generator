@@ -1,3 +1,4 @@
+import { MaterialTypes } from 'lib/buildings/structureData'
 import { WeightRecord } from '../types'
 import { dice } from './dice'
 import { random } from './random'
@@ -31,7 +32,7 @@ interface LocationData {
   origin: string[]
   vegetation: Record<string, number>
   plants: WeightRecord<string>
-  possibleMaterials: string[]
+  possibleMaterials: MaterialTypes[]
 }
 
 // function makeTerrain<T extends X> () {

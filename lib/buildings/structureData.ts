@@ -1,3 +1,4 @@
+import { constrainRecord } from '../src/constrainRecord'
 import { ThresholdTable } from '../src/rollFromTable'
 
 export interface MaterialType {
@@ -59,7 +60,7 @@ export const structureData = {
         ] as ThresholdTable
       }
     },
-    types: {
+    types: constrainRecord<MaterialType>()({
       'log': {
         probability: 10,
         tier: [1, 2],
@@ -169,6 +170,6 @@ export const structureData = {
         canBeUsedAsRoad: true,
         roadMaterialTypes: ['dirt']
       }
-    } as Record<string, MaterialType>
+    })
   }
 }
