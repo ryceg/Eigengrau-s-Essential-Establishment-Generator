@@ -222,16 +222,16 @@ export const death = {
   ]
 }
 
-export const createDeadNPC = (town: Town, base: Partial<DeadNPC> = {}) => {
+export const createDeadNPC = (town: Town, base: Partial<DeadNPC> = {}): DeadNPC => {
   console.groupCollapsed('Creating a dead NPC!')
   const npc = setup.createNPC(town, base)
   console.log('RIP', npc.firstName)
-  npcDeath(town, npc, base)
-  return npc
+  return npcDeath(town, npc, base)
 }
 
-export const npcDeath = (town: Town, npc: NPC, base: Partial<DeadNPC> = {}) => {
+export const npcDeath = (town: Town, npc: NPC, base: Partial<DeadNPC> = {}): DeadNPC => {
   npc.passageName = 'NPCDeadProfile'
+  npc.isAlive = false
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   npc.death = {
@@ -240,5 +240,5 @@ export const npcDeath = (town: Town, npc: NPC, base: Partial<DeadNPC> = {}) => {
     ...base
   }
   death.burialConditions(town, npc, base)
-  return npc
+  return npc as DeadNPC
 }
