@@ -26,8 +26,6 @@ export type TownRolls =
   | 'religiosity'
   | 'genderMakeup'
 
-type GenderRolls = { [key in GenderName]: number }
-
 export interface TownBasics {
   name: string
   generated: 'biome' | 'full'
@@ -41,7 +39,7 @@ export interface TownBasics {
   ignoreRace: boolean
   disableNSFW: boolean
   dominantGender: GenderName
-  roll: Record<TownRolls, number | GenderRolls>
+  roll: Record<TownRolls, number>
   possibleMaterials: MaterialTypes[]
   materialProbability: Record<MaterialTypes, MaterialType>
   politicalSource: PoliticalSource
