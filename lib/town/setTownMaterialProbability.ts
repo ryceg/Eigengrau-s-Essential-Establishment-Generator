@@ -6,7 +6,10 @@ export function setMaterialProbability (town: Town, possibleMaterials: MaterialT
   for (const material of keys(town.materialProbability)) {
     for (const possibleMaterial of possibleMaterials) {
       if (possibleMaterial !== material && !structureMaterialData.types[possibleMaterial].alwaysAvailable) {
-        town.materialProbability[possibleMaterial].probability = 0
+        town.materialProbability[possibleMaterial] = {
+          ...town.materialProbability[possibleMaterial],
+          probability: 0
+        }
       }
     }
   }

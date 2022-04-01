@@ -2,11 +2,11 @@ import { constrainRecord } from '../src/constrainRecord'
 import { ThresholdTable } from '../src/rollFromTable'
 
 export interface MaterialType {
-  probability: number
-  noun: string
-  tier: number[]
-  alwaysAvailable?: boolean
-  roadMaterialTypes?: RoadMaterialType[]
+  readonly probability: number
+  readonly noun: string
+  readonly tier: number[]
+  readonly alwaysAvailable?: boolean
+  readonly roadMaterialTypes?: RoadMaterialType[]
 }
 
 export type MaterialTypes = keyof typeof structureMaterialData.types
