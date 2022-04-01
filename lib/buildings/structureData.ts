@@ -5,6 +5,7 @@ export interface MaterialType {
   noun: string
   tier: number[]
   alwaysAvailable?: boolean
+  canBeUsedAsRoad?: boolean
   roadMaterialTypes?: RoadMaterialType[]
 }
 
