@@ -6,7 +6,6 @@ export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
 
 export * from './buildings/_common'
-export * from './buildings/assertBuildingHasNPC'
 export * from './buildings/BuildingToCreate'
 export * from './buildings/createBuilding'
 export * from './buildings/createReciprocalRelationship'
