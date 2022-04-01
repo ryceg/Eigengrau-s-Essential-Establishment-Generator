@@ -3,7 +3,7 @@ import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { MaterialType, structureMaterialData } from './structureData'
+import { MaterialType, structureMaterialData } from './structureMaterialData'
 import { RoofType, roofData } from './roofData'
 import { Building } from './_common'
 

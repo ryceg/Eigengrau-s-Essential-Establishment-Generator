@@ -1,4 +1,4 @@
-import { MaterialTypes, structureMaterialData } from '../buildings/structureData'
+import { MaterialTypes, structureMaterialData } from '../buildings/structureMaterialData'
 import { keys } from '../src/utils'
 import { Town } from './_common'
 
