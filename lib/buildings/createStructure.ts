@@ -3,7 +3,8 @@ import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { MaterialType, RoofType, structureData } from './structureData'
+import { MaterialType, structureData } from './structureData'
+import { RoofType, roofData } from './roofData'
 import { Building } from './_common'
 
 export function createStructure (town: Town, building: Building) {
@@ -25,10 +26,10 @@ export function createStructure (town: Town, building: Building) {
     structure.material.noun = material.noun
   }
 
-  const roof = weightedRandomFetcher(town, structureData.roof.types, null, undefined, 'object') as RoofType
+  const roof = weightedRandomFetcher(town, roofData.types, null, undefined, 'object') as RoofType
 
   if (roof.canBeColoured) {
-    const colour = random(structureData.roof.colour)
+    const colour = random(roofData.colour)
     assign(structure.roof, {
       colour,
       verb: `${colour} ${roof.verb}`,
