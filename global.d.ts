@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
 
 /**
  * Namespace for all things exported from the "lib" folder.

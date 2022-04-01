@@ -226,7 +226,6 @@ export interface BuildingMaterial {
 }
 
 export type BuildingRollsAll = {
-  // eslint-disable-next-line no-unused-vars
   [key in BuildingRollTypes]: number
 }
 
