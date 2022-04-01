@@ -2,16 +2,17 @@
 
 import { NPC, Town } from '@lib'
 
-export type DeadNPC = NPC & {
+export interface DeadNPC extends NPC {
   isAlive: false
-  roll: {
+  roll: NPC['roll'] & {
     deathConditions: number
   }
   death: {
     graveStandard: string
     cause: string
-    murderer?: string
+    murderer: string | null
     timeSinceDeath: number
+    burialConditions: string
   }
 }
 
