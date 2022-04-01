@@ -3,7 +3,7 @@ import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { MaterialType, structureData } from './structureData'
+import { MaterialType, structureMaterialData } from './structureData'
 import { RoofType, roofData } from './roofData'
 import { Building } from './_common'
 
@@ -22,7 +22,7 @@ export function createStructure (town: Town, building: Building) {
   }
 
   if (!structure.material.noun) {
-    const material = weightedRandomFetcher(town, structureData.material.types, null, undefined, 'object') as MaterialType
+    const material = weightedRandomFetcher(town, structureMaterialData.types, null, undefined, 'object') as MaterialType
     structure.material.noun = material.noun
   }
 

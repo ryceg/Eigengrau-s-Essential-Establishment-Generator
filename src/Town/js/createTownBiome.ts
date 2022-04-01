@@ -71,7 +71,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   town.origin = town.origin || lib.random(lib.terrain[town.terrain].location[town.location].origin)
   town.vegetation = town.vegetation || lib.weightRandom(lib.terrain[town.terrain].location[town.location].vegetation)
   town.possibleMaterials = lib.terrain[town.terrain].location[town.location].possibleMaterials
-  town.materialProbability = lib.structureData.material.types
+  town.materialProbability = lib.structureMaterialData.types
 
   assignSizeModifiers(town)
   assignEconomicModifiers(town)
