@@ -141,33 +141,3 @@ export const structureMaterialData = {
     }
   })
 }
-
-export const structureData = {
-  colour: [
-    'red',
-    'blue',
-    'grey',
-    'black',
-    'white',
-    'yellow',
-    'orange'
-  ] as string[],
-  rollData: {
-    size: {
-      rolls: [
-        [99, 'cavernous'],
-        [95, 'cavernous'],
-        [80, 'huge'],
-        [70, 'quite large'],
-        [60, 'large'],
-        [50, 'spacious'],
-        [40, 'average sized'],
-        [30, 'somewhat cramped'],
-        [20, 'small'],
-        [10, 'tiny'],
-        [0, 'extremely cramped']
-      ] as ThresholdTable
-    }
-  },
-  material: structureMaterialData
-}
