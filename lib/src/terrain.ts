@@ -1,4 +1,4 @@
-import { MaterialTypes } from 'lib/buildings/structureData'
+import { MaterialTypes } from 'lib/buildings/structureMaterialData'
 import { WeightRecord } from '../types'
 import { dice } from './dice'
 import { random } from './random'

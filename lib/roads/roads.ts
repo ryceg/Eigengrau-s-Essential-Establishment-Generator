@@ -1,6 +1,6 @@
 
 import { getBuildingRoad } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes } from '../buildings/structureData'
+import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
 import { Building } from '../buildings/_common'
 import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'

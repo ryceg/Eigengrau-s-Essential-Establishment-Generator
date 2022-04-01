@@ -1,4 +1,4 @@
-import { MaterialType, MaterialTypes } from '../buildings/structureData'
+import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
 import { Building, ReciprocalRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
 import { Profession } from '../npc-generation/professions'
@@ -91,7 +91,7 @@ export interface Town extends TownBasics {
     deity: string
   }
   roads: Record<string, Road>
-  townMaterial: string
+  townMaterial: MaterialTypes
   leaderType: string
   leader: NPC
   ruler?: NPC

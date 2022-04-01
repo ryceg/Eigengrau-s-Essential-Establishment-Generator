@@ -1,4 +1,4 @@
-import { RoadMaterialType } from '../buildings/structureData'
+import { RoadMaterialType } from '../buildings/structureMaterialData'
 
 interface RoadMaterial {
   type: string
