@@ -5,36 +5,28 @@ import { keys, last } from '../src/utils'
 import { GeneralStore } from './_common'
 
 export function generalStoreRenders (generalStore: GeneralStore) {
-  // update warmth based on store size
-  let warmthRoll = random(1, 100)
   const size = generalStore.roll.size
+
   if (size > 80) {
     generalStore.size = 'huge'
-    warmthRoll -= 20
   } else if (size > 70) {
     generalStore.size = 'quite large'
-    warmthRoll -= 15
   } else if (size > 60) {
     generalStore.size = 'large'
-    warmthRoll -= 10
   } else if (size > 50) {
     generalStore.size = 'spacious'
-    warmthRoll -= 5
   } else if (size > 40) {
     generalStore.size = 'medium'
   } else if (size > 30) {
     generalStore.size = 'slightly cramped'
-    warmthRoll += 15
   } else if (size > 20) {
     generalStore.size = 'small'
-    warmthRoll += 15
   } else if (size <= 20) {
     generalStore.size = 'tiny'
-    warmthRoll += 30
   }
 
   // set warmth roll
-  generalStore.roll.warmth = warmthRoll
+  generalStore.roll.warmth = random(1, 100) + getWarmthRollModfier(size)
 
   // actually add attributes to store object
   for (const key of keys(attributes)) {
@@ -43,6 +35,17 @@ export function generalStoreRenders (generalStore: GeneralStore) {
 
     generalStore[key] = getRolledFromTable(table, roll) || last(table)[1]
   }
+}
+
+function getWarmthRollModfier (size: number) {
+  if (size > 80) return -20
+  if (size > 70) return -15
+  if (size > 60) return -10
+  if (size > 50) return -5
+  if (size > 40) return 15
+  if (size > 30) return 15
+  if (size > 20) return 15
+  return 30
 }
 
 const attributes = constrainRecord<ThresholdTable>()({
