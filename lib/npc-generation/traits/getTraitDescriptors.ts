@@ -291,14 +291,11 @@ const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => 
 }
 
 export const getTraitDescription = (trait: Virtues, roll: number) => {
-  let results
   for (const [num, description] of traitDescriptions[trait]) {
     if (roll >= num) {
-      results = description
-      break
+      return description
     }
   }
-  if (results) return results
   return null
 }
 
