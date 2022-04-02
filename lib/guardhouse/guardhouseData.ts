@@ -10,6 +10,10 @@ interface GuardhouseNotableFeature {
   function(): string
 }
 
+interface GuardhouseEvidenceLockerItem {
+  function(): string
+}
+
 interface GuardhouseCustomer {
   relationshipDescription: string
   relationships: {
@@ -111,7 +115,7 @@ export const guardhouseData = {
   ]),
   evidenceLocker: {
     // Inside the evidence locker, there is ___
-    items: [
+    items: constrainArray<GuardhouseEvidenceLockerItem>()([
       {
         function () {
           return 'some confiscated weaponry from captured bandits. One of the weapons is highly personalised and decorated.'
@@ -212,9 +216,7 @@ export const guardhouseData = {
           return 'a cane with a hidden compartment. It belonged to a noble of ill repute.'
         }
       }
-    ] as {
-      function(): string
-    }[]
+    ])
   },
   get: {
     /** @example `At the moment, ______ */
