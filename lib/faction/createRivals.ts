@@ -39,32 +39,23 @@ export function createRivals (faction: Faction): void {
   const weightedGroups = sumWeights(defaultWeightedGroups, factionData.types[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
-    faction.rivalsDescription = 'managed to become almost universally disliked'
     repeat(() => getRivalGroup(20), 6)
   } else if (sizeRoll >= 80) {
-    faction.rivalsDescription = 'enemies around every corner'
     repeat(() => getRivalGroup(25), 5)
   } else if (sizeRoll >= 70) {
-    faction.rivalsDescription = 'some fearsome enemies'
     repeat(() => getRivalGroup(20), 4)
   } else if (sizeRoll >= 60) {
-    faction.rivalsDescription = 'more enemies than one would expect'
     repeat(() => getRivalGroup(15), 3)
   } else if (sizeRoll >= 50) {
-    faction.rivalsDescription = 'some enemies'
     repeat(() => getRivalGroup(10), 2)
   } else if (sizeRoll >= 40) {
-    faction.rivalsDescription = 'a handful of rivals'
     getRivalGroup(10)
     getRivalGroup(-10)
   } else if (sizeRoll >= 30) {
-    faction.rivalsDescription = 'a couple enemies'
     getRivalGroup(-15)
   } else if (sizeRoll >= 20) {
-    faction.rivalsDescription = 'few rivals'
     getRivalGroup(10)
   } else if (sizeRoll < 20) {
-    faction.rivalsDescription = 'barely any rivals'
     getRivalGroup(10)
   }
 
@@ -82,7 +73,21 @@ export function createRivals (faction: Faction): void {
     rivals.push(tempGroupSize + tempGroup)
   }
 
+  faction.rivalsDescription = getRivalsDescription(sizeRoll)
   faction.rivals = rivals
+}
+
+function getRivalsDescription (sizeRoll: number): string {
+  if (sizeRoll >= 90) return 'managed to become almost universally disliked'
+  if (sizeRoll >= 80) return 'enemies around every corner'
+  if (sizeRoll >= 70) return 'some fearsome enemies'
+  if (sizeRoll >= 60) return 'more enemies than one would expect'
+  if (sizeRoll >= 50) return 'some enemies'
+  if (sizeRoll >= 40) return 'a handful of rivals'
+  if (sizeRoll >= 30) return 'a couple enemies'
+  if (sizeRoll >= 20) return 'few rivals'
+  if (sizeRoll >= 10) return 'a few rivals'
+  return 'barely any rivals'
 }
 
 function getGroupSize (roll: number): string {
