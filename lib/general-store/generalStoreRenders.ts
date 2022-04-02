@@ -1,5 +1,5 @@
-import { constrainRecord } from 'lib/src/constrainRecord'
-import { getRolledFromTable, ThresholdTable } from 'lib/src/rollFromTable'
+import { constrainRecord } from '../src/constrainRecord'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { random } from '../src/random'
 import { keys, last } from '../src/utils'
 import { GeneralStore } from './_common'
