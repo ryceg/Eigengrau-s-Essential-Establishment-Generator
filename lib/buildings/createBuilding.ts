@@ -96,14 +96,8 @@ export function generateBuildingMaterial (town: Town, mainMaterial: MaterialType
 
 export function getBuildingTier (townWealth: number, buildingWealth: number): number {
   const wealth = townWealth + (buildingWealth * 0.2)
-  if (wealth >= 70) {
-    return 3
-  }
-  if (wealth >= 50 && wealth < 70) {
-    return 2
-  }
-  if (wealth < 50) {
-    return 1
-  }
-  return 0
+
+  if (wealth >= 70) return 3
+  if (wealth >= 50) return 2
+  return 1
 }
