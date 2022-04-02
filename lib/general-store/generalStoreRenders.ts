@@ -1,5 +1,7 @@
+import { constrainRecord } from 'lib/src/constrainRecord'
+import { getRolledFromTable, ThresholdTable } from 'lib/src/rollFromTable'
 import { random } from '../src/random'
-import { keys } from '../src/utils'
+import { keys, last } from '../src/utils'
 import { GeneralStore } from './_common'
 
 export function generalStoreRenders (generalStore: GeneralStore) {
@@ -36,21 +38,14 @@ export function generalStoreRenders (generalStore: GeneralStore) {
 
   // actually add attributes to store object
   for (const key of keys(attributes)) {
-    const array = attributes[key].slice().reverse()
+    const table = attributes[key]
+    const roll = generalStore.roll[key]
 
-    // default value
-    generalStore[key] = array[0][1]
-
-    // update value
-    for (const [threshold, description] of array) {
-      if (generalStore.roll[key] > threshold) {
-        generalStore[key] = description
-      }
-    }
+    generalStore[key] = getRolledFromTable(table, roll) || last(table)[1]
   }
 }
 
-const attributes = {
+const attributes = constrainRecord<ThresholdTable>()({
   warmth: [
     [80, 'swelteringly hot'],
     [70, 'extremely warm'],
@@ -91,4 +86,4 @@ const attributes = {
     [20, 'rather quiet'],
     [0, 'very quiet']
   ]
-} as const
+})
