@@ -180,32 +180,21 @@ export function formatPercentile (percentages: [string, number][]): string[] {
 }
 
 export function formatAsList (text: Record<string, number>) {
-  const obj = $('<ol>')
+  const list = document.createElement('ol')
   for (const key in text) {
-    $(obj)
-      .append(
-        $('<li>')
-          .text(`${key}: ${text[key].toFixed(2)}%`))
+    const li = document.createElement('li')
+    li.textContent = `${key}: ${text[key].toFixed(2)}%`
+    list.append(li)
   }
-  return obj.get(0)
+  return list
 }
 
 export function formatArrayAsList (text: string[]) {
-  const obj = $('<ol>')
+  const list = document.createElement('ol')
   for (const item of text) {
-    $(obj)
-      .append(
-        $('<li>')
-          .text(item))
+    const li = document.createElement('li')
+    li.textContent = item
+    list.append(li)
   }
-  return obj.get(0)
-}
-
-export function returnStringList (text: string[]) {
-  let obj = '<ol>'
-  for (const item of text) {
-    obj += `<li>${item}</li>`
-  }
-  obj += '</ol>'
-  return obj
+  return list
 }
