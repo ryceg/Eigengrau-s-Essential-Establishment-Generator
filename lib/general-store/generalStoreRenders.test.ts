@@ -30,9 +30,9 @@ describe('generalStoreRenders', () => {
         size: 40,
         warmth: 65.5
       },
-      activity: 'not terribly busy',
-      cleanliness: 'somewhat messy',
-      expertise: 'well-crafted',
+      activity: 'reasonably busy',
+      cleanliness: 'reasonably tidy',
+      expertise: 'finely-crafted',
       size: 'slightly cramped',
       warmth: 'uncomfortably warm'
     }
