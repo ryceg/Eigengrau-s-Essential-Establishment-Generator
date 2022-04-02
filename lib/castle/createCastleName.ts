@@ -23,7 +23,7 @@ export function createCastleName (town: Town, castle: Castle, namesake?: Namesak
   const adjective = lib.random(adjectives)
   const prefix = lib.random(morphemes.prefix)
   const suffix = lib.random(morphemes.suffix)
-
+  console.log('test')
   const choiceName = lib.random([
     `${namesake.firstName}'s ${wordNoun}`,
     `${namesake.lastName}'s ${wordNoun}`,
@@ -35,11 +35,12 @@ export function createCastleName (town: Town, castle: Castle, namesake?: Namesak
     `${town.name} ${wordNoun}`,
     uniqueName
   ])
-
+  console.log('test', choiceName)
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     // Have to remove the dead NPC, since that requires setup.
     // lib.assign(castle, setup.createDeadNPC(town, namesake))
-    lib.createReciprocalRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${getPronoun(castle.namesake.gender, 'himher')}` })
+    lib.assign(castle, { namesake })
+    lib.createReciprocalRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${getPronoun(namesake.gender, 'himher')}` })
   }
 
   console.log(lib.toTitleCase(choiceName))

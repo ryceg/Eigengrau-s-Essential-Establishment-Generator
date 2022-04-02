@@ -16,13 +16,10 @@ setup.createDungeon = (town, opts) => {
     objectType: 'building',
     cells: {
       prisoners: {
-        treatment: 'alright'
-        // treatment: lib.random(setup.dungeon.cells.prisoners.treatment)
+        treatment: lib.random(lib.dungeon.cells.prisoners.treatment)
       },
-      condition: 'alright',
-      format: 'weird'
-      // condition: lib.random(lib.dungeon.cells.condition),
-      // format: lib.random(lib.dungeon.cells.format)
+      condition: lib.random(lib.dungeon.cells.condition),
+      format: lib.random(lib.dungeon.cells.format)
     }
   })
 

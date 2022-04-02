@@ -28,16 +28,19 @@ export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = 
     `${town.name} ${wordNounChoice}`,
     uniqueName
   ])
+
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     // Have to remove the dead NPC, since that requires setup.
     // dungeon.namesake = setup.createDeadNPC(town, namesake)
+    lib.assign(dungeon, { namesake })
+    console.log(dungeon)
     lib.createReciprocalRelationship(
       town,
       dungeon,
       dungeon.namesake,
       {
         relationship: 'namesake',
-        reciprocalRelationship: `Dungeon named after ${getPronoun(dungeon.namesake.gender, 'himher')}`
+        reciprocalRelationship: `Dungeon named after ${getPronoun(namesake.gender, 'himher')}`
       }
     )
   }

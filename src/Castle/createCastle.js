@@ -4,26 +4,26 @@ setup.createCastle = (town, opts = {}) => {
   const castle = lib.createBuilding(town, 'castle', opts)
   const data = setup.castle
   Object.assign(castle, {
-    builtBy: data.builtBy.random(),
-    knownFor: data.knownFor.random(),
-    wordNoun: data.name.wordNouns.random(),
+    builtBy: lib.random(data.builtBy),
+    knownFor: lib.random(data.knownFor),
+    wordNoun: lib.random(lib.castleNames.wordNouns),
     needsWordNoun: false,
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
     buildingType: 'castle',
     objectType: 'building',
     defense: {
-      reason: [
-        lib.castleLocation[town.location].defenseReason.random()
-        // data.defense.reason.random()
-      ].random(),
-      innerWalls: lib.castleDefense.innerWalls.random(),
-      outerWalls: lib.castleDefense.outerWalls.random()
+      reason: lib.random([
+        lib.random(lib.castleLocation[town.location].defenseReason),
+        lib.random(lib.castleDefense.reason)
+      ]),
+      innerWalls: lib.random(lib.castleDefense.innerWalls),
+      outerWalls: lib.random(lib.castleDefense.outerWalls)
     }
   })
   castle.lookingFor = setup.castle.lookingFor(town, castle)
 
-  castle.name = castle.name || setup.createCastleName(town, castle)
+  castle.name = castle.name || lib.createCastleName(town, castle)
   console.log(`Created the castle ${castle.name}`)
   castle.dungeon = setup.createDungeon(town, { opts, parentKey: castle.key })
   lib.createReciprocalRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
