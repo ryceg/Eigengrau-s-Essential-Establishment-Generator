@@ -22,10 +22,12 @@ export interface SeasonData {
   precipitationIntensity: number
   baseTemp: number
 }
+
 interface TempVariation {
   temperature(): number
   temperatureTimer(): number
 }
+
 interface LocationData {
   preposition: string
   precipitationIntensity: number
@@ -35,7 +37,6 @@ interface LocationData {
   possibleMaterials: MaterialTypes[]
 }
 
-// function makeTerrain<T extends X> () {
 export const terrain: Record<Biome, TerrainData> = {
   temperate: {
     start: {
@@ -99,7 +100,7 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 60
         }
       }
-    } as WeatherData,
+    },
     location: {
       // town.Name is located in the _
       'seashore': {
@@ -128,7 +129,7 @@ export const terrain: Record<Biome, TerrainData> = {
           'shrubs': 1,
           'bush': 1,
           'windswept trees': 1
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'forest': {
@@ -164,7 +165,7 @@ export const terrain: Record<Biome, TerrainData> = {
           'alder trees': 1,
           'cypress trees': 1,
           'yew trees': 1
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'hills': {
@@ -189,7 +190,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'plains': {
@@ -211,7 +212,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'mountains': {
@@ -235,7 +236,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'river coast': {
@@ -255,7 +256,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       }
     }
@@ -316,7 +317,7 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 75
         }
       }
-    } as WeatherData,
+    },
     location: {
       'seacoast': {
         preposition: 'on',
@@ -341,7 +342,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'forest': {
@@ -367,7 +368,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
@@ -390,7 +391,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
@@ -412,7 +413,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
 
       },
@@ -437,7 +438,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
@@ -457,7 +458,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'jungle': {
@@ -479,7 +480,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'volcanic field': {
@@ -504,7 +505,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
@@ -572,7 +573,7 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 75
         }
       }
-    } as WeatherData,
+    },
     location: {
       'desert': {
         preposition: 'in',
@@ -596,7 +597,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw']
       },
       'forest': {
@@ -623,7 +624,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'hills': {
@@ -648,7 +649,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'plains': {
@@ -669,7 +670,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'mountains': {
@@ -693,7 +694,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'river coast': {
@@ -714,7 +715,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       },
       'wasteland': {
@@ -735,7 +736,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob']
       },
       'oasis': {
@@ -758,7 +759,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone', 'plaster', 'gypsum', 'adobe', 'daub', 'cob', 'straw', 'terra cotta', 'clay']
       }
     }
@@ -827,7 +828,7 @@ export const terrain: Record<Biome, TerrainData> = {
           baseTemp: 30
         }
       }
-    } as WeatherData,
+    },
     location: {
       'seacoast': {
         preposition: 'on',
@@ -853,7 +854,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'forest': {
@@ -880,7 +881,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'hills': {
@@ -905,7 +906,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'plains': {
@@ -928,7 +929,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'mountains': {
@@ -953,7 +954,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'river coast': {
@@ -974,7 +975,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'tundra': {
@@ -996,7 +997,7 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       },
       'ice sheet': {
@@ -1018,16 +1019,12 @@ export const terrain: Record<Biome, TerrainData> = {
           shrubs: 1,
           bush: 1,
           trees: 2
-        } as WeightRecord<string>,
+        },
         possibleMaterials: ['hewn rock', 'stone', 'cobblestone', 'wood', 'brick', 'limestone']
       }
     }
   }
 }
-// return terrain
-// }
-
-// export const terrain = makeTerrain()
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionKeys<T> = T extends any ? keyof T : never
