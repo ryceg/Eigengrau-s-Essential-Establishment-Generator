@@ -14,14 +14,15 @@
  *
  * people.dwight // Infers the type correctly.
  */
-export function constrainRecord<T> () {
-  return function constrainer<R extends Record<string, T>> (record: R) {
-    return record as Record<keyof R, T>
+export function constrainRecord<AllowedType> () {
+  // eslint-disable-next-line no-unused-vars
+  return function constrainer<Key extends string> (record: { [P in Key]: AllowedType }) {
+    return record
   }
 }
 
-export function constrainArray<T> () {
-  return function constrainer (array: T[]) {
+export function constrainArray<AllowedType> () {
+  return function constrainer (array: AllowedType[]) {
     return array
   }
 }
