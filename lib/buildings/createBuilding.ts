@@ -76,14 +76,22 @@ function getPriceModifier (): number {
 export function generateBuildingMaterial (town: Town, mainMaterial: MaterialTypes, buildingWealth: number): MaterialType {
   // Set probability for other buildings depending on the building 'tier'
   const buildingTier = getBuildingTier(town.roll.wealth, buildingWealth)
+
   for (const material of keys(town.materialProbability)) {
-    if (town.materialProbability[material].tier.indexOf(buildingTier) !== -1) {
-      town.materialProbability[material].probability = 5
+    if (town.materialProbability[material].tier.includes(buildingTier)) {
+      town.materialProbability[material] = {
+        ...town.materialProbability[material],
+        probability: 5
+      }
     }
   }
-  town.materialProbability[mainMaterial].probability = 80
-  const tempMaterial = lib.weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
-  return tempMaterial
+
+  town.materialProbability[mainMaterial] = {
+    ...town.materialProbability[mainMaterial],
+    probability: 80
+  }
+
+  return lib.weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
 }
 
 export function getBuildingTier (townWealth: number, buildingWealth: number): number {
