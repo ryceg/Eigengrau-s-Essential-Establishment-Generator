@@ -1,4 +1,4 @@
-import { getRolledFromTable, ThresholdTable } from 'lib/src/rollFromTable'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { fm } from '../src/dice'
 import { factionData } from './factionData'
 import { Faction } from './_common'
