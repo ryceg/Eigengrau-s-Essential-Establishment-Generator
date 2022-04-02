@@ -47,37 +47,3 @@ setup.createCastle = (town, opts = {}) => {
   console.log(castle)
   return castle
 }
-
-setup.createCastleName = (town, castle, namesake = {}) => {
-  console.log('Creating castle name...')
-
-  lib.assign(namesake, {
-    race: lib.fetchRace(town, {}),
-    socialClass: namesake.socialClass || 'nobility',
-    firstName: namesake.firstName || lib.createName({ race: namesake.race }),
-    lastName: namesake.lastName || lib.createName({ race: namesake.race, firstOrLast: 'lastName' })
-  })
-
-  console.log(namesake)
-  const { name } = setup.castle
-
-  const choiceName = [
-    `${namesake.firstName}'s ${castle.wordNoun}`,
-    `${namesake.lastName}'s ${castle.wordNoun}`,
-    `The ${castle.wordNoun} of ${namesake.lastName}`,
-    `${name.nouns.random()}${name.morphemes.suffix.random()}`,
-    `${name.morphemes.prefix.random()}${name.nouns.random()}${name.morphemes.suffix.random()}`,
-    `${name.morphemes.prefix.random()}${name.nouns.random()}`,
-    `${name.adjectives.random()}${name.morphemes.suffix.random()}`,
-    `${town.name} ${castle.wordNoun}`,
-    `${name.unique.random()}`
-  ].random()
-
-  if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
-    castle.namesake = setup.createDeadNPC(town, namesake)
-    lib.createReciprocalRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${castle.namesake.himher}` })
-  }
-
-  console.log(lib.toTitleCase(choiceName))
-  return lib.toTitleCase(choiceName)
-}
