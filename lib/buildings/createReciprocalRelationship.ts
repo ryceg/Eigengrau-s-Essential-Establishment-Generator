@@ -1,5 +1,6 @@
+import { DeadNPC } from 'src/NPCGeneration/setupDeath'
 import { Faction } from '../faction/_common'
-import { NPC } from '../npc-generation/_common'
+import { Namesake, NPC } from '../npc-generation/_common'
 import { assign, getUUID } from '../src/utils'
 import { Town } from '../town/_common'
 import { Building, ReciprocalRelationship } from './_common'
@@ -7,10 +8,12 @@ import { Building, ReciprocalRelationship } from './_common'
 interface Options {
   relationship: string
   reciprocalRelationship: string
-  description?: string | ((entity: Building | Faction, npc: NPC) => string)
+  description?: string | ((entity: Entity, npc: NPC) => string)
 }
 
-export function createReciprocalRelationship (town: Town, entity: Building | Faction, npc: NPC, options: Options) {
+type Entity = Building | Faction | NPC | Namesake | DeadNPC
+
+export function createReciprocalRelationship (town: Town, entity: Entity, npc: Entity, options: Options) {
   if (!entity || !npc || !options) {
     console.error('Not enough parameters passed.')
   }
