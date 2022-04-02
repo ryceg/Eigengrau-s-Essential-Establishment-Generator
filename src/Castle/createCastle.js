@@ -17,8 +17,8 @@ setup.createCastle = (town, opts = {}) => {
         lib.castleLocation[town.location].defenseReason.random()
         // data.defense.reason.random()
       ].random(),
-      innerWalls: data.defense.innerWalls.random(),
-      outerWalls: data.defense.outerWalls.random()
+      innerWalls: lib.castleDefense.innerWalls.random(),
+      outerWalls: lib.castleDefense.outerWalls.random()
     }
   })
   castle.lookingFor = setup.castle.lookingFor(town, castle)

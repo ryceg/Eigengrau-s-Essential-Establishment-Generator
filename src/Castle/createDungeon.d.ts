@@ -1,4 +1,6 @@
-import { NPC } from '../../lib/npc-generation/_common'
+import { DeadNPC } from 'src/NPCGeneration/setupDeath'
+import { Building } from 'src/setup'
+import { Namesake, NPC } from '../../lib/npc-generation/_common'
 import { Town } from '../../lib/town/_common'
 
 interface Setup {
@@ -6,7 +8,8 @@ interface Setup {
   createDungeonName(town: Town, dungeon: Dungeon, namesake: any): string
 }
 
-export interface Dungeon {
+export interface Dungeon extends Building {
+  namesake?: Namesake | DeadNPC
   knownFor: string
   secret: string
   age: string
@@ -15,8 +18,6 @@ export interface Dungeon {
   passageName: string
   initPassage: string
   tippyDescription: string
-  buildingType: string
-  objectType: string
   cells: {
     prisoners: {
       treatment: string
