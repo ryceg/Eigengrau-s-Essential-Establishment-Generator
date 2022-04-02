@@ -58,21 +58,27 @@ export function getSellingTalk (town: Town, building: Building, associatedNPC: N
       }
     }
   }
-  if (!talk[building.type]) {
+
+  const buildingTalkType = talk[building.type]
+
+  if (typeof buildingTalkType === 'undefined') {
     console.error(`No building type of ${building.type} for selling chat!`)
     return "What is it you're looking for?"
   }
-  if (!talk[building.type].wealth[town.type]) {
+
+  const wealthTable = buildingTalkType.wealth[town.type]
+
+  if (typeof wealthTable === 'undefined') {
     console.error(`No town type of ${town.type} for selling chat for ${building.type}!`)
-    return talk[building.type].default
+    return buildingTalkType.default
   }
-  const table = talk[building.type].wealth[town.type]
-  let results
-  for (const [num, description] of table) {
-    if (building.roll.wealth > num) {
+
+  let results = buildingTalkType.default
+  for (const [threshold, description] of wealthTable) {
+    if (building.roll.wealth > threshold) {
       results = description
     }
   }
-  if (!results) results = talk[building.type].default
+
   return results
 }
