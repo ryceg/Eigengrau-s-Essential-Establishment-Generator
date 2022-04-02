@@ -1,3 +1,4 @@
+import { keys } from '../src/utils'
 import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
@@ -180,20 +181,22 @@ export function formatPercentile (percentages: [string, number][]): string[] {
 }
 
 export function formatAsList (text: Record<string, number>) {
-  const list = document.createElement('ol')
-  for (const key in text) {
-    const li = document.createElement('li')
-    li.textContent = `${key}: ${text[key].toFixed(2)}%`
-    list.append(li)
-  }
-  return list
+  return createListFromArray(keys(text), key => {
+    return `${key}: ${text[key].toFixed(2)}%`
+  })
 }
 
 export function formatArrayAsList (text: string[]) {
+  return createListFromArray(text, item => {
+    return item
+  })
+}
+
+function createListFromArray <T> (array: T[], getItemTextContent: (item: T) => string) {
   const list = document.createElement('ol')
-  for (const item of text) {
+  for (const item of array) {
     const li = document.createElement('li')
-    li.textContent = item
+    li.textContent = getItemTextContent(item)
     list.append(li)
   }
   return list
