@@ -1,3 +1,4 @@
+import { getRolledFromTable, ThresholdTable } from 'lib/src/rollFromTable'
 import { fm } from '../src/dice'
 import { factionData } from './factionData'
 import { Faction } from './_common'
@@ -16,7 +17,7 @@ function getAgeModifier (faction: Faction): number {
   /**
    * @description [age, result]
    */
-  const ages = [
+  const ages: ThresholdTable<number> = [
     [95, 30],
     [90, 28],
     [80, 25],
@@ -32,19 +33,10 @@ function getAgeModifier (faction: Faction): number {
     [5, -30],
     [0, -30]
   ]
-  for (const [num, description] of ages) {
-    if (faction.roll.age > num) {
-      return description
-    }
-  }
-  return 0
+
+  return getRolledFromTable(ages, faction.roll.age) || 0
 }
 
 function getFactionReputation (roll: number): string {
-  for (const [num, description] of factionData.rollData.reputation.rolls) {
-    if (roll > num) {
-      return description as string
-    }
-  }
-  return 'average'
+  return getRolledFromTable(factionData.rollData.reputation.rolls, roll) || 'average'
 }
