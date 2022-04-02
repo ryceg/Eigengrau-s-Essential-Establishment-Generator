@@ -19,3 +19,9 @@ export function constrainRecord<T> () {
     return record as Record<keyof R, T>
   }
 }
+
+export function constrainArray<T> () {
+  return function constrainer (array: T[]) {
+    return array
+  }
+}

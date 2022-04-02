@@ -1,7 +1,24 @@
+import { constrainArray } from '../src/constrainRecord'
 import { NPC } from '../npc-generation/_common'
+import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
 import { ThresholdTable } from '../src/rollFromTable'
 import { Town } from '../town/_common'
 import { Guardhouse } from './_common'
+
+interface GuardhouseCustomer {
+  relationshipDescription: string
+  relationships: {
+    building: {
+      relationship: string
+      reciprocalRelationship: string
+    }
+    associatedNPC: {
+      relationship: string
+    }
+  }
+  base: { profession?: ProfessionName } | { professionSector?: ProfessionSector }
+  description(building: Guardhouse, npc: NPC): string
+}
 
 export const guardhouseData = {
   name: {
@@ -508,7 +525,7 @@ export const guardhouseData = {
       reason: string
       base?: Partial<NPC>
     }[],
-    customers: [
+    customers: constrainArray<GuardhouseCustomer>()([
       {
         relationshipDescription: 'guard',
         relationships: {
@@ -523,7 +540,9 @@ export const guardhouseData = {
         base: {
           profession: 'guard'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works in ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} works in ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'prisoner',
@@ -539,7 +558,9 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a captured criminal being held in ${building.name} awaiting trial.` }
+        description (building, npc) {
+          return `${npc.firstName} is a captured criminal being held in ${building.name} awaiting trial.`
+        }
       },
       {
         relationshipDescription: 'investigator',
@@ -555,7 +576,9 @@ export const guardhouseData = {
         base: {
           profession: 'investigator'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works on cases in ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} works on cases in ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'kidnapper',
@@ -571,7 +594,9 @@ export const guardhouseData = {
         base: {
           profession: 'kidnapper'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is kidnapping children, and sending ransom letters to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is kidnapping children, and sending ransom letters to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'fugitive',
@@ -587,7 +612,9 @@ export const guardhouseData = {
         base: {
           profession: 'fugitive'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a dangerous fugitive being hunted down by ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is a dangerous fugitive being hunted down by ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'wanted criminal',
@@ -603,7 +630,9 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a wanted criminal being hunted down by ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is a wanted criminal being hunted down by ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'informant',
@@ -619,9 +648,11 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is an informant who is assisting ${building.name} with their investigations.` }
+        description (building, npc) {
+          return `${npc.firstName} is an informant who is assisting ${building.name} with their investigations.`
+        }
       }
-    ]
+    ])
   },
   rollData: {
     wealth: {
