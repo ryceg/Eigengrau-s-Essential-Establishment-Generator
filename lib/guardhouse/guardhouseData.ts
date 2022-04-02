@@ -1,4 +1,4 @@
-import { constrainArray } from '../src/constrainRecord'
+import { constrainArray, constrainRecord } from '../src/constrainRecord'
 import { NPC } from '../npc-generation/_common'
 import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
 import { ThresholdTable } from '../src/rollFromTable'
@@ -25,8 +25,14 @@ interface GuardhouseCustomer {
       relationship: string
     }
   }
-  base: { profession?: ProfessionName } | { professionSector?: ProfessionSector }
+  base: { profession: ProfessionName } | { professionSector: ProfessionSector }
   description(building: Guardhouse, npc: NPC): string
+}
+
+interface GuardhouseRollData {
+  description: string
+  preceding: string
+  rolls?: ThresholdTable
 }
 
 export const guardhouseData = {
@@ -658,7 +664,7 @@ export const guardhouseData = {
       }
     ])
   },
-  rollData: {
+  rollData: constrainRecord<GuardhouseRollData>()({
     wealth: {
       description: 'How well are they funded?',
       preceding: 'Guardhouse Wealth:',
@@ -671,7 +677,7 @@ export const guardhouseData = {
         [25, 'poor'],
         [15, 'squalid'],
         [0, 'destitute']
-      ] as ThresholdTable
+      ]
     },
     size: {
       description: 'How large is it?',
@@ -687,7 +693,7 @@ export const guardhouseData = {
         [20, 'small'],
         [10, 'tiny'],
         [0, 'extremely cramped']
-      ] as ThresholdTable
+      ]
     },
     cleanliness: {
       description: 'How clean is the guardhouse? What about the cells?',
@@ -703,7 +709,7 @@ export const guardhouseData = {
         [20, 'very messy, and the cells are even worse, with a fecal aroma wafting out.'],
         [10, 'in dire need of a cleaner; blood spatters have seeped in, and the cells are filthy.'],
         [0, 'apparently a crime scene in itself, with blood stains everywhere. The cells must be unimaginably bad.']
-      ] as ThresholdTable
+      ]
     },
     expertise: {
       description: 'How well trained are the guards?',
@@ -719,22 +725,19 @@ export const guardhouseData = {
         [20, 'not very professional, and are known for not being very good at their jobs'],
         [10, 'basically amateurs, with no real procedures or trainings'],
         [0, 'basically playing dress-ups, with virtually no interest in actual policing']
-      ] as ThresholdTable
+      ]
     },
     reputation: {
       description: 'Is it known for applying the law equally, or is it a crime den?',
-      preceding: 'Guardhouse Reputation:',
-      hasRolls: false
+      preceding: 'Guardhouse Reputation:'
     },
     magic: {
       description: 'How likely is it to find magic here?',
-      preceding: 'Guardhouse Magic:',
-      hasRolls: false
+      preceding: 'Guardhouse Magic:'
     },
     activity: {
       description: 'How busy is the store?',
-      preceding: 'Guardhouse Activity:',
-      hasRolls: false
+      preceding: 'Guardhouse Activity:'
     }
-  }
+  })
 }
