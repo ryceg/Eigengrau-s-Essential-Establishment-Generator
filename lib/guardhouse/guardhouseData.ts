@@ -5,6 +5,11 @@ import { ThresholdTable } from '../src/rollFromTable'
 import { Town } from '../town/_common'
 import { Guardhouse } from './_common'
 
+interface GuardhouseNotableFeature {
+  exclusions?(town: Town): boolean
+  function(): string
+}
+
 interface GuardhouseCustomer {
   relationshipDescription: string
   relationships: {
@@ -53,7 +58,7 @@ export const guardhouseData = {
       'sterling'
     ] as string[]
   },
-  notableFeature: [
+  notableFeature: constrainArray<GuardhouseNotableFeature>()([
     // the guardhouse is known for
     {
       function () {
@@ -103,10 +108,7 @@ export const guardhouseData = {
         return "the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair."
       }
     }
-  ] as {
-    exclusions?(town: Town): boolean
-    function(): string
-  }[],
+  ]),
   evidenceLocker: {
     // Inside the evidence locker, there is ___
     items: [
