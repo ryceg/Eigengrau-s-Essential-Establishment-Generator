@@ -18,6 +18,9 @@ export * from './buildings/getSellingTalk'
 export * from './buildings/homeData'
 export * from './buildings/structureMaterialData'
 
+export * from './castle/castleLocation'
+export * from './castle/castleRulerTypes'
+
 export * from './constructs/_common'
 export * from './constructs/bandits'
 export * from './constructs/bunny'

@@ -14,7 +14,7 @@ setup.createCastle = (town, opts = {}) => {
     objectType: 'building',
     defense: {
       reason: [
-        data.location[town.location].defenseReason.random()
+        lib.castleLocation[town.location].defenseReason.random()
         // data.defense.reason.random()
       ].random(),
       innerWalls: data.defense.innerWalls.random(),
