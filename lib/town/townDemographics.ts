@@ -41,7 +41,7 @@ export function getRacesPopulation (baseDemographics: Record<RaceName, number>, 
  * Calculate the sum of the raw demographic values.
  */
 function getDemographicsSum (races: RaceName[], baseDemographics: Record<RaceName, number>) {
-  return races.reduce((acc, cur) => acc + baseDemographics[cur], 0)
+  return races.reduce((sum, race) => sum + baseDemographics[race], 0)
 }
 
 /**
