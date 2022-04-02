@@ -1,5 +1,6 @@
+import { DeadNPC } from 'src/NPCGeneration/setupDeath'
 import { Building } from '../../lib/buildings/_common'
-import { NPC } from '../../lib/npc-generation/_common'
+import { Namesake, NPC } from '../../lib/npc-generation/_common'
 import { Town } from '../../lib/town/_common'
 import { Dungeon } from './createDungeon'
 
@@ -12,12 +13,13 @@ interface Options {
   npc: Partial<NPC>
 }
 
-export interface Castle {
+export interface Castle extends Building {
   initPassage: string
   passageName: string
-  buildingType: string
+  buildingType: 'castle'
   name: string
   associatedNPC: NPC
+  namesake: Namesake | DeadNPC
   wordNoun: string
   needsWordNoun: boolean
   defense: {
