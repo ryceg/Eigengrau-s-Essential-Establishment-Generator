@@ -1,7 +1,7 @@
 import { defineRollDataGetter } from '../src/defineRollDataGetter'
 import { dice, fm } from '../src/dice'
 import { random } from '../src/random'
-import { ThresholdTable } from '../src/rollFromTable'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { repeat, sumWeights, keys, clamp } from '../src/utils'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
@@ -111,11 +111,7 @@ function getAgeModifier (roll: number): number {
 
 function getResourceSize (table: ThresholdTable, roll: number): string {
   console.log('get resource size...')
-  let result = table.find(desc => {
-    return desc[0] <= roll
-  })
-  if (!result) result = [0, 'some']
-  return result[1]
+  return getRolledFromTable(table, roll) ?? 'some'
 }
 
 function getResourceName (container: WeightRecord<FactionResource>): FactionResource {

@@ -1,5 +1,5 @@
 import { NPC } from '../npc-generation/_common'
-import { ThresholdTable } from '../src/rollFromTable'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { TownType } from '../town/townData'
 import { Town } from '../town/_common'
 import { Building } from './_common'
@@ -73,12 +73,5 @@ export function getSellingTalk (town: Town, building: Building, associatedNPC: N
     return buildingTalkType.default
   }
 
-  let results = buildingTalkType.default
-  for (const [threshold, description] of wealthTable) {
-    if (building.roll.wealth > threshold) {
-      results = description
-    }
-  }
-
-  return results
+  return getRolledFromTable(wealthTable, building.roll.wealth) || buildingTalkType.default
 }

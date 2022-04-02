@@ -1,4 +1,5 @@
 import { NPC, ThresholdTable } from '@lib'
+import { getRolledFromTable } from '../../src/rollFromTable'
 import { getTrait, Virtues } from './getTraits'
 
 /**
@@ -291,12 +292,7 @@ const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => 
 }
 
 export const getTraitDescription = (trait: Virtues, roll: number) => {
-  for (const [num, description] of traitDescriptions[trait]) {
-    if (roll >= num) {
-      return description
-    }
-  }
-  return null
+  return getRolledFromTable(traitDescriptions[trait], roll) || null
 }
 
 export const getAllTraits = (npc: NPC) => {
