@@ -7,7 +7,7 @@ export type Biome = 'temperate' | 'tropical' | 'arid' | 'polar'
 export type Seasons = 'spring' | 'summer' | 'autumn' | 'winter'
 
 export interface TerrainData {
-  start: WeightRecord<Locations>
+  start: WeightRecord<string>
   weather: WeatherData
   location: Record<string, LocationData>
 }
@@ -1025,8 +1025,3 @@ export const terrain: Record<Biome, TerrainData> = {
     }
   }
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type UnionKeys<T> = T extends any ? keyof T : never
-type Terrain = typeof terrain
-export type Locations = UnionKeys<Terrain[keyof Terrain]['location']>
