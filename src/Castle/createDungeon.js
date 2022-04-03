@@ -1,13 +1,13 @@
 // uses setup.createNPC, setup.createDungeonName
 setup.createDungeon = (town, opts) => {
   console.groupCollapsed('Creating a dungeon!')
-  const data = setup.castle.dungeon
+  const data = lib.dungeon
   const dungeon = lib.createBuilding(town, 'dungeon', opts)
   Object.assign(dungeon, {
-    knownFor: data.knownFor.random(),
-    secret: data.secret.random(),
-    age: data.age.random(),
-    format: data.format.random(),
+    knownFor: lib.dungeon.knownFor.random(),
+    secret: lib.dungeon.secret.random(),
+    age: lib.dungeon.age.random(),
+    format: lib.dungeon.format.random(),
     wordNoun: ['dungeon', 'oubliette', 'jail', 'prison'].random(),
     needsWordNoun: false,
     passageName: 'Dungeon',
@@ -16,14 +16,14 @@ setup.createDungeon = (town, opts) => {
     objectType: 'building',
     cells: {
       prisoners: {
-        treatment: data.cells.prisoners.treatment.random()
+        treatment: lib.random(lib.dungeon.cells.prisoners.treatment)
       },
-      condition: data.cells.condition.random(),
-      format: data.cells.format.random()
+      condition: lib.random(lib.dungeon.cells.condition),
+      format: lib.random(lib.dungeon.cells.format)
     }
   })
 
-  const jailerData = data.jailer.types.random()
+  const jailerData = lib.random(lib.dungeonJailer.types)
   if (!Object.keys(jailerData.base).includes('profession')) {
     jailerData.base.profession = 'jailer'
   }
@@ -42,36 +42,9 @@ setup.createDungeon = (town, opts) => {
     dungeon.location = data.location.standalone.random()
     lib.createReciprocalRelationship(town, dungeon, dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   }
-  dungeon.name = setup.createDungeonName(town, dungeon)
+  dungeon.name = lib.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
+  console.log(`Created the dungeon ${dungeon.name}`)
   console.groupEnd()
   return dungeon
-}
-
-setup.createDungeonName = (town, dungeon, namesake = {}) => {
-  console.log('Creating dungeon name...')
-  Object.assign(namesake, {
-    race: lib.fetchRace(town)
-  })
-  namesake.socialClass = namesake.socialClass || 'nobility'
-  namesake.firstName = namesake.firstName || lib.createName({ race: namesake.race })
-  namesake.lastName = namesake.lastName || lib.createName({ race: namesake.race, firstOrLast: 'lastName' })
-  console.log(namesake)
-  const name = setup.castle.dungeon.name
-  const choiceName = [
-    `${namesake.firstName}'s ${dungeon.wordNoun}`,
-    `${namesake.lastName}'s ${dungeon.wordNoun}`,
-    `The ${dungeon.wordNoun} of ${namesake.lastName}`,
-    `The ${name.nouns.random()} of ${name.adjectives.random()}`,
-    `${name.nouns.random()}'s ${name.verbs.random()}`,
-    `The ${name.adjectives.random()}'s ${name.nouns.random()}`,
-    `${town.name} ${dungeon.wordNoun}`,
-    `${name.unique.random()}`
-  ].random()
-  if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
-    dungeon.namesake = setup.createDeadNPC(town, namesake)
-    lib.createReciprocalRelationship(town, dungeon, dungeon.namesake, { relationship: 'namesake', reciprocalRelationship: `Dungeon named after ${dungeon.namesake.himher}` })
-  }
-  console.log(lib.toTitleCase(choiceName))
-  return lib.toTitleCase(choiceName)
 }
