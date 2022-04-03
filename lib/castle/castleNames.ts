@@ -1,7 +1,7 @@
 
 import jsonData from './castleNames.data.json'
 
-export const castleNames: {
+export interface CastleNameData {
   unique: string[]
   wordNouns: string[]
   nouns: string[]
@@ -10,4 +10,6 @@ export const castleNames: {
     prefix: string[]
     suffix: string[]
   }
-} = jsonData
+}
+
+export const castleNames: CastleNameData = jsonData

@@ -1,6 +1,6 @@
 import jsonData from './siege.data.json'
 
-interface SiegeData {
+export interface SiegeData {
   name: {
     prefixes: string[]
     adjectives: string[]

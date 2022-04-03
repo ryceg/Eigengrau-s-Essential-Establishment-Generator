@@ -1,7 +1,7 @@
 import { Locations } from '@lib'
 import jsonData from './castleLocation.data.json'
 
-interface CastleLocation {
+export interface CastleLocation {
   vignette: string[]
   defenseReason: string[]
 }

@@ -1,24 +1,30 @@
 import { Town } from '../town/_common'
 import { Dungeon } from '../../src/Castle/createDungeon'
 import { getPronoun } from '../npc-generation/gender/getPronoun'
+import { random } from '../src/random'
+import { createNamesake } from '../npc-generation/createNamesake'
+import { dungeonName } from './dungeonName'
+import { assign } from '../src/utils'
+import { createReciprocalRelationship } from '../buildings/createReciprocalRelationship'
+import { toTitleCase } from '../src/toTitleCase'
 
 export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = {}) {
   console.log('Creating dungeon name...')
-  const namesake = lib.createNamesake(town, namesakeData)
+  const namesake = createNamesake(town, namesakeData)
   const {
     adjectives,
     nouns,
     unique,
     verbs,
     wordNoun
-  } = lib.dungeonName
+  } = dungeonName
 
-  const uniqueName = lib.random(unique)
-  const adjective = lib.random(adjectives)
-  const noun = lib.random(nouns)
-  const verb = lib.random(verbs)
-  const wordNounChoice = lib.random([lib.random(wordNoun), dungeon.wordNoun])
-  const choiceName = lib.random([
+  const uniqueName = random(unique)
+  const adjective = random(adjectives)
+  const noun = random(nouns)
+  const verb = random(verbs)
+  const wordNounChoice = random([random(wordNoun), dungeon.wordNoun])
+  const choiceName = random([
     `${namesake.firstName}'s ${wordNounChoice}`,
     `${namesake.lastName}'s ${wordNounChoice}`,
     `The ${wordNounChoice} of ${namesake.lastName}`,
@@ -32,9 +38,8 @@ export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = 
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     // Have to remove the dead NPC, since that requires setup.
     // dungeon.namesake = setup.createDeadNPC(town, namesake)
-    lib.assign(dungeon, { namesake })
-    console.log(dungeon)
-    lib.createReciprocalRelationship(
+    assign(dungeon, { namesake })
+    createReciprocalRelationship(
       town,
       dungeon,
       dungeon.namesake,
@@ -44,6 +49,5 @@ export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = 
       }
     )
   }
-  console.log(lib.toTitleCase(choiceName))
-  return lib.toTitleCase(choiceName)
+  return toTitleCase(choiceName)
 }

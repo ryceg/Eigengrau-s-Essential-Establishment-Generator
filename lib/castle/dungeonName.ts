@@ -1,9 +1,9 @@
 import jsonData from './dungeonName.data.json'
-
-export const dungeonName: {
+export interface DungeonNameData {
   unique: string[]
   adjectives: string[]
   nouns: string[]
   verbs: string[]
   wordNoun: string[]
-} = jsonData
+}
+export const dungeonName: DungeonNameData = jsonData
