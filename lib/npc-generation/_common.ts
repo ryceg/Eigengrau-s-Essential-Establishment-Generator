@@ -176,6 +176,9 @@ export interface Namesake {
   firstName: string
   lastName: string
   gender: GenderName
+  key: string
+  // may i not live to regret this
+  objectType: 'npc'
   race: RaceName
   profession?: ProfessionName
   reason?: string

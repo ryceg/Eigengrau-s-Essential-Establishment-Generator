@@ -1,11 +1,11 @@
+import { Building } from '../../lib/buildings/_common'
 import { DeadNPC } from 'src/NPCGeneration/setupDeath'
-import { Building } from 'src/setup'
 import { Namesake, NPC } from '../../lib/npc-generation/_common'
 import { Town } from '../../lib/town/_common'
 
 interface Setup {
   createDungeon(town: Town, opts: any): Dungeon
-  createDungeonName(town: Town, dungeon: Dungeon, namesake: any): string
+  createDungeonName(town: Town, dungeon: Dungeon, namesake?: Namesake): string
 }
 
 export interface Dungeon extends Building {

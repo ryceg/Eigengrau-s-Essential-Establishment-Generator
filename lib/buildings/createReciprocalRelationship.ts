@@ -34,6 +34,8 @@ export function createReciprocalRelationship (town: Town, entity: Entity, npc: E
 
   const getDescription = () => {
     if (typeof options.description === 'function') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - This isn't going to be used outside of NPCs, so it doesn't matter that Namesakes aren't supported.
       return options.description(entity, npc)
     }
     return options.description || null

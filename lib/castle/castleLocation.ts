@@ -1,4 +1,3 @@
-import { Locations } from '@lib'
 import jsonData from './castleLocation.data.json'
 
 export interface CastleLocation {
@@ -6,4 +5,5 @@ export interface CastleLocation {
   defenseReason: string[]
 }
 
-export const castleLocation: Record<Locations, CastleLocation> = jsonData
+// @TODO: fix Location type so that it's not just a string
+export const castleLocation: Record<string, CastleLocation> = jsonData

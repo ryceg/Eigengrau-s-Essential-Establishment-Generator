@@ -6,7 +6,7 @@ import { Namesake } from './_common'
 
 export const createNamesake = (town: Town, base?: Partial<Namesake>) => {
   const race = base?.race || fetchRace(town)
-  const gender = base?.gender || fetchGender(town)
+  const gender = base?.gender || getRandomGender(town)
   const namesake = Object.assign({
     // @TODO Establish a more concrete hierarchy of Namesake > NPC
     key: lib.getUUID(),
