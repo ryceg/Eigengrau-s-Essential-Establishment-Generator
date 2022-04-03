@@ -98,7 +98,6 @@ function createRulingFaction (town: Town, governmentType: FactionType): Faction 
   if (typeof lib.factionData.types[governmentType] === 'undefined') {
     console.log(`No faction that matches ${governmentType}. Creating random faction instead...`)
 
-    // @ts-ignore
     return setup.createFaction(town, {
       leadershipType: 'individual',
       isPoliticalPower: true,
