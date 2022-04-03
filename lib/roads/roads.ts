@@ -1,6 +1,6 @@
 
 import { getBuildingRoad } from '../buildings/createBuilding'
-import { MaterialType, MaterialTypes } from '../buildings/structureData'
+import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
 import { Building } from '../buildings/_common'
 import { raceTraits } from '../npc-generation/raceTraits'
 import { articles } from '../src/articles'
@@ -220,23 +220,29 @@ export const roads = {
   material: {
     get (town: Town, road: Road): MaterialType {
       console.log('Getting road material...')
-      const tempMaterials: Record<string, MaterialType> = {}
-      // cloning town.materialProbability so we can mutate it
-      keys(town.materialProbability).forEach(key => {
-        tempMaterials[key] = town.materialProbability[key]
-      })
+      // Creates a shallow copy of town.materialProbability so we don't mutate the original one.
+      const tempMaterials = {
+        ...town.materialProbability
+      }
+
       for (const material of keys(tempMaterials)) {
         console.log(material)
-        if (!tempMaterials[material].roadMaterialTypes) {
+        if (tempMaterials[material].roadMaterialTypes == null) {
           delete tempMaterials[material]
           continue
         }
-        if (tempMaterials[material].tier.indexOf(road.tier) !== -1) {
-          tempMaterials[material].probability = 5
+        if (tempMaterials[material].tier.includes(road.tier)) {
+          tempMaterials[material] = {
+            ...tempMaterials[material],
+            probability: 5
+          }
         }
       }
       if (tempMaterials[town.townMaterial]) {
-        tempMaterials[town.townMaterial].probability = 80
+        tempMaterials[town.townMaterial] = {
+          ...tempMaterials[town.townMaterial],
+          probability: 80
+        }
       }
       return weightedRandomFetcher(town, tempMaterials, undefined, roads.material.exclusions, 'object') as MaterialType
     },

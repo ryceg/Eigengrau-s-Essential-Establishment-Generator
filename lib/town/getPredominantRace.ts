@@ -1,3 +1,4 @@
+import { keys } from '../src/utils'
 import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
 import { raceTraits, RaceName } from '../npc-generation/raceTraits'
@@ -37,13 +38,13 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   const [primaryRace, percentile] = primary
   const majorRaceWords = raceTraits[primaryRace].raceWords
 
-  const [secondaryRace] = secondary
+  const [secondaryRace, secondaryPercentile] = secondary
   const secondaryRaceWords = raceTraits[secondaryRace].raceWords
 
   if (percentile > 99) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'completely',
       amountDescriptive: `entirely, without fail, of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -54,7 +55,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 90) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'completely',
       amountDescriptive: `almost uniformly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -64,7 +65,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 80) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'overwhelmingly',
       amountDescriptive: `overwhelmingly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -74,7 +75,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 70) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'predominantly',
       amountDescriptive: `predominantly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -84,7 +85,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 65) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'largely',
       amountDescriptive: `largely of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -94,7 +95,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 60) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'mostly',
       amountDescriptive: `mostly of ${majorRaceWords.racePlural}`,
       primaryRace,
@@ -104,7 +105,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 55) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'mostly',
       amountDescriptive: `mostly of ${majorRaceWords.racePlural}, with some ${secondaryRaceWords.racePlural}`,
       primaryRace,
@@ -114,7 +115,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 50) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'mostly',
       amountDescriptive: `of ${majorRaceWords.racePlural}, with a slim majority, along with some ${secondaryRaceWords.racePlural}`,
       primaryRace,
@@ -124,7 +125,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 40) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'fairly diverse',
       amountDescriptive: `of many different races, with the most common race being ${majorRaceWords.raceAdjective}`,
       primaryRace,
@@ -134,7 +135,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 35) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'rather diverse',
       amountDescriptive: `of many different races, with the most common race of ${majorRaceWords.raceAdjective} just barely making up slightly over a third of the population`,
       primaryRace,
@@ -144,7 +145,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 30) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'incredibly diverse',
       amountDescriptive: 'of almost every race, no one race being the clear majority',
       primaryRace,
@@ -154,7 +155,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   if (percentile > 20) {
     return {
       percentile,
-      secondaryPercentile: secondary[1],
+      secondaryPercentile,
       amount: 'melting pot of races',
       amountDescriptive: 'of a melting pot of all different races',
       primaryRace,
@@ -163,7 +164,7 @@ export function getPredominantRace (percentages: Record<RaceName, number>): Pred
   }
   return {
     percentile,
-    secondaryPercentile: secondary[1],
+    secondaryPercentile,
     amount: 'diverse melting pot of races',
     amountDescriptive: 'of a melting pot of all different races',
     primaryRace,
@@ -180,32 +181,23 @@ export function formatPercentile (percentages: [string, number][]): string[] {
 }
 
 export function formatAsList (text: Record<string, number>) {
-  const obj = $('<ol>')
-  for (const key in text) {
-    $(obj)
-      .append(
-        $('<li>')
-          .text(`${key}: ${text[key].toFixed(2)}%`))
-  }
-  return obj.get(0)
+  return createListFromArray(keys(text), key => {
+    return `${key}: ${text[key].toFixed(2)}%`
+  })
 }
 
 export function formatArrayAsList (text: string[]) {
-  const obj = $('<ol>')
-  for (const item of text) {
-    $(obj)
-      .append(
-        $('<li>')
-          .text(item))
-  }
-  return obj.get(0)
+  return createListFromArray(text, item => {
+    return item
+  })
 }
 
-export function returnStringList (text: string[]) {
-  let obj = '<ol>'
-  for (const item of text) {
-    obj += `<li>${item}</li>`
+function createListFromArray <T> (array: T[], getItemTextContent: (item: T) => string) {
+  const list = document.createElement('ol')
+  for (const item of array) {
+    const li = document.createElement('li')
+    li.textContent = getItemTextContent(item)
+    list.append(li)
   }
-  obj += '</ol>'
-  return obj
+  return list
 }

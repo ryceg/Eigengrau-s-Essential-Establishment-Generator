@@ -182,7 +182,7 @@ export const createTown = (base: TownBasics | Town) => {
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.materialProbability = lib.structureData.material.types
+  town.materialProbability = lib.structureMaterialData.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
   console.log('Defining taxes')

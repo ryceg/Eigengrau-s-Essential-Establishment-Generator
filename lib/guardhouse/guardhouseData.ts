@@ -1,7 +1,39 @@
+import { constrainArray, constrainRecord } from '../src/constrainRecord'
 import { NPC } from '../npc-generation/_common'
+import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
 import { ThresholdTable } from '../src/rollFromTable'
 import { Town } from '../town/_common'
 import { Guardhouse } from './_common'
+
+interface GuardhouseNotableFeature {
+  exclusions?(town: Town): boolean
+  function(): string
+}
+
+interface GuardhouseEvidenceLockerItem {
+  function(): string
+}
+
+interface GuardhouseCustomer {
+  relationshipDescription: string
+  relationships: {
+    building: {
+      relationship: string
+      reciprocalRelationship: string
+    }
+    associatedNPC: {
+      relationship: string
+    }
+  }
+  base: { profession: ProfessionName } | { professionSector: ProfessionSector }
+  description(building: Guardhouse, npc: NPC): string
+}
+
+interface GuardhouseRollData {
+  description: string
+  preceding: string
+  rolls?: ThresholdTable
+}
 
 export const guardhouseData = {
   name: {
@@ -36,7 +68,7 @@ export const guardhouseData = {
       'sterling'
     ] as string[]
   },
-  notableFeature: [
+  notableFeature: constrainArray<GuardhouseNotableFeature>()([
     // the guardhouse is known for
     {
       function () {
@@ -86,13 +118,10 @@ export const guardhouseData = {
         return "the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair."
       }
     }
-  ] as {
-    exclusions?(town: Town): boolean
-    function(): string
-  }[],
+  ]),
   evidenceLocker: {
     // Inside the evidence locker, there is ___
-    items: [
+    items: constrainArray<GuardhouseEvidenceLockerItem>()([
       {
         function () {
           return 'some confiscated weaponry from captured bandits. One of the weapons is highly personalised and decorated.'
@@ -193,9 +222,7 @@ export const guardhouseData = {
           return 'a cane with a hidden compartment. It belonged to a noble of ill repute.'
         }
       }
-    ] as {
-      function(): string
-    }[]
+    ])
   },
   get: {
     /** @example `At the moment, ______ */
@@ -508,7 +535,7 @@ export const guardhouseData = {
       reason: string
       base?: Partial<NPC>
     }[],
-    customers: [
+    customers: constrainArray<GuardhouseCustomer>()([
       {
         relationshipDescription: 'guard',
         relationships: {
@@ -523,7 +550,9 @@ export const guardhouseData = {
         base: {
           profession: 'guard'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works in ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} works in ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'prisoner',
@@ -539,7 +568,9 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a captured criminal being held in ${building.name} awaiting trial.` }
+        description (building, npc) {
+          return `${npc.firstName} is a captured criminal being held in ${building.name} awaiting trial.`
+        }
       },
       {
         relationshipDescription: 'investigator',
@@ -555,7 +586,9 @@ export const guardhouseData = {
         base: {
           profession: 'investigator'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works on cases in ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} works on cases in ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'kidnapper',
@@ -571,7 +604,9 @@ export const guardhouseData = {
         base: {
           profession: 'kidnapper'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is kidnapping children, and sending ransom letters to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is kidnapping children, and sending ransom letters to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'fugitive',
@@ -587,7 +622,9 @@ export const guardhouseData = {
         base: {
           profession: 'fugitive'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a dangerous fugitive being hunted down by ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is a dangerous fugitive being hunted down by ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'wanted criminal',
@@ -603,7 +640,9 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a wanted criminal being hunted down by ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} is a wanted criminal being hunted down by ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'informant',
@@ -619,11 +658,13 @@ export const guardhouseData = {
         base: {
           professionSector: 'crime'
         },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is an informant who is assisting ${building.name} with their investigations.` }
+        description (building, npc) {
+          return `${npc.firstName} is an informant who is assisting ${building.name} with their investigations.`
+        }
       }
-    ]
+    ])
   },
-  rollData: {
+  rollData: constrainRecord<GuardhouseRollData>()({
     wealth: {
       description: 'How well are they funded?',
       preceding: 'Guardhouse Wealth:',
@@ -636,7 +677,7 @@ export const guardhouseData = {
         [25, 'poor'],
         [15, 'squalid'],
         [0, 'destitute']
-      ] as ThresholdTable
+      ]
     },
     size: {
       description: 'How large is it?',
@@ -652,7 +693,7 @@ export const guardhouseData = {
         [20, 'small'],
         [10, 'tiny'],
         [0, 'extremely cramped']
-      ] as ThresholdTable
+      ]
     },
     cleanliness: {
       description: 'How clean is the guardhouse? What about the cells?',
@@ -668,7 +709,7 @@ export const guardhouseData = {
         [20, 'very messy, and the cells are even worse, with a fecal aroma wafting out.'],
         [10, 'in dire need of a cleaner; blood spatters have seeped in, and the cells are filthy.'],
         [0, 'apparently a crime scene in itself, with blood stains everywhere. The cells must be unimaginably bad.']
-      ] as ThresholdTable
+      ]
     },
     expertise: {
       description: 'How well trained are the guards?',
@@ -684,22 +725,19 @@ export const guardhouseData = {
         [20, 'not very professional, and are known for not being very good at their jobs'],
         [10, 'basically amateurs, with no real procedures or trainings'],
         [0, 'basically playing dress-ups, with virtually no interest in actual policing']
-      ] as ThresholdTable
+      ]
     },
     reputation: {
       description: 'Is it known for applying the law equally, or is it a crime den?',
-      preceding: 'Guardhouse Reputation:',
-      hasRolls: false
+      preceding: 'Guardhouse Reputation:'
     },
     magic: {
       description: 'How likely is it to find magic here?',
-      preceding: 'Guardhouse Magic:',
-      hasRolls: false
+      preceding: 'Guardhouse Magic:'
     },
     activity: {
       description: 'How busy is the store?',
-      preceding: 'Guardhouse Activity:',
-      hasRolls: false
+      preceding: 'Guardhouse Activity:'
     }
-  }
+  })
 }

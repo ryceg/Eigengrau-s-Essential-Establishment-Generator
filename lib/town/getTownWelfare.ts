@@ -1,4 +1,5 @@
 import { Town } from './_common'
+import { getTownWealth } from './townRender'
 
 export function getTownWelfare (town: Town) {
   const welfareRoll = town.roll.welfare
@@ -23,7 +24,7 @@ export function getTownWelfare (town: Town) {
     return 'Welfare is good, all things considered. Citizens can expect death services, and other services such as healthcare and education, provided they are able to pay for it.'
   }
   if (welfareRoll > 60 && wealthRoll > 40) {
-    return `Welfare is above average, considering the ${lib.getTownWealth(town.roll.wealth)} quality of life. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded, though.`
+    return `Welfare is above average, considering the ${getTownWealth(town.roll.wealth)} quality of life. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded, though.`
   }
   if (welfareRoll > 60) {
     return 'Welfare is above average. Citizens can expect a decent education, provided they can pay for it. Healthcare is overtaxed and underfunded.'

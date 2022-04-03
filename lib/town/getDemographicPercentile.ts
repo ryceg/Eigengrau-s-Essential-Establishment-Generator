@@ -1,16 +1,15 @@
-import { RaceName, Town } from '@lib'
 import { keys } from '../src/utils'
+import { Town } from '../town/_common'
+import { RaceName } from '../npc-generation/raceTraits'
+import { getDemographicsSum } from './townDemographics'
 
 export function getDemographicPercentile (town: Town): Record<RaceName, number> {
-  const raceNames = keys(town.baseDemographics)
+  const races = keys(town.baseDemographics)
 
-  // Calculate the number of individuals per race
-  const sum = raceNames
-    .map((byRace) => town.baseDemographics[byRace])
-    .reduce((acc, cur) => acc + cur, 0)
+  const sum = getDemographicsSum(races, town.baseDemographics)
 
   // Calculate the demographic percentages.
-  return raceNames.reduce((demographics, raceName) => {
+  return races.reduce((demographics, raceName) => {
     const percentage = (town.baseDemographics[raceName] / sum) * 100
     demographics[raceName] = percentage
     return demographics

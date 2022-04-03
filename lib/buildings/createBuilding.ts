@@ -1,10 +1,10 @@
 
-import { MaterialType } from './structureData'
+import { MaterialType, MaterialTypes } from './structureMaterialData'
 import { Building, BuildingRollsDefault, BuildingTypeName } from './_common'
 import { random } from '../src/random'
 import { randomFloat } from '../src/randomFloat'
 
-import { assign } from '../src/utils'
+import { assign, keys } from '../src/utils'
 import { Road, Town } from '@lib'
 
 export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
@@ -73,29 +73,31 @@ function getPriceModifier (): number {
   return Math.clamp(Math.floor(randomFloat(1) * 8) - random([0, 10]), -10, 10)
 }
 
-export function generateBuildingMaterial (town: Town, mainMaterial: string, buildingWealth: number): MaterialType {
+export function generateBuildingMaterial (town: Town, mainMaterial: MaterialTypes, buildingWealth: number): MaterialType {
   // Set probability for other buildings depending on the building 'tier'
   const buildingTier = getBuildingTier(town.roll.wealth, buildingWealth)
-  for (const material of Object.keys(town.materialProbability)) {
-    if (town.materialProbability[material].tier.indexOf(buildingTier) !== -1) {
-      town.materialProbability[material].probability = 5
+
+  for (const material of keys(town.materialProbability)) {
+    if (town.materialProbability[material].tier.includes(buildingTier)) {
+      town.materialProbability[material] = {
+        ...town.materialProbability[material],
+        probability: 5
+      }
     }
   }
-  town.materialProbability[mainMaterial].probability = 80
-  const tempMaterial = lib.weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
-  return tempMaterial
+
+  town.materialProbability[mainMaterial] = {
+    ...town.materialProbability[mainMaterial],
+    probability: 80
+  }
+
+  return lib.weightedRandomFetcher(town, town.materialProbability, undefined, undefined, 'object') as MaterialType
 }
 
 export function getBuildingTier (townWealth: number, buildingWealth: number): number {
   const wealth = townWealth + (buildingWealth * 0.2)
-  if (wealth >= 70) {
-    return 3
-  }
-  if (wealth >= 50 && wealth < 70) {
-    return 2
-  }
-  if (wealth < 50) {
-    return 1
-  }
-  return 0
+
+  if (wealth >= 70) return 3
+  if (wealth >= 50) return 2
+  return 1
 }

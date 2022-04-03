@@ -1,4 +1,4 @@
-import { ThresholdTable } from '../src/rollFromTable'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { Faction } from './_common'
 
 export function setFactionAge (faction: Faction): void {
@@ -19,12 +19,5 @@ export function setFactionAge (faction: Faction): void {
     [0, 'well established']
   ]
 
-  faction.age = 'well established'
-
-  for (const [num, description] of ranks) {
-    if (faction.roll.age > num) {
-      faction.age = description
-      return
-    }
-  }
+  faction.age = getRolledFromTable(ranks, faction.roll.age) || 'well established'
 }
