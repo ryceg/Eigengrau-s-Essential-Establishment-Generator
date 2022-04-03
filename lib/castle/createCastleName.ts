@@ -34,7 +34,6 @@ export function createCastleName (town: Town, castle: Castle, namesake?: Namesak
     `${town.name} ${wordNoun}`,
     uniqueName
   ])
-  console.log('test', choiceName)
   if (choiceName.includes(namesake.firstName) || choiceName.includes(namesake.lastName)) {
     // Have to remove the dead NPC, since that requires setup.
     // lib.assign(castle, setup.createDeadNPC(town, namesake))
