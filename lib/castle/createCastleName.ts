@@ -23,7 +23,6 @@ export function createCastleName (town: Town, castle: Castle, namesake?: Namesak
   const adjective = lib.random(adjectives)
   const prefix = lib.random(morphemes.prefix)
   const suffix = lib.random(morphemes.suffix)
-  console.log('test')
   const choiceName = lib.random([
     `${namesake.firstName}'s ${wordNoun}`,
     `${namesake.lastName}'s ${wordNoun}`,
