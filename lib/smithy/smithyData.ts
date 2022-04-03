@@ -105,42 +105,42 @@ export const smithyData = {
       {
         expertise: 80,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}, and just by looking at it, you can tell that the blacksmith is extremely talented at ${smithy.associatedNPC.hisher} craft; this is a weapon clearly fit for a king.`
+        note: `On the bench lies a ${smithyData.weapons.random()}, and just by looking at it, you can tell that the blacksmith is extremely talented at ${smithy.associatedNPC.hisher} craft; this is a weapon clearly fit for a king.`
       },
       {
         expertise: 70,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}, and looking at it, you can tell that the blacksmith is talented at ${smithy.associatedNPC.hisher} craft; this is a well made weapon.`
+        note: `On the bench lies a ${smithyData.weapons.random()}, and looking at it, you can tell that the blacksmith is talented at ${smithy.associatedNPC.hisher} craft; this is a well made weapon.`
       },
       {
         expertise: 60,
         wealth: 10,
-        note: `On the bench is a ${lib.smithyData.weapons.random()}, and you can tell that ${smithy.associatedNPC.name} is well trained; the weapon is more than servicable, and carries a nice heft to it.`
+        note: `On the bench is a ${smithyData.weapons.random()}, and you can tell that ${smithy.associatedNPC.name} is well trained; the weapon is more than servicable, and carries a nice heft to it.`
       },
       {
         expertise: 50,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}. Inspecting it, it's of slightly above average quality, and is made well.`
+        note: `On the bench lies a ${smithyData.weapons.random()}. Inspecting it, it's of slightly above average quality, and is made well.`
       },
       {
         expertise: 40,
         wealth: 10,
-        note: `On the bench is a ${lib.smithyData.weapons.random()}. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`
+        note: `On the bench is a ${smithyData.weapons.random()}. Inspecting it, it's of slightly below average quality, and has an odd weight to it.`
       },
       {
         expertise: 30,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}. Looking at it, you can see that it's not very well made.`
+        note: `On the bench lies a ${smithyData.weapons.random()}. Looking at it, you can see that it's not very well made.`
       },
       {
         expertise: 20,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`
+        note: `On the bench lies a ${smithyData.weapons.random()}. It's a respectable effort for an amateur, but for a professional blacksmith, it's rather poor quality.`
       },
       {
         expertise: 10,
         wealth: 10,
-        note: `On the bench lies a ${lib.smithyData.weapons.random()}. It's obviously amateurish. ${smithy.associatedNPC.firstName} moves around the shop, unsure of ${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
+        note: `On the bench lies a ${smithyData.weapons.random()}. It's obviously amateurish. ${smithy.associatedNPC.firstName} moves around the shop, unsure of ${smithy.associatedNPC.himherself}, betraying ${smithy.associatedNPC.hisher} lack of skills.`
       }
     ],
     lookAround: (smithy: Smithy) => [
