@@ -15,7 +15,6 @@ export * from './buildings/deleteBuildingRelationship'
 export * from './buildings/findBuilding'
 export * from './buildings/findReciprocalRelationships'
 export * from './buildings/getSellingTalk'
-export * from './buildings/homeData'
 export * from './buildings/structureMaterialData'
 
 export * from './constructs/_common'
