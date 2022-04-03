@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Alchemist, Building, NPC, Town } from '@lib'
 import { createChemist } from './createChemist'
@@ -18,7 +19,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   const associatedNPC = createChemist(town, opts)
 
-  lib.createReciprocalRelationship(town, alchemist as Building, associatedNPC, {
+  lib.createReciprocalRelationship(town, alchemist, associatedNPC, {
     relationship: 'owner',
     reciprocalRelationship: 'business'
   })
@@ -34,7 +35,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
     name: lib.createAlchemistName(associatedNPC.firstName)
   })
 
-  lib.createStructure(town, alchemist as Building)
+  lib.createStructure(town, alchemist)
 
   const { structure } = alchemist
   if (structure) {
@@ -49,8 +50,8 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
     lib.defineRollDataGetter(alchemist, rolls, propName)
   }
 
-  lib.alchemistModifiers(alchemist as Alchemist)
+  lib.alchemistModifiers(alchemist)
 
   console.groupEnd()
-  return alchemist as Alchemist
+  return alchemist
 }
