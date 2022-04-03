@@ -79,6 +79,7 @@ export interface NPC {
   canBeCustom?: boolean
   isThrowaway?: boolean
   isShallow?: boolean
+  isAlive?: boolean
   hasHistory?: boolean
   keyIsAlreadyDefined?: boolean
   trait: string

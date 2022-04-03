@@ -47,15 +47,20 @@ export function createReciprocalRelationship (town: Town, entity: Entity, npc: E
 
   const finished = {
     key: getUUID(),
-    otherKey: entity.key,
-    npcKey: npc.key,
+    otherKey: entity?.key,
+    npcKey: npc?.key,
     relationship: options.relationship,
     reciprocalRelationship: options.reciprocalRelationship,
     description: getDescription()
   }
-  if (entity.objectType === 'building') {
-    town.buildingRelations.push(finished)
-  } else if (entity.objectType === 'faction') {
-    town.factionRelations.push(finished)
+  // I'm not sure how I can narrow the typing to exclude Namesakes from it.
+  if (typeof entity?.objectType !== 'undefined') {
+    switch (entity.objectType) {
+      case 'building':
+        town.buildingRelations.push(finished)
+        break
+      case 'faction':
+        town.factionRelations.push(finished)
+    }
   }
 }
