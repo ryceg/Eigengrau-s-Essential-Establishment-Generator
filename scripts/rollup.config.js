@@ -30,11 +30,11 @@ module.exports = [
     input: 'src/main.ts',
     plugins,
     external: ['@lib'],
-    output: { file: 'src/init.js', format: 'iife', globals: { '@lib': 'lib' }, sourcemap: 'inline' }
+    output: { format: 'iife', file: 'src/init.js', globals: { '@lib': 'lib' }, sourcemap: 'inline' }
   },
   {
     input: 'lib/index.ts',
     plugins,
-    output: { format: 'iife', name: 'lib', file: './gh-pages/main.js', sourcemap: true }
+    output: { format: 'iife', file: './gh-pages/main.js', name: 'lib', sourcemap: true }
   }
 ]

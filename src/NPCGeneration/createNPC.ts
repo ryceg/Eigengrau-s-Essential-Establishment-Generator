@@ -47,24 +47,19 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // Start NPC creation with properties of a humanoid that are more biological, like what race and age
   // then work down to how those (if NPC is not shallow) effect other properties, like profession and
   // religion
+  // @TODO: Race should probably effect gender
   const race = base.race || lib.fetchRace(town)
+  const gender = lib.getNpcGender(town, base)
 
   lib.initSexistProfession(town, base as NPC)
-  console.log('Initialising gender.')
-  lib.assign(base, {
-    gender: lib.getNpcGender(town, base as NPC)
-  })
-  lib.assignFunctionalGenderRoll(town, base as NPC)
 
-  console.log('Fetching profession...')
   const profession = base.profession || lib.fetchProfessionChance(town, base as NPC)
 
-  const firstName = base.firstName || getFirstName(race, base.gender)
+  const firstName = base.firstName || getFirstName(race, gender)
   let lastName = base.lastName || getLastName(race)
   if (lastName === '') {
     lastName = firstName
   }
-  console.groupCollapsed(`${firstName} ${lastName}`)
   const ageStage = base.ageStage || getRandomAgeStage()
   let dndClass
   if (lib.findProfession(town, base as NPC, profession).type === 'dndClass') {
@@ -78,8 +73,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     key: base.key || lib.getUUID(),
     objectType: 'npc' as const,
     passageName: 'NPCProfile',
-    _gender: base.gender,
     _race: race,
+    gender,
     firstName,
     lastName,
     get name (): string {
@@ -97,7 +92,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     ageYears: lib.getAgeInYears(race, ageStage),
     muscleMass: lib.raceTraits[race].muscleMass + lib.dice(5, 4) - 12,
     lifeEvents: [],
-    pronouns: {},
+    pronouns: lib.genderData[gender],
     religion: {},
     finances: {
       creditors: {},
@@ -138,13 +133,6 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     wealth: lib.dice(2, 50),
     hasHistory: base.hasHistory || false,
     idle: data.idle,
-    get gender (): GenderName {
-      return this._gender
-    },
-    set gender (gender) {
-      this._gender = gender
-      Object.assign(this, lib.genderData[gender])
-    },
     get race (): RaceName {
       return this._race
     },
@@ -165,20 +153,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   // Add npc to npcRelations
   town.npcRelations[npc.key] = []
 
-  lib.assign(npc, {
-    gender: npc.gender || npc._gender,
-    race: npc.race || npc._race
-  })
-  // for (const pronoun in lib.genderData[npc.gender]) {
-  //   Object.defineProperty(npc, pronoun, {
-  //     get (this: NPC) {
-  //       // @ts-ignore
-  //       return lib.genderData[npc.gender][pronoun]
-  //     }
-  //   })
-  // }
+  // @TODO: remove this in favor of npc.pronouns.heshe et al. (future PR)
   lib.assign(npc, lib.genderData[npc.gender])
-  // lib.assign(npc.pronouns, lib.genderData[npc.gender])
   lib.assign(npc, lib.raceTraits[npc.race].raceWords)
 
   if (typeof npc.hasClass === 'undefined') {

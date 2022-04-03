@@ -1,4 +1,4 @@
-import { fetchGender } from '../../lib/npc-generation/genderData'
+import { getRandomGender } from '../../lib/npc-generation/genderData'
 import { Town } from '../town/_common'
 import { createName } from './createName'
 import { fetchRace } from './fetchRace'

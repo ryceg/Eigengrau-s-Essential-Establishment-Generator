@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { random } from '../src/random'
 import { closestMatch } from '../src/closestMatch'
-import { ThresholdTable } from '../src/rollFromTable'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { GenderName } from '../npc-generation/genderData'
 
 import { bmiDescriptions } from './bmiDescriptions'
@@ -49,7 +49,6 @@ export const getNPCWeight = (bmi: number, muscleMass: number) => {
 }
 
 export const getNPCHeight = (heightInches: number) => {
-  let resultantHeight = ''
   const heightChart: ThresholdTable = [
     [84, 'giraffe-like'],
     [78, 'towering'],
@@ -92,11 +91,6 @@ export const getNPCHeight = (heightInches: number) => {
     [30, 'so so tiny'],
     [0, 'impossibly small']
   ]
-  for (const [height, description] of heightChart) {
-    if (height >= heightInches) {
-      resultantHeight = description
-    }
-  }
-  if (!resultantHeight) resultantHeight = 'average'
-  return resultantHeight
+
+  return getRolledFromTable(heightChart, heightInches) || 'average'
 }

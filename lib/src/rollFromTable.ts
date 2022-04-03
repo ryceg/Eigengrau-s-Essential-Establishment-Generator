@@ -40,3 +40,9 @@ export function rollFromTable <T> (table: ThresholdTable<T>, maxRoll?: number, b
   const [, result] = last(table)
   return result
 }
+
+export function getRolledFromTable <T> (table: ThresholdTable<T>, roll: number) {
+  for (const [threshold, description] of table) {
+    if (roll >= threshold) return description
+  }
+}

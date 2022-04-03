@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 /**
  * Returns the keys from `T` whose property types match the type `V`.
  */

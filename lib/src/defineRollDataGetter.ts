@@ -12,7 +12,6 @@ interface Rolled {
 export type RollArray = [number, ...unknown[]][]
 
 export type RollData<T extends Rolled> = {
-  // eslint-disable-next-line no-unused-vars
   readonly [P in keyof T['roll']]: RollArray
 };
 

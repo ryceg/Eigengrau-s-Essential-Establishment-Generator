@@ -1,5 +1,8 @@
 {
-  "extends": ["plugin:@typescript-eslint/recommended", "standard"],
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
