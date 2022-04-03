@@ -1,9 +1,13 @@
 import { articles } from '../src/articles'
+import { random } from '../src/random'
 import { NPC } from './_common'
+import { raceTraits } from './raceTraits'
 
 const getHumanOrRaceDescription = (npc: NPC) => {
-  if (npc.race === 'human') return `${lib.random([npc.weight, npc.height])} ${npc.manwoman}`
-  return `${lib.random([npc.weight, npc.height])} ${npc.malefemale} ${npc.raceName}`
+  if (npc.race === 'human') {
+    return `${random([npc.weight, npc.height])} ${npc.manwoman}`
+  }
+  return `${random([npc.weight, npc.height])} ${npc.malefemale} ${npc.raceName}`
 }
 
 export function createDescriptors (npc: NPC): string[] {
@@ -15,14 +19,14 @@ export function createDescriptors (npc: NPC): string[] {
    */
   const descriptors = [
     `${npc.age || npc.ageStage} ${npc.raceName} with ${npc.physicalTrait}`,
-    `${npc.skinColour} skinned ${lib.random([npc.weight, npc.height])} ${npc.raceName}`,
+    `${npc.skinColour} skinned ${random([npc.weight, npc.height])} ${npc.raceName}`,
     `${getHumanOrRaceDescription(npc)} with ${npc.physicalTrait}`,
-    `${lib.random([npc.height, npc.age])} ${npc.gender} with ${npc.physicalTrait}`
+    `${random([npc.height, npc.age])} ${npc.gender} with ${npc.physicalTrait}`
   ]
 
   switch (npc.ageStage) {
     case 'child':
-      descriptors.push(`${lib.random([lib.raceTraits[npc.race].raceWords.raceAdjective, npc.height])} ${npc.boygirl}`)
+      descriptors.push(`${random([raceTraits[npc.race].raceWords.raceAdjective, npc.height])} ${npc.boygirl}`)
       break
     default:
       switch (npc.race) {
@@ -31,7 +35,7 @@ export function createDescriptors (npc: NPC): string[] {
         default:
           descriptors.push(
             getHumanOrRaceDescription(npc),
-            `${lib.random([npc.weight, npc.height])} ${lib.raceTraits[npc.race].raceWords.raceAdjective} ${npc.manwoman}`
+            `${random([npc.weight, npc.height])} ${raceTraits[npc.race].raceWords.raceAdjective} ${npc.manwoman}`
           )
       }
   }
