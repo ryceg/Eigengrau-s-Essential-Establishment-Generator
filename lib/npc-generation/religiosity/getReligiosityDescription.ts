@@ -1,4 +1,5 @@
 
+import { closestMatch } from '../../src/closestMatch'
 import { Town } from '../../town/_common'
 import { NPC } from '../_common'
 
@@ -186,5 +187,5 @@ export function getReligiosityDescription (town: Town, npc: NPC) {
       note: `${npc.name} is a faithless heretic in the eyes of the majority of the population of ${town.name}, and no one would be caught dead speaking to ${npc.himher} because of it.`
     }
   ]
-  return lib.closestMatch(religionDescription, 'note', 'strength', 'gregariousness', npc.roll.religiosity, npc.roll.gregariousness)
+  return closestMatch(religionDescription, 'note', 'strength', 'gregariousness', npc.roll.religiosity, npc.roll.gregariousness)
 }
