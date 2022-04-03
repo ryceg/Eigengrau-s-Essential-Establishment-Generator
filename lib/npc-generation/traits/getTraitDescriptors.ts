@@ -1,5 +1,6 @@
-import { NPC, ThresholdTable } from '@lib'
-import { getRolledFromTable } from '../../src/rollFromTable'
+import { keys } from '../../src/utils'
+import { NPC } from '../../npc-generation/_common'
+import { getRolledFromTable, ThresholdTable } from '../../src/rollFromTable'
 import { getTrait, Virtues } from './getTraits'
 
 /**
@@ -280,6 +281,7 @@ export const traitDescriptions: Record<Virtues, ThresholdTable<string>> = {
     [1, 'craven']
   ]
 }
+
 interface TraitDescriptions {
   trait: Virtues
   result: string
@@ -291,14 +293,13 @@ const getTraitPositiveOrNegative = (firstTrait: number, secondTrait: number) => 
   return 'and'
 }
 
-export const getTraitDescription = (trait: Virtues, roll: number) => {
-  return getRolledFromTable(traitDescriptions[trait], roll) || null
+const getTraitDescription = (trait: Virtues, roll: number) => {
+  return getRolledFromTable(traitDescriptions[trait], roll)
 }
 
-export const getAllTraits = (npc: NPC) => {
+const getAllTraits = (npc: NPC) => {
   const traitDescriptions: TraitDescriptions[] = []
-  for (const temp in npc.roll.traits) {
-    const trait = temp as Virtues
+  for (const trait of keys(npc.roll.traits)) {
     const roll = getTrait(trait, npc, true)
     // const roll = Math.clamp(npc.roll.traits[trait] / 5, 1, 19)
     const result = getTraitDescription(trait, roll)
@@ -309,7 +310,7 @@ export const getAllTraits = (npc: NPC) => {
   return traitDescriptions
 }
 
-export const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetLength = 4) => {
+const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetLength = 4) => {
   let result = ''
   if (traits.length < targetLength) targetLength = traits.length
   if (targetLength === 0) return ''
@@ -345,33 +346,16 @@ export const parseTraitIntoTop = (npc: NPC, traits: TraitDescriptions[], targetL
   return result
 }
 
-export const filterTraits = (traits: TraitDescriptions[]) => {
+const filterTraits = (traits: TraitDescriptions[]) => {
   return traits.filter(trait => Math.abs(trait.roll - 10) > 5)
 }
 
-export const sortTraitListByMostExtreme = (traits: TraitDescriptions[]) => {
+const sortTraitListByMostExtreme = (traits: TraitDescriptions[]) => {
   const middlePoint = 10
   return traits.sort((a, b) => Math.abs(a.roll - middlePoint) - Math.abs(b.roll - middlePoint))
 }
 
-export const sortTraitList = (traits: TraitDescriptions[]) => {
-  return traits.sort((a, b) => a.roll - b.roll)
-}
-
-export const parseTraitIntoSentences = (npc: NPC, traits: TraitDescriptions[]) => {
-  console.log(traits)
-  let result = `${npc.firstName} is `
-  for (let i = 0; i < traits.length - 2; i++) {
-    result += `${traits[i]?.result}, `
-  }
-  result += ` ${getTraitPositiveOrNegative(traits[traits.length - 2].roll, traits[traits.length - 1].roll)} ${traits[traits.length - 1].result}.`
-  console.log(result)
-  return result
-}
-
 export const getTraitsReadout = (npc: NPC) => {
-  const traitDescriptions = filterTraits(
-    sortTraitListByMostExtreme(
-      getAllTraits(npc)))
+  const traitDescriptions = filterTraits(sortTraitListByMostExtreme(getAllTraits(npc)))
   return parseTraitIntoTop(npc, traitDescriptions)
 }

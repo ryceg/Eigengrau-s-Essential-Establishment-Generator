@@ -1,6 +1,7 @@
+import { fm } from '../../src/dice'
 import { NPC } from '../_common'
 
-export const traits = {
+export const traitsData = {
   virtueKey: {
     chaste: 'lustful',
     energetic: 'lazy',
@@ -33,52 +34,43 @@ export const traits = {
   }
 }
 
-export type Virtues = keyof typeof traits['virtueKey']
-export type Vices = keyof typeof traits['viceKey']
-export type VirtuesVices = Virtues | Vices
-interface SanitizedVirtue {
-  wasVice: boolean
-  virtue: Virtues
-}
+export type Virtues = keyof typeof traitsData['virtueKey']
 
-export const personalityTraitExists = (personalityTrait: string) => {
-  return Object.keys(lib.personalityTraits).includes(personalityTrait)
-}
+export type Vices = keyof typeof traitsData['viceKey']
 
-const isVice = (trait: VirtuesVices) => {
-  const virtues = Object.keys(lib.traits.virtueKey)
-  if (virtues.includes(trait)) return false
-  return true
-}
+type Trait = Virtues | Vices
 
-const getVirtue = (trait: VirtuesVices): SanitizedVirtue => {
-  if (!isVice(trait)) return { wasVice: false, virtue: trait as Virtues }
-  const correspondingVirtue = getInverseTrait(trait)
-  return { wasVice: true, virtue: correspondingVirtue as Virtues }
-}
-
-const getInverseTrait = (trait: VirtuesVices) => {
-  if (isVice(trait)) return lib.traits.viceKey[trait as Vices] as Virtues
-  return lib.traits.virtueKey[trait as Virtues] as Vices
-}
-
-export const getTrait = (trait: VirtuesVices, npc: NPC, humanized?: boolean) => {
-  const sanitizedVirtue = getVirtue(trait)
-  if (sanitizedVirtue.wasVice === false) return sanitizeTraitValues(npc.roll.traits[trait as Virtues], humanized)
-  const correspondingVirtue = getVirtue(trait)
-  return sanitizeTraitValues(npc.roll.traits[correspondingVirtue.virtue], humanized)
-}
-
-const sanitizeTraitValues = (amount: number, humanized?: boolean) => {
-  if (humanized) return Math.clamp(amount / 5, 1, 19)
-  return Math.clamp(amount, 5, 95)
-}
-
-export const applyFMtoTrait = (trait: VirtuesVices, amount: number, npc: NPC) => {
-  if (!isVice(trait)) {
-    npc.roll.traits[trait as Virtues] = sanitizeTraitValues(lib.fm(npc.roll.traits[trait as Virtues], amount))
-  } else {
-    const correspondingVirtue = getInverseTrait(trait) as Virtues
-    npc.roll.traits[correspondingVirtue] = sanitizeTraitValues(lib.fm(npc.roll.traits[correspondingVirtue], -amount))
+export function getTrait (trait: Trait, npc: NPC, humanized?: boolean) {
+  if (isVice(trait)) {
+    const virtue = getInverseTrait(trait) as Virtues
+    return sanitizeTraitValues(npc.roll.traits[virtue], humanized)
   }
+  return sanitizeTraitValues(npc.roll.traits[trait], humanized)
+}
+
+export function applyFMtoTrait (trait: Trait, amount: number, npc: NPC) {
+  if (isVice(trait)) {
+    const virtue = getInverseTrait(trait) as Virtues
+    npc.roll.traits[virtue] = sanitizeTraitValues(fm(npc.roll.traits[virtue], -amount))
+  } else {
+    npc.roll.traits[trait] = sanitizeTraitValues(fm(npc.roll.traits[trait], amount))
+  }
+}
+
+function isVice (trait: Trait): trait is Vices {
+  return trait in traitsData.viceKey
+}
+
+function getInverseTrait (trait: Trait) {
+  if (isVice(trait)) {
+    return traitsData.viceKey[trait]
+  }
+  return traitsData.virtueKey[trait]
+}
+
+function sanitizeTraitValues (amount: number, humanized?: boolean) {
+  if (humanized) {
+    return Math.clamp(amount / 5, 1, 19)
+  }
+  return Math.clamp(amount, 5, 95)
 }

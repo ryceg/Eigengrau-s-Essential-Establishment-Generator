@@ -1,13 +1,15 @@
-import { PartialRecord } from '@lib'
-import { applyFMtoTrait, personalityTraitExists, Virtues, VirtuesVices } from './getTraits'
+import { PartialRecord } from '../../types'
+import { applyFMtoTrait, Virtues, traitsData } from './getTraits'
 import { dice } from '../../src/dice'
 import { random } from '../../src/random'
-import { assign } from '../../src/utils'
+import { assign, keys } from '../../src/utils'
 import { NPC } from '../_common'
 
 export function createPersonality (npc: Partial<NPC>) {
-  for (const trait in lib.traits.virtueKey) {
-    if (npc.roll) npc.roll.traits[trait as Virtues] = dice(5, 19)
+  for (const trait of keys(traitsData.virtueKey)) {
+    if (npc.roll) {
+      npc.roll.traits[trait] = dice(5, 19)
+    }
   }
 
   assign(npc, {
@@ -16,15 +18,17 @@ export function createPersonality (npc: Partial<NPC>) {
     stressTrait: npc.stressTrait || random(stressTraits)
   })
 
-  if (personalityTraitExists(npc.calmTrait)) {
-    for (const trait in personalityTraits[npc.calmTrait].traits) {
-      applyFMtoTrait(trait as VirtuesVices, personalityTraits[npc.calmTrait].traits[trait as Virtues] as number, npc as NPC)
+  if (npc.calmTrait in personalityTraits) {
+    const calmTrait = personalityTraits[npc.calmTrait]
+    for (const trait of keys(calmTrait.traits)) {
+      applyFMtoTrait(trait, calmTrait.traits[trait] as number, npc as NPC)
     }
   }
 
-  if (personalityTraitExists(npc.stressTrait)) {
-    for (const trait in personalityTraits[npc.stressTrait].traits) {
-      applyFMtoTrait(trait as VirtuesVices, personalityTraits[npc.stressTrait].traits[trait as Virtues] as number, npc as NPC)
+  if (npc.stressTrait in personalityTraits) {
+    const stressTrait = personalityTraits[npc.stressTrait]
+    for (const trait of keys(stressTrait.traits)) {
+      applyFMtoTrait(trait, stressTrait.traits[trait] as number, npc as NPC)
     }
   }
 
@@ -44,6 +48,7 @@ const calmTraits: string[] = ['compassionate', 'cheerful', 'reserved', 'outspoke
 const stressTraits: string[] = ['withdrawn', 'murderous', 'obsessive', 'authoritarian', 'determined', 'brave', 'spiteful', 'belligerent', 'caustic', 'reckless', 'argumentative', 'gluttonous', 'overly protective', 'angry', 'cowardly', 'meticulous', 'sarcastic', 'stubborn', 'destructive', 'practical', 'pushy', 'fanatical', 'secretive', 'scornful', 'courageous', 'impractical', 'calculating', 'industrious', 'manipulative', 'destructive', 'compulsive', 'intolerant']
 
 type TraitType = 'calm' | 'stress'
+
 interface Traits {
   /** This should be the same as the key. */
   key: string,
