@@ -9,6 +9,7 @@ export function createPersonality (npc: Partial<NPC>) {
   for (const trait in lib.traits.virtueKey) {
     if (npc.roll) npc.roll.traits[trait as Virtues] = dice(5, 19)
   }
+
   assign(npc, {
     trait: npc.trait || random(traits),
     calmTrait: npc.calmTrait || random(calmTraits),
