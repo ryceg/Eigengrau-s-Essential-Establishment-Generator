@@ -15,14 +15,3 @@ export interface Customer {
   base?: Partial<NPC>
   description(brothel: Building, npc: NPC): string
 }
-
-export interface History {
-  data: {
-    key: string
-    passageName: string
-    objectType: string
-    linkDescription: string
-  },
-  passageName: string,
-  linkDescription: string
-}
