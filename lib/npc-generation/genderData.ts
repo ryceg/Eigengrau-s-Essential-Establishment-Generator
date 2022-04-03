@@ -1,10 +1,15 @@
 import { Town } from '../town/_common'
 import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
+import jsonData from './gender.data.json'
+import { isObject, has } from '../src/utils'
+
+// @TODO: There are `GenderName.length` genders, but town data does not
+// reflect the randomness to generate N genders. In practice everything
+// is either man or woman.
 
 export type BinaryGender = 'man' | 'woman'
 export type GenderName = 'man' | 'woman' | 'nonbinary' | 'entity'
-
 export interface GenderPronouns {
     godgoddess: string
     title: string
@@ -30,121 +35,33 @@ export interface GenderPronouns {
     oppositeGender: GenderName
 }
 
-export const genderData: Record<GenderName, GenderPronouns> = {
-  man: {
-    godgoddess: 'god',
-    title: 'Mr',
-    domTitle: 'Master',
-    heshe: 'he',
-    himher: 'him',
-    himherself: 'himself',
-    hisher: 'his',
-    hisherself: 'hisself',
-    boygirl: 'boy',
-    manwoman: 'man',
-    menwomen: 'men',
-    malefemale: 'male',
-    guygirl: 'guy',
-    marriageNoun: 'husband',
-    niblingReciprocalNoun: 'uncle',
-    parentNoun: 'father',
-    childNoun: 'son',
-    siblingNoun: 'brother',
-    niblingNoun: 'nephew',
-    oppositeGender: 'woman'
-  },
-  woman: {
-    godgoddess: 'goddess',
-    title: 'Ms',
-    domTitle: 'Mistress',
-    heshe: 'she',
-    himher: 'her',
-    himherself: 'herself',
-    hisher: 'her',
-    hisherself: 'herself',
-    boygirl: 'girl',
-    manwoman: 'woman',
-    menwomen: 'women',
-    malefemale: 'female',
-    guygirl: 'girl',
-    marriageNoun: 'wife',
-    niblingReciprocalNoun: 'aunt',
-    parentNoun: 'mother',
-    childNoun: 'daughter',
-    siblingNoun: 'sister',
-    niblingNoun: 'niece',
-    oppositeGender: 'man'
-  },
-  nonbinary: {
-    godgoddess: 'deity',
-    title: 'Mx',
-    domTitle: 'Overseer',
-    heshe: 'they',
-    himher: 'them',
-    himherself: 'themself',
-    hisher: 'their',
-    hisherself: 'theirself',
-    boygirl: 'child',
-    manwoman: 'person',
-    menwomen: 'people',
-    malefemale: 'person',
-    guygirl: 'person',
-    marriageNoun: 'partner',
-    niblingReciprocalNoun: 'pibling',
-    parentNoun: 'parent',
-    childNoun: 'child',
-    siblingNoun: 'sibling',
-    niblingNoun: 'nibling',
-    // this is temporary
-    oppositeGender: 'man'
-  },
-  entity: {
-    godgoddess: 'goddess',
-    title: 'Mx',
-    domTitle: 'Overseer',
-    heshe: 'it',
-    himher: 'it',
-    himherself: 'itself',
-    hisher: 'its',
-    hisherself: 'itself',
-    boygirl: 'child',
-    manwoman: 'entity',
-    menwomen: 'entities',
-    malefemale: 'entity',
-    guygirl: 'entity',
-    marriageNoun: 'partner',
-    niblingReciprocalNoun: 'pibling',
-    parentNoun: 'parent',
-    childNoun: 'child',
-    siblingNoun: 'sibling',
-    niblingNoun: 'nibling',
-    // this is temporary
-    oppositeGender: 'man'
-  }
-} as const
+export const genderData = jsonData as Record<GenderName, GenderPronouns>
 
 export function getOppositeGender (gender: GenderName): GenderName {
   return genderData[gender].oppositeGender
 }
 
-export function validateNpcGender (town: Town, npc: NPC): GenderName {
-  if (npc.roll.gender <= town.roll.genderMakeup) {
-    return town.dominantGender
-  }
-  return getOppositeGender(town.dominantGender)
+/**
+ * Validates that the NPC's gender is what according to town data,
+ * it should be.
+ */
+export function isValidNPCGender (town: Town, npc: Partial<NPC>): boolean {
+  if (!npc.gender || !hasGenderRollObject(npc)) return false
+
+  return npc.roll.gender <= town.roll.genderMakeup
+    ? npc.gender === town.dominantGender
+    : npc.gender === getOppositeGender(town.dominantGender)
 }
 
-export function getNpcGender (town: Town, npc: NPC): GenderName {
-  if (npc.gender) {
-    return npc.gender
-  }
-  if (npc.roll.gender <= town.roll.genderMakeup) {
-    return town.dominantGender
-  }
-  return getOppositeGender(town.dominantGender)
+export function getNpcGender (town: Town, npc: Partial<NPC>): GenderName {
+  if (!hasGenderRollObject(npc)) return getRandomGender(town)
+
+  return npc.roll.gender <= town.roll.genderMakeup
+    ? town.dominantGender
+    : getOppositeGender(town.dominantGender)
 }
 
-export function fetchGender (town: Town): GenderName {
+export function getRandomGender (town: Town): GenderName {
   const genderRoll = random(1, 100)
   if (genderRoll <= town.roll.genderMakeup) {
     return town.dominantGender
@@ -152,22 +69,6 @@ export function fetchGender (town: Town): GenderName {
   return getOppositeGender(town.dominantGender)
 }
 
-/**
- * @description We assign a roll for the gender, but need to ensure that manually assigned genders that are passed as an argument don't have a conflicting roll.
- */
-export function assignFunctionalGenderRoll (town: Town, npc: NPC): number {
-  if (town.roll.genderMakeup < npc.roll.gender && npc.gender === town.dominantGender) {
-    return npc.roll.gender
-  }
-  if (town.roll.genderMakeup > npc.roll.gender && npc.gender === getOppositeGender(town.dominantGender)) {
-    return npc.roll.gender
-  }
-  if (npc.gender === town.dominantGender) {
-    return random(0, town.roll.genderMakeup)
-  }
-  if (npc.gender === getOppositeGender(town.dominantGender)) {
-    return random(town.roll.genderMakeup, 100)
-  }
-  console.warn('Something screwy with gender is going on. Defaulting to dominant gender.')
-  return town.roll.genderMakeup
+function hasGenderRollObject (npc: Partial<NPC>): npc is NPC {
+  return isObject(npc.roll) && has('gender', npc.roll)
 }

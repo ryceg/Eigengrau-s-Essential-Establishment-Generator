@@ -3,13 +3,10 @@ import { Road } from './roads'
 
 export function findExistingRoad (town: Town): Road | undefined {
   console.log('Searching for an existing road...')
-  for (const key in town.roads) {
-    if (town.roads[key].currentOccupancy >= town.roads[key].capacity) {
-      console.log(`${town.roads[key].name} is at its capacity of ${town.roads[key].capacity}!`)
-      continue
-    } else if (town.roads[key].currentOccupancy < town.roads[key].capacity) {
-      return town.roads[key]
+  for (const road of Object.values(town.roads)) {
+    if (road.currentOccupancy < road.capacity) {
+      return road
     }
+    console.log(`${road.name} is at its capacity of ${road.capacity}!`)
   }
-  return undefined
 }

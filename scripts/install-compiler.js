@@ -3,10 +3,9 @@ const path = require('path')
 const http = require('https')
 const fs = require('fs')
 const yauzl = require('yauzl')
-const shell = require('shelljs')
 const utils = require('./utils')
 
-shell.mkdir('-p', utils.twineFolder)
+fs.mkdirSync(utils.twineFolder, { recursive: true })
 
 const tweegoLink = getTweegoLink()
 
@@ -74,7 +73,7 @@ function downloadAndExtract (link, filePath, outFolder) {
       const folder = outFolder || utils.twineFolder
 
       const fileFolder = path.resolve(folder, getFileDirectory(entry.fileName))
-      shell.mkdir('-p', fileFolder)
+      fs.mkdirSync(fileFolder, { recursive: true })
       const filePath = path.resolve(folder, entry.fileName)
       const writeStream = fs.createWriteStream(filePath)
 

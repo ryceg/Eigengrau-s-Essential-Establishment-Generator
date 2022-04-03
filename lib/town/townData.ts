@@ -37,7 +37,6 @@ interface TownData {
     }
   }
   type: {
-    // eslint-disable-next-line no-unused-vars
     [key in TownType]: {
       demographics(): {
         probability: number
@@ -54,7 +53,6 @@ interface TownData {
     }
   }
   economicIdeology: {
-    // eslint-disable-next-line no-unused-vars
     [key in EconomicIdeology]: {
       modifiers: Record<RollKeys, number>
       descriptors: {
@@ -72,7 +70,6 @@ interface TownData {
     anarchy: Republic
   }
   politicalIdeology: {
-    // eslint-disable-next-line no-unused-vars
     [key in PoliticalIdeology]: {
       leaderTraits: () => Partial<NPC>
       modifiers: Record<RollKeys, number>

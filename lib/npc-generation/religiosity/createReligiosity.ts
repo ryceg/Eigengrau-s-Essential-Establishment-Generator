@@ -2,6 +2,7 @@
 import { Town } from '../../town/_common'
 import { NPC } from '../_common'
 import { random } from '../../src/random'
+import { getRolledFromTable } from '../../src/rollFromTable'
 import { getDeityProbabilities } from './getDeityProbabilities'
 import { pickDeity } from './pickDeity'
 import { ReligionStrength } from '../../religion/religion'
@@ -29,10 +30,5 @@ function getReligiosity (religionStrength: ReligionStrength): number {
 }
 
 function getReligionStrength (religiosityRoll: number): ReligionStrength {
-  for (const [threshold, strength] of lib.religion.strength) {
-    if (threshold <= religiosityRoll) {
-      return strength
-    }
-  }
-  return 'quiet true believer'
+  return getRolledFromTable(lib.religion.strength, religiosityRoll) || 'quiet true believer'
 }
