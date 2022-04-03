@@ -1,6 +1,6 @@
 // uses setup.createNPC, setup.createRelationship
 setup.createCastlePopulation = (town, castle, opts) => {
-  const selected = lib.weightedRandomFetcher(town, setup.castle.ruler.types, castle, null, 'object')
+  const selected = lib.weightedRandomFetcher(town, lib.castleRulerTypes, castle, null, 'object')
   console.log(selected)
   if (!selected.base.profession) selected.base.profession = 'castellan'
   castle.associatedNPC = setup.createNPC(town, opts.npc || selected.base)

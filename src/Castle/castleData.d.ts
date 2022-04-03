@@ -9,16 +9,6 @@ interface Setup {
 }
 
 interface CastleData {
-  name: {
-    unique: string[]
-    wordNouns: string[]
-    nouns: string[]
-    adjectives: string[]
-    morphemes: {
-      prefix: string[]
-      suffix: string[]
-    }
-  }
   location: Record<string, CastleLocation>
   builtBy: string[]
   knownFor: string[]
@@ -28,20 +18,6 @@ interface CastleData {
     types: CastleRulerType
   }
   lookingFor(town: Town): string
-  siege: {
-    create(town: Town, siege: Siege): Siege
-    namePrefix: string[]
-    nameAdjective: string[]
-    nameNoun: string[]
-    causedBy: string[]
-    length: string[]
-    event: string[]
-    result: {
-      invadersWin: string[]
-      castleWin: string[]
-      other: string[]
-    }
-  }
   rollData: {
     condition: string[]
     age: string[]
@@ -49,39 +25,15 @@ interface CastleData {
     landSize: ThresholdTable
   }
   dungeon: {
-    name: {
-      unique: string[]
-      adjectives: string[]
-      nouns: string[]
-      verbs: string[]
-      wordNoun: string[]
-    }
     jailer: {
-      types: JailerTypes[]
       base: {
         profession: string
       }
     }
-    knownFor: string[]
-    secret: string[]
-    location: {
-      castle: string[]
-      standalone: string[]
-    }
-    age: string[]
-    format: string[]
     cells: {
       prisoners: {
         create(town: Town, obj: any): string
-        npcs: PrisonerType[]
-        treatment: string[]
       }
-      condition: string[]
-      format: string[]
-    }
-    rooms: {
-      type: string[]
-      feature: string[]
     }
   }
 }
