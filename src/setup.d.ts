@@ -14,7 +14,6 @@ export interface Setup {
   npcTaxRate(town: Town, npc: NPC): number
   profile(obj: NPC | Building | Faction, base?: string, type?: string): string
 
-  createName(parameters: CreateNameParameters): string
   createSocialClass(town: Town, npc: NPC): void
   firstCharacter(word: string): string
 
@@ -28,12 +27,6 @@ export interface Setup {
   createTown(base: TownBasics): Town
   createCastle(town: Town): Building
   createTownName(town: Town): string
-}
-
-export interface CreateNameParameters {
-  race?: string
-  gender?: string
-  firstOrLast?: string
 }
 
 export interface Customer {
