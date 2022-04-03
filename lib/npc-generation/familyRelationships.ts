@@ -1,5 +1,6 @@
 import { Town } from '../town/_common'
 import { Family, NPC } from './_common'
+import { assign } from '../src/utils'
 import { random } from '../src/random'
 import { findExistingRoad } from '../roads/findExistingRoad'
 
@@ -124,7 +125,7 @@ export function createFamilyHouse (town: Town, family: Family) {
       town.roads[road.key].currentOccupancy++
     }
   }
-  lib.assign(family, {
+  assign(family, {
     home: {
       road: road.key
     }
