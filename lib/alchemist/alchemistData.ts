@@ -1,7 +1,7 @@
-import { ThresholdTable } from '../src/rollFromTable'
-import { Alchemist } from './_common'
-import { NPC } from '../npc-generation/_common'
 import { random } from '../src/random'
+import { ThresholdTable } from '../src/rollFromTable'
+import { Customer } from '../customer'
+import { Alchemist } from './_common'
 
 interface AlchemistData {
   rollData: {
@@ -43,7 +43,7 @@ interface AlchemistData {
 
   }
   get: {
-    customers: Customer[]
+    customers: Customer<Alchemist>[]
     lookAround(alchemist: Alchemist): LookAround[]
     priceTalk(alchemist: Alchemist): PriceTalk[]
   }
@@ -53,29 +53,6 @@ interface AlchemistData {
     rider: string[]
   }
   ingredients: string[]
-}
-
-interface Customer {
-  relationshipDescription: string
-  relationships: {
-    building?: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-    associatedNPC?: {
-      relationship: string
-      reciprocalRelationship: string
-    }
-  }
-  base?: Base
-  description(alchemist: Alchemist, npc: NPC): string
-}
-
-interface Base {
-  weight?: string
-  note?: string
-  background?: string
-  profession?: string
 }
 
 interface LookAround {
