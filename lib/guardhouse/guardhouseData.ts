@@ -1,8 +1,8 @@
 import { constrainArray, constrainRecord } from '../src/constrainRecord'
-import { NPC } from '../npc-generation/_common'
-import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
 import { ThresholdTable } from '../src/rollFromTable'
+import { NPC } from '../npc-generation/_common'
 import { Town } from '../town/_common'
+import { Customer } from '../customer'
 import { Guardhouse } from './_common'
 
 interface GuardhouseNotableFeature {
@@ -12,21 +12,6 @@ interface GuardhouseNotableFeature {
 
 interface GuardhouseEvidenceLockerItem {
   function(): string
-}
-
-interface GuardhouseCustomer {
-  relationshipDescription: string
-  relationships: {
-    building: {
-      relationship: string
-      reciprocalRelationship: string
-    }
-    associatedNPC: {
-      relationship: string
-    }
-  }
-  base: { profession: ProfessionName } | { professionSector: ProfessionSector }
-  description(building: Guardhouse, npc: NPC): string
 }
 
 interface GuardhouseRollData {
@@ -535,7 +520,7 @@ export const guardhouseData = {
       reason: string
       base?: Partial<NPC>
     }[],
-    customers: constrainArray<GuardhouseCustomer>()([
+    customers: constrainArray<Customer<Guardhouse>>()([
       {
         relationshipDescription: 'guard',
         relationships: {
