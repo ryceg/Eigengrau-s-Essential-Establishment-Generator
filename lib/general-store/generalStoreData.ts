@@ -4,7 +4,8 @@ import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { colours } from '../src/colours'
 import { ThresholdTable } from '../src/rollFromTable'
-import { NPC } from '../npc-generation/_common'
+import { constrainArray } from '../src/constrainRecord'
+import { Customer } from '../customer'
 
 export const generalStore = {
   goods: {
@@ -237,7 +238,7 @@ export const generalStore = {
     }
   },
   get: {
-    customers: [
+    customers: constrainArray<Customer<GeneralStore>>()([
       {
         relationshipDescription: 'customer',
         relationships: {
@@ -250,7 +251,9 @@ export const generalStore = {
             reciprocalRelationship: 'customer'
           }
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} purchases ${random(['herbs', 'vegetables', 'staple foods', 'spices', 'utensils', ''])} from ${building.name} for cooking.` }
+        description (building, npc) {
+          return `${npc.firstName} purchases ${random(['herbs', 'vegetables', 'staple foods', 'spices', 'utensils', ''])} from ${building.name} for cooking.`
+        }
       },
       {
         relationshipDescription: 'former customer',
@@ -264,7 +267,9 @@ export const generalStore = {
             reciprocalRelationship: 'boycotter'
           }
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${random(['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`])}.` }
+        description (building, npc) {
+          return `${npc.firstName} no longer buys anything from ${building.name} because ${random(['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`])}.`
+        }
       },
       {
         relationshipDescription: 'client',
@@ -281,7 +286,9 @@ export const generalStore = {
         base: {
           profession: 'merchant'
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} buys ${random(['food staples', 'tools', 'luxuries', 'fabrics', 'cleaning supplies'])} from ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} buys ${random(['food staples', 'tools', 'luxuries', 'fabrics', 'cleaning supplies'])} from ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'fish supplier',
@@ -298,7 +305,9 @@ export const generalStore = {
         base: {
           profession: 'fisherman'
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} fish to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} sells ${npc.hisher} fish to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'produce supplier',
@@ -315,7 +324,9 @@ export const generalStore = {
         base: {
           profession: 'gardener'
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} vegetables to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} sells ${npc.hisher} vegetables to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'milk supplier',
@@ -332,7 +343,9 @@ export const generalStore = {
         base: {
           profession: 'dairymaid'
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells milk to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} sells milk to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'blacksmith',
@@ -349,9 +362,11 @@ export const generalStore = {
         base: {
           profession: 'blacksmith'
         },
-        description (building: GeneralStore, npc: NPC) { return `${npc.firstName} sells ${npc.hisher} wares to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} sells ${npc.hisher} wares to ${building.name}.`
+        }
       }
-    ],
+    ]),
     say (generalStore: GeneralStore) {
       const goods = random([
         'crowbar',
