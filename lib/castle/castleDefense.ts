@@ -1,7 +1,9 @@
 import jsonData from './castleDefense.data.json'
 
-export const castleDefense: {
+interface CastleDefenseData {
   reason: string[]
   innerWalls: string[]
   outerWalls: string[]
-} = jsonData
+}
+
+export const castleDefense: CastleDefenseData = jsonData
