@@ -5,28 +5,8 @@ import { keys, last } from '../src/utils'
 import { GeneralStore } from './_common'
 
 export function generalStoreRenders (generalStore: GeneralStore) {
-  const size = generalStore.roll.size
-
-  if (size > 80) {
-    generalStore.size = 'huge'
-  } else if (size > 70) {
-    generalStore.size = 'quite large'
-  } else if (size > 60) {
-    generalStore.size = 'large'
-  } else if (size > 50) {
-    generalStore.size = 'spacious'
-  } else if (size > 40) {
-    generalStore.size = 'medium'
-  } else if (size > 30) {
-    generalStore.size = 'slightly cramped'
-  } else if (size > 20) {
-    generalStore.size = 'small'
-  } else if (size <= 20) {
-    generalStore.size = 'tiny'
-  }
-
   // set warmth roll
-  generalStore.roll.warmth = random(1, 100) + getWarmthRollModfier(size)
+  generalStore.roll.warmth = random(1, 100) + getWarmthRollModfier(generalStore.roll.size)
 
   // actually add attributes to store object
   for (const key of keys(attributes)) {
@@ -88,5 +68,15 @@ const attributes = constrainRecord<ThresholdTable>()({
     [30, 'not busy'],
     [20, 'rather quiet'],
     [0, 'very quiet']
+  ],
+  size: [
+    [80, 'huge'],
+    [70, 'quite large'],
+    [60, 'large'],
+    [50, 'spacious'],
+    [40, 'medium'],
+    [30, 'slightly cramped'],
+    [20, 'small'],
+    [0, 'tiny']
   ]
 })
