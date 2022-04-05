@@ -20,6 +20,17 @@ interface GuardhouseRollData {
   rolls?: ThresholdTable
 }
 
+interface OfficeDescription {
+  wealth: number
+  size: number
+  description: string
+}
+
+interface HoldingCell {
+  reason: string
+  base?: Partial<NPC>
+}
+
 export const guardhouseData = {
   name: {
     wordNoun: [
@@ -395,11 +406,7 @@ export const guardhouseData = {
         size: 10,
         description: 'This is a tiny hole in the wall that serves as the local constabulary. There are a few heavily rusted weapons piled in the corner, but no furniture.'
       }
-    ] as {
-      wealth: number
-      size: number
-      description: string
-    }[],
+    ] as OfficeDescription[],
     /** @example `In the holding cell is ${reason}` */
     holdingCell: [
       {
@@ -516,10 +523,7 @@ export const guardhouseData = {
           background: 'criminal'
         }
       }
-    ] as {
-      reason: string
-      base?: Partial<NPC>
-    }[],
+    ] as HoldingCell[],
     customers: constrainArray<Customer<Guardhouse>>()([
       {
         relationshipDescription: 'guard',
