@@ -1,9 +1,10 @@
-import { NPC } from '../npc-generation/_common'
+import { constrainArray } from '../src/constrainRecord'
+import { Customer } from '../customer'
 import { Smithy } from './_common'
 
 export const smithyData = {
   get: {
-    customers: [
+    customers: constrainArray<Customer<Smithy>>()([
       {
         relationshipDescription: 'regular',
         relationships: {
@@ -18,7 +19,9 @@ export const smithyData = {
         base: {
           professionType: 'labourer'
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} regularly gets tools repaired.` }
+        description (building, npc) {
+          return `${npc.firstName} regularly gets tools repaired.`
+        }
       },
       {
         relationshipDescription: 'buyer',
@@ -34,7 +37,9 @@ export const smithyData = {
         base: {
           profession: 'wagoner'
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} buys horse shoes regularly.` }
+        description (building, npc) {
+          return `${npc.firstName} buys horse shoes regularly.`
+        }
       },
       {
         relationshipDescription: 'former customer',
@@ -47,7 +52,9 @@ export const smithyData = {
             reciprocalRelationship: 'former client'
           }
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
+        description (building, npc) {
+          return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.`
+        }
       },
       {
         relationshipDescription: 'carpenter',
@@ -64,7 +71,9 @@ export const smithyData = {
         base: {
           profession: 'carpenter'
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} sells wine to ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} sells wine to ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'patron',
@@ -81,7 +90,9 @@ export const smithyData = {
         base: {
           socialClass: 'nobility'
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.` }
+        description (building, npc) {
+          return `${npc.firstName} commissions expensive weaponry and armor from ${building.name}.`
+        }
       },
       {
         relationshipDescription: 'superstitious peasant',
@@ -98,9 +109,11 @@ export const smithyData = {
         base: {
           socialClass: 'peasantry'
         },
-        description (building: Smithy, npc: NPC) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.` }
+        description (building, npc) {
+          return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits.`
+        }
       }
-    ],
+    ]),
     expertise: (smithy: Smithy) => [
       {
         expertise: 80,
