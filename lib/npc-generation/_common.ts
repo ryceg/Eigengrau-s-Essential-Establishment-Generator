@@ -7,7 +7,7 @@ import { GenderName } from '../npc-generation/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, AgeName } from './raceTraits'
-import { SocialClassName } from '@lib'
+import { SocialClassName } from './socialClass'
 
 export interface NPC {
   key: string

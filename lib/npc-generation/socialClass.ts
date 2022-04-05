@@ -3,6 +3,7 @@ import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
 import { ThresholdTable } from '../src/rollFromTable'
 import { LifestyleStandardName } from './lifestyleStandards'
+
 interface SocialClass {
   /** landRate is a multiple, used in taxation. */
   landRate: number

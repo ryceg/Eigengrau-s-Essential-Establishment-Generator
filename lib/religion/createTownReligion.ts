@@ -3,7 +3,7 @@ import { Town, TownRolls } from '../town/_common'
 import { Deity, DeityRank, Pantheon, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
 // import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { RaceName } from '@lib'
+import { RaceName } from '../npc-generation/raceTraits'
 import { random } from '../src/random'
 
 export const createTownReligion = (town: Town, pantheon?: Pantheon) => {

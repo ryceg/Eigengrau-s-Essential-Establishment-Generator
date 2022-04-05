@@ -1,4 +1,4 @@
-import { FactionTypeData } from '@lib'
+import { FactionTypeData } from '../factionData'
 
 export const nobles: FactionTypeData = {
   type: 'nobles',

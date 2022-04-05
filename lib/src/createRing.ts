@@ -1,5 +1,5 @@
-import { MagicItem } from '@lib'
 import { articles } from './articles'
+import { MagicItem } from './createMagic'
 import { getRandomValue } from './getRandomValue'
 import { random } from './random'
 import { assign } from './utils'

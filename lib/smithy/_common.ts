@@ -1,4 +1,5 @@
-import { Building, NPC } from '@lib'
+import { Building } from '../buildings/_common'
+import { NPC } from '../npc-generation/_common'
 
 export interface Smithy extends Building {
   associatedNPC: NPC

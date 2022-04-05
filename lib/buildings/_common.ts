@@ -1,4 +1,4 @@
-// import { assign, clampRolls, generateBuildingMaterial, getBuildingRoad, getUUID, Town } from '@lib'
+// import { assign, clampRolls, generateBuildingMaterial, getBuildingRoad, getUUID, Town } from '.'
 import { NPC } from '../npc-generation/_common'
 
 export type ObjectTypeName =

@@ -1,9 +1,9 @@
-import { NPC } from '@lib'
+import { NPC } from '../npc-generation/_common'
 import jsonData from './dungeonPrisoners.data.json'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export const dungeonPrisoners: {
+interface DungeonPrisoner {
   reasonForPunishment?: string
   base?: Partial<NPC>
-}[] = jsonData
+}
+
+export const dungeonPrisoners = jsonData as DungeonPrisoner[]

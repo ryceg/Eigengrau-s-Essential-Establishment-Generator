@@ -1,8 +1,13 @@
-import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
+import { Alignments, ClericDomains } from '../src/worldType'
+import { ThresholdTable } from '../src/rollFromTable'
 import { EconomicIdeology, PoliticalIdeology } from '../town/townData'
 import { PoliticalSource, Town, TownRolls } from '../town/_common'
-import { Alignments, ClericDomains } from '../src/worldType'
-import { RaceName, GenderName, NPC, ThresholdTable, PartialRecord, Virtues } from '@lib'
+import { NPC } from '../npc-generation/_common'
+import { RaceName } from '../npc-generation/raceTraits'
+import { GenderName } from '../npc-generation/genderData'
+import { Virtues } from '../npc-generation/traits/getTraits'
+import { ProfessionName, ProfessionSector } from '../npc-generation/professions'
+import { PartialRecord } from '../types'
 
 export type DeityRank =
 | 'leader'

@@ -1,4 +1,4 @@
-import { Town } from '@lib'
+import { Town } from './_common'
 
 export function replaceTownName (town: Town, driftName = town.name): void {
   if (town.buildings) replaceBuildingNames(town, driftName)

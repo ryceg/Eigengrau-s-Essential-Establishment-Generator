@@ -1,7 +1,15 @@
-import { NPC } from '@lib'
+
+import { NPC } from '../npc-generation/_common'
 import jsonData from './dungeonJailer.data.json'
 
-export const dungeonJailer: {
-  type?: string
-  base?: Partial<NPC>
-} = jsonData
+interface DungeonJailer {
+  type: string
+  base: Partial<NPC>
+}
+
+interface DungeonJailerData {
+  types: DungeonJailer[]
+  base: Partial<NPC>
+}
+
+export const dungeonJailer = jsonData as DungeonJailerData

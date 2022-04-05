@@ -4,7 +4,7 @@ import { NPC, NpcRelationship, Relationship } from './_common'
 import { Town } from '../town/_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
-import { SocialClassName } from '@lib'
+import { SocialClassName } from './socialClass'
 
 export type ProfessionType =
   | ''

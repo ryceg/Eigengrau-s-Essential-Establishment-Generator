@@ -1,4 +1,5 @@
-import { Information } from '@lib'
+import { Information } from '../religion'
+
 /**
  * Types:
  * * Title & Description: easy as pie.

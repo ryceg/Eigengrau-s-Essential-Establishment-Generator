@@ -1,4 +1,4 @@
-import { Tavern } from '@lib'
+import { Tavern } from './_common'
 
 export function tavernTypeFix (tavern: Tavern): void {
   if (tavern.type !== 'tavern' && !tavern.tavernType) {
