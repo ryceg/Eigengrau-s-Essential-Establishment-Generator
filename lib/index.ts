@@ -69,6 +69,7 @@ export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 
 export * from './guardhouse/_common'
+export * from './guardhouse/guardhouseCustomers'
 export * from './guardhouse/guardhouseData'
 
 export * from './general-store/_common'
