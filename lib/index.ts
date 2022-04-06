@@ -72,6 +72,7 @@ export * from './guardhouse/_common'
 export * from './guardhouse/guardhouseData'
 
 export * from './general-store/_common'
+export * from './general-store/generalStoreCustomers'
 export * from './general-store/generalStoreData'
 export * from './general-store/generalStoreModifiers'
 export * from './general-store/generalStoreRenders'
