@@ -4,8 +4,15 @@ import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { colours } from '../src/colours'
 import { ThresholdTable } from '../src/rollFromTable'
-import { constrainArray } from '../src/constrainRecord'
+import { constrainArray, constrainRecord } from '../src/constrainRecord'
 import { Customer } from '../customer'
+
+interface RollData {
+  description: string
+  preceding: string
+  isHidden?: true
+  rolls?: ThresholdTable
+}
 
 export const generalStore = {
   goods: {
@@ -154,7 +161,7 @@ export const generalStore = {
     'explaining to a customer all the different uses of a two person tent',
     'signing off on a fresh delivery of goods'
   ],
-  rollData: {
+  rollData: constrainRecord<RollData>()({
     wealth: {
       description: 'How well is the business doing?',
       preceding: 'General Store Wealth:',
@@ -167,7 +174,7 @@ export const generalStore = {
         [25, 'poor'],
         [15, 'squalid'],
         [0, 'destitute']
-      ] as ThresholdTable
+      ]
     },
     size: {
       description: 'How large is it?',
@@ -183,7 +190,7 @@ export const generalStore = {
         [20, 'small'],
         [10, 'tiny'],
         [0, 'extremely cramped']
-      ] as ThresholdTable
+      ]
     },
     cleanliness: {
       description: 'How clean is the store?',
@@ -198,7 +205,7 @@ export const generalStore = {
         [20, 'very messy'],
         [10, 'extremely messy'],
         [0, 'dangerously messy']
-      ] as ThresholdTable
+      ]
     },
     expertise: {
       description: 'How well made are the goods it sells?',
@@ -214,7 +221,7 @@ export const generalStore = {
         [20, 'somewhat amateur'],
         [10, 'amateur'],
         [0, 'blatantly amateur']
-      ] as ThresholdTable
+      ]
     },
     reputation: {
       description: 'Is it well known, or is it a hobby shop?',
@@ -232,7 +239,7 @@ export const generalStore = {
       description: 'How do the prices here compare to your average general store?',
       preceding: 'General Store Price Modifier:'
     }
-  },
+  }),
   get: {
     customers: constrainArray<Customer<GeneralStore>>()([
       {
