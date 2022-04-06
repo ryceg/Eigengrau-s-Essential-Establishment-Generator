@@ -1,6 +1,7 @@
 import './sentry'
 
 export * from './alchemist/_common'
+export * from './alchemist/alchemistCustomers'
 export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'

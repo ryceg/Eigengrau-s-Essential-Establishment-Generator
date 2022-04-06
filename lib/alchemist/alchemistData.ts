@@ -1,6 +1,4 @@
-import { random } from '../src/random'
 import { ThresholdTable } from '../src/rollFromTable'
-import { Customer } from '../customer'
 import { Alchemist } from './_common'
 
 interface AlchemistData {
@@ -43,7 +41,6 @@ interface AlchemistData {
 
   }
   get: {
-    customers: Customer<Alchemist>[]
     lookAround(alchemist: Alchemist): LookAround[]
     priceTalk(alchemist: Alchemist): PriceTalk[]
   }
@@ -146,98 +143,6 @@ export const alchemistData: AlchemistData = {
     }
   },
   get: {
-    customers: [
-      {
-        relationshipDescription: 'customer',
-        relationships: {
-          building: {
-            relationship: 'customer'
-          },
-          associatedNPC: {
-            relationship: 'client',
-            reciprocalRelationship: 'alchemist'
-          }
-        },
-        description (building, npc) { return `${npc.firstName} purchases ${random(['herbs', 'some rare herbs', 'some reagents', 'salt', 'some spices', 'spices typically used in alchemy'])} from ${building.name} for cooking.` }
-      },
-      {
-        relationshipDescription: 'weight-loss customer',
-        relationships: {
-          building: {
-            relationship: 'weight-loss customer'
-          },
-          associatedNPC: {
-            relationship: 'client',
-            reciprocalRelationship: 'supplier of weight-loss medication'
-          }
-        },
-        base: {
-          weight: 'fat',
-          note: '$currentNPC.firstName is trying to lose weight.'
-        },
-        description (building, npc) { return `${npc.firstName} purchases ${random(['herbs', 'some rare herbs', 'some reagents', 'salt', 'some spices', 'literal snake oil'])} from ${building.name} for weight loss purposes. It ${random(['doesn\'t seem to be working.', 'seems to be working?', 'is too early to tell if it is working or not.', 'is very clearly a scam.'])}` }
-      },
-      {
-        relationshipDescription: 'discrete customer',
-        relationships: {
-          building: {
-            relationship: 'discrete customer'
-          },
-          associatedNPC: {
-            relationship: 'client',
-            reciprocalRelationship: 'alchemist'
-          }
-        },
-        description (building, npc) { return `${npc.firstName} secretly purchases ${random(['poison', 'some rare herbs used for poison', 'some reagents', 'unnamed powders', 'some things that could be considered dangerous', 'strange potions', 'potions', 'unnamed potions', 'glassware', 'glassware and alchemical reagents'])} from ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'lovestruck customer',
-        relationships: {
-          building: {
-            relationship: 'lovestruck customer'
-          },
-          associatedNPC: {
-            relationship: 'client',
-            reciprocalRelationship: 'love potion supplier'
-          }
-        },
-        description (building, npc) { return `${npc.firstName} secretly purchases ${random(['love potions', 'potions purported to beguile the imbiber', 'potions meant to make the drinker fall in love'])} from ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'detractor',
-        relationships: {
-          building: {
-            relationship: 'detractor',
-            reciprocalRelationship: 'target of ire'
-          },
-          associatedNPC: {
-            relationship: 'target of ire',
-            reciprocalRelationship: 'detractor'
-          }
-        },
-        base: {
-          background: 'acolyte'
-        },
-        description (building, npc) { return `${npc.firstName} is an outspoken detractor of ${building.name}, believing alchemy to be an abomination.` }
-      },
-      {
-        relationshipDescription: 'client',
-        relationships: {
-          building: {
-            relationship: 'client',
-            reciprocalRelationship: 'supplier'
-          },
-          associatedNPC: {
-            relationship: 'alchemist',
-            reciprocalRelationship: 'client'
-          }
-        },
-        base: {
-          profession: 'merchant'
-        },
-        description (building, npc) { return `${npc.firstName} supplies ${random(['herbs', 'some rare herbs', 'some reagents', random(alchemistData.ingredients)])} to ${building.name}.` }
-      }
-    ],
     lookAround: alchemist => [
       {
         cleanliness: 80,
