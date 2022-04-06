@@ -1,7 +1,5 @@
 import { Town } from '../../../lib/town/_common'
-import { Customer } from '../../setup'
-
-type Tavern = import('../../../lib/tavern/_common').Tavern
+import { Tavern } from '../../../lib/tavern/_common'
 
 interface Setup {
   initTavernData(): void
@@ -47,7 +45,6 @@ interface Setup {
     stageDescriptor: string[]
     fun: string[]
     get: {
-      customers: Customer[]
       patrons(town: Town, tavern: Tavern): string
       carousing(town: Town, tavern: Tavern): string
       entertainment(tavern: Tavern): string

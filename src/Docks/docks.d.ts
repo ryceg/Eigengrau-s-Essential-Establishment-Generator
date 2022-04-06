@@ -25,9 +25,6 @@ export interface Setup {
     }
     notableFeature: string[]
     notice: string[]
-    get: {
-      customers: Customer[]
-    }
     ships: {
       create(town: Town, docks: Docks, opts?: Partial<Ship>): Ship
       crew: {
