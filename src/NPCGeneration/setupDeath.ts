@@ -1,20 +1,6 @@
 // uses setup.createNPC, setup.createRelationship, setup.profile
 
-import { NPC, Town } from '@lib'
-
-export interface DeadNPC extends NPC {
-  isAlive: false
-  roll: NPC['roll'] & {
-    deathConditions: number
-  }
-  death: {
-    graveStandard: string
-    cause: string
-    murderer: string | null
-    timeSinceDeath: number
-    burialConditions: string
-  }
-}
+import { NPC, DeadNPC, Town } from '@lib'
 
 export type DeathData = {
   whileAdventuring(town: Town, npc: NPC, text: string): string

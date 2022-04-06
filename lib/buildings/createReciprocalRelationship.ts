@@ -1,6 +1,5 @@
-import { DeadNPC } from 'src/NPCGeneration/setupDeath'
 import { Faction } from '../faction/_common'
-import { Namesake, NPC } from '../npc-generation/_common'
+import { DeadNPC, Namesake, NPC } from '../npc-generation/_common'
 import { assign, getUUID } from '../src/utils'
 import { Town } from '../town/_common'
 import { Building, ReciprocalRelationship } from './_common'
