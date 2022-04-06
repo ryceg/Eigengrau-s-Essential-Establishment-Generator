@@ -1,3 +1,4 @@
+import { toUpperFirst } from '../src/toTitleCase'
 import { Building } from '../buildings/_common'
 import { Customer } from '../customer'
 
@@ -65,7 +66,9 @@ export const templeCustomers: Customer<Building>[] = [
         strength: 'conspicuously faithful believer'
       }
     },
-    description (building, npc) { return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits. ${npc.heshe.toUpperFirst()} attends every ceremony that ${npc.heshe} can.` }
+    description (building, npc) {
+      return `${npc.firstName} buys cold iron from ${building.name} to ward off evil spirits. ${toUpperFirst(npc.heshe)} attends every ceremony that ${npc.heshe} can.`
+    }
   },
   {
     relationshipDescription: 'frequent attendee',
