@@ -1,6 +1,13 @@
-import { constrainArray } from '../src/constrainRecord'
+import { constrainArray, constrainRecord } from '../src/constrainRecord'
+import { ThresholdTable } from '../src/rollFromTable'
 import { Customer } from '../customer'
 import { Smithy } from './_common'
+
+interface RollData {
+  description: string
+  preceding: string
+  rolls?: ThresholdTable
+}
 
 export const smithyData = {
   get: {
@@ -199,7 +206,7 @@ export const smithyData = {
       }
     ]
   },
-  rollData: {
+  rollData: constrainRecord<RollData>()({
     wealth: {
       description: 'How successful is the smithy?',
       preceding: 'Smithy Wealth:',
@@ -283,7 +290,7 @@ export const smithyData = {
       description: 'How do the prices here compare to your average smithy?',
       preceding: 'Smithy Price Modifier:'
     }
-  },
+  }),
   name: {
     adjective: ['Hard', 'Sharp', 'Pointy', 'Well-worn', 'Rusted', 'Shiny', 'Cold', 'Glowing', 'Heated', 'Golden', 'Silvered', 'Bronzed', 'Polished', 'Engraved', 'Jeweled', 'Plated', 'Eternal', 'Long-Lasting', 'Famed'],
     noun: ['Iron', 'Metal', 'Gold', 'Silver', 'Bronze', 'Copper', 'Platinum', 'Electrum', 'Ingot', 'Tongs', 'Pliers', 'Anvil', 'Hammer', 'Forge', 'Bellows', 'Bucket', 'Steam', 'Smoke', 'Chimney', 'Flame', 'Fire', 'Magma', 'Coal', 'Crucible'],
