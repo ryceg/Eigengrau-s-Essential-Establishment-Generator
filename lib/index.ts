@@ -6,6 +6,9 @@ export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
 
+export * from './brothel/_common'
+export * from './brothel/brothelCustomers'
+
 export * from './buildings/_common'
 export * from './buildings/BuildingToCreate'
 export * from './buildings/createBuilding'

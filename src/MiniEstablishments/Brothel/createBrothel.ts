@@ -1,16 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { Building, NPC, Town } from '@lib'
+import type { Brothel, Building, NPC, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { brothelData } from './brothelData'
-
-interface Brothel extends Building {
-  initPassage: string
-  specialty: string
-  talk: string
-  rumour: string
-  notice: string
-  idle: string
-}
 
 interface Options {
   newBuilding(town: Town, type?: string): Brothel
