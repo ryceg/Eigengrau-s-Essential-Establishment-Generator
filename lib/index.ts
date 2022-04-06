@@ -205,7 +205,8 @@ export * from './tavern/tavernRooms'
 export * from './tavern/tavernSleep'
 export * from './tavern/tavernTypeFix'
 
-export * from '../src/Town/js/getTownMilitary'
+export * from './temple/templeCustomers'
+
 export * from './town/_common'
 export * from './town/getDemographicPercentile'
 export * from './town/getGuardFunding'
