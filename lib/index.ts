@@ -123,6 +123,7 @@ export * from './religion/isInformationEmpty'
 
 export * from './smithy/_common'
 export * from './smithy/smithyData'
+export * from './smithy/smithyCustomers'
 
 export * from './src/arpa'
 export * from './src/articles'
