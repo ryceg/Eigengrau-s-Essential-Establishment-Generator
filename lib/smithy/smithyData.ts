@@ -277,13 +277,11 @@ export const smithyData = {
     },
     reputation: {
       description: 'Is it well known, or is it a hobby shop?',
-      preceding: 'Smithy Reputation:',
-      hasRolls: false
+      preceding: 'Smithy Reputation:'
     },
     priceModifier: {
       description: 'How do the prices here compare to your average smithy?',
-      preceding: 'Smithy Price Modifier:',
-      hasRolls: false
+      preceding: 'Smithy Price Modifier:'
     }
   },
   name: {

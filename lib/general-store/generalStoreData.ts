@@ -218,23 +218,19 @@ export const generalStore = {
     },
     reputation: {
       description: 'Is it well known, or is it a hobby shop?',
-      preceding: 'General Store Reputation:',
-      hasRolls: false
+      preceding: 'General Store Reputation:'
     },
     magic: {
       description: 'How likely is it to find magic here?',
-      preceding: 'General Store Magic:',
-      hasRolls: false
+      preceding: 'General Store Magic:'
     },
     activity: {
       description: 'How busy is the store?',
-      preceding: 'General Store Activity:',
-      hasRolls: false
+      preceding: 'General Store Activity:'
     },
     priceModifier: {
       description: 'How do the prices here compare to your average general store?',
-      preceding: 'General Store Price Modifier:',
-      hasRolls: false
+      preceding: 'General Store Price Modifier:'
     }
   },
   get: {

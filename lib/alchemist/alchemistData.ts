@@ -29,7 +29,7 @@ interface AlchemistData {
 interface RollData {
   description: string
   preceding: string
-  rolls: ThresholdTable
+  rolls?: ThresholdTable
 }
 
 interface LookAround {
@@ -108,18 +108,15 @@ export const alchemistData: AlchemistData = {
     },
     reputation: {
       description: 'Is it well known, or is it a hobby shop?',
-      preceding: 'Alchemist Reputation:',
-      hasRolls: false
+      preceding: 'Alchemist Reputation:'
     },
     activity: {
       description: 'How busy is the alchemist?',
-      preceding: 'Alchemist Activity:',
-      hasRolls: false
+      preceding: 'Alchemist Activity:'
     },
     priceModifier: {
       description: 'How do the prices here compare to your average alchemist?',
-      preceding: 'Alchemist Price Modifier:',
-      hasRolls: false
+      preceding: 'Alchemist Price Modifier:'
     }
   },
   get: {
