@@ -1,6 +1,5 @@
 import { generalStoreRenders } from './generalStoreRenders'
 import { setRandom } from '../src/random'
-import { GeneralStore } from './_common'
 
 // Set random to be deterministic
 setRandom((min: number, max: number) => (min + max) / 2)
@@ -37,7 +36,7 @@ describe('generalStoreRenders', () => {
       warmth: 'uncomfortably warm'
     }
 
-    generalStoreRenders(originalObject as GeneralStore)
+    generalStoreRenders(originalObject)
     expect(originalObject).toEqual(expectedResult)
   })
 })
