@@ -4,62 +4,60 @@
   font-size: 16px;
 }
 .error-view > .error-source:not([hidden]) {
-	background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
-
-
 
 /* Debug bar styling */
 #debug-bar,
 #debug-bar-watch {
-	background-color: var(--background-primary);
-	border-color: var(--background-secondary);
+  background-color: var(--background-primary);
+  border-color: var(--background-secondary);
 }
 #debug-bar-watch div {
-	color: var(--background-accent);
+  color: var(--background-accent);
 }
 #debug-bar-watch-toggle,
 #debug-bar-views-toggle {
-	color: var(--text-normal);
-	border-color: var(--background-secondary);
+  color: var(--text-normal);
+  border-color: var(--background-secondary);
 }
 #debug-bar-watch-toggle:hover,
 #debug-bar-views-toggle:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
+  background-color: var(--background-primary);
+  border-color: var(--text-normal);
 }
 #debug-bar-watch:not([hidden]) ~ div #debug-bar-watch-toggle,
 html[data-debug-view] #debug-bar-views-toggle {
-	background-color: var(--interactive-active);
-	border-color: var(--interactive-hover);
+  background-color: var(--interactive-active);
+  border-color: var(--interactive-hover);
 }
 #debug-bar-watch:not([hidden]) ~ div #debug-bar-watch-toggle:hover,
 html[data-debug-view] #debug-bar-views-toggle:hover {
-	background-color: var(--interactive-hover);
-	border-color: var(--interactive-hover);
+  background-color: var(--interactive-hover);
+  border-color: var(--interactive-hover);
 }
 
 /* Debug view styling */
 html:not([data-debug-view]) #debug-view-toggle {
-	color: var(--text-normal);
-	border-color: var(--background-secondary);
+  color: var(--text-normal);
+  border-color: var(--background-secondary);
 }
 html:not([data-debug-view]) #debug-view-toggle:hover {
-	background-color: var(--background-primary);
-	border-color: var(--text-normal);
+  background-color: var(--background-primary);
+  border-color: var(--text-normal);
 }
 html[data-debug-view] #debug-view-toggle {
-	background-color: var(--interactive-active);
-	border-color: var(--interactive-hover);
+  background-color: var(--interactive-active);
+  border-color: var(--interactive-hover);
 }
 html[data-debug-view] #debug-view-toggle:hover {
-	background-color: var(--interactive-hover);
-	border-color: var(--interactive-hover);
+  background-color: var(--interactive-hover);
+  border-color: var(--interactive-hover);
 }
 html[data-debug-view] .debug {
-	background-color: #dc9;
+  background-color: #dc9;
 }
 html[data-debug-view] .debug.hidden,
 html[data-debug-view] .debug.hidden .debug {
-	background-color: #bbb;
+  background-color: #bbb;
 }

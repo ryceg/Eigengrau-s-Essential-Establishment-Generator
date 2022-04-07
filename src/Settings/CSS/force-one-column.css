@@ -1,11 +1,10 @@
-.force-one-column .passage  {
+.force-one-column .passage {
   column-count: 1;
 }
 
 body[data-tags~="force-one-column"] {
   column-count: 1;
 }
-
 
 .force-one-column {
   column-count: 1;
