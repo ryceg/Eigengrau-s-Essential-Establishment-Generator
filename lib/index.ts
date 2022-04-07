@@ -4,6 +4,7 @@ export * from './alchemist/_common'
 export * from './alchemist/alchemistCustomers'
 export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
+export * from './alchemist/alchemistRollData'
 export * from './alchemist/createAlchemistName'
 
 export * from './brothel/_common'
