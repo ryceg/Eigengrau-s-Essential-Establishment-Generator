@@ -80,6 +80,7 @@ export * from './faction/setFactionStability'
 export * from './guardhouse/_common'
 export * from './guardhouse/guardhouseCustomers'
 export * from './guardhouse/guardhouseData'
+export * from './guardhouse/guardhouseRollData'
 
 export * from './general-store/_common'
 export * from './general-store/generalStoreCustomers'
