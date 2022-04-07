@@ -160,31 +160,6 @@ export interface Structure extends Location {
   owner?: string
 }
 
-/** Present on every building */
-export const buildingRollTypesDefault = [
-  'wealth',
-  'cleanliness',
-  'activity',
-  'diversity',
-  'population',
-  'reputation',
-  'roughness',
-  'sin',
-  'magic',
-  'size'
-] as const
-
-/** These might not be defined. */
-export const buildingRollTypesAll = [
-  ...buildingRollTypesDefault,
-  'expertise',
-  'landSize',
-  'age',
-  'condition'
-] as const
-
-export type BuildingRollTypes = typeof buildingRollTypesAll[number]
-
 export interface Building extends Structure {
   passageName: string
   initPassage: string
@@ -223,10 +198,6 @@ export interface BuildingRoof {
 export interface BuildingMaterial {
   noun: string
   wealth: string
-}
-
-export type BuildingRollsAll = {
-  [key in BuildingRollTypes]: number
 }
 
 export interface BuildingRollsDefault {

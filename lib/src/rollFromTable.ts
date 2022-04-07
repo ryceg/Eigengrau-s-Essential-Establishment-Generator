@@ -7,7 +7,6 @@ export interface rollsData {
   preceding: string
   rolls: ThresholdTable
   isHidden?: boolean
-  hasRolls?: boolean
  }
 /**
  * Return a random value from a static roll table.
