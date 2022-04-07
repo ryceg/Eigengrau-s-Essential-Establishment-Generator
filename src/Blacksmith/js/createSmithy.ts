@@ -29,7 +29,7 @@ export const createSmithy = (town: Town, opts: Options = {}) => {
   for (const propName of rollDataVariables) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    lib.defineRollDataGetter(smithy, lib.smithyData.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(smithy, lib.smithyRollData[propName].rolls, propName)
   }
 
   smithy.notableFeature = `its ${smithy.expertise} weapons and armour`
