@@ -32,12 +32,12 @@ setup.createCastle = (town, opts = {}) => {
   if (!castle.roll.condition) castle.roll.condition = lib.dice(2, 50)
   if (!castle.roll.age) castle.roll.age = lib.dice(2, 50)
 
-  lib.defineRollDataGetter(castle, setup.castle.rollData.age.rolls, 'age', 'age', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData.condition.rolls, 'condition', 'condition', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData.size.rolls, 'size', 'size', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData.size.rolls, 'sizeDescriptive', 'size', 2)
-  lib.defineRollDataGetter(castle, setup.castle.rollData.landSize.rolls, 'landSize', 'landSize', 1)
-  lib.defineRollDataGetter(castle, setup.castle.rollData.landSize.rolls, 'landSizeDescriptive', 'landSize', 2)
+  lib.defineRollDataGetter(castle, lib.castleRollData.age.rolls, 'age', 'age', 1)
+  lib.defineRollDataGetter(castle, lib.castleRollData.condition.rolls, 'condition', 'condition', 1)
+  lib.defineRollDataGetter(castle, lib.castleRollData.size.rolls, 'size', 'size', 1)
+  lib.defineRollDataGetter(castle, lib.castleRollData.size.rolls, 'sizeDescriptive', 'size', 2)
+  lib.defineRollDataGetter(castle, lib.castleRollData.landSize.rolls, 'landSize', 'landSize', 1)
+  lib.defineRollDataGetter(castle, lib.castleRollData.landSize.rolls, 'landSizeDescriptive', 'landSize', 2)
 
   castle.tippyDescription = `${lib.articles.output(castle.wordNoun).toUpperFirst()} built ${castle.age} that is known for ${castle.knownFor}.`
   lib.createReciprocalRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
