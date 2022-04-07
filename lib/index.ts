@@ -85,6 +85,7 @@ export * from './general-store/generalStoreCustomers'
 export * from './general-store/generalStoreData'
 export * from './general-store/generalStoreModifiers'
 export * from './general-store/generalStoreRenders'
+export * from './general-store/generalStoreRollData'
 
 export * from './npc-generation/_common'
 export * from './npc-generation/backgroundTraits'
