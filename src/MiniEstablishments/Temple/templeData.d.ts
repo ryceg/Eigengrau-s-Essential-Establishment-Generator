@@ -1,5 +1,4 @@
 import { ThresholdTable } from '../../../lib/index'
-import { Customer } from '../../setup'
 
 interface Setup {
   temple: {
@@ -15,9 +14,6 @@ interface Setup {
       cleanliness: ThresholdTable
       size: ThresholdTable
       bedCleanliness: ThresholdTable
-    }
-    get: {
-      customers: Customer[]
     }
     prayerSubject: string[]
     dedicated: string[]

@@ -1,9 +1,13 @@
 import './sentry'
 
 export * from './alchemist/_common'
+export * from './alchemist/alchemistCustomers'
 export * from './alchemist/alchemistData'
 export * from './alchemist/alchemistModifiers'
 export * from './alchemist/createAlchemistName'
+
+export * from './brothel/_common'
+export * from './brothel/brothelCustomers'
 
 export * from './buildings/_common'
 export * from './buildings/BuildingToCreate'
@@ -50,6 +54,9 @@ export * from './constructs/spider'
 export * from './constructs/tree'
 export * from './constructs/wolf'
 
+export * from './docks/_common'
+export * from './docks/docksCustomers'
+
 export * from './faction/_common'
 export * from './faction/createAllies'
 export * from './faction/createLeaderGroup'
@@ -68,9 +75,11 @@ export * from './faction/setFactionSize'
 export * from './faction/setFactionStability'
 
 export * from './guardhouse/_common'
+export * from './guardhouse/guardhouseCustomers'
 export * from './guardhouse/guardhouseData'
 
 export * from './general-store/_common'
+export * from './general-store/generalStoreCustomers'
 export * from './general-store/generalStoreData'
 export * from './general-store/generalStoreModifiers'
 export * from './general-store/generalStoreRenders'
@@ -122,6 +131,7 @@ export * from './religion/isInformationEmpty'
 
 export * from './smithy/_common'
 export * from './smithy/smithyData'
+export * from './smithy/smithyCustomers'
 
 export * from './src/arpa'
 export * from './src/articles'
@@ -189,12 +199,14 @@ export * from './roads/getRoadFeatures'
 export * from './tavern/_common'
 export * from './tavern/createTavernName'
 export * from './tavern/getTavernSin'
+export * from './tavern/tavernCustomers'
 export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
 export * from './tavern/tavernSleep'
 export * from './tavern/tavernTypeFix'
 
-export * from '../src/Town/js/getTownMilitary'
+export * from './temple/templeCustomers'
+
 export * from './town/_common'
 export * from './town/getDemographicPercentile'
 export * from './town/getGuardFunding'
