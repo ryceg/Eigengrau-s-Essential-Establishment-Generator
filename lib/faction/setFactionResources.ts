@@ -6,11 +6,12 @@ import { repeat, sumWeights, keys, clamp } from '../src/utils'
 import { weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData, FactionResource } from './factionData'
+import { factionRollData } from './factionRollData'
 import { Faction } from './_common'
 
 export function setFactionResources (faction: Faction): void {
   console.log('assigning resources...')
-  defineRollDataGetter(faction, factionData.rollData.resources.rolls, 'resourcesDescription', 'resources')
+  defineRollDataGetter(faction, factionRollData.resources.rolls, 'resourcesDescription', 'resources')
   faction.resources.list = []
   const availableResources = {} as WeightRecord<FactionResource>
   for (const resource of keys(factionData.resources.types)) {
