@@ -2,9 +2,15 @@ import { constrainRecord } from '../src/constrainRecord'
 import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { random } from '../src/random'
 import { keys, last } from '../src/utils'
-import { GeneralStore } from './_common'
+import { GeneralStoreRolls } from './_common'
 
-export function generalStoreRenders (generalStore: GeneralStore) {
+type Attributes = keyof typeof attributes
+
+interface Renderable extends Record<Attributes, string> {
+  roll: Pick<GeneralStoreRolls, Attributes>
+}
+
+export function generalStoreRenders (generalStore: Renderable) {
   // set warmth roll
   generalStore.roll.warmth = random(1, 100) + getWarmthRollModfier(generalStore.roll.size)
 
