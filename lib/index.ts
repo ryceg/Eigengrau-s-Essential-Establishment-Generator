@@ -208,6 +208,7 @@ export * from './tavern/getTavernSin'
 export * from './tavern/tavernCustomers'
 export * from './tavern/tavernModifiers'
 export * from './tavern/tavernRooms'
+export * from './tavern/tavernRollData'
 export * from './tavern/tavernSleep'
 export * from './tavern/tavernTypeFix'
 
