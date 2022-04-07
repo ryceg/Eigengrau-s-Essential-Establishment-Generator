@@ -9,6 +9,7 @@ export * from './alchemist/createAlchemistName'
 
 export * from './brothel/_common'
 export * from './brothel/brothelCustomers'
+export * from './brothel/brothelRollData'
 
 export * from './buildings/_common'
 export * from './buildings/BuildingToCreate'
