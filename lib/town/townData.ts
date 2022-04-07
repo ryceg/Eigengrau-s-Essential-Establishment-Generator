@@ -111,7 +111,6 @@ export interface TownRollData {
   tooltip: string
   preceding: string
   isHidden?: boolean
-  hasRolls?: boolean
   rolls?: ThresholdTable | [number, string, string][]
 }
 
@@ -219,66 +218,54 @@ export const townData: TownData = {
     reputation: {
       tooltip: 'How well known is this town?',
       preceding: 'Virtually unheard of -- Known throughout the region',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     },
     religiosity: {
       tooltip: 'How religious are they here?',
-      preceding: 'Atheistic -- Extremely Religious',
-      hasRolls: false
+      preceding: 'Atheistic -- Extremely Religious'
     },
     diversity: {
       isHidden: true,
       tooltip: 'How diverse is the population?',
-      preceding: 'Monoracial -- Totally diverse',
-      hasRolls: false
+      preceding: 'Monoracial -- Totally diverse'
     },
     economics: {
       tooltip: 'How free is the market, and how many regulations are there?',
-      preceding: 'Free Trade -- Regulated trade:',
-      hasRolls: false
+      preceding: 'Free Trade -- Regulated trade:'
     },
     welfare: {
       tooltip: 'How do they treat their less fortunate citizens?',
-      preceding: 'Indifferent welfare -- Benevolent Welfare:',
-      hasRolls: false
+      preceding: 'Indifferent welfare -- Benevolent Welfare:'
     },
     military: {
       tooltip: 'How heavy is the armed presence here?',
-      preceding: 'Relaxed military -- Strict military:',
-      hasRolls: false
+      preceding: 'Relaxed military -- Strict military:'
     },
     law: {
       tooltip: 'How do they treat law-breakers here?',
-      preceding: 'Reform-based law -- Punishment-based law:',
-      hasRolls: false
+      preceding: 'Reform-based law -- Punishment-based law:'
     },
     arcana: {
       tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.',
-      preceding: 'Restricted magic -- Regulated magic:',
-      hasRolls: false
+      preceding: 'Restricted magic -- Regulated magic:'
     },
     magic: {
       tooltip: 'How common is it for a peasant to see magic here?',
       preceding: 'Gritty low-magic -- Magic is commonplace',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     },
     sin: {
       tooltip: 'How much of a culture of crime is there?',
-      preceding: 'Squeaky clean -- Wretched hive of scum and villainy',
-      hasRolls: false
+      preceding: 'Squeaky clean -- Wretched hive of scum and villainy'
     },
     genderMakeup: {
       tooltip: 'What percentage of the population does the \'dominant\' gender make up?',
-      preceding: 'Gender makeup (percentage of people that are the dominant gender):',
-      hasRolls: false
+      preceding: 'Gender makeup (percentage of people that are the dominant gender):'
     },
     guardFunding: {
       tooltip: 'How much funding is put towards keeping the peace here?',
       preceding: 'Next to no funding -- Well funded',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     }
   },
   type: {
