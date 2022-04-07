@@ -9,6 +9,25 @@ import { ClassName } from './classTraits'
 import { RaceName, AgeName } from './raceTraits'
 import { SocialClassName } from './socialClass'
 
+interface NPCRolls {
+  traits: Record<Virtues, number>
+  /** How lucky/good someone is at their job. */
+  professionLuck: number
+  /** "Rarity" of the trait- not really a super important attribute. */
+  physicalTrait: number
+  /** 100 is an exceedingly charismatic person, 1 is uber-awkward. */
+  gregariousness: number
+  /** 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care" */
+  conformity: number
+  /** The number used to determine their gender. */
+  gender: number
+  /** The number used to determine their religious fervor. */
+  religiosity: number
+  socialClass: number
+  kinsey: number
+  sexuality?: number
+}
+
 export interface NPC {
   key: string
   objectType: 'npc'
@@ -40,24 +59,7 @@ export interface NPC {
   professionOrigin: string
   professionSuccess: string
   background: BackgroundName
-  roll: {
-    traits: Record<Virtues, number>
-    /** How lucky/good someone is at their job. */
-    professionLuck: number
-    /** "Rarity" of the trait- not really a super important attribute. */
-    physicalTrait: number
-    /** 100 is an exceedingly charismatic person, 1 is uber-awkward. */
-    gregariousness: number
-    /** 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care" */
-    conformity: number
-    /** The number used to determine their gender. */
-    gender: number
-    /** The number used to determine their religious fervor. */
-    religiosity: number
-    socialClass: number
-    kinsey: number
-    sexuality?: number
-  }
+  roll: NPCRolls
   partnerID?: string
   lifeEvents: string[]
   callbackFunction?(town: Town, npc: NPC): void
@@ -153,6 +155,23 @@ export interface NPC {
   owner?: string
   chitchat?: string[]
   inventory?: string
+}
+
+interface DeadNPCRolls extends NPCRolls{
+  deathConditions: number
+
+}
+
+export interface DeadNPC extends NPC {
+  isAlive: false
+  roll: DeadNPCRolls
+  death: {
+    graveStandard: string
+    cause: string
+    murderer: string | null
+    timeSinceDeath: number
+    burialConditions: string
+  }
 }
 
 export interface Relationship {

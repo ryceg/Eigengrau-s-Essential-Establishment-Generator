@@ -1,7 +1,4 @@
-import { DeadNPC } from 'src/NPCGeneration/setupDeath'
-import { Building } from '../../lib/buildings/_common'
-import { Namesake, NPC } from '../../lib/npc-generation/_common'
-import { Town } from '../../lib/town/_common'
+import { Building, DeadNPC, Namesake, NPC, Town } from '@lib'
 import { Dungeon } from './createDungeon'
 
 interface Setup {
