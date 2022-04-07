@@ -210,6 +210,7 @@ export * from './tavern/tavernSleep'
 export * from './tavern/tavernTypeFix'
 
 export * from './temple/templeCustomers'
+export * from './temple/templeRollData'
 
 export * from './town/_common'
 export * from './town/getDemographicPercentile'
