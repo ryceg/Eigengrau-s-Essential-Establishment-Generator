@@ -4,9 +4,10 @@ import { socialClass, SocialClassName } from './socialClass'
 import { keys } from '../src/utils'
 import { findProfession } from '../src/findProfession'
 import { dice } from '../src/dice'
+import { logger } from 'lib/logger'
 
 export function createSocialClass (town: Town, npc: NPC): void {
-  console.log('Creating social class...')
+  logger.info('Creating social class...')
   if (npc.socialClass) {
     return
   }
@@ -16,8 +17,8 @@ export function createSocialClass (town: Town, npc: NPC): void {
   npc.roll = npc.roll || {}
   npc.roll.socialClass = npc.roll.socialClass || profession.socialClassRoll() || 40 + dice(8, 6)
 
-  console.log({ npc })
-  console.log(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
+  logger.info(`Social class not predefined. Searching for the social class of a ${npc.profession}...`)
+
   // If .socialClass is defined in the professions.js, then that's all dandy.
   if (profession.socialClass) {
     npc.socialClass = profession.socialClass
@@ -25,7 +26,7 @@ export function createSocialClass (town: Town, npc: NPC): void {
   }
 
   // Otherwise, just roll some dice.
-  console.log(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
+  logger.warn(`Unidentified profession- ${npc.profession} does not exist in townData.professions!`)
 
   const classArray = keys(socialClass)
   const newArray = []
@@ -34,7 +35,6 @@ export function createSocialClass (town: Town, npc: NPC): void {
     newArray.push([socialClass[item].socialClassRollThreshold, item])
   }
 
-  /** @type {[number, string][]} */
   const array = newArray.find(([threshold]) => {
     return threshold <= npc.roll.socialClass
   })
@@ -45,5 +45,5 @@ export function createSocialClass (town: Town, npc: NPC): void {
     return
   }
 
-  console.log(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
+  logger.info(`Failed to set a social class that matched the roll of ${npc.roll.socialClass} for ${npc.name}.`)
 }

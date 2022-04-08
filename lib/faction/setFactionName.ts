@@ -1,14 +1,15 @@
+import { logger } from '../logger'
 import { random } from '../src/random'
+import { toTitleCase } from '../src/toTitleCase'
 import { Faction } from './_common'
 import { factionData } from './factionData'
-import { toTitleCase } from '../src/toTitleCase'
 
 interface Town {
   name: string
 }
 
 export function setFactionName (town: Town, faction: Faction): string {
-  console.log(`Naming the ${faction.type} faction`)
+  logger.info(`Naming the ${faction.type} faction`)
   const data = factionData.types[faction.type]
 
   const name = toTitleCase(random([
@@ -20,6 +21,6 @@ export function setFactionName (town: Town, faction: Faction): string {
     random(data.names.unique)
   ]))
 
-  console.log(`Named the ${faction.type} ${name}`)
+  logger.info(`Named the ${faction.type} ${name}`)
   return name
 }

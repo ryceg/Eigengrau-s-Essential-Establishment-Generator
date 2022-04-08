@@ -1,29 +1,30 @@
+/* eslint-disable no-console */
 
-const isEnabled = true
+const isLoggingEnabled = true
 
 export const logger = {
   info (...values: unknown[]) {
-    if (isEnabled) {
+    if (isLoggingEnabled) {
       console.log(...values)
     }
   },
   warn (...values: unknown[]) {
-    if (isEnabled) {
+    if (isLoggingEnabled) {
       console.warn(...values)
     }
   },
   error (...values: unknown[]) {
-    if (isEnabled) {
+    if (isLoggingEnabled) {
       console.error(...values)
     }
   },
   openGroup (label?: string) {
-    if (isEnabled) {
+    if (isLoggingEnabled) {
       console.group(label)
     }
   },
   closeGroup () {
-    if (isEnabled) {
+    if (isLoggingEnabled) {
       console.groupEnd()
     }
   }

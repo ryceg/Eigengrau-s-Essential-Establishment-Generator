@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { GenderName } from '../npc-generation/genderData'
 import { random } from '../src/random'
 import { capitalizeFirstLetter } from '../src/utils'
@@ -11,7 +12,7 @@ interface Params {
 }
 
 export function createName (parameters: Params = {}) {
-  console.log('Returning a name!')
+  logger.info('Returning a name!')
 
   const { race = 'human', gender = 'woman', firstOrLast = 'firstName' } = parameters
 
