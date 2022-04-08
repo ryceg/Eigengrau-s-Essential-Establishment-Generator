@@ -1,16 +1,16 @@
 import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
 import { Building, ReciprocalRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
+import { GenderName } from '../npc-generation/genderData'
 import { Profession } from '../npc-generation/professions'
 import { RaceName } from '../npc-generation/raceTraits'
 import { Family, NPC, NpcRelationship } from '../npc-generation/_common'
+import { Pantheon, PantheonTypes } from '../religion/religion'
 import { Road } from '../roads/roads'
+import { Biome, Seasons } from '../src/terrain'
 import { Weather } from '../src/weather'
-import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
+import { EconomicIdeology, PoliticalIdeology, townData, TownType } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
-import { Pantheon, PantheonTypes } from 'lib/religion/religion'
-import { GenderName } from '../../lib/npc-generation/genderData'
-import { Biome, Seasons } from '../../lib/src/terrain'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 export type TownRolls =
