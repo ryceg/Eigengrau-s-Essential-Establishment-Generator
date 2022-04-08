@@ -28,9 +28,9 @@
   <<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
       <<button "Save to NPCs list">>
         <<set $npcs[$currentPassage.key].isThrowaway to false>>
-        <<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>>
+        <<run lib.logger.info("Saved " + $currentNPC.name + " to the NPCs list.")>>
         <<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>>
-        <<run console.log($currentNPC)>>
+        <<run lib.logger.info($currentNPC)>>
         <<goto "NPCProfile">>
       <</button>>
   <</if>>

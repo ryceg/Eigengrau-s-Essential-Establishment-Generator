@@ -5,9 +5,9 @@
   return !building.includes(nsfwItems);
 })>>
 <</listbox>></label> -- <<button "Create New Building">>
-  <<run console.log('Creating a new ' + $newBuilding)>>
+  <<run lib.logger.info('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding)>>
-  <<run console.log(_latestBuilding)>>
+  <<run lib.logger.info(_latestBuilding)>>
   <<replace "#buildings">><<include "RoadsList">>
   <</replace>>
   <<run $('.' + _latestBuilding.key).parent().addClass('highlight')>>

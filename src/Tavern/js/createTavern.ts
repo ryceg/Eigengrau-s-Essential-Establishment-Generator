@@ -16,7 +16,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   const tavern: Tavern = (opts.newBuilding || lib.createBuilding)(town, 'tavern', opts)
 
   tavern.name = lib.createTavernName()
-  console.groupCollapsed(tavern.name)
+  lib.logger.openGroup(tavern.name)
 
   lib.assign(tavern, {
     associatedNPC: (opts.newBartender || createBartender)(town, tavern, opts.associatedNPC)
@@ -139,8 +139,8 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   }
   // tavernRender(tavern)
   tavern.tippyDescription = `${lib.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
-  console.log(tavern)
-  console.groupEnd()
+  lib.logger.info(tavern)
+  lib.logger.closeGroup()
   return tavern
 }
 
