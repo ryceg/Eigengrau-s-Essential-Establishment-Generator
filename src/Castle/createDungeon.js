@@ -1,6 +1,6 @@
 // uses setup.createNPC, setup.createDungeonName
 setup.createDungeon = (town, opts) => {
-  console.groupCollapsed('Creating a dungeon!')
+  lib.logger.openGroup('Creating a dungeon!')
   const data = lib.dungeon
   const dungeon = lib.createBuilding(town, 'dungeon', opts)
   Object.assign(dungeon, {
@@ -44,7 +44,7 @@ setup.createDungeon = (town, opts) => {
   }
   dungeon.name = lib.createDungeonName(town, dungeon)
   dungeon.tippyDescription = `${lib.articles.output(dungeon.wordNoun).toUpperFirst()} that is ${dungeon.format}. It is known for ${dungeon.knownFor}.`
-  console.log(`Created the dungeon ${dungeon.name}`)
-  console.groupEnd()
+  lib.logger.info(`Created the dungeon ${dungeon.name}`)
+  lib.logger.closeGroup()
   return dungeon
 }

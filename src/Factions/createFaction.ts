@@ -37,12 +37,12 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
   }, opts)
 
   if (typeof faction.type === 'undefined') {
-    console.warn('Faction type was somehow missed. Rerolling...')
-    console.log(faction)
+    lib.logger.warn('Faction type was somehow missed. Rerolling...')
+    lib.logger.info(faction)
     // @ts-ignore
     const type2 = lib.weightedRandomFetcher(town, lib.factionData.types, null, null, 'object').type
     if (!type2) {
-      console.error('faction type was not defined! Defaulting to merchants.')
+      lib.logger.error('Faction type was not defined! Defaulting to merchants.')
       faction.type = 'merchants'
     } else {
       faction.type = type2
@@ -56,7 +56,7 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
   lib.setFactionAge(faction as Faction)
   faction.name = faction.name || lib.setFactionName(town, faction as Faction)
 
-  console.groupCollapsed(`${faction.name} the ${faction.type} are loading.`)
+  lib.logger.openGroup(`${faction.name} the ${faction.type} are loading.`)
 
   lib.setFactionReputation(faction as Faction)
   lib.setFactionSize(town, faction as Faction)
@@ -72,8 +72,7 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
 
   faction.tippyDescription = `${lib.articles.output(faction.size as string).toUpperFirst()} ${faction.type} ${faction.wordNoun} called ${faction.name}`
 
-  console.groupEnd()
-  console.log(`${faction.name} have loaded.`)
-  console.log(faction)
+  lib.logger.closeGroup()
+  lib.logger.info(faction)
   return faction as Faction
 }
