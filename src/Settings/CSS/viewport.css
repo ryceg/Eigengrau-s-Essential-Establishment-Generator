@@ -1,4 +1,3 @@
-
 @media (max-width: 410px) {
   .passage {
     columns: 1;
@@ -7,10 +6,10 @@
     padding-bottom: 8vw;
   }
   #paper {
-    top: 15vw
+    top: 15vw;
   }
   body {
-    font-size: 16px
+    font-size: 16px;
   }
 
   blockquote {
@@ -37,45 +36,45 @@
 
 @media (min-width: 500px) {
   body {
-    font-size: 17px
+    font-size: 17px;
   }
   .passage {
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
     padding-bottom: 15vw;
   }
   #paper {
-    top: 13vw
+    top: 13vw;
   }
 }
 
 @media (min-width: 576px) {
   body {
-    font-size: 17px
+    font-size: 17px;
   }
   .passage {
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
     padding-bottom: 20vw;
   }
   #paper {
-    top: 13vw
+    top: 13vw;
   }
 }
 
 @media (min-width: 768px) {
   body {
-    font-size: 18px
+    font-size: 18px;
   }
   html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
     columns: 2;
@@ -87,20 +86,20 @@
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
     padding-bottom: 26vw;
   }
   #paper {
-    top: 13.5vw
+    top: 13.5vw;
   }
 }
 
 @media (min-width: 992px) {
   body {
-    font-size: 18px
+    font-size: 18px;
   }
   html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
     columns: 2;
@@ -110,19 +109,19 @@
   }
   .passage {
     columns: 1;
-  }  
+  }
   #illustration-buffer {
     column-span: all;
     padding: 15vw;
   }
   #paper {
-    top: 13vw
+    top: 13vw;
   }
 }
 
 @media (min-width: 1200px) {
   body {
-    font-size: 18px
+    font-size: 18px;
   }
 
   html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
@@ -130,7 +129,7 @@
     column-fill: auto;
     column-gap: 40px;
     max-width: 65em;
-  }  
+  }
   .passage {
     columns: 1;
   }
@@ -140,7 +139,6 @@
   }
 
   #paper {
-    top: 14vw
+    top: 14vw;
   }
 }
- 

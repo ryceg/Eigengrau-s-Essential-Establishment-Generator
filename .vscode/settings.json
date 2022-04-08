@@ -1,7 +1,10 @@
 {
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "editor.formatOnSave": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+    "source.fixAll": true
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -32,5 +35,10 @@
     "*.twee": "twee3"
   },
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "twee3LanguageTools.storyformat.current": "sugarcube-2"
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "twee3LanguageTools.storyformat.current": "sugarcube-2",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
