@@ -12,7 +12,7 @@ interface Options {
  * Creates an alchemist building.
  */
 export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchemist => {
-  console.groupCollapsed('Alchemist loading...')
+  lib.logger.openGroup('Alchemist loading...')
 
   const createBuilding = opts.newBuilding || lib.createBuilding
   const alchemist = createBuilding(town, 'alchemist', opts as Partial<Building>)
@@ -52,6 +52,6 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   lib.alchemistModifiers(alchemist)
 
-  console.groupEnd()
+  lib.logger.closeGroup()
   return alchemist
 }

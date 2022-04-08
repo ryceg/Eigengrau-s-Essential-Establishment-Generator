@@ -10,7 +10,7 @@ import { Building } from './_common'
 
 export function createStructure (town: Town, building: Building) {
   const { output } = articles
-  console.groupCollapsed(`Creating the structure for ${output(building.wordNoun || 'building')}`)
+  logger.openGroup(`Creating the structure for ${output(building.wordNoun || 'building')}`)
   building.wordNoun = building.wordNoun || 'building'
 
   const structure = building.structure || {

@@ -33,7 +33,7 @@ setup.createNewBuilding = (town, type, opts) => {
   // unfortunately, it currently needs to be updated manually with each new building.
 
   const newBuilding = setup.createBuildingKeys[lib.toTitleCase(type)](town, { ...opts, isHighlighted: true })
-  console.log(town)
+  lib.logger.info(town)
   if (Array.isArray(town.buildings)) town.buildings.push(newBuilding)
   return newBuilding
 }

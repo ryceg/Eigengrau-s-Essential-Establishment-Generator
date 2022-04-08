@@ -2,8 +2,8 @@
 import { BinaryGender, Biome, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics | Town) => {
-  console.groupCollapsed('The town is loading...')
-  console.log(base)
+  lib.logger.openGroup('The town is loading...')
+  lib.logger.info(base)
   // @ts-ignore
   if (!base) base = setup.createTownBiome()
   const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
@@ -35,7 +35,7 @@ export const createTown = (base: TownBasics | Town) => {
       return lib.getTownType(this)
     },
     set type (type) {
-      console.log('type unnecessary')
+      lib.logger.info('type unnecessary')
     },
     // type: type,
     terrain,
@@ -56,14 +56,14 @@ export const createTown = (base: TownBasics | Town) => {
       return lib.getAllPantheonPercentages(this as unknown as Town)
     },
     set religionPercentages (data: Record<string, number>) {
-      console.warn('Trying to set religion percentages, which is a read-only!')
-      console.log(this.religionPercentages)
-      console.log(data)
+      lib.logger.warn('Trying to set religion percentages, which is a read-only!')
+      lib.logger.info(this.religionPercentages)
+      lib.logger.info(data)
     },
     set religionProbabilities (data: Record<string, number>) {
-      console.groupCollapsed('Setting religion probabilities!')
+      lib.logger.openGroup('Setting religion probabilities!')
       this.religion._probabilities = data
-      console.log('Before unaltered')
+      lib.logger.info('Before unaltered')
       const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
 
       if (!this.religion._modifiers) this.religion._modifiers = {}
@@ -74,7 +74,7 @@ export const createTown = (base: TownBasics | Town) => {
         this.religion._modifiers[deity] = this.religion._probabilities[deity] - this.religion._baseProbabilities[deity]
       }
       this.religion._percentages = lib.getAllPantheonPercentages(this as unknown as Town)
-      console.groupEnd()
+      lib.logger.closeGroup()
     },
     get customPantheon () {
       if (this.religion._customPantheon) return this.religion._customPantheon
@@ -185,10 +185,10 @@ export const createTown = (base: TownBasics | Town) => {
   town.materialProbability = lib.structureMaterialData.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
-  console.log('Defining taxes')
+  lib.logger.info('Defining taxes')
   Object.defineProperty(town.taxes, 'welfare', {
     get () {
-      console.log(this)
+      lib.logger.info(this)
       // TODO fix the getter's workaround.
       return calculateTax(2, State.variables.town.roll.welfare)
     }
@@ -196,7 +196,7 @@ export const createTown = (base: TownBasics | Town) => {
 
   Object.defineProperty(town.taxes, 'military', {
     get () {
-      console.log(this)
+      lib.logger.info(this)
       // TODO fix the getter's workaround.
       return calculateTax(2, State.variables.town.roll.military)
     }
@@ -204,7 +204,7 @@ export const createTown = (base: TownBasics | Town) => {
 
   Object.defineProperty(town.taxes, 'economics', {
     get () {
-      console.log(this)
+      lib.logger.info(this)
       // TODO fix the getter's workaround.
       return calculateTax(3, State.variables.town.roll.economics)
     }
@@ -247,9 +247,9 @@ export const createTown = (base: TownBasics | Town) => {
   town.generated = 'full'
   lib.townRender(town as unknown as Town)
 
-  console.groupEnd()
-  console.log(`${town.name} has loaded.`)
-  console.log(town)
+  lib.logger.closeGroup()
+  lib.logger.info(`${town.name} has loaded.`)
+  lib.logger.info(town)
   return town as unknown as Town
 }
 
@@ -258,17 +258,17 @@ function calculateTax (nominalTarget: number, economics: number) {
 }
 
 function assignSizeModifiers (town: TownBasics) {
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
+  lib.logger.info(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
 function assignEconomicModifiers (town: TownBasics) {
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+  lib.logger.info(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
 function assignPoliticalModifiers (town: TownBasics) {
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
+  lib.logger.info(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 

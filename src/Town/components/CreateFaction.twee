@@ -7,11 +7,11 @@
     <<set _listbox += '<</listbox>></label>'>>
 <</silently>>
 _listbox -- <<button "Create new faction">>
-  <<run console.log('Creating a new ' + $newFaction)>>
+  <<run lib.logger.info('Creating a new ' + $newFaction)>>
   <<set _tempFaction to setup.createFaction($town, {
   type: $newFaction
   })>>
   <<set $town.factions[_tempFaction.key] = _tempFaction>>
-  <<run console.log($town)>>
+  <<run lib.logger.info($town)>>
   <<update>>
 <</button>></span>

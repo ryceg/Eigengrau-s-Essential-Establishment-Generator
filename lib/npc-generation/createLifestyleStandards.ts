@@ -7,6 +7,7 @@ import { wageVariation } from './npcFinances'
 import { articles } from '../src/articles'
 import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
+import { logger } from '../logger'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
 
@@ -26,7 +27,7 @@ const homeTable: ThresholdTable<string> = [
 ]
 
 export function createLifestyleStandards (town: Town, npc: NPC) {
-  console.groupCollapsed(`Creating living standards for ${npc.name}`)
+  logger.openGroup(`Creating living standards for ${npc.name}`)
   const isCurrently = random([
     'has been',
     'has recently been',
@@ -88,7 +89,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
   if (!note) note = [10, `${isHaving} modest success as`]
 
   npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${articles.find(npc.profession)} ${tippy}`
-  console.groupEnd()
+  lib.logger.closeGroup()
 }
 
 export function createFamilyLifestyle (marriage: Marriage) {

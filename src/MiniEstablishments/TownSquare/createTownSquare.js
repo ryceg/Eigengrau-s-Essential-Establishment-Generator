@@ -1,5 +1,5 @@
 setup.createTownSquare = (town, opts = {}) => {
-  console.groupCollapsed('Creating townSquare function')
+  lib.logger.openGroup('Creating townSquare function')
   const townSquare = (opts.newBuilding || lib.createBuilding)(town, 'townSquare', opts)
 
   lib.assign(townSquare, {
@@ -18,6 +18,6 @@ setup.createTownSquare = (town, opts = {}) => {
     lib.defineRollDataGetter(townSquare, setup.townSquare.rollData[propName].rolls, propName)
   }
   townSquare.tippyDescription = `The town square, which is ${townSquare.size} and ${townSquare.cleanliness}`
-  console.groupEnd()
+  lib.logger.closeGroup()
   return townSquare
 }

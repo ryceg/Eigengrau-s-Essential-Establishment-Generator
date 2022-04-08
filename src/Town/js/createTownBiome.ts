@@ -7,7 +7,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   const terrain = lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = lib.weightRandom(lib.townData.defaults.season) as Seasons
 
-  console.groupCollapsed(`The ${type} is loading...`)
+  lib.logger.openGroup(`The ${type} is loading...`)
   const economicIdeology = lib.politicsWeightedRoll(type, 'economicIdeology') as EconomicIdeology
   const politicalSource = lib.politicsWeightedRoll(type, 'politicalSource') as PoliticalSource
   const politicalIdeology = lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
@@ -82,24 +82,24 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
 
   lib.clampRolls(town.roll)
   town.name = setup.createTownName(town)
-  console.groupEnd()
-  console.log(`Base attributes for ${town.name} have loaded.`)
-  console.log(town)
+  lib.logger.closeGroup()
+  lib.logger.info(`Base attributes for ${town.name} have loaded.`)
+  lib.logger.info(town)
   return town
 }
 
 function assignSizeModifiers (town: TownBasics) {
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
+  lib.logger.info(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
 function assignEconomicModifiers (town: TownBasics) {
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+  lib.logger.info(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
 function assignPoliticalModifiers (town: TownBasics) {
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
+  lib.logger.info(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 

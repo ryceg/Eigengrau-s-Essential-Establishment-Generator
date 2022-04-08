@@ -6,7 +6,7 @@
 <<set $currentNPC to $npcs[$currentPassage.key]>>
 <<set $customImages to recall('customImages')>>
 <<set $currentImage to $currentPassage.customImage || null>>
-<<run console.groupCollapsed($currentNPC.name)>>
+<<run lib.logger.openGroup($currentNPC.name)>>
 <h1 class="interactive-only">
   <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
     $currentNPC.title

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 
+const isLoggingFlat = false
 const isLoggingEnabled = true
 
 export const logger = {
@@ -19,12 +20,12 @@ export const logger = {
     }
   },
   openGroup (label?: string) {
-    if (isLoggingEnabled) {
+    if (isLoggingEnabled && !isLoggingFlat) {
       console.group(label)
     }
   },
   closeGroup () {
-    if (isLoggingEnabled) {
+    if (isLoggingEnabled && !isLoggingFlat) {
       console.groupEnd()
     }
   }

@@ -209,7 +209,7 @@ export const death = {
 }
 
 export const createDeadNPC = (town: Town, base: Partial<DeadNPC> = {}): DeadNPC => {
-  console.groupCollapsed('Creating a dead NPC!')
+  lib.logger.openGroup('Creating a dead NPC!')
   const npc = setup.createNPC(town, base)
   lib.logger.info('RIP', npc.firstName)
   return npcDeath(town, npc, base)

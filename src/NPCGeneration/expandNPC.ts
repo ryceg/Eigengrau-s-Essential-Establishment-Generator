@@ -6,7 +6,7 @@ import { createRelationship } from './Relationships/createRelationship'
 import { getFamily } from './Relationships/getFamily'
 
 export const expandNPC = (town: Town, npc: NPC) => {
-  console.groupCollapsed(`Expanding ${npc.name}...`)
+  lib.logger.openGroup(`Expanding ${npc.name}...`)
   npc.hasHistory = true
   npc.isShallow = false
 
@@ -31,5 +31,5 @@ export const expandNPC = (town: Town, npc: NPC) => {
 
   createHistory(town, npc)
   createFriends(town, npc)
-  console.groupEnd()
+  lib.logger.closeGroup()
 }
