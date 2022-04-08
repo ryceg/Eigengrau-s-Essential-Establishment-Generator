@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { KeysMatching } from '../types'
 import { keys } from './utils'
 
@@ -20,15 +21,15 @@ export function findInContainer<T> (container: Record<string, T>) {
    * value is found inside of the array the key maps to.
    */
   return function findInside <K extends KeysWithValues<V>, V> (key: K, value: V) {
-    console.log('running findInContainer...')
-    console.log({ container, key, value })
+    logger.info('Running findInContainer...')
+    logger.info({ container, key, value })
 
     for (const object of keys(container)) {
       const nested = container[object]
       const values = nested[key] as unknown as Values<V>
 
       if (values?.includes(value)) {
-        console.log(`Found ${value} in ${object}`)
+        logger.info(`Found ${value} in ${object}`)
         return container[object]
       }
     }

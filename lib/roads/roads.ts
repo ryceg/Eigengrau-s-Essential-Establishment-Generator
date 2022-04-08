@@ -1,4 +1,4 @@
-
+import { logger } from '../logger'
 import { getBuildingRoad } from '../buildings/createBuilding'
 import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
 import { Building } from '../buildings/_common'
@@ -198,7 +198,6 @@ export const roads = {
       let allowableNumber = roads.width.capacity.find(number => {
         return road.rolls.width >= number[0]
       })
-      console.log(allowableNumber)
       if (!allowableNumber) allowableNumber = [0, 1]
       return allowableNumber[1]
     },
@@ -219,14 +218,13 @@ export const roads = {
   },
   material: {
     get (town: Town, road: Road): MaterialType {
-      console.log('Getting road material...')
+      logger.info('Getting road material...')
       // Creates a shallow copy of town.materialProbability so we don't mutate the original one.
       const tempMaterials = {
         ...town.materialProbability
       }
 
       for (const material of keys(tempMaterials)) {
-        console.log(material)
         if (tempMaterials[material].roadMaterialTypes == null) {
           delete tempMaterials[material]
           continue

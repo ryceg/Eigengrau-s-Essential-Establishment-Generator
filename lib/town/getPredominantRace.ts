@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { keys } from '../src/utils'
 import { sortArray } from '../src/sortArray'
 import { toTitleCase } from '../src/toTitleCase'
@@ -27,7 +28,7 @@ export function getPredominantRaceFromBase (baseDemographics: Record<RaceName, n
 }
 
 export function getPredominantRace (percentages: Record<RaceName, number>): PredominantRace {
-  console.log('Getting the predominant race...')
+  logger.info('Getting the predominant race...')
   if (!isPercentile(percentages)) {
     percentages = getRacesPercentile(percentages)
   }
