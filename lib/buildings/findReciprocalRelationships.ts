@@ -1,4 +1,5 @@
-import { Faction } from 'lib/faction/_common'
+import { logger } from '../logger'
+import { Faction } from '../faction/_common'
 import { NPC } from '../npc-generation/_common'
 import { Town } from '../town/_common'
 import { Building, ReciprocalRelationship } from './_common'
@@ -11,10 +12,11 @@ import { Building, ReciprocalRelationship } from './_common'
  * providing both will only find the index of that relationship
  */
 export function findReciprocalRelationships (town: Town, entity: Building | Faction | null, npc: NPC | null, target: 'building' | 'faction' | 'both' = 'both') {
-  console.groupCollapsed('findReciprocalRelationships')
+  logger.openGroup('findReciprocalRelationships')
 
   if (!town) {
-    console.error('Not enough parameters passed.')
+    logger.error('Not enough parameters passed.')
+    return []
   }
 
   let pool: ReciprocalRelationship[] = []
@@ -28,7 +30,9 @@ export function findReciprocalRelationships (town: Town, entity: Building | Fact
     default:
       pool = town.buildingRelations.concat(town.factionRelations)
   }
-  console.log('pool', pool)
+
+  logger.info('Relationship pool:', pool)
+
   const foundRelationships = pool.filter(relation => {
     if (entity && npc) {
       return relation.otherKey === entity.key && relation.npcKey === npc.key
@@ -42,8 +46,8 @@ export function findReciprocalRelationships (town: Town, entity: Building | Fact
     return false
   })
 
-  console.log('array', foundRelationships)
-  console.groupEnd()
+  logger.info('array', foundRelationships)
+  logger.closeGroup()
 
   return foundRelationships
 }

@@ -1,4 +1,4 @@
-
+import { logger } from '../logger'
 import { assign, getUUID, keys } from '../src/utils'
 import { random } from '../src/random'
 import { clampRolls } from '../src/clampRolls'
@@ -13,8 +13,7 @@ import { MaterialType, MaterialTypes } from './structureMaterialData'
 import { findBuilding } from './findBuilding'
 
 export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
-  console.log('Creating base building...')
-  console.log(base)
+  logger.info('Creating base building...', base)
 
   const building: Building = {
     key: getUUID(),
@@ -37,7 +36,6 @@ export function createBuilding (town: Town, type: BuildingTypeName, base: Partia
   clampRolls(building.roll)
 
   if (base.road) {
-    console.log('Road defined!')
     roads.addBuilding(town, town.roads[base.road], building)
   }
 
@@ -70,7 +68,6 @@ export function populateBuildingRolls (): BuildingRollsDefault {
 
 export function getBuildingRoad (building: Building, town: Town): Road {
   if (building.parentKey) {
-    console.log('Has a parent!')
     const parentBuilding: Building | undefined = findBuilding(town, building.parentKey)
     if (parentBuilding) return town.roads[parentBuilding.road]
   }

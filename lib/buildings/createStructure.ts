@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { assign } from '../src/utils'
 import { random } from '../src/random'
@@ -42,13 +43,11 @@ export function createStructure (town: Town, building: Building) {
     })
   }
 
-  console.log('before roof')
   // FIXME: structure.roof does not have a rolls record, and this cannot be used defineRollDataGetter.
   // defineRollDataGetter(structure.roof, structureData.roof.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
-  console.log('after roof')
+
   // FIXME: structure.material does not have a rolls record, and this cannot be used defineRollDataGetter.
   // defineRollDataGetter(structure.material, structureData.material.rollData.wealth.rolls, 'wealth', 'wealth', null, building.roll)
-  console.log('after material')
 
   assign(structure.material, {
     wealth: 'shabby'
@@ -68,8 +67,8 @@ export function createStructure (town: Town, building: Building) {
 
   structure.descriptor = random(descriptors)
 
-  console.log(structure)
-  console.groupEnd()
+  logger.info(structure)
+  logger.closeGroup()
 
   assign(building, {
     structure
@@ -78,7 +77,7 @@ export function createStructure (town: Town, building: Building) {
 
 function addUniqueDescriptor (descriptors: string[], description: string) {
   if (descriptors.includes(description)) {
-    console.log('Throwing out duplicate description...')
+    logger.warn('Throwing out duplicate description...')
     return
   }
   descriptors.push(description)
