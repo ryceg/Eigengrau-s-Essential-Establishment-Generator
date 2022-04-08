@@ -1,5 +1,5 @@
 
-import { logger } from 'lib/logger'
+import { logger } from '../logger'
 import { Building } from '../buildings/_common'
 import { townData } from '../town/townData'
 import { Town } from '../town/_common'

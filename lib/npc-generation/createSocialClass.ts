@@ -1,10 +1,10 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
-import { NPC } from './_common'
 import { socialClass, SocialClassName } from './socialClass'
 import { keys } from '../src/utils'
 import { findProfession } from '../src/findProfession'
 import { dice } from '../src/dice'
-import { logger } from 'lib/logger'
+import { NPC } from './_common'
 
 export function createSocialClass (town: Town, npc: NPC): void {
   logger.info('Creating social class...')

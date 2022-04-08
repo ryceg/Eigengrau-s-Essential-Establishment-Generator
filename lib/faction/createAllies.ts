@@ -1,8 +1,8 @@
+import { logger } from '../logger'
 import { dice, fm } from '../src/dice'
 import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
-import { logger } from 'lib/logger'
 
 export function createAllies (faction: Faction): void {
   logger.info('Finding faction allies...')

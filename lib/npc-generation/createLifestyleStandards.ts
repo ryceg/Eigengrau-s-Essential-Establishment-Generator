@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { Marriage, NPC } from './_common'
 import { findProfession } from '../src/findProfession'
@@ -7,7 +8,6 @@ import { wageVariation } from './npcFinances'
 import { articles } from '../src/articles'
 import { random } from '../src/random'
 import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
-import { logger } from '../logger'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
 
@@ -89,7 +89,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
   if (!note) note = [10, `${isHaving} modest success as`]
 
   npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${articles.find(npc.profession)} ${tippy}`
-  lib.logger.closeGroup()
+  logger.closeGroup()
 }
 
 export function createFamilyLifestyle (marriage: Marriage) {

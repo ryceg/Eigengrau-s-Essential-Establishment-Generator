@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const isFlat = false
-const isEnabled = true
+const isEnabled = false
 
 export const logger = {
   info (...values: unknown[]) {
