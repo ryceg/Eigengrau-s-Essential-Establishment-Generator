@@ -81,5 +81,5 @@ Religion-wise, $currentNPC.firstName is <<print lib.createTippyFull(lib.getRelig
 <<include "NPCEarlyLife">>
 <<include "NPCLifeEvents">>
 <<include "NPCRelationshipsTable">><</liveblock>>
-<<run lib.logger.info.closeGroup()>>
+<<run lib.logger.closeGroup()>>
 <<run lib.logger.info($currentNPC)>>

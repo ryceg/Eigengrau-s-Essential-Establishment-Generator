@@ -23,6 +23,6 @@
     <<run lib.logger.info('Done!')>>
     <<run lib.logger.info(_npc1, _npc2)>>
     <<run lib.logger.info(_temp)>>
-    <<runlib.logger.info.closeGroup()>>
+    <<run lib.logger.closeGroup()>>
     <<include "NPCSaveEdits">>
   <</button>>
