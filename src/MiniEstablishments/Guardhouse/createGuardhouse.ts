@@ -31,7 +31,7 @@ export const createGuardhouse = (town: Town, opts: Options) => {
   for (const propName of props) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    lib.defineRollDataGetter(guardhouse, lib.guardhouseRollData.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(guardhouse, lib.guardhouseRollData[propName].rolls, propName)
   }
   guardhouse.tippyDescription = `A ${guardhouse.wordNoun} whose guards are ${guardhouse.expertise}. It is known for ${guardhouse.notableFeature}`
   return guardhouse
