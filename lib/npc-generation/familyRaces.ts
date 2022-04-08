@@ -1,5 +1,6 @@
 // TODO: finish fixing TypeScript issues
 
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { RaceName } from './raceTraits'
 import { NPC } from './_common'
@@ -101,7 +102,7 @@ export function findParentRaces (npc: NPC) {
 }
 
 export function findChildRace (town: Town, motherRace: RaceName, fatherRace: RaceName): RaceName {
-  console.log(`Handling ${motherRace}+${fatherRace} marriage!`)
+  logger.info(`Handling ${motherRace}+${fatherRace} marriage!`)
 
   const races = [motherRace, fatherRace]
 
@@ -120,7 +121,6 @@ export function findChildRace (town: Town, motherRace: RaceName, fatherRace: Rac
     const halfbreeds = ['half-orc', 'half-elf', 'tiefling', 'dragonborn']
     if (races.find(race => halfbreeds.includes(race))) {
       const otherRace = races.find(race => race !== 'human')
-      console.log(races, otherRace)
       if (random(100) > 70) {
         return otherRace as RaceName
       }

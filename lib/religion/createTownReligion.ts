@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { logger } from '../logger'
 import { Town, TownRolls } from '../town/_common'
 import { Deity, DeityRank, Pantheon, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
@@ -27,9 +27,8 @@ export const rankProbabilities: Record<DeityRank, number> = {
 }
 
 const getDeityWeightFromRace = (town: Town, deity: Deity) => {
-  console.log(`Getting the weight for ${deity.name}`)
+  logger.info(`Getting the weight for ${deity.name}`)
   let probability = rankProbabilities[deity.rank] || 10
-  console.log(town)
   for (const key of Object.keys(town.demographicPercentile)) {
     const race = key as RaceName
     if (deity?.probabilityWeightings?.race?.[race]) {
@@ -42,7 +41,7 @@ const getDeityWeightFromRace = (town: Town, deity: Deity) => {
 
 /** Gets everything static- i.e. no user-intervention specific modifiers. */
 export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbackDeities(town)) => {
-  console.log('Getting unaltered town deity weightings...')
+  logger.info('Getting unaltered town deity weightings...')
   const weightings: Record<string, number> = {}
 
   for (const deity of deities) {
@@ -70,8 +69,7 @@ export const getUnalteredTownDeityWeightings = (town: Town, deities = getFallbac
 
 /** Modifies the town religion weights based on the user defined weights. */
 export const modifyTownWeights = (town: Town, weights: Record<string, number>, deities = getFallbackDeities(town)) => {
-  console.log('Modifying town weights...')
-  console.log(weights)
+  logger.info('Modifying town weights...')
   if (!town.religion._modifiers) town.religion._modifiers = {}
   for (const deity of deities) {
     if (!weights[deity.name]) {
@@ -80,22 +78,20 @@ export const modifyTownWeights = (town: Town, weights: Record<string, number>, d
     if (!town.religion._modifiers[deity.name]) town.religion._modifiers[deity.name] = 0
     weights[deity.name] = addIfDefined(town.religion._modifiers[deity.name], weights[deity.name])
   }
-  console.log(weights)
   return weights
 }
 /** The generic, user-facing one that gets _everything_; applies modifiers, runoffs, etc. */
 export const getTownDeityWeightings = (town: Town, deities = getFallbackDeities(town)) => {
-  console.groupCollapsed('Getting town deity weightings...')
+  logger.openGroup('Getting town deity weightings...')
   let weights = getUnalteredTownDeityWeightings(town, deities)
-  console.log('Got unaltered weights.')
-  console.log(weights)
+  logger.info('Got unaltered weights:', weights)
   weights = modifyTownWeights(town, weights, deities)
-  console.log('Clamping...')
+  logger.info('Clamping...')
   for (const entry in weights) {
     weights[entry] = weights[entry].clamp(0, 999999)
   }
-  console.log('Finished')
-  console.groupEnd()
+  logger.info('Finished')
+  logger.closeGroup()
   return weights
 }
 
@@ -137,7 +133,7 @@ export const gradeDeityWeightings = (temp: Record<string, number>) => {
 
 /** Compiles weight to a percentile */
 export const compileWeightToPercentile = (weights: Record<string, number>) => {
-  console.log('Compiling weights to percentile...')
+  logger.info('Compiling weights to percentile...')
   // Get an array of the demographic keys (race names).
   const deities = Object.keys(weights)
 

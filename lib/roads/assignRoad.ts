@@ -1,4 +1,5 @@
 
+import { logger } from 'lib/logger'
 import { Building } from '../buildings/_common'
 import { townData } from '../town/townData'
 import { Town } from '../town/_common'
@@ -10,7 +11,7 @@ import { Road, roads } from './roads'
  * Adds checks for road duplication; use this one for assigning to randomly generated buildings.
  */
 export function assignRoad (town: Town, building?: Building): Road {
-  console.groupCollapsed('Assigning a road...')
+  logger.openGroup('Assigning a road...')
   const road = getRoad(town)
 
   if (building) {
@@ -19,8 +20,8 @@ export function assignRoad (town: Town, building?: Building): Road {
 
   town.roads[road.key] = road
 
-  console.log(road)
-  console.groupEnd()
+  logger.info(road)
+  logger.closeGroup()
   return road
 }
 
