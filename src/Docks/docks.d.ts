@@ -1,7 +1,7 @@
 import { NPC } from '../../lib/npc-generation/_common'
+import { Docks, Ship } from '../../lib/docks/_common'
 import { Town } from '../../lib/town/_common'
 import { Customer } from '../setup'
-import { Docks, Ship } from './createDocks'
 
 export interface Setup {
   initDocks(): void
@@ -25,9 +25,6 @@ export interface Setup {
     }
     notableFeature: string[]
     notice: string[]
-    get: {
-      customers: Customer[]
-    }
     ships: {
       create(town: Town, docks: Docks, opts?: Partial<Ship>): Ship
       crew: {

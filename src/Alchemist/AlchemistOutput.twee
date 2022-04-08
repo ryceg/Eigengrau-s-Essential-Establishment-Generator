@@ -2,7 +2,7 @@
 :: AlchemistOutput [alchemist nobr]
 <<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-<<set $building.brew to lib.createAlchemy({ type: "brewing potion" })>><<set $currentPassage.availableRelationships to lib.alchemistData.get.customers>>
+<<set $building.brew to lib.createAlchemy({ type: "brewing potion" })>><<set $currentPassage.availableRelationships to lib.alchemistCustomers>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <span class='flex-line'><<button "Edit $building.name" $building.initPassage>><</button>></span>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You enter $building.name, <<print lib.articles.output($building.structure.alchemistDescriptor)>>. <<print lib.closestMatch(lib.alchemistData.get.lookAround($building), 'note', 'cleanliness', 'wealth', $building.roll.cleanliness, $building.roll.wealth)>> There is a chemist behind the shop counter currently <<print $associatedNPC.idle.random()>>.</p>

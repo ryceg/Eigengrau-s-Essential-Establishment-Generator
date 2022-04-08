@@ -2,7 +2,7 @@
 <<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentPassage.availableRelationships to lib.generalStore.get.customers>>
+<<set $currentPassage.availableRelationships to lib.generalStoreCustomers>>
 <span class='flex-line'><<button "Edit $building.name" $building.initPassage>><</button>></span>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span>
 <p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.structure.descriptor and see that inside, the $building.size building is $building.cleanliness.<<if $building.clutter>> $building.clutter<</if>> You notice $building.note. The store's shopkeep is currently $building.idle.</p>
