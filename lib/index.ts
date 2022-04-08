@@ -237,7 +237,8 @@ export * from './town/townData'
 export * from './town/townDemographics'
 export * from './town/townRender'
 export * from './town/updateTownSocioPolitics'
-
 export * from './town/townDemographics'
 export * from './town/getDemographicPercentile'
+
+export * from './logger'
 export * from './types'
