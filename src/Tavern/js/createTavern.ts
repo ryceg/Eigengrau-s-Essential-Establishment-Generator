@@ -135,7 +135,7 @@ export const createTavern = (town: Town, opts: Options = {}): Tavern => {
   const rollDataVariables = ['wealth', 'size', 'cleanliness', 'roughness', 'reputation']
   for (const propName of rollDataVariables) {
     // @ts-ignore
-    lib.defineRollDataGetter(tavern, setup.tavern.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(tavern, lib.tavernRollData[propName].rolls, propName)
   }
   // tavernRender(tavern)
   tavern.tippyDescription = `${lib.articles.output(tavern.size).toUpperFirst()} ${tavern.wordNoun} that's ${tavern.cleanliness}, and is known for ${tavern.notableFeature}.`
