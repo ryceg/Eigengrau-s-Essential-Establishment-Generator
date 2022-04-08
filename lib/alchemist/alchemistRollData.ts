@@ -1,4 +1,4 @@
-import { ThresholdTable } from 'lib/src/rollFromTable'
+import { ThresholdTable } from '../src/rollFromTable'
 import { constrainRecord } from '../src/constrainRecord'
 
 interface RollData {

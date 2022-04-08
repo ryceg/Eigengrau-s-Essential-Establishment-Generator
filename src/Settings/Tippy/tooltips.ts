@@ -23,7 +23,7 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${obj.titles[0]}, who is ${lib.articles.output(obj.rank)} in the pantheon.`)
         break
       default:
-        console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
+        lib.logger.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
     }
   } else {
     $(span).attr('data-tippy-content', obj.tippyDescription || obj.name)

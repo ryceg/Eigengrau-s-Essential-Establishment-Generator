@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { WeightRecord } from '../types'
 import { randomFloat } from './randomFloat'
 
@@ -20,7 +21,7 @@ export function weightRandom <T extends string> (specs: WeightRecord<T>): T {
     if (value <= sum) return prop
   }
 
-  console.error('Invalid random roll!')
+  logger.error('Invalid random roll!')
   return specsKeys[specsKeys.length - 1]
 }
 

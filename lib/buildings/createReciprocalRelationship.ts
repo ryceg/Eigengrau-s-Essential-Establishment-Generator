@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Faction } from '../faction/_common'
 import { DeadNPC, Namesake, NPC } from '../npc-generation/_common'
 import { assign, getUUID } from '../src/utils'
@@ -14,7 +15,7 @@ type Entity = Building | Faction | NPC | Namesake | DeadNPC
 
 export function createReciprocalRelationship (town: Town, entity: Entity, npc: Entity, options: Options) {
   if (!entity || !npc || !options) {
-    console.error('Not enough parameters passed.')
+    logger.error('Not enough parameters passed.')
   }
 
   const isBetweenSameEntityAndNPC = (relation: ReciprocalRelationship) => {
