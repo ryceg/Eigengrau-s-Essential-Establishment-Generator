@@ -2,13 +2,13 @@ details summary > * {
   display: inline;
 }
 
-details summary { 
+details summary {
   cursor: pointer;
 }
 
 @keyframes details-show {
   from {
-    opacity:0;
+    opacity: 0;
     transform: var(--details-translate, translateY(-0.5em));
   }
 }
@@ -21,8 +21,6 @@ details[open][data-tags~="nofx"] > *:not(summary) {
   animation: none;
 }
 
-
-
 summary::marker {
   display: none;
 }
@@ -32,10 +30,10 @@ summary:before {
   margin-right: 5px;
 }
 
-summary:before:not([data-tags~="nofx"])  {
-  transition: .6s ease-in-out;
+summary:before:not([data-tags~="nofx"]) {
+  transition: 0.6s ease-in-out;
 }
 
-details[open] summary::before { 
+details[open] summary::before {
   content: "–";
 }
