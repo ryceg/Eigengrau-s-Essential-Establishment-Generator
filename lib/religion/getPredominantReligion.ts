@@ -1,6 +1,6 @@
 import { sortArray } from '../src/sortArray'
-import { PredominantInfo } from '../../lib/town/getPredominantRace'
-import { Town } from '../../lib/town/_common'
+import { PredominantInfo } from '../town/getPredominantRace'
+import { Town } from '../town/_common'
 
 interface WorshipMakeup extends PredominantInfo {
   primaryDeity: string

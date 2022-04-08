@@ -1,4 +1,4 @@
-import { NPC } from 'lib/npc-generation/_common'
+import { NPC } from '../npc-generation/_common'
 import { Building } from './_common'
 
 export interface BuildingToCreate {

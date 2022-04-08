@@ -1,4 +1,4 @@
-import { Town } from '../../lib/town/_common'
+import { Town } from '../town/_common'
 import { NPC } from './_common'
 
 /**

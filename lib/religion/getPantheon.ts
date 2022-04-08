@@ -1,5 +1,5 @@
-import { findInArray } from '../../lib/src/findInArray'
-import { Town } from '../../lib/town/_common'
+import { findInArray } from '../src/findInArray'
+import { Town } from '../town/_common'
 import { compileWeightToPercentile, getFallbackPantheon, getTownDeityWeightings } from './createTownReligion'
 import { Deity, Pantheon, religion } from './religion'
 

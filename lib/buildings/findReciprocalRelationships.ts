@@ -1,4 +1,4 @@
-import { Faction } from 'lib/faction/_common'
+import { Faction } from '../faction/_common'
 import { NPC } from '../npc-generation/_common'
 import { Town } from '../town/_common'
 import { Building, ReciprocalRelationship } from './_common'
