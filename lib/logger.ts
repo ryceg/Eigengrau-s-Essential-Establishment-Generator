@@ -1,31 +1,31 @@
 /* eslint-disable no-console */
 
-const isLoggingFlat = false
-const isLoggingEnabled = true
+const isFlat = false
+const isEnabled = true
 
 export const logger = {
   info (...values: unknown[]) {
-    if (isLoggingEnabled) {
+    if (isEnabled) {
       console.log(...values)
     }
   },
   warn (...values: unknown[]) {
-    if (isLoggingEnabled) {
+    if (isEnabled) {
       console.warn(...values)
     }
   },
   error (...values: unknown[]) {
-    if (isLoggingEnabled) {
+    if (isEnabled) {
       console.error(...values)
     }
   },
   openGroup (label?: string) {
-    if (isLoggingEnabled && !isLoggingFlat) {
+    if (isEnabled && !isFlat) {
       console.group(label)
     }
   },
   closeGroup () {
-    if (isLoggingEnabled && !isLoggingFlat) {
+    if (isEnabled && !isFlat) {
       console.groupEnd()
     }
   }
