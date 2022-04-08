@@ -34,12 +34,12 @@ setup.createDocks = (town, opts = {}) => {
 
   const rollDataVariables = ['size', 'cleanliness', 'activity']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(docks, lib.dockRollData[propName].rolls, propName)
+    lib.defineRollDataGetter(docks, lib.docksRollData[propName].rolls, propName)
   }
 
-  lib.defineRollDataGetter(docks, lib.dockRollData.size.rolls, 'sizeDescriptive', 'size', 2)
-  lib.defineRollDataGetter(docks, lib.dockRollData.cleanliness.rolls, 'cleanlinessDescriptive', 'cleanliness', 2)
-  lib.defineRollDataGetter(docks, lib.dockRollData.activity.rolls, 'activityDescriptive', 'activity')
+  lib.defineRollDataGetter(docks, lib.docksRollData.size.rolls, 'sizeDescriptive', 'size', 2)
+  lib.defineRollDataGetter(docks, lib.docksRollData.cleanliness.rolls, 'cleanlinessDescriptive', 'cleanliness', 2)
+  lib.defineRollDataGetter(docks, lib.docksRollData.activity.rolls, 'activityDescriptive', 'activity')
   docks.tippyDescription = `${lib.articles.output(docks.wordNoun).toUpperFirst()} that's ${docks.size || docks._size}. It is ${docks.cleanliness || docks._cleanliness}, and is known for ${docks.notableFeature}.`
   setup.docks.ships.create(town, docks)
 
