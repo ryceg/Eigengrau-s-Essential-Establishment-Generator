@@ -9,7 +9,7 @@ interface Options {
 }
 
 export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel => {
-  console.log('Creating a brothel...')
+  lib.logger.info('Creating a brothel...')
   const brothel = (lib.createBuilding || opts.newBuilding)(town, 'brothel', opts as Partial<Brothel>)
 
   lib.assign(brothel, {
@@ -50,6 +50,6 @@ export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel 
     description: `Owns ${brothel.name}.`
   })
 
-  console.log(brothel)
+  lib.logger.info(brothel)
   return brothel as Brothel
 }

@@ -159,6 +159,6 @@ setup.raiderTables = {
 setup.createRaiders = function (town) {
   const raiderStory = setup.raiderTables.intro.create(town, { text: '' })
   // There are a lot of variables here that can be used in the future
-  console.log(raiderStory)
+  lib.logger.info(raiderStory)
   return raiderStory.text.toUpperFirst()
 }

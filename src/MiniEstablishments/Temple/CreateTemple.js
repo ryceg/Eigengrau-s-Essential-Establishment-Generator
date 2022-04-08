@@ -1,5 +1,5 @@
 setup.createTemple = (town, opts = {}) => {
-  console.log('Creating a temple...')
+  lib.logger.info('Creating a temple...')
 
   const temple = (opts.newBuilding || lib.createBuilding)(town, 'temple', opts)
   const data = setup.temple
