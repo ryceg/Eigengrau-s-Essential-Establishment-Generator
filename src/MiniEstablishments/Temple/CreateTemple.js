@@ -2,7 +2,7 @@ setup.createTemple = (town, opts = {}) => {
   console.log('Creating a temple...')
 
   const temple = (opts.newBuilding || lib.createBuilding)(town, 'temple', opts)
-  const data = setup.temple
+  const data = lib.templeData
 
   const npc = setup.createNPC(town, {
     profession: lib.random(['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid']),
