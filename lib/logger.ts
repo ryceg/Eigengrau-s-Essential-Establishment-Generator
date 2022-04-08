@@ -12,9 +12,14 @@ export const logger = {
       console.warn(...values)
     }
   },
-  openGroup () {
+  error (...values: unknown[]) {
     if (isEnabled) {
-      console.group()
+      console.error(...values)
+    }
+  },
+  openGroup (label?: string) {
+    if (isEnabled) {
+      console.group(label)
     }
   },
   closeGroup () {
