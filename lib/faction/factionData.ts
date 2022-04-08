@@ -24,6 +24,7 @@ import { scholars } from './factions/scholars'
 import { seers } from './factions/seers'
 import { thieves } from './factions/thieves'
 import { wizards } from './factions/wizards'
+
 interface FactionData {
   rollData: {
     reputation: {
@@ -52,6 +53,7 @@ export interface ResourceType {
 interface ResourceForm {
   rolls: ThresholdTable
 }
+
 export interface FactionTypeData {
   leader: Leader
   type: string

@@ -18,12 +18,6 @@ interface CastleData {
     types: CastleRulerType
   }
   lookingFor(town: Town): string
-  rollData: {
-    condition: string[]
-    age: string[]
-    size: ThresholdTable,
-    landSize: ThresholdTable
-  }
   dungeon: {
     jailer: {
       base: {

@@ -32,7 +32,7 @@ export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel 
   const rollDataVariables = ['wealth', 'size', 'cleanliness'] as const
   for (const propName of rollDataVariables) {
     // @ts-ignore
-    lib.defineRollDataGetter(brothel, brothelData.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(brothel, lib.brothelRollData[propName].rolls, propName)
   }
   brothel.associatedNPC = createNPC(town, {
     ...brothelData.pimp[brothel.owner],

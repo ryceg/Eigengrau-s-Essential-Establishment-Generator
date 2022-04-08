@@ -4,43 +4,6 @@ import { Tavern } from '../../../lib/tavern/_common'
 interface Setup {
   initTavernData(): void
   tavern: {
-    rollData: {
-      wealth: {
-        description: string
-        preceding: string
-        rolls: [number, string, number][]
-      }
-      size: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      cleanliness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      bedCleanliness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      roughness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      reputation: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      sin: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-    }
     games: TavernGame[]
     stageDescriptor: string[]
     fun: string[]

@@ -1,6 +1,6 @@
 import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { fm } from '../src/dice'
-import { factionData } from './factionData'
+import { factionRollData } from './factionRollData'
 import { Faction } from './_common'
 
 export function setFactionReputation (faction: Faction): void {
@@ -38,5 +38,5 @@ function getAgeModifier (faction: Faction): number {
 }
 
 function getFactionReputation (roll: number): string {
-  return getRolledFromTable(factionData.rollData.reputation.rolls, roll) || 'average'
+  return getRolledFromTable(factionRollData.reputation.rolls, roll) || 'average'
 }
