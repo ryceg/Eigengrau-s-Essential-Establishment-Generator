@@ -1,5 +1,3 @@
-import './sentry'
-
 export * from './alchemist/_common'
 export * from './alchemist/alchemistCustomers'
 export * from './alchemist/alchemistData'

@@ -33,5 +33,10 @@ module.exports = [
     input: 'lib/index.ts',
     plugins,
     output: { format: 'iife', file: './gh-pages/main.js', name: 'lib', sourcemap: true }
+  },
+  {
+    input: 'lib/sentry.ts',
+    plugins,
+    output: { format: 'iife', file: './gh-pages/sentry.js', sourcemap: true }
   }
 ]
