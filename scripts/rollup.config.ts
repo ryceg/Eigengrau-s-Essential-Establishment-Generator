@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// TODO: Replace this until "rollup-plugin-esbuild" fixes their sourcemap issues.
-const esbuild = require('rollup-plugin-esbuild-transform')
-const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const commonjs = require('@rollup/plugin-commonjs')
+import { Plugin, RollupOptions } from 'rollup'
+// TODO: Replace this when "rollup-plugin-esbuild" fixes their sourcemap issues.
+import esbuild, { Options } from 'rollup-plugin-esbuild-transform'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
 
-const sharedOptions = {
-  exclude: undefined,
+const sharedOptions: Options = {
   minify: isProduction,
   target: 'es2016',
   define: {
@@ -17,17 +16,16 @@ const sharedOptions = {
   }
 }
 
-const plugins = [
-  // json(),
+const plugins: Plugin[] = [
   esbuild([
     { loader: 'json', ...sharedOptions },
     { loader: 'ts', ...sharedOptions }
   ]),
   nodeResolve({ browser: true }),
-  commonjs({ extensions: ['.js', '.ts', '.json'] })
+  commonjs({ extensions: ['.js', '.json'] })
 ]
 
-module.exports = [
+export const configs: RollupOptions[] = [
   {
     input: 'src/main.ts',
     plugins,

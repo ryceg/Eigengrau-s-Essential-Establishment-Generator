@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es2015",
     "strict": true,
     "sourceMap": true,
@@ -18,6 +18,9 @@
   "typedocOptions": {
     "entryPoints": ["global.d.ts", "sugarcube.d.ts", "src/setup.d.ts", "lib/index.ts"],
     "out": "gh-pages/docs",
+  },
+  "ts-node": {
+    "transpileOnly": true
   },
   "exclude": ["node_modules", "gh-pages"]
 }

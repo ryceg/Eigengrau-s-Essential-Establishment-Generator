@@ -1,12 +1,11 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const chalk = require('chalk')
+import path from 'path'
+import chalk from 'chalk'
 
 // Folder to store the twine-related dependencies in.
 const twineFolder = path.resolve(__dirname, '..', '.twine')
 
-module.exports = {
+export default {
   // Useful paths.
   twineFolder,
   tweegoZip: path.resolve(twineFolder, 'tweego.zip'),
@@ -36,19 +35,19 @@ module.exports = {
   logClear () {
     console.clear()
   },
-  logError (...args) {
+  logError (...args: unknown[]) {
     console.log(chalk.red(...args))
   },
-  logWarning (...args) {
+  logWarning (...args: unknown[]) {
     console.log(chalk.yellow(...args))
   },
-  logAction (...args) {
+  logAction (...args: unknown[]) {
     console.log(chalk.blue(...args))
   },
-  logInfo (...args) {
+  logInfo (...args: unknown[]) {
     console.log(chalk.grey(...args))
   },
-  logSuccess (...args) {
+  logSuccess (...args: unknown[]) {
     console.log(chalk.green(...args))
   }
 }

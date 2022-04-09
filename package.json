@@ -16,7 +16,7 @@
   "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
   "scripts": {
     "install-compiler": "node scripts/install-compiler",
-    "build": "cross-env NODE_ENV=production node scripts/build",
+    "build": "cross-env NODE_ENV=production ts-node scripts/build",
     "start": "node scripts/build --watch",
     "test": "jest",
     "lint": "eslint \"**/*.{js,ts}\"",
@@ -64,6 +64,7 @@
     "rollup": "^2.36.1",
     "rollup-plugin-esbuild-transform": "^1.3.2",
     "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3",
     "yauzl": "^2.10.0"
   },
