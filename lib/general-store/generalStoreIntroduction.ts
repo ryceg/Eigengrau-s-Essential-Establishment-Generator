@@ -1,4 +1,5 @@
 import { Town } from '../town/_common'
+import { createTippyFull } from '../src/tippy'
 import { generalStore } from './generalStoreData'
 import { GeneralStore } from './_common'
 
@@ -11,7 +12,7 @@ export function getGeneralStoreIntroduction (town: Town, building: GeneralStore)
 
   const road = town.roads[building.road]
 
-  result.push(`You make your way down ${lib.createTippyFull(road.description, road.name)}, and enter ${building.structure.descriptor} and see that inside, the ${building.size} building is ${building.cleanliness}.`)
+  result.push(`You make your way down ${createTippyFull(road.description, road.name)}, and enter ${building.structure.descriptor} and see that inside, the ${building.size} building is ${building.cleanliness}.`)
 
   result.push(getGeneralStoreCrud(building))
 
