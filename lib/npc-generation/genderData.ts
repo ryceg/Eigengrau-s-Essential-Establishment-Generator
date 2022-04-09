@@ -1,8 +1,8 @@
-import { Town } from '../town/_common'
-import { random } from '../src/random'
 import { NPC } from '../npc-generation/_common'
+import { random } from '../src/random'
+import { has, isObject } from '../src/utils'
+import { Town, TownBasics } from '../town/_common'
 import jsonData from './gender.data.json'
-import { isObject, has } from '../src/utils'
 
 // @TODO: There are `GenderName.length` genders, but town data does not
 // reflect the randomness to generate N genders. In practice everything
@@ -61,7 +61,7 @@ export function getNpcGender (town: Town, npc: Partial<NPC>): GenderName {
     : getOppositeGender(town.dominantGender)
 }
 
-export function getRandomGender (town: Town): GenderName {
+export function getRandomGender (town: TownBasics): GenderName {
   const genderRoll = random(1, 100)
   if (genderRoll <= town.roll.genderMakeup) {
     return town.dominantGender

@@ -14,8 +14,6 @@ export function createTownName (town?: TownBasics | Town) {
   if (random(100) > 90) {
     console.log('Named a founder!')
     if (town) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       const npc = createNamesake(town, { note: 'The namesake of the town.' })
 
       name = random([npc.firstName, npc.lastName]) + random(suffix)
