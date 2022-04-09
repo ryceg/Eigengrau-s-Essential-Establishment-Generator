@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from '../Tools/profile'
-import { factionsForType } from '../Tools/factionsForType'
-import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
 import { createNPC } from '../NPCGeneration/createNPC'
+import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
+import { factionsForType } from '../Tools/factionsForType'
+import { profile } from '../Tools/profile'
 
 export const plothooks = [
   {
@@ -549,8 +549,7 @@ export const plothooks = [
         hasClass: false,
         background: lib.random(['noble', 'commoner'])
       })
-      // @ts-ignore
-      return `${profile(npc, 'Merchant')} looking for armed security to escort us to ${setup.createTownName()}.`
+      return `${profile(npc, 'Merchant')} looking for armed security to escort us to ${lib.createTownName()}.`
     }
   },
   {
@@ -579,8 +578,7 @@ export const plothooks = [
       const npc = createNPC(town, {
         hasClass: false
       })
-      // @ts-ignore
-      return `The town of ${setup.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(npc)} for details.`
+      return `The town of ${lib.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(npc)} for details.`
     }
   },
   {

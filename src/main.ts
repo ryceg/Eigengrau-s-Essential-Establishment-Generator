@@ -36,7 +36,6 @@ import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { createTownBiome } from './Town/js/createTownBiome'
-import { createTownName } from './Town/js/createTownName'
 import { createTown } from './Town/js/createTown'
 import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
@@ -107,7 +106,6 @@ declare global {
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
     createTownBiome: typeof createTownBiome
-    createTownName: typeof createTownName
     createTown: typeof createTown
     findViaKey: typeof findViaKey
     findIfExistsViaKey: typeof findIfExistsViaKey

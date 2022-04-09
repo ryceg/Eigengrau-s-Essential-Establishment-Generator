@@ -1,4 +1,4 @@
-// uses setup.createTownName, setup.townDemographics
+// uses setup.townDemographics
 
 import { Biome, EconomicIdeology, PoliticalSource, RaceName, Seasons, Town, TownBasics, TownRolls, TownType } from '@lib'
 
@@ -81,7 +81,7 @@ export const createTownBiome = (base: Partial<Town> = {}): TownBasics => {
   assignPoliticalModifiers(town)
 
   lib.clampRolls(town.roll)
-  town.name = setup.createTownName(town)
+  town.name = lib.createTownName(town)
   lib.logger.closeGroup()
   lib.logger.info(`Base attributes for ${town.name} have loaded.`)
   lib.logger.info(town)

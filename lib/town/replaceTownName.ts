@@ -1,8 +1,8 @@
-import { Town } from './_common'
+import { Town, TownBasics } from './_common'
 
-export function replaceTownName (town: Town, driftName = town.name): void {
-  if (town.buildings) replaceBuildingNames(town, driftName)
-  if (town.factions) replaceFactionNames(town, driftName)
+export function replaceTownName (town: TownBasics | Town, driftName = town.name): void {
+  if ('buildings' in town) replaceBuildingNames(town, driftName)
+  if ('factions' in town) replaceFactionNames(town, driftName)
 }
 
 /**

@@ -219,6 +219,7 @@ export * from './temple/templeRollData'
 export * from './temple/templeData'
 
 export * from './town/_common'
+export * from './town/createTownName'
 export * from './town/getDemographicPercentile'
 export * from './town/getGuardFunding'
 export * from './town/getPolice'
