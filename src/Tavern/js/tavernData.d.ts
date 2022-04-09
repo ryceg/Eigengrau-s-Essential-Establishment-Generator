@@ -1,5 +1,4 @@
-import { Town } from '../../../lib/town/_common'
-import { Tavern } from '../../../lib/tavern/_common'
+import { Town, Tavern } from '@lib'
 
 interface Setup {
   initTavernData(): void

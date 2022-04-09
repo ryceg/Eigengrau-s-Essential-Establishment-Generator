@@ -1,4 +1,4 @@
-import { Town } from '../../../lib/town/_common'
+import { Town } from '@lib'
 
 interface Setup {
   createTownSquare(town: Town, opts?: Partial<TownSquareOptions>): unknown

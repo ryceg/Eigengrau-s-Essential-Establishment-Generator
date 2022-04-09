@@ -1,5 +1,4 @@
-import { GeneralStore } from '../../../lib/general-store/_common'
-import { Town } from '../../../lib/town/_common'
+import { GeneralStore, Town } from '@lib'
 
 interface Setup {
   createGeneralStoreName(town: Town, generalStore?: Partial<GeneralStore>): string

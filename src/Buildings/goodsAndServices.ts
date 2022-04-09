@@ -1,5 +1,4 @@
-import { Town } from '../../lib/town/_common'
-import { Building } from '../../lib/buildings/_common'
+import { Town, Building } from '@lib'
 
 interface GoodsAndServices {
   default: {

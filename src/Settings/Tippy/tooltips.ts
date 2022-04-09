@@ -1,5 +1,4 @@
 import { NPC, Building, Town, RaceName, getRacesPercentile } from '@lib'
-import { isPercentile } from '../../../lib/town/isPercentile'
 
 export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
@@ -134,7 +133,7 @@ export const createPercentageTooltip = (source: HTMLElement, target: string, con
 }
 
 export function createRaceHTML (percentages: Record<RaceName, number>, target: string, content?: string) {
-  if (!isPercentile(percentages)) {
+  if (!lib.isPercentile(percentages)) {
     percentages = getRacesPercentile(percentages)
   }
   const array = lib.sortArray(percentages).reverse()

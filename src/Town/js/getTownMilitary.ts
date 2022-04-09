@@ -1,8 +1,7 @@
-import { getPolice } from '../../../lib/town/getPolice'
-import { Town } from '../../../lib/town/_common'
+import { Town } from '@lib'
 
 export function getTownMilitary (town: Town): string {
-  const police = getPolice(town.factions)
+  const police = lib.getPolice(town.factions)
   const roll = town.roll.military
 
   if (police.type === 'guards') {
