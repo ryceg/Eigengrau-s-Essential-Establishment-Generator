@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { createNamesake } from '../npc-generation/createNamesake'
 import { raceTraits } from '../npc-generation/raceTraits'
 import { linguisticDrift } from '../src/linguisticDrift'
@@ -12,7 +13,7 @@ export function createTownName (town?: TownBasics | Town) {
   let name: string
 
   if (random(100) > 90) {
-    console.log('Named a founder!')
+    logger.info('Named a founder!')
     if (town) {
       const npc = createNamesake(town, { note: 'The namesake of the town.' })
 
