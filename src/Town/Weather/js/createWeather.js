@@ -68,12 +68,6 @@ setup.createWeather = (town, biome, weather) => {
         precipitation: random(1, 100),
         cloud: random(1, 100)
       },
-      readout: {
-        precipitation: '',
-        cloud: '',
-        temperature: '',
-        full: ''
-      },
       precipitation: '',
       cloudIntensity: '',
       precipitationLevel: seasonData.precipitationLevel,
