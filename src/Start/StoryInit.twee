@@ -1,6 +1,6 @@
 
 :: StoryInit
-<<run console.log("Hello world!")>>
+<<run lib.logger.info("Hello world!")>>
 <<run setup.urlSeed()>>
 <<run setup.init()>>
 

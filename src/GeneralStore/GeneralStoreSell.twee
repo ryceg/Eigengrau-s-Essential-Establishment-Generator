@@ -1,5 +1,5 @@
 :: generalStoreSell
-<<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive"><<run console.log("BUILDING:")>><<run console.log($building)>>
+<<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive"><<run lib.logger.info("BUILDING:")>><<run lib.logger.info($building)>>
 <<switch $town.type>>
   <<case "city">>
   $associatedNPC.name smiles, and says "You're looking to buy something? Name it, here at $building.name, we stock everything the average man could possibly need!

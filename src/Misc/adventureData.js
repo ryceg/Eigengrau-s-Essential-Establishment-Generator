@@ -43,7 +43,7 @@ setup.adventure = {
       goal: adventureLocation[goalKey](town, adventure)
     })
 
-    console.log(adventure)
+    lib.logger.info(adventure)
     return adventure
   },
   location: {

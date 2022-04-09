@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { randomFloat } from './randomFloat'
 
@@ -19,8 +20,8 @@ const DEFAULT_PROBABILITY = 10
  * defaultProbability is the optional default unit. You won't usually need to supply this.
  */
 export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, output = 'function') => {
-  console.groupCollapsed('Running a weighted random search...')
-  console.log({ args, obj, exclusionFunction, output })
+  logger.openGroup('Running a weighted random search...')
+  logger.info({ args, obj, exclusionFunction, output })
 
   const pool = []
 
@@ -68,8 +69,8 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
     }
   }
 
-  console.log(selected)
-  console.groupEnd()
+  logger.info(selected)
+  logger.closeGroup()
 
   if (typeof selected === 'undefined') {
     throw new Error('Selected is not defined.')
@@ -87,11 +88,11 @@ export const weightedRandomFetcher: WRF = (town, args, obj, exclusionFunction, o
 
   if (typeof property === 'function') {
     const value = property(town, obj)
-    console.log(value)
+    logger.info(value)
     return value
   }
 
-  console.log(property)
+  logger.info(property)
   return property
 }
 

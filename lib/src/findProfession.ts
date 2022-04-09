@@ -3,6 +3,7 @@ import { NPC } from '../npc-generation/_common'
 import { professions } from '../npc-generation/professions'
 import { fetchProfessionChance } from '../npc-generation/fetchProfessionChance'
 
+import { logger } from '../logger'
 import { findInContainer } from './findInContainer'
 
 export function findProfession (town: Town, npc: NPC, professionName?: string) {
@@ -18,27 +19,20 @@ export function findProfession (town: Town, npc: NPC, professionName?: string) {
     throw new Error('Could not find a profession name.')
   }
 
-  // console.groupCollapsed(`running findProfession for ${npc.name}; looking for ${articles.output(professionName)}`)
-  // console.log({ town, npc, professionName })
-
   const profession = professions[professionName]
 
   if (profession) {
-    // console.log(`${professionName} is defined!`)
-    console.groupEnd()
     return profession
   }
 
-  console.log(`could not find ${professionName}. Looking for synonyms...`)
+  logger.info(`Could not find ${professionName}. Looking for synonyms...`)
   const found = findInContainer(professions)('synonyms', professionName)
 
   if (typeof found === 'undefined') {
-    console.error(`${professionName} not found!`)
-    console.groupEnd()
+    logger.error(`${professionName} not found!`)
     return professions.peasant
   }
 
-  console.log('Found a synonym:', found)
-  console.groupEnd()
+  logger.info('Found a synonym:', found)
   return found
 }

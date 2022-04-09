@@ -129,12 +129,11 @@ const familyUnits: Record<string, FamilyUnit> = {
 }
 
 export const createHistory = (town: Town, npc: NPC) => {
-  console.log(`creating history for ${npc.name}...`)
+  lib.logger.info(`Creating history for ${npc.name}...`)
   npc.knewParents = lib.knewParents(town, npc)
   if (!npc.birthplace) npc.birthplace = lib.rollFromTable(birthplaceTable, 100)
 
   const parentMarriage = town.families[npc.family].members[npc.key].parentMarriage
-  console.log(parentMarriage)
 
   npc.siblingNumber = parentMarriage
     ? parentMarriage.children.length - 1

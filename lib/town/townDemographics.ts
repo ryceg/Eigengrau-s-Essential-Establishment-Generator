@@ -1,13 +1,14 @@
 // TODO: finish fixing TypeScript issues
-import { Town, TownBasics } from './_common'
-import { townData } from './townData'
+import { logger } from '../logger'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
 import { RaceName } from '../npc-generation/raceTraits'
 import { calcPercentage } from '../src/calcPercentage'
 import { keys } from '../src/utils'
+import { Town, TownBasics } from './_common'
+import { townData } from './townData'
 
 export function townDemographics (town: TownBasics) {
-  console.log(`Creating ${town.type} demographics.`)
+  logger.info(`Creating ${town.type} demographics.`)
   const townType = townData.type[town.type]
   town.baseDemographics = weightedRandomFetcher(town as Town, townType.demographics(), undefined, undefined, 'popPercentages') as Record<RaceName, number>
 }

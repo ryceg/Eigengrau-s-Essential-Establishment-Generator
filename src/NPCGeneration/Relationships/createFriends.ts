@@ -13,7 +13,7 @@ interface Friend {
 }
 
 export const createFriends = (town: Town, npc: NPC) => {
-  console.groupCollapsed(`${npc.name} is making some friends...`)
+  lib.logger.openGroup(`${npc.name} is making some friends...`)
   let friendsNumber = Math.round((npc.roll.gregariousness / 3) + 1)
   const professionData = lib.professions[npc.profession]
 
@@ -136,16 +136,14 @@ export const createFriends = (town: Town, npc: NPC) => {
   }
 
   if (professionData.relationships) {
-    console.log('Merging relationship sources! Before:')
-    console.log(friendsTypes)
+    lib.logger.info('Merging relationship sources! Before:', friendsTypes)
     const moreRelationships = professionData.relationships(town, npc)
     Object.assign(friendsTypes, moreRelationships)
-    console.log('After:')
-    console.log(friendsTypes)
+    lib.logger.info('After:', friendsTypes)
   }
 
   const createNewFriend = (town: Town, npc: NPC, friendsTypes: Record<string, Friend>) => {
-    console.log('Creating a new friend!')
+    lib.logger.info('Creating a new friend!')
 
     const friendObj = lib.weightedRandomFetcher(town, friendsTypes, npc, undefined, 'object') as Friend
     const friend = createNPC(town, friendObj.base)
@@ -160,20 +158,20 @@ export const createFriends = (town: Town, npc: NPC) => {
       continue
     }
 
-    console.log('Finding an already existing NPC for a friend!')
+    lib.logger.info('Finding an already existing NPC for a friend!')
     let friend = findFriendOfSameSocialClass(town, State.variables.npcs, npc)
     if (typeof friend === 'undefined') {
-      console.log(`Nobody was in the same caste as ${npc.name}`)
+      lib.logger.info(`Nobody was in the same caste as ${npc.name}`)
       friend = findFriendInSameProfessionSector(town, State.variables.npcs, npc)
     }
     if (typeof friend === 'undefined') {
-      console.log(`Nobody was in the same profession sector as ${npc.name}`)
+      lib.logger.info(`Nobody was in the same profession sector as ${npc.name}`)
       createNewFriend(town, npc, friendsTypes)
       continue
     }
   }
 
-  console.groupEnd()
+  lib.logger.closeGroup()
 }
 
 function basicFilterNpc (town: Town, npc: NPC, otherNpc: NPC) {
@@ -182,11 +180,11 @@ function basicFilterNpc (town: Town, npc: NPC, otherNpc: NPC) {
 }
 
 function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc: NPC) {
-  console.log('Looking for a friend of the same social class...')
+  lib.logger.info('Looking for a friend of the same social class...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.socialClass === npc.socialClass
   })
-  console.log('friend:', friend)
+  lib.logger.info('Friend:', friend)
   if (typeof friend === 'object') {
     const relationships = lib.socialClass[npc.socialClass].relationships(npc, friend)
     // @ts-ignore
@@ -198,7 +196,7 @@ function findFriendOfSameSocialClass (town: Town, npcs: Record<string, NPC>, npc
 }
 
 function findFriendInSameProfessionSector (town: Town, npcs: Record<string, NPC>, npc: NPC) {
-  console.log('Looking for a friend of the same profession sector...')
+  lib.logger.info('Looking for a friend of the same profession sector...')
   const friend = Object.values(npcs).find(otherNpc => {
     return basicFilterNpc(town, npc, otherNpc) && otherNpc.professionSector === npc.professionSector
   })

@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { getBuildingTier } from '../buildings/createBuilding'
 import { articles } from '../src/articles'
 import { toTitleCase } from '../src/toTitleCase'
@@ -12,9 +13,8 @@ import { roadTypes, RoadData } from './roadTypes'
 
 export function createRoad (town: Town, opts?: Partial<Road>): Road {
   // ______ is a ${width} ${type}. It is ${material} which ${is named after | road description }.
-  console.log('Creating a road...')
+  logger.info('Creating a road...')
   const roadPrefix = createRoadName(town)
-  console.log('Finding a type...')
   const type = weightedRandomFetcher(town, roadTypes, null, undefined, 'object') as RoadData
   const feature = getRoadFeatures(type)
 

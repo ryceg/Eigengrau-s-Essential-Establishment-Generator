@@ -1,6 +1,6 @@
 // uses setup.createNPC, setup.createCastleName, setup.createCastlePopulation, setup.createDungeon
 setup.createCastle = (town, opts = {}) => {
-  console.groupCollapsed('Creating a castle...')
+  lib.logger.openGroup('Creating a castle...')
   const castle = lib.createBuilding(town, 'castle', opts)
   const data = setup.castle
   Object.assign(castle, {
@@ -24,7 +24,7 @@ setup.createCastle = (town, opts = {}) => {
   castle.lookingFor = setup.castle.lookingFor(town, castle)
 
   castle.name = castle.name || lib.createCastleName(town, castle)
-  console.log(`Created the castle ${castle.name}`)
+  lib.logger.info(`Created the castle ${castle.name}`)
   castle.dungeon = setup.createDungeon(town, { opts, parentKey: castle.key })
   lib.createReciprocalRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'workplace' })
   castle.dungeon.passageName = 'CastleOutput'
@@ -43,7 +43,7 @@ setup.createCastle = (town, opts = {}) => {
   lib.createReciprocalRelationship(town, castle, castle.dungeon.associatedNPC, { relationship: 'jailer', reciprocalRelationship: 'place of employment' })
 
   setup.createCastlePopulation(town, castle, opts)
-  console.groupEnd()
-  console.log(castle)
+  lib.logger.info(castle)
+  lib.logger.closeGroup()
   return castle
 }

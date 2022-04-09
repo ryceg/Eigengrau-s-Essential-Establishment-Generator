@@ -1,9 +1,10 @@
+import { logger } from '../logger'
 import { random } from '../src/random'
 import { terrain } from '../src/terrain'
 
 export function getTownMaterial (startLocationMaterials: string[], wealth: number, size: number): string {
   if (!startLocationMaterials) {
-    console.error('Main town building material has not initialized!')
+    logger.error('Main town building material has not initialized!')
     startLocationMaterials = terrain.temperate.location.plains.possibleMaterials
   }
 

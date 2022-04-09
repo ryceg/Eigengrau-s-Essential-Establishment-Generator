@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from './_common'
 
 export function getTaxRate (town: Town) {
@@ -8,7 +9,7 @@ export function getTaxRate (town: Town) {
       totalTax += tax
       continue
     }
-    console.log('non-integer tax!', town.taxes[tax])
+    logger.error('Non-integer tax!', town.taxes[tax])
   }
   return Math.round(totalTax * 100) / 100
 }

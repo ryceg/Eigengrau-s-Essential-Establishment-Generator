@@ -6,7 +6,7 @@ interface Modifiable {
  * Gets the price modifier.
  */
 export const getPriceMod = (priceModSource: number | Modifiable): number => {
-  console.log(priceModSource)
+  lib.logger.info(priceModSource)
   if (typeof priceModSource === 'object' && typeof priceModSource.priceModifier === 'number') {
     return 1 - (priceModSource.priceModifier / 100)
   }

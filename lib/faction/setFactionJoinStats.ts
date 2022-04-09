@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { assign, sumWeights } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
@@ -5,7 +6,7 @@ import { factionData } from './factionData'
 import { weightRandom } from '../src/weightRandom'
 
 export function setFactionJoinStats (faction: Faction): void {
-  console.log('determining joining stats...')
+  logger.info('Determining joining stats...')
 
   const defaultWeightedJoiningRequirement = {
     'a display of bravery': 1,

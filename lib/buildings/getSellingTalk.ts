@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { NPC } from '../npc-generation/_common'
 import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { TownType } from '../town/townData'
@@ -62,14 +63,14 @@ export function getSellingTalk (town: Town, building: Building, associatedNPC: N
   const buildingTalkType = talk[building.type]
 
   if (typeof buildingTalkType === 'undefined') {
-    console.error(`No building type of ${building.type} for selling chat!`)
+    logger.error(`No building type of ${building.type} for selling chat!`)
     return "What is it you're looking for?"
   }
 
   const wealthTable = buildingTalkType.wealth[town.type]
 
   if (typeof wealthTable === 'undefined') {
-    console.error(`No town type of ${town.type} for selling chat for ${building.type}!`)
+    logger.error(`No town type of ${town.type} for selling chat for ${building.type}!`)
     return buildingTalkType.default
   }
 

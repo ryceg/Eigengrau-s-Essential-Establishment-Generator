@@ -4,12 +4,12 @@ import type { NPC, Town } from '@lib'
 import { createNPC } from './createNPC'
 
 export const checkRaces = (town: Town, npcs: Record<string, NPC>): Record<string, NPC> => {
-  console.groupCollapsed('Validating race data...')
+  lib.logger.openGroup('Validating race data...')
   for (const key of lib.keys(npcs)) {
     checkRace(town, npcs, key)
   }
-  console.log('npcs:', npcs)
-  console.groupEnd()
+  lib.logger.info('npcs:', npcs)
+  lib.logger.closeGroup()
   return npcs
 }
 
@@ -17,9 +17,9 @@ function checkRace (town: Town, npcs: Record<string, NPC>, npcKey: string) {
   const npc = npcs[npcKey]
   const isValidGender = lib.isValidNPCGender(town, npc)
   const race = lib.fetchRace(town)
-  console.log(npc.race, 'to a', race)
+  lib.logger.info(npc.race, 'to a', race)
   if (npc.race !== race || !isValidGender) {
-    console.log(`${npc.name}'s race or gender now does not match! Changing ${npc.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
+    lib.logger.info(`${npc.name}'s race or gender now does not match! Changing ${npc.himher} from ${lib.articles.output(npc.race)} to ${lib.articles.output(race)}...`)
 
     npcs[npcKey] = createNPC(town, {
       race,

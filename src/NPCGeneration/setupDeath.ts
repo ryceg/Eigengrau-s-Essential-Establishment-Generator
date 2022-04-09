@@ -66,7 +66,7 @@ export const death = {
         return lib.findProfession(town, npc).sector === 'arts'
       },
       function (town: Town, npc: DeadNPC) {
-        console.log('Hello! Creating a murderer.')
+        lib.logger.info('Hello! Creating a murderer.')
         const murderer = setup.createNPC(town, {
           socialClass: npc.socialClass || 'commoner',
           profession: npc.profession,
@@ -148,7 +148,7 @@ export const death = {
     }
   ],
   burialConditions (town: Town, npc: NPC, base: Partial<DeadNPC>) {
-    console.log('Burial conditions...')
+    lib.logger.info('Burial conditions...')
     const newNPC = {
       isAlive: false,
       roll: {
@@ -171,7 +171,7 @@ export const death = {
     ]
 
     newNPC.roll.deathConditions = lib.fm(random(1, 100), (town.roll.welfare - 50) / 2)
-    console.log('deathConditions roll:', newNPC.roll.deathConditions)
+    lib.logger.info('deathConditions roll:', newNPC.roll.deathConditions)
     const lifestyle = lib.npcLifestyleStandard(town, npc).lifestyleStandard
 
     let townHelpDescription = ''
@@ -209,9 +209,9 @@ export const death = {
 }
 
 export const createDeadNPC = (town: Town, base: Partial<DeadNPC> = {}): DeadNPC => {
-  console.groupCollapsed('Creating a dead NPC!')
+  lib.logger.openGroup('Creating a dead NPC!')
   const npc = setup.createNPC(town, base)
-  console.log('RIP', npc.firstName)
+  lib.logger.info('RIP', npc.firstName)
   return npcDeath(town, npc, base)
 }
 

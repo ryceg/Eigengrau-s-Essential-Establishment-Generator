@@ -2,7 +2,7 @@ import { BuildingToCreate, Town } from '@lib'
 
 // uses setup.createNewBuilding
 export const createStartBuildings = (town: Town) => {
-  console.log('Creating starting buildings...', town)
+  lib.logger.info('Creating starting buildings...', town)
 
   const buildingsToCreate: BuildingToCreate[] = [
     { buildingType: 'Town Square' },
@@ -54,9 +54,9 @@ export const createStartBuildings = (town: Town) => {
   }
 
   for (const buildingType of lib.keys(professions)) {
-    console.log(buildingType)
+    lib.logger.info(buildingType)
     for (const profession of professions[buildingType]) {
-      console.log(professions[buildingType])
+      lib.logger.info(professions[buildingType])
       if (town.professions[profession] && town.professions[profession].population > 0) {
         buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
         if (town.professions[profession].population > 5) {
@@ -68,7 +68,7 @@ export const createStartBuildings = (town: Town) => {
   }
 
   for (const building of lib.cullBuildings(buildingsToCreate)) {
-    console.log(`Creating ${lib.articles.output(building.buildingType)}...`)
+    lib.logger.info(`Creating ${lib.articles.output(building.buildingType)}...`)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     setup.createNewBuilding(town, building.buildingType, building.opts)

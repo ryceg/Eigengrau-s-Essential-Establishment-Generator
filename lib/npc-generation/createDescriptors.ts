@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { articles } from '../src/articles'
 import { random } from '../src/random'
 import { NPC } from './_common'
@@ -11,7 +12,7 @@ const getHumanOrRaceDescription = (npc: NPC) => {
 }
 
 export function createDescriptors (npc: NPC): string[] {
-  console.log(`assigning descriptors to ${npc.name}...`)
+  logger.info(`Assigning descriptors to ${npc.name}...`)
 
   /**
    * Remember adjectival precedence!

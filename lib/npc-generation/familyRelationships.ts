@@ -130,6 +130,4 @@ export function createFamilyHouse (town: Town, family: Family) {
       road: road.key
     }
   })
-  console.log('Assigned a house!')
-  // return family as Family
 }

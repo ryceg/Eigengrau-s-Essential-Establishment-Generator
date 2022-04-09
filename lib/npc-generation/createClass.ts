@@ -1,17 +1,18 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
-import { NPC } from './_common'
 import { weightRandom } from '../src/weightRandom'
 import { socialClass } from './socialClass'
 import { articles } from '../src/articles'
 import { findProfession } from '../src/findProfession'
 import { random } from '../src/random'
-import { wageVariation } from './npcFinances'
 import { ThresholdTable } from '../src/rollFromTable'
+import { NPC } from './_common'
 import { Profession } from './professions'
+import { wageVariation } from './npcFinances'
 import { BackgroundName } from './backgroundTraits'
 
 export function createClass (town: Town, npc: NPC) {
-  console.log(`Assigning class traits to "${npc.name}".`)
+  logger.info(`Assigning class traits to "${npc.name}".`)
 
   const profession = findProfession(town, npc)
   npc.professionOrigin ||= getProfessionOrigin(npc, town)
@@ -44,7 +45,8 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
   for (const [amount, origin] of originWage) {
     if (amount >= wageVariation(town, npc)) return origin
   }
-  console.error('Could not find a suitable profession origin.')
+
+  logger.error('Could not find a suitable profession origin.')
   return originWage[5][1]
 }
 

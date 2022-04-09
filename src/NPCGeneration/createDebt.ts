@@ -3,7 +3,7 @@ import type { NPC, Town } from '@lib'
 import { createRelationship } from './Relationships/createRelationship'
 
 export const createDebt = (town: Town, npc: NPC): void => {
-  console.groupCollapsed(`${npc.name} is in debt!`)
+  lib.logger.openGroup(`${npc.name} is in debt!`)
   /** Expressed in copper! Assumed to be negative (often is not, though!) */
   const profit = lib.npcProfit(town, npc)
   /** Expressed in copper */
@@ -12,7 +12,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
   const debtRate = Math.abs(profit / grossIncome)
   /** Usually 3-10 */
   const cashLiquidity = Math.abs(grossIncome / profit)
-  console.log({
+  lib.logger.info({
     profit,
     grossIncome,
     debtRate,
@@ -22,7 +22,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
   // TODO: a lot of the maths in here is really fucky.
   // Someone with an economics degree please save me.
   if (npc.wealth > (cashLiquidity * grossIncome)) {
-    console.log(`${npc.name} has too much cash (${npc.wealth}), and is losing some of that to pay debts.`)
+    lib.logger.info(`${npc.name} has too much cash (${npc.wealth}), and is losing some of that to pay debts.`)
     npc.wealth *= 1 - debtRate
   }
 
@@ -40,7 +40,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
   }
 
-  console.groupEnd()
+  lib.logger.closeGroup()
 }
 
 function findDebtor (town: Town, npc: NPC, type: string) {

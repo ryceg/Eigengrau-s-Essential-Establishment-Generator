@@ -156,7 +156,7 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
 
 :: ShowAllSaved [nobr force-one-column]
 <details><summary>Saved Images</summary>
-<<liveblock>><<run console.log(State.metadata.get('customImages'))>>
+<<liveblock>><<run lib.logger.info(State.metadata.get('customImages'))>>
 <<set _temp to State.metadata.get('customImages')>>
 <<button "Delete all">>
   <<run State.metadata.delete('customImages')>>

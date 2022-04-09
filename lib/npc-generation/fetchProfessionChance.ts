@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { keys } from '../src/utils'
 import { getWeightedIndex } from '../src/math'
 import { Town } from '../town/_common'
@@ -36,7 +37,7 @@ function getAvailableProfessions (town: Town, npc: NPC): string[] {
       if (filteredProfessions.length > 0) {
         availableProfessions = filteredProfessions
       }
-      console.log(`npc ${key} was defined as ${npc[key]}, filtering professions to`, availableProfessions)
+      logger.info(`npc ${key} was defined as ${npc[key]}, filtering professions to`, availableProfessions)
     }
   }
 
@@ -64,7 +65,7 @@ function setDnDClass (town: Town, npc: NPC, profession: string) {
   const hasDnDClass = town.professions[profession]?.type === 'dndClass' ?? false
   npc.hasClass = hasDnDClass
   if (hasDnDClass) {
-    console.log(`${npc.name} is a ${profession} and therefore has a dndClass`)
+    logger.info(`${npc.name} is a ${profession} and therefore has a dndClass`)
   }
 }
 
@@ -73,7 +74,7 @@ function setDnDClass (town: Town, npc: NPC, profession: string) {
  */
 export function fetchProfessionChance (town: Town, npc: NPC) {
   const availableProfessions = getAvailableProfessions(town, npc)
-  console.log('available professions', availableProfessions)
+  logger.info('Available professions:', availableProfessions)
 
   const professionIdxByPopulation = availableProfessions.map(profession => {
     return town.professions[profession].population
@@ -83,19 +84,19 @@ export function fetchProfessionChance (town: Town, npc: NPC) {
   // a profession based on population of that profession amongst the town.
   let resultantProfession = availableProfessions[getWeightedIndex(professionIdxByPopulation)]
   if (!resultantProfession) {
-    console.error('Failed to fetch a profession.')
-    console.log({ npc })
+    logger.error('Failed to fetch a profession.')
+    logger.info({ npc })
     resultantProfession = 'noble'
   }
 
   const exclusionFn = town.professions[resultantProfession]?.exclusions
   if (typeof exclusionFn === 'function' && !exclusionFn(town, npc)) {
-    console.warn(`${npc.name} is unable to be a ${resultantProfession} due to an exclusion. Rerolling...`)
+    logger.warn(`${npc.name} is unable to be a ${resultantProfession} due to an exclusion. Rerolling...`)
     resultantProfession = fetchProfessionChance(town, npc)
   }
 
   setDnDClass(town, npc, resultantProfession)
 
-  console.log(`Profession is: ${resultantProfession}`)
+  logger.info(`Profession is: ${resultantProfession}`)
   return resultantProfession
 }

@@ -26,8 +26,8 @@ export const createReciprocalRelationshipNpc = (
   associatedNPC: NPC,
   relationshipTable: Record<string, any>[],
   args: Args) => {
-  console.log('Creating a new NPC for this building.')
-  console.log(relationshipTable, args, associatedNPC)
+  lib.logger.info('Creating a new NPC for this building.')
+  lib.logger.info(relationshipTable, args, associatedNPC)
   Object.assign({
     base: {},
     objectKey: 'building',

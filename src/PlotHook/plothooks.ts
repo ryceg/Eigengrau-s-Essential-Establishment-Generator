@@ -166,7 +166,6 @@ export const plothooks = [
     function (town: Town) {
       // @ts-ignore
       const smithy = lib.findInArray(town.buildings, 'buildingType', 'smithy') || setup.createNewBuilding(town, 'smithy')
-      console.log(smithy)
       const npc = createNPC(town, {
         profession: 'blacksmith'
       })
@@ -537,8 +536,7 @@ export const plothooks = [
     function (town: Town) {
       // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
-      console.log('Taverns:')
-      console.log(building)
+      lib.logger.info('Taverns:', building)
       return `${profile(building)} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
     }
   },

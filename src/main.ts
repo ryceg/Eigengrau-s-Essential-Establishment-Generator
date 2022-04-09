@@ -214,16 +214,16 @@ Object.assign(setup, {
  * the order is very important.
  */
 setup.init = (setup => () => {
-  console.log('initialising random')
+  lib.logger.info('initialising random')
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
   setup.initNpcData()
   setup.initTavernData()
-  console.log('initialising goods and services')
+  lib.logger.info('initialising goods and services')
   setup.initGoodsAndServices()
-  console.log('populating goods and services')
+  lib.logger.info('populating goods and services')
   setup.goodsAndServices = populateGoodsAndServices(setup.goodsAndServices)
   setup.initDocks()
   setup.initCastle()

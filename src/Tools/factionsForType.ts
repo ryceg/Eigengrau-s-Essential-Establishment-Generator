@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town, Faction } from '@lib'
 
 /**
@@ -23,13 +22,11 @@ export const factionsForType = <K extends keyof Faction>(town: Town, variable: K
     }
   }
   if (found.length === 0) {
-    // @ts-ignore
     const tempFaction = setup.createFaction(town, {
       [variable]: value
     })
     town.factions[tempFaction.key] = tempFaction
     found.push(tempFaction)
   }
-  console.log(found)
   return lib.random(found)
 }

@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { Dungeon } from '../../src/Castle/createDungeon'
 import { getPronoun } from '../npc-generation/gender/getPronoun'
@@ -9,7 +10,7 @@ import { createReciprocalRelationship } from '../buildings/createReciprocalRelat
 import { toTitleCase } from '../src/toTitleCase'
 
 export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = {}) {
-  console.log('Creating dungeon name...')
+  logger.info('Creating dungeon name...')
   const namesake = createNamesake(town, namesakeData)
   const {
     adjectives,
@@ -39,14 +40,10 @@ export function createDungeonName (town: Town, dungeon: Dungeon, namesakeData = 
     // Have to remove the dead NPC, since that requires setup.
     // dungeon.namesake = setup.createDeadNPC(town, namesake)
     assign(dungeon, { namesake })
-    createReciprocalRelationship(
-      town,
-      dungeon,
-      dungeon.namesake,
-      {
-        relationship: 'namesake',
-        reciprocalRelationship: `Dungeon named after ${getPronoun(namesake.gender, 'himher')}`
-      }
+    createReciprocalRelationship(town, dungeon, dungeon.namesake, {
+      relationship: 'namesake',
+      reciprocalRelationship: `Dungeon named after ${getPronoun(namesake.gender, 'himher')}`
+    }
     )
   }
   return toTitleCase(choiceName)

@@ -9,7 +9,7 @@
   return !building.includes(nsfwItems);
 })>>
 <</listbox>></label> -- <<button "Create New Building">>
-  <<run console.log('Creating a new ' + $newBuilding)>>
+  <<run lib.logger.info('Creating a new ' + $newBuilding)>>
   <<set _latestBuilding to setup.createNewBuilding($town, $newBuilding, { road: $currentPassage.key })>>
   <<update>>
   <<run $('.' + _latestBuilding.key).parent().addClass('highlight')>>

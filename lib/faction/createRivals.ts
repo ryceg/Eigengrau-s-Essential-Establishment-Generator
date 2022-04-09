@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { dice } from '../src/dice'
 import { repeat, sumWeights } from '../src/utils'
 import { validateWeight, weightRandom } from '../src/weightRandom'
@@ -6,7 +7,7 @@ import { factionData } from './factionData'
 import { Faction } from './_common'
 
 export function createRivals (faction: Faction): void {
-  console.log('accruing enemies...')
+  logger.info('Accruing faction enemies...')
 
   const sizeRoll = dice(2, 50)
 

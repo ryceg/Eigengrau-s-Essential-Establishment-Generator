@@ -130,7 +130,6 @@ describe('fetchProfessionChance tests', () => {
 
     fetchProfessionChance(townProps, getNPC())
 
-    console.log(mockFn.mock.calls)
     expect(mockFn).toHaveBeenCalled()
   })
 

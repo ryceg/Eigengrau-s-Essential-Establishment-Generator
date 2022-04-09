@@ -38,9 +38,9 @@
             <<replace "#magic">>
                   <div class="descriptive">
                     <h3><<print lib.articles.output($building.magic.material).toUpperFirst()>> ring</h3>
-                    $building.magic.secondOutputs</div><</replace>><</link>><<run console.log($building.magic)>>
+                    $building.magic.secondOutputs</div><</replace>><</link>><<run lib.logger.info($building.magic)>>
       <<default>>
-        <<set $building.magic to lib.createMagic($building.magicType)>><<run console.log($building.magic)>>
+        <<set $building.magic to lib.createMagic($building.magicType)>><<run lib.logger.info($building.magic)>>
         <<replace "#magic">><div class='descriptive'><h3>$building.magic.name</h3>$building.magic.description</div><</replace>>
     <</switch>>
   <</button>>

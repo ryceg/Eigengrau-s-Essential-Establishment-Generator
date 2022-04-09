@@ -2,7 +2,7 @@
 <span class="interactive-only">
     <<include "NPCListboxes">> -- 
     <<button "Create NPC">>
-        <<run console.log('Creating new NPC!')>>
+        <<run lib.logger.info('Creating new NPC!')>>
         <<set $currentPassage.randomNPC to setup.createReciprocalRelationshipNpc(
             $town, 
             $currentPassage, 

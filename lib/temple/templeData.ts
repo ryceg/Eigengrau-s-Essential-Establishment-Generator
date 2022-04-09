@@ -1,4 +1,4 @@
-setup.temple = {
+export const templeData = {
   name: {
     wordNoun: ['temple', 'holy house', 'monastery', 'convent', 'abbey', 'cathedral', 'shrine', 'church', 'parish', 'sanctuary', 'tabernacle', 'chapel', 'chantry'],
     soleNoun: ['desire', 'restoration', 'humility', 'sorrow', 'will', 'commandment', 'love', 'divine', 'redemption', 'sacrament', 'sacrafice', 'fire', 'water', 'earth', 'nature', 'air', 'prayer', 'devotion', 'worship', 'service', 'invocation', 'grace'],

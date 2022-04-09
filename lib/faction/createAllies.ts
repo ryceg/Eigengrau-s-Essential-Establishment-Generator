@@ -1,10 +1,11 @@
+import { logger } from '../logger'
 import { dice, fm } from '../src/dice'
 import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 
 export function createAllies (faction: Faction): void {
-  console.log('finding allies...')
+  logger.info('Finding faction allies...')
 
   const sizeRoll = fm(faction.roll.size, random([20, -20]))
   const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
