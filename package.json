@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/README.md",
   "scripts": {
-    "install-compiler": "node scripts/install-compiler",
+    "install-compiler": "node -r esbuild-runner/register scripts/install-compiler",
     "build": "cross-env NODE_ENV=production node -r esbuild-runner/register scripts/build",
     "start": "node -r esbuild-runner/register scripts/build --watch",
     "test": "jest",
@@ -44,6 +44,7 @@
     "@types/jest": "^27.4.1",
     "@types/jquery": "^3.5.5",
     "@types/twine-sugarcube": "^2.33.1",
+    "@types/yauzl": "^2.9.2",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "chalk": "^4.0.0",
