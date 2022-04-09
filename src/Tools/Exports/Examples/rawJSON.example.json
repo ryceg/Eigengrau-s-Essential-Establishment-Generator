@@ -1093,8 +1093,7 @@
             "verb": "white tiled",
             "noun": "white tile",
             "wealth": "decently built"
-          },
-          "alchemistDescriptor": "shabby hewn rock apothecary with a white tiled roof"
+          }
         },
         "wealth": "squalid",
         "size": "somewhat cramped",

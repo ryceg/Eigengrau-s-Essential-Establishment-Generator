@@ -37,13 +37,6 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   lib.createStructure(town, alchemist)
 
-  const { structure } = alchemist
-  if (structure) {
-    lib.assign(structure, {
-      alchemistDescriptor: `${structure.material.wealth} ${structure.material.noun} ${alchemist.wordNoun} with ${lib.articles.output(structure.roof.verb)} roof`
-    })
-  }
-
   for (const propName of ['wealth', 'size', 'cleanliness', 'expertise'] as const) {
     const { rolls } = lib.alchemistRollData[propName]
     // @ts-ignore (Apparently BuildingRoll is not indexable. Should be fixable, somehow?)
