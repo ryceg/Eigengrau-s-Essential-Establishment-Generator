@@ -3,6 +3,8 @@ import { Customer } from '../customer'
 import { Alchemist } from './_common'
 import { alchemistData } from './alchemistData'
 
+console.trace('BANARNA')
+
 export const alchemistCustomers: Customer<Alchemist>[] = [
   {
     relationshipDescription: 'customer',
