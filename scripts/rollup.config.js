@@ -31,12 +31,18 @@ module.exports = [
   },
   {
     input: 'lib/index.ts',
+    external: ['rita'],
     plugins,
-    output: { format: 'iife', file: './gh-pages/main.js', name: 'lib', sourcemap: true }
+    output: { format: 'iife', file: './gh-pages/main.js', globals: { rita: 'RiTa' }, name: 'lib', sourcemap: true }
   },
   {
     input: 'lib/sentry.ts',
     plugins,
-    output: { format: 'iife', file: './gh-pages/sentry.js', sourcemap: true }
+    output: { format: 'iife', file: './gh-pages/sentry.js', sourcemap: false }
+  },
+  {
+    input: 'rita',
+    plugins,
+    output: { format: 'iife', file: './gh-pages/rita.js', name: 'RiTa', sourcemap: false }
   }
 ]
