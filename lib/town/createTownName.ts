@@ -30,7 +30,9 @@ export function createTownName (town?: TownBasics | Town) {
   const driftName = linguisticDrift(name)
 
   // casting as Town because replaceTownName tests for Town properties.
-  replaceTownName(town as Town, driftName)
+  if (town) {
+    replaceTownName(town, driftName)
+  }
 
   return driftName
 }
