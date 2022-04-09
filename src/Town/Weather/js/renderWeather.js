@@ -58,46 +58,62 @@ setup.renderWeather = (town, weather, biome = town.terrain) => {
       lib.weather.precipitationIntensity[weather.precipitationIntensity].cloud(weather)
     }
 
-    weather.readout.precipitation = getPrecipitationReadout(weather)
-    weather.readout.cloud = lib.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
-
-    lib.logger.info('Rendering temperature...')
-    for (const [threshold, description] of lib.weather.temperatureDescriptors) {
-      if (weather.temperature >= threshold) {
-        const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
-        weather.readout.temperature = lib.createTippyFull(readout, description)
-        break
-      }
-    }
-
-    weather.readout.full = `It's ${weather.readout.temperature}. ${weather.readout.cloud.toUpperFirst()}, and ${weather.readout.precipitation}. `
     lib.logger.info(weather)
   }
+}
 
-  /**
- * @param {import("../../../../lib/index").Weather} weather
- * @returns {string}
- */
-  function getPrecipitationReadout (weather) {
-    /** @type {string} */
-    let readout
-    if (weather.precipitation) {
-      readout = lib.random(lib.weather.precipitationDescriptors[weather.precipitation])
-    } else {
-      readout = ''
-    }
+/**
+* @param {import("../../../../lib/index").Weather} weather
+* @returns {string}
+*/
+setup.getWeatherReadout = (weather) => {
+  return `It's ${getTemperatureReadout(weather)}. ${getCloudReadout(weather).toUpperFirst()}, and ${getPrecipitationReadout(weather)}. `
+}
 
-    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 18) {
-      return `${readout}. It doesn't look like it'll be clearing up today`
+/**
+* @param {import("../../../../lib/index").Weather} weather
+* @returns {string}
+*/
+function getTemperatureReadout (weather) {
+  for (const [threshold, description] of lib.weather.temperatureDescriptors) {
+    if (weather.temperature >= threshold) {
+      const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
+      return lib.createTippyFull(readout, description)
     }
-
-    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 12) {
-      return `${readout}. It doesn't look like it'll be clearing up soon`
-    }
-
-    if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 2) {
-      return `${readout}. It's clearing up pretty quickly, though`
-    }
-    return readout
   }
+  throw new Error('Could not get temperature readout!')
+}
+
+/**
+* @param {import("../../../../lib/index").Weather} weather
+* @returns {string}
+*/
+function getCloudReadout (weather) {
+  return lib.random(lib.weather.cloudIntensityDescriptors[weather.cloudIntensity])
+}
+
+/**
+* @param {import("../../../../lib/index").Weather} weather
+* @returns {string}
+*/
+function getPrecipitationReadout (weather) {
+  let readout = ''
+
+  if (weather.precipitation) {
+    readout = lib.random(lib.weather.precipitationDescriptors[weather.precipitation])
+  }
+
+  if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 18) {
+    return `${readout}. It doesn't look like it'll be clearing up today`
+  }
+
+  if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation > 12) {
+    return `${readout}. It doesn't look like it'll be clearing up soon`
+  }
+
+  if (weather.precipitation !== 'no precipitation' && weather.timer.precipitation <= 2) {
+    return `${readout}. It's clearing up pretty quickly, though`
+  }
+
+  return readout
 }

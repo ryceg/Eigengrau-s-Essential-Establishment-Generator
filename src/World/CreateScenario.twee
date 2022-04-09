@@ -42,7 +42,7 @@
   <div id="scenario">
     <<if def $scenario>>
       <<if $town.currentSeason !== "null">>
-        $town.weather.readout.full
+        <<print setup.getWeatherReadout($town.weather)>>
       <</if>> 
       $scenario
     <</if>>

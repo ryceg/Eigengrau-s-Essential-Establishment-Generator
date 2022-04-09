@@ -16,12 +16,6 @@ export interface Weather {
     precipitation: number
     cloud: number
   }
-  readout: {
-    precipitation: string
-    cloud: string
-    temperature: string
-    full: string
-  }
   precipitation: string | false
   precipitationLevel: number
   precipitationIntensity: number
