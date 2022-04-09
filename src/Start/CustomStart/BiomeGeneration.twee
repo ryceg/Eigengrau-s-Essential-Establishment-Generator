@@ -1,7 +1,7 @@
 :: BiomeGeneration [force-one-column nofx]
 <span style='display:flex'><<liveblock>>
     <<link "reroll">>
-        <<set $town.name to setup.createTownName($town)>><<update>>
+        <<set $town.name to lib.createTownName($town)>><<update>>
     <</link>> -- <label class="auto-update" name="Town name"><<textbox "$town.name" $town.name>></label>
 <</liveblock>></span>
 <hr>

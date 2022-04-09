@@ -525,7 +525,7 @@ export const plothook = {
     //       hasClass: false,
     //       background: ['noble', 'commoner'].random()
     //     })
-    //     return '' + profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + setup.createTownName() + '.'
+    //     return '' + profile(npc, 'Merchant') + ' looking for armed security to escort us to ' + lib.createTownName() + '.'
     //   }
     // },
     // 'Mushroom Forager': {
@@ -559,7 +559,7 @@ export const plothook = {
     //     var npc = setup.createNPC(town, {
     //       hasClass: false
     //     })
-    //     return 'The town of ' + setup.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + profile(npc) + ' for details.'
+    //     return 'The town of ' + lib.createTownName() + ' has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ' + profile(npc) + ' for details.'
     //   }
     // },
     // 'Tarot Cards': {

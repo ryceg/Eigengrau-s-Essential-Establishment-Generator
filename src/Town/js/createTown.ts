@@ -9,8 +9,7 @@ export const createTown = (base: TownBasics | Town) => {
   const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = base.terrain || lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = base.currentSeason || lib.weightRandom(lib.townData.defaults.season) as Seasons
-  // @ts-ignore
-  const townName = base.name || setup.createTownName(base)
+  const townName = base.name || lib.createTownName(base)
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
