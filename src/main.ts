@@ -180,7 +180,6 @@ Object.assign(setup, {
   leaderFaction,
   plothooks,
   createTownBiome,
-  createTownName,
   createTown,
   findViaKey,
   findIfExistsViaKey,
