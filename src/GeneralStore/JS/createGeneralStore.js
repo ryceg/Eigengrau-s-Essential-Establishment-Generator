@@ -13,7 +13,6 @@ setup.createGeneralStore = (town, opts = {}) => {
   }, opts.npc))
   lib.createReciprocalRelationship(town, generalStore, generalStore.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   Object.assign(generalStore, {
-    note: lib.generalStore.get.note(generalStore),
     shopkeepNote: lib.generalStore.get.shopkeepNote(generalStore),
     say: lib.generalStore.get.say(generalStore),
     wordNoun: ['general store', 'shop'].random(),
@@ -36,13 +35,6 @@ setup.createGeneralStore = (town, opts = {}) => {
     lib.defineRollDataGetter(generalStore, lib.generalStoreRollData[propName].rolls, propName)
   }
 
-  if (generalStore.roll.cleanliness <= 40) {
-    generalStore.clutter = [
-      `The store has a lot of ${generalStore.crud} laying about.`,
-      `The front counter is cluttered with ${generalStore.crud}.`,
-      `In one corner of the store there is a large pile of ${generalStore.crud}.`,
-      `Several bins seemed to be cluttered with ${generalStore.crud}.`].random()
-  }
   lib.generalStoreRenders(generalStore)
   lib.logger.info(generalStore)
   lib.logger.closeGroup()

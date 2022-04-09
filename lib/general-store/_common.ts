@@ -1,4 +1,4 @@
-import { BuildingRollsDefault } from '../buildings/_common'
+import { Building, BuildingRollsDefault } from '../buildings/_common'
 import { NPC } from '../npc-generation/_common'
 
 export interface GeneralStoreRolls extends BuildingRollsDefault {
@@ -6,7 +6,7 @@ export interface GeneralStoreRolls extends BuildingRollsDefault {
   warmth: number
 }
 
-export interface GeneralStore {
+export interface GeneralStore extends Building{
   name: string
   associatedNPC: NPC
   assistant?: NPC
@@ -17,4 +17,8 @@ export interface GeneralStore {
   expertise: string
   activity: string
   priceModifier: number
+  clutter?: string[]
+  crud: string
+  note: string
+  idle: string
 }
