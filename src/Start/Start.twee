@@ -5,7 +5,7 @@
   passageName: "Start", 
   linkDescription: $town.name
   }, 'Start')>>
-<<set $currentPassage to $town>><<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'>[img[banner]]</div><<include "PrintImage">><</if>>
+<<set $currentPassage to $town>><<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'><img src="./Resources/banner.svg"></div><<include "PrintImage">><</if>>
 <<include "BriefDescription">>
 <span id='detailed-description' class="tip hide-on-print" tabindex="0" data-tippy-content="Find the overview of the town and its sociopolitical structure here!"><<link "Detailed description of $town.name" TownOutput>><<set $currentPassage to $town>><<run setup.history({passageName: "TownOutput", linkDescription: $town.name, name: $town.name})>><</link>></span>
 <br>
