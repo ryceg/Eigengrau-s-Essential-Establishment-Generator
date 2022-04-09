@@ -3,8 +3,6 @@ const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 const utils = require('./utils')
-const chokidar = require('chokidar')
-const cpy = require('cpy')
 const rollup = require('rollup')
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
@@ -66,28 +64,6 @@ const runTweego = (args) => {
   })
 }
 
-const copyFiles = async (args) => {
-  const watch = args.includes('--watch')
-  const source = path.resolve(__dirname, '../src/Resources')
-  const destination = path.resolve(__dirname, '../gh-pages/src/Resources')
-
-  const copy = async () => {
-    // await fs.promises.rmdir(destination, { recursive: true })
-    await cpy(source, destination)
-  }
-
-  if (watch) {
-    const watcher = chokidar
-      .watch(source)
-      .on('all', copy)
-      .on('error', () => process.exit(1))
-
-    process.on('beforeExit', () => watcher.close())
-  } else {
-    await copy()
-  }
-}
-
 const bundleJS = async (args) => {
   const watch = args.includes('--watch')
   const configs = require('./rollup.config')
@@ -125,5 +101,4 @@ const bundleJS = async (args) => {
   await bundleJS(args)
   utils.logAction('Copying files...')
   runTweego(args)
-  await copyFiles(args)
 })()
