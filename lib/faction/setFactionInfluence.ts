@@ -1,8 +1,9 @@
+import { logger } from '../logger'
 import { fm } from '../src/dice'
 import { Faction } from './_common'
 
 export function setFactionInfluence (faction: Faction): void {
-  console.log('assigning influence...')
+  logger.info('Assigning faction influence...')
 
   const ageModifier = getAgeModifier(faction.roll.age)
 

@@ -19,7 +19,7 @@ export const jeweller: JewellerData = {
     const typeData = jeweller
     building.associatedNPC = setup.createNPC(town, { ...typeData.profession.opts, ...opts?.npc })
     lib.createReciprocalRelationship(town, building, building.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
-    console.log('Making a name!')
+    lib.logger.info('Making a name!')
     building.name ||= opts?.building?.name || typeData.name.function(town, building)
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)

@@ -1,4 +1,4 @@
-
+import { logger } from '../logger'
 import { getPronoun } from '../npc-generation/gender/getPronoun'
 import { Castle } from '../../src/Castle/createCastle'
 import { Town } from '../town/_common'
@@ -11,7 +11,7 @@ import { createReciprocalRelationship } from '../buildings/createReciprocalRelat
 import { toTitleCase } from '../src/toTitleCase'
 
 export function createCastleName (town: Town, castle: Castle, namesake?: Namesake) {
-  console.log('Creating castle name...')
+  logger.info('Creating castle name...')
 
   namesake = createNamesake(town, namesake)
   const {
@@ -43,7 +43,10 @@ export function createCastleName (town: Town, castle: Castle, namesake?: Namesak
     // Have to remove the dead NPC, since that requires setup.
     // assign(castle, setup.createDeadNPC(town, namesake))
     assign(castle, { namesake })
-    createReciprocalRelationship(town, castle, castle.namesake, { relationship: 'namesake', reciprocalRelationship: `Castle named after ${getPronoun(namesake.gender, 'himher')}` })
+    createReciprocalRelationship(town, castle, castle.namesake, {
+      relationship: 'namesake',
+      reciprocalRelationship: `Castle named after ${getPronoun(namesake.gender, 'himher')}`
+    })
   }
   return toTitleCase(choiceName)
 }

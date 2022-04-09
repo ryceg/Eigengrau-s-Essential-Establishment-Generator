@@ -3,11 +3,11 @@
  * @param {number} temp
  * @returns {string}
  */
-setup.toCelsius = temp => {
+setup.toCelsius = (temp) => {
   if (settings.showCelsius) {
-    console.log(`${temp} in Fahrenheit`)
+    lib.logger.info(`${temp} in Fahrenheit`)
     temp = Math.trunc((temp - 32) * 0.5556)
-    console.log(`${temp} in Celsius`)
+    lib.logger.info(`${temp} in Celsius`)
     return `${temp} degrees Celsius`
   }
 

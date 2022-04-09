@@ -4,7 +4,7 @@ import { deleteNPC } from '../NPCGeneration/deleteNPC'
 import { createNPC } from '../NPCGeneration/createNPC'
 
 export const leaderFaction = (town: Town, faction: Faction) => {
-  console.log('determining leaders...')
+  lib.logger.info('Determining leaders...')
 
   faction.leaderQualification = getLeaderQualification(faction)
 

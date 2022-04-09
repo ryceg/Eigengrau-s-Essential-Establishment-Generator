@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { keys } from './utils'
 
 const MIN = 1
@@ -11,13 +12,13 @@ export function clampRolls<T extends string> (rolls: Record<T, number | undefine
   for (const roll of keys(rolls)) {
     if (rolls[roll] === undefined) continue
     if (rolls[roll] < MIN) {
-      console.log(`${rolls[roll]} was under ${MIN}.`)
+      logger.info(`${rolls[roll]} was under ${MIN}.`)
       rolls[roll] = MIN
       continue
     }
 
     if (rolls[roll] > MAX) {
-      console.log(`${rolls[roll]} was over ${MAX}.`)
+      logger.info(`${rolls[roll]} was over ${MAX}.`)
       rolls[roll] = MAX
     }
   }

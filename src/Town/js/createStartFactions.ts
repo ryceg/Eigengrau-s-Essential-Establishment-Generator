@@ -5,7 +5,7 @@ import { createFaction } from '../../Factions/createFaction'
 
 // already has a definition
 export const createStartFactions = (town: Town) => {
-  console.log('Creating starting factions...')
+  lib.logger.info('Creating starting factions...')
   // const factions = ['merchants', 'merchants', 'merchants', 'thieves', 'nobles', 'wizards']
   const factionsNumber = getFactionsNumber(town)
 
@@ -13,8 +13,6 @@ export const createStartFactions = (town: Town) => {
     const tempFaction = createFaction(town)
     town.factions[tempFaction.key] = tempFaction
   }
-
-  console.log('Finished creating start factions!')
 }
 
 function getFactionsNumber (town: Town) {

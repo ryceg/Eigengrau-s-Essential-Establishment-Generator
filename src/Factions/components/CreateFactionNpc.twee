@@ -4,7 +4,7 @@
 <<if _selectedRelationship.base>><<set _randomNPC to Object.assign(_randomNPC, _selectedRelationship.base)>><</if>>
   <<if def _newNPC>>
     <<run setup.deleteNPC($npcs[_newNPC])>>
-  <</if>><<run console.log("_randomNPC:")>><<run console.log(_randomNPC)>>
+  <</if>><<run lib.logger.info("_randomNPC:")>><<run lib.logger.info(_randomNPC)>>
 <<set $currentPassage.randomNPC to setup.createNPC($town, _randomNPC)>>
 <<run lib.createReciprocalRelationship($town, $currentPassage, $npcs[$currentPassage.randomNPC.key], { relationship: ["member", "high-ranking member", "low-ranking member"].random(), reciprocalRelationship: "faction that " + $npcs[$currentPassage.randomNPC.key].firstName + " is a part of." })>>
     <<replace "#NPC">>

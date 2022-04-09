@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { createNamesake } from '../npc-generation/createNamesake'
 import { assign } from '../src/utils'
 import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
@@ -19,7 +20,7 @@ interface RoadOwnership extends ProperNoun {
 type RoadNameType = 'properNoun' | 'firstName' | 'lastName'
 
 export function createRoadName (town: Town): RoadOwnership {
-  console.log('Creating a road name...')
+  logger.info('Creating a road name...')
   const probabilities = {
     properNoun: 5,
     firstName: 2,
@@ -27,7 +28,7 @@ export function createRoadName (town: Town): RoadOwnership {
   } as WeightRecord<RoadNameType>
   const selected = weightRandom(probabilities)
   const namesake = createNamesake(town)
-  console.log('selected ', selected)
+  logger.info('selected ', selected)
   let road: ProperNoun
   switch (selected) {
     case 'firstName':

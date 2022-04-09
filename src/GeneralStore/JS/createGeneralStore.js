@@ -4,7 +4,7 @@ setup.createGeneralStore = (town, opts = {}) => {
   const createShopkeep = opts.newShopkeep || setup.createNPC
 
   const generalStore = createBuilding(town, 'generalStore', opts)
-  console.groupCollapsed('General Store loading...')
+  lib.logger.openGroup('General Store loading...')
   generalStore.associatedNPC = createShopkeep(town, Object.assign({
     profession: 'merchant',
     mundane: ['pliers', 'tins', 'twine', 'cups', 'spoons', 'pans', 'chairs', 'cushions'],
@@ -44,7 +44,7 @@ setup.createGeneralStore = (town, opts = {}) => {
       `Several bins seemed to be cluttered with ${generalStore.crud}.`].random()
   }
   lib.generalStoreRenders(generalStore)
-  console.log(generalStore)
-  console.groupEnd()
+  lib.logger.info(generalStore)
+  lib.logger.closeGroup()
   return generalStore
 }

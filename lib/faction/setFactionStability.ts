@@ -1,7 +1,8 @@
+import { logger } from '../logger'
 import { Faction } from './_common'
 
 export function setFactionStability (faction: Faction) {
-  console.log('determining stability...')
+  logger.info('Determining faction stability...')
   faction.stability = getFactionStability(faction.roll.stability)
 }
 

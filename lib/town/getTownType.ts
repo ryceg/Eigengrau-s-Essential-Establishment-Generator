@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { TownBasics } from './_common'
 import { TownType } from './townData'
 
@@ -9,7 +10,7 @@ export function getTownType (town: TownBasics): TownType {
 
   // TODO: Remove unexpected side effect are bad.
   if (town.population <= 30) {
-    console.log('Population is less than 30. Setting to 30.')
+    logger.info('Population is less than 30. Setting to 30.')
     town.population = 30
     return 'hamlet'
   }

@@ -2,7 +2,7 @@
 import type { NPC, Town } from '@lib'
 
 export const createLifeEvents = (town: Town, npc: NPC) => {
-  console.groupCollapsed(`creating life events for ${npc.name}...`)
+  lib.logger.openGroup(`creating life events for ${npc.name}...`)
   let lifeEventsNumber: number
 
   npc.lifeEvents = []
@@ -34,5 +34,5 @@ export const createLifeEvents = (town: Town, npc: NPC) => {
     npc.lifeEvents.push(lib.weightedRandomFetcher(town, setup.npcData.lifeEvents, npc))
   }
 
-  console.groupEnd()
+  lib.logger.closeGroup()
 }

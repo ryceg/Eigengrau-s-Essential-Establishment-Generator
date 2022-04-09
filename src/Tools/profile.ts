@@ -15,7 +15,7 @@ import { NPC, Building, Faction, Road, Deity, assert } from '@lib'
 export const profile = (obj: NPC | Building | Faction | Road | Deity | string, readout?: string): string => {
   let result
   if (typeof obj === 'string') {
-    console.warn(`Profile function for ${obj} called with a string.`)
+    lib.logger.warn(`Profile function for ${obj} called with a string.`)
     result = setup.findViaKey(obj)
   } else {
     result = obj

@@ -12,11 +12,11 @@ const defaultBase: Partial<NPC> = {
  */
 export const createNPC = (town: Town, base = defaultBase): NPC => {
   if (typeof town === 'undefined') {
-    console.error('Town is not defined! NPC cannot be created. Please report this bug.')
+    lib.logger.error('Town is not defined! NPC cannot be created. Please report this bug.')
   }
 
   lib.filterNull(base)
-  console.log('Base:', { base })
+  lib.logger.info('Base:', { base })
 
   // @ts-ignore
   const data = setup.npcData
@@ -35,7 +35,7 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
   })
 
   if (base.isShallow === true) {
-    console.log('NPC flagged as shallow.')
+    lib.logger.info('NPC flagged as shallow.')
     base.isThrowaway ??= true
     base.hasHistory ??= false
   }
@@ -227,8 +227,8 @@ export const createNPC = (town: Town, base = defaultBase): NPC => {
     npc.callbackFunction(town, npc)
   }
 
-  console.log(npc)
-  console.groupEnd()
+  lib.logger.info(npc)
+  lib.logger.closeGroup()
   // @ts-ignore
   return npc
 }

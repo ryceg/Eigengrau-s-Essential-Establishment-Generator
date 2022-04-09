@@ -1,7 +1,8 @@
+import { logger } from '../logger'
 import { Tavern } from './_common'
 
 export function getTavernSin (tavern: Tavern) {
-  console.log(`Fetching ${tavern.name} sin.`)
+  logger.info(`Fetching ${tavern.name} sin.`)
 
   if (tavern.roll.sin > 80) {
     return 'corrupt'

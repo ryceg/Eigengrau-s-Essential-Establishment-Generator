@@ -1,10 +1,11 @@
+import { logger } from '../logger'
 import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { fm } from '../src/dice'
 import { factionRollData } from './factionRollData'
 import { Faction } from './_common'
 
 export function setFactionReputation (faction: Faction): void {
-  console.log('assigning a reputation...')
+  logger.info('Assigning faction reputation...')
 
   const ageModifier = getAgeModifier(faction)
 

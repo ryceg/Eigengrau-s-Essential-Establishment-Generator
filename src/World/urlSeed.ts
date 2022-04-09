@@ -17,7 +17,7 @@ export const urlSeed = () => {
   }
 
   State.prng.init(seed)
-  console.log(`Spinning up PRNG with "${State.prng.seed}"`)
+  lib.logger.info(`Spinning up PRNG with "${State.prng.seed}"`)
 }
 
 /** This tells the engine that it needs to generate a new seed. */
@@ -33,11 +33,11 @@ $(document).one(':enginerestart', () => {
 function getValidSeed (seed: string | null): string {
   if (!seed) seed = createSeed()
   if (seed.length <= 0) {
-    console.log('Creating a seed...')
+    lib.logger.info('Creating a seed...')
     seed = createSeed()
   }
   if (seed.length <= 16) {
-    console.warn(`Seed not long enough! Appending some filler to ${seed}...`)
+    lib.logger.warn(`Seed not long enough! Appending some filler to ${seed}...`)
     seed += createSeed()
   }
   return seed

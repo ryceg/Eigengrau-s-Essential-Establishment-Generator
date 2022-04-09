@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { last, assert } from './utils'
 import { random } from './random'
 
@@ -32,10 +33,10 @@ export type RollData<T extends Rolled> = {
  * (long and short descriptions, or cleanliness controlling bedCleanliness as well.)
  */
 export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: RollArray, propName: keyof T & string, keyName = propName, index = 1, rollLocation = obj.roll) {
-  console.groupCollapsed('DefineRollDataGetters')
+  logger.openGroup('defineRollDataGetter')
 
   // eslint-disable-next-line prefer-rest-params
-  console.log(arguments)
+  logger.info(arguments)
 
   if (!obj[propName]) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,7 +46,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
   Object.defineProperty(obj, propName, {
     get (this: T) {
       if (this.name) {
-        console.log(`Fetching ${this.name} ${propName}.`)
+        logger.info(`Fetching ${this.name} ${propName}.`)
       }
 
       const rollArray = rolls
@@ -59,7 +60,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
       })
 
       if (typeof result === 'undefined') {
-        console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
+        logger.info(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = last(rollArray)
       }
 
@@ -75,7 +76,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
       return this[`_${propName}` as keyof typeof obj]
     },
     set (val) {
-      console.log(`Setting ${this.name} ${propName}.`)
+      logger.info(`Setting ${this.name} ${propName}.`)
       const rollArray = rolls
       assert(Array.isArray(rollArray))
 
@@ -88,7 +89,7 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
       })
 
       if (result === undefined) {
-        console.log(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
+        logger.info(`Failed to get a descriptor that matched the roll of ${this.roll[propName]} for ${propName}.`)
         result = last(rollArray)
       }
 
@@ -97,5 +98,5 @@ export function defineRollDataGetter <T extends Rolled & Named> (obj: T, rolls: 
     }
   })
 
-  console.groupEnd()
+  logger.closeGroup()
 }

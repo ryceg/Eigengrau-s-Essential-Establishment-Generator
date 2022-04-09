@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { defineRollDataGetter } from '../src/defineRollDataGetter'
 import { dice, fm } from '../src/dice'
 import { random } from '../src/random'
@@ -10,7 +11,7 @@ import { factionRollData } from './factionRollData'
 import { Faction } from './_common'
 
 export function setFactionResources (faction: Faction): void {
-  console.log('assigning resources...')
+  logger.info('Assigning faction resources...')
   defineRollDataGetter(faction, factionRollData.resources.rolls, 'resourcesDescription', 'resources')
   faction.resources.list = []
   const availableResources = {} as WeightRecord<FactionResource>
@@ -19,7 +20,6 @@ export function setFactionResources (faction: Faction): void {
       availableResources[resource] = factionData.resources.types[resource].probability || 10
     }
   }
-  console.log(availableResources)
   sumWeights(availableResources, factionData.types[faction.type].resources)
 
   const ageModifier = getAgeModifier(faction.roll.age)
@@ -78,7 +78,6 @@ export function setFactionResources (faction: Faction): void {
 }
 
 function getResources (faction: Faction, availableResources: WeightRecord<FactionResource>, bonus: number) {
-  console.log('get resources...')
   const factionSizeModifier = (faction.roll.size - 30) / 2
   const sizeRoll: number = clamp(fm(dice(2, 30), clamp(factionSizeModifier + bonus)))
   const resource: FactionResource = getResourceName(availableResources)
@@ -94,7 +93,6 @@ function getResources (faction: Faction, availableResources: WeightRecord<Factio
 }
 
 function getAgeModifier (roll: number): number {
-  console.log('get age modifier...')
   if (roll > 95) return 15
   if (roll > 90) return 10
   if (roll > 80) return 8
@@ -111,13 +109,10 @@ function getAgeModifier (roll: number): number {
 }
 
 function getResourceSize (table: ThresholdTable, roll: number): string {
-  console.log('get resource size...')
   return getRolledFromTable(table, roll) ?? 'some'
 }
 
 function getResourceName (container: WeightRecord<FactionResource>): FactionResource {
-  console.log('get resource name...')
-  console.log(container)
   const resource = weightRandom(container)
   return resource
 }

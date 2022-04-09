@@ -90,12 +90,12 @@ setup.initTavernData = () => {
           nickname () { return `Everyone is calling you "${['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random()}", but nobody will tell you why.` },
           insult (town) {
             const faction = setup.factionsForType(town, 'leadershipType', 'individual')
-            console.log(faction)
+            lib.logger.info(faction)
             return `You accidentally insulted the <<profile \`$npcs[${JSON.stringify(faction.leader.key)}]\` leader>> of the ${faction.type} ${faction.wordNoun}, ${setup.profile(faction, '', 'town.factions')}, and only a public apology will let you do business with them again.`
           },
           anotherQuest (town) {
             const faction = setup.factionsForType(town, 'leadershipType', 'individual')
-            console.log(faction)
+            lib.logger.info(faction)
             return `You swore to complete some quest on behalf of the ${faction.type} ${faction.wordNoun}, ${setup.profile(faction, faction.name, 'town.factions')}.`
           },
           gaffe () { return 'A social gaffe has made you the talk of the town.' },
@@ -653,7 +653,7 @@ setup.initTavernData = () => {
         return descriptions
       },
       lodging (tavern) {
-        console.log(`Fetching ${tavern.name} lodging.`)
+        lib.logger.info(`Fetching ${tavern.name} lodging.`)
         const { wealth } = lib.tavernRollData
         const [,, lodging] = wealth.rolls.find(([threshold]) => {
           return threshold <= tavern.roll.wealth
@@ -661,7 +661,7 @@ setup.initTavernData = () => {
         return lodging
       },
       bedCleanliness (tavern) {
-        console.log(`Fetching ${tavern.name} bed cleanliness.`)
+        lib.logger.info(`Fetching ${tavern.name} bed cleanliness.`)
         const { cleanliness } = lib.tavernRollData
         const [, bedCleanliness] = cleanliness.rolls.find(([threshold]) => {
           return threshold <= tavern.roll.bedCleanliness

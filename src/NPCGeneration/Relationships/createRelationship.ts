@@ -10,23 +10,23 @@ type RelationshipType = {
  * Uses State.variables.npcs
  */
 export const createRelationship = (town: Town, sourceNPC: NPC, targetNPC: NPC, type: RelationshipType): void => {
-  console.log('Forming a relationship.', sourceNPC, targetNPC)
+  lib.logger.info('Forming a relationship.', sourceNPC, targetNPC)
   const { npcs } = State.variables
 
   if (typeof sourceNPC === 'string') {
-    console.error('First npc was passed a string!')
+    lib.logger.error('First npc was passed a string!')
     sourceNPC = npcs[sourceNPC]
   }
 
   if (typeof targetNPC === 'string') {
-    console.error('Second npc was passed a string!')
+    lib.logger.error('Second npc was passed a string!')
     targetNPC = npcs[targetNPC]
   }
 
   if (!type.reciprocalRelationship) type.reciprocalRelationship = type.relationship
 
   if (sourceNPC.key === targetNPC.key) {
-    console.error('Tried to make a relationship with the same NPC.')
+    lib.logger.error('Tried to make a relationship with the same NPC.')
     return
   }
 

@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Faction } from './_common'
 
 interface Town {
@@ -5,7 +6,7 @@ interface Town {
 }
 
 export function setFactionSize (town: Town, faction: Faction): void {
-  console.log('calculating size...')
+  logger.info('Calculating faction size...')
 
   faction.roll.size += getAgeModifier(faction.roll.age)
   faction.roll.size += getPopulationModifier(town.population)

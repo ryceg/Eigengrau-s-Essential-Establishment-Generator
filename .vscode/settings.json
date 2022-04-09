@@ -2,8 +2,6 @@
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
     "editor.formatOnSave": true,
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true,
     "source.fixAll": true
   },
   "search.exclude": {
@@ -15,7 +13,6 @@
     "/src/Tools/Exports/example.json": true,
     "/yarn.lock": true
   },
-  "editor.formatOnSave": false,
   "prettier.semi": false,
   "highlight.maxMatches": 250,
   "highlight.regexes": {
@@ -36,9 +33,14 @@
   },
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.preferences.quoteStyle": "single",
-  "typescript.preferences.importModuleSpecifierEnding": "minimal",
   "twee3LanguageTools.storyformat.current": "sugarcube-2",
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   }
 }

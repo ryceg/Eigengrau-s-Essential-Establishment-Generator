@@ -5,7 +5,7 @@ export const createTownName = function (town: TownBasics | Town) {
   const suffix = townData.name.suffix
   let name: string
   if (lib.random(100) > 90) {
-    console.log('Named a founder!')
+    lib.logger.info('Named a founder!')
     if (town) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore

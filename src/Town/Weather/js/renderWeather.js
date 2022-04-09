@@ -6,7 +6,7 @@
  * @returns {void}
  */
 setup.renderWeather = (town, weather, biome = town.terrain) => {
-  console.log('Rendering weather...')
+  lib.logger.info('Rendering weather...')
 
   weather.precipitationLevel = Math.clamp(weather.precipitationLevel, 1, 4)
   weather.precipitationIntensity = Math.clamp(weather.precipitationIntensity, 1, 4)
@@ -24,8 +24,8 @@ setup.renderWeather = (town, weather, biome = town.terrain) => {
 
   if (!finalKey) finalKey = 0
   if (weather.timer.temperature < 1) {
-    console.log('Timer for temperature has run out. Rolling temp timer!')
-    console.log({ weather, finalKey })
+    lib.logger.info('Timer for temperature has run out. Rolling temp timer!')
+    lib.logger.info({ weather, finalKey })
     weather.timer.temperature = Math.trunc((lib.terrain[biome].weather.tempVariation[finalKey].temperatureTimer() || random(24, 48)) / 8)
 
     /** @type {number} */
@@ -33,27 +33,27 @@ setup.renderWeather = (town, weather, biome = town.terrain) => {
     weather.temperature = (lib.terrain[biome].weather.season[weather.currentSeason].baseTemp || lib.terrain.temperate.weather.season.spring.baseTemp) + tempVariation - random(-2, 2)
 
     if (weather.timer.precipitation < 1) {
-      console.log('Resetting precipitation timer...')
+      lib.logger.info('Resetting precipitation timer...')
       weather.roll.precipitation = random(1, 100)
       weather.precipitation = lib.weather.precipitationLevel[weather.precipitationLevel](weather)
     }
 
     if (weather.precipitation && weather.temperature <= 32) {
-      console.log('Rolling on the freezing table...')
+      lib.logger.info('Rolling on the freezing table...')
       weather.roll.precipitationIntensity = random(1, 100)
       lib.weather.precipitationIntensity[weather.precipitationIntensity].freezing(weather)
     } else if (weather.precipitation) {
-      console.log('Rolling on the raining table...')
+      lib.logger.info('Rolling on the raining table...')
       weather.roll.precipitationIntensity = random(1, 100)
       lib.weather.precipitationIntensity[weather.precipitationIntensity].raining(weather)
     } else {
-      console.log('Clear day!')
+      lib.logger.info('Clear day!')
       weather.precipitation = 'no precipitation'
       weather.timer.precipitation = random(1, 8)
     }
 
     if (weather.timer.cloud < 1) {
-      console.log('Resetting cloud timer...')
+      lib.logger.info('Resetting cloud timer...')
       weather.roll.cloud = random(1, 100)
       lib.weather.precipitationIntensity[weather.precipitationIntensity].cloud(weather)
     }
@@ -61,7 +61,7 @@ setup.renderWeather = (town, weather, biome = town.terrain) => {
     weather.readout.precipitation = getPrecipitationReadout(weather)
     weather.readout.cloud = lib.weather.cloudIntensityDescriptors[weather.cloudIntensity].random()
 
-    console.log('Rendering temperature...')
+    lib.logger.info('Rendering temperature...')
     for (const [threshold, description] of lib.weather.temperatureDescriptors) {
       if (weather.temperature >= threshold) {
         const readout = `${setup.toCelsius(weather.temperature)}, to be precise.`
@@ -71,7 +71,7 @@ setup.renderWeather = (town, weather, biome = town.terrain) => {
     }
 
     weather.readout.full = `It's ${weather.readout.temperature}. ${weather.readout.cloud.toUpperFirst()}, and ${weather.readout.precipitation}. `
-    console.log(weather)
+    lib.logger.info(weather)
   }
 
   /**

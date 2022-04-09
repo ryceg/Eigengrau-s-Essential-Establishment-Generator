@@ -1,14 +1,15 @@
+import { logger } from '../logger'
 import { createRing } from './createRing'
 import { magicData, MagicType } from './magicData'
 import { random } from './random'
 import { assign } from './utils'
 
 export function createMagic <T extends MagicType> (type: T | 'ring'): MagicItem {
-  console.log(`Type: ${type}`)
+  logger.info(`Type: ${type}`)
 
   if (type === 'ring') {
     const magic = createRing()
-    console.log('Ring:', magic)
+    logger.info('Ring:', magic)
     return magic
   }
 
@@ -30,7 +31,7 @@ export function createMagic <T extends MagicType> (type: T | 'ring'): MagicItem 
     name: `${magic.prefix} ${magic.type} ${magic.suffix}`
   })
 
-  console.log(magic)
+  logger.info(magic)
   return magic
 }
 

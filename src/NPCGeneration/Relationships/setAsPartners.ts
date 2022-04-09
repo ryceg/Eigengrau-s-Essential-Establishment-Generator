@@ -5,8 +5,8 @@ import type { NPC } from '@lib'
  */
 export const setAsPartners = (npc1: NPC, npc2: NPC): void => {
   const npcs = State.variables.npcs
-  if (!npc1 || !npc2 || !npc1?.key || !npc2.key) {
-    console.warn('Called setAsPartners() with a null/undefined argument')
+  if (!npc1 || !npc2 || !npc1.key || !npc2.key) {
+    lib.logger.warn('Called setAsPartners() with a null/undefined argument')
     return
   }
 
@@ -29,5 +29,5 @@ export const setAsPartners = (npc1: NPC, npc2: NPC): void => {
   /* Link the two */
   npc1.partnerID = npc2.key
   npc2.partnerID = npc1.key
-  console.log(`${npc1.name} and ${npc2.name} are officially a couple!`)
+  lib.logger.info(`${npc1.name} and ${npc2.name} are officially a couple!`)
 }

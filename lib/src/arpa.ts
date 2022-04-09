@@ -504,6 +504,5 @@ export function arpabetToIpa (analyze: RitaAnalyze) {
     resultantString += ' '
   }
 
-  // console.log(arrayOfWords, resultantString)
   return `/${resultantString}/.`
 }
