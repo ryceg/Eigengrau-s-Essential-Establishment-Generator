@@ -185,31 +185,6 @@ export const createTown = (base: TownBasics | Town) => {
   town.materialProbability = lib.structureMaterialData.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
-  lib.logger.info('Defining taxes')
-  Object.defineProperty(town.taxes, 'welfare', {
-    get () {
-      lib.logger.info(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(2, State.variables.town.roll.welfare)
-    }
-  })
-
-  Object.defineProperty(town.taxes, 'military', {
-    get () {
-      lib.logger.info(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(2, State.variables.town.roll.military)
-    }
-  })
-
-  Object.defineProperty(town.taxes, 'economics', {
-    get () {
-      lib.logger.info(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(3, State.variables.town.roll.economics)
-    }
-  })
-
   if (town.generated === 'biome') {
     lib.createTownReligion(town as unknown as Town)
     assignSizeModifiers(town)
@@ -251,10 +226,6 @@ export const createTown = (base: TownBasics | Town) => {
   lib.logger.info(`${town.name} has loaded.`)
   lib.logger.info(town)
   return town as unknown as Town
-}
-
-function calculateTax (nominalTarget: number, economics: number) {
-  return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
 }
 
 function assignSizeModifiers (town: TownBasics) {

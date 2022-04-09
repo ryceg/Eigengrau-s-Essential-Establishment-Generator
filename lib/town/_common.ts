@@ -69,9 +69,6 @@ export interface Town extends TownBasics {
   politicalSourceDescription(town: Town): string
   localImage: string
   taxes: {
-    welfare: number
-    military: number
-    economics: number
     base: number
     land: number
     tithe: number
