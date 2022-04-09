@@ -13,6 +13,7 @@ setup.createGeneralStore = (town, opts = {}) => {
   }, opts.npc))
   lib.createReciprocalRelationship(town, generalStore, generalStore.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   Object.assign(generalStore, {
+    note: lib.generalStore.get.note(generalStore),
     shopkeepNote: lib.generalStore.get.shopkeepNote(generalStore),
     say: lib.generalStore.get.say(generalStore),
     wordNoun: ['general store', 'shop'].random(),

@@ -17,7 +17,6 @@ export interface GeneralStore extends Building{
   expertise: string
   activity: string
   priceModifier: number
-  clutter?: string[]
   crud: string
   note: string
   idle: string

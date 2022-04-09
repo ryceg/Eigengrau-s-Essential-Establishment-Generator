@@ -1,6 +1,5 @@
 import { Town } from '../town/_common'
 import { createTippyFull } from '../src/tippy'
-import { generalStore } from './generalStoreData'
 import { GeneralStore } from './_common'
 
 export function getGeneralStoreIntroduction (town: Town, building: GeneralStore) {
@@ -16,7 +15,7 @@ export function getGeneralStoreIntroduction (town: Town, building: GeneralStore)
 
   result.push(getGeneralStoreCrud(building))
 
-  result.push(`You notice ${generalStore.get.note(building)}.`)
+  result.push(`You notice ${building.note}.`)
 
   result.push(`The store's shopkeep is currently ${building.idle}.`)
 
