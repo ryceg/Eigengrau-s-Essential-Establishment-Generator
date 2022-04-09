@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { NPC, Town } from '@lib'
-import { Smithy } from '../../../lib/smithy/_common'
+import { NPC, Town, Smithy } from '@lib'
 
 export const createBlacksmithProject = function (town: Town, smithy: Smithy, blacksmith: NPC) {
   if (!blacksmith) { blacksmith = smithy.associatedNPC || setup.createNPC(town, { profession: 'blacksmith' }) }

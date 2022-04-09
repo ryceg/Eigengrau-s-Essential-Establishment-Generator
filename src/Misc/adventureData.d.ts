@@ -1,5 +1,4 @@
-import { NPC } from '../../lib/npc-generation/_common'
-import { Town } from '../../lib/town/_common'
+import { Town, NPC } from '@lib'
 
 interface Setup {
   adventure: {
