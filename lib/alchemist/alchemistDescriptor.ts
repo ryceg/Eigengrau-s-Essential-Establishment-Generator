@@ -17,7 +17,7 @@ export function getAlchemistIntroduction (alchemist: Alchemist, npc: NPC): strin
   return parts.join(' ')
 }
 
-export function getAlchemistDescriptor (alchemist: Alchemist): string {
+function getAlchemistDescriptor (alchemist: Alchemist): string {
   const structure = alchemist.structure
 
   if (typeof structure === 'undefined') {
