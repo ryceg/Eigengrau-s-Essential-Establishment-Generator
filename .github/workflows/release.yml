@@ -24,22 +24,10 @@ jobs:
 
       - name: Build
         run: yarn build
-        
-      - name: Make directory
-        run: mkdir -p ./gh-pages/src
 
-      - name: Copy resources
-        run: cp -r ./src/Resources ./gh-pages/src/
+      - name: Copy files
+        run: cp -r ./gh-pages ./
 
-      - name: Copy index.html
-        run: cp -r ./gh-pages/index.html ./
-
-      - name: Copy main
-        run: cp -r ./gh-pages/main.js ./
-
-      - name: Copy main map
-        run: cp -r ./gh-pages/main.js.map ./
-        
       # - name: Create TypeDocs
       #   run: yarn typedoc
 
