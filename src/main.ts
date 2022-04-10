@@ -35,6 +35,7 @@ import { urlSeed, navigateToObj } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { marketEvent } from './MiniEstablishments/Market/marketEventData'
 import { createTownBiome } from './Town/js/createTownBiome'
 import { createTown } from './Town/js/createTown'
 import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
@@ -105,6 +106,7 @@ declare global {
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    marketEvent: typeof marketEvent
     createTownBiome: typeof createTownBiome
     createTown: typeof createTown
     findViaKey: typeof findViaKey
@@ -179,6 +181,7 @@ Object.assign(setup, {
   deleteFaction,
   leaderFaction,
   plothooks,
+  marketEvent,
   createTownBiome,
   createTown,
   findViaKey,
