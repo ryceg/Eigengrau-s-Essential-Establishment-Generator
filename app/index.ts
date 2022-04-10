@@ -1,1 +1,1 @@
-export { default as Component } from './Component.svelte'
+export { default as RandomPotion } from './RandomPotion.svelte'

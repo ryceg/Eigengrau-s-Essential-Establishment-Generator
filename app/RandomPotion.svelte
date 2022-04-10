@@ -7,7 +7,7 @@
 </script>
 
 <button class="click-and-remove-link" on:click={createPotion}>
-  <span>Generate a random potion!</span>
+  <h6>Generate a random potion!</h6>
 </button>
 
 {#if randomPotion}
@@ -19,3 +19,10 @@
     </div>
   </span>
 {/if}
+
+<style>
+  button {
+    margin: 0;
+    border: none;
+  }
+</style>
