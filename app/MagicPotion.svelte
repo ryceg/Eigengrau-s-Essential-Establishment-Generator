@@ -17,11 +17,3 @@
     <blockquote>{potion.effectReadout}</blockquote>
   </div>
 {/if}
-
-<style>
-  button {
-    padding: 0;
-    margin: 8px 0;
-    border: none;
-  }
-</style>

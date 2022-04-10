@@ -6,17 +6,37 @@
 </script>
 
 <div>
-  <MagicPotion />
+  <div>
+    <MagicPotion />
+  </div>
+
+  <div>
+    <MagicArmour />
+  </div>
+
+  <div>
+    <MagicWeapon />
+  </div>
+
+  <div>
+    <MagicTrinket />
+  </div>
 </div>
 
-<div>
-  <MagicArmour />
-</div>
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+  }
 
-<div>
-  <MagicWeapon />
-</div>
+  div > :global(button) {
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    text-align: left;
+  }
 
-<div>
-  <MagicTrinket />
-</div>
+  div > :global(button:not(:hover)) {
+    background: none;
+  }
+</style>
