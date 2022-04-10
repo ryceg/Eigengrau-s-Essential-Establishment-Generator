@@ -4,36 +4,32 @@ type Illustration =
 | 'town-illustration'
 | 'city-illustration'
 
-const getPath = () => {
-  if (process.env.NODE_ENV === 'production' && location.origin !== 'file://') {
-    return './'
-  }
-  return '../'
+const addLocalSizes = (sizes: number[]) => {
+  return sizes.map(size => `(max-width: ${size}px) ${size}px`).join(', ')
 }
 
-const addLocalSourceSet = (illustration: Illustration, sizes: string[] = ['360', '411', '500', '576', '768', '992', '1200']) => {
-  let img = ''
-  const path = getPath()
-  for (const size of sizes) {
-    img += `${path}src/Resources/img/hero/${illustration}-x${size}.jpg ${size}w, `
-  }
-  return img
+const addLocalSourceSet = (illustration: Illustration, sizes: number[]) => {
+  const sources = sizes.map(size => {
+    return `./static/hero/${illustration}-${size}.jpg ${size}w`
+  })
+  sources.push(`./static/hero/${illustration}.jpg`)
+  return sources.join(', ')
 }
 
-export const getCustomImage = (url: URL, id = 'illustration') => {
+export const getCustomImage = (src: string, id = 'illustration') => {
   const img = document.createElement('img')
   img.id = id
-  img.src = url as unknown as string
+  img.src = src
   img.alt = 'A custom-defined image.'
   return img.outerHTML
 }
 
 export const getLocalImage = (illustration: Illustration) => {
   const img = document.createElement('img')
-  const path = getPath()
   img.id = 'illustration'
-  img.src = `${path}src/Resources/img/hero/${illustration}.jpg`
-  if (process.env.NODE_ENV === 'production' && location.origin !== 'file://') img.srcset = `${addLocalSourceSet(illustration)} ${path}src/Resources/img/hero/${illustration}.jpg`
+  img.src = `./static/hero/${illustration}.jpg`
+  img.sizes = addLocalSizes([640])
+  img.srcset = addLocalSourceSet(illustration, [640])
   img.alt = `An image depicting ${lib.articles.output(illustration)}, created by artist Juho Huttunen.`
   return img.outerHTML
 }

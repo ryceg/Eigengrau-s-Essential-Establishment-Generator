@@ -75,7 +75,7 @@
     column-gap: 35px;
   } */
 
-  #paper {
+  .paper {
     display: none;
   }
   img#illustration {

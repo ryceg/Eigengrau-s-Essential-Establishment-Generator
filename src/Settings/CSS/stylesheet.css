@@ -58,7 +58,7 @@ body {
 }
 
 .background-image {
-  background-image: url("./src/Resources/bottom 0001.png");
+  background-image: url("./static/grunge-bottom-01.png");
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
@@ -74,8 +74,8 @@ html.dark .background-image {
   -webkit-filter: invert(100%);
 }
 
-#paper {
-  /* background-image: url("/src/Resources/0001.png"); */
+.paper {
+  /* background-image: url("/static/grunge-top-01.png"); */
   position: absolute;
   left: 0;
   right: 0;
@@ -85,7 +85,7 @@ html.dark .background-image {
   z-index: -1;
 }
 
-html.dark #paper {
+html.dark .paper {
   filter: invert(100%);
 }
 
@@ -130,8 +130,45 @@ html.two-columns #illustration-buffer {
 
 @font-face {
   font-family: Bookinsanity;
-  src: local(Bookinsanity);
+  src: local("Bookinsanity"),
+       url("static/fonts/Bookinsanity.otf");
+  font-weight: normal;;
 }
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Bold"),
+       url("static/fonts/Bookinsanity Bold.otf");
+  font-weight: bold;;
+}
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Italic"),
+       url("static/fonts/Bookinsanity Italic.otf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Bold-Italic"),
+       url("static/fonts/Bookinsanity Bold Italic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Solbera Imitation;
+  src: local("Solbera Imitation"),
+       url("static/fonts/Solbera Imitation.otf");
+}
+
+@font-face {
+  font-family: Scaly Sans Caps;
+  src: local("Scaly Sans Caps"),
+       url("static/fonts/Scaly Sans Caps.otf");
+}
+
 
 .error-view[data-tags~="squash-errors"] {
   display: hidden;
@@ -210,55 +247,21 @@ html.two-columns #illustration-buffer {
 }
 
 /* animation */
-@-webkit-keyframes btnWiggle {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  2% {
-    -webkit-transform: rotate(-1deg);
-  }
-  3.5% {
-    -webkit-transform: rotate(1deg);
-  }
-  5% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-  }
-}
-@-o-keyframes btnWiggle {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  2% {
-    -webkit-transform: rotate(-1deg);
-  }
-  3.5% {
-    -webkit-transform: rotate(1deg);
-  }
-  5% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-  }
-}
 @keyframes btnWiggle {
   0% {
-    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   2% {
-    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
   }
   3.5% {
-    -webkit-transform: rotate(1deg);
+    transform: rotate(1deg);
   }
   5% {
-    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
@@ -325,7 +328,7 @@ footer {
   height: 55px;
   bottom: -2em;
   left: 0;
-  background-image: url("./src/Resources/footer.png");
+  background-image: url("./static/footer.png");
   background-size: cover;
   z-index: 5;
   column-span: all;
@@ -659,7 +662,7 @@ blockquote {
   background-color: var(--blockquote-color);
   border-style: solid;
   border-width: 11px;
-  border-image: url("./src/Resources/note-wrap.png") 11;
+  border-image: url("./static/note-wrap.png") 11;
   border-image-outset: 9px 0;
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
   page-break-inside: avoid; /* Firefox */
@@ -701,7 +704,7 @@ blockquote h5 {
   font-family: ScalySans;
   border-style: solid;
   border-width: 7px;
-  border-image: url("./src/Resources/sidebars.png") 12 round;
+  border-image: url("./static/sidebars.png") 12 round;
   border-image-outset: 4px;
   box-shadow: 0 0 6px var(--background-primary);
   -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
@@ -736,7 +739,7 @@ pre + .descriptive {
   left: 0;
   height: 55px;
   width: 100%;
-  background-image: url("./src/Resources/footer.png");
+  background-image: url("./static/footer.png");
   background-size: cover;
   column-span: all;
 }
@@ -825,7 +828,7 @@ input#mce-EMAIL.required.email:hover {
   border-image-outset: 25px 17px;
   border-image-repeat: round;
   border-image-slice: 150 200 150 200;
-  border-image-source: url("./src/Resources/table-wrap.png");
+  border-image-source: url("./static/table-wrap.png");
   border-image-width: 47px;
 }
 .classTable h5 {

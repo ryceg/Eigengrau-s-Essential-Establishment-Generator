@@ -1,8 +1,6 @@
 import { spawn } from 'child_process'
 import fs from 'fs'
 import path from 'path'
-import chokidar from 'chokidar'
-import cpy from 'cpy'
 import { OutputOptions } from 'rollup'
 import * as rollup from 'rollup'
 import utils from './utils'
@@ -66,28 +64,6 @@ const runTweego = (args: string[]) => {
   })
 }
 
-const copyFiles = async (args: string[]) => {
-  const watch = args.includes('--watch')
-  const source = path.resolve(__dirname, '../src/Resources')
-  const destination = path.resolve(__dirname, '../gh-pages/src/Resources')
-
-  const copy = async () => {
-    // await fs.promises.rmdir(destination, { recursive: true })
-    await cpy(source, destination)
-  }
-
-  if (watch) {
-    const watcher = chokidar
-      .watch(source)
-      .on('all', copy)
-      .on('error', () => process.exit(1))
-
-    process.on('beforeExit', () => watcher.close())
-  } else {
-    await copy()
-  }
-}
-
 const bundleJS = async (args: string[]) => {
   const watch = args.includes('--watch')
   const { configs } = await import('./rollup.config')
@@ -125,5 +101,4 @@ const bundleJS = async (args: string[]) => {
   await bundleJS(args)
   utils.logAction('Copying files...')
   runTweego(args)
-  await copyFiles(args)
 })()
