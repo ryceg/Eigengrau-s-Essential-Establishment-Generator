@@ -58,7 +58,7 @@ body {
 }
 
 .background-image {
-  background-image: url("./static/bottom 0001.png");
+  background-image: url("./static/grunge-bottom-01.png");
   background-attachment: scroll;
   background-repeat: repeat;
   background-size: cover;
@@ -75,7 +75,7 @@ html.dark .background-image {
 }
 
 .paper {
-  /* background-image: url("/static/0001.png"); */
+  /* background-image: url("/static/grunge-top-01"); */
   position: absolute;
   left: 0;
   right: 0;

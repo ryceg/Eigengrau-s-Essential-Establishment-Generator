@@ -146,12 +146,12 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
 <div id="illustration-buffer">
   <<print lib.getCustomImage($currentImage)>>
 </div>
-<img class="paper" src=./static/0001.png top=15vw display=block>
+<img class="paper" src=./static/grunge-top-01 top=15vw display=block>
 <<elseif $currentPassage.localImage>>
 <div id="illustration-buffer">
   <<print lib.getLocalImage($currentPassage.localImage)>>
 </div>
-<img class="paper" src=./static/0001.png top=15vw display=block>
+<img class="paper" src=./static/grunge-top-01 top=15vw display=block>
 <</if>>
 
 :: ShowAllSaved [nobr force-one-column]
