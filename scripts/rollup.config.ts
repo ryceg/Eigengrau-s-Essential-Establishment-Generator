@@ -1,8 +1,11 @@
 import { Plugin, RollupOptions } from 'rollup'
 // TODO: Replace this when "rollup-plugin-esbuild" fixes their sourcemap issues.
 import esbuild, { Options } from 'rollup-plugin-esbuild-transform'
+import serve from 'rollup-plugin-serve'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import { partytownRollup } from '@builder.io/partytown/utils';
+import path from 'path'
 
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
@@ -17,6 +20,9 @@ const sharedOptions: Options = {
 }
 
 const plugins: Plugin[] = [
+  partytownRollup({
+    dest: path.join(__dirname, 'gh-pages', '~partytown'),
+  }),
   esbuild([
     { loader: 'json', ...sharedOptions },
     { loader: 'ts', ...sharedOptions }
