@@ -1,11 +1,12 @@
-import type { Town } from '@lib'
+import { ThresholdTable, Town, wageVariation } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
 import { profile } from '../../NPCGeneration/profile'
+import { random } from '../../../lib/src/random'
 
 interface MarketEventData {
   event: Record<string, Event>
 }
-interface Event{
+interface Event {
   exclusions?(town: Town): boolean
   function(town: Town): string
 }
@@ -63,12 +64,24 @@ export const marketEvent: MarketEventData = {
     music: {
       function (town) {
         const npc = createNPC(town, {
-          hasClass: true,
-          dndClass: 'bard'
+          profession: 'bard'
         })
         const instrument = ['lute', 'pair of drumes', 'harp', 'flute', 'pan flute', 'sitar', 'fiddle', 'citern', 'vielle', 'clavichord', 'harpsichord']
-        const playing = ['rather well', 'rather poorly', 'very loudly', 'quite softly', 'and it sounds pretty good', 'and it sounds bad', 'and it sounds alright']
-        return `${profile(npc, lib.articles.output('bard').toUpperFirst())} is standing in a corner of the market playing ${lib.articles.output(lib.random(instrument))} ${lib.random(playing)}. Every once in a while a passerby throws a coin into a cap sitting in front of the bard.`
+        const sounding: ThresholdTable = [
+          [25, 'and it sounds absolutely amazing'],
+          [20, 'and it sounds great'],
+          [10, 'and it sounds pretty good'],
+          [0, 'quite loudly'],
+          [-5, 'quite softly'],
+          [-10, 'and it sounds pretty bad'],
+          [-15, 'and it sounds very bad'],
+          [-25, 'and it sounds like two cats having a fight']
+        ]
+
+        const note = sounding.find(desc => {
+          return desc[0] >= wageVariation(town, npc)
+        }) || [0, 'and it sounds kinda funky'][1]
+        return `${profile(npc, lib.articles.output('A bard'))} is standing in a corner of the market playing ${lib.articles.output(lib.random(instrument))} ${note}. Every once in a while a passerby throws a coin into a cap sitting in front of the bard.`
       }
     },
     snakeCharmer: {
@@ -77,9 +90,9 @@ export const marketEvent: MarketEventData = {
       },
       function (town) {
         const npc = createNPC(town, {
-          profession: 'snake charmer'
+          profession: 'performer'
         })
-        return `${profile(npc, lib.articles.output('snake charmer').toUpperFirst())} is sitting on a small rug in the market playing a strange looking flute. In front of the snake charmer is a basket with a large cobra in it hypnotically swaying from side to side. Every so often an onlooker drops some coins into a bag in front of the snake.`
+        return `${profile(npc, 'A snake charmer')} is sitting on a small rug in the market playing a strange looking flute. In front of the snake charmer is a basket with a large cobra in it hypnotically swaying from side to side. Every so often an onlooker drops some coins into a bag in front of the snake.`
       }
     },
     magicalWares: {
@@ -98,8 +111,11 @@ export const marketEvent: MarketEventData = {
       }
     },
     hiredHand: {
-      function () {
-        return 'A nearby hired hand is quickly stocking the shelves of a market stall. In their haste they trip and spill a large crate of goods onto the floor. As they clamber to pick up all the wares, a few passersby grab some for themselves and run off.'
+      function (town) {
+        const npc = createNPC(town, {
+          profession: 'merchant'
+        })
+        return `A nearby ${profile(npc, 'hired hand')} is quickly stocking the shelves of a market stall. In their haste they trip and spill a large crate of goods onto the floor. As they clamber to pick up all the wares, a few passersby grab some for themselves and run off.`
       }
     },
     merchantFight: {
@@ -142,13 +158,12 @@ export const marketEvent: MarketEventData = {
       },
       function (town) {
         const npc = createNPC(town, {
-          hasClass: false,
           profession: 'tourist',
           background: 'noble'
         })
-        const goods = ['maps', 'cheese wheels', 'fried mutton', 'local art', 'pottery', 'merchant bags', 'apples', 'swords', 'erotic novels']
+        const goods = random(['maps', 'cheese wheels', 'fried mutton', 'local art', 'pottery', 'merchant bags', 'apples', 'swords', 'erotic novels'])
         const location = ['bathroom', 'library', 'tavern', 'brothel', 'stable', 'temple', 'general store', 'inn']
-        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is wandering about, looking very lost, and out of place with ${npc.hisher} wide brimmed hat and colourful shirt. ${npc.heshe.toUpperFirst()} is carrying a comically large amount of ${lib.random(goods)} in ${npc.hisher} arms. The ${npc.descriptor} seems to be asking people for directions to the nearest ${lib.random(location)}.`
+        return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is wandering about, looking very lost, and out of place with ${npc.hisher} wide brimmed hat and colourful shirt. ${npc.heshe.toUpperFirst()} is carrying a comically large amount of ${goods} in ${npc.hisher} arms. The ${npc.descriptor} seems to be asking people for directions to the nearest ${lib.random(location)}.`
       }
     },
     doomsayer: {
@@ -157,24 +172,22 @@ export const marketEvent: MarketEventData = {
       },
       function (town) {
         const npc = createNPC(town, {
-          hasClass: false,
           ageStage: 'elderly',
           background: 'commoner',
           profession: 'town crier'
         })
-        const prediction = ['the world was going to end', 'the town was going to be swallowed by the earth', 'a famine was going to sweep across the land', 'the town was going to burn to the ground', 'magic was going to cease to exist', 'the sky was going to fall on us all', 'the oceans were going to dry up', 'all the trees were going to wilt and die', 'swarms of locust were going to descend on the land', 'the whole world was going to flood']
+        const prediction = ['the world was going to end', `the ${town.type} was going to be swallowed by the earth`, 'a famine was going to sweep across the land', 'the town was going to burn to the ground', 'magic was going to cease to exist', 'the sky was going to fall on us all', 'the oceans were going to dry up', 'all the trees were going to wilt and die', 'swarms of locust were going to descend on the land', 'the whole world was going to flood']
         return `An exasperated ${profile(npc, `haggard old ${npc.manwoman}`)} is trying to convince passerby’s that god had told ${npc.himher} ${lib.random(prediction)}. ${npc.heshe.toUpperFirst()}’s not entirely sure what ${npc.heshe} is supposed to do about it.`
       }
     },
     guardHunt: {
       function (town) {
         const npc1 = createNPC(town, {
-          hasClass: false,
           background: 'commoner',
           profession: 'guard'
         })
         const npc2 = createNPC(town, {
-          background: 'criminal'
+          professionSector: 'crime'
         })
         return `A ${profile(npc1, 'guard')} is walking through the market showing off a wanted poster with an image of ${profile(npc2, lib.articles.output(npc2.descriptor))}. The guard seems to be questioning shoppers about their knowledge of the person on the poster.`
       }
@@ -184,7 +197,7 @@ export const marketEvent: MarketEventData = {
         const npc = createNPC(town, {
           profession: 'cook'
         })
-        const sample = ['fried lamb', 'octopus balls', 'pig intestines', 'smoked mutton', 'pickled turnips', 'blueberry muffins', 'eel tongue']
+        const sample = ['fried lamb', 'mountain oysters', 'octopus balls', 'pig intestines', 'smoked mutton', 'pickled turnips', 'blueberry muffins', 'eel tongue']
         return `${profile(npc, lib.articles.output(npc.descriptor).toUpperFirst())} is walking through the crowds offering up free samples of ${lib.random(sample)} and gesturing towards ${npc.hisher} stall in the market.`
       }
     },
