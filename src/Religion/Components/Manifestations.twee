@@ -1,0 +1,20 @@
+:: Manifestations [nobr]
+<<if $currentPassage.associations.animals.length > 0 || $currentPassage.associations.plants.length > 0 || $currentPassage.associations.monsters.length > 0 >><h2>Manifestations</h2>
+  <<idp $currentPassage.associations.avatars>>
+  <<if Object.keys($currentPassage.associations).length >= 1>>
+    <table>
+    <tr>
+      <th>Type</th>
+      <th>Appears as</th>
+    </tr>
+    <<for _key, _array range $currentPassage.associations>>
+      <<if _key === 'avatars'>><<continue>><</if>>
+      <<if $currentPassage.associations[_key].length === 0>><<continue>><</if>>
+      <tr>
+        <td><<print _key.toUpperFirst()>></td>
+        <td colspan="4"><<print lib.makeList($currentPassage.associations[_key]).toUpperFirst()>></td>
+      </tr>
+    <</for>>
+    </table>
+  <</if>>
+<</if>>

@@ -26,7 +26,7 @@ export const createTippyWord = (tippy: string, word: string) => {
  */
 export const createTippyFull = (readout: string, word: string) => {
   const id = lib.getUUID()
-  return `<span class="tip dotted" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}>${word}<<timed 0s>><<run tippy(document.getElementById('${id}'))>><</timed>></span>`
+  return `<span class="tip dotted" data-id="${id}" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}>${word}<<done>><<run tippy(document.getElementById('${id}'))>><</done>></span>`
 }
 
 export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, ...args: Parameters<ConstructUtils<C>['create']>) {

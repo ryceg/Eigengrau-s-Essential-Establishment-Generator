@@ -1,8 +1,8 @@
 setup.createTemple = (town, opts = {}) => {
-  console.log('Creating a temple...')
+  lib.logger.info('Creating a temple...')
 
   const temple = (opts.newBuilding || lib.createBuilding)(town, 'temple', opts)
-  const data = setup.temple
+  const data = lib.templeData
 
   const npc = setup.createNPC(town, {
     profession: lib.random(['priest', 'priest', 'priest', 'priest', 'priest', 'cleric', 'cleric', 'cleric', 'cleric', 'druid']),
@@ -52,14 +52,14 @@ setup.createTemple = (town, opts = {}) => {
     blessing: `${temple.blessingConvey}. ${temple.blessingGift}.`
   })
 
-  lib.createBuildingRelationship(town, temple, temple.associatedNPC, {
+  lib.createReciprocalRelationship(town, temple, temple.associatedNPC, {
     relationship: 'caretaker',
     reciprocalRelationship: 'temple'
   })
 
   const rollDataVariables = ['wealth', 'size', 'cleanliness']
   for (const propName of rollDataVariables) {
-    lib.defineRollDataGetter(temple, data.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(temple, lib.templeRollData[propName].rolls, propName)
   }
 
   // These are the full sentence printouts referenced within TempleOutput.twee

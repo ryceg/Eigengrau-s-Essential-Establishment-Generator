@@ -1,0 +1,22 @@
+:: ListboxOptions
+<<set $listboxes to {
+  terrain: Object.keys(lib.terrain),
+  location: Object.keys(lib.terrain[$town.terrain].location),
+  vegetation: ["thick", "lush", "sparse", "desolate"],
+  origin: lib.terrain[$town.terrain].location[$town.location].origin,
+  primaryCrop: lib.townData.misc.primaryCrop,
+  primaryExport: lib.townData.misc.primaryExport,
+  season: Object.keys(lib.terrain.temperate.weather.season),
+  economicIdeology: lib.economicPairs,
+  politicalIdeology: lib.politicalIdeologyPairs,
+  politicalSource: ["absolute monarchy", "constitutional monarchy", "republic", "anarchy"]
+}>>
+<<set
+  $town.roll.wealth to $town.roll.wealth.clamp(1, 100),
+  $town.roll.economics to $town.roll.economics.clamp(1, 100),
+  $town.roll.welfare to $town.roll.welfare.clamp(1, 100),
+  $town.roll.military to $town.roll.military.clamp(1, 100),
+  $town.roll.arcana to $town.roll.arcana.clamp(1, 100),
+  $town.roll.law to $town.roll.law.clamp(1, 100),
+  $town.roll.equality to $town.roll.equality.clamp(1, 100)
+>>

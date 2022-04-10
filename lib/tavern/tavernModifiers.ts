@@ -31,7 +31,7 @@ export function tavernModifiers (town: Town, tavern: Tavern) {
     tavernRoll.activity -= 3
   }
 
-  switch (tavern.type) {
+  switch (tavern.tavernType) {
     case 'brothel':
       tavernRoll.sin += 20
       tavernRoll.roughness += 4

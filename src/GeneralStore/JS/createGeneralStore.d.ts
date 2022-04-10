@@ -1,4 +1,4 @@
-import { GeneralStore } from '../../../lib/general-store/_common'
+import { Town, GeneralStore, NPC, Building } from '@lib'
 
 interface Setup {
   createGeneralStore(town: Town, opts?: Partial<Options>): GeneralStore

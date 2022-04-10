@@ -1,32 +1,47 @@
-:: NPCHeader
-<<nobr>><h1 class="interactive-only"><<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
-<<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
+:: NPCHeader [nobr]
+<<if $npcs[$currentPassage.key].isShallow === true || $npcs[$currentPassage.key].hasHistory === false>>
+  <<run setup.expandNPC($town, $npcs[$currentPassage.key])>>
 <</if>>
+<<include "NPCSaveEdits">>
 <<set $currentNPC to $npcs[$currentPassage.key]>>
-<<run console.groupCollapsed($currentNPC.name)>>
-<<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
-$currentNPC.title
-<</if>>$currentNPC.name</h1>
-<<if def $currentNPC.key>>
-  <<button "Edit $currentNPC.name" NPCProfileEdit>>
-    <<run setup.history($currentNPC, "NPCProfileEdit", "Editing " + $currentNPC.name)>>
-  <</button>>
+<<set $customImages to recall('customImages')>>
+<<set $currentImage to $currentPassage.customImage || null>>
+<<run lib.logger.openGroup($currentNPC.name)>>
+<h1 class="interactive-only">
+  <<if $currentNPC.title !== "Mr" && $currentNPC.title !== "Ms">>
+    $currentNPC.title
+  <</if>> $currentNPC.name
+</h1>
+<span class='flex-line'>
+  <<if def $currentNPC.key>>
+    <<button "Edit $currentNPC.name">>
+      <<run setup.openDialog({
+        header: `Editing ${$currentNPC.name}`,
+        passage: 'NPCProfileEdit',
+        rerender: true,
+        dialogOpts: $npcs[$currentPassage.key],
+        func: setup.preparePlaceholders
+      })>>
+    <</button>>
+  <</if>>
+
+  <<if $currentNPC.isThrowaway === true>><span class='hide-on-print'> -- </span>
+      <<button "Save to NPCs list">>
+        <<set $npcs[$currentPassage.key].isThrowaway to false>>
+        <<run lib.logger.info("Saved " + $currentNPC.name + " to the NPCs list.")>>
+        <<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>>
+        <<run lib.logger.info($currentNPC)>>
+        <<goto "NPCProfile">>
+      <</button>>
+  <</if>>
+</span>
+<<if $currentImage>>
+    <span style="
+    position: relative;
+    float: right;
+    width: 50%;
+    z-index: -2;"
+>
+    <<print lib.getCustomImage($currentImage, 'npc-image')>>
+  </span>
 <</if>>
-/* <label name="NPC output" for="listbox-currentnpcoutputoption"><<listbox "$currentNPC.outputOption">>
-  <<option "JSON">>
-  <<option "GMBinder">>
-  <<option "LegendKeeper">>
-<</listbox>></label> --
-<<button "Output">>
-  <<switch $currentNPC.outputOption>>
-  <<case "JSON">>
-    <<run setup.history($currentNPC, "NPCProfileJSON", "JSON for " + $currentNPC.name)>><<goto "NPCProfileJSON">>
-  <<case "GMBinder">>
-    <<run setup.history($currentNPC, "NPCProfileGMBinder", "GMBinder Markdown for " + $currentNPC.name)>><<goto "NPCProfileGMBMarkdown">>
-  <<case "LegendKeeper">>
-    <<run setup.history($currentNPC, "NPCProfileLK", "LK Markdown for " + $currentNPC.name)>><<goto "NPCProfileLKMarkdown">>
-  <</switch>>
-<</button>>    */
-<<if $currentNPC.isThrowaway === true>> -- 
-    <<button "Save to NPCs list">><<set $npcs[$currentPassage.key].isThrowaway to false>><<run console.log("Saved " + $currentNPC.name + " to the NPCs list.")>><<notify 5000>>Saved $currentNPC.name to the NPCs list.<</notify>><<run console.log($currentNPC)>><<goto "NPCProfile">><</button>>
-<</if>><</nobr>>

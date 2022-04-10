@@ -1,10 +1,10 @@
-import type { NPC, Building, Town, RaceName } from '@lib'
+import { NPC, Building, Town, RaceName, getRacesPercentile } from '@lib'
 
 export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
     switch (obj.objectType) {
       case 'npc':
-        $(span).attr('data-tippy-content', `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || `${lib.articles.output(obj.descriptor).toUpperFirst()} called ${obj.name} who is ${lib.articles.output(obj.profession)}.`)
         break
       case 'building':
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.wordNoun || obj.type} that's ${obj.cleanliness}, and is known for ${obj.notableFeature}.`)
@@ -16,10 +16,13 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${lib.articles.output(obj.size).toUpperFirst()} ${obj.type} ${obj.wordNoun} called ${obj.name}`)
         break
       case 'road':
-        $(span).attr('data-tippy-content', obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${lib.articles.output(obj.type)}. It is ${obj.materialDescription} ${obj.feature}.`)
+        break
+      case 'deity':
+        $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${obj.titles[0]}, who is ${lib.articles.output(obj.rank)} in the pantheon.`)
         break
       default:
-        console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
+        lib.logger.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
     }
   } else {
     $(span).attr('data-tippy-content', obj.tippyDescription || obj.name)
@@ -99,24 +102,63 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const racesPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>) => {
-  const tip = $(`<span class='tip dotted'>${lib.getPredominantRace(percentages).amountDescriptive}</span>`)
-  tippy(tip.get(0), {
-    content: source,
-    interactive: false,
-    allowHTML: true
-  })
-  const htmlTarget = Array.from(document.getElementsByClassName(target))
-  for (const element of htmlTarget) {
-    $(tip.get(0)).appendTo(element)
+export function assertHtmlExists (el: HTMLElement | undefined): asserts el is HTMLElement {
+  if (el === undefined) {
+    throw new Error('Element does not exist!')
   }
 }
 
-export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
+export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
+  const tip = $(`<span class='tip dotted'>${content}</span>`)
+
+  const element = tip.get(0)
+  if (element) {
+    tippy(element, {
+      content: source,
+      interactive: true,
+      allowHTML: true
+    })
+  }
+
+  // this isn't working properly with multiple elements on the same page with the same target
+  // const htmlTarget = Array.from(document.getElementsByClassName(target))
+  const htmlTarget = $(`.${target}`)
+
+  for (const element of htmlTarget) {
+    const tipGet = tip.get(0)
+    if (tipGet) {
+      $(tipGet).appendTo(element)
+    }
+  }
+}
+
+export function createRaceHTML (percentages: Record<RaceName, number>, target: string, content?: string) {
+  if (!lib.isPercentile(percentages)) {
+    percentages = getRacesPercentile(percentages)
+  }
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
-  const html = lib.formatAsList(list)
-  racesPercentageTooltip(html, target, percentages)
+  const html = lib.formatArrayAsList(list)
+  if (!html) return
+  createPercentageTooltip(html, target, content || lib.getPredominantRace(percentages).amountDescriptive)
+}
+
+export function createReligionHTML (percentages: Record<string, number>, target: string, content?: string) {
+  const html = lib.formatAsList(percentages)
+  if (!html) return
+  createPercentageTooltip(html, target, content || lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
+  const button = $('<button/>', {
+    text: 'Edit',
+    click () {
+      setup.openDialog({
+        header: 'Edit Pantheon',
+        passage: 'EditPantheon',
+        rerender: true
+      })
+    }
+  })
+  // .addClass('ignore-remove')
+  $(button).appendTo(html)
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -127,7 +169,11 @@ tippy.setDefaultProps({
   followCursor: 'horizontal',
   animation: 'perspective',
   theme: 'blockquote',
+  inlinePositioning: true,
   // theme: 'descriptive',
   allowHTML: true,
+  // // uncomment the next two for manual tippy activation.
+  // hideOnClick: 'toggle',
+  // trigger: 'click',
   inertia: true
 })

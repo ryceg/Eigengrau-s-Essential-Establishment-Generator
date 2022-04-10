@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:@typescript-eslint/recommended", "standard"],
+  "extends": ["standard", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
@@ -9,6 +9,7 @@
   "rules": {
     "no-var": "warn",
     "no-undef": "off",
+    "no-console": "warn",
     "prefer-template": "warn",
     "no-extra-parens": ["warn", "all", { "nestedBinaryExpressions": false }],
     "object-shorthand": ["warn", "always"],
@@ -20,7 +21,14 @@
       "warn",
       {
         "functions": ["random", "randomFloat", "dice"],
-        "methods": ["random", "randomMany", "fm", "pluck", "pluckMany", "shuffle"]
+        "methods": [
+          "random",
+          "randomMany",
+          "fm",
+          "pluck",
+          "pluckMany",
+          "shuffle"
+        ]
       }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",

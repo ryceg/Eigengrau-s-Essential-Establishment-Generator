@@ -12,7 +12,7 @@ module.exports = (fileInfo, api) => {
   const jsc = api.jscodeshift
   const doc = jsc(fileInfo.source)
 
-  doc.find(jsc.ObjectExpression, obj => obj.start === LINE).replaceWith(({ node }) => {
+  doc.find(jsc.ObjectExpression, obj => obj.loc && obj.loc.start.line === LINE).replaceWith(({ node }) => {
     return jsc.arrayExpression(node.properties.map(property => {
       if (property.type !== 'Property') {
         throw new Error('Not a property')

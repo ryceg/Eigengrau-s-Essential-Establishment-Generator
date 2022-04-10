@@ -1,0 +1,31 @@
+#ui-bar {
+  background-color: var(--background-primary);
+  border-right-width: 10px;
+  border-right-color: var(--header-secondary);
+  border-right-style: double;
+}
+#ui-bar hr {
+  border-color: var(--background-primary);
+}
+#ui-bar-toggle {
+  color: var(--text-normal);
+  border-color: var(--background-primary);
+}
+
+#ui-bar-history {
+  display: none;
+}
+#ui-bar-history [id|="history"] {
+  color: var(--text-normal);
+  border-color: var(--background-primary);
+}
+#ui-bar-toggle:hover,
+#ui-bar-history [id|="history"]:hover {
+  background-color: var(--background-primary);
+  border-color: var(--text-normal);
+}
+#ui-bar-history [id|="history"]:disabled {
+  color: var(--background-primary);
+  background-color: transparent;
+  border-color: var(--background-primary);
+}

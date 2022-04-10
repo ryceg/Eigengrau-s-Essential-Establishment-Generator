@@ -4,7 +4,7 @@ const missionsSmithy = {
     return `${'I have had some issues with different types of ingots disappearing, and suspect that somebody is stealing from me. Would you be able to catch the thief?' + '<blockquote>The thief is <<profile `$npcs['}${JSON.stringify(npc.key)}]\`>></blockquote>`
   },
   testSubject () {
-    return "I'm in need of someone to test out this new <<print $building.weapons.random()>> in a duel against me. Would you be interested in trying this? I would compensate you for the trouble of course."
+    return "I'm in need of someone to test out this new <<print lib.smithyData.weapons.random()>> in a duel against me. Would you be interested in trying this? I would compensate you for the trouble of course."
   },
   bandits (town) {
     const npc = setup.createNPC(town, { profession: ['rogue', 'fighter'].random(), background: 'criminal' })
@@ -14,15 +14,15 @@ const missionsSmithy = {
     return `I am in need of some capable adventurers to go and collect some ${['rare jewelstones', 'chunks of an ancient mineral', 'old weapons forged by a long forgotten smith'].random()}. You'll find it in ${['a winding cavern near town', 'the bottom of a mineshaft that was abandonded years ago', 'an alegedly haunted forest full of small caves', 'the mountain home of an ancient beast', 'a cavern at the top of the highest peak in the region'].random()}. Are you up to the task?`
   },
   disappearingShipment () {
-    return 'I had a shipment of <<print $building.weapons.random()>>s coming, but it never arrived... I suspect that something happened to it. Would you be interested in looking into it?'
+    return 'I had a shipment of <<print lib.smithyData.weapons.random()>>s coming, but it never arrived... I suspect that something happened to it. Would you be interested in looking into it?'
   },
   badWeapons (town) {
     const npc = setup.createNPC(town, { hasClass: false, profession: 'blacksmith' })
-    return `I received a shipment of <<print $building.weapons.random()>>s, but they were completely unusable- my friend <<profile \`$npcs[${JSON.stringify(npc.key)}]\`>> would never send me bad goods, so I suspect that something is amiss!`
+    return `I received a shipment of <<print lib.smithyData.weapons.random()>>s, but they were completely unusable- my friend <<profile \`$npcs[${JSON.stringify(npc.key)}]\`>> would never send me bad goods, so I suspect that something is amiss!`
   },
   deliverWeapons (town) {
     const npc = setup.createNPC(town, { hasClass: false, profession: 'noble' })
-    return `I recently forged a <<print $building.weapons.random()>> for a local ${setup.profile(npc, 'noble')}, but I don't have time to bring it to ${npc.himher}. Would you be willing to take it to ${npc.himher} for me? I would pay you for your troubles of course.`
+    return `I recently forged a <<print lib.smithyData.weapons.random()>> for a local ${setup.profile(npc, 'noble')}, but I don't have time to bring it to ${npc.himher}. Would you be willing to take it to ${npc.himher} for me? I would pay you for your troubles of course.`
   }
 }
 

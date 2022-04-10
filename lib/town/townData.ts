@@ -1,12 +1,12 @@
 import { randomFloat } from '../src/randomFloat'
 import { random } from '../src/random'
 import { ThresholdTable } from '../src/rollFromTable'
-import { RaceName } from '../npc-generation/raceTraits'
-import { WeightRecord } from '../types'
-import { PoliticalSource } from './_common'
+import { Biome, Seasons } from '../src/terrain'
 import { NPC } from '../npc-generation/_common'
+import { RaceName } from '../npc-generation/raceTraits'
 import { FactionType } from '../faction/factionData'
-import { Seasons, Biome } from '@lib'
+import { WeightRecord } from '../types'
+import { PoliticalSource, Town } from './_common'
 
 export type TownType = 'hamlet' | 'village' | 'town' | 'city'
 export type EconomicIdeology = 'feudalism' | 'capitalism' | 'syndicalism' | 'communism' | 'primitivism'
@@ -37,7 +37,6 @@ interface TownData {
     }
   }
   type: {
-    // eslint-disable-next-line no-unused-vars
     [key in TownType]: {
       demographics(): {
         probability: number
@@ -54,13 +53,12 @@ interface TownData {
     }
   }
   economicIdeology: {
-    // eslint-disable-next-line no-unused-vars
     [key in EconomicIdeology]: {
       modifiers: Record<RollKeys, number>
       descriptors: {
         economicIdeologyIC: string
         economicIdeologyIST: string
-        economicIdeologyDescription: string
+        economicIdeologyDescription: (town: Town) => string
         tippy: string
       }
     }
@@ -72,7 +70,6 @@ interface TownData {
     anarchy: Republic
   }
   politicalIdeology: {
-    // eslint-disable-next-line no-unused-vars
     [key in PoliticalIdeology]: {
       leaderTraits: () => Partial<NPC>
       modifiers: Record<RollKeys, number>
@@ -96,17 +93,17 @@ interface TownData {
 
 interface Republic {
   politicalIdeology: PoliticalIdeology[]
-  politicalSourceDescription: string
+  politicalSourceDescription: (town: Town) => string
   description: string
 }
 interface Monarchy {
   politicalIdeology: PoliticalIdeology[]
   autocracy: {
-    politicalSourceDescription: string
+    politicalSourceDescription: (town: Town) => string
     description: string
   }
   default: {
-    politicalSourceDescription: string
+    politicalSourceDescription: (town: Town) => string
     description: string
   }
 }
@@ -114,7 +111,6 @@ export interface TownRollData {
   tooltip: string
   preceding: string
   isHidden?: boolean
-  hasRolls?: boolean
   rolls?: ThresholdTable | [number, string, string][]
 }
 
@@ -222,66 +218,54 @@ export const townData: TownData = {
     reputation: {
       tooltip: 'How well known is this town?',
       preceding: 'Virtually unheard of -- Known throughout the region',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     },
     religiosity: {
       tooltip: 'How religious are they here?',
-      preceding: 'Atheistic -- Extremely Religious',
-      hasRolls: false
+      preceding: 'Atheistic -- Extremely Religious'
     },
     diversity: {
       isHidden: true,
       tooltip: 'How diverse is the population?',
-      preceding: 'Monoracial -- Totally diverse',
-      hasRolls: false
+      preceding: 'Monoracial -- Totally diverse'
     },
     economics: {
       tooltip: 'How free is the market, and how many regulations are there?',
-      preceding: 'Free Trade -- Regulated trade:',
-      hasRolls: false
+      preceding: 'Free Trade -- Regulated trade:'
     },
     welfare: {
       tooltip: 'How do they treat their less fortunate citizens?',
-      preceding: 'Indifferent welfare -- Benevolent Welfare:',
-      hasRolls: false
+      preceding: 'Indifferent welfare -- Benevolent Welfare:'
     },
     military: {
       tooltip: 'How heavy is the armed presence here?',
-      preceding: 'Relaxed military -- Strict military:',
-      hasRolls: false
+      preceding: 'Relaxed military -- Strict military:'
     },
     law: {
       tooltip: 'How do they treat law-breakers here?',
-      preceding: 'Reform-based law -- Punishment-based law:',
-      hasRolls: false
+      preceding: 'Reform-based law -- Punishment-based law:'
     },
     arcana: {
       tooltip: 'How is magic seen here? Slide to the left for magic to be seen less favourably, keep it in the middle for the government to have no opinion, and slide it to the right for a more regulated magic.',
-      preceding: 'Restricted magic -- Regulated magic:',
-      hasRolls: false
+      preceding: 'Restricted magic -- Regulated magic:'
     },
     magic: {
       tooltip: 'How common is it for a peasant to see magic here?',
       preceding: 'Gritty low-magic -- Magic is commonplace',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     },
     sin: {
       tooltip: 'How much of a culture of crime is there?',
-      preceding: 'Squeaky clean -- Wretched hive of scum and villainy',
-      hasRolls: false
+      preceding: 'Squeaky clean -- Wretched hive of scum and villainy'
     },
     genderMakeup: {
       tooltip: 'What percentage of the population does the \'dominant\' gender make up?',
-      preceding: 'Gender makeup (percentage of people that are the dominant gender):',
-      hasRolls: false
+      preceding: 'Gender makeup (percentage of people that are the dominant gender):'
     },
     guardFunding: {
       tooltip: 'How much funding is put towards keeping the peace here?',
       preceding: 'Next to no funding -- Well funded',
-      isHidden: true,
-      hasRolls: false
+      isHidden: true
     }
   },
   type: {
@@ -838,7 +822,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: 'feudalistic',
         economicIdeologyIST: 'feudalist',
-        economicIdeologyDescription: "The people of $town.name work the land in exchange for working their lord's lands.",
+        economicIdeologyDescription: (town: Town) => `The people of ${town.name} work the land in exchange for working their lord's lands.`,
         tippy: "The crown gives land to the nobles in exchange for military service. Peasants work, tithe, and fight for the nobles in exchange for being able to live on the noble's lands."
       }
     },
@@ -852,7 +836,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: 'capitalistic',
         economicIdeologyIST: 'capitalist',
-        economicIdeologyDescription: 'The people of $town.name work in exchange for payment from their employers, which they use to buy the necessities.',
+        economicIdeologyDescription: (town: Town) => `The people of ${town.name} work in exchange for payment from their employers, which they use to buy the necessities.`,
         tippy: 'Trade and industry are controlled by private owners for profit, rather than the state.'
       }
     },
@@ -867,7 +851,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: 'syndicalistic',
         economicIdeologyIST: 'syndicalist',
-        economicIdeologyDescription: 'The people of $town.name own the lands they work on collectively, and together benefit from its prosperity.',
+        economicIdeologyDescription: (town: Town) => `The people of ${town.name} own the lands they work on collectively, and together benefit from its prosperity.`,
         tippy: 'The workers own the lands they work on collectively, and together benefit from its prosperity.'
       }
     },
@@ -882,7 +866,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: 'communistic',
         economicIdeologyIST: 'communist',
-        economicIdeologyDescription: 'The people of $town.name work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.',
+        economicIdeologyDescription: (town: Town) => `The people of ${town.name} work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.`,
         tippy: 'People work the jobs that they are able to, and are paid according to their needs. Excess profits are reinvested to strengthen the society as a whole.'
       }
     },
@@ -897,7 +881,7 @@ export const townData: TownData = {
       descriptors: {
         economicIdeologyIC: 'primitivistic',
         economicIdeologyIST: 'primitivist',
-        economicIdeologyDescription: "The people of $town.name work the land in a loosely organised sense; there is no concept of ownership, and the majority of the $town.type's citizens are hunter-gatherers.",
+        economicIdeologyDescription: (town: Town) => `The people of ${town.name} work the land in a loosely organised sense; there is no concept of ownership, and the majority of the $town.type's citizens are hunter-gatherers.`,
         tippy: 'There is no formal government, and people are largely hunter-gatherers with no concept of ownership; might makes right.'
       }
     }
@@ -906,33 +890,33 @@ export const townData: TownData = {
     'absolute monarchy': {
       politicalIdeology: ['autocracy', 'autocracy', 'autocracy', 'meritocracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       autocracy: {
-        politicalSourceDescription: "<<print $town.leader.title.toUpperFirst()>> <<profile $npcs[$town.leader.key]>> is the supreme ruler, and all laws and affairs are governed by the crown's will.",
+        politicalSourceDescription: (town: Town) => `${town.leader.title.toUpperFirst()} <<profile ${town.leader.key}>> is the supreme ruler, and all laws and affairs are governed by the crown's will.`,
         description: 'The crown holds both supreme executive and judicial powers.'
       },
       default: {
-        politicalSourceDescription: '<<print $town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by a parliamentary consisting of $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        politicalSourceDescription: (town: Town) => `${town.ruler?.title.toUpperFirst()} <<profile ${town?.ruler?.key}>> is technically the head of state, but affairs are handled by a parliamentary consisting of ${town.leaderType}, the head of whom is ${town.leader.title} <<profile ${town.leader.key}>>.`,
         description: 'The crown holds supreme judicial power, but the executive power is held by a parliamentary.'
       }
     },
     'constitutional monarchy': {
       politicalIdeology: ['autocracy', 'autocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
       autocracy: {
-        politicalSourceDescription: '<<print $town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is technically the head of state, but affairs are handled by the prime minister, <<profile $npcs[$town.leader.key]>>, who controls all executive decisions.',
+        politicalSourceDescription: (town: Town) => `${town.ruler?.title.toUpperFirst()} <<profile ${town?.ruler?.key}>> is technically the head of state, but affairs are handled by the prime minister, <<profile ${town.leader.key}>>, who controls all executive decisions.`,
         description: 'The crown holds supreme judicial powers, but executive power is held by the prime minister.'
       },
       default: {
-        politicalSourceDescription: '<<print $town.ruler.title.toUpperFirst()>> <<profile $npcs[$town.ruler.key]>> is the head of state, but affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+        politicalSourceDescription: (town: Town) => `${town.ruler?.title.toUpperFirst()} <<profile ${town?.ruler?.key}>> is the head of state, but affairs are handled by ${town.leaderType}, the head of whom is ${town.leader.title} <<profile ${town.leader.key}>>.`,
         description: 'The crown holds supreme judicial power, but day to day affairs are held by parliament.'
       }
     },
     'republic': {
       politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
-      politicalSourceDescription: 'Affairs are handled by $town.leaderType, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>',
+      politicalSourceDescription: (town: Town) => `Affairs are handled by ${town.leaderType}, the head of whom is ${town.leader.title} <<profile ${town.leader.key}>>`,
       description: 'An elected body of representatives wield the powers of government.'
     },
     'anarchy': {
       politicalIdeology: ['meritocracy', 'meritocracy', 'democracy', 'democracy', 'democracy', 'democracy', 'kleptocracy', 'magocracy', 'militocracy', 'oligarchy', 'sophocracy', 'theocracy', 'technocracy'],
-      politicalSourceDescription: 'None take responsibility for the stewardship of $town.name, but $town.leaderType hold the best semblance of order, the head of whom is $town.leader.title <<profile $npcs[$town.leader.key]>>.',
+      politicalSourceDescription: (town: Town) => `None take responsibility for the stewardship of ${town.name}, but ${town.leaderType} hold the best semblance of order, the head of whom is ${town.leader.title} <<profile ${town.leader.key}>>.`,
       description: 'No formal political system exists.'
     }
   },

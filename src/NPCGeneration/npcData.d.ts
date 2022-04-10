@@ -1,4 +1,4 @@
-import { BackgroundName, ClassName, RaceName } from '../../lib/index'
+import { BackgroundName, ClassName, NPC, RaceName, Town } from '@lib'
 
 interface Setup {
   initNpcData(): void

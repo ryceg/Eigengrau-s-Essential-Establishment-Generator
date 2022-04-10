@@ -1,10 +1,11 @@
+import { logger } from '../logger'
 import { dice, fm } from '../src/dice'
 import { repeat, removeFromArray } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 
 export function createAllies (faction: Faction): void {
-  console.log('finding allies...')
+  logger.info('Finding faction allies...')
 
   const sizeRoll = fm(faction.roll.size, random([20, -20]))
   const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
@@ -12,32 +13,23 @@ export function createAllies (faction: Faction): void {
   const allies: string[] = []
 
   if (sizeRoll >= 90) {
-    faction.alliesDescription = 'an immense number of people to rely on for aid'
     repeat(() => getAllyGroup(random(-10, 15)), 5)
   } else if (sizeRoll >= 80) {
-    faction.alliesDescription = 'many allies'
     repeat(() => getAllyGroup(random(-15, 15)), 5)
   } else if (sizeRoll >= 70) {
-    faction.alliesDescription = 'a considerable number of allies'
     repeat(() => getAllyGroup(random(-20, 15)), 4)
   } else if (sizeRoll >= 60) {
-    faction.alliesDescription = 'a decent number of allies'
     repeat(() => getAllyGroup(15), 3)
   } else if (sizeRoll >= 50) {
-    faction.alliesDescription = 'some strong allies'
     repeat(() => getAllyGroup(10), 2)
   } else if (sizeRoll >= 40) {
-    faction.alliesDescription = 'a handful of trusted allies'
     getAllyGroup(10)
     getAllyGroup(-10)
   } else if (sizeRoll >= 30) {
-    faction.alliesDescription = 'a couple trusted allies'
     getAllyGroup(-15)
   } else if (sizeRoll >= 20) {
-    faction.alliesDescription = 'few allies'
     getAllyGroup(10)
   } else if (sizeRoll < 20) {
-    faction.alliesDescription = 'barely any allies'
     getAllyGroup(10)
   }
 
@@ -53,7 +45,20 @@ export function createAllies (faction: Faction): void {
     allies.push(tempGroupSize + tempGroup)
   }
 
+  faction.alliesDescription = getAlliesDescription(sizeRoll)
   faction.allies = allies
+}
+
+function getAlliesDescription (sizeRoll: number): string {
+  if (sizeRoll >= 90) return 'an immense number of people to rely on for aid'
+  if (sizeRoll >= 80) return 'many allies'
+  if (sizeRoll >= 70) return 'a considerable number of allies'
+  if (sizeRoll >= 60) return 'a decent number of allies'
+  if (sizeRoll >= 50) return 'some strong allies'
+  if (sizeRoll >= 40) return 'a handful of trusted allies'
+  if (sizeRoll >= 30) return 'a couple trusted allies'
+  if (sizeRoll >= 20) return 'few allies'
+  return 'barely any allies'
 }
 
 function getGroupSize (roll: number): string {

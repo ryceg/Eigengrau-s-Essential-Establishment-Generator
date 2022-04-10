@@ -1,0 +1,24 @@
+:: ImportPatreon
+<<set _retorts to ['Not quite- did you spell it wrong?', 'Try again.', 'Third time is not the charm, apparently.',,,,,,,,, 'It is pretty obvious that you have not paid',,,,,, 'Please consider chucking me $5',,,, 'I spent a long time on this',,,,, "If you can't be bothered, then there's always hosting locally!",,,, '...but we both know that the chances of you doing that are very low...',,,,,,, 'So come on, the button is right [[here|https://www.patreon.com/eigengrausgenerator/membership]]!',,,'Or, you can always post the generator on Reddit, etc.',,,,,'If you submit it to a blog, then I will send you a key!',,,,,"Plus, this feature gets unlocked for everyone at 150 patrons!",,,,,,,,,,,,, '...',,,, '...',,,, "You're just having fun now.",,,, "You think this is some kind of game?!",,,,,,,,,,, "Well it isn't! It's a TOWN GENERATOR.",,,,,,,,, 'NOT a game.',,,,,,,,,,,,,,, 'But, I admit that it is kinda fun to write these messages.',,,,,,,, 'I wonder if anyone is actually going to read them.',,,, 'Probably not.',,,, 'But then again, maybe!',,,,,,, 'But you should probably just quit.',, 'The whole schtick of talking through the error message is kinda getting old',,,,,,, "Plus, I can't really think of anything else witty to say.",,,,,,,, "Or even vaguely amusing, for that matter.",,,,,,,,,,,,,,,,,,,,,,, 'Go watch a movie or something!',,,, 'Or, I dunno, pay for the patreon?',,,,,,, 'That could be fun!',,,,,,,,,,, "Don't knock it until you try it!",,,,, 'Okay, I give up.',,,,,,,,,,,, 'You really want the password?',,,,,,, 'Fine.',,,,,,,,, 'Have it.',,,,,, 'I suppose you deserve something for god knows how many clicks.',,,,,,,,,,,,, 'Okay, stop clicking super fast.', "It's this next one",, "It's embedded in this YouTube video: https://www.youtube.com/watch?v=YddwkMJG1Jo"]>><<set _temp to lib.random(['Abracadabra', 'Please?', 'Expecto Patron!', 'Open Sesame', 'I cast Knock', 'I use thieves tools'])>><<set _i to 0>>
+This is a [[Hero tier Patron|https://www.patreon.com/join/eigengrausgenerator?]] only feature.
+
+However, I'm not one for hard content walls; if you are not a Patreon supporter, you can access it by compiling from source, which is downloadable from our GitHub.
+
+<<include "GoalBasedUnlockingText">>
+
+If you are a Hero tier Patron, take a look at the [[membership page|https://www.patreon.com/eigengrausgenerator/membership]], and enter the code below:
+
+<<textbox "$tovvn" _temp autofocus>> -- <<button "Submit">><<include "Auth">><<if $tovvn === $_>><<run Dialog.close()>><<else>><<replace "#result">> -- <<if _i < _retorts.length>><<print _retorts[_i]>><<elseif _i > 100>><<print "I promise you, there's nothing further.">><<else>><</if>><<set _i++>><</replace>><</if>><</button>> <span id="result"></span>
+
+:: GoalBasedUnlockingText
+<<set _suggestedTweets to {
+  'Matthew Mercer': '@matthewmercer',
+  'Matt Colville': '@mattcolville',
+  'Mike Mearls': '@MikeMearls',
+  'Tribality': '@TribalityRPG',
+  'DM David': '@DMDavidBlog',
+  'The Angry GM': '@TheAngryGM',
+  'Chris Perkins': '@ChrisPerkinsDND',
+  'Sly Flourish': '@SlyFlourish'
+}>><<set _selected to Object.keys(_suggestedTweets).random()>><<set _content to 'http://twitter.com/intent/tweet?text=.' + _suggestedTweets[_selected] + '.Hey%2C%20you%20should%20check%20out%20Eigengrau%27s%20Generator-%20it%27s%20a%20town%20generator%20like%20no%20other%2C%20open%20sourced%20too.%20Give%20it%20some%20love!'>>
+Eigengrau's Generator runs on a "goal based content unlocking" system, where paywalls come down when we hit Patreon milestones. So, it's in your best interests to <<link "spread the word!">><<run UI.share()>><</link>> Send the blog to [[Kotaku|mailto:tips@kotaku.com]], [[Geek and Sundry|https://geekandsundry.com/contact/]], and any other blog, and tell them to cover it! You could always do something like <a target="_blank" @href=_content> tweet _selected</a>

@@ -1,0 +1,29 @@
+:: DeityRelationships
+<<nobr>>
+<<if $currentPassage.relationships.length > 0>>
+  <h2>Relationships</h2>
+  <table>
+    <tr>
+      <th>Person</th>
+      <th>Relationship</th>
+    </tr>
+  <<for _relationship range $currentPassage.relationships>>
+  <<set _deity to lib.findInArray(lib.getPantheonDeities($town, State.metadata.get('pantheon')), 'name', _relationship.name.toUpperFirst())>>
+  <<capture _deity, _relationship>>
+    <tr>
+      <td>
+      <<if _deity>>
+        <<profile _deity _deity.toUpperFirst()>>
+      <<else>>
+        <<print _relationship.name.toUpperFirst()>>
+      <</if>>
+      </td>
+      <td colspan="4"><<if _relationship.description>>
+        <<print lib.createTippyFull(_relationship.description.toUpperFirst(), _relationship.relationship.toUpperFirst())>>
+        <<else>><<print lib.toTitleCase(_relationship.relationship)>><</if>></td>
+    </tr>
+    <</capture>>
+  <</for>>
+  </table>
+<</if>>
+<</nobr>>

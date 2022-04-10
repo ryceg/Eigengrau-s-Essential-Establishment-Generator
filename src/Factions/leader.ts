@@ -4,7 +4,7 @@ import { deleteNPC } from '../NPCGeneration/deleteNPC'
 import { createNPC } from '../NPCGeneration/createNPC'
 
 export const leaderFaction = (town: Town, faction: Faction) => {
-  console.log('determining leaders...')
+  lib.logger.info('Determining leaders...')
 
   faction.leaderQualification = getLeaderQualification(faction)
 
@@ -46,7 +46,7 @@ export const leaderFaction = (town: Town, faction: Faction) => {
       // @ts-ignore (Should probably ask about this issue on the TS discord.)
       faction.leader = faction.leader || createNPC(town, leaderTraits)
       // @ts-ignore
-      lib.createBuildingRelationship(town, faction, faction.leader, {
+      lib.createReciprocalRelationship(town, faction, faction.leader, {
         relationship: 'head of faction',
         reciprocalRelationship: 'controlled faction',
         description: `${faction.leader} is the leader of ${faction.name}, and is ${faction.leaderCompetence}.`

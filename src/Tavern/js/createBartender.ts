@@ -40,7 +40,7 @@ export const createBartender = (town: Town, tavern: Building, opts: Partial<NPC>
   })
 
   if (tavern) {
-    lib.createBuildingRelationship(town, tavern, bartender, {
+    lib.createReciprocalRelationship(town, tavern, bartender, {
       relationship: 'owner',
       reciprocalRelationship: 'business'
     })

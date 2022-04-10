@@ -1,6 +1,5 @@
 setup.initNpcData = () => {
   setup.npcData = {
-
     lifeEvents: {
       performed: {
         probability: 3,
@@ -9,7 +8,7 @@ setup.initNpcData = () => {
           return profession.socialClass === 'commoner' || profession.socialClass === 'nobility' || random(100) > 90
         },
         function (town, npc) {
-          console.log('called lifeEvents.performed function')
+          lib.logger.info('called lifeEvents.performed function')
           const character = setup.npcData.lifeEvents.performed.character.random()
           const theatrePerformance = setup.npcData.lifeEvents.performed.theatrePerformance.random()
           const bandInfo = setup.npcData.lifeEvents.performed.bandInfo.random()
@@ -106,7 +105,7 @@ setup.initNpcData = () => {
           return (lib.professions[npc.profession].sector === 'military' || random(100) > 70) && npc.ageYears > 15
         },
         function (town, npc) {
-          console.log('called lifeEvents.magicalCreature function')
+          lib.logger.info('called lifeEvents.magicalCreature function')
           const medal = lib.medal.create()
           const medalType = setup.npcData.lifeEvents.warMedal.medalType.random()
           const medalStatus = setup.npcData.lifeEvents.warMedal.medalStatus.random()
@@ -157,7 +156,7 @@ setup.initNpcData = () => {
           return lib.professions[npc.profession].sector === 'adventuring' || random(100) > 90
         },
         function (town, npc) {
-          console.log('called lifeEvents.magicalCreature function')
+          lib.logger.info('called lifeEvents.magicalCreature function')
           const flower = lib.flora.flower.stemP.random()
           const tree = lib.flora.tree.typeArticle.random()
           const fruitTree = lib.flora.fruit.tree.random()
@@ -276,7 +275,7 @@ setup.initNpcData = () => {
       festival: {
         probability: 5,
         function (town, npc) {
-          console.log('called lifeEvents.festival function')
+          lib.logger.info('called lifeEvents.festival function')
           const placement = setup.npcData.lifeEvents.festival.placement.random()
           const foodTrait = setup.npcData.lifeEvents.festival.foodTrait.random()
           const flowerTrait = setup.npcData.lifeEvents.festival.flowerTrait.random()
@@ -293,7 +292,7 @@ setup.initNpcData = () => {
             ].random()
           } else {
             return [
-              `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'a autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a hero's festival"].random()}. While I was there, I ${festivalDid}.`
+              `${['some friends and I went to', 'I went to', 'I spent a day at', 'I attended', 'I went to celebrate at'].random()} ${['a holiday festival', 'a spring festival', 'a summer festival', 'a fall festival', 'an autumn festival', 'a winter festival', 'a grand festival', 'a festival', 'a festival for the gods', "a hero's festival"].random()}. While I was there, I ${festivalDid}.`
             ].random()
           }
         },
@@ -359,7 +358,7 @@ setup.initNpcData = () => {
           return lib.professions[npc.profession].socialClass !== 'nobility'
         },
         function (town, npc) {
-          console.log('called lifeEvents.apprentice function')
+          lib.logger.info('called lifeEvents.apprentice function')
           const apprenticeProfession = setup.npcData.lifeEvents.apprentice.profession.random()
           const reputation = setup.npcData.lifeEvents.apprentice.reputation.random()
           const learned = setup.npcData.lifeEvents.apprentice.learned.random()
@@ -367,7 +366,7 @@ setup.initNpcData = () => {
             profession: apprenticeProfession,
             isShallow: true
           })
-          setup.createRelationship(town, npc, teacher, 'teacher', 'student')
+          setup.createRelationship(town, npc, teacher, { relationship: 'teacher', reciprocalRelationship: 'student' })
           return `${['I apprenticed under', 'I worked under', 'I learned under the tutelage of', 'I was a novice to'].random()} ${setup.profile(teacher, teacher.name)} ${reputation} ${apprenticeProfession}. During that time ${learned}.`
         },
         profession: [
@@ -444,7 +443,7 @@ setup.initNpcData = () => {
         probability: 5,
         function () {
           const trinket = lib.createMagic('trinket')
-          console.log('called lifeEvents.trinket function')
+          lib.logger.info('called lifeEvents.trinket function')
           return `${[
             "I was given a magical trinket- it's a ",
             'I happened across a ',
@@ -556,7 +555,7 @@ setup.initNpcData = () => {
       journey: {
         probability: 3,
         function (town, npc) {
-          console.log('called lifeEvents.journey function')
+          lib.logger.info('called lifeEvents.journey function')
           const prefix = setup.npcData.lifeEvents.journey.prefix.random()
           const location = setup.npcData.lifeEvents.journey.location.random()
           const locationLocation = setup.npcData.lifeEvents.journey.locationLocation.random()
@@ -668,7 +667,7 @@ setup.initNpcData = () => {
       lostChild: {
         probability: 3,
         function (town, npc) {
-          console.log('called lifeEvents.lostChild function')
+          lib.logger.info('called lifeEvents.lostChild function')
           const treeType = lib.flora.tree.typeArticle.random()
           const location = setup.npcData.lifeEvents.lostChild.location.random()
           const time = setup.npcData.lifeEvents.lostChild.time.random()
@@ -747,7 +746,7 @@ setup.initNpcData = () => {
           return lib.professions[npc.profession].sector === 'religion' || random(100) > 75
         },
         function (town, npc) {
-          console.log('called lifeEvents.pilgrimage function')
+          lib.logger.info('called lifeEvents.pilgrimage function')
           const prefix = setup.npcData.lifeEvents.pilgrimage.prefix.random()
           const location = setup.npcData.lifeEvents.pilgrimage.location.random()
           const journey = setup.npcData.lifeEvents.pilgrimage.journey.random()
@@ -809,15 +808,15 @@ setup.initNpcData = () => {
       // meetFriendNPC: {
       //   probability: 8,
       //   function (town, npc) {
-      //     console.log('called lifeEvents.meetFriendNPC function')
+      //     lib.logger.info('called lifeEvents.meetFriendNPC function')
       //     let friend
       //     if (random(100) > 50) {
-      //       console.log('Finding an already existing friend!')
+      //       lib.logger.info('Finding an already existing friend!')
       //       friend = Object.values(State.variables.npcs).find(({ socialClass, relationships }) => {
       //         return socialClass === npc.socialClass && !relationships[npc.key]
       //       })
       //       if (friend === undefined) {
-      //         console.log(`Nobody was in the same caste as ${npc.name}`)
+      //         lib.logger.info(`Nobody was in the same caste as ${npc.name}`)
       //         friend = setup.createNPC(town, {
       //           isShallow: true,
       //           socialClass: npc.socialClass
@@ -853,7 +852,7 @@ setup.initNpcData = () => {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
         },
         function (town, npc) {
-          console.log('called lifeEvents.meetEnemyNPC function')
+          lib.logger.info('called lifeEvents.meetEnemyNPC function')
           const enemy = setup.createNPC(town, {
             gender: 'man',
             background: 'noble',
@@ -895,14 +894,14 @@ setup.initNpcData = () => {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
         },
         function (town, npc) {
-          console.log('called lifeEvents.meetPartnerNPC function')
+          lib.logger.info('called lifeEvents.meetPartnerNPC function')
           const family = town.families[npc.family]
           const node = family.members[npc.key]
           let partnerKey, childKey
 
           // force creation of family members when applicable
           if (node.marriages === undefined || node.marriages.length === 0) {
-            console.log(`${npc.name} met somebody!`)
+            lib.logger.info(`${npc.name} met somebody!`)
 
             const newMarriage = setup.createMarriage(town, family, npc)
             node.marriages = [newMarriage]
@@ -911,8 +910,8 @@ setup.initNpcData = () => {
             if (!partnerKey) { return 'I met the love of my life, who is no longer with me.' }
             return `I met the love of my life, ${State.variables.npcs[partnerKey]}.`
           } else {
-            console.log(`${npc.name} already met somebody!`)
-            console.log(node.marriages)
+            lib.logger.info(`${npc.name} already met somebody!`)
+            lib.logger.info(node.marriages)
             const marriage = node.marriages[0]
             partnerKey = marriage.parents.find(key => key !== npc.key)
 
@@ -929,7 +928,6 @@ setup.initNpcData = () => {
             partnerMsg = partnerKey
               ? `I met the love of my life, ${setup.profile(partnerKey)}.`
               : 'I met the love of my life, who is no longer with me.'
-            return
           }
           return childMsg + partnerMsg
         }
@@ -940,7 +938,7 @@ setup.initNpcData = () => {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
         },
         function (town, npc) {
-          console.log('called lifeEvents.backgroundWork function')
+          lib.logger.info('called lifeEvents.backgroundWork function')
           npc.wealth += lib.dice('2d6') * 1000
           return `${[
             'I spent some time working as a ',
@@ -956,7 +954,7 @@ setup.initNpcData = () => {
       meetImportantNPC: {
         probability: 5,
         function (town, npc) {
-          console.log('called lifeEvents.meetImportantNPC function')
+          lib.logger.info('called lifeEvents.meetImportantNPC function')
           return [
             `${['I met a famous ', 'I came across a famous ', 'for a time, I worked for a famous ', 'I met a well known ', 'I had a brief stint working for a famous ', 'I got an autograph from a famous '].random() +
             ['wizard', 'bard', 'priest', 'noble', 'sorcerer', 'inventor', 'merchant', 'group of mercenaries', 'witch', 'general', 'commander', 'enchanter', 'druid', 'talking horse', 'adventurer', 'hero', 'blacksmith', 'armorer', 'alchemist', 'stage actor', 'playwright', 'artist', 'sculptor', 'painter', 'poet', 'knight', 'historian', 'gladiator', 'architect', 'crime boss', 'rogue', 'smuggler'].random() +
@@ -970,7 +968,7 @@ setup.initNpcData = () => {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
         },
         function (town, npc) {
-          console.log('called lifeEvents.adventure function')
+          lib.logger.info('called lifeEvents.adventure function')
           const adventureRoll = random(1, 100)
           let adventureResults
           if (npc.hasClass === false) {
@@ -986,7 +984,7 @@ setup.initNpcData = () => {
               'there was a mercenary company which I signed on with for a season. We did fairly standard stuff- things like guarding caravans, you know. One time, I was separated from the party, and I '].random()
             if (adventureRoll === 100) {
               const weapon = lib.createMagic('weapon')
-              console.log('Called weapon function.')
+              lib.logger.info('Called weapon function.')
               adventureResults = `came across a magical weapon- this is my trusty ${weapon.name}<blockquote>` + `<h4>${weapon.name}</h4>${weapon.description}</blockquote>`
             } else if (adventureRoll >= 91) {
               adventureResults = 'found a considerable amount of treasure.'
@@ -1020,7 +1018,7 @@ setup.initNpcData = () => {
       supernatural: {
         probability: 2,
         function (town, npc) {
-          console.log('called lifeEvents.supernatural function')
+          lib.logger.info('called lifeEvents.supernatural function')
           return [
             'I came across a horde of ghouls feasting on a dead body in my youth.',
             'I was ensorcelled by a fey for a year. It played tricks on my mind, making me see things which were not there, and not see things which were there.',
@@ -1034,7 +1032,7 @@ setup.initNpcData = () => {
       miracle: {
         probability: 2,
         function (town, npc) {
-          console.log('called lifeEvents.miracle function')
+          lib.logger.info('called lifeEvents.miracle function')
           const miracleGiver = setup.npcData.lifeEvents.miracle.miracleGiver.random()
           const trueBelief = setup.npcData.lifeEvents.miracle.trueBelief.random()
           const falseBelief = setup.npcData.lifeEvents.miracle.falseBelief.random()
@@ -1099,7 +1097,7 @@ setup.initNpcData = () => {
           return npc.ageYears >= 18 && npc.ageStage !== 'child'
         },
         function (town, npc) {
-          console.log('called lifeEvents.war function')
+          lib.logger.info('called lifeEvents.war function')
           const warRoll = random(1, 12)
           const warStart = [
             'there was a minor skirmish with some orcs that I was involved with.',
@@ -1136,7 +1134,7 @@ setup.initNpcData = () => {
           return lib.professions[npc.profession].sector === 'crime' || random(100) > 60
         },
         function (town, npc) {
-          console.log('called lifeEvents.crime function')
+          lib.logger.info('called lifeEvents.crime function')
           const crime = ['murder', 'theft', 'arson', 'assault', 'kidnapping', 'smuggling', 'extortion', 'counterfeiting', 'racketeering', 'fraud', 'illegal gambling', 'selling contraband '].random()
           const crimeRoll = random(1, 12)
           let crimeReadout
@@ -1155,7 +1153,7 @@ setup.initNpcData = () => {
       arcaneMatters: {
         probability: 4,
         function (town, npc) {
-          console.log('called lifeEvents.arcaneMatters function')
+          lib.logger.info('called lifeEvents.arcaneMatters function')
           return [
             `I saw a demon I swear on my life! ${['', 'It offered to make a deal with me, but I turned it down.', 'It challenged me to a lute playing competition.', 'I ran away before the thing could see me.', 'The image of that thing still haunts me.', "It forced me into a contract, and I'm still not sure what I owe.", 'It was trapped inside of a summoning circle.', 'The thing tried to kill me but I got away!', 'Sometimes I think it is still hunting me.'].random()}`,
             `I once saw a powerful wizard ${[`${['enchanting', 'disenchanting', 'cursing'].random()} a ${['sword', 'mace', 'pair of greaves', 'set of armor', 'longbow', 'large batch of arrows', 'dagger', 'skull', 'large crystal', 'hatchet', 'crossbow', 'thick tome', 'book', 'pair of boots', 'fine looking hat', 'set of robes', 'quill'].random()}.`,
@@ -1171,7 +1169,7 @@ setup.initNpcData = () => {
       weirdStuff: {
         probability: 1,
         function (town, npc) {
-          console.log('called lifeEvents.weirdStuff function')
+          lib.logger.info('called lifeEvents.weirdStuff function')
           return [
             `I came across a genie, ${['but squandered the wish on an ex lover', 'but wasted the wish on the perfect sandwich', 'and used my wish to set him free', 'and used my wish to bring prosperity to my town', 'and used my wish to curse a rival', 'but never used my wishes'].random()}.`,
             'I was once swallowed by a giant fish. Spent a bloody month in there, subsisting on fish and the other things it ate as I tried to find my way out.',
@@ -1225,7 +1223,6 @@ setup.initNpcData = () => {
         }
       }
     },
-
     skinColour: ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown'],
     idle: ['sitting, with a piece of bread in hand', 'sitting, mug in hand', 'poring over some map', 'reading some letter intently', 'reading a book', 'shuffling a pack of cards', 'chewing on a piece of hay', 'sharpening a knife', 'buffing a piece of armour', 'polishing a shield', 'sharpening the blade on a fearsome looking dagger', 'cutting an apple into bite sized pieces', 'biting into an apple', 'eating an apple while looking at some book', 'eating a hunk of cheese while reading a book', 'sipping out of a huge mug while reading a book', "reading a book titled '<<print lib.books.pun.random()>>'", "reading a book titled '<<print lib.books.pun.random()>>'", "reading a book titled '<<print lib.books.pun.random()>>'"],
     reading: ["a piece of history- my forefather's journal, detailing his life in $town.name when it was just a settlement.", 'my journal, from many years ago.', "my mother's journal, from just before she disappeared", 'a document which I received by postboy two days ago... I believe it is in code, and somebody is trying to tell me something.', "a traitor's memoirs, extremely rare... I thought it would be a good laugh, but some of what he says is concerningly accurate.", "some sort of spell, though I don't know how to read it.", 'a document I bought at the flea market; it looks to be a set of instructions on how to make a golem.', "a book which I bought, believing it to be blank, and suitable for a journal. However, now there's this strange foreign script that I can't read in it.", 'a book that I bought as a gift for my mother, who loves beautiful covers, despite not being able to read.'],
@@ -1235,8 +1232,6 @@ setup.initNpcData = () => {
     adventure: ['retired from adventuring', 'currently looking for an adventure', 'looking for assistance', 'recuperating from an adventure', 'on a holiday from adventuring', 'taking a short break from adventuring'],
     hairColour: ['brunette', 'brunette', 'brown', 'brownish', 'auburn', 'amber', 'hazel', 'red', 'dark red', 'blonde', 'dark blonde', 'white', 'platinum', 'black', 'black'],
     hairType: ['thick', 'wispy', 'straight', 'straight', 'wavy', 'wavy', 'curly', 'wiry', 'oily', 'lush', 'poofy', 'long', 'braided', 'very long', 'greasy', 'unruly', 'unusually styled', 'short cropped'],
-    dndClass: ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'rogue', 'ranger', 'paladin', 'sorcerer', 'warlock', 'wizard'],
-    background: ['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'],
     pockets: ['5 cp', '6 cp', '15 cp', '22 cp', '27 cp', '5 sp', '5 sp', '6 sp', '7 sp', '2 gp', '34 cp and 4 sp', '12 sp and 7 gp', 'a clove of garlic', 'a vial of ink worth 8sp', 'hardtack', 'an explosive rune, dealing 2d4 fire damage', 'a palm-sized glass sphere', 'a wooden comb', 'fragments of a shattered sword', 'a deck of tarot cards', 'map of a nearby castle', 'map of the local area', 'a tin spoon', 'a mess kit', 'lacy undergarments', 'spectacles worth 5gp', 'a spool of thread', 'a piece of chalk', 'a necklace of animal teeth', "a headhunter's contract", 'a list of people in a nearby city', 'a worn leather strap', 'a ring of iron keys', 'a flask full of salt water', 'a box of candles', 'a vial of quicksilver', "a traveller's journal", 'a lead amulet', 'a signet ring for a noble house', 'a list of local taverns', 'a golden yellow topaz gem worth 50gp', 'a page torn from a spellbook', 'scraps of bad poetry', 'a pair of bloodstained gloves', 'thirteen mouse teeth', 'a pouch full of dried berries', 'an invitation to a wedding that happened a few weeks ago', 'a brass ring', 'a shopping list', 'the cork from a wine bottle', 'a scrap of paper with unintelligible writing on it', 'a smoking pipe', 'a pouch of ruby powder', 'a deed to a ruined tower', 'a bottle of honey', 'a sling with 10 bullets', 'a broken buckle', 'a knot of silk ribbons', 'a silver pearl worth 10gp', 'a potion of Polymorph Self worth 350gp', '1pp wrapped in a crude map', 'pocket sand', 'a wedge of cheese', 'a string of wooden prayer beads', 'a lock of hair', 'a dead mouse', 'a compass', 'an empty flask', '85gp', 'three diamonds worth 30gp each', 'a black pearl worth 50gp', 'a black opal worth 100gp'],
     value: ['experience', 'family', 'progeny', 'learning', 'wealth', 'masterwork', 'revenge', 'intelligence', 'discovery', 'pilgrimage', 'invention', 'miracle', 'secret', 'martyrdom', 'collection', 'patronage', 'fame'],
     drive: ['health', 'beauty', 'thrills', 'knowledge', 'power', 'partnership', 'networking', 'glory', 'entertainment', 'helpfulness', 'bravery', 'compassion', 'piety', 'solitude', 'relationships', 'hedonism', 'privacy'],

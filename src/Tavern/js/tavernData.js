@@ -1,105 +1,5 @@
 setup.initTavernData = () => {
   setup.tavern = {
-    rollData: {
-      wealth: {
-        description: 'How wealthy is the patronage?',
-        preceding: 'Tavern Wealth:',
-        rolls: [
-          [95, 'kingly', 800],
-          [80, 'aristocratic', 400],
-          [70, 'wealthy', 200],
-          [60, 'comfortable', 50],
-          [50, 'modest', 30],
-          [25, 'poor', 10],
-          [15, 'squalid', 7],
-          [0, 'destitute', 6]
-        ]
-      },
-      size: {
-        description: 'How large is the tavern?',
-        preceding: 'Tavern Size:',
-        rolls: [
-          [95, 'cavernous'],
-          [80, 'huge'],
-          [70, 'quite large'],
-          [60, 'large'],
-          [50, 'spacious'],
-          [40, 'average sized'],
-          [30, 'somewhat cramped'],
-          [20, 'small'],
-          [10, 'tiny'],
-          [0, 'extremely cramped']
-        ]
-      },
-      cleanliness: {
-        description: 'How clean is the tavern?',
-        preceding: 'Tavern Cleanliness:',
-        rolls: [
-          [80, 'absolutely spotless'],
-          [75, 'spotless'],
-          [70, 'nice and well cleaned'],
-          [60, 'hygienic'],
-          [50, 'decently hygienic'],
-          [40, 'slightly grubby'],
-          [30, 'quite dirty'],
-          [20, 'filthy'],
-          [10, 'rather filthy'],
-          [0, 'absolutely putrid']
-        ]
-      },
-      bedCleanliness: {
-        description: 'How clean are the beds?',
-        preceding: 'Bed Cleanliness',
-        rolls: [
-          [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
-          [75, 'recently prepared and well cleaned'],
-          [70, 'freshly cleaned and neat'],
-          [60, 'tidy and neat'],
-          [50, 'reasonably clean'],
-          [40, 'somewhat tidy'],
-          [30, 'disgusting'],
-          [20, 'teeming with rats'],
-          [10, 'rather filthy'],
-          [0, 'festering with bugs']
-        ]
-      },
-      roughness: {
-        description: 'How likely is there to be a fight here?',
-        preceding: 'Tavern Roughness:',
-        rolls: [
-          [80, 'bloodthirsty'],
-          [60, 'rough'],
-          [50, 'alright'],
-          [40, 'placid'],
-          [30, 'calm'],
-          [20, 'tranquil'],
-          [10, 'serene'],
-          [0, 'utterly serene']
-        ]
-      },
-      reputation: {
-        description: 'How well known is this place? Does it have a legendary ale, or is it just another hole in the wall?',
-        preceding: 'Tavern Reputation',
-        rolls: [
-          [80, 'famous'],
-          [60, 'well known'],
-          [40, 'famoush-ish'],
-          [20, 'reviled'],
-          [0, 'infamous']
-        ]
-      },
-      sin: {
-        description: 'Is it a respectable venue, or a wretched hive of scum and villainy??',
-        preceding: 'Tavern Sin',
-        rolls: [
-          [80, 'extremely shady'],
-          [60, 'dodgy'],
-          [40, 'somewhat shady'],
-          [20, 'honest'],
-          [0, 'a paragon of virtue']
-        ]
-      }
-    },
     games: [
       {
         name: 'Passe-dix',
@@ -174,172 +74,6 @@ setup.initTavernData = () => {
       "A grey haired story teller is sitting near the fire holding a contest. He'll give a large purse for a story he hasn't heard yet, but so far no one has won."
     ],
     get: {
-      customers: [
-        {
-          relationshipDescription: 'regular',
-          relationships: {
-            building: {
-              relationship: 'regular',
-              reciprocalRelationship: 'regular'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'regular'
-            }
-          },
-          description (building, npc) { return `${npc.firstName} is a regular at ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'former customer',
-          relationships: {
-            building: {
-              relationship: 'former customer',
-              reciprocalRelationship: 'former customer'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'bloody git'
-            }
-          },
-          description (building, npc) { return `${npc.firstName} no longer buys anything from ${building.name} because ${['the prices were too high', 'of a perceived insult', 'the goods were cheaper elsewhere', `${npc.heshe} believes that ${building.associatedNPC.firstName} was rude.`, `${building.associatedNPC.firstName} was rude to ${npc.himher}`].random()}.` }
-        },
-        {
-          relationshipDescription: 'wine supplier',
-          relationships: {
-            building: {
-              relationship: 'wine supplier',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'wine supplier'
-            }
-          },
-          base: {
-            profession: 'vintner'
-          },
-          description (building, npc) { return `${npc.firstName} sells wine to ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'beer supplier',
-          relationships: {
-            building: {
-              relationship: 'beer supplier',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'beer supplier'
-            }
-          },
-          base: {
-            profession: 'draper'
-          },
-          description (building, npc) { return `${npc.firstName} sells alcohol to ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'butcher',
-          relationships: {
-            building: {
-              relationship: 'butcher',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'meat supplier'
-            }
-          },
-          base: {
-            profession: 'butcher'
-          },
-          description (building, npc) { return `${npc.firstName} sells meat cuts to ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'bard',
-          relationships: {
-            building: {
-              relationship: 'bard',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'tavern entertainment'
-            }
-          },
-          base: {
-            profession: 'bard'
-          },
-          description (building, npc) { return `${npc.firstName} plays music in ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'exterminator',
-          relationships: {
-            building: {
-              relationship: 'exterminator',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'exterminator'
-            }
-          },
-          base: {
-            profession: 'exterminator'
-          },
-          description (building, npc) { return `${npc.firstName} kills pests that reside in ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'gongfarmer',
-          relationships: {
-            building: {
-              relationship: 'gongfarmer',
-              reciprocalRelationship: 'client'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'gongfarmer'
-            }
-          },
-          base: {
-            profession: 'gongfarmer'
-          },
-          description (building, npc) { return `${npc.firstName} cleans the lavatories of ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'barmaid',
-          relationships: {
-            building: {
-              relationship: 'barmaid',
-              reciprocalRelationship: 'place of employment'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'employee'
-            }
-          },
-          base: {
-            profession: 'barmaid'
-          },
-          description (building, npc) { return `${npc.firstName} serves drinks in ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'cook',
-          relationships: {
-            building: {
-              relationship: 'cook',
-              reciprocalRelationship: 'place of employment'
-            },
-            associatedNPC: {
-              relationship: 'bartender',
-              reciprocalRelationship: 'employee'
-            }
-          },
-          base: {
-            profession: 'cook'
-          },
-          description (building, npc) { return `${npc.firstName} works in the kitchen of ${building.name}.` }
-        }
-      ],
       patrons (town, tavern) {
         const patron = Object.values(setup.tavern.patrons).random()
         return patron(town, tavern)
@@ -356,12 +90,12 @@ setup.initTavernData = () => {
           nickname () { return `Everyone is calling you "${['puddle drinker', 'boot licker', 'a good boy', 'friendo', 'a real hoopy frood', 'mutton chops'].random()}", but nobody will tell you why.` },
           insult (town) {
             const faction = setup.factionsForType(town, 'leadershipType', 'individual')
-            console.log(faction)
+            lib.logger.info(faction)
             return `You accidentally insulted the <<profile \`$npcs[${JSON.stringify(faction.leader.key)}]\` leader>> of the ${faction.type} ${faction.wordNoun}, ${setup.profile(faction, '', 'town.factions')}, and only a public apology will let you do business with them again.`
           },
           anotherQuest (town) {
             const faction = setup.factionsForType(town, 'leadershipType', 'individual')
-            console.log(faction)
+            lib.logger.info(faction)
             return `You swore to complete some quest on behalf of the ${faction.type} ${faction.wordNoun}, ${setup.profile(faction, faction.name, 'town.factions')}.`
           },
           gaffe () { return 'A social gaffe has made you the talk of the town.' },
@@ -919,16 +653,16 @@ setup.initTavernData = () => {
         return descriptions
       },
       lodging (tavern) {
-        console.log(`Fetching ${tavern.name} lodging.`)
-        const { wealth } = setup.tavern.rollData
+        lib.logger.info(`Fetching ${tavern.name} lodging.`)
+        const { wealth } = lib.tavernRollData
         const [,, lodging] = wealth.rolls.find(([threshold]) => {
           return threshold <= tavern.roll.wealth
         }) || lib.last(wealth.rolls)
         return lodging
       },
       bedCleanliness (tavern) {
-        console.log(`Fetching ${tavern.name} bed cleanliness.`)
-        const { cleanliness } = setup.tavern.rollData
+        lib.logger.info(`Fetching ${tavern.name} bed cleanliness.`)
+        const { cleanliness } = lib.tavernRollData
         const [, bedCleanliness] = cleanliness.rolls.find(([threshold]) => {
           return threshold <= tavern.roll.bedCleanliness
         }) || lib.last(cleanliness.rolls)

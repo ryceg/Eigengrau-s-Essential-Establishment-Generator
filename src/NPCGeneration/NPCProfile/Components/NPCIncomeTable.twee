@@ -8,7 +8,7 @@
         <th>Amount</th>
     </tr>
     <tr><td>Gross Income</td><td><<print setup.money(lib.npcGrossIncome($town, $currentNPC))>></td></tr>
-    <tr><td><i>Tax</i></td><td><i><<print setup.money(lib.npcTaxRate($town, $currentNPC))>></i></td></tr>
+    <tr><td><i>Tax</i></td><td><i><<print setup.money(lib.npcTaxRate($town))>></i></td></tr>
     <tr><td>Net Income</td><td><<print setup.money(lib.npcNetIncome($town, $currentNPC))>></td></tr>
     <tr><td>Total Lifestyle Expenses (<<print lib.createTippyFull($currentNPC.firstName + " " + lib.npcLifestyleStandard($town, $currentNPC).lifestyleDescription, lib.npcLifestyleStandard($town, $currentNPC).lifestyleStandard)>>)</td><td><<print setup.money(lib.npcTotalLifestyleExpenses($town, $currentNPC))>></td></tr>
     <tr><td>Profit</td><td><<print setup.money(lib.npcProfit($town, $currentNPC))>></td></tr>

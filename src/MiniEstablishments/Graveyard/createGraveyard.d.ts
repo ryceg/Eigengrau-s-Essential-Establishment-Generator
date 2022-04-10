@@ -1,5 +1,4 @@
-
-type Tree = import('../../../lib/constructs/tree').Tree
+import { Town, Building, NPC, Tree } from '@lib'
 
 interface Setup {
   createGraveyard(town: Town, opts?: Partial<Options>): Graveyard

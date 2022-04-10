@@ -7,6 +7,191 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Ability to export pantheons during the export process
+- Native share menu for iOS & Android
+- Explanation tooltip for the politics and economic ideologies
+- Confectionary shops (thanks, dcorriveau!)
+- Added a terminal warning when on Windows to fix a common issue when installing.
+- 🎲 favicon!
+### Changed
+- Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
+- Fixed a bug where popups on the town editing page would not fire after the first interaction.
+
+### Removed
+- ENnies related stuff
+
+## 2.8.14
+
+### Added
+- Restart link in the breadcrumb header
+- Added links to stuff to footer
+- Added icons to sidebar
+- Added request to vote for the generator
+
+### Changed
+- Unlocked Pantheon system thanks to Patrons.
+- Changed some CSS with the importing of Pantheons.
+- Fixed a typo or two.
+- Fixed an issue where creating customers would ignore input fields.
+- Updated dependencies
+
+### Removed
+- Credits/Legal from the sidebar
+
+## 2.8.13
+
+### Added
+- NovelAI exporting feature.
+
+## 2.8.12
+
+### Added
+- You can now link directly to buildings and the owners of buildings that were pre-generated.
+
+### Changed
+- The generator no longer uses the `location.hash` for the seed, and instead uses the `location.search` property. 
+
+## 2.8.11
+
+### Added
+- Some of the NPC stats are now editable.
+
+### Changed 
+- Fixed racial description while editing town demographics not updating.
+- Fixed an annoying issue where the period at the end of the sentence for racial and religious demographics would be pushed to a new line.
+- Made the dropcap on NPC profile pages standardized
+- The text following the dropcap on the NPC profile page is no longer indented weirdly.
+- Fixed NPC gender not changing or refreshing properly when editing.
+- Fixed buildings not working in the nav bar.
+- Made the profiles just pass the ID as a string, which should be slightly faster.
+
+
+## 2.8.10
+
+### Added
+- Flex to button rows so they are a little more responsive on smaller screens.
+### Changed
+- Fixed a bug where the key to roads was being assigned rather than the road itself, resulting in the error in NPCs profile.
+- Changed expanded details to use – rather than - so there is less shifting of the text.
+- Shifted RiTa to an imported module.
+- Fixed the surface level NPC editing issue.
+
+### Removed
+- SugarCube history has been removed (as it was not being used), which should reduce lag on larger towns.
+
+## 2.8.9
+
+### Added
+- Toast to notify user when they have selected an invalid combination of town terrain + location.
+### Changed
+- Fixed an issue with editing towns not working. Like, at all.
+- Fixed an issue where changing town location and terrain would throw an error.
+- Made religion testing a little more robust.
+- Wording and CSS on the welcome screen.
+- Town now fully generates on start instead of in two passes.
+
+## 2.8.8
+
+### Added
+- Browser back and forward navigation!
+- Quick roleplay questions to the toolbox
+- Homebrewery export function
+- Hyperlinking to both Homebrewery and GMBinder exports (so you can click on links in the PDF to jump to the profile.)
+- Added some CSS for the details elements, indicating when there's an expandable element.
+- Added toast notifications for settings that only propagate on restart.
+- Added a toast notification that warns when two column format is not supported.
+
+
+### Changed
+- Changed the background from a vomit-inducing pink to a dark grey when dialogues or settings are open.
+- Fixed biome not showing up in town editing.
+- Adjusted the CSS so that the `<h1>` heading on the town page is always visible, no matter the viewport size.
+- Dark mode secondary colour has been changed from a brown to a gold.
+- Made one column the default and two columns the optional.
+- Fixed an error where "pastors" were not being found.
+- Shifted the quick scenario generator to the bottom of the page.
+- Banner links now open in new tabs
+- Toolbox is now one always column.
+- Made the sexuality descriptors more inclusive
+- Breadcrumb now displays the character's name, not their description
+- Fixed an issue with editing probability of deities that are at 0% worship.
+- Fixed an issue where the breadcrumb would create empty paragraphs.
+- Fixed an issue with widowed elements.
+- Fixed an issue with Patreon supporters not displaying properly on subsequent navigation.
+- Cookies consent is now a dialog box.
+- Welcome page is now a dialog box.
+
+### Removed
+- "Sliders" popup.
+
+## 2.8.7
+
+### Changed
+- New format for religion data
+- Button now appears above <h1>
+- Fixed issue where religion percentage would change
+- Fixed issue where race makeup description would not print
+
+### Removed
+- Holy Days in religion (still present in the data structure, just not active until we have it up and running)
+- Quick edit races (formatting and UX was terrible)
+
+## 2.8.6
+
+### Added
+- Edit button to buildings that have an editor (it's still rather terrible, but at least now it's more visible)
+- Custom image uploading for Hero patrons accessible in the settings.
+
+### Changed
+- Fixed issue with Patreon thanks list sometimes breaking.
+- Modified formatting
+- Shifted notification down slightly so it does not collide with the header
+- Fixed an issue with Tippy not initialising for elements created in a table.
+
+### Removed
+- Obsolete 'Show Sliders' setting.
+
+## 2.8.5
+
+### Added
+- Disable NSFW setting which removes slavery and brothels from being generated.
+- Unlocked GMBinder exporting for everyone because we hit 100 Patrons! Thanks!
+
+### Changed
+- Fixed GMBinder output issue.
+- Fixed guardhouse "People Around" not generating properly.
+
+## 2.8.4
+
+### Changed
+- Fixed tippy which was left on debug mode. Oops.
+
+## 2.8.3
+
+### Added
+- Religion exporting to Foundry and GMBinder
+- Data tags for profiles
+
+## 2.8.1
+
+### Added
+- Button to edit pantheon in dropdown religion percentage list
+- Clearer delineation of what is and isn't Patron content.
+- Automatic removal of analytics for local-run copies
+- Automatic unlocking of Patreon content on local copies
+- Prepositions for terrain, to make it sound more natural.
+
+### Changed
+- Made Patreon paywall deactivate if being run locally.
+- Fixed error with town editing
+- Fixed sidebar popups not showing up
+- Fixed error with faction editing
+- Fixed error with editing town biome 
+- Fixed local / online hosting images error (hopefully)
+
+## 2.8
+
+### Added
 - Lizardfolk (thanks, Sytone!)
 - Nonbinary pronouns & NPCs
 - Add labels and accessibility features to elements (people that use screenreaders, please let me know if an element is missing features!)
@@ -19,18 +204,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Road profile page, for adding buildings to a specific road.
 - Ability to create new relationship
 - Ability to edit existing relationships, and add descriptions.
+- Print @media CSS to make printing pages at least slightly prettier (though you should definitely use the exporters!)
+- Add NPCs to roads.
+- Religion system (still very buggy)
+- Pendragon style personalities that feed into stress and calm traits
+- New alternate splash image for cities and towns by Juho Huttunen
 
 ### Changes
+- Fixed customers and faction NPCs not respecting the parameters passed to them.
+- Fixed faction leader error in profiles.
 - Fixed some images not displaying properly in the GMBinder export.
 - Updated fonts (j was not rendering correctly) (thanks Ners!)
 - New version of Tippy
 - Title on sidebar is no longer an image
 - Population distribution tooltip now is presented as an ordered list
+- Fixed some issues in NPC editing
 - Relationships in the NPC edit page now delete the relationship, rather than the whole entity.
 
 ### Removed
-- Taverns doubling as brothels (temporarily)
+- Removed taverns doubling as brothels (temporarily)
 - Removed many unnecessary wrapped span elements to make the output cleaner.
+- Removed Blacksmith 'missions' to rework them.
 
 
 ## 2.7

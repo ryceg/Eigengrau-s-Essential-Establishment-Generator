@@ -1,50 +1,12 @@
-type Tavern = import('../../../lib/tavern/_common').Tavern
+import { Town, Tavern } from '@lib'
 
 interface Setup {
   initTavernData(): void
   tavern: {
-    rollData: {
-      wealth: {
-        description: string
-        preceding: string
-        rolls: [number, string, number][]
-      }
-      size: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      cleanliness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      bedCleanliness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      roughness: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      reputation: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-      sin: {
-        description: string
-        preceding: string
-        rolls: [number, string][]
-      }
-    }
     games: TavernGame[]
     stageDescriptor: string[]
     fun: string[]
     get: {
-      customers: Customer[]
       patrons(town: Town, tavern: Tavern): string
       carousing(town: Town, tavern: Tavern): string
       entertainment(tavern: Tavern): string

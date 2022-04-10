@@ -40,6 +40,7 @@ export const createRelative = (town: Town, family: Family, base: Partial<NPC> = 
     marriages: undefined,
     canRemarry: true
   }
+  lib.createFamilyHouse(town, family)
 
   return relative
 }
@@ -129,15 +130,15 @@ export const createMarriage = (town: Town, family: Family, npc: NPC, force = fal
 
   newMarriage.socialClass = familySocialClass(newMarriage)
   createChildren(town, family, newMarriage, siblingRoll(), npc.race, partnerBase.race)
-
+  lib.createFamilyHouse(town, family)
   return newMarriage
 }
 
 const createChildren = (town: Town, family: Family, marriage: Marriage, amount: number, motherRace: RaceName = 'human', fatherRace: RaceName = 'human', force = false) => {
   if (!force) amount -= marriage.children.length
 
-  console.log(`Creating ${amount} siblings...`)
-  console.log(family)
+  lib.logger.info(`Creating ${amount} siblings...`)
+  lib.logger.info(family)
 
   const surname = getChildSurname(marriage)
   const siblingClass = marriage.socialClass
@@ -156,12 +157,12 @@ const createChildren = (town: Town, family: Family, marriage: Marriage, amount: 
     }
 
     if (!siblingBase.race) {
-      console.warn('Could not find sibling race.')
+      lib.logger.warn('Could not find sibling race.')
       return
     }
 
     if (!siblingBase.ageYears) {
-      console.warn('Could not find sibling age.')
+      lib.logger.warn('Could not find sibling age.')
       return
     }
 

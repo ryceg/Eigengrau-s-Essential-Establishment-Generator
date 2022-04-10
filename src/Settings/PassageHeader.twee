@@ -1,7 +1,5 @@
 :: PassageHeader
-<<nobr>>
-<header id="passage-header">
-  <<include "Breadcrumb">>
-</header>
-<<timed 0s>><<run lib.addTippyAccessibility()>><</timed>>
-<</nobr>>
+<header id="passage-header"><span id="passage-header-nav"><<include "Breadcrumb">></span><span class='restart' id='new-town' data-tippy-content="Discard the current town and generate a new town!"> <<link "Roll a new town">>
+<<run UI.restart()>>
+<</link>></span></header>
+<<done>><<run tippy('.restart')>><</done>>

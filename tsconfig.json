@@ -15,5 +15,9 @@
       "@lib": ["./lib/index.ts"],
     }
   },
-  "exclude": ["node_modules", "gh-pages", "src/**/*.d.ts"]
+  "typedocOptions": {
+    "entryPoints": ["global.d.ts", "sugarcube.d.ts", "src/setup.d.ts", "lib/index.ts"],
+    "out": "gh-pages/docs",
+  },
+  "exclude": ["node_modules", "gh-pages"]
 }

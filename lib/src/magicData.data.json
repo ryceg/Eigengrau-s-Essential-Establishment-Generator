@@ -776,7 +776,7 @@
         "effect": "The air around the bearer of this weapon is always unnaturally cold. One's breath becomes visible, and frost continually forms on the surface of the bearer's hair, weapons, and armor. The bearer suffers no ill effect from being in extremely cold environments."
       }, {
         "prefix": "Civilized", "suffix": "of the Capital",
-        "effect": "The bearer gains +1 to intelligence saving thows."
+        "effect": "The bearer gains +1 to intelligence saving throws."
       }, {
         "prefix": "Cobra's", "suffix": "of Acid Spitting",
         "effect": "As an action you can cast poison spray (spell save DC 13). You cannot use this ability again until you complete a short or long rest."

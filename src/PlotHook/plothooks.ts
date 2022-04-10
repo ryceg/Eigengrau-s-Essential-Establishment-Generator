@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from '../NPCGeneration/profile'
-import { factionsForType } from '../Tools/factionsForType'
-import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
 import { createNPC } from '../NPCGeneration/createNPC'
+import { createRelationship } from '../NPCGeneration/Relationships/createRelationship'
+import { factionsForType } from '../Tools/factionsForType'
+import { profile } from '../Tools/profile'
 
 export const plothooks = [
   {
@@ -107,6 +107,7 @@ export const plothooks = [
     function (town: Town) {
       const npc = createNPC(town, {
         background: 'noble',
+        socialClass: 'nobility',
         gender: 'man'
       })
       return `The party is mistaken by a ${profile(npc, 'wealthy man')} as carriage caretakers in a shantytown neighborhood. He hands them money to protect his vehicle. The legitimate caretakers challenge the PCs and try to steal the wealthy wagon. Does the party protect the rich man's vehicle or do they leave the locals to do as they please, risking later persecution by the noble client?`
@@ -165,12 +166,11 @@ export const plothooks = [
     function (town: Town) {
       // @ts-ignore
       const smithy = lib.findInArray(town.buildings, 'buildingType', 'smithy') || setup.createNewBuilding(town, 'smithy')
-      console.log(smithy)
       const npc = createNPC(town, {
         profession: 'blacksmith'
       })
       createRelationship(town, npc, smithy.associatedNPC, { relationship: 'competitor on a contract' })
-      lib.createBuildingRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
+      lib.createReciprocalRelationship(town, smithy, npc, { relationship: 'competing blacksmith', reciprocalRelationship: 'competing business' })
       // TODO: fix this
       return `Two blacksmiths, ${profile(smithy.associatedNPC)} of ${smithy.name} and ${profile(npc)} are in competition to create better weapons for a lucrative contract. ${npc.firstName} approaches the PCs to try the weapons and plead their virtues to the King. He also claims his competitors are playing dirty.`
     }
@@ -191,7 +191,7 @@ export const plothooks = [
         background: 'sage',
         profession: 'wizard'
       })
-      return `Street urchins are rumored to have special powers. A ${profile(npc, 'representative')} of ${profile(faction, '', 'town.factions')} approaches your party to investigate. In reality, they are learning magic from an unknown source. The children have less inhibition and magical control, but have much more mana and capability of replenishing mana, making them dangerous magic users.`
+      return `Street urchins are rumored to have special powers. A ${profile(npc, 'representative')} of ${profile(faction)} approaches your party to investigate. In reality, they are learning magic from an unknown source. The children have less inhibition and magical control, but have much more mana and capability of replenishing mana, making them dangerous magic users.`
     }
   },
   {
@@ -282,7 +282,7 @@ export const plothooks = [
     },
     function (town: Town) {
       const faction = factionsForType(town, 'type', 'thieves')
-      return `PCs are marked by a ${profile(faction, 'guild of thieves', 'town.factions')}, for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.`
+      return `PCs are marked by a ${profile(faction, 'guild of thieves')}, for a contest. Low-skill, would-be guild members keep targeting the party with attempts on their health or goods.`
     }
   },
   {
@@ -536,9 +536,8 @@ export const plothooks = [
     function (town: Town) {
       // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
-      console.log('Taverns:')
-      console.log(building)
-      return `${profile(building, '', 'town.buildings')} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
+      lib.logger.info('Taverns:', building)
+      return `${profile(building)} is looking for a bard to entertain the crowds on Thursday Nights (mug for a copper night).`
     }
   },
   {
@@ -550,8 +549,7 @@ export const plothooks = [
         hasClass: false,
         background: lib.random(['noble', 'commoner'])
       })
-      // @ts-ignore
-      return `${profile(npc, 'Merchant')} looking for armed security to escort us to ${setup.createTownName()}.`
+      return `${profile(npc, 'Merchant')} looking for armed security to escort us to ${lib.createTownName()}.`
     }
   },
   {
@@ -580,8 +578,7 @@ export const plothooks = [
       const npc = createNPC(town, {
         hasClass: false
       })
-      // @ts-ignore
-      return `The town of ${setup.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(npc)} for details.`
+      return `The town of ${lib.createTownName()} has challenged us to our annual match of Shinty (or similar sport). Let’s show them who’s best, and get that trophy back where it belongs! Contact ${profile(npc)} for details.`
     }
   },
   {
@@ -722,7 +719,7 @@ export const plothooks = [
     function (town: Town) {
       // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
-      return `Needed bartender. Looking to employ a bartender for my inn, ${profile(building, '', 'town.buildings')}. Must be able to listen to political rants on the slower days. NO GOBLINS`
+      return `Needed bartender. Looking to employ a bartender for my inn, ${profile(building)}. Must be able to listen to political rants on the slower days. NO GOBLINS`
     }
   },
   {
@@ -852,7 +849,7 @@ export const plothooks = [
         background: 'entertainer',
         profession: 'musician'
       })
-      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${profile(building, '', 'town.buildings')} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${profile(npc)}`
+      return `A Muse-ment Please: My brother, the head writer of our musical comedy duo is in a rut. He hasn’t been writing any good jokes for a while and I just can’t play backup to another lukewarm song like ‘there’s gnome place like home’. He needs something hilarious and inspiring to jump-start his creativity again. I’m taking him to ${profile(building)} tonight for drinks, and if you manage to orchestrate some weird and hilarious scene I’ll pay you <<money 1000>>. (by the way, don’t tell him I paid for this, just say I owe you money or something I don’t care) -${profile(npc)}`
     }
   },
   {
@@ -888,7 +885,7 @@ export const plothooks = [
         background: 'noble'
       })
       // #
-      return `WHO AM I?: ${profile(npc, 'I')} woke up in a gutter this morning outside of ${profile(building, '', 'town.buildings')}. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.`
+      return `WHO AM I?: ${profile(npc, 'I')} woke up in a gutter this morning outside of ${profile(building)}. I do not remember who I am, where I am from, what my name is, anything. I have a large sack of gold on my person and I am currently renting at the Hill Street Inn and Tavern for the foreseeable future. If you assist me in regaining my lost memories I would be more than happy to properly compensate you, for it seems that whoever I am, it is a man of means.`
     }
   },
   {
@@ -898,7 +895,7 @@ export const plothooks = [
       // @ts-ignore
       const building = lib.findInArray(town.buildings, 'buildingType', 'tavern') || setup.createNewBuilding(town, 'Tavern')
       // #
-      return `${profile(building, '', 'town.buildings')} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
+      return `${profile(building)} needs (at least one more) bouncer for annual all-you-can-drink QuaffFest Celebration tomorrow. Usual bouncer called in sick and can’t make it. Will pay 5s/hr and after your shift that evening all your drinks are free!`
     }
   },
   {
@@ -1162,7 +1159,7 @@ export const plothooks = [
         note: 'For whatever reason, loves being abused.'
       })
       // #
-      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${profile(npc, 'me')}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${profile(building, '', 'town.buildings')} in order to discuss terms.`
+      return `NEEDED: Someone competent in the ways of word to berate, yell, and speak ill of ${profile(npc, 'me')}. Willing to pay. Discretion is key. Meet me during the night 2 alleys up from ${profile(building)} in order to discuss terms.`
     }
   },
   {
@@ -1204,7 +1201,7 @@ export const plothooks = [
       })
       // #
       // <<link ' + JSON.stringify(tavern.name) + '>><<set $currentPassage to {key: "tavern", index: ' + JSON.stringify(tavernIndex) + ', building: ' + tavern + '}>><<run console.log("Set $currentPassage.")>><<set $building to ' + tavern + '>><<goto "TavernOutput">><</link>>
-      return `Fence need painted. Good pay. Contact ${profile(npc)} at ${profile(building, '', 'town.buildings')}. Twist is, the fence is 10 feet tall and almost a mile long.`
+      return `Fence need painted. Good pay. Contact ${profile(npc)} at ${profile(building)}. Twist is, the fence is 10 feet tall and almost a mile long.`
     }
   },
   {
@@ -1441,7 +1438,7 @@ export const plothooks = [
         ageStage: 'settled adult'
       })
       const faction = factionsForType(town, 'type', 'druids')
-      return `A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ${druid1} and ${druid2}, are more than happy to introduce the party to ${profile(faction, '', 'town.factions')}.`
+      return `A dog and a large lizard are fighting each other in the center of town, surrounded by a crowd of onlookers. If asked, any of the bystanders will tell the party that these are two local druids who put on these shows in exchange for donations. The two druids, ${druid1} and ${druid2}, are more than happy to introduce the party to ${profile(faction)}.`
     }
   },
   {
@@ -1460,7 +1457,7 @@ export const plothooks = [
     type: ['event'],
     function (town: Town) {
       const faction = factionsForType(town, 'type', 'mercenaries')
-      return `A huge crack has recently appeared in the center of the town square. ${profile(faction, '', 'town.factions')} are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.`
+      return `A huge crack has recently appeared in the center of the town square. ${profile(faction)} are keeping everyone away from the fissure, especially since it smells of sulfur and green fumes will occasionally puff out of it.`
     }
   },
   {
@@ -1516,7 +1513,7 @@ export const plothooks = [
     type: ['paper'],
     function (town: Town) {
       const faction = factionsForType(town, 'type', 'clergy')
-      return `Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ${profile(faction, '', 'town.factions')}!`
+      return `Fire and brimstone! Eternal torture and damnation! That is what awaits those who reject ${profile(faction)}!`
     }
   },
   {

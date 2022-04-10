@@ -10,6 +10,8 @@ export type KeysMatching<T, V> = {
  */
 export type WeightRecord<T extends string> = { [P in T]?: number }
 
+export type PartialRecord<T extends string | number, V> = Partial<Record<T, V>>
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 type ReadonlyPrimitive = undefined | null | boolean | string | number | Function;
 

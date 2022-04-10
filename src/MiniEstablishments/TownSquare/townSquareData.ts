@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { ThresholdTable, Town } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
-import { profile } from '../../NPCGeneration/profile'
+import { profile } from '../../Tools/profile'
 
 interface TownSquareData {
   passageData: {

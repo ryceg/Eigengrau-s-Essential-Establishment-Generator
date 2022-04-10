@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Town } from '@lib'
-import { profile } from '../NPCGeneration/profile'
+import { profile } from '../Tools/profile'
 
 /**
  * @warn Uses `setup.createDeadNPC`
  */
 export const graveStone = {
   create (town: Town) {
-    console.log('setup.graveStone.create called...')
+    lib.logger.info('setup.graveStone.create called...')
     const grave = {
       shapeSmall: lib.random(gravestoneData.shapeSmall),
       shapeMedium: lib.random(gravestoneData.shapeMedium),
@@ -32,7 +32,7 @@ export const graveStone = {
       readout: `You come upon ${grave.sentenceStrings}`
     })
 
-    console.log(grave)
+    lib.logger.info(grave)
     return grave
   }
 }

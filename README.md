@@ -64,7 +64,7 @@ if the _.twine_ folder does not already exist, just create one.
 
 * Use `yarn test` to run tests.
 * Use `yarn build` to build the output files. (Note that this will return a File Not Found error, but it is working) The entire thing will output to the /gh-pages folder as the index.html file.
-* Use `yarn start` to start a development build that automatically rebuilds on file changes.
+* Use `yarn start` to start a development build that automatically rebuilds on file changes (Note that this will complain about circular dependency issues, but will work just fine).
 
 If you don't want to code, that's okay! The Generator is built out of a novel's worth of words, and we're always in need of more descriptions. You can find writing tasks [here.](https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues?q=is%3Aissue+is%3Aopen+label%3AWriting)
 

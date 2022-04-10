@@ -1,0 +1,10 @@
+:: PatreonThanks [nobr]
+
+Thanks to my wonderful Patrons, you can access the Pantheon system for free!
+<<include "GoalBasedUnlockingText">>
+<br>
+When we hit <b>175 patrons</b>, I will start work on an inventory system, so NPCs have appropriate gear!
+<br>
+[[Become a Patron|https://www.patreon.com/join/eigengrausgenerator?]]
+<br>
+<<import '$town.religion._customPantheon' 'json' 'Import Custom Pantheon'>>

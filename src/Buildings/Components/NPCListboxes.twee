@@ -1,15 +1,21 @@
-:: NPCListboxes
-\<<liveblock>><span id="NPCListboxes"><<set _randomNPC to {
-  gender: ["man", "woman"].random(),
-  race: Object.keys(lib.raceTraits).random(),
-  ageStage: ["young adult", "young adult", "young adult", "settled adult", "settled adult", "settled adult", "elderly"].random()
-}>>
-\<<set _relationships to $currentPassage.availableRelationships || "visitor">>
-\<<set _stringRelationship to _relationships.random().relationshipDescription>>
-\<label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
-\ -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "elderly"]>><</listbox>></label>
-\ -- <label name="NPC race" for="listbox-randomnpcrace"><<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>
-\/*\ -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>*/
-\ -- <<if passage() is "FactionProfile">><label name="NPC relationship" for="listbox-stringrelationship"><<listbox "_stringRelationship" autoselect>><<optionsfrom $currentPassage.availableRelationships>><</listbox>></label>
-\<<else>>
-\<label name="NPC relationship" for="listbox-stringrelationship"><<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationshipDescription })>><</listbox>></label><</if>></span><</liveblock>>
+:: RandomNPCPrep [nobr]
+<<set _randomNPC to lib.randomiseNPC()>>
+<<set _relationships to $currentPassage.availableRelationships || "visitor">>
+<<set _stringRelationship to _relationships.random().relationshipDescription>>
+
+:: NPCListboxes [nobr]
+<<if !_randomNPC>><<include "RandomNPCPrep">><</if>>
+<<liveblock>>
+  <span id="NPCListboxes" class='hide-on-print'>
+    <label name="NPC gender" for="listbox-randomnpcgender"><<listbox "_randomNPC.gender" autoselect>><<option "" null>><<optionsfrom ["man", "woman"]>><</listbox>></label>
+    -- <label name="NPC age stage" for="listbox-randomnpcagestage"><<listbox "_randomNPC.ageStage" autoselect>><<option "" null>><<optionsfrom ["young adult", "settled adult", "elderly"]>><</listbox>></label>
+    -- <label name="NPC race" for="listbox-randomnpcrace"><<listbox "_randomNPC.race" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.raceTraits)>><</listbox>></label>
+    /* -- <<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom Object.keys(lib.professions)>><</listbox>></label>*/
+    -- 
+    <<if passage() is "FactionProfile">>
+        <label name="NPC relationship" for="listbox-stringrelationship"><<listbox "_randomNPC.profession" autoselect>><<option "" null>><<optionsfrom $currentPassage.availableRelationships>><</listbox>></label>
+      <<else>>
+        <label name="NPC relationship" for="listbox-stringrelationship"><<listbox "_stringRelationship" autoselect>><<optionsfrom _relationships.map(obj => { return obj.relationshipDescription })>><</listbox>></label>
+    <</if>>
+  </span>
+<</liveblock>>

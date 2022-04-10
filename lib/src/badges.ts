@@ -74,7 +74,7 @@ export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   if (badge.imgArgs) img += badge.imgArgs
   img += ` src="${url}">`
 
-  if (badge.link) return `<a href="${badge.link}">${img}</a>`
+  if (badge.link) return `<a href="${badge.link}" target="_blank">${img}</a>`
   return img
 }
 
@@ -220,6 +220,20 @@ export const badges = {
       message: 'AI Dungeon',
       logo: 'AI Dungeon'
       // link: 'https://play.aidungeon.io/'
+    },
+    {
+      label: 'No Brain',
+      message: 'Required'
+    },
+    {
+      label: 'I Cast',
+      message: 'Fireball',
+      color: 'red'
+    },
+    {
+      label: 'Do we',
+      message: 'level up yet',
+      color: 'green'
     }
   ] as Badge[],
   stats: {
@@ -269,7 +283,7 @@ export const badges = {
     },
     commitsSinceLastUpdate: {
       alt: 'Commits since last update',
-      source: '/github/commits-since/ryceg/Eigengrau-s-Essential-Establishment-Generator/2.7',
+      source: '/github/commits-since/ryceg/Eigengrau-s-Essential-Establishment-Generator/2.8',
       logo: 'github',
       color: '6cc644'
     },

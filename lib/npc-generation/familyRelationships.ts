@@ -1,5 +1,8 @@
 import { Town } from '../town/_common'
-import { NPC } from './_common'
+import { Family, NPC } from './_common'
+import { assign } from '../src/utils'
+import { random } from '../src/random'
+import { findExistingRoad } from '../roads/findExistingRoad'
 
 export const familyRelationships = {
   /**
@@ -91,7 +94,7 @@ export function getMarriages (town: Town, npc: NPC) {
 }
 
 export function createFamily (town: Town, npc: NPC) {
-  const key = `${npc.lastName} family`
+  const key = `${npc.lastName || npc.firstName} family`
   const family = {
     key,
     members: {
@@ -101,8 +104,30 @@ export function createFamily (town: Town, npc: NPC) {
         marriages: undefined,
         canRemarry: true
       }
+    },
+    home: {
+      road: ''
     }
   }
   town.families[key] = family
   npc.family = key
+}
+
+export function createFamilyHouse (town: Town, family: Family) {
+  const road = town.roads[family.home.road] ||
+    findExistingRoad(town) ||
+    random(Object.values(town.roads))
+  // roads.assign(town)
+
+  for (const member in family.members) {
+    if (!road.inhabitants.npcs[family.members[member].key]) {
+      road.inhabitants.npcs[family.members[member].key] = 'occupant'
+      town.roads[road.key].currentOccupancy++
+    }
+  }
+  assign(family, {
+    home: {
+      road: road.key
+    }
+  })
 }

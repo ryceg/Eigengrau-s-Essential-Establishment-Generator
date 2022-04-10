@@ -1,18 +1,50 @@
-:: CreateScenario
-<label name="Current season" for="listbox-towncurrentseason"><<listbox "$town.currentSeason" autoselect>><<option "Summer" "summer">><<option "Autumn" "autumn">><<option "Winter" "winter">><<option "Spring" "spring">><<option "No weather" "null">><</listbox>></label><label for="scenariotype"><label for=""><<listbox "$scenarioType">><<option "Town Encounter" "town">><<option "Forest" "forest">><<option "Desert" "desert">><<option "Mountain" "mountain">><<option "Road" "road">><</listbox>></label> -- <<button "Create Scenario">>
-<<if def _newNPC>>
-    <<run setup.deleteNPC($npcs[_newNPC.key])>>
-    <<unset _newNPC>>
-<</if>>
-<<if def $town.previousSeason && $town.previousSeason !== $town.currentSeason>>
-  <<set $town.weather.timer = {
-    temperature: 0,
-    precipitation: 0,
-    cloud: 0
-  }>>
-<</if>>
-<<set $town.previousSeason to $town.currentSeason>>
-<<set $scenario to setup.misc[$scenarioType].create($town)>>
-<<if $town.currentSeason !== "null">><<set $town.weather to setup.createWeather($town, $scenarioType, $town.weather)>><</if>>
-<<update>><</button>>
-<<liveblock>><div id="scenario"><<if def $scenario>><<if $town.currentSeason !== "null">>$town.weather.readout.full<</if>> $scenario<</if>></div><</liveblock>>
+:: CreateScenario [nobr]
+<span class='flex-line'>
+  <label name="Current season" for="listbox-towncurrentseason">
+    <<listbox "$town.currentSeason" autoselect>>
+      <<option "Summer" "summer">>
+      <<option "Autumn" "autumn">>
+      <<option "Winter" "winter">>
+      <<option "Spring" "spring">>
+      <<option "No weather" "null">>
+    <</listbox>>
+  </label>
+  <label for="scenariotype">
+    <<listbox "$scenarioType">>
+      <<option "Town Encounter" "town">>
+      <<option "Forest" "forest">>
+      <<option "Desert" "desert">>
+      <<option "Mountain" "mountain">>
+      <<option "Road" "road">>
+    <</listbox>>
+  </label>
+  <<button "Create Scenario">>
+    <<if def _newNPC>>
+        <<run setup.deleteNPC($npcs[_newNPC.key])>>
+        <<unset _newNPC>>
+    <</if>>
+    <<if def $town.previousSeason && $town.previousSeason !== $town.currentSeason>>
+      <<set $town.weather.timer = {
+        temperature: 0,
+        precipitation: 0,
+        cloud: 0
+      }>>
+    <</if>>
+    <<set $town.previousSeason to $town.currentSeason>>
+    <<set $scenario to setup.misc[$scenarioType].create($town)>>
+    <<if $town.currentSeason !== "null">>
+      <<set $town.weather to setup.createWeather($town, $scenarioType, $town.weather)>>
+    <</if>>
+    <<update>>
+  <</button>>
+</span>
+<<liveblock>>
+  <div id="scenario">
+    <<if def $scenario>>
+      <<if $town.currentSeason !== "null">>
+        <<print setup.getWeatherReadout($town.weather)>>
+      <</if>> 
+      $scenario
+    <</if>>
+  </div>
+<</liveblock>>

@@ -1,9 +1,18 @@
 {
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "editor.formatOnSave": true,
+    "source.fixAll": true
   },
-  "editor.formatOnSave": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "src/init.js": true,
+    "gh-pages/**": true,
+    "/src/Tools/Exports/example.json": true,
+    "/yarn.lock": true
+  },
   "prettier.semi": false,
   "highlight.maxMatches": 250,
   "highlight.regexes": {
@@ -23,5 +32,15 @@
     "*.twee": "twee3"
   },
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "twee3LanguageTools.storyformat.current": "sugarcube-2"
+  "typescript.preferences.quoteStyle": "single",
+  "twee3LanguageTools.storyformat.current": "sugarcube-2",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

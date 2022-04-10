@@ -59,7 +59,7 @@ setup.createGraveyard = (town, opts = {}) => {
     ])
   })
 
-  lib.createBuildingRelationship(town, graveyard, graveyard.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'place of employment' })
+  lib.createReciprocalRelationship(town, graveyard, graveyard.associatedNPC, { relationship: 'caretaker', reciprocalRelationship: 'place of employment' })
 
   lib.assign(graveyard, {
     tippyDescription: `${lib.articles.output(graveyard.wordNoun).toUpperFirst()} that is ${graveyard.size} and is ${graveyard.location}.`

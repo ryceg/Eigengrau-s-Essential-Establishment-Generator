@@ -1,0 +1,13 @@
+:: NPCRelationshipsTable2
+<<nobr>>
+<<if $town.npcRelations[$currentNPC.key]>>
+<div class='classTable'>
+  <details><summary>Relationships</summary>
+  <table>
+  <<include "NPCRelationships">>
+  <<include "NPCBuildingRelationships">>
+  <<include "NPCFactionRelationships">>
+  </table>
+  </details></div>
+<</if>>
+<</nobr>>

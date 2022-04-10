@@ -1,9 +1,10 @@
+import { logger } from '../logger'
 import { random } from '../src/random'
 import { backgroundTraits } from './backgroundTraits'
 import { NPC } from './_common'
 
 export function createBackground (npc: NPC) {
-  console.log(`assigning background traits to ${npc.name}...`)
+  logger.info(`Assigning background traits to ${npc.name}...`)
 
   let backgroundOrigin: string
   let bond: string
@@ -25,7 +26,7 @@ export function createBackground (npc: NPC) {
       ? random(currentBackgroundTraits.ideal)
       : random(defaultBackgroundTraits.ideal)
   } else {
-    console.error(`${npc.name}'s background of ${npc.background} was not valid.`)
+    logger.error(`${npc.name}'s background of ${npc.background} was not valid.`)
     npc.background = 'commoner'
 
     backgroundOrigin = random(backgroundTraits.commoner.backgroundOrigin)

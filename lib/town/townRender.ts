@@ -1,13 +1,22 @@
+import { logger } from '../logger'
 import { Town } from './_common'
 import { getPolice } from './getPolice'
 
+export const townOrCity = (town: Town) => {
+  if (town.type === 'city' || town.type === 'town') return 'city-illustration'
+  return 'town-illustration'
+}
+
 export function townRender (town: Town) {
-  console.log(`Rendering ${town.name}...`)
+  logger.info(`Rendering ${town.name}...`)
+
+  town.localImage = townOrCity(town)
 
   town.roll.guardFunding = 0
 
   const police = getPolice(town.factions)
-  console.log(police)
+  logger.info(police)
+
   switch (police.type) {
     case 'guards':
       if (town.roll.military > 90) {

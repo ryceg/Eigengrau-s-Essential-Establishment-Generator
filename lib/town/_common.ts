@@ -1,15 +1,16 @@
-import { MaterialType, MaterialTypes } from '../buildings/structureData'
-import { Building, BuildingRelationship } from '../buildings/_common'
+import { MaterialType, MaterialTypes } from '../buildings/structureMaterialData'
+import { Building, ReciprocalRelationship } from '../buildings/_common'
 import { Faction } from '../faction/_common'
+import { GenderName } from '../npc-generation/genderData'
 import { Profession } from '../npc-generation/professions'
 import { RaceName } from '../npc-generation/raceTraits'
 import { Family, NPC, NpcRelationship } from '../npc-generation/_common'
-import { Road } from './roads'
+import { Pantheon, PantheonTypes } from '../religion/religion'
+import { Road } from '../roads/roads'
+import { Biome, Seasons } from '../src/terrain'
 import { Weather } from '../src/weather'
-import { townData, TownType, PoliticalIdeology, EconomicIdeology } from './townData'
+import { EconomicIdeology, PoliticalIdeology, townData, TownType } from './townData'
 import { EconomicIdeologyIST, PoliticalIdeologyIC } from './updateTownSocioPolitics'
-import { GenderName } from '../../lib/src/genderData'
-import { Biome, Seasons } from '../../lib/src/terrain'
 
 export type PoliticalSource = keyof typeof townData.politicalSource
 export type TownRolls =
@@ -27,7 +28,6 @@ export type TownRolls =
 
 export interface TownBasics {
   name: string
-  pregen?: boolean
   generated: 'biome' | 'full'
   type: TownType
   _type: TownType
@@ -35,6 +35,9 @@ export interface TownBasics {
   population: number
   professions: Record<string, TownProfessions>
   ignoreGender: boolean
+  // TODO: Add ignoreRace setting
+  ignoreRace: boolean
+  disableNSFW: boolean
   dominantGender: GenderName
   roll: Record<TownRolls, number>
   possibleMaterials: MaterialTypes[]
@@ -48,8 +51,6 @@ export interface TownBasics {
   economicIdeologyIST: EconomicIdeologyIST
   politicalIdeologyIC: PoliticalIdeologyIC
   baseDemographics: Record<RaceName, number>
-  _baseDemographics: Record<RaceName, number>
-  _demographicPercentile: Record<RaceName, number>
   demographicPercentile: Record<RaceName, number>
   origin: string
   vegetation: string
@@ -64,29 +65,39 @@ export interface TownProfessions extends Profession {
 }
 
 export interface Town extends TownBasics {
+  economicIdeologyDescription(town: Town): string
+  politicalSourceDescription(town: Town): string
+  localImage: string
   taxes: {
-    welfare: number
-    military: number
-    economics: number
     base: number
     land: number
     tithe: number
   }
   reuseNpcProbability: number
   guard: Faction
+  religionProbabilities: Record<string, number>
   religion: {
+    _customPantheon?: Pantheon
+    /** Each item indexes the matching deity in the pantheon */
+    _modifiers: Record<string, number>
+    /** Probabilities sans the manual bonuses. */
+    _baseProbabilities: Record<string, number>
+    _probabilities: Record<string, number>
+    _percentages: Record<string, number>
+    pantheon: PantheonTypes | string
     deity: string
   }
   roads: Record<string, Road>
-  townMaterial: string
+  townMaterial: MaterialTypes
   leaderType: string
   leader: NPC
   ruler?: NPC
   factions: Record<string, Faction>
   families: Record<string, Family>
   buildings: Building[]
-  buildingRelations: BuildingRelationship[]
+  buildingRelations: ReciprocalRelationship[]
   npcRelations: Record<string, NpcRelationship[]>
+  factionRelations: ReciprocalRelationship[]
   weather: Weather
   rulerType?: string
   bans: Ban[]
@@ -110,6 +121,7 @@ type Ban =
   | 'nobility'
   | 'outsiders'
   | 'slavery'
+  | 'prostitution'
   | 'animals'
   | 'unemployment'
   | 'panhandling'
