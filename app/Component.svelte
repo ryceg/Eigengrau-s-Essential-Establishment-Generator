@@ -2,7 +2,7 @@
   let randomPotion: ReturnType<typeof lib.createAlchemyPotion> | null = null
 
   function createPotion() {
-    randomPotion = lib.createAlchemyPotion({ type: "potion" })
+    randomPotion = lib.createAlchemyPotion()
   }
 </script>
 
