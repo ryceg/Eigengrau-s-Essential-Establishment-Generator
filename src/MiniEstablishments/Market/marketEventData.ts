@@ -79,9 +79,10 @@ export const marketEvent: MarketEventData = {
           [-25, 'and it sounds like two cats having a fight']
         ]
 
-        const note = sounding.find(desc => {
+        const skill = sounding.find(desc => {
           return desc[0] >= wageVariation(town, npc)
-        }) || [0, 'and it sounds kinda funky'][1]
+        })
+        const note = skill || 'and it sounds kinda funky'
         return `${profile(npc, lib.articles.output('A bard'))} is standing in a corner of the market playing ${lib.articles.output(instrument)} ${note}. Every once in a while a passerby throws a coin into a cap sitting in front of the bard.`
       }
     },
