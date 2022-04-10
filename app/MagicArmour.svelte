@@ -1,21 +1,21 @@
 <script lang="ts">
   import { MagicItem } from "@lib"
 
-  let weapon: MagicItem
+  let armour: MagicItem
 
   function createMagicWeapon() {
-    weapon = lib.createMagic("weapon")
+    armour = lib.createMagic("armour")
   }
 </script>
 
 <button class="click-and-remove-link" on:click={createMagicWeapon}>
-  <h6>Create a magic weapon</h6>
+  <h6>Create a magic armour</h6>
 </button>
 
-{#if weapon}
+{#if armour}
   <div class="descriptive">
-    <h6>{weapon.name}</h6>
-    {weapon.description}
+    <h6>{armour.name}</h6>
+    {armour.description}
   </div>
 {/if}
 

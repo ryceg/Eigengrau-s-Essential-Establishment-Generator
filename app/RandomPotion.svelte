@@ -11,18 +11,17 @@
 </button>
 
 {#if randomPotion}
-  <span id="randpotion">
-    <div class="descriptive">
-      <h6>{randomPotion.titleReadout}</h6>
-      {randomPotion.descriptionReadout}
-      <blockquote>{randomPotion.effectReadout}</blockquote>
-    </div>
-  </span>
+  <div class="descriptive">
+    <h6>{randomPotion.titleReadout}</h6>
+    {randomPotion.descriptionReadout}
+    <blockquote>{randomPotion.effectReadout}</blockquote>
+  </div>
 {/if}
 
 <style>
   button {
-    margin: 0;
+    padding: 0;
+    margin: 8px 0;
     border: none;
   }
 </style>
