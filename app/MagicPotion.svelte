@@ -1,8 +1,8 @@
 <script lang="ts">
-  let randomPotion: ReturnType<typeof lib.createAlchemyPotion> | null = null
+  let potion: ReturnType<typeof lib.createAlchemyPotion> | null = null
 
   function createPotion() {
-    randomPotion = lib.createAlchemyPotion()
+    potion = lib.createAlchemyPotion()
   }
 </script>
 
@@ -10,11 +10,11 @@
   <h6>Generate a random potion!</h6>
 </button>
 
-{#if randomPotion}
+{#if potion}
   <div class="descriptive">
-    <h6>{randomPotion.titleReadout}</h6>
-    {randomPotion.descriptionReadout}
-    <blockquote>{randomPotion.effectReadout}</blockquote>
+    <h6>{potion.titleReadout}</h6>
+    {potion.descriptionReadout}
+    <blockquote>{potion.effectReadout}</blockquote>
   </div>
 {/if}
 

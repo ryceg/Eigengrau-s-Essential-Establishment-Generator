@@ -1,11 +1,12 @@
 <script>
-  import RandomPotion from "./RandomPotion.svelte"
+  import MagicPotion from "./MagicPotion.svelte"
   import MagicArmour from "./MagicArmour.svelte"
   import MagicWeapon from "./MagicWeapon.svelte"
+  import MagicTrinket from "./MagicTrinket.svelte"
 </script>
 
 <div>
-  <RandomPotion />
+  <MagicPotion />
 </div>
 
 <div>
@@ -14,4 +15,8 @@
 
 <div>
   <MagicWeapon />
+</div>
+
+<div>
+  <MagicTrinket />
 </div>

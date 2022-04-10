@@ -12,7 +12,6 @@
 
 <div id="toolbox"></div>
 
-<<link "<h6>Create a magic trinket</h6>">><<set $toolbox.trinket to lib.createMagic("trinket")>><<update>><</link>><<if $toolbox.trinket>><div class='descriptive'><h6>$toolbox.trinket.name</h6>$toolbox.trinket.description</div><</if>>
 <<link "<h6>Create a trap</h6>">><<set $toolbox.trap to lib.createTrap()>><<update>><</link>><<if $toolbox.trap>><div class='descriptive'>$toolbox.trap.description</div><</if>>
 <<link "<h6>Create a pub rumour</h6>">><<set $toolbox.pubRumour to lib.createPubRumour()>><<update>><</link>><<if $toolbox.pubRumour>><div class='descriptive'>$toolbox.pubRumour</div><</if>>
 <<link "<h6>Generate a nightmare</h6>">><<set $toolbox.nightmare to setup.createNightmare()>><<update>><</link>><<if $toolbox.nightmare>><div class='descriptive'>$toolbox.nightmare</div><</if>>
