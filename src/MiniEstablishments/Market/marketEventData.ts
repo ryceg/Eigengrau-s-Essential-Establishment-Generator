@@ -1,6 +1,6 @@
 import { ThresholdTable, Town, wageVariation } from '@lib'
 import { createNPC } from '../../NPCGeneration/createNPC'
-import { profile } from '../../NPCGeneration/profile'
+import { profile } from '../../Tools/profile'
 import { random } from '../../../lib/src/random'
 
 interface MarketEventData {
@@ -41,7 +41,7 @@ export const marketEvent: MarketEventData = {
         const npc1 = createNPC(town, {
           profession: 'merchant'
         })
-        return `${profile(npc1, lib.articles.output(npc1.descriptor).toUpperFirst())} is waving ${npc1.hisher} fist in the air while running after a scrawny looking child. The merchant is yelling for someone to stop that theif.`
+        return `${profile(npc1, lib.articles.output(npc1.descriptor).toUpperFirst())} is waving ${npc1.hisher} fist in the air while running after a scrawny looking child. The merchant is yelling for someone to stop that thief.`
       }
     },
     animalEscape: {
