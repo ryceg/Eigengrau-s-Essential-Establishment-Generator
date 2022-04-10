@@ -3,6 +3,8 @@ import { Plugin, RollupOptions } from 'rollup'
 import esbuild, { Options } from 'rollup-plugin-esbuild-transform'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import svelte from 'rollup-plugin-svelte'
+import autoPreprocess from 'svelte-preprocess'
 
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
@@ -31,6 +33,12 @@ export const configs: RollupOptions[] = [
     plugins,
     external: ['@lib'],
     output: { format: 'iife', file: 'src/init.js', globals: { '@lib': 'lib' }, sourcemap: 'inline' }
+  },
+  {
+    input: 'app/index.ts',
+    plugins: [...plugins, svelte({ emitCss: false, preprocess: autoPreprocess() })],
+    external: ['@lib'],
+    output: { format: 'iife', file: './gh-pages/app.js', name: 'app', globals: { '@lib': 'lib' }, sourcemap: true }
   },
   {
     input: 'lib/index.ts',
