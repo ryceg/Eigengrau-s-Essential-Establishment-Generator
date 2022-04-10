@@ -10,6 +10,7 @@
 <<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<update>><</link>><<if $toolbox.raiders>><div class='descriptive'>$toolbox.raiders</div><blockquote>Original list by <a href='https://redd.it/7ti1g9'>/u/Zazulio</a></blockquote><</if>>
 <<include "RandomPotion">>
 <<include "RandomRing">>
+<div id="magic-weapon"></div>
 <<link "<h6>Create a magic weapon</h6>">><<set $toolbox.weapon to lib.createMagic("weapon")>><<update>><</link>><<if $toolbox.weapon>><div class='descriptive'><h6>$toolbox.weapon.name</h6>$toolbox.weapon.description</div><</if>>
 <<link "<h6>Create magic armour</h6>">><<set $toolbox.armour to lib.createMagic("armour")>><<update>><</link>><<if $toolbox.armour>><div class='descriptive'><h6>$toolbox.armour.name</h6>$toolbox.armour.description</div><</if>>
 <<link "<h6>Create a magic trinket</h6>">><<set $toolbox.trinket to lib.createMagic("trinket")>><<update>><</link>><<if $toolbox.trinket>><div class='descriptive'><h6>$toolbox.trinket.name</h6>$toolbox.trinket.description</div><</if>>
@@ -18,3 +19,9 @@
 <<link "<h6>Generate a nightmare</h6>">><<set $toolbox.nightmare to setup.createNightmare()>><<update>><</link>><<if $toolbox.nightmare>><div class='descriptive'>$toolbox.nightmare</div><</if>>
 <<link "<h6>Generate a road</h6>">><<set $toolbox.road to lib.createRoad()>><<update>><</link>><<if $toolbox.road>><div class='descriptive'>$toolbox.road</div><</if>>
 <</liveblock>>
+
+<script>
+    new app.MagicWeapon({
+        target: document.getElementById("magic-weapon")
+    })
+</script>
