@@ -4,7 +4,7 @@ tooling
 src/init.js
 gh-pages/*
 !gh-pages/CNAME
-!gh-pages/Resources
+!gh-pages/static
 .twine
 *.log
 .DS_STORE
