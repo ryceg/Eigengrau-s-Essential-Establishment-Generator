@@ -1,11 +1,12 @@
 import { random } from './random'
 import { assign } from './utils'
 
-interface Trap {
+export interface Trap {
   type: string
   trigger: string
   signal: string
   payload: string
+  description: string
 }
 
 export function createTrap (): Trap {

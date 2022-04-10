@@ -3,6 +3,7 @@
   import MagicArmour from "./MagicArmour.svelte"
   import MagicWeapon from "./MagicWeapon.svelte"
   import MagicTrinket from "./MagicTrinket.svelte"
+  import Trap from "./Trap.svelte"
 </script>
 
 <div>
@@ -20,6 +21,10 @@
 
   <div>
     <MagicTrinket />
+  </div>
+
+  <div>
+    <Trap />
   </div>
 </div>
 
