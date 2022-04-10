@@ -61,7 +61,7 @@
 
 Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes commissions! I can recommend him highly.")
 
-<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/img/hero/town-illustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/hero/town-illustration.jpg?raw=true' class='cover-illustration' style="position:absolute; bottom:170px; left:0px">
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour' style="transform:rotate(0deg);">
 
@@ -81,7 +81,7 @@ Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes
 
   <h1>buildings</h1>
   
-<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/img/hero/tavern-illustration.jpg?raw=true' class='cover-illustration'>
+<img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/hero/tavern-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 
@@ -206,7 +206,7 @@ Artwork by [Juho Huttunen](https://www.artstation.com/northernhermit "Juho takes
 
   <h1>NPCs</h1>
   
-    <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/img/hero/general-store-illustration.jpg?raw=true' class='cover-illustration'>
+    <img src='https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/gh-pages/static/hero/general-store-illustration.jpg?raw=true' class='cover-illustration'>
 
 <img src='https://watercolors.giantsoup.com/dmg/dmg_center-horizontal/0004.png' class='watercolour'>
 
