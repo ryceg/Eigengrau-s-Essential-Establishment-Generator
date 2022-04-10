@@ -23,6 +23,7 @@
           [10, 45] would limit the results to 11-44, etc.
 */
 
+import { logger } from '../logger'
 import { randomFloat } from './randomFloat'
 
 // Range of fairmath.
@@ -131,7 +132,7 @@ export function fm (base: number, val: number) {
   }
 
   if (base < rangeStart || base > rangeEnd) {
-    console.warn('Clamping a roll of ', base)
+    logger.info('Clamping a roll of ', base)
     base = clamp(Math.trunc(base), rangeStart, rangeEnd)
   }
   // a 0 increase or decrease; just trunc and clamp
