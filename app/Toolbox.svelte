@@ -4,6 +4,7 @@
   import MagicWeapon from "./MagicWeapon.svelte"
   import MagicTrinket from "./MagicTrinket.svelte"
   import Trap from "./Trap.svelte"
+  import PubRumour from "./PubRumour.svelte"
 </script>
 
 <div>
@@ -25,6 +26,10 @@
 
   <div>
     <Trap />
+  </div>
+
+  <div>
+    <PubRumour />
   </div>
 </div>
 
