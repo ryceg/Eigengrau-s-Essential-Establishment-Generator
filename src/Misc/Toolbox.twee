@@ -10,9 +10,7 @@
 <<link "<h6>Generate some raiders</h6>">><<set $toolbox.raiders to setup.createRaiders($town)>><<update>><</link>><<if $toolbox.raiders>><div class='descriptive'>$toolbox.raiders</div><blockquote>Original list by <a href='https://redd.it/7ti1g9'>/u/Zazulio</a></blockquote><</if>>
 <<include "RandomRing">>
 
-<div id="magic-potion"></div>
-<div id="magic-weapon"></div>
-<div id="magic-armour"></div>
+<div id="toolbox"></div>
 
 <<link "<h6>Create a magic trinket</h6>">><<set $toolbox.trinket to lib.createMagic("trinket")>><<update>><</link>><<if $toolbox.trinket>><div class='descriptive'><h6>$toolbox.trinket.name</h6>$toolbox.trinket.description</div><</if>>
 <<link "<h6>Create a trap</h6>">><<set $toolbox.trap to lib.createTrap()>><<update>><</link>><<if $toolbox.trap>><div class='descriptive'>$toolbox.trap.description</div><</if>>
@@ -22,13 +20,7 @@
 <</liveblock>>
 
 <script>
-    new app.RandomPotion({
-        target: document.getElementById("magic-potion")
-    });
-    new app.MagicArmour({
-        target: document.getElementById("magic-armour")
-    });
-    new app.MagicWeapon({
-        target: document.getElementById("magic-weapon")
+    new app.Toolbox({
+        target: document.getElementById("toolbox")
     });
 </script>
