@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs')
-const path = require('path')
-const spawn = require('child_process').spawn
-const utils = require('./utils')
-const rollup = require('rollup')
+import { spawn } from 'child_process'
+import fs from 'fs'
+import path from 'path'
+import { OutputOptions } from 'rollup'
+import * as rollup from 'rollup'
+import utils from './utils'
 
 const tweego = path.resolve(utils.twineFolder, 'tweego')
 
@@ -39,13 +39,13 @@ const verifyInstall = () => {
   }
 }
 
-const runTweego = (args) => {
+const runTweego = (args: string[]) => {
   // Run tweego with arguments.
   utils.logAction('Running tweego!')
   const tweegoProcess = spawn(tweego, args)
 
   // Log messages from the tweego process.
-  tweegoProcess.stderr.on('data', data => {
+  tweegoProcess.stderr.on('data', (data) => {
     const messages = data.toString().split('\n')
 
     for (const message of messages) {
@@ -64,21 +64,21 @@ const runTweego = (args) => {
   })
 }
 
-const bundleJS = async (args) => {
+const bundleJS = async (args: string[]) => {
   const watch = args.includes('--watch')
-  const configs = require('./rollup.config')
+  const { configs } = await import('./rollup.config')
   if (watch) {
     for (const config of configs) {
       const watcher = rollup.watch(config)
-      watcher.on('event', async ({ code, result, error }) => {
-        switch (code) {
+      watcher.on('event', async (event) => {
+        switch (event.code) {
           case 'BUNDLE_END': {
-            await result.write(config.output)
-            result.close()
+            await event.result.write(config.output as OutputOptions)
+            event.result.close()
             break
           }
           case 'ERROR': {
-            utils.logError(error)
+            utils.logError(event.error)
             break
           }
         }
@@ -88,7 +88,7 @@ const bundleJS = async (args) => {
   } else {
     for (const { output, ...input } of configs) {
       const bundled = await rollup.rollup(input)
-      await bundled.write(output)
+      await bundled.write(output as OutputOptions)
     }
   }
 }

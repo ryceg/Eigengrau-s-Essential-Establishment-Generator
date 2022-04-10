@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const http = require('https')
-const fs = require('fs')
-const yauzl = require('yauzl')
-const utils = require('./utils')
+import path from 'path'
+import http from 'http'
+import https from 'https'
+import fs from 'fs'
+import yauzl from 'yauzl'
+import utils from './utils'
 
 fs.mkdirSync(utils.twineFolder, { recursive: true })
 
@@ -19,19 +19,19 @@ downloadAndExtract(tweegoLink, utils.tweegoZip).then(() => {
   downloadAndExtract(utils.links.storyFormats, utils.formatsZip, utils.formatsFolder).then(() => {
     utils.logSuccess('All done!')
     if (process.platform === 'win32') {
-      logWarning('If you receive an error about SugarCube not being available, rename the folder ' + '"sugarcube-2" to "SugarCube" and try again.')
+      utils.logWarning('If you receive an error about SugarCube not being available, rename the folder ' + '"sugarcube-2" to "SugarCube" and try again.')
     }
   })
 })
 
-function downloadAndExtract (link, filePath, outFolder) {
+function downloadAndExtract (link: string, filePath: string, outFolder?: string) {
   return new Promise((resolve, reject) => {
-    http.get(link, request).on('error', utils.logError)
+    https.get(link, request).on('error', utils.logError)
 
-    function request (response) {
+    function request (response: http.IncomingMessage) {
       // Recursively follow potential redirects.
-      if (response.statusCode === 302) {
-        http.get(response.headers.location, request)
+      if (response.statusCode === 302 && response.headers.location) {
+        https.get(response.headers.location, request)
         return
       }
 
@@ -57,16 +57,17 @@ function downloadAndExtract (link, filePath, outFolder) {
       yauzl.open(filePath, { lazyEntries: true }, (error, zip) => {
         if (error) throw error
 
-        utils.logAction('Unzipping...\n')
-
-        zip.on('entry', entry => isFolder(entry) ? zip.readEntry() : unzipEntry(zip, entry))
-        zip.on('end', resolve)
-        zip.readEntry()
+        if (zip) {
+          utils.logAction('Unzipping...\n')
+          zip.on('entry', entry => isFolder(entry) ? zip.readEntry() : unzipEntry(zip, entry))
+          zip.on('end', resolve)
+          zip.readEntry()
+        }
       })
     }
   })
 
-  function unzipEntry (zip, entry) {
+  function unzipEntry (zip: yauzl.ZipFile, entry: yauzl.Entry) {
     zip.openReadStream(entry, (error, stream) => {
       if (error) throw error
 
@@ -77,21 +78,25 @@ function downloadAndExtract (link, filePath, outFolder) {
       const filePath = path.resolve(folder, entry.fileName)
       const writeStream = fs.createWriteStream(filePath)
 
-      stream.on('end', () => zip.readEntry())
-      stream.pipe(writeStream)
+      if (stream) {
+        stream.on('end', () => zip.readEntry())
+        stream.pipe(writeStream)
+      }
     })
   }
 }
 
 function getTweegoLink () {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const platform = utils.links.tweego[process.platform]
   return platform[process.arch] || platform.x86
 }
 
-function isFolder (entry) {
+function isFolder (entry: yauzl.Entry) {
   return /\/$/.test(entry.fileName)
 }
 
-function getFileDirectory (file) {
+function getFileDirectory (file: string) {
   return file.substring(0, file.lastIndexOf('/'))
 }
