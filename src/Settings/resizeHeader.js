@@ -23,14 +23,6 @@ window.addEventListener('scroll', scrollFunction)
 
 $(document.documentElement).attr('lang', 'en')
 
-$('<span id="badge" />')
-  // eslint-disable-next-line function-call-context/call-in-function
-  .wiki(lib.createBadge(lib.badges.fun.random(), { imgArgs: 'style=width:100%' }))
-  .ariaClick(function () {
-    $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), { imgArgs: 'style=width:100%' }))
-  })
-  .appendTo('#fun-container')
-
 $(document.body).append('<div class="background-image" />')
 
 window.onpopstate = function () {
@@ -63,7 +55,7 @@ function hasBeenNotifiedOfNoForwards () {
   const number = recall('noForwardsAllowed', 0)
   if (number >= 3) {
     return true
-  } else if (number < 3) {
+  } else {
     memorize('noForwardsAllowed', number + 1)
     return false
   }
