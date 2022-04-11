@@ -1,6 +1,6 @@
 :: Rerender
 <<run lib.logger.info("Saving changes...")>>
-<<runlib.logger.info($town)>>
+<<run lib.logger.info($town)>>
 <<run setup.createSocioPolitics($town)>>
 <<run lib.updateTownSocioPolitics($town)>>
 <<set $npcs to setup.checkRaces($town, $npcs)>>
