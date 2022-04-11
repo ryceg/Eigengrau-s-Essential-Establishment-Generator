@@ -62,7 +62,6 @@ export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   }
 
   url += encodeURI(`style=${badge.style || 'for-the-badge'}`)
-
   if (badge.source) url += encodeURI(`&color=${badge.color}`)
   if (badge.logo) url += encodeURI(`&logo=${badge.logo}`)
   if (badge.logoWidth) url += encodeURI(`&logoWidth=${badge.logoWidth}`)
@@ -78,7 +77,11 @@ export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   return img
 }
 
-export const badges = {
+export const badges: {
+  sensible: Badge[]
+  fun: Badge[]
+  stats: Record<string, Badge>
+} = {
   sensible: [
     {
       label: 'Coded in',
@@ -124,7 +127,7 @@ export const badges = {
       logo: 'sentry'
     }
 
-  ] as Badge[],
+  ],
   fun: [
     {
       label: 'Made with',
@@ -235,7 +238,7 @@ export const badges = {
       message: 'level up yet',
       color: 'green'
     }
-  ] as Badge[],
+  ],
   stats: {
     discordOnline: {
       alt: 'Currently online in Discord',
@@ -327,6 +330,5 @@ export const badges = {
       logo: 'github',
       color: '4078c0'
     }
-
-  } as Record<string, Badge>
+  }
 }
