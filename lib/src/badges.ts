@@ -43,6 +43,18 @@ interface Badge {
   imgArgs?: string
 }
 
+export const createFunBadge = () => {
+  const gen = () => lib.createBadge(lib.random(lib.badges.fun), { imgArgs: 'style=width:100% id="fun-badge"' })
+  $('#fun-badge')
+    .wiki(gen())
+    .ariaClick(function () {
+      alert('success')
+      $('#fun').empty().wiki(gen())
+    })
+    .appendTo('#fun')
+}
+
+
 export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   let url = 'https://img.shields.io'
   Object.assign(badge, opts)
