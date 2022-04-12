@@ -3,6 +3,8 @@ import { Plugin, RollupOptions } from 'rollup'
 import esbuild, { Options } from 'rollup-plugin-esbuild-transform'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+// import { partytownRollup } from '@builder.io/partytown/utils';
+// import path from 'path'
 
 const env = process.env.NODE_ENV
 const isProduction = env === 'production'
@@ -17,6 +19,9 @@ const sharedOptions: Options = {
 }
 
 const plugins: Plugin[] = [
+  // partytownRollup({
+  //   dest: path.join(__dirname, 'gh-pages', '~partytown'),
+  // }),
   esbuild([
     { loader: 'json', ...sharedOptions },
     { loader: 'ts', ...sharedOptions }
