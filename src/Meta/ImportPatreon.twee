@@ -8,7 +8,7 @@ However, I'm not one for hard content walls; if you are not a Patreon supporter,
 
 If you are a Hero tier Patron, take a look at the [[membership page|https://www.patreon.com/eigengrausgenerator/membership]], and enter the code below:
 
-<<textbox "$tovvn" _temp autofocus>> -- <<button "Submit">><<include "Auth">><<if $tovvn === $_>><<run Dialog.close()>><<else>><<replace "#result">> -- <<if _i < _retorts.length>><<print _retorts[_i]>><<elseif _i > 100>><<print "I promise you, there's nothing further.">><<else>><</if>><<set _i++>><</replace>><</if>><</button>> <span id="result"></span>
+<<textbox "$tovvn" _temp autofocus>> -- <<button "Submit">><<include "Auth">><<if $tovvn === $_>><<run Dialog.close()>><<else>><<replace "#result">> -- <<if _i < _retorts.length && _retorts[_i]>><<print _retorts[_i]>><<elseif _i > 100>><<print "I promise you, there's nothing further.">><</if>><<set _i++>><</replace>><</if>><</button>> <span id="result"></span>
 
 :: GoalBasedUnlockingText
 <<set _suggestedTweets to {
