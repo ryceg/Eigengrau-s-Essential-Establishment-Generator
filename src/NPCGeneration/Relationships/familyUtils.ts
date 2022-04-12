@@ -1,4 +1,4 @@
-import type { AgeName, Marriage, NPC, ThresholdTable } from '@lib'
+import type { AgeName, Marriage, NPC } from '@lib'
 
 const parentStageTable: [number, AgeName][] = [
   [55, 'young adult'],
