@@ -43,7 +43,7 @@ window.onpopstate = function () {
         State.variables.currentPassage.key = State.variables.history[index].key
         Engine.play(State.variables.history[index].passageName)
         State.variables.history.length -= 1
-      } else if (historyLength <= 1) {
+      } else {
         State.variables.history.length = 0
         Engine.play('Start')
       }
