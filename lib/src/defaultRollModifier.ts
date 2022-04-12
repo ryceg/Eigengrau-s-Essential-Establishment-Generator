@@ -4,7 +4,7 @@
  * @returns The modifier, which is intended to be consumed either as a fairmath, or taken straight.
  */
 export function defaultRollModifier (roll: number, customTable?: [number, number][]): number {
-  const modifierTable: [number, number][] = [
+  const modifierTable: ThresholdTable<number> = [
     [95, 35],
     [90, 20],
     [80, 15],
