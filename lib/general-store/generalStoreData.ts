@@ -3,16 +3,6 @@ import { flora } from '../src/flora'
 import { random } from '../src/random'
 import { articles } from '../src/articles'
 import { colours } from '../src/colours'
-import { ThresholdTable } from '../src/rollFromTable'
-import { constrainArray, constrainRecord } from '../src/constrainRecord'
-import { Customer } from '../customer'
-
-interface RollData {
-  description: string
-  preceding: string
-  isHidden?: true
-  rolls?: ThresholdTable
-}
 
 export const generalStore = {
   goods: {
