@@ -17,7 +17,7 @@ export const castleRollData = constrainRecord<RollData>()({
       [50, 'decent; there are only a few cracks in the walls, but the place can withstand a siege'],
       [40, 'fair; the castle has seen better days'],
       [20, 'poor; the walls and towers are in dire need of repairs'],
-      [10, 'decrepit; the place is practically a ruin']
+      [0, 'decrepit; the place is practically a ruin']
     ]
   },
   age: {

@@ -19,7 +19,7 @@ export const factionRollData = constrainRecord<RollData>()({
       [40, 'poor'],
       [30, 'quite poor'],
       [20, 'very poor'],
-      [10, 'extremely poor']
+      [0, 'extremely poor']
     ]
   },
   resources: {
@@ -36,7 +36,7 @@ export const factionRollData = constrainRecord<RollData>()({
       [30, 'limited'],
       [20, 'quite poor'],
       [10, 'extremely poor'],
-      [5, 'destitute']
+      [0, 'destitute']
     ]
   }
 })

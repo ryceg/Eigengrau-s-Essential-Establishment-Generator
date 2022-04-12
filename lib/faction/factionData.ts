@@ -192,7 +192,7 @@ export const factionData: FactionData = {
         [30, 'limited'],
         [20, 'quite poor'],
         [10, 'extremely poor'],
-        [5, 'destitute']
+        [0, 'destitute']
       ]
     }
   },
@@ -206,7 +206,7 @@ export const factionData: FactionData = {
           [70, 'a room full of'],
           [50, 'a significant number of'],
           [30, 'a handful of'],
-          [10, 'one or two valuable']
+          [0, 'one or two valuable']
         ]
       },
       money: {
@@ -216,7 +216,7 @@ export const factionData: FactionData = {
           [70, 'chests full of'],
           [50, 'a chest of'],
           [30, 'a couple pouches of'],
-          [10, 'barely enough']
+          [0, 'barely enough']
         ]
       },
       paper: {
@@ -225,7 +225,7 @@ export const factionData: FactionData = {
           [70, 'binders full of'],
           [50, 'sheafs of'],
           [30, 'a drawer of'],
-          [10, 'a handful of']
+          [0, 'a handful of']
         ]
       },
       knowledge: {
@@ -234,7 +234,7 @@ export const factionData: FactionData = {
           [70, 'some extremely rare'],
           [50, 'some rare'],
           [30, 'some secret'],
-          [10, 'some relatively easy to discover']
+          [0, 'some relatively easy to discover']
         ]
       },
       people: {
@@ -243,7 +243,7 @@ export const factionData: FactionData = {
           [70, 'a crowd of'],
           [50, 'a fair few'],
           [30, 'a handful of'],
-          [10, 'one or two']
+          [0, 'one or two']
         ]
       },
       animal: {
@@ -252,7 +252,7 @@ export const factionData: FactionData = {
           [70, 'a menagerie'],
           [50, 'a couple'],
           [30, 'three'],
-          [10, 'one or two']
+          [0, 'one or two']
         ]
       }
     },

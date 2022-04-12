@@ -61,7 +61,7 @@ function getJoiningFee (roll: number): string {
     [30, 'twenty gold pieces'],
     [20, 'ten gold pieces'],
     [10, 'a single gold piece'],
-    [10, 'a single copper, as a show of faith']
+    [0, 'a single copper, as a show of faith']
   ]
   const result = getRolledFromTable(joiningFees, roll)
   assert(typeof result === 'string')

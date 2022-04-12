@@ -79,7 +79,7 @@ function getGroupSize (roll: number): string {
     [20, 'a few '],
     [15, 'a handful of '],
     [10, 'three or four '],
-    [0, 'just one '],
+    [0, 'just one ']
   ]
   const result = getRolledFromTable(groupSize, roll)
   assert(typeof result === 'string')
