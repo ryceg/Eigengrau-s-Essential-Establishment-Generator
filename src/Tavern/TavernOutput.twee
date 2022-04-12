@@ -6,7 +6,7 @@
 <<button "Edit $building.name" $building.initPassage>><</button>>
 <section><h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.</p></section>
 <section><h3>The Tavern</h3>
-<p><<print lib.closestMatch(setup.tavern.get.description($building), 'note', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>> $building.feature
+<p><<print lib.getTavernDescription($building)>> $building.feature
 <<print lib.closestMatch(setup.tavern.get.lookAround($building), 'note', 'population', 'roughness', $building.roll.activity, $building.roll.roughness)>></p>
 <<include "TavernPatrons">>
 <<include "TavernDrinker">></section>

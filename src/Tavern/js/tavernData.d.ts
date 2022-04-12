@@ -17,7 +17,6 @@ interface Setup {
       menu(tavern: Tavern): TavernMenu[]
       sleep(tavern: Tavern): TavernSleep[]
       draws(town: Town, tavern: Tavern): TavernDraw
-      description(tavern: Tavern): TavernDescription[]
     }
     patrons: Record<string, PatronFn>
     specialBrew: SpecialBrew[]
@@ -34,12 +33,6 @@ interface SpecialBrew {
 }
 
 type PatronFn = (town: Town, tavern: Tavern) => string
-
-interface TavernDescription {
-  size: number
-  wealth: number
-  note: string
-}
 
 interface TavernDraw {
   draw: string

@@ -206,6 +206,7 @@ export * from './roads/getRoadFeatures'
 
 export * from './tavern/_common'
 export * from './tavern/createTavernName'
+export * from './tavern/getTavernDescription'
 export * from './tavern/getTavernSin'
 export * from './tavern/tavernCustomers'
 export * from './tavern/tavernModifiers'
