@@ -553,7 +553,7 @@ setup.initDocks = () => {
             [50, 'average sized'],
             [30, 'somewhat unimpressive'],
             [20, 'cluttered'],
-            [10, 'cluttered and cramped']
+            [0, 'cluttered and cramped']
           ]
         },
         cleanliness: {
@@ -565,7 +565,7 @@ setup.initDocks = () => {
             [50, 'in reasonable condition, with some barnacles hanging on, creating drag at speed'],
             [40, 'in need of a good clean, with barnacles clinging to the bottom of the ship'],
             [30, 'in desperate need of a thorough de-barnacleing, as well as a general clean'],
-            [20, 'filthy and laden with barnacles covering the bottom of the boat']
+            [0, 'filthy and laden with barnacles covering the bottom of the boat']
           ]
         }
       }
