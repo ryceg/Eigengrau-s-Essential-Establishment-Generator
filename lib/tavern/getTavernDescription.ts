@@ -2,10 +2,16 @@ import { closestMatch } from '../src/closestMatch'
 import { random } from '../src/random'
 import { Tavern } from './_common'
 
+interface TavernDescription {
+  size: number
+  wealth: number
+  note: string[]
+}
+
 export function getTavernDescription (tavern: Tavern) {
   const bartender = tavern.associatedNPC
 
-  const descriptions = [
+  const descriptions: TavernDescription[] = [
     {
       size: 90,
       wealth: 10,
