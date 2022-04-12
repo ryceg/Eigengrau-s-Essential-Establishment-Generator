@@ -1,5 +1,5 @@
 :: StoryAuthor
-Created by /u/rcgy
+Created by <span class='tip .sidebarAds' data-tippy-content="Please send complaints to 5 Adelaide Ave, Deakin ACT 2600"><a style='color:var(--text-normal)' href="https://reddit.com/u/rcgy">/u/rcgy</a></span>
 <span class="version">v[[setup.data.versionNumber|https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/blob/master/CHANGELOG.md]]</span>
 <<nobr>><<if settings.hideAds !== true>>
 <span class="tip sidebarAds" data-tippy-content="Thank you for your continued support!" id="patreon">
@@ -12,10 +12,7 @@ Created by /u/rcgy
 <span class="tip sidebarAds" data-tippy-content="Check out the repository!" id='github'>
     <<print setup.data.badges.github>>
 </span>
-<div id="fun">
-  <<script>>
-    $(output).append(setup.data.badges.fun);
-  <</script>>
-</div>
+
+<span id="fun-container"><<print setup.data.badges.fun>></span>
 <<run tippy('.sidebarAds')>>
 <</if>><</nobr>>

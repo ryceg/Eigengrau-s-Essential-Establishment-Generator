@@ -28,6 +28,11 @@ $(document.documentElement).attr('lang', 'en')
 
 $(document.body).append('<div class="background-image" />')
 
+window.funBadgeClick = function (e) {
+  e.src = lib.createBadgeSrc(lib.random(lib.badges.fun))
+  $(document).trigger(':liveupdate')
+}
+
 window.onpopstate = function () {
   if (window.history.state) {
     /** @type {number} */

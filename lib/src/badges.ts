@@ -44,18 +44,10 @@ interface Badge {
 }
 
 export const createFunBadge = () => {
-  const gen = () => lib.createBadge(lib.random(lib.badges.fun), { imgArgs: 'style=width:100% id="fun-badge"' })
-  $('#fun-badge')
-    .wiki(gen())
-    .ariaClick(function () {
-      alert('success')
-      $('#fun').empty().wiki(gen())
-    })
-    .appendTo('#fun')
+  return lib.createBadge(lib.random(lib.badges.fun), { imgArgs: 'style=width:100% id="fun-badge" onclick="funBadgeClick(this)"' })
 }
 
-
-export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
+export const createBadgeSrc = (badge: Badge, opts: Partial<Badge>) => {
   let url = 'https://img.shields.io'
   Object.assign(badge, opts)
   url += encodeURI(badge.source || '/badge/')
@@ -78,7 +70,11 @@ export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
   if (badge.logo) url += encodeURI(`&logo=${badge.logo}`)
   if (badge.logoWidth) url += encodeURI(`&logoWidth=${badge.logoWidth}`)
   if (badge.labelColor) url += encodeURI(`&labelColor=${badge.labelColor}`)
+  return url
+}
 
+export const createBadge = (badge: Badge, opts: Partial<Badge>) => {
+  const url = createBadgeSrc(badge, opts)
   const alt = badge.alt || `${badge.label} ${badge.message}` || 'A fun badge'
   let img = `<img alt="${alt}" `
 
@@ -192,6 +188,56 @@ export const badges: {
     {
       label: 'Just works.',
       message: 'Barely.'
+    },
+    {
+      label: 'Please',
+      message: 'hire me',
+      link: 'https://linkedin.com/in/rhys-gray'
+    },
+    {
+      label: 'Dwarves are natural',
+      message: 'sprinters'
+    },
+    {
+      label: 'Object(ive)',
+      message: 'Oriented'
+    },
+    {
+      label: 'Non-functional',
+      message: 'Programming'
+    },
+    {
+      label: 'Include me in the',
+      message: 'screenshot'
+    },
+    {
+      label: 'Tell /r/dndmemes',
+      message: 'I said hi',
+      link: 'https://www.reddit.com/r/dndmemes/submit'
+    },
+    {
+      label: 'Don\'t use',
+      message: 'Fumble Tables'
+    },
+    {
+      label: 'Drug free',
+      message: 'Group hallucinations'
+    },
+    {
+      label: 'Level 20',
+      message: 'Procrastinator'
+    },
+    {
+      label: 'Peasant',
+      message: 'Railgun'
+    },
+    {
+      label: 'How does',
+      message: 'grappling work'
+    },
+    {
+      label: 'I am not a',
+      message: 'clever man'
     },
     {
       label: 'Heal me',
