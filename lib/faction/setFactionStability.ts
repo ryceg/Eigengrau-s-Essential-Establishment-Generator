@@ -1,3 +1,5 @@
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
+import { assert } from '../src/utils'
 import { logger } from '../logger'
 import { Faction } from './_common'
 
@@ -7,17 +9,22 @@ export function setFactionStability (faction: Faction) {
 }
 
 function getFactionStability (roll: number): string {
-  if (roll > 95) return 'rock solid'
-  if (roll > 90) return 'very stable'
-  if (roll > 80) return 'quite stable'
-  if (roll > 70) return 'stable'
-  if (roll > 60) return 'mostly stable'
-  if (roll > 55) return 'relatively stable'
-  if (roll > 50) return 'stable'
-  if (roll > 45) return 'relatively unstable'
-  if (roll > 40) return 'somewhat unstable'
-  if (roll > 30) return 'quite unstable'
-  if (roll > 20) return 'very unstable'
-  if (roll > 10) return 'rapidly disintegrating'
-  return 'falling to pieces'
+  const factionStabilities: ThresholdTable = [
+    [95, 'rock solid'],
+    [90, 'very stable'],
+    [80, 'quite stable'],
+    [70, 'stable'],
+    [60, 'mostly stable'],
+    [55, 'relatively stable'],
+    [50, 'stable'],
+    [45, 'relatively unstable'],
+    [40, 'somewhat unstable'],
+    [30, 'quite unstable'],
+    [20, 'very unstable'],
+    [10, 'rapidly disintegrating'],
+    [0, 'falling to pieces']
+  ]
+  const result = getRolledFromTable(factionStabilities, roll)
+  assert(typeof result === 'string')
+  return result
 }

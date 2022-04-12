@@ -24,13 +24,20 @@ export function generalStoreRenders (generalStore: Renderable) {
 }
 
 function getWarmthRollModfier (size: number) {
-  if (size > 80) return -20
-  if (size > 70) return -15
-  if (size > 60) return -10
-  if (size > 50) return -5
-  if (size > 40) return 15
-  if (size > 30) return 15
-  if (size > 20) return 15
+  const warmthTable: [number, number][] = [
+    [80, -20],
+    [70, -15],
+    [60, -10],
+    [50, -5],
+    [40, 15],
+    [30, 15],
+    [20, 15]
+  ]
+  for (const [roll, warmthModifier] of warmthTable) {
+    if (size > roll) {
+      return warmthModifier
+    }
+  }
   return 30
 }
 
