@@ -7,7 +7,15 @@ export interface RoofType {
   canBeColoured?: boolean;
 }
 
-export const roofData = {
+export const roofData: {
+  colour: string[]
+  rollData: {
+    wealth: {
+      rolls: ThresholdTable
+    }
+  }
+  types: Record<string, RoofType>
+} = {
   colour: [
     'red',
     'blue',
@@ -29,7 +37,7 @@ export const roofData = {
         [20, 'patchy'],
         [0, 'hole riddled'],
         [-100, 'hole riddled']
-      ] as ThresholdTable
+      ]
     }
   },
   types: {
@@ -60,5 +68,5 @@ export const roofData = {
       noun: 'shingle',
       verb: 'shingled'
     }
-  } as Record<string, RoofType>
+  }
 }
