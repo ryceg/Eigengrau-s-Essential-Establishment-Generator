@@ -1012,9 +1012,7 @@ export const encounters: Encounter[] = [
         canBeCustom: true
       })
       const map = lib.treasureMap.create()
-      return `a ${profile(npc, 'treasure-hunter')} with a ${
-          map.tippyWord
-        }`
+      return `a ${profile(npc, 'treasure-hunter')} with a ${map.tippyWord}`
     }
   },
   {
