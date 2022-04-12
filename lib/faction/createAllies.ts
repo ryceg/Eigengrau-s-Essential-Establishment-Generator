@@ -1,8 +1,9 @@
 import { logger } from '../logger'
 import { dice, fm } from '../src/dice'
-import { repeat, removeFromArray } from '../src/utils'
+import { repeat, removeFromArray, assert } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 
 export function createAllies (faction: Faction): void {
   logger.info('Finding faction allies...')
@@ -50,26 +51,37 @@ export function createAllies (faction: Faction): void {
 }
 
 function getAlliesDescription (sizeRoll: number): string {
-  if (sizeRoll >= 90) return 'an immense number of people to rely on for aid'
-  if (sizeRoll >= 80) return 'many allies'
-  if (sizeRoll >= 70) return 'a considerable number of allies'
-  if (sizeRoll >= 60) return 'a decent number of allies'
-  if (sizeRoll >= 50) return 'some strong allies'
-  if (sizeRoll >= 40) return 'a handful of trusted allies'
-  if (sizeRoll >= 30) return 'a couple trusted allies'
-  if (sizeRoll >= 20) return 'few allies'
-  return 'barely any allies'
+  const alliesDescription: ThresholdTable = [
+    [90, 'an immense number of people to rely on for aid'],
+    [80, 'many allies'],
+    [70, 'a considerable number of allies'],
+    [60, 'a decent number of allies'],
+    [50, 'some strong allies'],
+    [40, 'a handful of trusted allies'],
+    [30, 'a couple trusted allies'],
+    [20, 'few allies'],
+    [0, 'barely any allies']
+  ]
+  const result = getRolledFromTable(alliesDescription, sizeRoll)
+  assert(typeof result === 'string')
+  return result
 }
 
 function getGroupSize (roll: number): string {
-  if (roll >= 90) return 'a veritable army of '
-  if (roll >= 80) return 'a guild of '
-  if (roll >= 70) return 'a large number of '
-  if (roll >= 60) return 'quite a few '
-  if (roll >= 50) return 'more than a couple '
-  if (roll >= 40) return 'a couple '
-  if (roll >= 30) return 'some '
-  if (roll >= 20) return 'a few '
-  if (roll >= 10) return 'a handful of '
-  return 'three or four '
+  const groupSize: ThresholdTable = [
+    [90, 'a veritable army of '],
+    [80, 'a guild of '],
+    [70, 'a large number of '],
+    [60, 'quite a few '],
+    [50, 'more than a couple '],
+    [40, 'a couple '],
+    [30, 'some '],
+    [20, 'a few '],
+    [15, 'a handful of '],
+    [10, 'three or four '],
+    [0, 'just one '],
+  ]
+  const result = getRolledFromTable(groupSize, roll)
+  assert(typeof result === 'string')
+  return result
 }
