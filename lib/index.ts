@@ -59,6 +59,7 @@ export * from './constructs/wolf'
 export * from './docks/_common'
 export * from './docks/docksCustomers'
 export * from './docks/docksRollData'
+export * from './docks/shipName'
 export * from './docks/shipRollData'
 
 export * from './faction/_common'
