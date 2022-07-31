@@ -1,3 +1,5 @@
+import { ThresholdTable } from './rollFromTable'
+
 /**
  * A nice little default scaffold to work off of.
  * @param roll A roll bounded between 1 - 100
