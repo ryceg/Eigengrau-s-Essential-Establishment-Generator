@@ -43,6 +43,7 @@ export const structureMaterialData = {
       tier: [1, 2],
       noun: 'split log'
     },
+    // @TODO: Create a 'synonym' property so we don't have three weird duplicates.
     'wood': {
       probability: 10,
       tier: [1, 2],

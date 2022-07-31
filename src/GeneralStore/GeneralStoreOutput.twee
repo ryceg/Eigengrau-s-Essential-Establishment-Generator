@@ -11,5 +11,5 @@
 <span class="interactive-only click-and-remove-link"><<link "<h4>Buy a magic trinket</h4>">><<set $toolbox.trinket to lib.createMagic('trinket')>><<update>><</link>></span>
 <<liveblock>><<if $toolbox.trinket>>$associatedNPC.firstName reaches under the shop counter and says "I think you might like this." before pulling out and placing the $toolbox.trinket.name on the counter.
 <div class='descriptive'><h3>$toolbox.trinket.name</h3>$toolbox.trinket.description</div><</if>><</liveblock>>
-<<include "generalStoreSell">>
+<<include "GeneralStoreSell">>
 <<details "CreateNewNpc" "Customers">>

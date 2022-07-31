@@ -11,7 +11,8 @@ import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
 
-const homeTable: ThresholdTable<string> = [
+// this is not a threshold table; it is a probability table.
+const homeTable: [number, string][] = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
   [10, 'no real permanent address'],
@@ -44,7 +45,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
 
   const tippy = createTippyFull(capitalizeFirstLetter(desc.description), npc.profession)
 
-  const wageVarianceNotes = [
+  const wageVarianceNotes: ThresholdTable = [
     [-25, `${isCurrently} impossibly unsuccessful as`],
     [-18, `${isCurrently} incredibly unsuccessful as`],
     [-12, `${isCurrently} unsuccessful as`],
@@ -81,7 +82,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
         `${isHaving} extreme success as`
     ])
     ]
-  ] as ThresholdTable
+  ]
   let note = wageVarianceNotes.find(desc => {
     return desc[0] >= wageVariation(town, npc)
   })

@@ -74,7 +74,7 @@ export const townSquare: TownSquareData = {
         [40, 'somewhat dirty'],
         [30, 'rather dirty'],
         [20, 'riddled with refuse'],
-        [10, 'overflowing with refuse and other garbage']
+        [0, 'overflowing with refuse and other garbage']
       ]
     },
     size: {
@@ -86,7 +86,7 @@ export const townSquare: TownSquareData = {
         [50, 'relatively large'],
         [40, 'rather packed'],
         [20, 'somewhat cramped'],
-        [10, 'little more than an empty lot']
+        [0, 'little more than an empty lot']
       ]
     }
   },

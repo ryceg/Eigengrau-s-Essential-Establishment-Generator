@@ -105,11 +105,19 @@ export function townRender (town: Town) {
 }
 
 export function getTownWealth (roll: number) {
-  if (roll > 95) return 'kingly'
-  if (roll > 90) return 'aristocratic'
-  if (roll > 80) return 'wealthy'
-  if (roll > 70) return 'comfortable'
-  if (roll > 30) return 'modest'
-  if (roll > 25) return 'poor'
-  return 'squalid'
+  const wealthTable: [number, string][] = [
+    [95, 'kingly'],
+    [90, 'aristocratic'],
+    [80, 'wealthy'],
+    [70, 'comfortable'],
+    [30, 'modest'],
+    [25, 'poor'],
+    [0, 'squalid']
+  ]
+  for (const [rollValue, lifestyleStandardName] of wealthTable) {
+    if (roll >= rollValue) {
+      return lifestyleStandardName
+    }
+  }
+  throw new Error('Town wealth fell outside the expected range!')
 }

@@ -28,7 +28,7 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
 
   const professionWithArticle = articles.output(npc.profession)
 
-  const originWage = [
+  const originWage: ThresholdTable = [
     [-25, `I've tried to do a good job as ${professionWithArticle} but am just rubbish at it. I don't think I'm good at anything, really.`],
     [-20, `I've been trying to make it as ${professionWithArticle} but suck at it. I'm beginning to think I was never meant to be ${professionWithArticle}.`],
     [-15, `I've been trying to make it as ${professionWithArticle} but just can't seem to hack it. I think I'll quit.`],
@@ -40,7 +40,7 @@ function getProfessionOrigin (npc: NPC, town: Town): string {
     [15, `It turns out that I'm pretty good at being ${professionWithArticle}! I enjoy the work.`],
     [20, `It turns out that I'm really good at being ${professionWithArticle}. It's actually kinda easy.`],
     [25, `Not to brag, but I'm a born natural at being ${professionWithArticle}. It's fun, very rewarding work.`]
-  ] as ThresholdTable
+  ]
 
   for (const [amount, origin] of originWage) {
     if (amount >= wageVariation(town, npc)) return origin

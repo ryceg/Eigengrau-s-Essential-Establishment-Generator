@@ -1,4 +1,4 @@
-:: generalStoreSell
+:: GeneralStoreSell
 <<linkappend "<h4>Buy something</h4>" t8n>><<nobr>><div class="descriptive"><<run lib.logger.info("BUILDING:")>><<run lib.logger.info($building)>>
 <<switch $town.type>>
   <<case "city">>

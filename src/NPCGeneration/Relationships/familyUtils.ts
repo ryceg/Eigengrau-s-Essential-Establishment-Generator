@@ -1,6 +1,6 @@
-import type { AgeName, Marriage, NPC, ThresholdTable } from '@lib'
+import type { AgeName, Marriage, NPC } from '@lib'
 
-const parentStageTable: ThresholdTable<AgeName> = [
+const parentStageTable: [number, AgeName][] = [
   [55, 'young adult'],
   [35, 'settled adult'],
   [10, 'elderly']

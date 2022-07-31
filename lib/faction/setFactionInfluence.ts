@@ -1,6 +1,9 @@
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
+import { assert } from '../src/utils'
 import { logger } from '../logger'
 import { fm } from '../src/dice'
 import { Faction } from './_common'
+import { defaultRollModifier } from '../src/defaultRollModifier'
 
 export function setFactionInfluence (faction: Faction): void {
   logger.info('Assigning faction influence...')
@@ -13,33 +16,26 @@ export function setFactionInfluence (faction: Faction): void {
 }
 
 function getAgeModifier (roll: number): number {
-  if (roll > 95) return 15
-  if (roll > 90) return 10
-  if (roll > 80) return 8
-  if (roll > 70) return 6
-  if (roll > 60) return 4
-  if (roll > 55) return 2
-  if (roll > 50) return 1
-  if (roll > 45) return -1
-  if (roll > 40) return -2
-  if (roll > 30) return -4
-  if (roll > 20) return -6
-  if (roll > 10) return -8
-  return -10
+  return defaultRollModifier(roll)
 }
 
 function getFactionInfluence (roll: number): string {
-  if (roll > 95) return 'excellent'
-  if (roll > 90) return 'very good'
-  if (roll > 80) return 'quite good'
-  if (roll > 70) return 'good'
-  if (roll > 60) return 'above average'
-  if (roll > 55) return 'slightly above average'
-  if (roll > 50) return 'average'
-  if (roll > 45) return 'slightly below average'
-  if (roll > 40) return 'poor'
-  if (roll > 30) return 'quite poor'
-  if (roll > 20) return 'very poor'
-  if (roll > 10) return 'extremely poor'
-  return 'abysmal'
+  const influence: ThresholdTable = [
+    [95, 'excellent'],
+    [90, 'very good'],
+    [80, 'quite good'],
+    [70, 'good'],
+    [60, 'above average'],
+    [55, 'slightly above average'],
+    [50, 'average'],
+    [45, 'slightly below average'],
+    [40, 'poor'],
+    [30, 'quite poor'],
+    [20, 'very poor'],
+    [10, 'extremely poor'],
+    [0, 'abysmal']
+  ]
+  const result = getRolledFromTable(influence, roll)
+  assert(typeof result === 'string')
+  return result
 }
