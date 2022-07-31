@@ -11,8 +11,8 @@ import { KeysMatching } from '../types'
  * @example closestMatch(lib.alchemistData.get.priceTalk($building), "priceTalk", "priceModifier", "wealth", $building.priceModifier, $building.roll.wealth)
  */
 export function closestMatch<
-  T extends Record<R, string> & Record<K1 | K2, number>,
-  R extends KeysMatching<T, string>,
+  T extends Record<R, unknown> & Record<K1 | K2, number>,
+  R extends KeysMatching<T, unknown>,
   K1 extends KeysMatching<T, number>,
   K2 extends KeysMatching<T, number>
 > (array: T[], readout: R, key1: K1, key2: K2, val1: T[K1], val2: T[K2]) {
