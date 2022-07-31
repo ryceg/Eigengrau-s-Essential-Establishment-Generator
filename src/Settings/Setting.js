@@ -81,7 +81,7 @@ function isPatron () {
 }
 
 function patreonContent () {
-  if (location.origin === 'file://') return 'Patreon content is unlocked because you are running a local copy.'
+  if (lib.isLocalCopy()) return 'Patreon content is unlocked because you are running a local copy.'
   if (isPatron()) return 'Patreon content is unlocked.'
   return 'Patreon content is not currently unlocked.'
 }

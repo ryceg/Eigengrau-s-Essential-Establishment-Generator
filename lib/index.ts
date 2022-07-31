@@ -247,3 +247,4 @@ export * from './town/getDemographicPercentile'
 
 export * from './logger'
 export * from './types'
+export * from './isLocalCopy'
