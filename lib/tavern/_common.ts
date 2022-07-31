@@ -14,6 +14,7 @@ export interface Tavern extends Building {
   size: string
   priceModifier: number
   lodging: number
+  lighting: string
   stageDescriptor: string
   entertainment: string
   colour1: string

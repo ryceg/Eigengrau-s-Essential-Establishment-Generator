@@ -1,6 +1,6 @@
 import { random } from './random'
 import { assign } from './utils'
-import { createTippy, createTippyWord } from './tippy'
+import { createTippyFull } from './tippy'
 
 interface TreasureMap {
   one: string
@@ -11,7 +11,6 @@ interface TreasureMap {
   six: string
   seven: string
   readout: string
-  tippy: string
   tippyWord: string
 }
 
@@ -33,11 +32,7 @@ export const treasureMap = {
     })
 
     assign(map, {
-      tippy: createTippy(map.readout)
-    })
-
-    assign(map, {
-      tippyWord: createTippyWord(map.tippy, 'map')
+      tippyWord: createTippyFull(map.readout, 'map')
     })
 
     return map
