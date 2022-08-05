@@ -6,9 +6,11 @@ interface Options {
 }
 
 // uses setup.createNPC, setup.createSmithyName
-export const createSmithy = (town: Town, opts: Options = {}) => {
-  const smithy = (opts.newBuilding || lib.createBuilding)(town, 'smithy') as Smithy
+export const createSmithy = (town: Town, opts: Partial<Options> = {}) => {
   lib.logger.openGroup('Smithy loading...')
+
+  const createBuilding = opts.newBuilding || lib.createBuilding
+  const smithy = createBuilding(town, 'smithy', opts as Partial<Building>)
 
   smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts.npc))
   smithy.associatedNPC.owner = lib.random(lib.smithyData.owner)
