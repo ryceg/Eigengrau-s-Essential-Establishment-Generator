@@ -1,8 +1,8 @@
 :: GraveyardOutput [nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $buildingTree to $building.graveyardTree>>
+<<include "PrintImage">>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You walk down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>> to the $building.wordNoun. It is $building.location, and is $building.size. You enter the $building.wordNoun $building.entrance. It's mostly $building.cleanliness. As you enter you notice $building.feature.</p>
 <section><h3>Gravedigger</h3><p>$building.gravediggerLook.
 The gravedigger greets you as you come near, and introduces $associatedNPC.himherself as <<profile $associatedNPC>>. <<print $associatedNPC.heshe.toUpperFirst()>> says $building.gravediggerChat.</p></section>

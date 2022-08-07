@@ -1,8 +1,8 @@
 :: MarketOutput [market nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set _marketData to lib.market>><<if ndef $building.sellers>><<set $building.sellers to {}>><<run setup.createMarketSellers($town, $building.sellers, 4)>>
 <<set $building.magicSeller to setup.createNPC($town, {background: ["commoner", "commoner", "commoner", "noble"].random(), profession: "merchant"})>><</if>>
+<<include "PrintImage">>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You wander through the streets of $town.name, and come across the market, which is located in $building.location. It seems that the vendors are organised by $building.organisation. The market is known for $building.draw, and is $building.cleanliness. Today the market is $building.crowd.</p>
 <section><h3>Merchants</h3>
 <<for _key, _seller range $building.sellers>>

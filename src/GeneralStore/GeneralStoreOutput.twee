@@ -1,8 +1,8 @@
 :: generalStoreOutput [nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to lib.generalStoreCustomers>>
+<<include "PrintImage">>
 <span class='flex-line'><<button "Edit $building.name" $building.initPassage>><</button>></span>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span>
 <p><<print lib.getGeneralStoreIntroduction($town, $building)>></p>
