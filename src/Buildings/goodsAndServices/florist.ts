@@ -34,7 +34,7 @@ export const florist: FloristData = {
     building.flower1 ??= lib.random(lib.flora.flower.stemP)
     building.flower2 ??= lib.random(lib.flora.flower.stemP)
     building.flower ??= lib.random(lib.flora.flower.stemS)
-
+    building.localImage = 'florist-illustration'
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
   },

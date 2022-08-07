@@ -30,7 +30,7 @@ export const bakery: BakeryData = {
     building.specialty ??= lib.random(bakery.specialty)
     building.fruit ??= lib.random(lib.flora.fruit.fruitS)
     building.fruits ??= lib.random(lib.flora.fruit.fruitP)
-
+    building.localImage = 'bakery-illustration'
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
   },

@@ -23,7 +23,7 @@ export const tailor: TailorData = {
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)
-
+    building.localImage = 'tailor-illustration'
     building.tippyDescription = `${lib.articles.output(building.type)} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
     return building
   },

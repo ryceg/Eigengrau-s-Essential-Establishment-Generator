@@ -16,6 +16,7 @@ export const createGuardhouse = (town: Town, opts: Options) => {
   lib.assign(guardhouse, {
     initPassage: 'GuardhouseOutput',
     passageName: 'GuardhouseOutput',
+    localImage: 'guardhouse-illustration',
     buildingType: 'guardhouse',
     objectType: 'building',
     wordNoun: lib.guardhouseData.name.wordNoun.random(),
