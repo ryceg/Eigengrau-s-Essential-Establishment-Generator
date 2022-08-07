@@ -1,6 +1,6 @@
 :: CastleOutput [nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<include "PrintImage">>
 <h1 class="interactive-only"><<print lib.toTitleCase($building.name)>></h1><span @id="$building.key"></span>
 <p>This $building.size $building.wordNoun was built by $building.builtBy $building.age, and is $building.condition. As you approach, <<print lib.castleLocation[$town.location].vignette.random()>>.</p>
 <<if $building.namesake>><p>It is named after <<profile $building.namesake>>, <<print lib.articles.output($building.namesake.profession)>>.</p><</if>><p>It is known for $building.knownFor, and is worth defending because $building.defense.reason. The castle needs assistance $building.lookingFor.</p>

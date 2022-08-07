@@ -1,6 +1,6 @@
 :: TownSquareOutput [nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<include "PrintImage">>
 <h1 class="interactive-only">The Town Square</h1><span @id="$building.key"></span><p>You're in the town square. 
 It's $building.size, and $building.cleanliness. It features $building.feature 
 As you <<print setup.townSquare.passageData.enter.random()>>, you see <<print lib.weightedRandomFetcher($town, setup.townSquare.crowd, $building)>></p>

@@ -1,8 +1,8 @@
 :: TempleOutput [nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to lib.templeCustomers>>
+<<include "PrintImage">>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You come across $building.structure.templeDescriptor. $building.guardReadout</p>
 <p>$building.interiorReadout</p>
 <p>$building.aboutReadout</p>

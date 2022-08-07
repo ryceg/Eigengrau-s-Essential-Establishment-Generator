@@ -1,7 +1,7 @@
 :: FactionProfile [nobr]
-<<include "PrintImage">>
 <<set $currentPassage to $town.factions[$currentPassage.key]>><<run lib.logger.info($currentPassage)>>
 <<set $currentPassage.availableRelationships to lib.factionData.types[$currentPassage.type].members.professions>>
+<<include "PrintImage">>
 <h1 class="interactive-only">$currentPassage.name</h1><span @id="$currentPassage.key"></span>
 <span class='flex-line'>
   <<button "Edit $currentPassage.name" FactionSliders>>
