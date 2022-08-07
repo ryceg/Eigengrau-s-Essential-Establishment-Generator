@@ -10,6 +10,7 @@ setup.createCastle = (town, opts = {}) => {
     needsWordNoun: false,
     passageName: 'CastleOutput',
     initPassage: 'CastleOutput',
+    localImage: 'castle-illustration',
     buildingType: 'castle',
     objectType: 'building',
     defense: {

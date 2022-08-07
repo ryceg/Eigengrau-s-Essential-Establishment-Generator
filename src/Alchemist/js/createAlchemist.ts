@@ -26,6 +26,7 @@ export const createAlchemist = (town: Town, opts: Partial<Options> = {}): Alchem
 
   lib.assign(alchemist, {
     associatedNPC,
+    localImage: 'alchemist-illustration',
     wordNoun: lib.random(['alchemist', 'potion shop', 'apothecary', 'alchemist']),
     passageName: 'AlchemistOutput',
     initPassage: 'InitAlchemist',

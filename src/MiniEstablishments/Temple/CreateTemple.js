@@ -13,6 +13,7 @@ setup.createTemple = (town, opts = {}) => {
   lib.assign(temple, {
     passageName: 'TempleOutput',
     initPassage: 'TempleOutput',
+    localImage: 'temple-illustration',
     buildingType: 'temple',
     objectType: 'building',
     wordNoun: data.name.wordNoun.random(),

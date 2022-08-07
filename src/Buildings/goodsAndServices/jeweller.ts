@@ -23,7 +23,7 @@ export const jeweller: JewellerData = {
     building.name ||= opts?.building?.name || typeData.name.function(town, building)
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)
-
+    building.localImage = 'jeweller-illustration'
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}`
     return building
   },
