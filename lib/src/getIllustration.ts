@@ -1,6 +1,7 @@
+import { BuildingTypeName } from 'lib/buildings/_common'
+
 type Illustration =
-| 'general-store-illustration'
-| 'tavern-illustration'
+`${BuildingTypeName}-illustration`
 | 'town-illustration'
 | 'city-illustration'
 
@@ -24,12 +25,12 @@ export const getCustomImage = (src: string, id = 'illustration') => {
   return img.outerHTML
 }
 
-export const getLocalImage = (illustration: Illustration) => {
+export const getLocalImage = (illustration: Illustration, sizes: number[] = [640]) => {
   const img = document.createElement('img')
   img.id = 'illustration'
   img.src = `./static/hero/${illustration}.jpg`
-  img.sizes = addLocalSizes([640])
-  img.srcset = addLocalSourceSet(illustration, [640])
+  img.sizes = addLocalSizes(sizes)
+  img.srcset = addLocalSourceSet(illustration, sizes)
   img.alt = `An image depicting ${lib.articles.output(illustration)}, created by artist Juho Huttunen.`
   return img.outerHTML
 }
