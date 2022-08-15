@@ -11,7 +11,7 @@ export interface Guardhouse extends Building {
 }
 
 export const createGuardhouse = (town: Town, opts: Options) => {
-  const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse')
+  const guardhouse = (opts.newBuilding || lib.createBuilding)(town, 'guardhouse', opts)
 
   lib.assign(guardhouse, {
     initPassage: 'GuardhouseOutput',
