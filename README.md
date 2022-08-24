@@ -22,6 +22,14 @@ Go to https://eigengrausgenerator.com/ to see the most current live build of EEE
 
 NOTE: The live build is often several weeks or months behind the current build here on GitHub. Compile the generator locally to see all the latest features and updates!
 
+## Docker image
+You can build a Docker image to run EEEG in a container, using Node's `http-server` as a static HTTP server.
+
+1. Clone the `git` repository and `cd` into it. 
+2. Run `docker build --tag eeeg:latest .` to build an image. 
+3. Run `docker run -p 8080:80 eeeg:latest` to start the image. This will bind the container's port `80` to the host's port `8080`, so pick something else if you are already using `8080` for something.
+4. Visit http://localhost:8080 to see the live build.
+
 ## Community :family:
 
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Deigengrausgenerator%26type%3Dpatrons&style=flat-square)](https://patreon.com/eigengrausgenerator)
