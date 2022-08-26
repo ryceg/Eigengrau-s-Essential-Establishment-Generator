@@ -2,7 +2,7 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     padding-bottom: 8vw;
   }
   .paper {
@@ -22,7 +22,7 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     padding-bottom: 9vw;
   }
   .paper {
@@ -45,7 +45,7 @@
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     padding-bottom: 15vw;
   }
   .paper {
@@ -64,7 +64,7 @@
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     padding-bottom: 20vw;
   }
   .paper {
@@ -89,7 +89,7 @@
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     padding-bottom: 26vw;
   }
   .paper {
@@ -110,7 +110,7 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     column-span: all;
     padding: 15vw;
   }
@@ -133,7 +133,7 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     column-span: all;
     padding: 17vw;
   }

@@ -89,17 +89,7 @@ html.dark .paper {
   filter: invert(100%);
 }
 
-#illustration {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  bottom: 0;
-  transition: 0.2s;
-  column-span: all;
-  z-index: -2;
-}
+
 
 nav {
   display: inline;
@@ -118,14 +108,6 @@ summary {
 
 article {
   cursor: text;
-}
-
-#illustration-buffer {
-  padding-bottom: 5vw;
-}
-
-html.two-columns #illustration-buffer {
-  column-span: all;
 }
 
 @font-face {
@@ -174,9 +156,6 @@ html.two-columns #illustration-buffer {
   display: hidden;
 }
 
-#illustration-banner {
-  column-span: all;
-}
 
 #passage-header {
   justify-content: space-between;

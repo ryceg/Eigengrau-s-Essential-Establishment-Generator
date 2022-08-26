@@ -78,10 +78,10 @@
   .paper {
     display: none;
   }
-  img#illustration {
+  img.illustration {
     display: none;
   }
-  #illustration-buffer {
+  .illustration-buffer {
     display: none;
   }
 
