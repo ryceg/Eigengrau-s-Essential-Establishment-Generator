@@ -14,7 +14,7 @@ setup.initGoodsAndServices = () => {
           passageName: 'GenericPassage',
           initPassage: 'GenericPassage'
         }
-        Object.assign(building, (opts.newBuilding || lib.createBuilding)(town, building.type, opts))
+        Object.assign(building, (opts.newBuilding || lib.createBuilding)(town, building.type, { ...building, ...opts }))
         building.wordNoun = building.wordNoun || opts.wordNoun || setup.goodsAndServices[building.type].name.wordNoun.random() || 'building'
         building.PassageFormat = building.PassageFormat || opts.PassageFormat || setup.goodsAndServices[building.type].PassageFormat()
         setup.goodsAndServices[type].create(town, building, opts)
