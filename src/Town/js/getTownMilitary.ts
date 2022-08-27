@@ -1,7 +1,7 @@
-import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
-import { assert } from '../src/utils'
-import { getPolice } from './getPolice'
-import { Town } from './_common'
+import { getRolledFromTable, ThresholdTable } from '../../../lib/src/rollFromTable'
+import { assert } from '../../../lib/src/utils'
+import { getPolice } from '../../../lib/town/getPolice'
+import { Town } from '../../../lib/town/_common'
 
 export function getTownMilitary (town: Town): string {
   const police = getPolice(town.factions)
