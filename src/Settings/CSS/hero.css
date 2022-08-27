@@ -6,9 +6,12 @@
   top: 0;
   width: 100%;
   bottom: 0;
-  transition: 0.2s;
-  column-span: all;
   z-index: -2;
+}
+
+.illustration.square {
+  width: 46%;
+  left: 54%;
 }
 
 .illustration-buffer {

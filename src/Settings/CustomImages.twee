@@ -143,15 +143,26 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
   /* $customImages.factionType[$currentPassage.factionType] ||  */
   null>>
 <<if $currentImage>>
-<div id="illustration-buffer">
-  <<print lib.getCustomImage($currentImage)>>
+<<set $currentImageElement to lib.getCustomImage($currentImage)>>
+<div class="illustration-buffer">
+  <<print $currentImageElement.outerHTML>>
 </div>
-<img class="paper" src=./static/grunge-top-01.png top=15vw display=block>
+  <<if $currentImageElement.classList.contains('landscape')>>
+    <img class="paper vertical-offset" src="./static/grunge-top-01.png" top='15vh'>
+  <<else>>
+    <img class="paper" src="./static/grunge-middle-02.png">
+  <</if>>
+  /* Resort to the fallback local images */
 <<elseif $currentPassage.localImage>>
-<div id="illustration-buffer">
-  <<print lib.getLocalImage($currentPassage.localImage)>>
-</div>
-<img class="paper" src=./static/grunge-top-01.png top=15vw display=block>
+  <<set $currentImageElement to lib.getLocalImage($currentPassage.localImage)>>
+  <div class="illustration-buffer">
+    <<print $currentImageElement.outerHTML>>
+  </div>
+  <<if $currentImageElement.classList.contains('landscape')>>
+    <img class="paper vertical-offset" src="./static/grunge-top-01.png" top='15vh'>
+  <<else>>
+    <img class="paper" src="./static/grunge-middle-02.png" >
+  <</if>>
 <</if>>
 
 :: ShowAllSaved [nobr force-one-column]

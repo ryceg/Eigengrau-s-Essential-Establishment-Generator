@@ -5,7 +5,7 @@
   .illustration-buffer {
     padding-bottom: 8vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 15vw;
   }
   body {
@@ -25,7 +25,7 @@
   .illustration-buffer {
     padding-bottom: 9vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 14vw;
   }
   blockquote {
@@ -48,7 +48,7 @@
   .illustration-buffer {
     padding-bottom: 15vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -67,7 +67,7 @@
   .illustration-buffer {
     padding-bottom: 20vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -92,7 +92,7 @@
   .illustration-buffer {
     padding-bottom: 26vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 13.5vw;
   }
 }
@@ -114,7 +114,7 @@
     column-span: all;
     padding: 15vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -138,7 +138,7 @@
     padding: 17vw;
   }
 
-  .paper {
+  .paper.vertical-offset {
     top: 14vw;
   }
 }
