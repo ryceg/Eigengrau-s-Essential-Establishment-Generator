@@ -25,3 +25,9 @@ html.two-columns .illustration-buffer {
 #illustration-banner {
   column-span: all;
 }
+
+.float-right {
+  float: right; 
+  position: relative;
+  max-width: 435px;
+}

@@ -3,7 +3,7 @@
     columns: 1;
   }
   .illustration-buffer {
-    padding-bottom: 8vw;
+    padding: clamp(8vw, calc(25%-8rem), 520px);
   }
   .paper.vertical-offset {
     top: 15vw;
@@ -22,8 +22,8 @@
   .passage {
     columns: 1;
   }
-  .illustration-buffer {
-    padding-bottom: 9vw;
+   .illustration-buffer {
+    padding: clamp(8vw, calc(25%-8rem), 520px);
   }
   .paper.vertical-offset {
     top: 14vw;
@@ -38,15 +38,9 @@
   body {
     font-size: 17px;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
-  }
-  .illustration-buffer {
-    padding-bottom: 15vw;
   }
   .paper.vertical-offset {
     top: 13vw;
@@ -57,15 +51,9 @@
   body {
     font-size: 17px;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
-  }
-  .illustration-buffer {
-    padding-bottom: 20vw;
   }
   .paper.vertical-offset {
     top: 13vw;
@@ -82,15 +70,9 @@
     column-gap: 35px;
     max-width: 60em;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
-  }
-  .illustration-buffer {
-    padding-bottom: 26vw;
   }
   .paper.vertical-offset {
     top: 13.5vw;
@@ -107,12 +89,8 @@
     column-gap: 35px;
     max-width: 60em;
   }
-  .passage {
-    columns: 1;
-  }
   .illustration-buffer {
     column-span: all;
-    padding: 15vw;
   }
   .paper.vertical-offset {
     top: 13vw;
@@ -130,14 +108,6 @@
     column-gap: 40px;
     max-width: 65em;
   }
-  .passage {
-    columns: 1;
-  }
-  .illustration-buffer {
-    column-span: all;
-    padding: 17vw;
-  }
-
   .paper.vertical-offset {
     top: 14vw;
   }
