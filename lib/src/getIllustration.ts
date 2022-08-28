@@ -1,8 +1,10 @@
 import { BuildingTypeName } from 'lib/buildings/_common'
+import { FactionType } from 'lib/faction/factionData'
 import { getUUID } from './utils'
 
 type Illustration =
 `${BuildingTypeName}-illustration`
+| `${FactionType}-illustration`
 | 'town-illustration'
 | 'city-illustration'
 

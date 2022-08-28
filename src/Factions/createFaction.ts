@@ -14,6 +14,7 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
     passageName: 'FactionProfile',
     initPassage: 'FactionSliders',
     objectType: 'faction',
+    localImage: `${type}-illustration`,
     type,
     isPolicing: false,
     wordNoun: lib.factionData.types[type].wordNoun,
