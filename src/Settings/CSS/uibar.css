@@ -12,6 +12,10 @@
   border-color: var(--background-primary);
 }
 
+#ui-bar-body {
+  margin: 1.5em 0;
+}
+
 #ui-bar-history {
   display: none;
 }

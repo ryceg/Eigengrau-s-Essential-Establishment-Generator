@@ -31,3 +31,16 @@ html.two-columns .illustration-buffer {
   position: relative;
   max-width: 435px;
 }
+
+@media (max-width: 410px) {
+  .illustration-buffer {
+    padding: 2vw;
+  }
+}
+
+
+@media (min-width: 411px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(25%-12rem), 520px);
+  }
+}
