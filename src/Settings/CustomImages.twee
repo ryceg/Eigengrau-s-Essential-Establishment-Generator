@@ -137,7 +137,7 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
 
 :: PrintImage [nobr]
 <<set $customImages to recall('customImages')>>
-<<unset $currentImageElement>>
+<<set $currentImageElement to null>>
 <<set $currentImage to $currentPassage.customImage || 
   /* $customImages[$currentPassage.objectType][$currentPassage.key] ||  */
   $customImages.buildingType[$currentPassage.buildingType] || 
