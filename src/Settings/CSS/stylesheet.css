@@ -282,11 +282,7 @@ html.two-columns #illustration-buffer {
 
 .restart:hover {
   background-color: var(--background-secondary);
-  /* border-color: var(--text-normal); */
-  border-left: 1px solid var(--text-normal);
-  border-right: 1px solid var(--text-muted);
-  border-top: 1px solid var(--text-muted);
-  border-bottom: 1px solid var(--text-muted);
+  box-shadow: 0px 0px 0px 1px  var(--text-normal) inset;
 }
 
 #passage-header.scrolled {
