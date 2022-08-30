@@ -1,0 +1,43 @@
+
+blockquote {
+  font-family: Scaly Sans;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  padding: 5px 10px;
+  background-color: var(--blockquote-color);
+  border-style: solid;
+  border-width: 11px;
+  border-image: url("./static/note-wrap.png") 11;
+  border-image-outset: 9px 0;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+}
+
+html.dark blockquote {
+  box-shadow: 1px 4px 14px var(--background-accent);
+}
+blockquote em {
+  font-family: Scaly Sans;
+  font-style: italic;
+}
+blockquote strong {
+  font-family: Scaly Sans;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+blockquote p,
+blockquote ul {
+  font-size: 0.352cm;
+  line-height: 1.1em;
+}
+pre + blockquote,
+h2 + blockquote,
+h3 + blockquote,
+h4 + blockquote,
+h5 + blockquote {
+  margin-top: 13px;
+}
+blockquote h5 {
+  margin-top: 0;
+}
