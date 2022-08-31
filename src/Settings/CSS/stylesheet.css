@@ -191,7 +191,7 @@ h6 {
 /* H1 */
 
 h1 {
-  display: inline-block;
+  display: block;
   column-span: all;
   font-size: 0.987cm;
   -webkit-column-span: all;
@@ -203,14 +203,14 @@ h1 {
 /* H2 */
 
 h2 {
-  display: inline-block;
+  display: block;
   font-size: 0.705cm;
 }
 
 /* H3 */
 
 h3 {
-  display: inline-block;
+  display: block;
   font-size: 0.529cm;
   margin-bottom: 0em;
   border-bottom: 3px solid var(--header-secondary);
@@ -219,7 +219,7 @@ h3 {
 /* H4 */
 
 h4 {
-  display: inline-block;
+  display: block;
   margin-bottom: 0;
   margin-top: 10px;
   font-size: 0.458cm;
@@ -232,7 +232,7 @@ span.macro-linkreplace-insert {
 /* H5 */
 
 h5 {
-  display: inline-block;
+  display: block;
   margin-bottom: 0.2em;
   font-family: ScalySansSmallCaps;
   font-size: 0.423cm;
@@ -242,7 +242,7 @@ h5 {
 /* H6 */
 
 h6 {
-  display: inline-block;
+  display: block;
   font-size: 0.445cm;
   border-bottom: 1.25px solid var(--header-secondary);
 }
