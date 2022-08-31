@@ -144,14 +144,15 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
   $customImages.factionType[$currentPassage.factionType] || 
   null>>
 <<if $currentImage>>
-<<set $currentImageElement to lib.getCustomImage($currentImage)>>
-  <<print $currentImageElement.outerHTML>>
-  /* Resort to the fallback local images */
-<<elseif $currentPassage.localImage>>
-  <<set $currentImageElement to lib.getLocalImage($currentPassage.localImage)>>
+  <<set $currentImageElement to lib.getCustomImage($currentImage)>>
     <<print $currentImageElement.outerHTML>>
+    /* Resort to the fallback local images */
+  <<elseif $currentPassage.localImage>>
+    <<set $currentImageElement to lib.getLocalImage($currentPassage.localImage)>>
+      <<print $currentImageElement.outerHTML>>
 <</if>>
-<<if $currentImageElement.classList.contains('landscape')>>
+/* This handles which covering image to use. */
+<<if $currentImageElement && $currentImageElement.classList.contains('landscape')>>
   <div class="illustration-buffer" />
   <img class="paper vertical-offset" src="./static/grunge-top-01.png" top='15vh'>
 <<elseif $currentImageElement>>
