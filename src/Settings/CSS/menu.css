@@ -1,3 +1,13 @@
+/* Used in the sidebar for the version number. */
+.version {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+#story-author {
+  margin-top: 0;
+}
+
 #menu ul {
   border-color: var(--background-secondary);
 }
@@ -53,8 +63,7 @@
   line-height: 1;
 }
 
-#menu-story > li > a[data-passage="Toolbox"]::before {
-  content: "\e839 ";
+#menu > ul > li > a::before {
   padding-right: 0.4em;
   font-family: tme-fa-icons;
   font-style: normal;
@@ -62,29 +71,30 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  /* This bunch of stuff is needed to override the usual styling of links. */
+  position: inherit;
+  display: inherit;
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  bottom: inherit;
+  left: inherit;
+  transform: inherit;
+  visibility: inherit;
+  transition: inherit;
+}
+
+#menu-story > li > a[data-passage="Toolbox"]::before {
+  content: "\e839 ";
 }
 
 #menu-story > li > a[data-passage="OutputEverything"]::before {
   content: "\e829 ";
-  padding-right: 0.4em;
-  font-family: tme-fa-icons;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
 }
 
 #menu-story > li > a[href="https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose"]::before
 {
   content: "\e838 ";
-  padding-right: 0.4em;
-  font-family: tme-fa-icons;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
 }
 
 

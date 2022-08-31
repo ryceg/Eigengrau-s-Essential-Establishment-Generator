@@ -57,6 +57,7 @@ body {
   background-color: var(--background-primary);
 }
 
+/* Different to .paper, .background-image repeats and covers everything. Paper will often have cutouts for illustrations. This does not. */
 .background-image {
   background-image: url("./static/grunge-bottom-01.png");
   background-attachment: scroll;
@@ -96,11 +97,11 @@ nav {
 }
 
 summary {
-  display: inline-block;
+  display: block;
   cursor: pointer;
-  /* Stealing from h3 */
   font-size: 0.529cm;
-  margin-bottom: 0em;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   border-bottom: 3px solid var(--header-secondary);
   font-family: MrJeeves;
   font-weight: 800;
@@ -128,20 +129,14 @@ article {
   content: none;
 }
 
+/* Used for tooltips. */
 .dotted {
   border-bottom: 1px dotted var(--text-normal);
   text-decoration: none;
   cursor: help;
 }
 
-.version {
-  color: var(--text-muted);
-  font-size: 16px;
-}
 
-#story-author {
-  margin-top: 0;
-}
 
 img,
 embed,
@@ -354,32 +349,6 @@ h1 + p button + blockquote + p::first-line {
 	BLEACHED - A largely white style for SugarCube â‰¥v2.23.1
 ***********************************************************************/
 
-a {
-  position: relative;
-  color: var(--text-link);
-  text-decoration: none;
-}
-a:hover {
-  color: var(--text-link-hover);
-  text-decoration: none;
-}
-a::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-link-hover);
-  bottom: -0.2rem;
-  left: 0;
-  transform: scaleX(0);
-  visibility: hidden;
-  transition: transform 0.3s ease;
-}
-a:hover::before {
-  transform: scaleX(1);
-  visibility: visible;
-}
 
 span.link-disabled {
   color: var(--background-accent);
@@ -451,10 +420,4 @@ input#mce-EMAIL.required.email:hover {
 }
 .classTable h5 {
   margin-bottom: 10px;
-}
-
-/*removes link icon from below images */
-a.link-external::after {
-  visibility: hidden;
-  content: "";
 }
