@@ -5,6 +5,8 @@ import { getUUID } from './utils'
 type Illustration =
 `${BuildingTypeName}-illustration`
 | `${FactionType}-illustration`
+| 'hamlet-illustration'
+| 'village-illustration'
 | 'town-illustration'
 | 'city-illustration'
 
@@ -19,6 +21,18 @@ const illustrationData = [
     illustration: 'city-illustration',
     description: 'A birds\' eye view of a sprawling fantasy city',
     artist: 'Juho Huttunen',
+    class: 'landscape'
+  },
+  {
+    illustration: 'village-illustration',
+    description: 'Dawn in a village, with a merchant leading his donkey towards the markets.',
+    artist: 'DallE',
+    class: 'landscape'
+  },
+  {
+    illustration: 'hamlet-illustration',
+    description: 'Dusk at a sleepy hamlet, with a farmer waiting for his dog.',
+    artist: 'DallE',
     class: 'landscape'
   },
   {
