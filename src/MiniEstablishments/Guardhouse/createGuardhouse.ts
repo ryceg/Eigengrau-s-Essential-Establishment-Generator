@@ -1,7 +1,7 @@
 import { Building, NPC, Town } from '@lib'
 
 interface Options {
-  newBuilding(town: Town, type?: string): Guardhouse
+  newBuilding(town: Town, type?: string, opts?: Partial<Options>): Guardhouse
   npc: Partial<NPC>
 }
 

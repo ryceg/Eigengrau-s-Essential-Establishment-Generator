@@ -15,7 +15,7 @@ import { findBuilding } from './findBuilding'
 export function createBuilding (town: Town, type: BuildingTypeName, base: Partial<Building> = {}): Building {
   logger.info('Creating base building...', base)
 
-  const building: Building = {
+  const building = {
     key: getUUID(),
     objectType: 'building',
     buildingType: type,
@@ -31,7 +31,7 @@ export function createBuilding (town: Town, type: BuildingTypeName, base: Partia
       probability: 0
     },
     ...base
-  }
+  } as Building
 
   clampRolls(building.roll)
 

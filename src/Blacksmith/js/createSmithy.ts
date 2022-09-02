@@ -10,7 +10,7 @@ export const createSmithy = (town: Town, opts: Partial<Options> = {}) => {
   lib.logger.openGroup('Smithy loading...')
 
   const createBuilding = opts.newBuilding || lib.createBuilding
-  const smithy = createBuilding(town, 'smithy', opts as Partial<Building>)
+  const smithy = createBuilding(town, 'smithy', opts as Partial<Building>) as Smithy
 
   smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts.npc))
   smithy.associatedNPC.owner = lib.random(lib.smithyData.owner)

@@ -222,7 +222,7 @@ export function exportToNovelAI (town: Town, npcs: Record<string, NPC>) {
     A population of ${town.population}, the denizens live ${lib.articles.output(lib.getTownWealth(town.roll.wealth))} existence. 
     ${town.economicIdeologyDescription(town)} ${setup.getPoliticalSourceDescription(town)}
     ${lib.getTownEconomics(town)} ${lib.getTownWelfare(town)}
-    ${lib.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
+    ${setup.getTownMilitary(town)} ${lib.getTownLaw(town)} ${lib.getTownArcana(town)}`,
     tags: [
       'fantasy',
       'dungeons and dragons',

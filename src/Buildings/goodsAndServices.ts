@@ -38,7 +38,6 @@ export interface GoodsAndService {
     adjectivePerson?: string[]
   }
   wordNoun?: string
-  localImage: string
   PassageFormat(): string[]
   profession: GoodsAndServicesProfession
   goods: GeneralGood[]
