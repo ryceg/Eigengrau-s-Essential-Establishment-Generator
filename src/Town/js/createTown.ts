@@ -5,7 +5,8 @@ export const createTown = (base: TownBasics | Town) => {
   lib.logger.openGroup('The town is loading...')
   lib.logger.info(base)
   // @ts-ignore
-  if (!base) base = setup.createTownBiome()
+  // if (!base) base = setup.createTownBiome()
+  if (!base) base = {}
   const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = base.terrain || lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = base.currentSeason || lib.weightRandom(lib.townData.defaults.season) as Seasons
@@ -45,12 +46,17 @@ export const createTown = (base: TownBasics | Town) => {
     families: {
     },
     religion: {
-      _customPantheon: State.metadata.get('pantheon'),
+      _customPantheon: State.metadata.get('pantheon') || null,
       _percentages: {},
       _baseProbabilities: {} as Record<string, number>,
       _modifiers: {} as Record<string, number>,
       _probabilities: {} as Record<string, number>
     },
+    // }, base, {
+    //   generated: 'full'
+    // }) as Town
+    // debugger
+    // lib.assign(town, {
     get religionPercentages () {
       return lib.getAllPantheonPercentages(this as unknown as Town)
     },
