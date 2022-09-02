@@ -44,3 +44,17 @@ html.two-columns .illustration-buffer {
     padding: clamp(8vw, calc(25%-12rem), 520px);
   }
 }
+
+
+@media (min-width: 1800px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(30%), 520px);
+  }
+}
+
+
+@media (min-width: 2560px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(45%), 520px);
+  }
+}
