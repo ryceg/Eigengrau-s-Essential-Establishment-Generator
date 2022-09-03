@@ -23,6 +23,7 @@ interface PredominantRace extends PredominantInfo {
 }
 
 export function getPredominantRaceFromBase (baseDemographics: Record<RaceName, number>): PredominantRace {
+  lib.logger.info('Getting predominant race from base...')
   const percentages = getRacesPercentile(baseDemographics)
   return getPredominantRace(percentages)
 }
