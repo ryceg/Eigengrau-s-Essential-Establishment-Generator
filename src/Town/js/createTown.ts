@@ -183,6 +183,7 @@ export const createTown = (base: TownBasics | Town) => {
     generated: 'full'
   })
   lib.townDemographics(town)
+  town.professions = lib.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
