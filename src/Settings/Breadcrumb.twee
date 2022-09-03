@@ -1,6 +1,5 @@
 :: Breadcrumb
 <<nosp>><<liveblock>>
-<<set $town.ignoreGender to settings.ignoreGender>>
 <nav>
   <span id='town-permalink'><<link "The $town.type of $town.name">><<if $town.generated === 'biome'>><<set $town to setup.createTown($town)>><</if>><<unset $currentPassage>><<unset $currentNPC>><<set $history to []>><<run history.pushState('', document.title, window.location.pathname + window.location.search)>><<goto "Start">><</link>></span>
 </nav>
