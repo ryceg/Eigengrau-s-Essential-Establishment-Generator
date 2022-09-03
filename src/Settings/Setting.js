@@ -150,7 +150,7 @@ Setting.addToggle('disableAnalytics', {
   onChange: settingDisableAnalytics
 })
 
-if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
+if (State.metadata.get('ignoreGender') !== settings?.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
 }
 
@@ -175,6 +175,7 @@ if (settings.displayTwoColumns) {
   jQuery('html').addClass('two-columns')
 }
 
+Setting.save()
 function settingIgnoreGender () {
   const ignoreGender = State.metadata.get('ignoreGender')
   if (settings.ignoreGender !== ignoreGender) {
