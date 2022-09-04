@@ -17,7 +17,7 @@ export function townDemographics (town: TownBasics) {
  * Returns the percentags of all races, humanized to add up to 100.
  */
 export function getRacesPercentile (baseDemographics: Record<RaceName, number>): Record<RaceName, number> {
-  lib.logger.info('Getting races percentile...')
+  logger.info('Getting races percentile...')
   const races = keys(baseDemographics)
   const sum = getDemographicsSum(races, baseDemographics)
   const racePercentage = {} as Record<RaceName, number>
@@ -31,7 +31,7 @@ export function getRacesPercentile (baseDemographics: Record<RaceName, number>):
  * Returns the population for all races.
  */
 export function getRacesPopulation (baseDemographics: Record<RaceName, number>, population: number): Record<RaceName, number> {
-  lib.logger.info('Getting races population...')
+  logger.info('Getting races population...')
   const racePercentage = getRacesPercentile(baseDemographics)
   const racePopulation = {} as Record<RaceName, number>
   for (const race of keys(racePercentage)) {
@@ -44,7 +44,7 @@ export function getRacesPopulation (baseDemographics: Record<RaceName, number>, 
  * Calculate the sum of the raw demographic values.
  */
 export function getDemographicsSum (races: RaceName[], baseDemographics: Record<RaceName, number>) {
-  lib.logger.info('Getting demographics sum...')
+  logger.info('Getting demographics sum...')
   return races.reduce((sum, race) => sum + baseDemographics[race], 0)
 }
 
@@ -52,7 +52,7 @@ export function getDemographicsSum (races: RaceName[], baseDemographics: Record<
  * Returns the population of a single race.
  */
 function getRacePopulation (race: RaceName, baseDemographics: Record<RaceName, number>, population: number) {
-  lib.logger.info('Getting race population...')
+  logger.info('Getting race population...')
   return calcPercentage(getRacePercentile(race, baseDemographics), population)
 }
 
@@ -61,7 +61,7 @@ function getRacePopulation (race: RaceName, baseDemographics: Record<RaceName, n
  * @example return 68.87
  */
 function getRacePercentile (race: RaceName, baseDemographics: Record<RaceName, number>) {
-  lib.logger.info('Getting race percentile...')
+  logger.info('Getting race percentile...')
   const races = keys(baseDemographics)
   const sum = getDemographicsSum(races, baseDemographics)
   return baseDemographics[race] / sum * 100
