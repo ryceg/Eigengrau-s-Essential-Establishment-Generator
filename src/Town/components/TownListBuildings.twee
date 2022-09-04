@@ -1,4 +1,5 @@
 :: TownListBuildings [nobr]
+<<include "CreateBuilding">>
 <<liveblock>>
 <table>
   <tr>
