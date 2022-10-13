@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { Marriage, NPC } from './_common'
 import { findProfession } from '../src/findProfession'
@@ -10,7 +11,8 @@ import { rollFromTable, ThresholdTable } from '../src/rollFromTable'
 import { socialClass } from './socialClass'
 import { lifestyleStandards } from './lifestyleStandards'
 
-const homeTable: ThresholdTable<string> = [
+// this is not a threshold table; it is a probability table.
+const homeTable: [number, string][] = [
   [0, 'on the streets'], // unreachable without biases
   [20, 'a rundown shack'],
   [10, 'no real permanent address'],
@@ -26,7 +28,7 @@ const homeTable: ThresholdTable<string> = [
 ]
 
 export function createLifestyleStandards (town: Town, npc: NPC) {
-  console.groupCollapsed(`Creating living standards for ${npc.name}`)
+  logger.openGroup(`Creating living standards for ${npc.name}`)
   const isCurrently = random([
     'has been',
     'has recently been',
@@ -43,7 +45,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
 
   const tippy = createTippyFull(capitalizeFirstLetter(desc.description), npc.profession)
 
-  const wageVarianceNotes = [
+  const wageVarianceNotes: ThresholdTable = [
     [-25, `${isCurrently} impossibly unsuccessful as`],
     [-18, `${isCurrently} incredibly unsuccessful as`],
     [-12, `${isCurrently} unsuccessful as`],
@@ -80,7 +82,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
         `${isHaving} extreme success as`
     ])
     ]
-  ] as ThresholdTable
+  ]
   let note = wageVarianceNotes.find(desc => {
     return desc[0] >= wageVariation(town, npc)
   })
@@ -88,7 +90,7 @@ export function createLifestyleStandards (town: Town, npc: NPC) {
   if (!note) note = [10, `${isHaving} modest success as`]
 
   npc.professionSuccess = `${npc.firstName} ${note[1] || wageVarianceNotes[5][1]} ${articles.find(npc.profession)} ${tippy}`
-  console.groupEnd()
+  logger.closeGroup()
 }
 
 export function createFamilyLifestyle (marriage: Marriage) {

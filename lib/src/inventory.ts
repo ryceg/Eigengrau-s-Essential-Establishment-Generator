@@ -12,7 +12,7 @@ interface FoodItem extends Item {
 }
 
 interface MiscItem extends Item {
-  type: 'tools' | 'weapon' | 'armour' | 'adventuring gear' | 'consumable'
+  type: 'tools' | 'weapon' | 'armour' | 'adventuring gear' | 'consumables'
 }
 
 export const inventory: (FoodItem | MiscItem)[] = [
@@ -938,259 +938,259 @@ export const inventory: (FoodItem | MiscItem)[] = [
     cost: 10000,
     availabilityLocation: ['alchemist'],
     availability: 1,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion, Common',
     cost: 50000,
     availabilityLocation: ['alchemist'],
     availability: 1,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion, Uncommon',
     cost: 250000,
     availabilityLocation: ['alchemist'],
     availability: 1,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion, Rare',
     cost: 2500000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Healing',
     cost: 5000,
     availabilityLocation: ['alchemist', 'temple'],
     availability: 1,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Poison',
     cost: 10000,
     availabilityLocation: ['alchemist'],
     availability: 2,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Health',
     cost: 12000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Fire Breath',
     cost: 150000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Greater Healing',
     cost: 15000,
     availabilityLocation: ['alchemist'],
     availability: 2,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Climbing',
     cost: 18000,
     availabilityLocation: ['alchemist'],
     availability: 1,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Heroism',
     cost: 18000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Invisibility',
     cost: 18000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Mind Reading',
     cost: 18000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Water Breathing',
     cost: 18000,
     availabilityLocation: ['alchemist'],
     availability: 2,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Animal Friendship',
     cost: 20000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Diminution',
     cost: 27000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Growth',
     cost: 27000,
     availability: 3,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Gaseous Form',
     cost: 30000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Resistance',
     cost: 30000,
     availability: 3,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Speed',
     cost: 40000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Superior Healing',
     cost: 45000,
     availability: 3,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Flying',
     cost: 50000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Clairvoyance',
     cost: 96000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Vitality',
     cost: 96000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Supreme Healing',
     cost: 135000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Invulnerability',
     cost: 384000,
     availability: 4,
     availabilityLocation: ['alchemist'],
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Diminution',
     cost: 27000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Growth',
     cost: 27000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Gaseous Form',
     cost: 30000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Resistance',
     cost: 30000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Speed',
     cost: 40000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Superior Healing',
     cost: 45000,
     availabilityLocation: ['alchemist'],
     availability: 3,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Flying',
     cost: 50000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Clairvoyance',
     cost: 96000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Vitality',
     cost: 96000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Supreme Healing',
     cost: 135000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Potion of Invulnerability',
     cost: 384000,
     availabilityLocation: ['alchemist'],
     availability: 4,
-    type: 'consumable'
+    type: 'consumables'
   },
   {
     name: 'Jug',

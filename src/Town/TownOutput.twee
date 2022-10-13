@@ -1,18 +1,22 @@
 :: TownOutput
-<<nobr>><span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, null, "Editing town")>><</button>></span>
+<<nobr>><span class="interactive-only"><<button "Edit $town.name" TownEdit>><<run setup.history($town, 'TownOutput', "Editing town")>><</button>></span>
 <<include "BriefDescription">>
 <p>The nearest <<include "TownLandmarkRandomizer">> A population of $town.population, the denizens live <<print lib.articles.output(lib.getTownWealth($town.roll.wealth))>> existence. 
 <<print $town.currentEvent.toUpperFirst()>> is currently taking place.</p>
-<article><h3>Government in $town.name</h3>$town.economicIdeologyDescription $town.politicalSourceDescription</article>
+<article><h3>Government in $town.name</h3><<print $town.economicIdeologyDescription($town)>> <<print setup.getPoliticalSourceDescription($town)>></article>
 <article><h4>Economics</h4><<print lib.getTownEconomics($town)>> <<print lib.getTownWelfare($town)>></article>
-<article><h4>Law and Order</h4><<print lib.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article>
+<article><h4>Law and Order</h4><<print setup.getTownMilitary($town)>> <<print lib.getTownLaw($town)>> <<print lib.getTownArcana($town)>></article><</nobr>>
 <<details "TownListRaces" "Racial Demographics">>
 <<details "TownListReligion" "Religious Demographics">>
 <<details "TownListFactions" "List of Factions">>
-<<details "TownListBuildings" "List of Buildings">><</nobr>>
-\<<if _exportType === 'GMBinder'>>
+<<details "TownListBuildings" "List of Buildings">>
+<<if _exportType === 'GMBinder'>>
 
 \\pagebreakNum 
+
+<<elseif _exportType === 'Homebrewery'>>
+
+\\pagebreak
 
 <</if>>
 <<nobr>><<details "TownListNpcs" "List of NPCs">>

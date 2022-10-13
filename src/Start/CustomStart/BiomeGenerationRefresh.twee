@@ -1,5 +1,32 @@
-:: BiomeGenerationRefresh [force-one-column]
-<details open><summary>Basics</summary><<liveblock>><<include "ListboxOptions">><span class="auto-update"><<nobr>>
+:: BiomeGenerationRefresh [force-one-column nobr nofx]
+<<run $('body').on('change', 'select', () => {
+  let { terrain, location } = State.variables.town;
+  if (!lib.terrain?.[terrain]?.location?.[location]?.origin) {
+    State.variables.town.location = Object.keys(lib.terrain[terrain].location).random();
+    $(document).trigger({
+      type: ':notify',
+      message: 'There are no origins for a ' + terrain + ' ' + location + '.',
+      time: false,
+      classes: false
+    });
+    location = State.variables.town.location;
+    State.variables.town.origin = Object.keys(lib.terrain[terrain].location[location].origin).random();
+  }
+  State.variables.listboxes = {
+    terrain: Object.keys(lib.terrain),
+    location: Object.keys(lib.terrain[terrain].location),
+    vegetation: ['thick', 'lush', 'sparse', 'desolate'],
+    origin: lib.terrain[terrain].location[location].origin,
+    primaryCrop: lib.townData.misc.primaryCrop,
+    primaryExport: lib.townData.misc.primaryExport,
+    season: Object.keys(lib.terrain.temperate.weather.season),
+    economicIdeology: lib.economicPairs,
+    politicalIdeology: lib.politicalIdeologyPairs,
+    politicalSource: ['absolute monarchy', 'constitutional monarchy', 'republic', 'anarchy']
+  };
+  $(document).trigger(':liveupdate');
+})>>
+<<liveblock>><details open><summary>Basics</summary><<include "ListboxOptions">><span class="auto-update">
 <<print lib.firstCharacter($town.name)>> is located in the
 <label name="Terrain" for="listbox-townterrain">
   <<listbox "$town.terrain" autoselect>>
@@ -41,19 +68,4 @@ They harvest
   <</listbox>>
 </label>.
 
-Politically, they are a
-<label class="tip" data-tippy-content="How does the economy work?" name="Economic Ideology" for="listbox-towneconomicideology">
-  <<listbox "$town.economicIdeology" autoselect>>
-    <<optionsfrom $listboxes.economicIdeology>>
-  <</listbox>>
-</label>
-<label class="tip" data-tippy-content="Who leads the people?" name="Political Ideology" for="listbox-townpoliticalideology">
-  <<listbox "$town.politicalIdeology" autoselect>>
-    <<optionsfrom $listboxes.politicalIdeology>>
-  <</listbox>>
-</label>
-<label class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?" name="Political Source" for="listbox-townpoliticalsource">
-  <<listbox "$town.politicalSource" autoselect>>
-    <<optionsfrom $listboxes.politicalSource>>
-  <</listbox>>
-</label><</nobr>></span><</liveblock>></details><<timed 0s>><<run tippy('[data-tippy-content]')>><</timed>>
+Politically, they are a <<include "EditSociopolitics">></span></details><<done>><<run tippy('[data-tippy-content]')>><</done>><</liveblock>>

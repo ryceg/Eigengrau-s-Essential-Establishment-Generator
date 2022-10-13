@@ -1,4 +1,5 @@
 setup.createMarketSellers = (town, obj, number) => {
+  // Nearby, a merchant is _____ "Buy this!"
   const shout = [
     'shouting out ',
     'calling ',
@@ -6,7 +7,11 @@ setup.createMarketSellers = (town, obj, number) => {
     'hawking goods, saying ',
     'shouting ',
     'beckoning ',
-    'saying loudly '
+    'saying loudly ',
+    'crying out',
+    'loudly yelling',
+    'bellowing at passersby',
+    'frantically calling out'
   ]
 
   for (let i = 0; i < number; i++) {

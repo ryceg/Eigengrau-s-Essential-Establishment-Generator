@@ -1,0 +1,1034 @@
+{
+   "scenarioVersion":0,
+   "title":"The village of Godwiche",
+   "description":"The village of Godwiche is a feudalist kleptocracy republic. It has a population of 2933, and its citizens live a modest life. The village grew around a the mouth of a river, and is comprised largely of humans.",
+   "prompt":" The Village of ${Godwiche} ${Godwiche} is a ${village} located in the polar forest, where the vegetation is desolate. ${Godwiche} grew around the mouth of a river, and is comprised largely of humans. They are a feudalist kleptocratic republic that worships many deities, none having a clear majority at all.\n    A population of 2933, the denizens live a modest existence. \n    The people of ${Godwiche} work the land in exchange for working their lord's lands. Affairs are handled by <<profile $town.factions[\"leader\"]>>, the head of whom is Mr ${Tyago Head}\n    Trade is rather free in ${Godwiche}, and people live a modest existence because of it. There are few taxes, and there is little regulation from the authorities on what merchants can and cannot sell. Welfare is non existent. Citizens can expect the absolute bare minimum of death services. Healthcare and education are totally ignored, and those unable to fend for themselves starve.\n    There is a guard presence in ${Godwiche}, but it is more for outside intruders rather than the population inside. Citizens are expected to follow the laws, and those that do have nothing to fear from ${The Group of Pilferers}, who take care of policing matters. Law in ${Godwiche} is slack, perhaps intentionally so- the Thieves' Guild that control the government would not be above bending the laws in their favour. Magic is not codified into the laws as anything specific, though the local guards would be more likely to treat it as a threat rather than not.",
+   "tags":[
+      "fantasy",
+      "dungeons and dragons",
+      "village",
+      "feudalism"
+   ],
+   "context":[
+      {
+         "text":" The Village of Godwiche Godwiche is a village located in the polar forest, where the vegetation is desolate. Godwiche grew around the mouth of a river, and is comprised largely of humans. They are a feudalist kleptocratic republic that worships many deities, none having a clear majority at all.",
+         "contextConfig":{
+            "prefix":"",
+            "suffix":"\n",
+            "tokenBudget":2048,
+            "reservedTokens":0,
+            "budgetPriority":800,
+            "trimDirection":"trimBottom",
+            "insertionType":"token",
+            "insertionPosition":0
+         }
+      },
+      {
+         "text":"[This is a description of a fantasy village for use in Dungeons and Dragons games.]",
+         "contextConfig":{
+            "prefix":"",
+            "suffix":"\n",
+            "tokenBudget":2048,
+            "reservedTokens":2048,
+            "budgetPriority":-400,
+            "trimDirection":"trimBottom",
+            "insertionType":"newline",
+            "insertionPosition":-4
+         }
+      }
+   ],
+   "placeholders":[
+      {
+         "key":"Godwiche",
+         "description":"the name of the village",
+         "defaultValue":"Godwiche"
+      },
+      {
+         "key":"village",
+         "description":"the type of settlement Godwiche is.",
+         "defaultValue":"village"
+      },
+      {
+         "key":"The Group of Pilferers",
+         "description":"The name of the guards",
+         "defaultValue":"The Group of Pilferers"
+      },
+      {
+         "key":"Tyago Head",
+         "description":"name of the leader",
+         "defaultValue":"Tyago Head"
+      }
+   ],
+   "settings":{
+      "parameters":{
+         "temperature":0.8,
+         "max_length":40,
+         "min_length":20,
+         "top_k":50,
+         "top_p":0.9,
+         "tail_free_sampling":1,
+         "repetition_penalty":2,
+         "repetition_penalty_range":512,
+         "repetition_penalty_slope":3.33,
+         "bad_words_ids":[
+            
+         ]
+      },
+      "trimResponses":true,
+      "banBrackets":true
+   },
+   "lorebook":{
+      "lorebookVersion":1,
+      "entries":[
+         {
+            "text":"Maedisa Johnston is a fugitive. She is a barely adult aged human with a long, thin scar running up the arm who is weak-willed when calm, but gets destructive when stressed.",
+            "displayName":"Maedisa Johnston",
+            "keys":[
+               "Maedisa",
+               "Maedisa Johnston",
+               "fugitive",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Maelya Alder is a conman. She is a dark tan skinned somewhat short human who is eager when calm, but gets cowardly when stressed.",
+            "displayName":"Maelya Alder",
+            "keys":[
+               "Maelya",
+               "Maelya Alder",
+               "conman",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Lucaes Butler is a conman. He is a prime adult aged human with strong, square shoulders who is manipulative when calm, but gets industrious when stressed.",
+            "displayName":"Lucaes Butler",
+            "keys":[
+               "Lucaes",
+               "Lucaes Butler",
+               "conman",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Jaxon Short is a thief. He is a short-ish man with fingernails cut to the quick who is compassionate when calm, but gets calculating when stressed.",
+            "displayName":"Jaxon Short",
+            "keys":[
+               "Jaxon",
+               "Jaxon Short",
+               "thief",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Tyago Head is a rogue. He is an elderly human with pale, sunken cheeks who is angry when calm, but gets belligerent when stressed.",
+            "displayName":"Tyago Head",
+            "keys":[
+               "Tyago",
+               "Tyago Head",
+               "rogue",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Logus Newby is a jailer. He is a weathered human with two glass eyes that never move who is compassionate when calm, but gets scornful when stressed.",
+            "displayName":"Logus Newby",
+            "keys":[
+               "Logus",
+               "Logus Newby",
+               "jailer",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Claira Homer is a clergyman. She is a young adult human with child-sized hands who is fearful when calm, but gets determined when stressed.",
+            "displayName":"Claira Homer",
+            "keys":[
+               "Claira",
+               "Claira Homer",
+               "clergyman",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Leya House is a guard. She is a short-ish woman with a horseface who is carefree when calm, but gets industrious when stressed.",
+            "displayName":"Leya House",
+            "keys":[
+               "Leya",
+               "Leya House",
+               "guard",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Aethyn Burroughs is a cutpurse. He is an incredibly elderly human with a thin, sloped nose who is cautious when calm, but gets reckless when stressed.",
+            "displayName":"Aethyn Burroughs",
+            "keys":[
+               "Aethyn",
+               "Aethyn Burroughs",
+               "cutpurse",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Aelijah Preacher is an armorer. He is a solidly built man with more legs than torso who is lazy when calm, but gets fanatical when stressed.",
+            "displayName":"Aelijah Preacher",
+            "keys":[
+               "Aelijah",
+               "Aelijah Preacher",
+               "armorer",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Emmanus Preacher is a blacksmith's assistant. He is a youthful adult human with an anchor tattoo who is reserved when calm, but gets brave when stressed.",
+            "displayName":"Emmanus Preacher",
+            "keys":[
+               "Emmanus",
+               "Emmanus Preacher",
+               "blacksmith's assistant",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Brynna Hume is a squatter. She is a middle aged human with an incredibly freckly face who is fearful when calm, but gets spiteful when stressed.",
+            "displayName":"Brynna Hume",
+            "keys":[
+               "Brynna",
+               "Brynna Hume",
+               "squatter",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Adannius Rowen is a highwayman. He is a somewhat short man with a thin, hooked nose who is fearful when calm, but gets withdrawn when stressed.",
+            "displayName":"Adannius Rowen",
+            "keys":[
+               "Adannius",
+               "Adannius Rowen",
+               "highwayman",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Ruby Hooke is a jeweller. She is a dark tan skinned thin human who is angry when calm, but gets meticulous when stressed.",
+            "displayName":"Ruby Hooke",
+            "keys":[
+               "Ruby",
+               "Ruby Hooke",
+               "jeweller",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Nala Sumnarghthrysh is a tailor. She is a light skinned relatively short dragonborn who is devout when calm, but gets destructive when stressed.",
+            "displayName":"Nala Sumnarghthrysh",
+            "keys":[
+               "Nala",
+               "Nala Sumnarghthrysh",
+               "tailor",
+               "dragonborn"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Maya Preacher is a seamstress. She is a barely five foot woman with a well freckled face who is lazy when calm, but gets angry when stressed.",
+            "displayName":"Maya Preacher",
+            "keys":[
+               "Maya",
+               "Maya Preacher",
+               "seamstress",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Eberk Rubyeye is a butcher. He is a somewhat squat dwarven man who is thoughtful when calm, but gets cowardly when stressed.",
+            "displayName":"Eberk Rubyeye",
+            "keys":[
+               "Eberk",
+               "Eberk Rubyeye",
+               "butcher",
+               "dwarf"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Emilanus Barnes is a pirate. He is a light tan skinned thin but wiry human who is fearful when calm, but gets obsessive when stressed.",
+            "displayName":"Emilanus Barnes",
+            "keys":[
+               "Emilanus",
+               "Emilanus Barnes",
+               "pirate",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Aelyssa Burnside is a cobbler. She is an aged human with nails sharpened to a point who is driven when calm, but gets meticulous when stressed.",
+            "displayName":"Aelyssa Burnside",
+            "keys":[
+               "Aelyssa",
+               "Aelyssa Burnside",
+               "cobbler",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Rezena Argenthrixus is a cutpurse. She is a lean female dragonborn with large, knobly knees who is eager when calm, but gets spiteful when stressed.",
+            "displayName":"Rezena Argenthrixus",
+            "keys":[
+               "Rezena",
+               "Rezena Argenthrixus",
+               "cutpurse",
+               "dragonborn"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Chloeia Briar is a burglar. She is a dark tan skinned broad and muscular human who is greedy when calm, but gets cowardly when stressed.",
+            "displayName":"Chloeia Briar",
+            "keys":[
+               "Chloeia",
+               "Chloeia Briar",
+               "burglar",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Anglus Paxton is a bishop. He is a somewhat short man with a heart tattoo who is carefree when calm, but gets compulsive when stressed.",
+            "displayName":"Anglus Paxton",
+            "keys":[
+               "Anglus",
+               "Anglus Paxton",
+               "bishop",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"Xavius Clay is a cleric. He is an old human with a knobby nose who is foolish when calm, but gets withdrawn when stressed.",
+            "displayName":"Xavius Clay",
+            "keys":[
+               "Xavius",
+               "Xavius Clay",
+               "cleric",
+               "human"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"The town square, which is relatively large and astonishingly well-kempt",
+            "displayName":"The Town Square",
+            "keys":[
+               "The Town Square",
+               "townSquare",
+               "building"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"An emporium that's claustrophobic. It is somewhat dirty, and is known for the hot mead.",
+            "displayName":"The Markets of Godwiche",
+            "keys":[
+               "The Markets of Godwiche",
+               "market",
+               "the hot mead"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A jail that is a sprawling maze of twisting passages. It is known for its horrific torture pits.",
+            "displayName":"Claira's Jail",
+            "keys":[
+               "Claira's Jail",
+               "dungeon",
+               "building"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A command whose guards are professional. It is known for the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair.",
+            "displayName":"The Ancient Office",
+            "keys":[
+               "The Ancient Office",
+               "guardhouse",
+               "the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair."
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A large blacksmith that's rather messy, and is known for its well crafted weapons and armour.",
+            "displayName":"The Fire and Brother",
+            "keys":[
+               "The Fire and Brother",
+               "smithy",
+               "its well crafted weapons and armour"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A jeweller on Bardryn's Square. Their specialty is working closely with royals.",
+            "displayName":"The Inquisitive Ring",
+            "keys":[
+               "The Inquisitive Ring",
+               "jeweller",
+               "working closely with royals."
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A tailor on Main Way. Their specialty is having the most trendy clothing available..",
+            "displayName":"Thread N Needle",
+            "keys":[
+               "Thread N Needle",
+               "tailor",
+               "having the most trendy clothing available."
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A tailor on Bardryn's Square. Their specialty is having a large collection of all black clothing..",
+            "displayName":"Fineland Crotchet",
+            "keys":[
+               "Fineland Crotchet",
+               "tailor",
+               "having a large collection of all black clothing."
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A butcher on Main Way. Their specialty is the questionable treatment of their livestock.",
+            "displayName":"Eberk's Butchers",
+            "keys":[
+               "Eberk's Butchers",
+               "butcher",
+               "the questionable treatment of their livestock"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A cobbler on Kithri's Row. Their specialty is being frequented by nobles of the area.",
+            "displayName":"Sassy Aelyssa's Shoe Store",
+            "keys":[
+               "Sassy Aelyssa's Shoe Store",
+               "cobbler",
+               "being frequented by nobles of the area"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A somewhat cramped and totally spotless (cleanliness being next to godliness) temple that is dedicated to Torm",
+            "displayName":"The Temple of Graceful Warriors",
+            "keys":[
+               "The Temple of Graceful Warriors",
+               "temple",
+               "building"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A somewhat small thieves guild called Silent Movers",
+            "displayName":"Silent Movers",
+            "keys":[
+               "Silent Movers",
+               "thieves",
+               "Tyago Head"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"An above average sized thieves guild called The Group of Pilferers",
+            "displayName":"The Group of Pilferers",
+            "keys":[
+               "The Group of Pilferers",
+               "thieves",
+               "guild"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         },
+         {
+            "text":"A large priests college called The Civil Priesthood",
+            "displayName":"The Civil Priesthood",
+            "keys":[
+               "The Civil Priesthood",
+               "priests",
+               "Xavius Clay"
+            ],
+            "contextConfig":{
+               "prefix":"",
+               "suffix":"\n",
+               "tokenBudget":2048,
+               "reservedTokens":0,
+               "budgetPriority":400,
+               "trimDirection":"trimBottom",
+               "insertionType":"newline",
+               "insertionPosition":-1
+            },
+            "lastUpdatedAt":1624016826515,
+            "searchRange":1000,
+            "enabled":true,
+            "forceActivation":false,
+            "key_relative_insertion":false,
+            "cascading_activation":true
+         }
+      ]
+   },
+   "author":"Eigengraus Generator"
+}

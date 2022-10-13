@@ -1,2 +1,11 @@
 :: ReligionPercentageList
-<span class='tippy-religion-percentage'></span><<timed 0s>><<run setup.createReligionHTML(lib.getCulledPantheonPercentages($town, State.metadata.get('pantheon')), 'tippy-religion-percentage')>><</timed>>
+<<nosp>>
+<<if _exportType is 'novelai'>><<print lib.getPredominantReligion($town, lib.getPantheonPercentages($town, State.metadata.get('pantheon'))).amountDescriptive>>
+<<else>><span class='tippy-religion-percentage'></span>
+<<done>>
+  <<run setup.createReligionHTML(
+    lib.getPantheonPercentages($town, State.metadata.get('pantheon')), 
+    'tippy-religion-percentage',
+    _religionPercentageContent
+    )>>
+<</done>><</if>><</nosp>>

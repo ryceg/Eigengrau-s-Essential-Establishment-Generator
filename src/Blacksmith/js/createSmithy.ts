@@ -6,16 +6,20 @@ interface Options {
 }
 
 // uses setup.createNPC, setup.createSmithyName
-export const createSmithy = (town: Town, opts: Options = {}) => {
-  const smithy = (opts.newBuilding || lib.createBuilding)(town, 'smithy') as Smithy
-  console.groupCollapsed('Smithy loading...')
+export const createSmithy = (town: Town, opts: Partial<Options> = {}) => {
+  lib.logger.openGroup('Smithy loading...')
+
+  const createBuilding = opts.newBuilding || lib.createBuilding
+  const smithy = createBuilding(town, 'smithy', opts as Partial<Building>)
+
   smithy.associatedNPC = setup.createNPC(town, Object.assign({}, lib.smithyData.blacksmith, opts.npc))
   smithy.associatedNPC.owner = lib.random(lib.smithyData.owner)
+
   lib.createReciprocalRelationship(town, smithy, smithy.associatedNPC, { relationship: 'owner', reciprocalRelationship: 'business' })
   setup.createSmithyName(town, smithy)
   lib.createStructure(town, smithy)
   lib.assign(smithy, {
-    wordNoun: ['smithy', 'blacksmith', 'smithery', 'farrier shop'].random(),
+    wordNoun: lib.random(['smithy', 'blacksmith', 'smithery', 'farrier shop']),
     passageName: 'SmithyOutput',
     initPassage: 'InitSmithy',
     buildingType: 'smithy',
@@ -29,13 +33,14 @@ export const createSmithy = (town: Town, opts: Options = {}) => {
   for (const propName of rollDataVariables) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    lib.defineRollDataGetter(smithy, lib.smithyData.rollData[propName].rolls, propName)
+    lib.defineRollDataGetter(smithy, lib.smithyRollData[propName].rolls, propName)
   }
 
   smithy.notableFeature = `its ${smithy.expertise} weapons and armour`
   smithy.tippyDescription = `${lib.articles.output(smithy.size).toUpperFirst()} ${smithy.wordNoun} that's ${smithy.cleanliness}, and is known for ${smithy.notableFeature}.`
-  console.log(smithy)
-  console.groupEnd()
+
+  lib.logger.info(smithy)
+  lib.logger.closeGroup()
 
   return smithy
 }

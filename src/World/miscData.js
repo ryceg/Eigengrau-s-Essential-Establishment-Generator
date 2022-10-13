@@ -17,8 +17,7 @@ setup.initMisc = () => {
         }
         caravan.master = setup.createNPC(town, setup.misc.caravan.masterType[caravan.masterType])
         caravan.readout = `The caravan is ${caravan.type}, with ${caravan.animals} as the pack animals. They are transporting ${caravan.transporting}, and the general mood seems to be ${caravan.mood} The master is ${setup.profile(caravan.master, JSON.stringify(caravan.masterType))}, who is looking for ${caravan.masterLooking}. ${caravan.master.heshe.toUpperFirst()} is taking special care to avoid ${caravan.masterAvoid} and is carrying ${caravan.masterCarry} with ${caravan.master.himher}.`
-        caravan.tippy = lib.createTippy(caravan.readout)
-        caravan.tippyWord = lib.createTippyWord(caravan.tippy, 'caravan')
+        caravan.tippyWord = lib.createTippyFull(caravan.readout, 'caravan')
         return caravan
       },
       caravanType: ['a wagon train', 'a long wagon train', 'a small train of pack animals', 'a long train of pack animals', 'a train of pack animals with livestock', 'a line of people on foot with a few animals'],
@@ -98,8 +97,7 @@ setup.initMisc = () => {
             ...base
           }
           shrine.readout = `You come across a shrine dedicated to ${shrine.god}. The shrine is ${shrine.material} ${shrine.senses}`
-          shrine.tippy = lib.createTippy(shrine.readout)
-          shrine.tippyWord = lib.createTippyWord(shrine.tippy, 'shrine')
+          shrine.tippyWord = lib.createTippyFull(shrine.readout, 'shrine')
           return shrine
         },
         // the shrine is _______.

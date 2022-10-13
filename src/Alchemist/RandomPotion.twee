@@ -1,8 +1,8 @@
-:: RandomPotion
+:: RandomPotion [nobr]
 <span class="click-and-remove-link"><<link "<h6>Generate a random potion!</h6>">>
 <<set $randomPotion to lib.createAlchemy({ type: "potion" })>><<update>>
 <</link>></span>
 <<liveblock>><<if $randomPotion>><span id="randpotion">
-    \<div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
-    \<blockquote>$randomPotion.effectReadout</blockquote>
+    <div class='descriptive'><h6>$randomPotion.titleReadout</h6>$randomPotion.descriptionReadout</div>
+    <blockquote>$randomPotion.effectReadout</blockquote>
 </span><</if>><</liveblock>>

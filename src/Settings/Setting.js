@@ -1,5 +1,6 @@
 document.cookie = 'SameSite=Strict'
 Config.cleanupWikifierOutput = true
+Config.history.maxStates = 1
 
 $(document).on(':dialogopened', function () {
   if ($('#ui-dialog-body').hasClass('settings')) {
@@ -44,6 +45,28 @@ $(document).on(':dialogopened', function () {
       }
     }
     )
+    setup.addSettingButton({
+      target: 'pantheon',
+      name: 'customImages',
+      description: 'Add custom images.',
+      buttonDescription: 'Open Image Importer'
+    },
+    () => {
+      if (isPatron()) {
+        setup.openDialog({
+          header: 'Import Images',
+          passage: 'CustomImages',
+          rerender: true
+        })
+      } else {
+        setup.openDialog({
+          header: 'Patreon Content',
+          passage: 'ImportPatreon',
+          rerender: true
+        })
+      }
+    }
+    )
   }
 })
 
@@ -58,6 +81,7 @@ function isPatron () {
 }
 
 function patreonContent () {
+  if (lib.isLocalCopy()) return 'Patreon content is unlocked because you are running a local copy.'
   if (isPatron()) return 'Patreon content is unlocked.'
   return 'Patreon content is not currently unlocked.'
 }
@@ -71,6 +95,12 @@ Setting.addToggle('darkMode', {
   default: window.matchMedia('(prefers-color-scheme: dark)').matches
 })
 
+Setting.addToggle('showBiomeGeneration', {
+  label: 'Edit biome before generation?',
+  desc: 'If you want to specify the biome and demographics before town creation, enable this.',
+  onChange: settingShowBiomeGeneration
+})
+
 Setting.addToggle('showCelsius', {
   label: 'Show celsius?'
 })
@@ -79,20 +109,15 @@ Setting.addToggle('showMetric', {
   label: 'Show metric?'
 })
 
-Setting.addToggle('showBiomeGeneration', {
-  label: 'Edit biome before generation?',
-  desc: 'If you want to specify the biome and demographics before town creation, enable this.',
-  onChange: settingShowBiomeGeneration
-})
-
-Setting.addToggle('showSliders', {
-  label: 'Show sliders?',
-  desc: 'If you would like to change the variables of buildings, enable this. Warning: feature is in beta.'
-})
-
 Setting.addToggle('silverStandard', {
   label: 'Silver Standard?',
   desc: 'This is based off the popular homebrew rule where money is divided by ten, so the silver is the standard, reserving gold for kings, making it feel truly like a treasure.'
+})
+
+Setting.addToggle('disableNSFW', {
+  label: 'Disable NSFW content?',
+  desc: 'Disables NSFW content such as brothels and slaves from being generated (please report any errant NSFW that gets through the filter). Restart to apply.',
+  onChange: settingDisableNSFW
 })
 
 Setting.addToggle('ignoreGender', {
@@ -107,10 +132,10 @@ Setting.addToggle('ignoreRace', {
   onChange: settingIgnoreRace
 })
 
-Setting.addToggle('forceOneColumn', {
-  label: 'Force one column?',
-  desc: 'Force one column for larger screens.',
-  onChange: settingForceOneColumn
+Setting.addToggle('displayTwoColumns', {
+  label: 'Display two columns?',
+  desc: 'Display as two columns, like a book?',
+  onChange: settingDisplayTwoColumns
 })
 
 Setting.addToggle('hideAds', {
@@ -129,10 +154,6 @@ if (State.metadata.get('ignoreGender') !== settings.ignoreGender) {
   settings.ignoreGender = State.metadata.get('ignoreGender')
 }
 
-if (State.metadata.get('showTutorial') !== settings.showTutorial) {
-  settings.showTutorial = State.metadata.get('showTutorial')
-}
-
 if (State.metadata.get('disableAnalytics') !== settings.disableAnalytics) {
   settings.disableAnalytics = State.metadata.get('disableAnalytics')
   window['ga-disable-UA-119249239-1'] = settings.disableAnalytics
@@ -142,12 +163,16 @@ if (State.metadata.get('showBiomeGeneration') !== settings.showBiomeGeneration) 
   settings.showBiomeGeneration = State.metadata.get('showBiomeGeneration')
 }
 
-if (State.metadata.get('forceOneColumn') !== settings.forceOneColumn) {
-  settings.forceOneColumn = State.metadata.get('forceOneColumn')
+if (State.metadata.get('disableNSFW') !== settings.disableNSFW) {
+  settings.disableNSFW = State.metadata.get('disableNSFW')
 }
 
-if (settings.forceOneColumn) {
-  jQuery('html').addClass('force-one-column')
+if (State.metadata.get('displayTwoColumns') !== settings.displayTwoColumns) {
+  settings.displayTwoColumns = State.metadata.get('displayTwoColumns')
+}
+
+if (settings.displayTwoColumns) {
+  jQuery('html').addClass('two-columns')
 }
 
 function settingIgnoreGender () {
@@ -156,6 +181,7 @@ function settingIgnoreGender () {
     State.metadata.set('ignoreGender', settings.ignoreGender)
     State.variables.town.ignoreGender = settings.ignoreGender
   }
+  notifyOfNeedToRestart()
 }
 
 function settingIgnoreRace () {
@@ -164,6 +190,7 @@ function settingIgnoreRace () {
     State.metadata.set('ignoreRace', settings.ignoreRace)
     State.variables.town.ignoreRace = settings.ignoreRace
   }
+  notifyOfNeedToRestart()
 }
 
 function settingShowBiomeGeneration () {
@@ -176,6 +203,21 @@ function settingShowBiomeGeneration () {
     event_action: 'clicked',
     event_label: 'customised in settings'
   })
+  notifyOfNeedToRestart()
+}
+
+function settingDisableNSFW () {
+  const disableNSFW = State.metadata.get('disableNSFW')
+  if (settings.disableNSFW !== disableNSFW) {
+    State.metadata.set('disableNSFW', settings.disableNSFW)
+    State.variables.town.disableNSFW = settings.disableNSFW
+  }
+  setup.addGtagEvent({
+    event_category: 'customise biome',
+    event_action: 'clicked',
+    event_label: 'customised in settings'
+  })
+  notifyOfNeedToRestart()
 }
 
 function settingHideAds () {
@@ -199,29 +241,41 @@ function settingDisableAnalytics () {
   }
 }
 
-function settingForceOneColumn () {
-  const forceOneColumn = State.metadata.get('forceOneColumn')
-  if (settings.forceOneColumn !== forceOneColumn) {
-    State.metadata.set('forceOneColumn', settings.forceOneColumn)
+function settingDisplayTwoColumns () {
+  const displayTwoColumns = State.metadata.get('displayTwoColumns')
+  if (settings.displayTwoColumns !== displayTwoColumns) {
+    State.metadata.set('displayTwoColumns', settings.displayTwoColumns)
   }
-  addOneColumn()
+  addClass('html', settings.displayTwoColumns, 'two-columns')
+  if (window.visualViewport.width < 767 && settings.displayTwoColumns) {
+    $(document).trigger({
+      type: ':notify',
+      message: 'Unfortunately, two column formatting looks awful on small screens; increase your viewport in order for this to have an effect.',
+      time: 5000,
+      classes: false
+    })
+  }
 }
 
-function addOneColumn () {
-  if (settings.forceOneColumn) {
-    jQuery('html').addClass('force-one-column')
+function addClass (targetElement, setting, className) {
+  const element = jQuery(targetElement)
+  if (setting) {
+    element.addClass(className)
   } else {
-    jQuery('html').removeClass('force-one-column')
+    element.removeClass(className)
   }
 }
 
 function settingDarkMode () {
-  const $html = jQuery('html')
-
-  if (settings.darkMode) {
-    $html.addClass('dark')
-  } else {
-    $html.removeClass('dark')
-  }
+  addClass('html', settings.darkMode, 'dark')
 }
 Setting.save()
+
+function notifyOfNeedToRestart () {
+  $(document).trigger({
+    type: ':notify',
+    message: 'These changes will not take effect until you restart.',
+    time: false,
+    classes: false
+  })
+}

@@ -1,5 +1,6 @@
+import { logger } from '../logger'
 import { Faction } from '../faction/_common'
-import { NPC } from '../npc-generation/_common'
+import { DeadNPC, Namesake, NPC } from '../npc-generation/_common'
 import { assign, getUUID } from '../src/utils'
 import { Town } from '../town/_common'
 import { Building, ReciprocalRelationship } from './_common'
@@ -7,12 +8,14 @@ import { Building, ReciprocalRelationship } from './_common'
 interface Options {
   relationship: string
   reciprocalRelationship: string
-  description?: string | ((entity: Building | Faction, npc: NPC) => string)
+  description?: string | ((entity: Entity, npc: NPC) => string)
 }
 
-export function createReciprocalRelationship (town: Town, entity: Building | Faction, npc: NPC, options: Options) {
+type Entity = Building | Faction | NPC | Namesake | DeadNPC
+
+export function createReciprocalRelationship (town: Town, entity: Entity, npc: Entity, options: Options) {
   if (!entity || !npc || !options) {
-    console.error('Not enough parameters passed.')
+    logger.error('Not enough parameters passed.')
   }
 
   const isBetweenSameEntityAndNPC = (relation: ReciprocalRelationship) => {
@@ -31,6 +34,8 @@ export function createReciprocalRelationship (town: Town, entity: Building | Fac
 
   const getDescription = () => {
     if (typeof options.description === 'function') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore - This isn't going to be used outside of NPCs, so it doesn't matter that Namesakes aren't supported.
       return options.description(entity, npc)
     }
     return options.description || null
@@ -44,15 +49,20 @@ export function createReciprocalRelationship (town: Town, entity: Building | Fac
 
   const finished = {
     key: getUUID(),
-    otherKey: entity.key,
-    npcKey: npc.key,
+    otherKey: entity?.key,
+    npcKey: npc?.key,
     relationship: options.relationship,
     reciprocalRelationship: options.reciprocalRelationship,
     description: getDescription()
   }
-  if (entity.objectType === 'building') {
-    town.buildingRelations.push(finished)
-  } else if (entity.objectType === 'faction') {
-    town.factionRelations.push(finished)
+  // I'm not sure how I can narrow the typing to exclude Namesakes from it.
+  if (typeof entity?.objectType !== 'undefined') {
+    switch (entity.objectType) {
+      case 'building':
+        town.buildingRelations.push(finished)
+        break
+      case 'faction':
+        town.factionRelations.push(finished)
+    }
   }
 }

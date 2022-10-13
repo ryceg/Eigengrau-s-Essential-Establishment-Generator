@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-useless-escape */
+import { logger } from '../logger'
 import { first, capitalizeFirstLetter } from './utils'
 
 const _overrides = new Map<string, { article: string, caseSensitive: boolean }>()
@@ -48,7 +49,7 @@ function addOverride (article: string, word: string, caseSensitive?: boolean) {
   // check args
   if (!word || typeof word !== 'string') {
     const message = 'cannot add article override -> invalid word'
-    console.error(message)
+    logger.error(message)
     return message
   }
   if (article && typeof article === 'string') {
@@ -57,7 +58,7 @@ function addOverride (article: string, word: string, caseSensitive?: boolean) {
   }
   if (!_validArticles.includes(article)) {
     const message = 'cannot add article override -> invalid article, must be "a" or "an"'
-    console.error(message)
+    logger.error(message)
     return message
   }
   // clean up phrase
@@ -105,7 +106,7 @@ function find (word: string) {
 
 function article (word: string, upper?: boolean) {
   if (!word || typeof word !== 'string') {
-    console.error(`"${word}" is not in an acceptable format.`)
+    logger.error(`"${word}" is not in an acceptable format.`)
     return word // ? just throw back whatever we got
   }
   const article = find(word) || ''

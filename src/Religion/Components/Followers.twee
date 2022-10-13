@@ -1,15 +1,16 @@
-:: Followers
-<h2>Followers</h2><<set _percentages to lib.getPantheonPercentagesReadout($town)>><<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
-\<<include "Maxim">>
-\$currentPassage.name makes up <<print lib.createTippyFull(_percentages, lib.compileWeightToPercentile(
-      lib.getTownDeityWeightings(
-        $town, lib.getPantheon($town).gods))[$currentPassage.name].toFixed(2))>>% of worshipped deities in [[$town.name|TownOutput]]. 
-\<<idp $currentPassage.followers.description>> <<idp $currentPassage.followers.adherents "<<print lib.makeList($currentPassage.followers.adherents)>>">>
-\<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
-<<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>>
+:: Followers [nobr]
+<<set _religionPercentageContent to lib.getAllPantheonPercentages($town, State.metadata.get('pantheon'))[$currentPassage.key].toFixed(2)>>
+<h2>Followers</h2>
+<<set _followers to Object.fromEntries(Object.entries($npcs).filter(([key, npc]) => npc.religion.deity === $currentPassage.name))>>
+<<include "Maxim">>
+$currentPassage.name makes up <<include "ReligionPercentageList">>% of worshipped deities in [[$town.name|TownOutput]]. 
+<<idp $currentPassage.followers.description>> <<idp $currentPassage.followers.adherents "<<print lib.makeList($currentPassage.followers.adherents)>>">>
+<<if $currentPassage.followers.favouredWeapon>> In combat, <<print lib.genderData[$currentPassage.gender].hisher>> followers favour the $currentPassage.followers.favouredWeapon.<</if>>
+/* <<if $currentPassage.followers.holyDays['earth'].length > 0>><h3>Holy Days</h3><<print lib.printInformation($currentPassage.followers.holyDays['earth'])>><</if>> */
 <<idp $currentPassage.followers.excluded.description "<h3>Excluded</h3>$currentPassage.followers.excluded.description">>
 <<include "ClericDomains">>
-<<nobr>><<if Object.keys(_followers).length > 0>><div class='classTable'>
+<<if Object.keys(_followers).length > 0>>
+<div class='classTable'>
   <h3>NPCs</h3>
   <table>
     <tr>
@@ -19,9 +20,8 @@
       <th>Strength</th>
       <<if $currentPassage.deleteEnabled>><th>Delete</th><</if>>
     </tr>
-    
-    <<for _key, _npc range _followers>>
-    \<<set _profession to lib.findProfession($town, $npcs[_npc.key])>>
+  <<for _key, _npc range _followers>>
+      <<set _profession to lib.findProfession($town, $npcs[_npc.key])>>
     <tr>
       <td><<profile $npcs[_npc.key]>></td>
       <td><<print $npcs[_npc.key].race.toUpperFirst()>></td>
@@ -29,7 +29,7 @@
       <td><<print lib.createTippyFull(lib.getReligiosityDescription($town, $npcs[_npc.key]), lib.articles.output($npcs[_npc.key].religion.strength))>></td>
       <<if $currentPassage.deleteEnabled>><td><<link "x">><<set _deleted to $npcs[_npc.key]>><<run setup.deleteNPC($npcs[_npc.key])>><<notify 5000>>Deleted _deleted.name<</notify>><<update>><</link>></td><</if>>
     </tr>
-    <</for>>
-    </table>
-    </div><</if>>
-    <</nobr>>
+  <</for>>
+  </table>
+</div>
+<</if>>

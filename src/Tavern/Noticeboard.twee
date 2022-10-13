@@ -1,5 +1,5 @@
-:: Noticeboard
+:: Noticeboard [nobr]
 <<linkreplace "<h4>Anything interesting in $building.name?</h4>" t8n>>
-\<h4>Interesting things in $building.name...</h4>You see a noticeboard next to the $building.wordNoun's $building.material.noun bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like 
-\<<print ["'have chook, want grain, have grain, want chook'", "'need an exterminator'", "'need help with rat problems'", "'hungry, don't want to walk'", "'need my roof cleaned'", "'I want an apple'", "'need a date for an upcoming wedding'"].random()>>.
+<h4>Interesting things in $building.name...</h4>You see a noticeboard next to the $building.wordNoun's $building.material.noun bar. Walking over to it, you see a number of barter requests nailed to the noticeboard; simple things like 
+<<print ["'have chook, want grain, have grain, want chook'", "'need an exterminator'", "'need help with rat problems'", "'hungry, don't want to walk'", "'need my roof cleaned'", "'I want an apple'", "'need a date for an upcoming wedding'"].random()>>.
 <<include "Posters">><</linkreplace>>

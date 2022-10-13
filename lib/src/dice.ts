@@ -1,14 +1,3 @@
-// operations, by chapel; for sugarcube 2.x
-// v1.0.0
-// adds a dice roller and 'fairmath'
-
-import { randomFloat } from './randomFloat'
-
-/**
- * Range of fairmath.
- */
-const fmRange = [0, 100]
-
 /**
   I couldn't decide on which syntax mode was best, especially for dice.
   So I wound up including a bunch of options, and they all work essentially the same way.
@@ -34,76 +23,108 @@ const fmRange = [0, 100]
           [10, 45] would limit the results to 11-44, etc.
 */
 
-/* DICE */
+import { logger } from '../logger'
+import { randomFloat } from './randomFloat'
 
-const diceHelpers = {
-  processDice: (a: string | number, b?: number) => {
-    // find the number of dice and the type of die
-    let roll = []
-    let result = 0
+// Range of fairmath.
+const fmRange = [0, 100]
 
-    if (typeof a === 'string') {
-      roll = a.split('d')
-    } else if (typeof a === 'number' && b) {
-      roll = [a, b]
-    } else if (Array.isArray(a) && a.length >= 2) {
-      a.length = 2
-      roll = a
-    } else {
-      throw new TypeError('diceHelpers.processDice(): could not process arguments...')
-    }
+/**
+ * Die regex. Will match on the following:
+ * {number?}d{number}{modifier}, e.g.,
+ * 1d10
+ * d10+4
+ * 5d4+3
+ * NOTE: floats like 1.4d6.6 will cause errors with this regex,
+ *       but why are you doing that anyway?
+ */
+const dieStringRegex = /(\d*)d(\d+)(.*)/
 
-    /*
-      we're going to roll each die. we could generate a number
-      between the max and min possible simply enough,
-      but real dice have weights -- rolling 3d6 is far more likely to result
-      in 10 or 11 than in 3 or 18, and pure randomization will not emulate this
-    */
-    for (let i = 0; i < roll[0]; i++) {
-      const die = Math.floor(randomFloat(1) * roll[1]) + 1
-      result += die
-    }
+interface parsedDice {
+  die: number,
+  times: number,
+  modifier: number,
+}
 
-    // this preliminary result ignores modifiers; it only rolls the dice
-    return result
-  },
-  processString: (string: string) => {
-    // remove all whitespace and trim
-    const trimmed = string.trim().replace(/\s/g, '')
+/**
+ * Parses a raw dice-looking string (i.e., `1d4`) into
+ * something more useful for rolling dice
+ */
+function parseDiceString (diceString: string): parsedDice | null {
+  // remove all whitespace and trim
+  const trimmed = diceString.trim().replace(/\s/g, '')
 
-    // check for and return the parts of the roll (2 chunks: '1d6' and '+6')
-    const parsed = trimmed.match(/(\d*d\d*)(.*)/)
+  // chunk the string into parts
+  const [, numberOfDice, dieValue, modifier] = trimmed.match(dieStringRegex) ?? []
+  // if we get 1d+5, we don't know what die to roll. We can't proceed
+  if (dieValue == null) return null
 
-    if (parsed) {
-      const [, roll, modifier] = parsed
-      return [roll, Number(modifier)] as const // send the data off as an array
-    }
-
-    throw new Error('Invalid parsed result.')
-  },
-  roll: (a: string | number, b?: number) => {
-    if (typeof a === 'string') {
-      const result = diceHelpers.processString(a)
-      /*
-        The expression below rolls the dice and adds the modifier,
-        which must be additive (i.e. +5 or -5, but never *5).
-      */
-      return diceHelpers.processDice(result[0]) + result[1]
-    }
-    // just run it, it'll toss out its own errors
-    return diceHelpers.processDice(a, b)
+  return {
+    die: parseInt(dieValue, 10),
+    times: numberOfDice === ''
+      ? 1
+      : parseInt(numberOfDice, 10),
+    modifier: modifier === ''
+      ? 0
+      : parseInt(modifier, 10)
   }
 }
 
-export function dice (a: string | number, b?: number) {
-  return diceHelpers.roll(a, b)
+/**
+ * Rolls dice with a parsed string. We roll each die individually,
+ * then add them together with the modifier at the end. we could
+ * generate a number between the max and min possible simply enough,
+ * but real dice have weights -- rolling 3d6 is far more likely to result
+ * in 10 or 11 than in 3 or 18, and pure randomization will not emulate this
+ */
+function rollDice (parsedDice: parsedDice): number {
+  const { die, times, modifier } = parsedDice
+  let result = 0
+  for (let i = 0; i < times; i++) {
+    result += Math.floor(randomFloat(1) * die) + 1
+  }
+  return result + modifier
 }
 
-/* FAIRMATH */
+/**
+ * Rolls a set of dice. Accepts either a string with an optional modifier
+ * like `1d4+10` or accepts two numbers like `dice(1, 4)`. If it is not
+ * possible to parse passed in values, will return `null`. NOTE: mixed
+ * arguments will cause odd behavior. `dice('3d6' + 10)` will be parsed
+ * to `dice('3d610')` due to coerced values.
+ */
+export function dice (a: string | number, b?: number): number {
+  // e.g., dice('1d10+4')
+  if (typeof a === 'string') {
+    const parsedString = parseDiceString(a)
+    if (!parsedString) {
+      throw TypeError('Cannot parse string!')
+    }
+    return rollDice(parsedString)
+  }
+  // e.g, dice(1, 10)
+  if (typeof a === 'number' && typeof b === 'number') {
+    return rollDice({
+      die: b,
+      times: a,
+      modifier: 0
+    })
+  }
 
-// fairmath method; fairmath(base, value)
+  throw TypeError('Cannot parse args!')
+}
+
+/**
+ * Fairmath is a percentile modification to the base value, meaning that you
+ * add or subtract the percentage of the val to the base. When subtracting
+ * percentages, we use the value itself to subtract the percentage from,
+ * but for increasing a value, we use the difference between the value and 100.
+ * @example
+ * `fm(18, 30)` will result in 34: round((100-18)*.3) + 18
+ * @example
+ * `fm(18, -30)` will result in 13: 18 - round((18 * .3))
+ */
 export function fm (base: number, val: number) {
-  // errors
   const [rangeStart, rangeEnd] = fmRange
 
   if (val == null || typeof val !== 'number' || val > 100 || val < -100) {
@@ -111,7 +132,7 @@ export function fm (base: number, val: number) {
   }
 
   if (base < rangeStart || base > rangeEnd) {
-    console.warn('Clamping a roll of ', base)
+    logger.info('Clamping a roll of ', base)
     base = clamp(Math.trunc(base), rangeStart, rangeEnd)
   }
   // a 0 increase or decrease; just trunc and clamp
@@ -120,6 +141,7 @@ export function fm (base: number, val: number) {
   }
 
   // number is negative, representing a decrease
+  //  round(x-(x*(y/100)))
   if (val < 0) {
     // make positive for the math below
     val = val * -1

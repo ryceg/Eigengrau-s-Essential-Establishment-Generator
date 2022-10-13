@@ -1,4 +1,10 @@
-:: EditSociopolitics
-<<include "ListboxOptions">><span class="tip" data-tippy-content="How does the economy work?"><label name="Town economic ideology" for="listbox-towneconomicideology"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $listboxes.economicIdeology>><</listbox>></label></span>\
-<span class="tip" data-tippy-content="Who leads the people?"><label name="Town political ideology" for="listbox-townpoliticalideology"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $listboxes.politicalIdeology>><</listbox>></label></span>\
-<span class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?"><label name="Town political source" for="listbox-townpoliticalsource"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $listboxes.politicalSource>><</listbox>></label></span>\
+:: EditSociopolitics [nobr nofx]
+<<set _economic to "How does the economy work? \n <ul>" + Object.values(lib.townData.economicIdeology).map(ideology => {
+  return `<li><b>${ideology.descriptors.economicIdeologyIC.toUpperFirst()}</b>: ${ideology.descriptors.tippy}</li>`
+}).join('\n') + '</ul>'>>
+<<set _political to "Who leads the people? \n <ul>" + Object.keys(lib.townData.politicalIdeology).map(ideology => {
+  return `<li><b>${ideology.toUpperFirst()}</b>: ${lib.townData.politicalIdeology[ideology].data.description}</li>`
+}).join('\n') + '</ul>'>>
+<<include "ListboxOptions">><span class="tip" @data-tippy-content="_economic"><label name="Town economic ideology" for="listbox-towneconomicideology"><<listbox "$town.economicIdeology" autoselect>><<optionsfrom $listboxes.economicIdeology>><</listbox>></label></span>
+<span class="tip" @data-tippy-content="_political"><label name="Town political ideology" for="listbox-townpoliticalideology"><<listbox "$town.politicalIdeology" autoselect>><<optionsfrom $listboxes.politicalIdeology>><</listbox>></label></span>
+<span class="tip" data-tippy-content="Why do they rule? Are they elected, or born into power?"><label name="Town political source" for="listbox-townpoliticalsource"><<listbox "$town.politicalSource" autoselect>><<optionsfrom $listboxes.politicalSource>><</listbox>></label></span>

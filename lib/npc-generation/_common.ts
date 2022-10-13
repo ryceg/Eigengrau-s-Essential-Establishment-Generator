@@ -3,18 +3,30 @@ import { ReligionStrength } from '../religion/religion'
 import { ProfessionName, ProfessionSector, ProfessionType } from './professions'
 import { LifestyleStandardName } from './lifestyleStandards'
 import { Virtues } from './traits/getTraits'
-import { GenderName } from '../src/genderData'
+import { GenderName } from '../npc-generation/genderData'
 import { BackgroundName } from './backgroundTraits'
 import { ClassName } from './classTraits'
 import { RaceName, AgeName } from './raceTraits'
+import { SocialClassName } from './socialClass'
 
-export type SocialClassName =
-  | 'indentured servitude'
-  | 'paupery'
-  | 'peasantry'
-  | 'commoner'
-  | 'nobility'
-  | 'aristocracy'
+interface NPCRolls {
+  traits: Record<Virtues, number>
+  /** How lucky/good someone is at their job. */
+  professionLuck: number
+  /** "Rarity" of the trait- not really a super important attribute. */
+  physicalTrait: number
+  /** 100 is an exceedingly charismatic person, 1 is uber-awkward. */
+  gregariousness: number
+  /** 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care" */
+  conformity: number
+  /** The number used to determine their gender. */
+  gender: number
+  /** The number used to determine their religious fervor. */
+  religiosity: number
+  socialClass: number
+  kinsey: number
+  sexuality?: number
+}
 
 export interface NPC {
   key: string
@@ -47,24 +59,7 @@ export interface NPC {
   professionOrigin: string
   professionSuccess: string
   background: BackgroundName
-  roll: {
-    traits: Record<Virtues, number>
-    /** How lucky/good someone is at their job. */
-    professionLuck: number
-    /** "Rarity" of the trait- not really a super important attribute. */
-    physicalTrait: number
-    /** 100 is an exceedingly charismatic person, 1 is uber-awkward. */
-    gregariousness: number
-    /** 100 is a sheep, 50 is a regular person, 1 is "call the cops cuz i really don't care" */
-    conformity: number
-    /** The number used to determine their gender. */
-    gender: number
-    /** The number used to determine their religious fervor. */
-    religiosity: number
-    socialClass: number
-    kinsey: number
-    sexuality?: number
-  }
+  roll: NPCRolls
   partnerID?: string
   lifeEvents: string[]
   callbackFunction?(town: Town, npc: NPC): void
@@ -86,6 +81,7 @@ export interface NPC {
   canBeCustom?: boolean
   isThrowaway?: boolean
   isShallow?: boolean
+  isAlive?: boolean
   hasHistory?: boolean
   keyIsAlreadyDefined?: boolean
   trait: string
@@ -161,6 +157,23 @@ export interface NPC {
   inventory?: string
 }
 
+interface DeadNPCRolls extends NPCRolls{
+  deathConditions: number
+
+}
+
+export interface DeadNPC extends NPC {
+  isAlive: false
+  roll: DeadNPCRolls
+  death: {
+    graveStandard: string
+    cause: string
+    murderer: string | null
+    timeSinceDeath: number
+    burialConditions: string
+  }
+}
+
 export interface Relationship {
   relationship: string
   reciprocalRelationship?: string
@@ -182,6 +195,9 @@ export interface Namesake {
   firstName: string
   lastName: string
   gender: GenderName
+  key: string
+  // may i not live to regret this
+  objectType: 'npc'
   race: RaceName
   profession?: ProfessionName
   reason?: string

@@ -11,9 +11,9 @@
  * @returns {import("../../../../lib/index").Weather}
  */
 setup.createWeather = (town, biome, weather) => {
-  console.groupCollapsed('Creating weather...')
+  lib.logger.openGroup('Creating weather...')
 
-  console.log({ town, biome, weather })
+  lib.logger.info({ town, biome, weather })
   if (biome) {
     switch (biome) {
       case 'desert':
@@ -29,7 +29,7 @@ setup.createWeather = (town, biome, weather) => {
   const time = 8
   if (weather) {
     if (weather.currentSeason !== town.currentSeason) {
-      console.log('Changed season!')
+      lib.logger.info('Changed season!')
       weather.currentSeason = town.currentSeason
       weather.timer = {
         precipitation: 0,
@@ -39,12 +39,12 @@ setup.createWeather = (town, biome, weather) => {
     }
   }
   const currentSeason = town.currentSeason
-  console.log(`biome: ${biome}`)
+  lib.logger.info(`Biome: ${biome}`)
   if (weather) {
     // if it's passed the weather object (i.e. if it isn't the first time the user has clicked on the button, it doesn't need to set up everything.)
-    console.log('Weather was already defined.')
+    lib.logger.info('Weather was already defined.')
     if (weather.timer) {
-      console.log('Counting down timers!')
+      lib.logger.info('Counting down timers!')
       weather.timer.precipitation -= time
       weather.timer.temperature -= time
       weather.timer.cloud -= time
@@ -68,12 +68,6 @@ setup.createWeather = (town, biome, weather) => {
         precipitation: random(1, 100),
         cloud: random(1, 100)
       },
-      readout: {
-        precipitation: '',
-        cloud: '',
-        temperature: '',
-        full: ''
-      },
       precipitation: '',
       cloudIntensity: '',
       precipitationLevel: seasonData.precipitationLevel,
@@ -85,6 +79,6 @@ setup.createWeather = (town, biome, weather) => {
 
   setup.renderWeather(town, weather, biome)
   town.weather = weather
-  console.groupEnd()
+  lib.logger.closeGroup()
   return weather
 }

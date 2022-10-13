@@ -1,3 +1,6 @@
+import { Building, DeadNPC, Namesake, NPC, Town } from '@lib'
+import { Dungeon } from './createDungeon'
+
 interface Setup {
   createCastle(town: Town, opts?: Partial<Options>): Castle
 }
@@ -7,12 +10,13 @@ interface Options {
   npc: Partial<NPC>
 }
 
-export interface Castle {
+export interface Castle extends Building {
   initPassage: string
   passageName: string
-  buildingType: string
+  buildingType: 'castle'
   name: string
   associatedNPC: NPC
+  namesake: Namesake | DeadNPC
   wordNoun: string
   needsWordNoun: boolean
   defense: {

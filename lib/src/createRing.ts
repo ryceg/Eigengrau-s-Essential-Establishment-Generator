@@ -1,4 +1,5 @@
 import { articles } from './articles'
+import { MagicItem } from './createMagic'
 import { getRandomValue } from './getRandomValue'
 import { random } from './random'
 import { assign } from './utils'
@@ -9,7 +10,21 @@ interface Options {
   activation: string
 }
 
-export function createRing (base?: Partial<Options>) {
+interface MagicRing extends MagicItem {
+  works: string
+  material: string
+  decoration: string
+  gemstone: string
+  intendedowner: string
+  importance: string
+  setting: string
+  cut: string
+  power: string
+  cost: string
+  activation: string
+}
+
+export function createRing (base?: Partial<Options>): MagicRing {
   const ringData = createRingData()
 
   const ring = {
@@ -193,6 +208,11 @@ export function createRing (base?: Partial<Options>) {
     ])
   })
 
+  assign(ring, {
+    type: 'ring',
+    name: `${ring.gemstone} Ring`,
+    description: ring.firstOutputs
+  })
   return ring
 }
 

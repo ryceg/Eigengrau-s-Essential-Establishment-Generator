@@ -1,9 +1,37 @@
-:: CookieConsent
-<div id="cookie"><<notify 500000 'cookie'>><<button "X Disallow">><<set settings.disableAnalytics to true>><<run State.metadata.set('disableAnalytics', settings.disableAnalytics)>>
-    <<run window['ga-disable-UA-119249239-1'] = settings.disableAnalytics>><<include "RemoveCookieNotifier">><</button>><<button "X Close">>
+:: CookieConsent [nobr]
+<div id="cookie">
+We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
+<br>
+If you don't want to be tracked, you can disallow now, or later turn it off in settings, install the Google Analytics Opt Out add on, or build the generator from source on our GitHub page.
+<br>
+By closing this banner or continuing to browse otherwise, you agree to the use of cookies and our Google Analytics tracking.
+<br>
+<<run State.metadata.set('cookiePopupWasShown', true)>>
+<<button "X Disallow">>
+  <<set settings.disableAnalytics to true>>
+  <<run State.metadata.set('disableAnalytics', settings.disableAnalytics)>>
+  <<run window['ga-disable-UA-119249239-1'] = settings.disableAnalytics>>
   <<include "RemoveCookieNotifier">>
-<</button>> -- We use cookies to anonymously track site usage, like most modern websites. This helps us understand what parts of the website are being used with what technologies, and other anonymous data.
+<</button>> --
+<<button "X Close">>
+    <<include "RemoveCookieNotifier">>
+<</button>>
+</div>
 
-If you don't want to be tracked, you can turn it off in settings, install the Google Analytics Opt Out add on, or build the generator from source on our GitHub page.
-
-By closing this banner or continuing to browse otherwise, you agree to the use of cookies and our Google Analytics tracking.<</notify>></div>
+:: RemoveCookieNotifier
+<<if Dialog.isOpen()>>
+    <<if State.metadata.get("neverShowWelcome") is true>>
+        <<if State.metadata.get("showBiomeGeneration") is true>>
+              <<run Dialog.close()>>
+              <<run Engine.play("BiomeGeneration")>>
+            <<else>>
+              <<run Dialog.close()>>
+              <<run Engine.play("Start")>>
+        <</if>>
+      <<else>>
+        <<run Dialog.close()>>
+        <<run Engine.play("Start")>>
+    <</if>>
+  <<else>>
+    <<run document.getElementById("notify").remove()>>
+<</if>>

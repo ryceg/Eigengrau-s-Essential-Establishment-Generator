@@ -1,4 +1,4 @@
-import type { NPC, Building, Town, RaceName } from '@lib'
+import { NPC, Building, Town, RaceName, getRacesPercentile } from '@lib'
 
 export const makeTippyTitle = (span: HTMLElement, obj: any) => {
   if (obj.objectType) {
@@ -22,7 +22,7 @@ export const makeTippyTitle = (span: HTMLElement, obj: any) => {
         $(span).attr('data-tippy-content', obj.tippyDescription || obj.description || `${obj.name}, ${obj.titles[0]}, who is ${lib.articles.output(obj.rank)} in the pantheon.`)
         break
       default:
-        console.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
+        lib.logger.error(`Please report this bug! ${obj.name} the ${obj.type} ${obj.wordNoun} has not got a valid objectType`)
     }
   } else {
     $(span).attr('data-tippy-content', obj.tippyDescription || obj.name)
@@ -102,31 +102,51 @@ export const politicsTooltip = (id: string, type: SocioPoliticalIdeologies, town
   })
 }
 
-export const createPercentageTooltip = (source: HTMLElement, target: string, percentages: Record<RaceName, number>, content: string) => {
-  const tip = $(`<span class='tip dotted'>${content}</span>`)
-  tippy(tip.get(0), {
-    content: source,
-    interactive: true,
-    allowHTML: true
-  })
-  const htmlTarget = Array.from(document.getElementsByClassName(target))
-  for (const element of htmlTarget) {
-    $(tip.get(0)).appendTo(element)
+export function assertHtmlExists (el: HTMLElement | undefined): asserts el is HTMLElement {
+  if (el === undefined) {
+    throw new Error('Element does not exist!')
   }
 }
 
-export function createRaceHTML (percentages: Record<RaceName, number>, target: string) {
-  const array = lib.sortArray(percentages).reverse()
-  const list = lib.formatPercentile(array as [string, number][])
-  const html = lib.formatAsList(list)
-  createPercentageTooltip(html, target, percentages, lib.getPredominantRace(percentages).amountDescriptive)
+export const createPercentageTooltip = (source: HTMLElement, target: string, content: string) => {
+  const tip = $(`<span class='tip dotted'>${content}</span>`)
+
+  const element = tip.get(0)
+  if (element) {
+    tippy(element, {
+      content: source,
+      interactive: true,
+      allowHTML: true
+    })
+  }
+
+  // this isn't working properly with multiple elements on the same page with the same target
+  // const htmlTarget = Array.from(document.getElementsByClassName(target))
+  const htmlTarget = $(`.${target}`)
+
+  for (const element of htmlTarget) {
+    const tipGet = tip.get(0)
+    if (tipGet) {
+      $(tipGet).appendTo(element)
+    }
+  }
 }
 
-export function createReligionHTML (percentages: Record<string, number>, target: string) {
+export function createRaceHTML (percentages: Record<RaceName, number>, target: string, content?: string) {
+  if (!lib.isPercentile(percentages)) {
+    percentages = getRacesPercentile(percentages)
+  }
   const array = lib.sortArray(percentages).reverse()
   const list = lib.formatPercentile(array as [string, number][])
-  const html = lib.formatAsList(list)
-  createPercentageTooltip(html, target, percentages, lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
+  const html = lib.formatArrayAsList(list)
+  if (!html) return
+  createPercentageTooltip(html, target, content || lib.getPredominantRace(percentages).amountDescriptive)
+}
+
+export function createReligionHTML (percentages: Record<string, number>, target: string, content?: string) {
+  const html = lib.formatAsList(percentages)
+  if (!html) return
+  createPercentageTooltip(html, target, content || lib.getPredominantReligion(State.variables.town, percentages).amountDescriptive)
   const button = $('<button/>', {
     text: 'Edit',
     click () {
@@ -137,6 +157,7 @@ export function createReligionHTML (percentages: Record<string, number>, target:
       })
     }
   })
+  // .addClass('ignore-remove')
   $(button).appendTo(html)
 }
 
@@ -148,7 +169,11 @@ tippy.setDefaultProps({
   followCursor: 'horizontal',
   animation: 'perspective',
   theme: 'blockquote',
+  inlinePositioning: true,
   // theme: 'descriptive',
   allowHTML: true,
+  // // uncomment the next two for manual tippy activation.
+  // hideOnClick: 'toggle',
+  // trigger: 'click',
   inertia: true
 })

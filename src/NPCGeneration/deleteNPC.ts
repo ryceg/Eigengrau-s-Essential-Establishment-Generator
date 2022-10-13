@@ -5,7 +5,7 @@ import type { NPC } from '@lib'
  */
 export const deleteNPC = (npc: string | NPC) => {
   if (!npc) return
-  console.log('Deleting NPC!', npc)
+  lib.logger.info('Deleting NPC!', npc)
 
   if (typeof npc === 'string') {
     npc = State.variables.npcs[npc]

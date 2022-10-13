@@ -1,6 +1,6 @@
-:: AlsoKnownAs
-\<<if $currentPassage.aliases>> 
-  \<<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases), $currentPassage.name.slice(1) + '.')>>
-\<<else>>
-  \<<print lib.firstCharacter($currentPassage.name)>>
-\<</if>>
+:: AlsoKnownAs [nobr]
+<<if $currentPassage.aliases>> 
+  <<print lib.firstCharacter($currentPassage.name.slice(0, 1))>><<print lib.createTippyFull('Who is also known as ' + lib.makeList($currentPassage.aliases), $currentPassage.name.slice(1) + '.')>>
+<<else>>
+  <<print lib.firstCharacter($currentPassage.name)>>
+<</if>>

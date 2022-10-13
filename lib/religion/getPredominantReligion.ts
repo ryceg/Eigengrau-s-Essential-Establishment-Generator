@@ -1,6 +1,7 @@
+import { logger } from '../logger'
 import { sortArray } from '../src/sortArray'
-import { PredominantInfo } from '../../lib/town/getPredominantRace'
-import { Town } from '../../lib/town/_common'
+import { PredominantInfo } from '../town/getPredominantRace'
+import { Town } from '../town/_common'
 
 interface WorshipMakeup extends PredominantInfo {
   primaryDeity: string
@@ -10,10 +11,10 @@ interface WorshipMakeup extends PredominantInfo {
 }
 
 export const getPredominantReligion = (town: Town, percentages: Record<string, number>): WorshipMakeup => {
-  console.log('Getting the predominant race...')
-
+  logger.info('Getting the predominant deity...')
   // Pick out the primary & secondary Race name percentages.
-  const [primary, secondary] = sortArray(percentages).reverse()
+  const sortedArray = sortArray(percentages).reverse()
+  const [primary, secondary] = sortedArray
   const [primaryDeity, percentile] = primary
 
   const [secondaryDeity, secondaryPercentile] = secondary

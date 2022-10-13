@@ -1,16 +1,15 @@
-
 @media (max-width: 410px) {
   .passage {
     columns: 1;
   }
   #illustration-buffer {
-    padding-bottom: 20vw;
+    padding-bottom: 8vw;
   }
-  #paper {
-    top: 15vw
+  .paper {
+    top: 15vw;
   }
   body {
-    font-size: 16px
+    font-size: 16px;
   }
 
   blockquote {
@@ -24,9 +23,9 @@
     columns: 1;
   }
   #illustration-buffer {
-    padding-bottom: 20vw;
+    padding-bottom: 9vw;
   }
-  #paper {
+  .paper {
     top: 14vw;
   }
   blockquote {
@@ -37,98 +36,109 @@
 
 @media (min-width: 500px) {
   body {
-    font-size: 17px
+    font-size: 17px;
   }
   .passage {
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
-    padding-bottom: 25vw;
+    padding-bottom: 15vw;
   }
-  #paper {
-    top: 13vw
+  .paper {
+    top: 13vw;
   }
 }
 
 @media (min-width: 576px) {
   body {
-    font-size: 17px
+    font-size: 17px;
   }
   .passage {
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
-    padding-bottom: 28vw;
+    padding-bottom: 20vw;
   }
-  #paper {
-    top: 13vw
+  .paper {
+    top: 13vw;
   }
 }
 
 @media (min-width: 768px) {
   body {
-    font-size: 18px
+    font-size: 18px;
+  }
+  html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
+    columns: 2;
+    column-fill: auto;
+    column-gap: 35px;
+    max-width: 60em;
   }
   .passage {
     columns: 1;
   }
   blockquote {
-      -webkit-margin-start: .5em;
-      -webkit-margin-end: .5em;
+    -webkit-margin-start: 0.5em;
+    -webkit-margin-end: 0.5em;
   }
   #illustration-buffer {
-    padding-bottom: 35vw;
+    padding-bottom: 26vw;
   }
-  #paper {
-    top: 13.5vw
+  .paper {
+    top: 13.5vw;
   }
 }
 
 @media (min-width: 992px) {
   body {
-    font-size: 18px
+    font-size: 18px;
   }
-  .passage {
+  html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
     columns: 2;
     column-fill: auto;
     column-gap: 35px;
     max-width: 60em;
-  }  
+  }
+  .passage {
+    columns: 1;
+  }
   #illustration-buffer {
     column-span: all;
-    padding: 19vw;
+    padding: 15vw;
   }
-  #paper {
-    top: 13vw
+  .paper {
+    top: 13vw;
   }
 }
 
 @media (min-width: 1200px) {
   body {
-    font-size: 18px
+    font-size: 18px;
   }
 
-  .passage {
+  html.two-columns:not(html[data-tags~="force-one-column"]) .passage {
     columns: 2;
     column-fill: auto;
     column-gap: 40px;
     max-width: 65em;
-  }  
+  }
+  .passage {
+    columns: 1;
+  }
   #illustration-buffer {
     column-span: all;
-    padding: 20vw;
+    padding: 17vw;
   }
 
-  #paper {
-    top: 14vw
+  .paper {
+    top: 14vw;
   }
 }
- 

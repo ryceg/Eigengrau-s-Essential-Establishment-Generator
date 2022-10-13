@@ -31,18 +31,32 @@ import { openDialog, rerenderPage } from './Dialog/openDialog'
 import { addSettingButton } from './Settings/settingButton'
 import { getLocation, getEncounter, getEventDescription } from './World/events'
 import { graveStone } from './World/graveStone'
-import { urlSeed } from './World/urlSeed'
+import { urlSeed, navigateToObj } from './World/urlSeed'
 import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
+import { marketEvent } from './MiniEstablishments/Market/marketEventData'
 import { createTownBiome } from './Town/js/createTownBiome'
-import { createTownName } from './Town/js/createTownName'
-import { createTown, getTownType } from './Town/js/createTown'
-import { findViaKey } from './Tools/findViaKey'
+import { createTown } from './Town/js/createTown'
+import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
 import { createSmithyName } from './Blacksmith/js/createSmithyName'
 import { createSmithy } from './Blacksmith/js/createSmithy'
 import { createReciprocalRelationshipNpc } from './Buildings/Components/buildingRelationshipNpc'
+import { outputEverything } from './Tools/Exports/outputEverything'
+import { exportAsHtml } from './Tools/Exports/exportAsHtml'
+import { outputGMBinder } from './Tools/Exports/outputGMBinder'
+import { copyText } from './Tools/Exports/clipboard'
+import { createGuardhouse, createGuardhouseName } from './MiniEstablishments/Guardhouse/createGuardhouse'
+import { createStartBuildings } from './Town/js/createStartBuildings'
+import { npcDeath, createDeadNPC } from './NPCGeneration/setupDeath'
+import { createStartFactions } from './Town/js/createStartFactions'
+import { buildingTypes } from './Town/js/buildingTypes'
+import { createFaction } from './Factions/createFaction'
+import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
+import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
+import { populateGoodsAndServices } from './Buildings/populateGoodsAndServices'
+// import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
   interface Setup {
@@ -87,18 +101,35 @@ declare global {
     graveStone: typeof graveStone
     townSquare: typeof townSquare
     urlSeed: typeof urlSeed
+    navigateToObj: typeof navigateToObj
     deleteFaction: typeof deleteFaction
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
+    marketEvent: typeof marketEvent
     createTownBiome: typeof createTownBiome
-    createTownName: typeof createTownName
     createTown: typeof createTown
-    getTownType: typeof getTownType
     findViaKey: typeof findViaKey
+    findIfExistsViaKey: typeof findIfExistsViaKey
     createBlacksmithProject: typeof createBlacksmithProject
     createSmithyName: typeof createSmithyName
     createSmithy: typeof createSmithy
     createReciprocalRelationshipNpc: typeof createReciprocalRelationshipNpc
+    outputEverything: typeof outputEverything
+    exportAsHtml: typeof exportAsHtml
+    outputGMBinder: typeof outputGMBinder
+    copyText: typeof copyText
+    createGuardhouse: typeof createGuardhouse
+    createGuardhouseName: typeof createGuardhouseName
+    createStartBuildings: typeof createStartBuildings
+    npcDeath: typeof npcDeath
+    createDeadNPC: typeof createDeadNPC
+    createStartFactions: typeof createStartFactions
+    buildingTypes: typeof buildingTypes
+    createFaction: typeof createFaction
+    getPoliticalSourceDescription: typeof getPoliticalSourceDescription
+    exportToNovelAI: typeof exportToNovelAI
+    // createBuildingKeys: typeof createBuildingKeys
+    // createNewBuilding: typeof createNewBuilding
   }
 }
 
@@ -144,18 +175,35 @@ Object.assign(setup, {
   graveStone,
   townSquare,
   urlSeed,
+  navigateToObj,
   deleteFaction,
   leaderFaction,
   plothooks,
+  marketEvent,
   createTownBiome,
-  createTownName,
   createTown,
-  getTownType,
   findViaKey,
+  findIfExistsViaKey,
   createBlacksmithProject,
   createSmithyName,
   createSmithy,
-  createReciprocalRelationshipNpc
+  createReciprocalRelationshipNpc,
+  outputEverything,
+  exportAsHtml,
+  copyText,
+  outputGMBinder,
+  createGuardhouse,
+  createGuardhouseName,
+  createStartBuildings,
+  npcDeath,
+  createDeadNPC,
+  createStartFactions,
+  buildingTypes,
+  createFaction,
+  getPoliticalSourceDescription,
+  exportToNovelAI
+  // createBuildingKeys,
+  // createNewBuilding
 })
 
 /**
@@ -165,13 +213,17 @@ Object.assign(setup, {
  * the order is very important.
  */
 setup.init = (setup => () => {
+  lib.logger.info('initialising random')
   lib.setRandom(random)
   lib.setRandomFloat(randomFloat)
 
   setup.initMisc()
   setup.initNpcData()
   setup.initTavernData()
+  lib.logger.info('initialising goods and services')
   setup.initGoodsAndServices()
+  lib.logger.info('populating goods and services')
+  setup.goodsAndServices = populateGoodsAndServices(setup.goodsAndServices)
   setup.initDocks()
   setup.initCastle()
   setup.initBuildingTypes()

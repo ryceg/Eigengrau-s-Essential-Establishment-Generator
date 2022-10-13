@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
 
 /**
  * Namespace for all things exported from the "lib" folder.
@@ -22,3 +21,5 @@ declare function gtag(event: string, action: string, data: {
   event_action?: string,
   value?: string
 }): void
+
+declare module 'rita'

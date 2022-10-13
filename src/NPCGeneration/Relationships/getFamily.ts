@@ -18,10 +18,10 @@ export const getFamily = (town: Town, npc: NPC, depth = 2) => {
   ]
   const relatives: Record<string, string> = {}
 
-  console.log(`fetching ${npc.key} relativeList...`)
+  lib.logger.info(`Fetching ${npc.key} relativeList...`)
 
   const family = town.families[npc.family]
-  console.log(family)
+  lib.logger.info(family)
 
   let ptr = 0
 
@@ -67,7 +67,7 @@ export const getFamily = (town: Town, npc: NPC, depth = 2) => {
   }
 
   delete relatives[npc.key]
-  console.log(relatives)
+  lib.logger.info(relatives)
   return relatives
 }
 

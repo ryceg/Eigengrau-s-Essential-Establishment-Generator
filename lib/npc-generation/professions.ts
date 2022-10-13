@@ -1,9 +1,10 @@
 import { dice } from '../src/dice'
 import { random } from '../src/random'
-import { NPC, NpcRelationship, Relationship, SocialClassName } from './_common'
+import { NPC, NpcRelationship, Relationship } from './_common'
 import { Town } from '../town/_common'
 import { WeightRecord } from '../types'
 import { BackgroundName } from './backgroundTraits'
+import { SocialClassName } from './socialClass'
 
 export type ProfessionType =
   | ''
@@ -80,7 +81,7 @@ export interface Profession {
   function?(town: unknown, npc: NPC): void
   socialClassRoll(): number
   relationships?(town: Partial<Town>, npc: NPC): Record<string, Relationship>
-  exclusions?(npc: NPC): boolean | undefined
+  exclusions?(town: Town, npc: NPC): boolean | undefined
   background?: WeightRecord<BackgroundName>
 }
 
@@ -911,6 +912,9 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
+    },
+    exclusions (town, npc) {
+      return !town.disableNSFW
     }
   },
   'buccaneer': {
@@ -1263,7 +1267,7 @@ export const professions: Record<string, Profession> = {
     domSub: 'sub',
     dailyWage: 4,
     socialClass: 'peasantry',
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (!npc.partnerID) return false
     },
     socialClassRoll () {
@@ -1672,7 +1676,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -1942,7 +1946,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'man') return false
     }
   },
@@ -2003,7 +2007,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -2468,7 +2472,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'slaver': {
     sv: 650,
@@ -2492,7 +2497,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'soldier': {
     sv: 1000,
@@ -2503,6 +2509,30 @@ export const professions: Record<string, Profession> = {
     domSub: 'dom',
     dailyWage: 200,
     socialClass: 'peasantry',
+    socialClassRoll () {
+      return 20 + dice(8, 6)
+    },
+    relationships (town, npc) {
+      return {
+        coworker: {
+          relationship: 'co-worker',
+          probability: 20,
+          base: {
+            profession: npc.profession
+          }
+        }
+      }
+    }
+  },
+  'conscripted soldier': {
+    sv: 1000,
+    isBackground: true,
+    type: 'profession',
+    sector: 'military',
+    description: 'serves in an army against their will.',
+    domSub: 'dom',
+    dailyWage: 2,
+    socialClass: 'indentured servitude',
     socialClassRoll () {
       return 20 + dice(8, 6)
     },
@@ -2847,7 +2877,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.disableNSFW }
   },
   'town crier': {
     sv: 750,
@@ -2929,7 +2960,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 20 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       return Boolean(npc.gender === 'woman')
     },
     professionOrigin: [
@@ -4129,7 +4160,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'speculator': {
     sv: 9000,
@@ -4875,6 +4907,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'baroness': {
+    sv: 2500,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a member of the lowest order of the nobility.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'chancellor': {
     sv: 5000,
     type: 'profession',
@@ -4923,6 +4968,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'countess': {
+    sv: 7000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a nobleperson ranking above a viscount and below a marquess.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'duke': {
     sv: 15000,
     type: 'profession',
@@ -4934,6 +4992,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'duchess': {
+    sv: 15000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'rules over a duchy and is of the highest rank below the monarch.',
+    domSub: 'dom',
+    dailyWage: 900,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'emperor': {
     sv: 25000,
@@ -4947,6 +5018,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'empress': {
+    sv: 25000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the supreme sovereign ruler of an extensive group of states or countries under a single authority.',
+    domSub: 'dom',
+    dailyWage: 2400,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'king': {
     sv: 20000,
     type: 'profession',
@@ -4958,6 +5042,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'queen': {
+    sv: 20000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the ruler of an independent state and its people.',
+    domSub: 'dom',
+    dailyWage: 2400,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'lady-in-Waiting': {
     sv: 3000,
@@ -4989,7 +5086,7 @@ export const professions: Record<string, Profession> = {
         }
       }
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.gender !== 'woman') return false
     }
   },
@@ -5002,6 +5099,9 @@ export const professions: Record<string, Profession> = {
     socialClass: 'nobility',
     socialClassRoll () {
       return 75 + dice(8, 6)
+    },
+    exclusions (town, npc) {
+      if (npc.gender !== 'woman') return false
     }
   },
   'master-of-Coin': {
@@ -5107,6 +5207,19 @@ export const professions: Record<string, Profession> = {
       return 75 + dice(8, 6)
     }
   },
+  'princess': {
+    sv: 6000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'the direct descendant of a monarch.',
+    domSub: 'dom',
+    dailyWage: 500,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
+  },
   'senator': {
     sv: 5000,
     type: 'profession',
@@ -5178,6 +5291,19 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 75 + dice(8, 6)
     }
+  },
+  'viscountess': {
+    sv: 7000,
+    type: 'profession',
+    sector: 'government and law',
+    description: 'a nobleperson ranking above a baron and below a count.',
+    domSub: 'dom',
+    dailyWage: 700,
+    socialClass: 'nobility',
+    socialClassRoll () {
+      return 75 + dice(8, 6)
+    },
+    exclusions (_, npc) { return npc.gender === 'woman' }
   },
   'ward': {
     sv: 3000,
@@ -5616,7 +5742,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.disableNSFW }
   },
   'quarryman': {
     sv: 1200,
@@ -6358,7 +6485,8 @@ export const professions: Record<string, Profession> = {
     socialClass: 'peasantry',
     socialClassRoll () {
       return 20 + dice(8, 6)
-    }
+    },
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'special force soldier': {
     sv: 6000,
@@ -7413,7 +7541,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 50 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       if (npc.ageYears < 80) return false
     }
   },
@@ -7507,7 +7635,7 @@ export const professions: Record<string, Profession> = {
     type: 'profession',
     sector: 'hospitality',
     description: 'cares for her family by managing household affairs and completing housework.',
-    exclusions (npc) {
+    exclusions (town, npc) {
       return !!(npc.gender === 'woman' && npc.partnerID)
     },
     domSub: 'sub',
@@ -7590,7 +7718,8 @@ export const professions: Record<string, Profession> = {
           }
         }
       }
-    }
+    },
+    exclusions (town, npc) { return !town.bans.includes('slavery') }
   },
   'squatter': {
     sv: 800,
@@ -7625,7 +7754,7 @@ export const professions: Record<string, Profession> = {
     socialClassRoll () {
       return 5 + dice(8, 6)
     },
-    exclusions (npc) {
+    exclusions (town, npc) {
       return npc.ageStage === 'child'
     }
   }

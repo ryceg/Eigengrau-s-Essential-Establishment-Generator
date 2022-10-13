@@ -1,5 +1,6 @@
-:: TownListBuildings
-<<liveblock>><<nobr>>
+:: TownListBuildings [nobr]
+<<include "CreateBuilding">>
+<<liveblock>>
 <table>
   <tr>
     <th>Name</th>
@@ -8,12 +9,12 @@
     <span class="interactive-only"><th>Delete</th></span>
   </tr>
 <<for _key, _building range $town.buildings>><<capture _key, _building>>
-     \<<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
+     <<set _building.tooltip = "tip-" + Util.slugify(_building.name) + "-" + Math.floor(randomFloat(1).toString(16))>>
     <tr><td><span @id="_building.name"><<profile _building>></span></td>
     <td><<print lib.toTitleCase(_building.wordNoun || _building.type)>></td>
     <td><<if _building.associatedNPC>><<profile _building.associatedNPC>><</if>></td>
       <span class="interactive-only"><td><<link "x">><<run setup.deleteBuilding($town, _building)>><<update>><</link>></td></span>
     </tr>
-  \<</capture>><<set _previousBuilding to _building>>
+  <</capture>><<set _previousBuilding to _building>>
 <</for>>
-</table><</nobr>><</liveblock>>
+</table><</liveblock>>

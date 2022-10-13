@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // uses State.variables.npcs, State.variables.town
 
-import type { NPC, Building, Faction, Road, Deity } from '@lib'
+import { NPC, Building, Faction, Road, Deity, assert } from '@lib'
 /**
  * @description This is a function that returns the profile widget for the provided object.
  * @param obj - The object. It is mandatory.
@@ -12,10 +12,10 @@ import type { NPC, Building, Faction, Road, Deity } from '@lib'
  * TODO: update documentation here.
  * For factions, point towards `town.factions`
  */
-export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: string, type = 'npcs'): string => {
+export const profile = (obj: NPC | Building | Faction | Road | Deity | string, readout?: string): string => {
   let result
   if (typeof obj === 'string') {
-    console.warn(`Profile function for ${obj} called with a string.`)
+    lib.logger.warn(`Profile function for ${obj} called with a string.`)
     result = setup.findViaKey(obj)
   } else {
     result = obj
@@ -23,37 +23,44 @@ export const profile = (obj: NPC | Building | Faction | Road | Deity, readout?: 
   if (!readout) {
     readout = result.name
   }
+
   // the user-facing text
   const text = JSON.stringify(readout)
 
   const key = JSON.stringify(result.key)
 
-  return `<<profile \`$${type}[${key}]\`${text}>>`
+  // this is a temporary measure (that will no doubt remain in the codebase for far longer than a 'temporary' measure)
+  // it is to get pure text from the profile function instead of having to do a lot of Twine processing and then jquery fuckery to strip HTML.
+  // it is only relevant when the `exportToNovelAI` function is called.
+  assert(readout !== undefined, 'Profile function called with no readout.')
+  if (State.temporary.exportType === 'novelai') return readout
+  return `<<profile ${key} ${text}>>`
 }
 
 Macro.add('profile', {
   handler () {
     if (!this.args[0]) return this.error('No arguments provided for profile.')
-    let obj = this.args[0]
-    if (typeof obj === 'string') obj = setup.findViaKey(obj)
+    let obj: Faction | NPC | Deity | Building | Road = this.args[0]
+    if (typeof obj === 'string') {
+      obj = setup.findViaKey(obj)
+    }
     const readout = this.args[1] || obj.name
+    const objType = obj.objectType || 'npc'
     const tippyOpts = this.args[2] || { theme: 'descriptive' }
     // @ts-ignore
-    const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || 'profile')
-    const tip = $(`<a class="link-internal macro-link ${id}">${readout}</a>`)
+    const id = Util.slugify(obj.key || obj.name || obj.description || obj.wordNoun || lib.getUUID())
+    const tip = $(`<a data-id="${id}" data-object-type=${objType} class="link-internal macro-link ${id}">${readout}</a>`)
       .ariaClick(() => {
         State.variables.currentPassage = obj
         setup.history(obj, obj.passageName, readout)
-
-        if (settings.showSliders && obj.initPassage) {
-          Engine.play(obj.initPassage)
-        } else {
-          Engine.play(obj.passageName)
-        }
+        Engine.play(obj.passageName)
       })
     /* do any other title addition and stuff here */
     setup.makeTippyTitle($(tip)[0], obj)
-    tippy(tip.get(0), tippyOpts)
-    $(this.output).append(tip)
+    const htmlElement = tip.get(0)
+    if (htmlElement) {
+      tippy(htmlElement, tippyOpts)
+      $(this.output).append(tip)
+    }
   }
 })

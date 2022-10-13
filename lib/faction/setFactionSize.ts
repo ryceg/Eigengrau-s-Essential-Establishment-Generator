@@ -1,32 +1,20 @@
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
+import { assert } from '../src/utils'
+import { logger } from '../logger'
 import { Faction } from './_common'
-
-interface Town {
-  population: number
-}
+import { Town } from '../town/_common'
+import { defaultRollModifier } from '../src/defaultRollModifier'
 
 export function setFactionSize (town: Town, faction: Faction): void {
-  console.log('calculating size...')
+  logger.info('Calculating faction size...')
 
   faction.roll.size += getAgeModifier(faction.roll.age)
   faction.roll.size += getPopulationModifier(town.population)
-
   faction.size = getFactionSize(faction.roll.size)
 }
 
 function getAgeModifier (roll: number): number {
-  if (roll > 95) return 20
-  if (roll > 90) return 15
-  if (roll > 80) return 12
-  if (roll > 70) return 10
-  if (roll > 60) return 5
-  if (roll > 55) return 2
-  if (roll > 50) return 1
-  if (roll > 45) return -2
-  if (roll > 40) return -5
-  if (roll > 30) return -10
-  if (roll > 20) return -15
-  if (roll > 10) return -20
-  return -25
+  return defaultRollModifier(roll)
 }
 
 function getPopulationModifier (population: number): number {
@@ -46,17 +34,22 @@ function getPopulationModifier (population: number): number {
 }
 
 function getFactionSize (roll: number): string {
-  if (roll > 95) return 'huge'
-  if (roll > 90) return 'very large'
-  if (roll > 80) return 'quite large'
-  if (roll > 70) return 'large'
-  if (roll > 60) return 'above average sized'
-  if (roll > 55) return 'slightly above average sized'
-  if (roll > 50) return 'average sized'
-  if (roll > 45) return 'slightly below average sized'
-  if (roll > 40) return 'somewhat small'
-  if (roll > 30) return 'quite small'
-  if (roll > 20) return 'very small'
-  if (roll > 10) return 'tiny'
-  return 'miniscule'
+  const factionSize: ThresholdTable = [
+    [95, 'huge'],
+    [90, 'very large'],
+    [80, 'quite large'],
+    [70, 'large'],
+    [60, 'above average sized'],
+    [55, 'slightly above average sized'],
+    [50, 'average sized'],
+    [45, 'slightly below average sized'],
+    [40, 'somewhat small'],
+    [30, 'quite small'],
+    [20, 'very small'],
+    [10, 'tiny'],
+    [0, 'miniscule']
+  ]
+  const result = getRolledFromTable(factionSize, roll)
+  assert(typeof result === 'string')
+  return result
 }

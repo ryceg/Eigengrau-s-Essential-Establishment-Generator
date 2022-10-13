@@ -1,5 +1,25 @@
-:: Welcome [force-one-column]
-
+:: Welcome [force-one-column nobr]
+<<set setup.data.hasSeenWelcome to true>>
+<<if State.metadata.get("hasSeenTutorial") === true>>
 Welcome! Is this your first time using Eigengrau's Essential Establishment Generator?
+<<else>>
+Welcome! It looks like this is your first time using Eigengrau's Essential Establishment Generator- we would suggest that you take the quick tutorial to get the most out of the generator!
+<</if>>
+<br>
+<span class='flex-line'><<button "yes, take me to the tutorial" Tutorial>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>>
+<<button "no, let me customise the town first" BiomeGeneration>><<notify 5000>><<include "RevisitTutorialReminder">><</notify>><<run State.metadata.set("hasSeenTutorial", true)>><<if Dialog.isOpen()>><<run Dialog.close()>><</if>><</button>>
+<span id="remember">
+  <<button "Never show me this screen again.">>
+    <<run State.metadata.set("hasSeenTutorial", true)>>
+    <<run State.metadata.set("neverShowWelcome", true)>>
+    <<if Dialog.isOpen()>>
+      <<notify 5000>><<include "RevisitTutorialReminder">><</notify>>
+      <<run Dialog.close()>>
+    <<else>>
+    <<replace "#remember">><<include "RevisitTutorialReminder">><</replace>>
+    <</if>>
+  <</button>>
+</span></span>
 
-<<button "yes" Tutorial>><</button>> -- <<button "no, let me generate a new town" BiomeGeneration>><</button>> -- <span class="tip" data-tippy-content="We'll get straight to the action and load the town up immediately, unless you turn on 'Show town biome prompt upon restart' in the settings."><<button "no, and don't show me this again" Start>><<run memorize(settings.showTutorial, false)>><<run memorize(settings.showTutorial, false)>><<run State.metadata.set("showTutorial", false)>><<run Setting.save()>><<set $town to setup.createTown()>><</button>></span>
+:: RevisitTutorialReminder
+Okay, got it! You can always revisit the tutorial in the settings page if you need.

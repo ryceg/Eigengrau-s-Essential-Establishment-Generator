@@ -1,22 +1,23 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, RollArray, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { BinaryGender, Biome, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
-export const createTown = (base: TownBasics) => {
-  const type = base.type || lib.random(['hamlet', 'hamlet', 'village', 'village', 'village', 'town', 'town', 'town', 'city', 'city'])
-  const terrain = base.terrain || lib.random(['temperate', 'temperate', 'temperate', 'tropical', 'polar', 'arid'])
-  const season = base.currentSeason || lib.random(['summer', 'autumn', 'winter', 'spring'])
-  // @ts-ignore
-  const townName = base.name || setup.createTownName(base)
-  console.groupCollapsed(`${townName} is loading...`)
-  console.log(base)
+export const createTown = (base: TownBasics | Town) => {
+  lib.logger.openGroup('The town is loading...')
+  lib.logger.info(base)
   // @ts-ignore
   if (!base) base = setup.createTownBiome()
+  const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
+  const terrain = base.terrain || lib.weightRandom(lib.townData.defaults.terrain) as Biome
+  const season = base.currentSeason || lib.weightRandom(lib.townData.defaults.season) as Seasons
+  const townName = base.name || lib.createTownName(base)
   const economicIdeology = base.economicIdeology || lib.politicsWeightedRoll(type, 'economicIdeology')
   const politicalSource = base.politicalSource || lib.politicsWeightedRoll(type, 'politicalSource')
   const politicalIdeology = base.politicalIdeology || lib.random(lib.townData.politicalSource[politicalSource].politicalIdeology)
   const town = Object.assign({
     passageName: 'TownOutput',
     name: townName,
+    key: lib.getUUID(),
+    generated: 'full',
     objectType: 'town',
     townMaterial: 'mainTownMaterial',
     ignoreGender: false,
@@ -25,14 +26,15 @@ export const createTown = (base: TownBasics) => {
       land: 5,
       tithe: 1
     },
-
+    _type: type,
+    location: lib.weightRandom(lib.terrain[terrain].start),
     // @ts-ignore
     get type () {
       // @ts-ignore
-      return getTownType(this)
+      return lib.getTownType(this)
     },
     set type (type) {
-      console.log('type unnecessary')
+      lib.logger.info('type unnecessary')
     },
     // type: type,
     terrain,
@@ -50,26 +52,28 @@ export const createTown = (base: TownBasics) => {
       _probabilities: {} as Record<string, number>
     },
     get religionPercentages () {
-      return lib.getPantheonPercentages(this as unknown as Town)
+      return lib.getAllPantheonPercentages(this as unknown as Town)
     },
     set religionPercentages (data: Record<string, number>) {
-      console.warn('Trying to set religion percentages, which is a read-only!')
-      console.log(this.religionPercentages)
-      console.log(data)
+      lib.logger.warn('Trying to set religion percentages, which is a read-only!')
+      lib.logger.info(this.religionPercentages)
+      lib.logger.info(data)
     },
     set religionProbabilities (data: Record<string, number>) {
-      console.groupCollapsed('Setting religion probabilities!')
+      lib.logger.openGroup('Setting religion probabilities!')
       this.religion._probabilities = data
-      // this.religion._percentages = lib.getPantheonPercentages(this as unknown as Town)
-      console.log('Before unaltered')
+      lib.logger.info('Before unaltered')
       const unaltered = lib.getUnalteredTownDeityWeightings(this as unknown as Town)
 
       if (!this.religion._modifiers) this.religion._modifiers = {}
+      if (!this.religion._probabilities) this.religion._probabilities = {}
+      if (!this.religion._baseProbabilities) this.religion._baseProbabilities = {}
       for (const deity in this.religion._probabilities) {
-        this.religion._baseProbabilities[deity] = unaltered[deity].probability
+        this.religion._baseProbabilities[deity] = unaltered[deity]
         this.religion._modifiers[deity] = this.religion._probabilities[deity] - this.religion._baseProbabilities[deity]
       }
-      console.groupEnd()
+      this.religion._percentages = lib.getAllPantheonPercentages(this as unknown as Town)
+      lib.logger.closeGroup()
     },
     get customPantheon () {
       if (this.religion._customPantheon) return this.religion._customPantheon
@@ -79,7 +83,7 @@ export const createTown = (base: TownBasics) => {
       State.metadata.set('pantheon', data)
       this.religion._customPantheon = data
     },
-    bans: [],
+    bans: [''],
     buildingRelations: [],
     factionRelations: [],
     npcRelations: {},
@@ -87,6 +91,13 @@ export const createTown = (base: TownBasics) => {
     _economicIdeology: economicIdeology,
     _politicalSource: politicalSource,
     _politicalIdeology: politicalIdeology,
+    // @TODO: Figure out better way to assign this getter w/o having to have
+    // a setter
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    set demographicPercentile (data) {},
+    get demographicPercentile () {
+      return lib.getDemographicPercentile(this as unknown as Town)
+    },
     get economicIdeology () {
       return this._economicIdeology
     },
@@ -107,17 +118,22 @@ export const createTown = (base: TownBasics) => {
       this._politicalIdeology = value
       Object.assign(this, lib.townData.politicalIdeology[this._politicalIdeology].data)
     },
-    get politicalSourceDescription () {
-      if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
-        if (this.politicalIdeology === 'autocracy') {
-          return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription
-        } else {
-          return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription
-        }
-      } else {
-        return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription
-      }
-    },
+    // get politicalSourceDescription () {
+    //   if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
+    //     if (this.politicalIdeology === 'autocracy') {
+    //       return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription(this as unknown as Town)
+    //     } else {
+    //       return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription(this as unknown as Town)
+    //     }
+    //   } else {
+    //     return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription(this as unknown as Town)
+    //   }
+    // },
+    // set politicalSourceDescription (data) {
+    //   console.warn('Trying to set politicalSourceDescription, which is a read-only!')
+    //   console.log(this.religionPercentages)
+    //   console.log(data)
+    // },
     // get wealth () {
     //   const rollData = lib.townData.rollData.wealth as TownRollData
     //   if (rollData) {
@@ -157,41 +173,19 @@ export const createTown = (base: TownBasics) => {
       /** @description Percentage of the dominant gender */
       genderMakeup: lib.random(49, 51)
     }
-  }, base)
+  }, base, {
+    generated: 'full'
+  })
   lib.townDemographics(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
-  town.materialProbability = lib.structureData.material.types
+  town.materialProbability = lib.structureMaterialData.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
-  console.log('Defining taxes')
-  Object.defineProperty(town.taxes, 'welfare', {
-    get () {
-      console.log(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(2, State.variables.town.roll.welfare)
-    }
-  })
-
-  Object.defineProperty(town.taxes, 'military', {
-    get () {
-      console.log(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(2, State.variables.town.roll.military)
-    }
-  })
-
-  Object.defineProperty(town.taxes, 'economics', {
-    get () {
-      console.log(this)
-      // TODO fix the getter's workaround.
-      return calculateTax(3, State.variables.town.roll.economics)
-    }
-  })
-
-  if (!town.pregen || !town.generated) {
+  if (town.generated === 'biome') {
+    lib.createTownReligion(town as unknown as Town)
     assignSizeModifiers(town)
     assignEconomicModifiers(town)
     assignPoliticalModifiers(town)
@@ -201,7 +195,9 @@ export const createTown = (base: TownBasics) => {
     town.roll.equality = 100
   }
 
-  lib.createTownReligion(town as unknown as Town)
+  if (settings.disableNSFW === true || town.disableNSFW === true) {
+    town.bans.push('slavery', 'prostitution')
+  }
 
   setup.createSocioPolitics(town as unknown as Town)
 
@@ -221,46 +217,28 @@ export const createTown = (base: TownBasics) => {
   // @ts-ignore
   setup.createStartFactions(town)
   setup.findPoliceSource(town as unknown as Town)
+  lib.replaceTownName(town as unknown as Town)
   town.generated = 'full'
   lib.townRender(town as unknown as Town)
 
-  console.groupEnd()
-  console.log(`${town.name} has loaded.`)
-  console.log(town)
+  lib.logger.closeGroup()
+  lib.logger.info(`${town.name} has loaded.`)
+  lib.logger.info(town)
   return town as unknown as Town
 }
 
-export const getTownType = (town: TownBasics): TownType => {
-  if (town.population > 6000) return 'city'
-  if (town.population > 3000) return 'town'
-  if (town.population > 1000) return 'village'
-  if (town.population > 30) return 'hamlet'
-
-  // TODO: Remove unexpected side effect are bad.
-  if (town.population <= 30) {
-    console.log('Population is less than 30. Setting to 30.')
-    town.population = 30
-    return 'hamlet'
-  }
-  return 'village'
-}
-
-function calculateTax (nominalTarget: number, economics: number) {
-  return nominalTarget + (-1 / (economics + 0.1)) + (1 / (10 - economics))
-}
-
 function assignSizeModifiers (town: TownBasics) {
-  console.log(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
+  lib.logger.info(`Assigning town size modifiers (btw ${town.name} is a ${town.type})`)
   assignRollModifiers(town, lib.townData.type[town.type].modifiers)
 }
 
 function assignEconomicModifiers (town: TownBasics) {
-  console.log(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
+  lib.logger.info(`Assigning economic modifiers (btw ${town.name} is a ${town.economicIdeology})`)
   assignRollModifiers(town, lib.townData.economicIdeology[town.economicIdeology].modifiers)
 }
 
 function assignPoliticalModifiers (town: TownBasics) {
-  console.log(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
+  lib.logger.info(`Assigning political ideology modifiers (btw ${town.name} is a ${town.politicalIdeology})`)
   assignRollModifiers(town, lib.townData.politicalIdeology[town.politicalIdeology].modifiers)
 }
 

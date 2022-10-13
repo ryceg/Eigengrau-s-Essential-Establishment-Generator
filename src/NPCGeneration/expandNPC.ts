@@ -1,4 +1,4 @@
-import type { NPC, Town } from '@lib'
+import { createFamilyHouse, NPC, Town } from '@lib'
 import { createHistory } from './createHistory'
 import { createLifeEvents } from './createLifeEvents'
 import { createFriends } from './Relationships/createFriends'
@@ -6,7 +6,7 @@ import { createRelationship } from './Relationships/createRelationship'
 import { getFamily } from './Relationships/getFamily'
 
 export const expandNPC = (town: Town, npc: NPC) => {
-  console.groupCollapsed(`Expanding ${npc.name}...`)
+  lib.logger.openGroup(`Expanding ${npc.name}...`)
   npc.hasHistory = true
   npc.isShallow = false
 
@@ -27,7 +27,9 @@ export const expandNPC = (town: Town, npc: NPC) => {
     })
   })
 
+  createFamilyHouse(town, town.families[npc.family])
+
   createHistory(town, npc)
   createFriends(town, npc)
-  console.groupEnd()
+  lib.logger.closeGroup()
 }

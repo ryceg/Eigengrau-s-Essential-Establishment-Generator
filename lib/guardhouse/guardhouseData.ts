@@ -1,7 +1,27 @@
+import { constrainArray } from '../src/constrainRecord'
 import { NPC } from '../npc-generation/_common'
-import { ThresholdTable } from '../src/rollFromTable'
 import { Town } from '../town/_common'
 import { Guardhouse } from './_common'
+
+interface GuardhouseNotableFeature {
+  exclusions?(town: Town): boolean
+  function(): string
+}
+
+interface GuardhouseEvidenceLockerItem {
+  function(): string
+}
+
+interface OfficeDescription {
+  wealth: number
+  size: number
+  description: string
+}
+
+interface HoldingCell {
+  reason: string
+  base?: Partial<NPC>
+}
 
 export const guardhouseData = {
   name: {
@@ -36,7 +56,7 @@ export const guardhouseData = {
       'sterling'
     ] as string[]
   },
-  notableFeature: [
+  notableFeature: constrainArray<GuardhouseNotableFeature>()([
     // the guardhouse is known for
     {
       function () {
@@ -86,13 +106,10 @@ export const guardhouseData = {
         return "the town's moneylenders also occupy the same building. The townsfolk often look to it with disgust as moneylender and guard are often a pair."
       }
     }
-  ] as {
-    exclusions?(town: Town): boolean
-    function(): string
-  }[],
+  ]),
   evidenceLocker: {
     // Inside the evidence locker, there is ___
-    items: [
+    items: constrainArray<GuardhouseEvidenceLockerItem>()([
       {
         function () {
           return 'some confiscated weaponry from captured bandits. One of the weapons is highly personalised and decorated.'
@@ -193,9 +210,7 @@ export const guardhouseData = {
           return 'a cane with a hidden compartment. It belonged to a noble of ill repute.'
         }
       }
-    ] as {
-      function(): string
-    }[]
+    ])
   },
   get: {
     /** @example `At the moment, ______ */
@@ -383,11 +398,7 @@ export const guardhouseData = {
         size: 10,
         description: 'This is a tiny hole in the wall that serves as the local constabulary. There are a few heavily rusted weapons piled in the corner, but no furniture.'
       }
-    ] as {
-      wealth: number
-      size: number
-      description: string
-    }[],
+    ] as OfficeDescription[],
     /** @example `In the holding cell is ${reason}` */
     holdingCell: [
       {
@@ -504,202 +515,6 @@ export const guardhouseData = {
           background: 'criminal'
         }
       }
-    ] as {
-      reason: string
-      base?: Partial<NPC>
-    }[],
-    customers: [
-      {
-        relationshipDescription: 'guard',
-        relationships: {
-          building: {
-            relationship: 'guard',
-            reciprocalRelationship: 'place of work'
-          },
-          associatedNPC: {
-            relationship: 'peer'
-          }
-        },
-        base: {
-          profession: 'guard'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works in ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'prisoner',
-        relationships: {
-          building: {
-            relationship: 'prisoner',
-            reciprocalRelationship: 'place of imprisonment'
-          },
-          associatedNPC: {
-            relationship: 'captor'
-          }
-        },
-        base: {
-          professionSector: 'crime'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a captured criminal being held in ${building.name} awaiting trial.` }
-      },
-      {
-        relationshipDescription: 'investigator',
-        relationships: {
-          building: {
-            relationship: 'investigator',
-            reciprocalRelationship: 'place of work'
-          },
-          associatedNPC: {
-            relationship: 'peer'
-          }
-        },
-        base: {
-          profession: 'investigator'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} works on cases in ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'kidnapper',
-        relationships: {
-          building: {
-            relationship: 'kidnapper',
-            reciprocalRelationship: 'sends letters of demand'
-          },
-          associatedNPC: {
-            relationship: 'contact point'
-          }
-        },
-        base: {
-          profession: 'kidnapper'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is kidnapping children, and sending ransom letters to ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'fugitive',
-        relationships: {
-          building: {
-            relationship: 'fugitive',
-            reciprocalRelationship: 'pursuant body'
-          },
-          associatedNPC: {
-            relationship: 'lead investigator'
-          }
-        },
-        base: {
-          profession: 'fugitive'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a dangerous fugitive being hunted down by ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'wanted criminal',
-        relationships: {
-          building: {
-            relationship: 'wanted criminal',
-            reciprocalRelationship: 'pursuant body'
-          },
-          associatedNPC: {
-            relationship: 'lead investigator'
-          }
-        },
-        base: {
-          professionSector: 'crime'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is a wanted criminal being hunted down by ${building.name}.` }
-      },
-      {
-        relationshipDescription: 'informant',
-        relationships: {
-          building: {
-            relationship: 'informant',
-            reciprocalRelationship: 'informee'
-          },
-          associatedNPC: {
-            relationship: 'lead investigator'
-          }
-        },
-        base: {
-          professionSector: 'crime'
-        },
-        description (building: Guardhouse, npc: NPC) { return `${npc.firstName} is an informant who is assisting ${building.name} with their investigations.` }
-      }
-    ]
-  },
-  rollData: {
-    wealth: {
-      description: 'How well are they funded?',
-      preceding: 'Guardhouse Wealth:',
-      rolls: [
-        [95, 'kingly'],
-        [80, 'aristocratic'],
-        [70, 'wealthy'],
-        [60, 'comfortable'],
-        [50, 'modest'],
-        [25, 'poor'],
-        [15, 'squalid'],
-        [0, 'destitute']
-      ] as ThresholdTable
-    },
-    size: {
-      description: 'How large is it?',
-      preceding: 'Guardhouse Size:',
-      rolls: [
-        [95, 'cavernous'],
-        [80, 'huge'],
-        [70, 'quite large'],
-        [60, 'large'],
-        [50, 'spacious'],
-        [40, 'average sized'],
-        [30, 'somewhat cramped'],
-        [20, 'small'],
-        [10, 'tiny'],
-        [0, 'extremely cramped']
-      ] as ThresholdTable
-    },
-    cleanliness: {
-      description: 'How clean is the guardhouse? What about the cells?',
-      preceding: 'Guardhouse:',
-      /** @example `The guardhouse is ______` */
-      rolls: [
-        [90, 'fastidious- even the prisoner cells are clean.'],
-        [70, 'very tidy. The prisoner cells are in pretty good condition, and quite liveable.'],
-        [60, 'tidy, although the cells are in need of a sweeping.'],
-        [50, 'reasonably tidy, though the cells have the occasional rat.'],
-        [40, 'somewhat messy, with the worst of it concentrated in the cells, which are in need of a deep clean.'],
-        [30, 'rather messy- especially the cells, which are positively disgusting.'],
-        [20, 'very messy, and the cells are even worse, with a fecal aroma wafting out.'],
-        [10, 'in dire need of a cleaner; blood spatters have seeped in, and the cells are filthy.'],
-        [0, 'apparently a crime scene in itself, with blood stains everywhere. The cells must be unimaginably bad.']
-      ] as ThresholdTable
-    },
-    expertise: {
-      description: 'How well trained are the guards?',
-      preceding: 'Guardhouse Training:',
-      /** @example `The guards are _____` */
-      rolls: [
-        [80, 'consummate professionals'],
-        [70, 'professional'],
-        [60, 'reasonably professional'],
-        [50, 'as professional as one could expect'],
-        [40, 'mostly professional, though the occasional bad eggs causes a public scandal now and then'],
-        [30, 'not exactly known for their professionalism'],
-        [20, 'not very professional, and are known for not being very good at their jobs'],
-        [10, 'basically amateurs, with no real procedures or trainings'],
-        [0, 'basically playing dress-ups, with virtually no interest in actual policing']
-      ] as ThresholdTable
-    },
-    reputation: {
-      description: 'Is it known for applying the law equally, or is it a crime den?',
-      preceding: 'Guardhouse Reputation:',
-      hasRolls: false
-    },
-    magic: {
-      description: 'How likely is it to find magic here?',
-      preceding: 'Guardhouse Magic:',
-      hasRolls: false
-    },
-    activity: {
-      description: 'How busy is the store?',
-      preceding: 'Guardhouse Activity:',
-      hasRolls: false
-    }
+    ] as HoldingCell[]
   }
 }

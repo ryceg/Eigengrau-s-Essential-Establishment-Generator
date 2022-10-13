@@ -1,5 +1,6 @@
 :: GenericPassage
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><h1 class="interactive-only">$building.name</h1>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<include "PrintImage">>
+\<h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span>
 <<for _i to 0; _i < $building.PassageFormat.length; _i++>>
 <<print $building.PassageFormat[_i]>>
 <</for>>

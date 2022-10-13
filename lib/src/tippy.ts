@@ -1,32 +1,12 @@
 import { Construct, ConstructUtils } from '../constructs/_common'
-
-/**
- * To be used when you want to wrap a tippy around
- * something i.e. you know what you're doing
- *
- * **Note the lack of a closing span.**
- */
-export const createTippy = (readout: string) => {
-  const id = lib.getUUID()
-  return `<span class="tip" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}><<run tippy(document.getElementById('${id}'))>>`
-}
-
-/**
- * Assumes that the first argument was created
- * using the createTippy function.
- *
- * **Note the two closing spans to accommodate this.**
- */
-export const createTippyWord = (tippy: string, word: string) => {
-  return `${tippy}<span class="dotted">${word}</span></span>`
-}
+import { getUUID } from './utils'
 
 /**
  * The function that should be used most of the time.
  */
 export const createTippyFull = (readout: string, word: string) => {
-  const id = lib.getUUID()
-  return `<span class="tip dotted" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}>${word}<<timed 0s>><<run tippy(document.getElementById('${id}'))>><</timed>></span>`
+  const id = getUUID()
+  return `<span class="tip dotted" data-id="${id}" id="${id}" role="tooltip" tabindex="0" data-tippy-content=${JSON.stringify(readout)}>${word}<<done>><<run tippy(document.getElementById('${id}'))>><</done>></span>`
 }
 
 export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, ...args: Parameters<ConstructUtils<C>['create']>) {
@@ -37,6 +17,8 @@ export function createAutoTippy<C extends Construct> (utils: ConstructUtils<C>, 
 }
 
 export function addTippyAccessibility () {
-  $('.tip').attr('role', 'tooltip')
-  $('.tip').attr('tabindex', '0')
+  document.querySelectorAll('.tip').forEach(tip => {
+    tip.setAttribute('role', 'tooltip')
+    tip.setAttribute('tabindex', '0')
+  })
 }

@@ -1,3 +1,5 @@
+import { Town, NPC } from '@lib'
+
 interface Setup {
   adventure: {
     create(town: Town): Adventure

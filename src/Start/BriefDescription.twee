@@ -1,8 +1,26 @@
-:: BriefDescription
-<h1 class='town-name'>The <<print $town.type.toUpperFirst()>> of $town.name</h1>
-\<p role="main">$town.name is <<print lib.articles.output(lib.createTippyFull("With a population of " + $town.population + ".", $town.type))>> located <<print lib.terrain[$town.terrain].location[$town.location].preposition>> the $town.terrain $town.location, where the vegetation is $town.vegetation. $town.name grew around $town.origin, and is comprised <<nobr>>
-<<include "RacesPercentageList">>. They are 
-<<if $town.ignoreGender is false>><<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
+:: BriefDescription [nobr]
+<section id="brief-description">
+    <h1 class='town-name' @data-town-type=$town.type @data-town-name=$town.name>
+        The 
+        <span @data-town-type=$town.type>
+            <<print $town.type.toUpperFirst()>>
+        </span> of 
+        <span @data-town-name=$town.name>
+            $town.name
+        </span>
+    </h1>
+    <p role="main">
+        <span @data-town-type=$town.type @data-town-name=$town.name>
+            $town.name
+        </span> is 
+        <<print lib.articles.output(lib.createTippyFull("With a population of " + $town.population + ".", $town.type))>> 
+        located <<print lib.terrain[$town.terrain].location[$town.location].preposition>> the $town.terrain $town.location, 
+        where the vegetation is $town.vegetation. 
+        $town.name grew around $town.origin, and is comprised <<include "RacesPercentageList">>.
+They are 
+<<if $town.ignoreGender is false>>
+    <<print lib.articles.find($town.equality)>> <<print lib.createTippyFull($town.equalityDescription, $town.equality)>> 
 <<else>>
-<<print lib.articles.find($town.economicIdeologyIST)>> <</if>> /* this gets the article, not the economic ideology! */
-<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>> that <<include "ReligionPercentageList">>.<</nobr>></p>
+    <<print lib.articles.find($town.economicIdeologyIST)>> 
+<</if>> /* this gets the article, not the economic ideology! */
+<<print lib.createTippyFull(setup.politicsDescription($town, "economicIdeology"), $town.economicIdeologyIST)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalIdeology"), $town.politicalIdeologyIC)>> <<print lib.createTippyFull(setup.politicsDescription($town, "politicalSource"), $town.politicalSource)>> that <<include "ReligionPercentageList">>.</p></section>

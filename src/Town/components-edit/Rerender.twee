@@ -1,9 +1,8 @@
 :: Rerender
-<<run console.log("Saving changes...")>>
-<<run lib.updateDemographics($town, $town._baseDemographics)>>
-<<run console.log($town)>>
+<<run lib.logger.info("Saving changes...")>>
+<<run lib.logger.info($town)>>
 <<run setup.createSocioPolitics($town)>>
 <<run lib.updateTownSocioPolitics($town)>>
 <<set $npcs to setup.checkRaces($town, $npcs)>>
 <<run lib.townRender($town)>>
-<<run console.log($town)>>
+<<run lib.logger.info($town)>>

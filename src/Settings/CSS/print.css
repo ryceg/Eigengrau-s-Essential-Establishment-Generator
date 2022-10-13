@@ -1,32 +1,31 @@
 @media print {
-
   body {
-    line-height: 1em!important;
-    font-size: 14px!important;
-    background-color:#ffffff!important;
-    color: #111!important;
+    line-height: 1em !important;
+    font-size: 14px !important;
+    background-color: #ffffff !important;
+    color: #111 !important;
     columns: 2;
     column-fill: auto;
     column-gap: 35px;
     --text-normal: #111;
     --text-muted: #72767d;
-    --text-link: #111!important;
-    --header-primary: #58180D!important;
-    --header-secondary: #c9ad6a!important;
-    --interactive-normal: #d5e4d5!important;
-    --interactive-hover: #a4c7a4!important;
-    --interactive-active: #a5c0a5!important;
-    --interactive-muted: #b0c5b0!important;
-    --blockquote-color: #e5e4c1!important;
-    --table-green: #e0e5c1!important;
-    --background-primary: #ffffff!important;
-    --background-accent: #a6a794!important;
-    --background-secondary: #cccccc!important;
-    --background-secondary-alt: #d4c8c8!important;
-    --background-tertiary: #ffffff!important;
-    --background-floating: #e6e6e6!important;
-    --monster-yellow: #FDF1DC!important;
-    --descriptive-yellow: #faf7ea!important;
+    --text-link: #111 !important;
+    --header-primary: #58180d !important;
+    --header-secondary: #c9ad6a !important;
+    --interactive-normal: #d5e4d5 !important;
+    --interactive-hover: #a4c7a4 !important;
+    --interactive-active: #a5c0a5 !important;
+    --interactive-muted: #b0c5b0 !important;
+    --blockquote-color: #e5e4c1 !important;
+    --table-green: #e0e5c1 !important;
+    --background-primary: #ffffff !important;
+    --background-accent: #a6a794 !important;
+    --background-secondary: #cccccc !important;
+    --background-secondary-alt: #d4c8c8 !important;
+    --background-tertiary: #ffffff !important;
+    --background-floating: #e6e6e6 !important;
+    --monster-yellow: #fdf1dc !important;
+    --descriptive-yellow: #faf7ea !important;
   }
   .click-and-remove-link {
     display: none;
@@ -65,7 +64,7 @@
     font-weight: bold;
   }
   .dotted {
-    border-bottom: none!important;
+    border-bottom: none !important;
   }
   .tip {
     border-bottom: none;
@@ -75,8 +74,8 @@
     column-fill: auto;
     column-gap: 35px;
   } */
-  
-  #paper {
+
+  .paper {
     display: none;
   }
   img#illustration {
@@ -87,7 +86,6 @@
   }
 
   details {
-    
   }
   .background-image {
     display: none;

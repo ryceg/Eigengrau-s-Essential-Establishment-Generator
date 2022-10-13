@@ -1,10 +1,12 @@
+import { logger } from '../logger'
 import { dice, fm } from '../src/dice'
-import { repeat, removeFromArray } from '../src/utils'
+import { repeat, removeFromArray, assert } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 
 export function createAllies (faction: Faction): void {
-  console.log('finding allies...')
+  logger.info('Finding faction allies...')
 
   const sizeRoll = fm(faction.roll.size, random([20, -20]))
   const groupList = ['commoners', 'knights', 'politicians', 'thieves', 'merchants', 'wizards', 'rangers', 'seers', 'priests', 'monks', 'assassins', 'artisans', 'nobles', 'bards', 'mercenaries', 'bandits', 'craftsmen', 'scholars']
@@ -12,32 +14,23 @@ export function createAllies (faction: Faction): void {
   const allies: string[] = []
 
   if (sizeRoll >= 90) {
-    faction.alliesDescription = 'an immense number of people to rely on for aid'
     repeat(() => getAllyGroup(random(-10, 15)), 5)
   } else if (sizeRoll >= 80) {
-    faction.alliesDescription = 'many allies'
     repeat(() => getAllyGroup(random(-15, 15)), 5)
   } else if (sizeRoll >= 70) {
-    faction.alliesDescription = 'a considerable number of allies'
     repeat(() => getAllyGroup(random(-20, 15)), 4)
   } else if (sizeRoll >= 60) {
-    faction.alliesDescription = 'a decent number of allies'
     repeat(() => getAllyGroup(15), 3)
   } else if (sizeRoll >= 50) {
-    faction.alliesDescription = 'some strong allies'
     repeat(() => getAllyGroup(10), 2)
   } else if (sizeRoll >= 40) {
-    faction.alliesDescription = 'a handful of trusted allies'
     getAllyGroup(10)
     getAllyGroup(-10)
   } else if (sizeRoll >= 30) {
-    faction.alliesDescription = 'a couple trusted allies'
     getAllyGroup(-15)
   } else if (sizeRoll >= 20) {
-    faction.alliesDescription = 'few allies'
     getAllyGroup(10)
   } else if (sizeRoll < 20) {
-    faction.alliesDescription = 'barely any allies'
     getAllyGroup(10)
   }
 
@@ -53,18 +46,42 @@ export function createAllies (faction: Faction): void {
     allies.push(tempGroupSize + tempGroup)
   }
 
+  faction.alliesDescription = getAlliesDescription(sizeRoll)
   faction.allies = allies
 }
 
+function getAlliesDescription (sizeRoll: number): string {
+  const alliesDescription: ThresholdTable = [
+    [90, 'an immense number of people to rely on for aid'],
+    [80, 'many allies'],
+    [70, 'a considerable number of allies'],
+    [60, 'a decent number of allies'],
+    [50, 'some strong allies'],
+    [40, 'a handful of trusted allies'],
+    [30, 'a couple trusted allies'],
+    [20, 'few allies'],
+    [0, 'barely any allies']
+  ]
+  const result = getRolledFromTable(alliesDescription, sizeRoll)
+  assert(typeof result === 'string')
+  return result
+}
+
 function getGroupSize (roll: number): string {
-  if (roll >= 90) return 'a veritable army of '
-  if (roll >= 80) return 'a guild of '
-  if (roll >= 70) return 'a large number of '
-  if (roll >= 60) return 'quite a few '
-  if (roll >= 50) return 'more than a couple '
-  if (roll >= 40) return 'a couple '
-  if (roll >= 30) return 'some '
-  if (roll >= 20) return 'a few '
-  if (roll >= 10) return 'a handful of '
-  return 'three or four '
+  const groupSize: ThresholdTable = [
+    [90, 'a veritable army of '],
+    [80, 'a guild of '],
+    [70, 'a large number of '],
+    [60, 'quite a few '],
+    [50, 'more than a couple '],
+    [40, 'a couple '],
+    [30, 'some '],
+    [20, 'a few '],
+    [15, 'a handful of '],
+    [10, 'three or four '],
+    [0, 'just one ']
+  ]
+  const result = getRolledFromTable(groupSize, roll)
+  assert(typeof result === 'string')
+  return result
 }

@@ -1,3 +1,0 @@
-:: RemoveCookieNotifier
-  <<run State.metadata.set('cookiePopupWasShown', true)>>
-  <<run document.getElementById("notify").remove()>>

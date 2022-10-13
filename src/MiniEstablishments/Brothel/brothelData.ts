@@ -5,12 +5,6 @@ import { createRelationship } from '../../NPCGeneration/Relationships/createRela
 import { createParentage } from '../../NPCGeneration/Relationships/createFamilyMembers'
 
 interface BrothelData {
-  rollData: {
-    wealth: RollData
-    size: RollData
-    cleanliness: RollData
-    bedCleanliness: RollData
-  }
   name: string[]
   /**
    * @example "Apparently, it specializes in ____"
@@ -39,13 +33,6 @@ interface BrothelData {
   idle(): string[]
   pimp: Record<string, Partial<NPC>>
   harlot: HarlotData
-  customers: Customer[]
-}
-
-interface RollData {
-  description: string
-  preceding: string
-  rolls: [number, string][]
 }
 
 interface HarlotData {
@@ -69,86 +56,7 @@ interface HarlotTypeData {
   callbackFunction?(town: Town, npc: NPC): void
 }
 
-interface Customer {
-  relationshipDescription: string
-  relationships: {
-    building: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-    associatedNPC: {
-      relationship: string
-      reciprocalRelationship?: string
-    }
-  }
-  base?: Partial<NPC>
-  description(brothel: Building, npc: NPC): string
-}
-
 export const brothelData: BrothelData = {
-  rollData: {
-    wealth: {
-      description: 'How successful is the brothel?',
-      preceding: 'Brothel Wealth:',
-      rolls: [
-        [95, 'kingly'],
-        [80, 'aristocratic'],
-        [70, 'wealthy'],
-        [60, 'comfortable'],
-        [50, 'modest'],
-        [25, 'poor'],
-        [15, 'squalid'],
-        [0, 'destitute']
-      ]
-    },
-    size: {
-      description: 'How large is the brothel?',
-      preceding: 'Brothel Size:',
-      rolls: [
-        [95, 'cavernous'],
-        [80, 'huge'],
-        [70, 'quite large'],
-        [60, 'large'],
-        [50, 'spacious'],
-        [40, 'average sized'],
-        [30, 'somewhat cramped'],
-        [20, 'small'],
-        [10, 'tiny'],
-        [0, 'extremely cramped']
-      ]
-    },
-    cleanliness: {
-      description: 'How clean is the brothel?',
-      preceding: 'Brothel Cleanliness:',
-      rolls: [
-        [80, 'fastidious'],
-        [70, 'very tidy'],
-        [60, 'tidy'],
-        [50, 'reasonably tidy'],
-        [40, 'somewhat messy'],
-        [30, 'rather messy'],
-        [20, 'very messy'],
-        [10, 'extremely messy'],
-        [0, 'dangerously messy']
-      ]
-    },
-    bedCleanliness: {
-      description: 'How clean are the brothel beds?',
-      preceding: 'Brothel Bed Cleanliness:',
-      rolls: [
-        [80, 'perfectly prepared, with fresh sheets and a lemon scent in the air of the room'],
-        [75, 'recently prepared and well cleaned'],
-        [70, 'freshly cleaned and neat'],
-        [60, 'tidy and neat'],
-        [50, 'reasonably clean'],
-        [40, 'somewhat tidy'],
-        [30, 'disgusting'],
-        [20, 'teeming with rats'],
-        [10, 'rather filthy'],
-        [0, 'festering with bugs']
-      ]
-    }
-  },
   name: [
     'Daisies', 'The Don', 'Blinkers', "The Prude's Suspenders", 'Gold’s Dust', 'The Velvet Fang', 'The Whisper Home', 'The Hook', 'Over the River', 'Slooshes', 'The Rapid Rascal', 'The Stoat',
     'The Fidgety Ferret', 'Long Shaft', 'The Guards', 'Chastity’s', 'The Mask', 'The Red Dress', 'Jewels', 'Silken Flute', 'The Nag’s Head', 'Drummers', 'Sailors Choice', 'Blacksmiths Envy',
@@ -523,91 +431,5 @@ export const brothelData: BrothelData = {
       'simply have all the sex her heart desires, and the gold is a nice bonus',
       'make connections with powerful people'
     ]
-  },
-  customers: [
-    {
-      relationshipDescription: 'regular',
-      relationships: {
-        building: {
-          relationship: 'regular'
-        },
-        associatedNPC: {
-          relationship: 'acquaintance'
-        }
-      },
-      base: {
-        socialClass: 'commoner',
-        gender: 'man'
-      },
-      description: (building, npc) => `${npc.firstName} is a regular at ${building.name}.`
-    },
-    {
-      relationshipDescription: 'discrete regular',
-      relationships: {
-        building: {
-          relationship: 'discrete regular'
-        },
-        associatedNPC: {
-          relationship: 'acquaintance'
-        }
-      },
-      base: {
-        socialClass: 'nobility',
-        gender: 'man'
-      },
-      description: (building, npc) => `${npc.firstName} is a regular at ${building.name}, though would prefer that that be kept a secret.`
-    },
-    {
-      relationshipDescription: 'pest',
-      relationships: {
-        building: {
-          relationship: 'pest'
-        },
-        associatedNPC: {
-          relationship: 'acquaintance',
-          reciprocalRelationship: 'annoyance'
-        }
-      },
-      base: {
-        socialClass: 'commoner',
-        gender: 'man'
-      },
-      description: (building, npc) => `${npc.firstName} is an annoying pest who fancies one of the workers of ${building.name} a little too much.`
-    },
-    {
-      relationshipDescription: 'detractor',
-      relationships: {
-        building: {
-          relationship: 'detractor',
-          reciprocalRelationship: 'target of ire'
-        },
-        associatedNPC: {
-          relationship: 'enemy',
-          reciprocalRelationship: 'irritant'
-        }
-      },
-      base: {
-        socialClass: 'commoner'
-      },
-      description: (building, npc) => `${npc.firstName} is constantly campaigning to get rid of ${building.name}.`
-    },
-    {
-      relationshipDescription: 'ex-employee',
-      relationships: {
-        building: {
-          relationship: 'ex-employee',
-          reciprocalRelationship: 'former place of employment'
-        },
-        associatedNPC: {
-          relationship: 'former boss',
-          reciprocalRelationship: 'former employee'
-        }
-      },
-      base: {
-        profession: 'prostitute',
-        gender: 'woman'
-      },
-      description: (building, npc) => `${npc.firstName} is an ex-employee of ${building.name} after ${['deciding that the line of work wasn\'t for her', 'getting fed up with being mistreated by the customers', 'being mistreated', 'finding religion', 'finding a lover', 'getting pregnant'].random()}.`
-    }
-  ]
+  }
 }

@@ -7,7 +7,6 @@ export interface rollsData {
   preceding: string
   rolls: ThresholdTable
   isHidden?: boolean
-  hasRolls?: boolean
  }
 /**
  * Return a random value from a static roll table.
@@ -39,4 +38,10 @@ export function rollFromTable <T> (table: ThresholdTable<T>, maxRoll?: number, b
   // roll too high, return last entry in table
   const [, result] = last(table)
   return result
+}
+
+export function getRolledFromTable <T> (table: ThresholdTable<T>, roll: number) {
+  for (const [threshold, description] of table) {
+    if (roll >= threshold) return description
+  }
 }

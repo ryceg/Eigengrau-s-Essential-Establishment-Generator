@@ -1,19 +1,18 @@
-:: GuardhouseOutput
-<<nobr>>
-<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
-<<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentPassage to lib.getPolice($town.factions)>>
-<<set $currentPassage.availableRelationships to lib.guardhouseData.get.customers>>
-<h1 class="interactive-only">$building.name</h1>
-<p>You make your way down <<print lib.createTippyFull($town.roads[$building.road].description, $town.roads[$building.road].name)>>, and enter $building.name $building.structure.descriptor. $building.name is known for $building.notableFeature</p>
-<p>It is run by <<profile $town.factions[$currentPassage.key]>>, who are $building.expertise.
-At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $building), $building, undefined)>></p>
+:: GuardhouseOutput [nobr]
+<<set $currentPassage to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+<<set $currentFaction to lib.getPolice($town.factions)>>
+<<set $associatedNPC to $npcs[$currentPassage.associatedNPC.key]>>
+<<set $currentPassage.availableRelationships to lib.guardhouseCustomers>>
+<<include "PrintImage">>
+<h1 class="interactive-only">$currentPassage.name</h1><span @id="$currentPassage.key"></span><p>You make your way down <<print lib.createTippyFull($town.roads[$currentPassage.road].description, $town.roads[$currentPassage.road].name)>>, and enter $currentPassage.name $currentPassage.structure.descriptor. $currentPassage.name is known for $currentPassage.notableFeature</p>
+<p>It is run by <<profile $town.factions[$currentFaction.key]>>, who are $currentPassage.expertise.
+At the moment, <<print lib.weightedRandomFetcher($town, lib.guardhouseData.get.event($town, $currentPassage), $currentPassage, undefined)>></p>
 <<include "PolicingFaction">>
-<section><h4>Chief's Office</h4><p>The person in charge is <<profile $building.associatedNPC>>, <<print lib.articles.output($npcs[$building.associatedNPC.key].calmTrait)>> <<print $npcs[$building.associatedNPC.key].descriptor>>. <<print lib.closestMatch(lib.guardhouseData.get.officeDescription($building), 'description', 'size', 'wealth', $building.roll.size, $building.roll.wealth)>></p>
-<<link '<h4>Evidence Locker</h4>'>><<set $building.evidence to lib.weightedRandomFetcher($town, lib.guardhouseData.evidenceLocker.items, $building, undefined)>><<update>><</link>>
-<<liveblock>><<if $building.evidence>><p>In the evidence locker is $building.evidence</p><</if>><</liveblock>>
-The guardhouse is $building.cleanliness</section>
-<section><<link '<h4>Holding Cell</h4>'>><<set $building.holdingCell to lib.weightedRandomFetcher($town, lib.guardhouseData.get.holdingCell, $building, undefined, 'object')>><<set $building.prisoner to setup.createNPC($town, $building.holdingCell.base)>><<update>><</link>>
-<<liveblock>><<if $building.holdingCell>>In the holding cell is <<profile $building.prisoner $building.holdingCell.reason>><</if>>
+<section><h4>Chief's Office</h4><p>The person in charge is <<profile $currentPassage.associatedNPC>>, <<print lib.articles.output($npcs[$currentPassage.associatedNPC.key].calmTrait)>> <<print $npcs[$currentPassage.associatedNPC.key].descriptor>>. <<print lib.closestMatch(lib.guardhouseData.get.officeDescription($currentPassage), 'description', 'size', 'wealth', $currentPassage.roll.size, $currentPassage.roll.wealth)>></p>
+<<link '<h4>Evidence Locker</h4>'>><<set $currentPassage.evidence to lib.weightedRandomFetcher($town, lib.guardhouseData.evidenceLocker.items, $currentPassage, undefined)>><<update>><</link>>
+<<liveblock>><<if $currentPassage.evidence>><p>In the evidence locker is $currentPassage.evidence</p><</if>><</liveblock>>
+The guardhouse is $currentPassage.cleanliness</section>
+<section><<link '<h4>Holding Cell</h4>'>><<set $currentPassage.holdingCell to lib.weightedRandomFetcher($town, lib.guardhouseData.get.holdingCell, $currentPassage, undefined, 'object')>><<set $currentPassage.prisoner to setup.createNPC($town, $currentPassage.holdingCell.base)>><<update>><</link>>
+<<liveblock>><<if $currentPassage.holdingCell>>In the holding cell is <<profile $currentPassage.prisoner $currentPassage.holdingCell.reason>><</if>>
 <</liveblock>></section>
-<<details "CreateNewNpc" "People Around">><</nobr>>
+<<details "CreateNewNpc" "People Around">>

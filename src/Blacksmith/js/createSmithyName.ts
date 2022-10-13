@@ -1,6 +1,7 @@
-import { AgeName, GenderName, ProfessionName, RaceName, Town } from '@lib'
-import { Smithy } from '../../../lib/smithy/_common'
+import { AgeName, GenderName, ProfessionName, RaceName, Smithy, Town } from '@lib'
+
 const familyTypes = ['son', 'daughter', 'brother', 'sister', 'uncle', 'aunt', 'father', 'friend', 'family', 'employee'] as const
+
 type Assistant = typeof familyTypes[number]
 
 // uses setup.createNPC, setup.createRelationship

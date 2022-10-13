@@ -1,10 +1,10 @@
-:: NPCAddRelationship
+:: NPCAddRelationship [nobr]
 <<set _sentiment to "that " + ['funny', 'nice', 'annoying', 'mean', 'weird', 'kind', 'scary'].random() + " " + $currentNPC.race>>
 NPC to add a relationship with: <label name="add relationship" for="listbox-swapnpc">
-  \<<listbox "_newRelationshipNpcName" autoselect>>
-    \<<optionsfrom Object.values($npcs).map(el => el.name)>>
-    \<<optionsfrom lib.patreonCharacters>>
-  \<</listbox>></label>
+  <<listbox "_newRelationshipNpcName" autoselect>>
+    <<optionsfrom Object.values($npcs).map(el => el.name)>>
+    <<optionsfrom lib.patreonCharacters>>
+  <</listbox>></label>
   Relationship: <<textbox "_newRelationship" "old friend">>
   Reciprocal relationship: <<textbox "_newReciprocal" _sentiment>>
   Description: <<textbox "_newDescription" "">>

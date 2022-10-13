@@ -11,8 +11,7 @@ sugarcube-2:
 
     # misc
     numberslider: {}
-    numberbox:
-      container: true
+    numberbox: {}
     notify:
       container: true
     fadein:
@@ -21,6 +20,8 @@ sugarcube-2:
       container: true
     ifdefprint: {}
     idp: {}
+    nosp: 
+      container: true
     import: {}
     export: {}
     # live-update.js

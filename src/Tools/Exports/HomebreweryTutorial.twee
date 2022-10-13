@@ -1,0 +1,4 @@
+:: HomebreweryTutorial
+Copy paste the above into a [[Homebrewery|https://homebrewery.naturalcrit.com/]] document.
+
+You can likely use any {{{.html}}} renderer, but this is optimized for Homebrewery. Hyperlinks in the text only work when you have downloaded the PDF; otherwise, they will register as links on the Homebrewery domain. Please note that you will need to add pagebreaks ({{{\page}}}) to ensure that info is not being pushed off the page.

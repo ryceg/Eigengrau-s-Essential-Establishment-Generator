@@ -1,6 +1,10 @@
-import { HomeStructures } from 'lib/buildings/homeData'
 import { ThresholdTable } from '../src/rollFromTable'
-import { SocialClassName } from './_common'
+import { SocialClassName } from '../npc-generation/socialClass'
+
+type HomeStructures =
+  'apartment'
+| 'building'
+| 'manor'
 
 export interface LifestyleStandard {
   /** Percentage of their daily wage which goes towards their lifestyle. */

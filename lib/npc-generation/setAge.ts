@@ -1,19 +1,21 @@
+import { logger } from '../logger'
+import { getRolledFromTable } from '../src/rollFromTable'
 import { raceTraits, AgeName, RaceName } from './raceTraits'
 import { NPC } from './_common'
 
 export function setAge (npc: NPC): void {
-  console.log(`ageing ${npc.name}...`)
+  logger.info(`Ageing ${npc.name}...`)
 
   const ageDescriptors = raceTraits[npc.race].ageTraits.ageDescriptors
 
   if (typeof ageDescriptors !== 'undefined') {
-    for (const [ageThreshold, ageDescriptor] of ageDescriptors) {
-      if (ageThreshold >= npc.ageYears) {
-        npc.age = ageDescriptor
-      }
+    const age = getRolledFromTable(ageDescriptors, npc.ageYears)
+
+    if (typeof age !== 'undefined') {
+      npc.age = age
     }
   } else {
-    console.log('Called age descriptor without a valid array.')
+    logger.warn('Called age descriptor without a valid array.')
   }
 
   if (npc.ageStage === 'child') {

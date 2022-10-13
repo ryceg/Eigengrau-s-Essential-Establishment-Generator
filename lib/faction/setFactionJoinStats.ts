@@ -1,13 +1,16 @@
-import { assign, sumWeights } from '../src/utils'
+import { logger } from '../logger'
+import { assert, assign, sumWeights } from '../src/utils'
 import { random } from '../src/random'
 import { Faction } from './_common'
 import { factionData } from './factionData'
 import { weightRandom } from '../src/weightRandom'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
+import { WeightRecord } from '../types'
 
 export function setFactionJoinStats (faction: Faction): void {
-  console.log('determining joining stats...')
+  logger.info('Determining joining stats...')
 
-  const defaultWeightedJoiningRequirement = {
+  const defaultWeightedJoiningRequirement: WeightRecord<string> = {
     'a display of bravery': 1,
     'a display of loyalty': 1,
     'a display of skill': 1,
@@ -20,7 +23,7 @@ export function setFactionJoinStats (faction: Faction): void {
     'to be called on for a favour': 1
   }
 
-  const defaultWeightedJoiningInitiation = {
+  const defaultWeightedJoiningInitiation: WeightRecord<string> = {
     'a mission': 1,
     'a secret ritual': 1,
     'a secret task': 1,
@@ -44,17 +47,23 @@ export function setFactionJoinStats (faction: Faction): void {
 }
 
 function getJoiningFee (roll: number): string {
-  if (roll > 95) return `absolutely anything; they could demand two thousand gold, or ${random(['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger'])}`
-  if (roll > 90) return 'five hundred gold pieces, plus a tremendous task'
-  if (roll > 80) return "five hundred gold pieces, provided there's an empty slot"
-  if (roll > 70) return 'five hundred gold pieces'
-  if (roll > 60) return "three hundred gold pieces, provided there's an empty slot"
-  if (roll > 55) return "two hundred gold pieces, provided there's an empty slot"
-  if (roll > 50) return 'two hundred gold pieces'
-  if (roll > 45) return 'a hundred gold pieces'
-  if (roll > 40) return 'fifty gold pieces'
-  if (roll > 30) return 'twenty gold pieces'
-  if (roll > 20) return 'ten gold pieces'
-  if (roll > 10) return 'a single gold piece'
-  return 'a single copper, as a show of faith'
+  const crazyRequests: string[] = ['a frog named Roberta', 'an egg from a rooster', "a sparrow's tooth", 'the head of a king', 'a hair off your head', 'a toenail', "your lover's dreams", 'the leaf of a forgotten tree', 'an eyelash from a badger']
+  const joiningFees: ThresholdTable = [
+    [95, `absolutely anything; they could demand two thousand gold, or ${random(crazyRequests)}`],
+    [90, 'five hundred gold pieces, plus a tremendous task'],
+    [80, "five hundred gold pieces, provided there's an empty slot"],
+    [70, 'five hundred gold pieces'],
+    [60, "three hundred gold pieces, provided there's an empty slot"],
+    [55, "two hundred gold pieces, provided there's an empty slot"],
+    [50, 'two hundred gold pieces'],
+    [45, 'a hundred gold pieces'],
+    [40, 'fifty gold pieces'],
+    [30, 'twenty gold pieces'],
+    [20, 'ten gold pieces'],
+    [10, 'a single gold piece'],
+    [0, 'a single copper, as a show of faith']
+  ]
+  const result = getRolledFromTable(joiningFees, roll)
+  assert(typeof result === 'string')
+  return result
 }

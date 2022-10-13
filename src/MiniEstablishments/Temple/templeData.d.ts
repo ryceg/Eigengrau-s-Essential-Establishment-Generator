@@ -1,5 +1,3 @@
-import { ThresholdTable } from '../../../lib/index'
-
 interface Setup {
   temple: {
     name: {
@@ -8,15 +6,6 @@ interface Setup {
       adjective: string[]
       plural: string[]
       colour: string[]
-    }
-    rollData: {
-      wealth: ThresholdTable
-      cleanliness: ThresholdTable
-      size: ThresholdTable
-      bedCleanliness: ThresholdTable
-    }
-    get: {
-      customers: Customer[]
     }
     prayerSubject: string[]
     dedicated: string[]

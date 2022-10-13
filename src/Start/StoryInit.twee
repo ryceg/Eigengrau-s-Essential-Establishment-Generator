@@ -1,12 +1,13 @@
 
 :: StoryInit
-<<run console.log("Hello world!")>>
+<<run lib.logger.info("Hello world!")>>
 <<run setup.urlSeed()>>
 <<run setup.init()>>
 
 <<set setup.data to {
-	versionNumber: "2.8.1",
+	versionNumber: "2.8.14",
 	badges: {
+    fun: lib.createFunBadge(),
 		github: lib.createBadge([
 			lib.badges.stats.githubForks, 
 			lib.badges.stats.githubStars, 
@@ -18,42 +19,31 @@
 	}
 }>>
 
-<<script>>
-  const gen = () => lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'});
-  const $badge = $(`<span id="badge" />`)
-    .wiki(gen())
-    .ariaClick(function () {
-      $(this).empty().wiki(gen());
-    });
-  setup.data.badges.fun = $badge.clone(true);
-<</script>>
+<<if !State.metadata.has('customImages')>>
+<<set $customImagesData to {
+'deity': {}, 
+'buildingType': {}, 
+'factionType': {}
+}>>
+<<run State.metadata.set('customImages', $customImagesData)>>
+<</if>>
+
 <<set Config.history.maxStates to 15>>
 <<set $npcs to {}>>
 <<set $toolbox to {}>>
 <<set $history to []>>
 
-<<set $town to setup.createTownBiome()>>
-
-<<if State.metadata.get("showTutorial") is true>>
-	<<set Config.passages.start = "Welcome">>
-<<else>>
-	<<if State.metadata.get("showBiomeGeneration") is true>>
-			<<set Config.passages.start = "BiomeGeneration">>
-		<<else>>
-			<<set Config.passages.start = "Start">>
-			<<set $town to setup.createTown($town)>>
-	<</if>>
+<<set $town to setup.createTown(setup.createTownBiome())>>
+<<if recall("neverShowWelcome") is true && recall("showBiomeGeneration") is true>>
+		<<set Config.passages.start = "BiomeGeneration">>
+	<<else>>
+		<<set Config.passages.start = "Start">>
 <</if>>
 <<set _t to lib.books.normal>><<set $_ to ''>>
-<<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][4]>><</for>>
-<<if location.origin === 'file://'>><<set settings.disableAnalytics to true>><<run memorize('patreonPass', $_)>><<notify 10000>>Patreon features are unlocked since you're running locally.<</notify>>
+<<for _i = 0; _i < 16; _i++>><<set State.variables._ += _t[_i][6]>><</for>>
+<<if lib.isLocalCopy()>><<set settings.disableAnalytics to true>><<run memorize('patreonPass', $_)>><<notify 10000>>Patreon features are unlocked since you're running locally.<</notify>>
+<<elseif location.hash.includes('npt')>><<run memorize('patreonPass', $_)>><<set settings.hideAds to true>>
 <</if>>
-<<script>>
-  const $fun = $(`<span id="fun" class="tip" />`).appendTo('#fun-container');
-  const $badge = $(`<span id="badge" />`)
-    .wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}))
-    .ariaClick(function () {
-      $(this).empty().wiki(lib.createBadge(lib.badges.fun.random(), {imgArgs: 'style=width:100%'}));
-    })
-    .appendTo($fun);
-<</script>>
+
+<<run lib.shareMenu()>>
+<<run setup.navigateToObj()>>

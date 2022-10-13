@@ -1,12 +1,14 @@
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
+import { logger } from '../logger'
 import { dice } from '../src/dice'
-import { repeat, sumWeights } from '../src/utils'
+import { assert, repeat, sumWeights } from '../src/utils'
 import { validateWeight, weightRandom } from '../src/weightRandom'
 import { WeightRecord } from '../types'
 import { factionData } from './factionData'
 import { Faction } from './_common'
 
 export function createRivals (faction: Faction): void {
-  console.log('accruing enemies...')
+  logger.info('Accruing faction enemies...')
 
   const sizeRoll = dice(2, 50)
 
@@ -39,32 +41,23 @@ export function createRivals (faction: Faction): void {
   const weightedGroups = sumWeights(defaultWeightedGroups, factionData.types[faction.type].rivalsList)
 
   if (sizeRoll >= 90) {
-    faction.rivalsDescription = 'managed to become almost universally disliked'
     repeat(() => getRivalGroup(20), 6)
   } else if (sizeRoll >= 80) {
-    faction.rivalsDescription = 'enemies around every corner'
     repeat(() => getRivalGroup(25), 5)
   } else if (sizeRoll >= 70) {
-    faction.rivalsDescription = 'some fearsome enemies'
     repeat(() => getRivalGroup(20), 4)
   } else if (sizeRoll >= 60) {
-    faction.rivalsDescription = 'more enemies than one would expect'
     repeat(() => getRivalGroup(15), 3)
   } else if (sizeRoll >= 50) {
-    faction.rivalsDescription = 'some enemies'
     repeat(() => getRivalGroup(10), 2)
   } else if (sizeRoll >= 40) {
-    faction.rivalsDescription = 'a handful of rivals'
     getRivalGroup(10)
     getRivalGroup(-10)
   } else if (sizeRoll >= 30) {
-    faction.rivalsDescription = 'a couple enemies'
     getRivalGroup(-15)
   } else if (sizeRoll >= 20) {
-    faction.rivalsDescription = 'few rivals'
     getRivalGroup(10)
   } else if (sizeRoll < 20) {
-    faction.rivalsDescription = 'barely any rivals'
     getRivalGroup(10)
   }
 
@@ -82,18 +75,42 @@ export function createRivals (faction: Faction): void {
     rivals.push(tempGroupSize + tempGroup)
   }
 
+  faction.rivalsDescription = getRivalsDescription(sizeRoll)
   faction.rivals = rivals
 }
 
+function getRivalsDescription (roll: number): string {
+  const rivalDescriptions: ThresholdTable = [
+    [90, 'managed to become almost universally disliked'],
+    [80, 'enemies around every corner'],
+    [70, 'some fearsome enemies'],
+    [60, 'more enemies than one would expect'],
+    [50, 'some enemies'],
+    [40, 'a handful of rivals'],
+    [30, 'a couple enemies'],
+    [20, 'few rivals'],
+    [10, 'a few rivals'],
+    [0, 'barely any rivals']
+  ]
+  const result = getRolledFromTable(rivalDescriptions, roll)
+  assert(typeof result === 'string')
+  return result
+}
+
 function getGroupSize (roll: number): string {
-  if (roll >= 90) return 'a guild of '
-  if (roll >= 80) return 'a veritable army of '
-  if (roll >= 70) return 'a large number of '
-  if (roll >= 60) return 'quite a few '
-  if (roll >= 50) return 'more than a couple '
-  if (roll >= 40) return 'a couple '
-  if (roll >= 30) return 'some '
-  if (roll >= 20) return 'a few '
-  if (roll >= 10) return 'a handful of '
-  return 'three or four '
+  const groupSize: ThresholdTable = [
+    [90, 'a guild of '],
+    [80, 'a veritable army of '],
+    [70, 'a large number of '],
+    [60, 'quite a few '],
+    [50, 'more than a couple '],
+    [40, 'a couple '],
+    [30, 'some '],
+    [20, 'a few '],
+    [10, 'a handful of '],
+    [0, 'three or four ']
+  ]
+  const result = getRolledFromTable(groupSize, roll)
+  assert(typeof result === 'string')
+  return result
 }

@@ -1,4 +1,4 @@
-:: TownListProfessions
+:: TownListProfessions [nobr]
 <<set _count to 0>>
 <table class='show-on-print'>
   <tr>
@@ -18,10 +18,10 @@
 <td>_profession.population</td>
 <td><<print ((_profession.population / $town.population) * 100).toFixed(2)>></td>
 <td><<if _npcs.length === 1>>
-      \<<profile _npcs[0]>>
-      \<<elseif _npcs.length > 1>>
-        \<<for _i, _npc range _npcs>>
-          \<<profile _npc>><</for>>
-      \<<else>><span class="interactive-only hide-on-print"><<link "Create _article" $currentPassage.passageName>><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><</link>></span>
-    \<</if>></td></tr><</capture>><</nobr>><</for>>
+      <<profile _npcs[0]>>
+      <<elseif _npcs.length > 1>>
+        <<for _i, _npc range _npcs>>
+          <<profile _npc>><</for>>
+      <<else>><span class="interactive-only hide-on-print"><<link "Create _article" $currentPassage.passageName>><<set $currentPassage to setup.createNPC($town, { profession: _name, isThrowaway: true })>><</link>></span>
+    <</if>></td></tr><</capture>><</nobr>><</for>>
 </table>Total: <<print _count.toFixed(2)>>% of the total population.

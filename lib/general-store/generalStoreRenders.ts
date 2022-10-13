@@ -1,56 +1,47 @@
+import { constrainRecord } from '../src/constrainRecord'
+import { getRolledFromTable, ThresholdTable } from '../src/rollFromTable'
 import { random } from '../src/random'
-import { keys } from '../src/utils'
-import { GeneralStore } from './_common'
+import { keys, last } from '../src/utils'
+import { GeneralStoreRolls } from './_common'
 
-export function generalStoreRenders (generalStore: GeneralStore) {
-  // update warmth based on store size
-  let warmthRoll = random(1, 100)
-  const size = generalStore.roll.size
-  if (size > 80) {
-    generalStore.size = 'huge'
-    warmthRoll -= 20
-  } else if (size > 70) {
-    generalStore.size = 'quite large'
-    warmthRoll -= 15
-  } else if (size > 60) {
-    generalStore.size = 'large'
-    warmthRoll -= 10
-  } else if (size > 50) {
-    generalStore.size = 'spacious'
-    warmthRoll -= 5
-  } else if (size > 40) {
-    generalStore.size = 'medium'
-  } else if (size > 30) {
-    generalStore.size = 'slightly cramped'
-    warmthRoll += 15
-  } else if (size > 20) {
-    generalStore.size = 'small'
-    warmthRoll += 15
-  } else if (size <= 20) {
-    generalStore.size = 'tiny'
-    warmthRoll += 30
-  }
+type Attributes = keyof typeof attributes
 
+interface Renderable extends Record<Attributes, string> {
+  roll: Pick<GeneralStoreRolls, Attributes>
+}
+
+export function generalStoreRenders (generalStore: Renderable) {
   // set warmth roll
-  generalStore.roll.warmth = warmthRoll
+  generalStore.roll.warmth = random(1, 100) + getWarmthRollModfier(generalStore.roll.size)
 
   // actually add attributes to store object
   for (const key of keys(attributes)) {
-    const array = attributes[key].slice().reverse()
+    const table = attributes[key]
+    const roll = generalStore.roll[key]
 
-    // default value
-    generalStore[key] = array[0][1]
-
-    // update value
-    for (const [threshold, description] of array) {
-      if (generalStore.roll[key] > threshold) {
-        generalStore[key] = description
-      }
-    }
+    generalStore[key] = getRolledFromTable(table, roll) || last(table)[1]
   }
 }
 
-const attributes = {
+function getWarmthRollModfier (size: number) {
+  const warmthTable: [number, number][] = [
+    [80, -20],
+    [70, -15],
+    [60, -10],
+    [50, -5],
+    [40, 15],
+    [30, 15],
+    [20, 15]
+  ]
+  for (const [roll, warmthModifier] of warmthTable) {
+    if (size > roll) {
+      return warmthModifier
+    }
+  }
+  return 30
+}
+
+const attributes = constrainRecord<ThresholdTable>()({
   warmth: [
     [80, 'swelteringly hot'],
     [70, 'extremely warm'],
@@ -90,5 +81,15 @@ const attributes = {
     [30, 'not busy'],
     [20, 'rather quiet'],
     [0, 'very quiet']
+  ],
+  size: [
+    [80, 'huge'],
+    [70, 'quite large'],
+    [60, 'large'],
+    [50, 'spacious'],
+    [40, 'medium'],
+    [30, 'slightly cramped'],
+    [20, 'small'],
+    [0, 'tiny']
   ]
-} as const
+})

@@ -1,7 +1,10 @@
-:: OutputEverything [force-one-column, squash-errors]
+:: OutputEverything [force-one-column squash-errors]
+
 <label name="Export type" for="listbox-exporttype"><<listbox "_exportType">>
   <<option "GMBinder">>
+  <<option "Homebrewery">>
   <<option "Foundry">>
+  <<option "NovelAI">>
   <<option "Raw JSON">>
 <</listbox>></label> -- <span class="tip" data-tippy-content="This can take a while."><<button "Export">>
 <<run setup.addGtagEvent({
@@ -13,16 +16,40 @@
   <<case "GMBinder">>
     <<set _exportContent to setup.outputGMBinder()>>
     <<replace "#tutorial">><<include "GMBinderTutorial">><</replace>>
+  <<case "Homebrewery">>
+    <<set _exportContent to setup.outputGMBinder()>>
+    <<replace "#tutorial">><<include "HomebreweryTutorial">><</replace>>
   <<case "Raw JSON">>
-    <<set _exportContent to JSON.stringify($town) + JSON.stringify($npcs) + JSON.stringify($npcs)>>
+    <<set _exportContent to JSON.stringify({
+      town: $town, 
+      npcs: $npcs, 
+      deities: lib.getPantheonDeities($town, State.metadata.get('pantheon'))
+    })>>
     <<replace "#tutorial">>This is all of the data from the {{{$town}}} and {{{$npcs}}} objects, for whatever purposes you may desire.<</replace>>
+  <<case "NovelAI">>
+    <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({
+        header: 'Patreon Only',
+        passage: 'ImportPatreon',
+        rerender: true
+      })>><<else>>
+    <<set _exportContent to JSON.stringify(setup.exportToNovelAI($town, $npcs))>>
+    <<set _link to "https://novelai.net/#/stories/" + $town.key>>
+    <<set _title to $town.type + ' of ' + $town.name + '.scenario'>>
+    <<replace "#tutorial">>Download the `_title` file, and then import the scenario [[here|_link]].<</replace>>
+    <</if>>
   <<case "Foundry">>
+  <<include "Auth">><<if State.metadata.get('patreonPass') !== $_>><<run setup.openDialog({
+      header: 'Patreon Only',
+      passage: 'ImportPatreon',
+      rerender: true
+    })>><<else>>
     <<set _exportContent to JSON.stringify(setup.outputEverything())>>
-    <<replace "#tutorial">><<include "FoundryTutorial">><</replace>>
+    <<replace "#tutorial">><<include "FoundryTutorial">><</replace>><</if>>
 <</switch>>
 <<replace "#everything">>
   <<button "Copy">><<run setup.copyText()>><</button>> -- <<textbox "$outputEverything" _exportContent>>
 <</replace>>
-<</button>></span>
+<</button>>
+<<checkbox "$addPantheon" false true autocheck>> Include Pantheon?</span>
 <span id="everything"></span>
-<span id="tutorial"></span>
+<span id="tutorial"><<include "GoalBasedUnlockingText">></span>

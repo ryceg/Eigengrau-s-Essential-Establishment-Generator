@@ -1,6 +1,8 @@
-:: TownListReligion
-\<<set _religionPercentages to lib.getPantheonPercentages($town)>>
-<div class='classTable' id="religion"><<liveblock>>$town.name <<print lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>><</liveblock>>.
+:: TownListReligion [nobr]
+<div class='classTable' id="religion">
+<<liveblock>>
+<<set _religionPercentages to lib.getPantheonPercentages($town, State.metadata.get('pantheon'))>>
+$town.name <<lh lib.getPredominantReligion($town, _religionPercentages).amountDescriptive>>.<</liveblock>>
 <table>
     <tr>
         <th>Deity</th>
@@ -8,7 +10,8 @@
         <th>Percentage</th>
     </tr>
 <<for _deity, _percentage range _religionPercentages>>
-<<set _deityData to lib.getDeity($town, _deity)>><<capture _deity, _percentage, _deityData>>
+<<set _deityData to lib.getDeity($town, _deity)>>
+<<capture _deity, _percentage, _deityData>>
 <<if _percentage === 0>><<continue>><</if>>
     <tr>
         <td><<profile _deityData>></td>

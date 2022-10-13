@@ -1,11 +1,12 @@
 
 :: InitTavern [force-one-column]
-\<<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
-\<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
-\<<set _name to $town.buildings[$currentPassage.index].name>>
+<<silently>><<set $currentPassage.index to lib.findIndexInArray($town.buildings, "key", $currentPassage.key)>>
+<<run lib.clampRolls($town.buildings[$currentPassage.index].roll)>>
+<<set $town.buildings[$currentPassage.index].priceModifier to Math.clamp($town.buildings[$currentPassage.index].priceModifier, -10, 10)>>
+<<set _name to $town.buildings[$currentPassage.index].name>><</silently>>
 <<nobr>><<link "reroll">>
     <<replace "#tavernname">>
-            \<<set $town.buildings[$currentPassage.index].name to lib.createTavernName()>> <label name="Rename the tavern"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label>
+            <<set $town.buildings[$currentPassage.index].name to lib.createTavernName()>> <label name="Rename the tavern"><<textbox "$town.buildings[$currentPassage.index].name" _name>></label>
     <</replace>><</link>>
 <span id="tavernname"><<textbox "$town.buildings[$currentPassage.index].name" _name>></span><</nobr>>
 <<button "Delete _name" Start>><<run setup.deleteBuilding($town, $town.buildings[$currentPassage.index])>><</button>>

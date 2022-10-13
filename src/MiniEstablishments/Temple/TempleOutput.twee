@@ -1,15 +1,16 @@
-:: TempleOutput
-<<nobr>><<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
+:: TempleOutput [nobr]
+<<include "PrintImage">>
+<<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
-<<set $currentPassage.availableRelationships to setup.temple.get.customers>>
-<h1 class="interactive-only">$building.name</h1><p>You come across $building.structure.templeDescriptor. $building.guardReadout</p>
+<<set $currentPassage.availableRelationships to lib.templeCustomers>>
+<h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You come across $building.structure.templeDescriptor. $building.guardReadout</p>
 <p>$building.interiorReadout</p>
 <p>$building.aboutReadout</p>
 <h3>Priest</h3>
 <p>$building.priestLook. The priest greets you, and introduces $associatedNPC.himherself as <<profile $associatedNPC>>. $building.priestChat.</p>
 <<linkreplace "<h4>Get Temple Blessing</h4>" t8n>><h6>Blessing</h6>
 <p class="descriptive">$building.blessing</p><</linkreplace>>
-<<nobr>><<linkappend "<h4>Buy something</h4>" t8n>>
+<<linkappend "<h4>Buy something</h4>" t8n>>
 <<switch $town.type>>
   <<case "city">>
     <<set _availability to 4>>
@@ -29,5 +30,5 @@
     }
 }>>
 <<shop $building, _selling>>
-<</linkappend>><</nobr>>
-<<details "CreateNewNpc" "Church Attendees">><</nobr>>
+<</linkappend>>
+<<details "CreateNewNpc" "Church Attendees">>

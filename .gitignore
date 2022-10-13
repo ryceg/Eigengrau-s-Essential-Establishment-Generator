@@ -2,8 +2,9 @@ package-lock.json
 node_modules
 tooling
 src/init.js
-gh-pages/**/*
-!gh-pages/Resources/**/*
+gh-pages/*
 !gh-pages/CNAME
+!gh-pages/static
 .twine
 *.log
+.DS_STORE

@@ -1,3 +1,4 @@
+import { logger } from '../logger'
 import { Town } from '../town/_common'
 import { random } from './random'
 
@@ -18,7 +19,7 @@ export function contentsFetcher<T extends string> (keyTarget: T | T[], contentsT
     // Return a debuggable message instead of throwing.
     return (_: Town, biome?: string) => {
       const result = `!!INVALID[ ${biome} ${key} ${value} ]!!`
-      console.error(result)
+      logger.error(result)
       return result
     }
   }

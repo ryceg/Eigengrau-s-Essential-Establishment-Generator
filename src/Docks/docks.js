@@ -1,63 +1,5 @@
 setup.initDocks = () => {
   setup.docks = {
-    rollData: {
-      cleanliness: {
-        description: 'How clean are the docks?',
-        preceding: 'Dock Cleanliness:',
-        rolls: [
-          [80, 'quite clean', 'spotless, save for a couple splashes of sea water'],
-          [70, 'safe, if smelly', 'quite tidy, if you can stand the smell'],
-          [50, 'relatively tidy', 'reasonably clean, with the occasional rope laying about posing a tripping hazard'],
-          [40, 'crusty and dirty', 'crusted with sea water and barnacles cling to the supports'],
-          [30, 'seaweed infested', 'marred with seaweed and a slippery mess. It smells disgusting, too'],
-          [0, 'disgustingly slimy', 'disgusting. All types of moulds, algae, and other unspeakably slimy things are on display here.']
-        ]
-      },
-      size: {
-        description: 'How large are the docks?',
-        preceding: 'Dock Size:',
-        rolls: [
-          [90, 'large and sprawling', 'huge; it sprawls across the body of water, as far as the eye can see'],
-          [80, 'large', 'large. It has the space and equipment to accommodate a fleet of ships'],
-          [60, 'big', 'big, with space to accommodate several galleons'],
-          [50, 'accommodating', 'average sized, with room enough for a fair few ships'],
-          [40, 'geared towards smaller vessels', 'on the small size; it is geared towards fishing vessels, but has the capacity for larger ships if needed'],
-          [30, 'small', 'small, and clearly geared towards smaller vessels such as fishing ships. You could probably fit a large ship in, if you were lucky'],
-          [20, 'pretty small', 'quite small, with room for fishing ships and little else'],
-          [0, 'glorified jetty', 'tiny; barely more than a glorified jetty']
-        ]
-      },
-      activity: {
-        description: 'How busy is the docks at the moment?',
-        preceding: 'Dock Activity:',
-        rolls: [
-          [100, 'packed to the gills; you have trouble moving through some parts of the harbor due to the throngs of seafarers crowding the place'],
-          [90, [
-            'absolutely packed; the din of everyone shouting to one another to fetch another barrel and other such things makes the place feel alive',
-            'absolutely packed; the din of everyone shouting to one another to haul in the fish off the boat and other such things makes the place feel alive',
-            'absolutely packed; the din of everyone shouting to one another to get off their asses and shift this pile of rope and other such things makes the place feel alive'
-          ]],
-          [80, [
-            'bustling. There are all manners of folk walking around, all of whom have places to be',
-            'bustling. Several ships seem to be currently unloading and crowds are beginning to fill the street'
-          ]],
-          [70, 'reasonably busy, with a couple folks milling about, waiting for a ship to dock'],
-          [60, [
-            'busy, with lots of deckhands running about, lugging things from point A to point B',
-            'busy, with several large makeshift fish markets crowding the docks drawing in all kinds of crowds'
-          ]],
-          [50, 'reasonably busy, with a decent amount of activity'],
-          [40, 'relatively quiet, with some fishermen getting ready to head out on a trip'],
-          [30, 'pretty quiet, save for the gulls which are swooping around, eager to steal any unattended bread'],
-          [20, 'very quiet. There is next to nobody around'],
-          [10, 'rather peaceful, the silence only disturbed by the gentle lapping of water against rocks'],
-          [0, [
-            'deathly silent, save for the gentle sounds of the water lapping against the docks',
-            'empty, save for a lone fisherman sitting and watching his lure bob up and down in the waves'
-          ]]
-        ]
-      }
-    },
     notableFeature: [
       // which are best known for _
       'the foul smelling fish that fisherman haul in',
@@ -110,7 +52,7 @@ setup.initDocks = () => {
     ships: {
       create (town, docks, opts) {
         const ship = {
-          name: setup.docks.ships.name.random(),
+          name: lib.getShipName(),
           type: Object.keys(setup.docks.ships.type).random(),
           captainType: Object.keys(setup.docks.ships.captain).random(),
           hull: setup.docks.ships.hullDesc.random(),
@@ -127,7 +69,7 @@ setup.initDocks = () => {
 
         const rollDataVariables = ['size', 'cleanliness']
         rollDataVariables.forEach(function (propName) {
-          lib.defineRollDataGetter(ship, setup.docks.ships.rollData[propName].rolls, propName)
+          lib.defineRollDataGetter(ship, lib.shipRollData[propName].rolls, propName)
         })
         return ship
       },
@@ -266,27 +208,6 @@ setup.initDocks = () => {
           'to make enough money for my family to eat'
         ]
       },
-      name: ['Lantheon', 'Starchaser', 'Dryad’s Fury', 'Black Trident', 'Corellon’s Arrow', 'Morkoth', 'Koalinthas', 'Sehanine’s Fool', 'Stormcrow', 'Vaazrus', 'Shield of Khahar',
-        'Stingray', 'Sanaj-Rakal', 'Zhal-Vazir', 'Griffonwing', 'Blademark', 'Golden Libram', 'Hareth’s Barrel', 'Kasha’s Wake', 'Shining Flute', 'White Feather', 'Riventide',
-        'Moonriser', 'Gem of Malfier', 'Dragon’s Glory', 'Menacer', 'Scarlet Dagger', 'Kral-Tajir', 'Ravager', 'Kerle’s Drum', 'Heart of Avandra', 'Goldraker', 'Sea Haunt', 'Storm Maven',
-        'Grimbol’s Cutlass', 'Scimitar', 'Black Gauntlet', 'Iron Maiden', 'Wavecrusher', 'Hammer of Kavath', 'Waterblade', 'Arkhor’s Secret', 'Dire Gar', 'Prallmar’s Shadow', 'Piranha',
-        'Devil’s Fork', 'Tuersyl’s Fist', 'Daraj-Vzan', 'Silver Chalice', 'Demonrudder', 'Turathi Flame', 'Storm’s Eye', 'Tanishar’s Fate', 'Shard of Night', 'Triton', 'Jarak’s Grasp',
-        'Nightmare', 'Harpy’s Lure', 'Devious', 'Arazandro’s Bluff', 'Nbod’s Haul', 'Astaryntha', 'Expeditious', 'Curse of Thuban', 'Siren’s Kiss', 'Lonely Witch', 'Rat’s Nest',
-        'Evader', 'Mistreaver', 'Ven’r', 'Vicious', 'Dream of Melora', 'Shensari', 'Damilor', 'Krimilvin’s Charm', 'Bloodmonger', 'Lucky Scrag', 'Windstriker', 'Grim Gale', 'Djinni’s Wish',
-        'Flying Eel', 'Jewel of Irthos', 'Broken Keel', 'Javelin', 'Myrska’s Revenge', 'Fearsome', 'Archon’s Hammer', 'Vendetta', 'Thunderchaser', 'Heartless', 'Shrike', 'Morak’s Boat',
-        'Mar-Turang', 'Will-o’-wisp', 'Asha-Naga', 'Dominant', 'Shoal Courser', 'Crescent Moon', 'Crystal Tear', 'Kara-Vaji', 'Shalastar', 'Roc’s Talon', 'Wavecarver', 'Graethan',
-        'Rotten Apple', 'Bharzim’s Victory', 'Avarice', 'Farak-Changal', 'Falling Star', 'Crimson Knife', 'Yisek’s Ride', 'Shara-Vaja', 'Varalan’s Dweomer', 'Rangoth', 'Vostarika',
-        'Mirasandra', 'Second Chance', 'Redfeather', 'Maal-Destir', 'Scorpion', 'Ghorzaar’s Bane', 'Moonwatcher', 'Dragon’s Crown', 'Dragonhawk', 'Dancing Sword', 'Kaveth’s Whisper',
-        'Tirah', 'Phantom Shark', 'Hjeltia', 'Satyr', 'Breyten’s Thrill', 'Golden Coin', 'Pearl of Fire', 'Bhez-Rizma', 'Fireball', 'Color Spray', 'Sea Bear', 'Prosperous', 'Summer Rain',
-        'Sundowner', 'Skulldark’s Ire', 'Skandalor', 'Zarkanan', 'Sana-Losi', 'Wolfshark', 'Song of Elyndri', 'Coral Rose', 'Rune of Halendros', 'Maelstrom', 'Shadow Mask',
-        'Deep Heathen', 'Aurora', 'Rusted Cutlass', 'Thog’s Maul', 'Wooden Stake', 'Hellstrike', 'Scepter Queen', 'Prince of Lies', 'Fang of Tezmyr', 'White Hart', 'Floating Cask',
-        'Sea Howler', 'Frostwind', 'Moonshadow', 'Melora’s Favor', 'Dark Queen’s Voice', 'Chethel’s Ghost', 'Mad Hag', 'Tamarion’s Grudge', 'Raven’s Gamble', 'Reckoner', 'Wraithwind',
-        'Kalisa Tano', 'Beholder', 'Slippery Trickster', 'Retribution', 'Whirling Glyph', 'Lady Rose', 'Karthang’s Plunder', 'Good Fortune', 'Axe of Thard', 'Black Bow', 'Quickstrike',
-        'Thelandira', 'Hammergust', 'Barracuda', 'Sahandrian’s Quarrel', 'Feral Knave', 'Wildwyrm', 'Shevaya’s Honor', 'Blackhelm’s Legacy', 'Wyvern’s Sting', 'Dragonroar', 'Kegstaff',
-        'Oaken Ranger', 'Timber Serpent', 'Desperate Sorceress', 'Screaming Gull', 'Greedy Drake', 'Light of Pjaltr', 'Fate’s Blessing', 'Stardancer', 'Leering Skull', 'Ebon Moon',
-        'Werewolf', 'Redemption', 'Zaetchan’s Privilege', 'Sea Skulk', 'Savage Swan', 'Bane’s Breath', 'Ghorok’s Grail', 'Emerald Eye', 'Remorseless', 'Skiprock', 'Zaetra', 'Silverfin',
-        'Risen Ghost', 'Listless', 'Vortex', 'Advantage', 'Autumn Song', 'Trystan’s Delight', 'Soaring Manta', 'Calomaar’s Edge', 'Saerthzal', 'Iron Trumpet', 'Locathah', 'Demonskull',
-        'Arrowhead', 'Frastain’s Bottle', 'The Saint Ive', 'Halygast', 'La Bon An', 'La Katerine', 'The Blythe', 'Rose', 'The Flying Squirrel', 'Golden Lion', 'Panther', 'Silent Night'],
       // The hull of the ship _
       hullDesc: [
         'is encrusted with several very large and oddly colored barnacles',
@@ -611,7 +532,7 @@ setup.initDocks = () => {
             [50, 'average sized'],
             [30, 'somewhat unimpressive'],
             [20, 'cluttered'],
-            [10, 'cluttered and cramped']
+            [0, 'cluttered and cramped']
           ]
         },
         cleanliness: {
@@ -623,78 +544,10 @@ setup.initDocks = () => {
             [50, 'in reasonable condition, with some barnacles hanging on, creating drag at speed'],
             [40, 'in need of a good clean, with barnacles clinging to the bottom of the ship'],
             [30, 'in desperate need of a thorough de-barnacleing, as well as a general clean'],
-            [20, 'filthy and laden with barnacles covering the bottom of the boat']
+            [0, 'filthy and laden with barnacles covering the bottom of the boat']
           ]
         }
       }
-    },
-    get: {
-      customers: [
-        {
-          relationshipDescription: 'regular',
-          relationships: {
-            building: {
-              relationship: 'regular',
-              reciprocalRelationship: 'place of work'
-            },
-            associatedNPC: {
-              relationship: 'acquaintance'
-            }
-          },
-          base: {
-            professionSector: 'naval'
-          },
-          description (building, npc) { return `${npc.firstName} works with ships.` }
-        },
-        {
-          relationshipDescription: 'shipwright',
-          relationships: {
-            building: {
-              relationship: 'shipwright',
-              reciprocalRelationship: 'place of work'
-            },
-            associatedNPC: {
-              relationship: 'acquaintance'
-            }
-          },
-          base: {
-            profession: 'shipwright'
-          },
-          description (building, npc) { return `${npc.firstName} constructs and repairs ships in ${building.name}.` }
-        },
-        {
-          relationshipDescription: 'bosun',
-          relationships: {
-            building: {
-              relationship: 'bosun',
-              reciprocalRelationship: 'place of work'
-            },
-            associatedNPC: {
-              relationship: 'acquaintance'
-            }
-          },
-          base: {
-            profession: 'bosun'
-          },
-          description (building, npc) { return `${npc.firstName} works to organise equipment to be loaded off ${building.name} and onto ${npc.hisher} ship.` }
-        },
-        {
-          relationshipDescription: 'stevedore',
-          relationships: {
-            building: {
-              relationship: 'stevedore',
-              reciprocalRelationship: 'place of work'
-            },
-            associatedNPC: {
-              relationship: 'acquaintance'
-            }
-          },
-          base: {
-            profession: 'stevedore'
-          },
-          description (building, npc) { return `${npc.firstName} hauls stuff off ships and onto ${building.name}.` }
-        }
-      ]
     }
   }
 }

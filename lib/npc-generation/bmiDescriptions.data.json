@@ -165,9 +165,39 @@
     "weight": "thick"
   },
   {
+    "muscleMass": 10,
+    "bmi": 26,
+    "weight": "broad"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 26,
+    "weight": "broad and muscular"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 26,
+    "weight": "wrestler-built"
+  },
+  {
     "muscleMass": 6,
     "bmi": 25,
     "weight": "chunky"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 25,
+    "weight": "kinda chunky"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 25,
+    "weight": "thick, in a muscular sense"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 25,
+    "weight": "wrestler-built"
   },
   {
     "muscleMass": 6,
@@ -175,9 +205,39 @@
     "weight": "broad"
   },
   {
+    "muscleMass": 10,
+    "bmi": 26,
+    "weight": "broad"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 26,
+    "weight": "broad and muscular"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 26,
+    "weight": "wrestler-built"
+  },
+  {
     "muscleMass": 6,
     "bmi": 23,
     "weight": "healthy"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 23,
+    "weight": "lean"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 23,
+    "weight": "healthily muscular"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 23,
+    "weight": "very muscular"
   },
   {
     "muscleMass": 6,
@@ -185,9 +245,39 @@
     "weight": "lean"
   },
   {
+    "muscleMass": 10,
+    "bmi": 23,
+    "weight": "wiry"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 23,
+    "weight": "wiry and muscular"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 23,
+    "weight": "wiry and very muscular"
+  },
+  {
     "muscleMass": 6,
     "bmi": 21,
     "weight": "thin"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 21,
+    "weight": "lean"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 21,
+    "weight": "wiry"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 21,
+    "weight": "wiry and muscular"
   },
   {
     "muscleMass": 6,
@@ -195,9 +285,39 @@
     "weight": "rather thin"
   },
   {
+    "muscleMass": 10,
+    "bmi": 20,
+    "weight": "thin"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 20,
+    "weight": "thin but wiry"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 20,
+    "weight": "wiry"
+  },
+  {
     "muscleMass": 6,
     "bmi": 19,
     "weight": "skinny"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 19,
+    "weight": "skinny and lean"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 19,
+    "weight": "lean"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 19,
+    "weight": "very wiry"
   },
   {
     "muscleMass": 6,
@@ -205,9 +325,39 @@
     "weight": "lithe"
   },
   {
+    "muscleMass": 10,
+    "bmi": 18,
+    "weight": "lithe"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 18,
+    "weight": "lean"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 18,
+    "weight": "lean and wiry"
+  },
+  {
     "muscleMass": 6,
     "bmi": 17,
     "weight": "scrawny"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 17,
+    "weight": "scrawny"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 17,
+    "weight": "scrawny but strong"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 17,
+    "weight": "scrappy"
   },
   {
     "muscleMass": 6,
@@ -215,13 +365,58 @@
     "weight": "weedy"
   },
   {
+    "muscleMass": 10,
+    "bmi": 16,
+    "weight": "scrawny"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 16,
+    "weight": "scrawny but strong"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 16,
+    "weight": "scrappy looking"
+  },
+  {
     "muscleMass": 6,
     "bmi": 15,
     "weight": "gaunt"
   },
   {
+    "muscleMass": 10,
+    "bmi": 15,
+    "weight": "gaunt"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 15,
+    "weight": "gaunt but healthy"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 15,
+    "weight": "gaunt but strong"
+  },
+  {
     "muscleMass": 6,
     "bmi": 15,
     "weight": "bony"
+  },
+  {
+    "muscleMass": 10,
+    "bmi": 15,
+    "weight": "bony"
+  },
+  {
+    "muscleMass": 14,
+    "bmi": 15,
+    "weight": "bony yet muscular"
+  },
+  {
+    "muscleMass": 18,
+    "bmi": 15,
+    "weight": "bony yet muscular"
   }
 ]
