@@ -1,9 +1,11 @@
-.force-one-column .passage {
+.force-one-column.passage {
   column-count: 1;
 }
 
-body[data-tags~="force-one-column"] {
+body[data-tags~="force-one-column"] #story #passages .passage {
   column-count: 1;
+  padding-left: 4rem;
+  column-span: all;
 }
 
 .force-one-column {
