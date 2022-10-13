@@ -11,10 +11,7 @@ export interface Livery {
 
 export function createLivery (type: FactionType) {
   const typeData = factionData.types[type]
-
-  if (typeData.livery == null) {
-    return
-  }
+  if (!typeData.livery) return
 
   const livery: Livery = {
     colours: {

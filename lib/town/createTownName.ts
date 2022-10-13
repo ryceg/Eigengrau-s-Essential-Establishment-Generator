@@ -13,10 +13,9 @@ export function createTownName (town?: TownBasics | Town) {
   let name: string
 
   if (random(100) > 90) {
-    logger.info('Named a founder!')
-    if (town) {
+    logger.info('Naming a founder!')
+    if (town?.baseDemographics) {
       const npc = createNamesake(town, { note: 'The namesake of the town.' })
-
       name = random([npc.firstName, npc.lastName]) + random(suffix)
     } else {
       name = random(raceTraits.human.lastName) + random(suffix)
@@ -32,6 +31,5 @@ export function createTownName (town?: TownBasics | Town) {
   if (town) {
     replaceTownName(town, driftName)
   }
-
   return driftName
 }

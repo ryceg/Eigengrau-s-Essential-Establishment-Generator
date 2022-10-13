@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { NPC, Town } from '@lib'
+import type { NPC, Town, TownProfessions } from '@lib'
 import { createRelationship } from './Relationships/createRelationship'
 
 export const createDebt = (town: Town, npc: NPC): void => {
@@ -43,8 +43,8 @@ export const createDebt = (town: Town, npc: NPC): void => {
 }
 
 function findDebtor (town: Town, npc: NPC, type: string) {
-  const profession = town.professions[type]
-  if (!profession) throw new TypeError(`Invalid profession type of ${type}`)
+  const profession: TownProfessions | undefined = town.professions[type]
+  if (!profession) return
   if (profession.population > 0) {
     return Object.values(State.variables.npcs).find(otherNPC => {
       return otherNPC.profession === type && otherNPC.key !== npc.key
