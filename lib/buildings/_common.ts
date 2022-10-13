@@ -163,6 +163,7 @@ export interface Structure extends Location {
 export interface Building extends Structure {
   passageName: string
   initPassage: string
+  localImage: string
   buildingType: BuildingTypeName
   PassageFormat?: string
   name: string

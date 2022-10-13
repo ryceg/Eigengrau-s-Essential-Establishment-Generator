@@ -4,6 +4,7 @@ setup.createMarket = (town, opts = {}) => {
   Object.assign(market, {
     initPassage: 'MarketOutput',
     passageName: 'MarketOutput',
+    localImage: 'market-illustration',
     buildingType: 'market',
     objectType: 'building',
     wordNoun: ['market', 'bazaar', 'agora', 'emporium', 'plaza', 'piazza', 'marketplace'].random(),

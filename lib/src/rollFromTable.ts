@@ -44,4 +44,7 @@ export function getRolledFromTable <T> (table: ThresholdTable<T>, roll: number) 
   for (const [threshold, description] of table) {
     if (roll >= threshold) return description
   }
+  // roll too high, return last entry in table
+  const [, result] = last(table)
+  return result
 }

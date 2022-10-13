@@ -1,0 +1,17 @@
+
+.highlight {
+  animation-name: highlightFade;
+  animation-duration: 4s;
+  /* font-family: Bookinsanity;
+  font-size: 18px; */
+  color: var(--text-normal);
+}
+
+@keyframes highlightFade {
+  from {
+    background-color: #49a758;
+  }
+  to {
+    background-color: var(--background-primary);
+  }
+}

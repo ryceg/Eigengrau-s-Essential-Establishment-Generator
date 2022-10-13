@@ -2,10 +2,10 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
-    padding-bottom: 8vw;
+  .illustration-buffer {
+    padding: clamp(8vw, calc(25%-8rem), 520px);
   }
-  .paper {
+  .paper.vertical-offset {
     top: 15vw;
   }
   body {
@@ -22,10 +22,10 @@
   .passage {
     columns: 1;
   }
-  #illustration-buffer {
-    padding-bottom: 9vw;
+   .illustration-buffer {
+    padding: clamp(8vw, calc(25%-8rem), 520px);
   }
-  .paper {
+  .paper.vertical-offset {
     top: 14vw;
   }
   blockquote {
@@ -38,17 +38,11 @@
   body {
     font-size: 17px;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
-    padding-bottom: 15vw;
-  }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -57,17 +51,11 @@
   body {
     font-size: 17px;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
-    padding-bottom: 20vw;
-  }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -82,17 +70,11 @@
     column-gap: 35px;
     max-width: 60em;
   }
-  .passage {
-    columns: 1;
-  }
   blockquote {
     -webkit-margin-start: 0.5em;
     -webkit-margin-end: 0.5em;
   }
-  #illustration-buffer {
-    padding-bottom: 26vw;
-  }
-  .paper {
+  .paper.vertical-offset {
     top: 13.5vw;
   }
 }
@@ -107,14 +89,10 @@
     column-gap: 35px;
     max-width: 60em;
   }
-  .passage {
-    columns: 1;
-  }
-  #illustration-buffer {
+  .illustration-buffer {
     column-span: all;
-    padding: 15vw;
   }
-  .paper {
+  .paper.vertical-offset {
     top: 13vw;
   }
 }
@@ -130,15 +108,7 @@
     column-gap: 40px;
     max-width: 65em;
   }
-  .passage {
-    columns: 1;
-  }
-  #illustration-buffer {
-    column-span: all;
-    padding: 17vw;
-  }
-
-  .paper {
+  .paper.vertical-offset {
     top: 14vw;
   }
 }

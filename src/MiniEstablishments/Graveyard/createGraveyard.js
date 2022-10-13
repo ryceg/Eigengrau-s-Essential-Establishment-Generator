@@ -4,6 +4,7 @@ setup.createGraveyard = (town, opts = {}) => {
   lib.assign(graveyard, {
     initPassage: 'GraveyardOutput',
     passageName: 'GraveyardOutput',
+    localImage: 'graveyard-illustration',
     buildingType: 'graveyard',
     objectType: 'building',
     wordNoun: ['graveyard', 'cemetery', 'necropolis', 'burial ground', 'boneyard', 'potter\'s field', 'churchyard'].random(),

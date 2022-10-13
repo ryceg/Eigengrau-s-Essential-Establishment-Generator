@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { NPC, Town } from '@lib'
+import type { NPC, Town, TownProfessions } from '@lib'
 import { createRelationship } from './Relationships/createRelationship'
 
 export const createDebt = (town: Town, npc: NPC): void => {
@@ -25,7 +25,6 @@ export const createDebt = (town: Town, npc: NPC): void => {
     lib.logger.info(`${npc.name} has too much cash (${npc.wealth}), and is losing some of that to pay debts.`)
     npc.wealth *= 1 - debtRate
   }
-
   if (profit < -40) {
     const debtor = findDebtor(town, npc, 'moneylender') || createDebtor(town)
     createRelationship(town, npc, debtor, { relationship: 'debtor', reciprocalRelationship: 'creditor' })
@@ -34,7 +33,7 @@ export const createDebt = (town: Town, npc: NPC): void => {
   }
 
   if (profit < -300 || lib.socialClass[npc.socialClass].landRate <= 3) {
-    const predatoryDebtor = findDebtor(town, npc, 'predatory debtor') || createDebtor(town)
+    const predatoryDebtor = findDebtor(town, npc, 'moneylender') || createDebtor(town)
     createRelationship(town, npc, predatoryDebtor, { relationship: 'predatory debtor', reciprocalRelationship: 'creditor' })
     npc.finances.creditors[predatoryDebtor.key] = Math.round(cashLiquidity * grossIncome * (random(1) + random(2, 4)))
     predatoryDebtor.finances.debtors[npc.key] = npc.finances.creditors[predatoryDebtor.key]
@@ -44,13 +43,14 @@ export const createDebt = (town: Town, npc: NPC): void => {
 }
 
 function findDebtor (town: Town, npc: NPC, type: string) {
-  const profession = town.professions[type]
-
-  if (profession?.population > 0) {
+  const profession: TownProfessions | undefined = town.professions[type]
+  if (!profession) return
+  if (profession.population > 0) {
     return Object.values(State.variables.npcs).find(otherNPC => {
       return otherNPC.profession === type && otherNPC.key !== npc.key
     })
   }
+  return null
 }
 
 function createDebtor (town: Town): NPC {

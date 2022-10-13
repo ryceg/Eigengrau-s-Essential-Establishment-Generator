@@ -1,3 +1,13 @@
+/* Used in the sidebar for the version number. */
+.version {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+#story-author {
+  margin-top: 0;
+}
+
 #menu ul {
   border-color: var(--background-secondary);
 }
@@ -11,3 +21,80 @@
   background-color: var(--background-secondary);
   border-color: var(--text-normal);
 }
+
+
+#story-menu > ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+#story-menu > ul > li {
+  display: block;
+  border: 1px solid transparent;
+  color: #eee;
+  text-transform: uppercase;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #444;
+}
+
+#story-menu > ul > li > a {
+  display: block;
+  /* padding: .25em .75em; */
+  border: 1px solid transparent;
+  color: var(--text-normal);
+  text-transform: uppercase;
+}
+
+#story-menu > ul > li > a:hover {
+  background-color: var(--background-secondary);
+  border-color: var(--text-normal);
+}
+
+#wiggle-sidebar {
+  content: "\e80b ";
+  padding-right: 0.4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+#menu > ul > li > a::before {
+  padding-right: 0.4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* This bunch of stuff is needed to override the usual styling of links. */
+  position: inherit;
+  display: inherit;
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  bottom: inherit;
+  left: inherit;
+  transform: inherit;
+  visibility: inherit;
+  transition: inherit;
+}
+
+#menu-story > li > a[data-passage="Toolbox"]::before {
+  content: "\e839 ";
+}
+
+#menu-story > li > a[data-passage="OutputEverything"]::before {
+  content: "\e829 ";
+}
+
+#menu-story > li > a[href="https://github.com/ryceg/Eigengrau-s-Essential-Establishment-Generator/issues/new/choose"]::before
+{
+  content: "\e838 ";
+}
+
+

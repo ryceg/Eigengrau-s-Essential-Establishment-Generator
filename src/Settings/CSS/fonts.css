@@ -1,0 +1,41 @@
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity"),
+       url("static/fonts/Bookinsanity.otf");
+  font-weight: normal;;
+}
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Bold"),
+       url("static/fonts/Bookinsanity Bold.otf");
+  font-weight: bold;;
+}
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Italic"),
+       url("static/fonts/Bookinsanity Italic.otf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Bookinsanity;
+  src: local("Bookinsanity-Bold-Italic"),
+       url("static/fonts/Bookinsanity Bold Italic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Solbera Imitation;
+  src: local("Solbera Imitation"),
+       url("static/fonts/Solbera Imitation.otf");
+}
+
+@font-face {
+  font-family: Scaly Sans Caps;
+  src: local("Scaly Sans Caps"),
+       url("static/fonts/Scaly Sans Caps.otf");
+}

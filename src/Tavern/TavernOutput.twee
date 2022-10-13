@@ -1,8 +1,8 @@
 :: TavernOutput [tavern nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>><<run lib.tavernTypeFix($building)>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
 <<set $currentPassage.availableRelationships to lib.tavernCustomers>>
+<<include "PrintImage">>
 <<button "Edit $building.name" $building.initPassage>><</button>>
 <section><h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p>You make your way through the $town.type of $town.name until you come to <<print lib.articles.output($building.wordNoun)>>, which is called <strong>$building.name</strong>, <<print lib.articles.output($building.size)>> $building.structure.descriptor that the locals know best for its $building.draw.</p></section>
 <section><h3>The Tavern</h3>

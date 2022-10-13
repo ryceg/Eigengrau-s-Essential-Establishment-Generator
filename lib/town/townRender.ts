@@ -2,15 +2,10 @@ import { logger } from '../logger'
 import { Town } from './_common'
 import { getPolice } from './getPolice'
 
-export const townOrCity = (town: Town) => {
-  if (town.type === 'city' || town.type === 'town') return 'city-illustration'
-  return 'town-illustration'
-}
-
 export function townRender (town: Town) {
   logger.info(`Rendering ${town.name}...`)
 
-  town.localImage = townOrCity(town)
+  town.localImage = `${town.type}-illustration`
 
   town.roll.guardFunding = 0
 

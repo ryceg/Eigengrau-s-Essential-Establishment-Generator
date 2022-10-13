@@ -133,6 +133,7 @@ export function findChildRace (town: Town, motherRace: RaceName, fatherRace: Rac
 }
 
 export function findPartnerRace (town: Town, npc: NPC): RaceName {
+  lib.logger.info('Finding partner race...')
   if (!(npc.race in marriagePools)) return npc.race
 
   const pool = marriagePools[npc.race]

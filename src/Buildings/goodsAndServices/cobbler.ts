@@ -22,7 +22,7 @@ export const cobbler: CobblerData = {
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)
-
+    building.localImage = 'cobbler-illustration'
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
     return building
   },

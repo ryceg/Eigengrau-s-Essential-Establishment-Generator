@@ -1,0 +1,26 @@
+/* 
+  1. If it’s a hack, it goes in shame.css.
+  2. Document all hacks fully:
+    a. What part of the codebase does it relate to?
+    b. Why was this needed?
+    c. How does this fix it?
+    d. How might you fix it properly, given more time?
+  3. Do not blame the developer; if they explained why they had to do it then their reasons are probably (hopefully) valid.
+  4. Try and clean shame.css up when you have some down time.
+    a. Even better, get a tech-debt story in which you can dedicate actual sprint time to it. 
+  @see https://csswizardry.com/2013/04/shame-css/
+*/
+
+
+/* 
+  This targets the menu icons in the sidebar, and `inline` is needed to stop it from being overridden by something else. 
+
+  This was brought about when I implemented styling for <a> tags that included an animation that leveraged the ::before pseudo-element.
+  The menu uses the ::before pseudo-element to display the icon, and was getting caught in the cross-fire, making one ugly dog's breakfast.
+  I've fixed 80% of the problems arising from that, but the display issue remains.
+  Without the inline being !important, it inherits `block` and looks bad. 
+  This overrides that, and is one of the few times that I have needed to use important. Let's keep it that way in future.  
+*/
+#menu > ul > li > a::before {
+  display: inline !important;
+}

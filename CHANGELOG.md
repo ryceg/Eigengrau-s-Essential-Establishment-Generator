@@ -7,18 +7,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Unreleased
 
 ### Added
+- Images generated via DallE2 for every building and faction type
 - Ability to export pantheons during the export process
 - Native share menu for iOS & Android
 - Explanation tooltip for the politics and economic ideologies
 - Confectionary shops (thanks, dcorriveau!)
 - Added a terminal warning when on Windows to fix a common issue when installing.
 - 🎲 favicon!
+- Added a create building button to the detailed town page.
+- Added a dockerfile for ease of dev setup.
+
 ### Changed
 - Fixed a rather pesky and persistent bug where changing racial or religious weights would not be reflected in the town.
 - Fixed a bug where popups on the town editing page would not fire after the first interaction.
+- Made the banner text a little easier to read.
+- Fixed an issue where smithies and guardhouses could not be created on roads (thanks, Saxeen!)
+- Fixed the alchemist not showing consumables
+- The catchphrase button now can fire on any page.
 
 ### Removed
 - ENnies related stuff
+
+### Known Issues
+- If you navigate back to a page with an image then it won't load the image. This was present in 2.8.14, and nobody noticed. Oh well.
 
 ## 2.8.14
 

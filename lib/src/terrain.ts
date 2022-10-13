@@ -515,7 +515,7 @@ export const terrain: Record<Biome, TerrainData> = {
       'oasis': 2,
       'river coast': 2,
       'desert': 1,
-      'wastelant': 1,
+      'wasteland': 1,
       'hills': 1,
       'plains': 1,
       'mountains': 1

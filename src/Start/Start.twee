@@ -3,7 +3,7 @@
   key: undefined, 
   objectType: undefined,
   passageName: "Start", 
-  linkDescription: $town.name
+  linkDescription: $town.name || 'Home'
   }, 'Start')>>
 <<set $currentPassage to $town>><<if !_isTextOutput>><div id="illustration-banner" class='hide-on-print'><img src="./static/banner.svg"></div><<include "PrintImage">><</if>>
 <<include "BriefDescription">>

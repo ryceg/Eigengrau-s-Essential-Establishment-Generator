@@ -137,21 +137,27 @@ Loaded URL: <<if _outputImage>>_outputImage<</if>>
 
 :: PrintImage [nobr]
 <<set $customImages to recall('customImages')>>
+<<set $currentImageElement to null>>
 <<set $currentImage to $currentPassage.customImage || 
   /* $customImages[$currentPassage.objectType][$currentPassage.key] ||  */
   $customImages.buildingType[$currentPassage.buildingType] || 
-  /* $customImages.factionType[$currentPassage.factionType] ||  */
+  $customImages.factionType[$currentPassage.factionType] || 
   null>>
 <<if $currentImage>>
-<div id="illustration-buffer">
-  <<print lib.getCustomImage($currentImage)>>
-</div>
-<img class="paper" src=./static/grunge-top-01.png top=15vw display=block>
-<<elseif $currentPassage.localImage>>
-<div id="illustration-buffer">
-  <<print lib.getLocalImage($currentPassage.localImage)>>
-</div>
-<img class="paper" src=./static/grunge-top-01.png top=15vw display=block>
+  <<set $currentImageElement to lib.getCustomImage($currentImage)>>
+    <<print $currentImageElement.outerHTML>>
+    /* Resort to the fallback local images */
+  <<elseif $currentPassage.localImage>>
+    <<set $currentImageElement to lib.getLocalImage($currentPassage.localImage)>>
+      <<print $currentImageElement.outerHTML>>
+<</if>>
+/* This handles which covering image to use. */
+<<if $currentImageElement && $currentImageElement.classList.contains('landscape')>>
+  <div class="illustration-buffer" />
+  <img class="paper vertical-offset" src="./static/grunge-top-01.png" top='15vh'>
+<<elseif $currentImageElement>>
+  <div class="illustration-buffer float-right" />
+  <img class="paper" src="./static/grunge-middle-02.png" >
 <</if>>
 
 :: ShowAllSaved [nobr force-one-column]

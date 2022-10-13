@@ -5,6 +5,7 @@ setup.createTownSquare = (town, opts = {}) => {
   lib.assign(townSquare, {
     initPassage: 'TownSquareOutput',
     passageName: 'TownSquareOutput',
+    localImage: 'townSquare-illustration',
     name: 'The Town Square',
     buildingType: 'townSquare',
     objectType: 'building',

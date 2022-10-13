@@ -1,0 +1,36 @@
+
+
+.descriptive {
+  display: inline-block;
+  margin-bottom: 1em;
+  background-color: var(--descriptive-yellow);
+  font-family: ScalySans;
+  border-style: solid;
+  border-width: 7px;
+  border-image: url("./static/sidebars.png") 12 round;
+  border-image-outset: 4px;
+  box-shadow: 0 0 6px var(--background-primary);
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+}
+.descriptive p {
+  display: block;
+  padding-bottom: 0;
+  line-height: 1.5em;
+}
+.descriptive p + p {
+  padding-top: 0.8em;
+}
+.descriptive em {
+  font-family: ScalySans;
+  font-style: italic;
+}
+.descriptive strong {
+  font-family: ScalySans;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+pre + .descriptive {
+  margin-top: 8px;
+}

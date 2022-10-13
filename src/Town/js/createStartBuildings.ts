@@ -57,7 +57,7 @@ export const createStartBuildings = (town: Town) => {
     lib.logger.info(buildingType)
     for (const profession of professions[buildingType]) {
       lib.logger.info(professions[buildingType])
-      if (town.professions[profession] && town.professions[profession].population > 0) {
+      if (town.professions?.[profession] && town.professions[profession]?.population > 0) {
         buildingsToCreate.push({ buildingType, opts: { npc: { profession } } })
         if (town.professions[profession].population > 5) {
           // there's a LOT of this profession = a second

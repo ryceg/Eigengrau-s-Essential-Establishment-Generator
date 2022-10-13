@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Faction, FactionType, Town } from '@lib'
+import { clampRolls, Faction, FactionType, Town } from '@lib'
 
 // uses setup.leaderFaction
 export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
@@ -14,6 +14,7 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
     passageName: 'FactionProfile',
     initPassage: 'FactionSliders',
     objectType: 'faction',
+    localImage: `${type}-illustration`,
     type,
     isPolicing: false,
     wordNoun: lib.factionData.types[type].wordNoun,
@@ -35,6 +36,8 @@ export const createFaction = (town: Town, opts?: Partial<Faction>): Faction => {
       leaderBribes: lib.dice(2, 50)
     }
   }, opts)
+
+  clampRolls(faction.roll)
 
   if (typeof faction.type === 'undefined') {
     lib.logger.warn('Faction type was somehow missed. Rerolling...')

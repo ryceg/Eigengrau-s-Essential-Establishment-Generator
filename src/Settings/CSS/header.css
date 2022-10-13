@@ -1,0 +1,93 @@
+
+#passage-header {
+  justify-content: space-between;
+  display: flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  padding: 0.5rem;
+  transition: 180ms ease-out;
+  background-color: transparent;
+  /* background-color: var(--background-floating); */
+  backdrop-filter: opacity(50%) brightness(260%) blur(3px);
+  column-span: all;
+}
+
+#town-permalink::before {
+  content: "\e800 ";
+  padding-right: 0.4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: var(--header-secondary);
+}
+
+#passage-header-nav {
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.restart {
+  float: right;
+  padding-left: 2em;
+  margin-left: 0.5em;
+  width: 9em;
+  border-left: 1px solid var(--text-muted);
+}
+
+.restart#new-town::before {
+  content: "\e824 ";
+  padding-right: 0.4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: var(--header-secondary);
+}
+
+
+.restart a {
+  color: var(--text-link-hover);
+}
+
+.restart:hover {
+  background-color: var(--background-secondary);
+  /* border-color: var(--text-normal); */
+  border-left: 1px solid var(--text-normal);
+  border-right: 1px solid var(--text-muted);
+  border-top: 1px solid var(--text-muted);
+  border-bottom: 1px solid var(--text-muted);
+}
+
+#passage-header.scrolled {
+  margin: 0 -0.6em;
+  padding: 0.4em 0.6em;
+  background-color: var(--background-primary);
+  backdrop-filter: opacity(20%) blur(2px);
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom: 3px solid var(--header-secondary);
+  box-shadow: 4px 4px 36px rgb(48 32 0 / 12%);
+  z-index: 90;
+  /* Subtract the border size */
+  padding-bottom: calc(0.4em - 3px);
+}
+
+.breadcrumb-link::before {
+  content: ">";
+  margin: 0.5em;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.breadcrumb-link.last {
+  color: var(--text-normal);
+  font-weight: bold;
+}

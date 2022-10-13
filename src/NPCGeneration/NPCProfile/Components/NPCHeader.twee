@@ -4,7 +4,6 @@
 <</if>>
 <<include "NPCSaveEdits">>
 <<set $currentNPC to $npcs[$currentPassage.key]>>
-<<set $customImages to recall('customImages')>>
 <<set $currentImage to $currentPassage.customImage || null>>
 <<run lib.logger.openGroup($currentNPC.name)>>
 <h1 class="interactive-only">
@@ -42,6 +41,6 @@
     width: 50%;
     z-index: -2;"
 >
-    <<print lib.getCustomImage($currentImage, 'npc-image')>>
+    <<print lib.getCustomImage($currentImage, $currentNPC.firstName + '-image').outerHTML>>
   </span>
 <</if>>

@@ -1,9 +1,9 @@
 
 :: AlchemistOutput [alchemist nobr]
-<<include "PrintImage">>
 <<set $building to lib.findInArray($town.buildings, "key", $currentPassage.key)>>
 <<set $building.brew to lib.createAlchemy({ type: "brewing potion" })>><<set $currentPassage.availableRelationships to lib.alchemistCustomers>>
 <<set $associatedNPC to $npcs[$building.associatedNPC.key]>>
+<<include "PrintImage">>
 <span class='flex-line'><<button "Edit $building.name" $building.initPassage>><</button>></span>
 <h1 class="interactive-only">$building.name</h1><span @id="$building.key"></span><p><<print lib.getAlchemistIntroduction($building, $associatedNPC)>></p>
 <section><h3>Chemist</h3><p><<print lib.articles.output($associatedNPC.descriptor)>> <<print $associatedNPC.greeting.random()>> <<print ['when you come inside', 'after finishing with another customer', 'as soon as you come through the door', 'when you come up to the counter', 'while you look around'].random()>>. <<print $associatedNPC.heshe.toUpperFirst()>> introduces $associatedNPC.himherself as <<profile $associatedNPC>>, the $associatedNPC.owner of the shop, and asks what $associatedNPC.heshe can do for you.</p>

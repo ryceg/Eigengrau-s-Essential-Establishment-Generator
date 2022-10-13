@@ -16,6 +16,7 @@ export const createBrothel = (town: Town, opts: Partial<Options> = {}): Brothel 
     name: lib.random(brothelData.name),
     passageName: 'BrothelOutput',
     initPassage: 'BrothelOutput',
+    localImage: 'brothel-illustration',
     buildingType: 'brothel',
     objectType: 'building',
     needsWordNoun: true,

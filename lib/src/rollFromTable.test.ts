@@ -23,7 +23,7 @@ describe('getRolledFromTable', () => {
     expect(getRolledFromTable(table, 4)).toBe('a')
   })
 
-  it('should return undefined if the roll lower than the last threshold', () => {
-    expect(getRolledFromTable(table, 0)).toBeUndefined()
+  it('should return the last value if the roll is lower than the lowest', () => {
+    expect(getRolledFromTable(table, 0)).toBe('c')
   })
 })

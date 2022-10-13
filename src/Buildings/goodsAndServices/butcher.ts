@@ -23,7 +23,7 @@ export const butcher: ButcherData = {
 
     building.notableFeature ??= lib.random(typeData.notableFeature)
     building.specialty ??= lib.random(typeData.specialty)
-
+    building.localImage = 'butcher-illustration'
     building.tippyDescription = `${lib.articles.output(building.type).toUpperFirst()} on ${town.roads[building.road].name}. Their specialty is ${building.specialty}.`
     return building
   },

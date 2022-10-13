@@ -1,7 +1,7 @@
 import { Building, NPC, Town } from '@lib'
 
 interface Options {
-  newBuilding(town: Town, type?: string): Guardhouse
+  newBuilding(town: Town, type?: string, opts?: Partial<Options>): Guardhouse
   npc: Partial<NPC>
 }
 
@@ -16,6 +16,7 @@ export const createGuardhouse = (town: Town, opts: Options) => {
   lib.assign(guardhouse, {
     initPassage: 'GuardhouseOutput',
     passageName: 'GuardhouseOutput',
+    localImage: 'guardhouse-illustration',
     buildingType: 'guardhouse',
     objectType: 'building',
     wordNoun: lib.guardhouseData.name.wordNoun.random(),

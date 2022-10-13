@@ -18,6 +18,8 @@
     "install-compiler": "node -r esbuild-runner/register scripts/install-compiler",
     "build": "cross-env NODE_ENV=production node -r esbuild-runner/register scripts/build",
     "start": "node -r esbuild-runner/register scripts/build --watch",
+    "dev": "node -r esbuild-runner/register scripts/build --watch",
+    "debug": "node -r esbuild-runner/register scripts/build --watch --test",
     "test": "jest",
     "lint": "eslint \"**/*.{js,ts}\"",
     "type": "tsc"

@@ -56,6 +56,7 @@ import { createFaction } from './Factions/createFaction'
 import { getPoliticalSourceDescription } from './Town/js/getPoliticalSourceDescription'
 import { exportToNovelAI } from './Tools/Exports/exportNovelAI'
 import { populateGoodsAndServices } from './Buildings/populateGoodsAndServices'
+import { getTownMilitary } from './Town/js/getTownMilitary'
 // import { buildingTypes, createBuildingKeys, createNewBuilding } from './Town/js/createNewBuilding'
 
 declare global {
@@ -128,6 +129,7 @@ declare global {
     createFaction: typeof createFaction
     getPoliticalSourceDescription: typeof getPoliticalSourceDescription
     exportToNovelAI: typeof exportToNovelAI
+    getTownMilitary: typeof getTownMilitary
     // createBuildingKeys: typeof createBuildingKeys
     // createNewBuilding: typeof createNewBuilding
   }
@@ -153,6 +155,7 @@ Object.assign(setup, {
   history,
   addGtagEvent,
   profileAgeTooltip,
+  getTownMilitary,
   metricHeight,
   metricWeight,
   buildingTooltip,

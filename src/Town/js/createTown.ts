@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { BinaryGender, Biome, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
+import { BinaryGender, Biome, RaceName, RollArray, Seasons, Town, TownBasics, TownRollData, TownRolls, TownType } from '@lib'
 
 export const createTown = (base: TownBasics | Town) => {
   lib.logger.openGroup('The town is loading...')
   lib.logger.info(base)
   // @ts-ignore
-  if (!base) base = setup.createTownBiome()
+  if (!base) base = {}
   const type = base.type || lib.weightRandom(lib.townData.defaults.type) as TownType
   const terrain = base.terrain || lib.weightRandom(lib.townData.defaults.terrain) as Biome
   const season = base.currentSeason || lib.weightRandom(lib.townData.defaults.season) as Seasons
@@ -45,12 +45,13 @@ export const createTown = (base: TownBasics | Town) => {
     families: {
     },
     religion: {
-      _customPantheon: State.metadata.get('pantheon'),
+      _customPantheon: State.metadata.get('pantheon') || null,
       _percentages: {},
       _baseProbabilities: {} as Record<string, number>,
       _modifiers: {} as Record<string, number>,
       _probabilities: {} as Record<string, number>
     },
+    baseDemographics: {} as Record<RaceName, number>,
     get religionPercentages () {
       return lib.getAllPantheonPercentages(this as unknown as Town)
     },
@@ -118,40 +119,11 @@ export const createTown = (base: TownBasics | Town) => {
       this._politicalIdeology = value
       Object.assign(this, lib.townData.politicalIdeology[this._politicalIdeology].data)
     },
-    // get politicalSourceDescription () {
-    //   if (this._politicalSource === 'absolute monarchy' || this._politicalSource === 'constitutional monarchy') {
-    //     if (this.politicalIdeology === 'autocracy') {
-    //       return lib.townData.politicalSource[this._politicalSource].autocracy.politicalSourceDescription(this as unknown as Town)
-    //     } else {
-    //       return lib.townData.politicalSource[this._politicalSource].default.politicalSourceDescription(this as unknown as Town)
-    //     }
-    //   } else {
-    //     return lib.townData.politicalSource[this._politicalSource].politicalSourceDescription(this as unknown as Town)
-    //   }
-    // },
-    // set politicalSourceDescription (data) {
-    //   console.warn('Trying to set politicalSourceDescription, which is a read-only!')
-    //   console.log(this.religionPercentages)
-    //   console.log(data)
-    // },
-    // get wealth () {
-    //   const rollData = lib.townData.rollData.wealth as TownRollData
-    //   if (rollData) {
-    //     let wealth = rollData.rolls.find(descriptor => {
-    //       return descriptor[0] <= this.roll.wealth
-    //     })
-    //     if (wealth === undefined) {
-    //       console.log(`Could not find a wealth descriptor that was appropriate for a roll of ${this.roll.wealth} for ${this.name}`)
-    //       wealth = lib.townData.rollData.wealth.rolls[lib.townData.rollData.wealth.rolls.length - 1]
-    //     }
-    //     this._wealth = wealth[1]
-    //     return this._wealth
-    //   }
-    // },
-    // set wealth (value) {
-    //   this._wealth = value
-    // },
     roads: {},
+    primaryCrop: lib.random(lib.townData.misc.primaryCrop),
+    primaryExport: lib.random(lib.townData.misc.primaryExport),
+    landmark: lib.random(lib.townData.misc.landmark),
+    currentEvent: lib.random(lib.townData.misc.currentEvent),
     dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']) as BinaryGender,
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)
     reuseNpcProbability: 0,
@@ -177,10 +149,16 @@ export const createTown = (base: TownBasics | Town) => {
     generated: 'full'
   })
   lib.townDemographics(town)
+  town.professions = lib.fetchProfessions(town)
 
   town.economicIdeology = town.economicIdeology || town._economicIdeology
   town.politicalIdeology = town.politicalIdeology || town._politicalIdeology
   town.politicalSource = town.politicalSource || town._politicalSource
+  const locationData = lib.terrain[town.terrain].location[town.location]
+
+  town.origin = town.origin || lib.random(locationData.origin)
+  town.vegetation = town.vegetation || lib.weightRandom(locationData.vegetation)
+  town.possibleMaterials = locationData.possibleMaterials
   town.materialProbability = lib.structureMaterialData.types
   if (State.metadata.has('pantheon')) town.religion._customPantheon = State.metadata.get('pantheon')
 
@@ -193,6 +171,8 @@ export const createTown = (base: TownBasics | Town) => {
 
   if (settings.ignoreGender === true || town.ignoreGender === true) {
     town.roll.equality = 100
+    settings.ignoreGender = true
+    town.ignoreGender = true
   }
 
   if (settings.disableNSFW === true || town.disableNSFW === true) {

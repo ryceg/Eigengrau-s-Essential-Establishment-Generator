@@ -1,0 +1,60 @@
+
+.illustration {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: -2;
+}
+
+.illustration.square {
+  width: 46%;
+  left: 54%;
+}
+
+.illustration-buffer {
+  padding-bottom: 5vw;
+}
+
+html.two-columns .illustration-buffer {
+  column-span: all;
+}
+
+#illustration-banner {
+  column-span: all;
+}
+
+.float-right {
+  float: right; 
+  position: relative;
+  max-width: 435px;
+}
+
+@media (max-width: 410px) {
+  .illustration-buffer {
+    padding: 2vw;
+  }
+}
+
+
+@media (min-width: 411px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(25%-12rem), 520px);
+  }
+}
+
+
+@media (min-width: 1800px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(30%), 520px);
+  }
+}
+
+
+@media (min-width: 2560px) {
+  .illustration-buffer {
+    padding: clamp(8vw, calc(45%), 520px);
+  }
+}

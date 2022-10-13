@@ -1,0 +1,48 @@
+
+#wiggle {
+  position: fixed;
+  top: 4em;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  right: 4em;
+  background: var(--background-floating);
+  border-radius: 12px;
+  border-width: 2px;
+  border-color: var(--interactive-muted);
+  border-style: solid;
+  -webkit-animation: btnWiggle 5s infinite;
+  -moz-animation: btnWiggle 5s infinite;
+  -o-animation: btnWiggle 5s infinite;
+  animation: btnWiggle 5s infinite;
+}
+
+/* animation */
+@keyframes btnWiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  2% {
+    transform: rotate(-1deg);
+  }
+  3.5% {
+    transform: rotate(1deg);
+  }
+  5% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#wiggle::before {
+  content: "\e80b ";
+  padding-right: 0.4em;
+  font-family: tme-fa-icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}

@@ -5,6 +5,7 @@ import { Faction, Town } from '@lib'
  * @warn Uses setup.createFaction
  */
 export const findPoliceSource = (town: Town) => {
+  lib.logger.info('Finding police!')
   for (const faction of Object.values(town.factions)) {
     const motivations = ['power', 'politics', 'influence']
     if (motivations.some(r => faction.motivation.includes(r))) {
@@ -29,6 +30,8 @@ export const findPoliceSource = (town: Town) => {
         type: 'guards',
         isPolicing: true
       })
+
+      if (!town.factions) throw new TypeError('Town.factions is undefined!')
       town.factions[guards.key] = guards
       makePolice(town, guards)
       return
@@ -44,6 +47,7 @@ export const findPoliceSource = (town: Town) => {
 }
 
 const makePolice = (town: Town, faction: Faction) => {
+  lib.logger.info(`${faction.name} the ${faction.type} are now the police.`)
   town.guard = faction
   faction.isPolicing = true
   lib.townRender(town)

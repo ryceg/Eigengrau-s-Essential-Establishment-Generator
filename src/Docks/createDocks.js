@@ -8,6 +8,7 @@ setup.createDocks = (town, opts = {}) => {
     notice: setup.docks.notice.random(),
     passageName: 'DocksOutput',
     initPassage: 'DocksOutput',
+    localImage: 'docks-illustration',
     buildingType: 'docks',
     objectType: 'building',
     needsWordNoun: false,
