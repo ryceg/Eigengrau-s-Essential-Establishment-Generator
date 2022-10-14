@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
+## 2.9
 
 ### Added
+- Fancy new link animation
 - Images generated via DallE2 for every building and faction type
 - Ability to export pantheons during the export process
 - Native share menu for iOS & Android
@@ -27,11 +28,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 - ENnies related stuff
+- Removed dead code for createTownBiome
+- Started the process of removing getters and setters. Down with object oriented, long live functional programming!
 
 ### Known Issues
-- If you navigate back to a page with an image then it won't load the image. This was present in 2.8.14, and nobody noticed. Oh well.
+- If you navigate back to a page with an image then it won't load the image. This was present in 2.9, and nobody noticed. Oh well.
 
-## 2.8.14
+## 2.9
 
 ### Added
 - Restart link in the breadcrumb header
