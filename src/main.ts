@@ -36,7 +36,6 @@ import { deleteFaction } from './Factions/deleteFaction'
 import { leaderFaction } from './Factions/leader'
 import { plothooks } from './PlotHook/plothooks'
 import { marketEvent } from './MiniEstablishments/Market/marketEventData'
-import { createTownBiome } from './Town/js/createTownBiome'
 import { createTown } from './Town/js/createTown'
 import { findViaKey, findIfExistsViaKey } from './Tools/findViaKey'
 import { createBlacksmithProject } from './Blacksmith/js/blacksmithProject'
@@ -107,7 +106,6 @@ declare global {
     leaderFaction: typeof leaderFaction
     plothooks: typeof plothooks
     marketEvent: typeof marketEvent
-    createTownBiome: typeof createTownBiome
     createTown: typeof createTown
     findViaKey: typeof findViaKey
     findIfExistsViaKey: typeof findIfExistsViaKey
@@ -183,7 +181,6 @@ Object.assign(setup, {
   leaderFaction,
   plothooks,
   marketEvent,
-  createTownBiome,
   createTown,
   findViaKey,
   findIfExistsViaKey,

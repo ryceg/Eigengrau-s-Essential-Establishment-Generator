@@ -2,8 +2,6 @@ import { logger } from '../logger'
 import { Town, TownRolls } from '../town/_common'
 import { Deity, DeityRank, Pantheon, PantheonTypes, religion } from './religion'
 import { calcPercentage } from '../src/calcPercentage'
-// import { weightedRandomFetcher } from '../src/weightedRandomFetcher'
-import { RaceName } from '../npc-generation/raceTraits'
 import { random } from '../src/random'
 
 export const createTownReligion = (town: Town, pantheon?: Pantheon) => {
@@ -29,11 +27,10 @@ export const rankProbabilities: Record<DeityRank, number> = {
 const getDeityWeightFromRace = (town: Town, deity: Deity) => {
   logger.info(`Getting the weight for ${deity.name}`)
   let probability = rankProbabilities[deity.rank] || 10
-  for (const key of Object.keys(town.demographicPercentile)) {
-    const race = key as RaceName
+  for (const race of lib.keys(town.baseDemographics)) {
     if (deity?.probabilityWeightings?.race?.[race]) {
       const raceWeight = deity.probabilityWeightings.race[race]
-      if (raceWeight) probability += calcPercentage(raceWeight, town.demographicPercentile[race])
+      if (raceWeight) probability += calcPercentage(raceWeight, lib.getDemographicPercentile(town)[race])
     }
   }
   return probability
