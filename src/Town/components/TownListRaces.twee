@@ -1,13 +1,13 @@
 :: TownListRaces [nobr]
 <div class='classTable' id="races">
-    $town.name is comprised <<lh lib.getPredominantRace($town.demographicPercentile).amountDescriptive>>.
+    $town.name is comprised <<lh lib.getPredominantRace(lib.getDemographicPercentile($town)).amountDescriptive>>.
     <table>
         <tr>
             <th>Race</th>
             <th>Population</th>
             <th>Percentage</th>
         </tr>
-        <<for _race, _percentage range $town.demographicPercentile>>
+        <<for _race, _percentage range lib.getDemographicPercentile($town)>>
             <tr>
                 <td><<print _race.toUpperFirst()>></td>
                 <td><<print Math.trunc($town.population * (_percentage / 100))>></td>
