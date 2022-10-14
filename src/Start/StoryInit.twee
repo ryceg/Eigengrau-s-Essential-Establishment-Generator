@@ -5,7 +5,7 @@
 <<run setup.init()>>
 
 <<set setup.data to {
-	versionNumber: "2.8.14",
+	versionNumber: "2.9",
 	badges: {
     fun: lib.createFunBadge(),
 		github: lib.createBadge([
