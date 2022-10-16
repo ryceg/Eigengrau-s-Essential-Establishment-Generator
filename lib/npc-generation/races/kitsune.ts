@@ -2,7 +2,7 @@ import { dice } from '../../src/dice'
 import { RaceTrait } from '../raceTraits'
 
 // source: Pathfinder 2e
-// for details, see https://2e.aonprd.com/Ancestries.aspx?ID=20
+// for details, see https://2e.aonprd.com/Ancestries.aspx?ID=38
 // https://kidadl.com/baby-names/inspiration/kitsune-names-for-your-character
 
 export const kitsune: RaceTrait = {
