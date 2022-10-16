@@ -15,7 +15,7 @@ import { goblin } from './races/goblin'
 import { ratfolk } from './races/ratfolk'
 import { kitsune } from './races/kitsune'
 
-export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc' | 'lizardfolk' | 'ratfolk' | 'kistune'
+export type RaceName = 'dragonborn' | 'dwarf' | 'elf' | 'gnome' | 'half-elf' | 'halfling' | 'half-orc' | 'human' | 'tiefling' | 'goblin' | 'orc' | 'lizardfolk' | 'ratfolk' | 'kitsune'
 
 export interface RaceTrait {
   muscleMass: number
