@@ -88,6 +88,7 @@ interface TownData {
     currentEvent: string[]
     microEvent: string[]
     landmark: string[]
+    famousStructure: string[]
   }
 }
 
@@ -1450,6 +1451,20 @@ export const townData: TownData = {
       'a natural bridge of dirt that goes over a wide area of reed thicket marshes. The wind slowly sways the cat tails and tall grasses as squishing sounds and croaks can be heard from either side of the bridge.',
       'a very large tree covered in clear stones. If a creature of good approaches the tree, the stones and the leaves will grow green and blue, and flowers bloom on the tree. Neutral creatures makes them turn brown and orange. An evil creature makes them turn dark purple and red. Unaligned creatures make them turn different shades of gray.',
       'a bush that seems unaffected by the wind. If a lawful creature approaches the bush, the feeding of a calm wind will pass both the bush and the creature. A neutral creature will cause a moderately strong wind to affect the two. A chaotic creature causes hurricane level winds to hit both of them.',
-      'a cave full of phosphorescent mushrooms that glow at night.']
+      'a cave full of phosphorescent mushrooms that glow at night.'],
+    
+    // There is a famed structure here, _
+    famousStructure: [
+      'a ring of stones said to have been involved in an ancient and forgotten magik.',
+      'a spiral tower that seems to scrape the heavens.',
+      'a legendary timepiece that has never failed to predict the movement of the heavens. Legends say that if it were to ever fall into disrepair the entire region would be cursed!',
+      'an ancient wall that is said to have been built by the founders themselves.',
+      'a field of statues said to have been caused by a basilisk.',
+      'an abandoned network of tunnels which are rumored to lead to the land of the dead.',
+      'a mysterious house with stairways and doorways that lead nowhere. Many have been lost in its endless corridors. Some say the place is haunted.',
+      'hundreds of windmills litter the countryside.',
+      'a sealed off well that is said to house a vengeful spirit.',
+      'a collosus made of bronze holding a giant burning torch.',
+      'a stone that has an unidentified language written on it.']
   }
 }

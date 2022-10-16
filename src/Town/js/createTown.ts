@@ -116,6 +116,7 @@ export const createTown = (base: TownBasics | Town) => {
     primaryCrop: lib.random(lib.townData.misc.primaryCrop),
     primaryExport: lib.random(lib.townData.misc.primaryExport),
     landmark: lib.random(lib.townData.misc.landmark),
+    famousStructure: lib.random(lib.townData.misc.famoustructure),
     currentEvent: lib.random(lib.townData.misc.currentEvent),
     dominantGender: lib.random(['man', 'man', 'man', 'man', 'man', 'woman', 'woman']) as BinaryGender,
     // for creating relationships (so there aren't a trillion npcs that all don't know one another)

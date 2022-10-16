@@ -1,0 +1,6 @@
+:: TownStructureRandomizer
+<<nobr>><span class="tip" data-tippy-content="This changes each time you click."><<link "famousStructure">><<set $town.famousStructure to lib.townData.misc.famousStructure.random()>>
+    <<replace "#random">>
+            $town.famousStructure
+    <</replace>><</link>></span>
+is <span id="random">$town.famousStructure</span><</nobr>>
