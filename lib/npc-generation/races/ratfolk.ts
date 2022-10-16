@@ -167,9 +167,6 @@ export const ratfolk: RaceTrait = {
     'Warbreath'
   ],
   eyes: ['green', 'blue', 'gray', 'aqua', 'purple', 'gold', 'yellow', 'amber', 'brown', 'dark brown', 'hazel', 'red', 'blood red', 'dark red', 'black'],
-  // skinColour: ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown', 'calico', 'black', 'red', 'amber'],
-  // skinType: ['fur'], // DEV badrath
-  // skinCondition: ['patchy', 'broken', 'rough', 'thin', 'thick', 'soft', 'voluptuous', 'coarse', 'greasy', 'matted'], // DEV badrath
   raceWords: {
     raceName: 'ratfolk',
     racePlural: 'ratfolk',

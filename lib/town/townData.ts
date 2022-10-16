@@ -287,8 +287,8 @@ export const townData: TownData = {
             'human': randomFloat(85, 95),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -305,8 +305,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -323,8 +323,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(3, 10),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -341,8 +341,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -359,8 +359,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(70, 80) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(70, 80)
           }
         },
         {
@@ -377,8 +377,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 5)
           }
         }
       ],
@@ -434,8 +434,8 @@ export const townData: TownData = {
             'human': randomFloat(85, 95),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 10) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 10)
           }
         },
         {
@@ -452,8 +452,8 @@ export const townData: TownData = {
             'human': randomFloat(8, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 5),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(1, 3) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(1, 3)
           }
         },
         {
@@ -470,8 +470,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 20),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(3, 10),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -488,8 +488,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 4),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -506,8 +506,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 3),
-            'ratfolk': randomFloat(1, 4), // DEV badrath
-            'kitsune': randomFloat(70, 80) // DEV badrath
+            'ratfolk': randomFloat(1, 4),
+            'kitsune': randomFloat(70, 80)
           }
         },
         {
@@ -524,8 +524,8 @@ export const townData: TownData = {
             'human': randomFloat(10, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 3),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(80, 90) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(80, 90)
           }
         }
       ],
@@ -580,8 +580,8 @@ export const townData: TownData = {
             'human': randomFloat(75, 95),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 10) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 10)
           }
         },
         {
@@ -598,8 +598,8 @@ export const townData: TownData = {
             'human': randomFloat(8, 25),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(4, 10),
-            'ratfolk': randomFloat(1, 7), // DEV badrath
-            'kitsune': randomFloat(1, 3) // DEV badrath
+            'ratfolk': randomFloat(1, 7),
+            'kitsune': randomFloat(1, 3)
           }
         },
         {
@@ -616,8 +616,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 20),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(3, 10),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -634,8 +634,8 @@ export const townData: TownData = {
             'human': randomFloat(25, 40),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 7),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(5, 20) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(5, 20)
           }
         },
         {
@@ -652,8 +652,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 15),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 3),
-            'ratfolk': randomFloat(1, 4), // DEV badrath
-            'kitsune': randomFloat(70, 80) // DEV badrath
+            'ratfolk': randomFloat(1, 4),
+            'kitsune': randomFloat(70, 80)
           }
         },
         {
@@ -670,8 +670,8 @@ export const townData: TownData = {
             'human': randomFloat(10, 20),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 3),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(1, 7) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(1, 7)
           }
         }
       ],
@@ -727,8 +727,8 @@ export const townData: TownData = {
             'human': randomFloat(70, 95),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 2),
-            'ratfolk': randomFloat(1, 4), // DEV badrath
-            'kitsune': randomFloat(1, 15) // DEV badrath
+            'ratfolk': randomFloat(1, 4),
+            'kitsune': randomFloat(1, 15)
           }
         },
         {
@@ -745,8 +745,8 @@ export const townData: TownData = {
             'human': randomFloat(8, 25),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(4, 10),
-            'ratfolk': randomFloat(1, 7), // DEV badrath
-            'kitsune': randomFloat(1, 3) // DEV badrath
+            'ratfolk': randomFloat(1, 7),
+            'kitsune': randomFloat(1, 3)
           }
         },
         {
@@ -763,8 +763,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 20),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(3, 10),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(1, 5) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(1, 5)
           }
         },
         {
@@ -781,8 +781,8 @@ export const townData: TownData = {
             'human': randomFloat(25, 40),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 10),
-            'ratfolk': randomFloat(1, 2), // DEV badrath
-            'kitsune': randomFloat(5, 30) // DEV badrath
+            'ratfolk': randomFloat(1, 2),
+            'kitsune': randomFloat(5, 30)
           }
         },
         {
@@ -799,8 +799,8 @@ export const townData: TownData = {
             'human': randomFloat(5, 25),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 5),
-            'ratfolk': randomFloat(1, 5), // DEV badrath
-            'kitsune': randomFloat(70, 95) // DEV badrath
+            'ratfolk': randomFloat(1, 5),
+            'kitsune': randomFloat(70, 95)
           }
         },
         {
@@ -817,8 +817,8 @@ export const townData: TownData = {
             'human': randomFloat(10, 25),
             'lizardfolk': randomFloat(1, 2),
             'tiefling': randomFloat(1, 3),
-            'ratfolk': randomFloat(1, 3), // DEV badrath
-            'kitsune': randomFloat(1, 4) // DEV badrath
+            'ratfolk': randomFloat(1, 3),
+            'kitsune': randomFloat(1, 4)
           }
         }
       ],

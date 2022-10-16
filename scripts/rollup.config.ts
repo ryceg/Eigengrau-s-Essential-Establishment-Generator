@@ -7,8 +7,7 @@ import commonjs from '@rollup/plugin-commonjs'
 // import path from 'path'
 
 const env = process.env.NODE_ENV
-// const isProduction = env === 'production' // DEV badrath
-const isProduction = false // DEV badrath
+const isProduction = env === 'production'
 
 const sharedOptions: Options = {
   minify: isProduction,

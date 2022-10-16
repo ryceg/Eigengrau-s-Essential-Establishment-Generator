@@ -1,7 +1,7 @@
 import { dice } from '../../src/dice'
 import { RaceTrait } from '../raceTraits'
 
-// source: Pathfinder 2e
+// race source: Pathfinder 2e
 // for details, see https://2e.aonprd.com/Ancestries.aspx?ID=38
 // https://kidadl.com/baby-names/inspiration/kitsune-names-for-your-character
 
@@ -169,9 +169,6 @@ export const kitsune: RaceTrait = {
     'Yuki'
   ],
   eyes: ['green', 'blue', 'gray', 'aqua', 'purple', 'gold', 'yellow', 'amber', 'brown', 'dark brown', 'hazel', 'red', 'blood red', 'dark red', 'black'],
-  // skinColour: ['translucent', 'white', 'pale', 'fair', 'light', 'light tan', 'tan', 'pale', 'fair', 'light', 'light tan', 'tan', 'dark tan', 'brown', 'calico', 'black', 'red', 'amber'],
-  // skinType: ['fur'], // DEV badrath
-  // skinCondition: ['patchy', 'broken', 'rough', 'thin', 'thick', 'soft', 'voluptuous', 'coarse', 'greasy', 'matted'], // DEV badrath
   raceWords: {
     raceName: 'kitsune',
     racePlural: 'kitsune',
