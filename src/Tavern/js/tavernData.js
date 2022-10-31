@@ -160,7 +160,7 @@ setup.initTavernData = () => {
           `A palm reader has set up a booth in the corner of the tavern. He is currently reading the palm of ${['a grumpy looking dwarf', 'a frail old woman', 'an enormous man', 'a tough looking half-orc', 'a slender elf'].random()}.`,
           `${['An eldery dwarf', 'A snobby looking elf', 'A clever looking half-orc', 'An angular looking woman', 'A colorful gnome'].random()} is currently up on the ${tavern.stageDescriptor} stage reading their poetry to a drunken crowd.`,
           `There is ${lib.articles.output(tavern.stageDescriptor)}stage in this tavern, but it is currently empty.`,
-          `There is ${['a large human', 'an elf', 'a half-orc', 'a gnome', 'a dwarf', 'a dragonborn'].random()} in a puffy white hat up on ${lib.articles.output(tavern.stageDescriptor)} stage, giving some sort of cooking demonstration to the patrons.`,
+          `There is ${['a large human', 'an elf', 'a half-orc', 'a gnome', 'a dwarf', 'a dragonborn', 'a ratfolk', 'a kitsune'].random()} in a puffy white hat up on ${lib.articles.output(tavern.stageDescriptor)} stage, giving some sort of cooking demonstration to the patrons.`,
           `There is a play happening on the tavern's ${tavern.stageDescriptor} stage with ${['a single actor', 'a few actors', 'a fair few actors', 'a great many actors', 'a couple actors'].random()} in it. The play seems to be about ${['star crossed lovers', 'a great battle', 'the history of the region', 'the history of an old noble', 'a local folk tale', "a local children's story", 'the tragedy of man', 'the folly of the gods'].random()}.`
         ]
         return entertainment.random()

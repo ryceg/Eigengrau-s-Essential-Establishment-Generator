@@ -10,5 +10,7 @@ describe(getAgeInYears.name, () => {
     expect(typeof getAgeInYears('half-elf', 'elderly')).toBe('number')
     expect(typeof getAgeInYears('human', 'settled adult')).toBe('number')
     expect(typeof getAgeInYears('tiefling', 'young adult')).toBe('number')
+    expect(typeof getAgeInYears('ratfolk', 'child')).toBe('number')
+    expect(typeof getAgeInYears('kitsune', 'settled adult')).toBe('number')
   })
 })
