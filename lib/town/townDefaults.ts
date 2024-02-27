@@ -16,10 +16,7 @@ export const townDefaults: {
     city: 2
   },
   terrain: {
-    temperate: 3,
-    tropical: 1,
-    polar: 1,
-    arid: 1
+    tropical: 1
   },
   season: {
     summer: 1,

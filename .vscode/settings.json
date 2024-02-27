@@ -1,8 +1,8 @@
 {
   "editor.tabSize": 2,
   "editor.codeActionsOnSave": {
-    "editor.formatOnSave": true,
-    "source.fixAll": true
+    "editor.formatOnSave": "explicit",
+    "source.fixAll": "explicit"
   },
   "search.exclude": {
     "**/node_modules": true,
